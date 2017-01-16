@@ -1,0 +1,54 @@
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+Get z'index value of SASS map
+
+@param Configured SASS map
+@return z'index value of matching map item
+
+*/
+
+@function z($layer) {
+    // echo warning when key hasn't been found
+    @if not map-has-key($z-layers, $layer) {
+        @warn "No layer found for `#{$layer}` in $z-layers map. Property omitted.";
+    }
+    @return map-get($z-layers, $layer);
+}
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+Get values of "Multi Level Maps"
+
+Usage:
+
+color: map-deep-get($btn-variations,'default','color');
+
+*/
+
+@function map-deep-get($map, $keys...) {
+    @each $key in $keys {
+        $map: map-get($map, $key);
+    }
+    @return $map;
+}
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+Return black or white, depending a given color
+
+Possible use case:
+
+Dynamically setting a text color dependent
+on a defined background
+
+*/
+
+@function get-black-or-white-contrast-color($color) {
+    @if (lightness($color) > 50) {
+        @return #000; // Lighter background, return dark color
+    } @else {
+        @return #fff; // Darker background, return light color
+    }
+}

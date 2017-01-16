@@ -1,0 +1,30 @@
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+Useful Accessibility Mixins
+
+Visually hide e.g. text elements, while still
+making them crawlable for search engines and readable for screenreaders
+
+*/
+
+@mixin sr-only() {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    border: 0;
+}
+
+// undo the hide element thing
+@mixin undo-sr-only() {
+    position: static;
+    margin: 0;
+    height: auto;
+    width: auto;
+    overflow: auto;
+    left: auto;
+    clip: auto;
+}

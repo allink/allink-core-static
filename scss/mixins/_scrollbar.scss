@@ -1,0 +1,14 @@
+@mixin custom-scrollbar() {
+    &::-webkit-scrollbar {
+        height:12px;
+    }
+    &::-webkit-scrollbar-track {
+        box-shadow: $custom-scrollbar-track-shadow;
+        background: $custom-scrollbar-track-bg;
+        border-radius: $custom-scrollbar-track-border-radius;
+    }
+    &::-webkit-scrollbar-thumb {
+        background: $custom-scrollbar-thumb-bg;
+        border-radius: $custom-scrollbar-thumb-border-radius;
+    }
+}

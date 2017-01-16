@@ -1,0 +1,78 @@
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+Custom Radio
+
+===
+
+Requires the following HTML markup:
+
+<div class="radio">
+    <label>
+        <input name="send_access" type="radio">
+        <span class="custom-radio"></span>
+        Example Radio Text
+    </label>
+</div>
+
+*/
+
+.radio {
+    position: relative;
+    margin: 0;
+    & + .radio {
+        margin-top: $radio-siblings-spacing-top;
+    }
+    label {
+        padding: 0;
+        padding-left: $radio-label-spacing;
+    }
+    // the basic radio style
+    .custom-radio {
+        position: absolute;
+        top: 50%;
+        left: $radio-spacing-left;
+        transform: translate(0,-50%);
+        width: $radio-size;
+        height: $radio-size;
+        border-width: $radio-border-width;
+        border-color: $radio-border-color;
+        border-style: solid;
+        border-radius: 50%;
+        background: $radio-bg-color;
+        transition: $radio-transition;
+        &::after {
+            content: '';
+            position: absolute;
+            width: $radio-inner-circle-size;
+            height: $radio-inner-circle-size;
+            background-color: $radio-inner-circle-bg;
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%) scale(0);
+            transition: $radio-inner-circle-transition;
+        }
+    }
+    // styling and focusing the fake radio, making use of the ':checked' state of the actual radio input
+    input[type=radio] {
+        opacity: 0;
+        // checked icon
+        &:checked {
+            & + .custom-radio {
+                border-color: $radio-border-color-checked;
+                background: $radio-bg-color-checked;
+                &::after {
+                    transform: translate(-50%,-50%) scale(1);
+                }
+            }
+        }
+        // focus and active styles
+        &:hover + .custom-radio,
+        &:focus + .custom-radio,
+        &:active + .custom-radio {
+            border-color: $radio-border-color-focus;
+            background: $radio-bg-color-focus;
+        }
+    }
+
+}

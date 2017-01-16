@@ -1,0 +1,335 @@
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+One specific breakpoint ONLY
+
+*/
+
+@mixin make-spacing-top-xs-only($size,$property:'margin') {
+    @media (max-width: $screen-xs-max) {
+        #{$property}-top: $size;
+    }
+}
+
+@mixin make-spacing-top-sm-only($size,$property:'margin') {
+    @media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
+        #{$property}-top: $size;
+    }
+}
+
+@mixin make-spacing-top-md-only($size,$property:'margin') {
+    @media (min-width: $screen-md-min) and (max-width: $screen-md-max) {
+        #{$property}-top: $size;
+    }
+}
+
+@mixin make-spacing-top-lg-only($size,$property:'margin') {
+    @media (min-width: $screen-lg-min) {
+        #{$property}-top: $size;
+    }
+}
+
+@mixin make-spacing-top-xl-only($size,$property:'margin') {
+    @media (min-width: $screen-xl-min) {
+        #{$property}-top: $size;
+    }
+}
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+MINimum breakpoint and EVERYTHING below
+
+*/
+
+@mixin make-spacing-top-xs($size,$property:'margin') {
+    #{$property}-top: $size;
+}
+
+@mixin make-spacing-top-sm($size,$property:'margin') {
+    @media (min-width: $screen-sm-min) {
+        #{$property}-top: $size;
+    }
+}
+
+@mixin make-spacing-top-md($size,$property:'margin') {
+    @media (min-width: $screen-md-min) {
+        #{$property}-top: $size;
+    }
+}
+
+@mixin make-spacing-top-lg($size,$property:'margin') {
+    @media (min-width: $screen-lg-min) {
+        #{$property}-top: $size;
+    }
+}
+@mixin make-spacing-top-xl($size,$property:'margin') {
+    @media (min-width: $screen-xl-min) {
+        #{$property}-top: $size;
+    }
+}
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+MAXimum breakpoint and EVERYTHING below
+
+*/
+
+@mixin make-spacing-top-xs-max($size,$property:'margin') {
+    @media (max-width: $screen-xs-max) {
+        #{$property}-top: $size;
+    }
+}
+
+@mixin make-spacing-top-sm-max($size,$property:'margin') {
+    @media (max-width: $screen-sm-max) {
+        #{$property}-top: $size;
+    }
+}
+
+@mixin make-spacing-top-md-max($size,$property:'margin') {
+    @media (max-width: $screen-md-max) {
+        #{$property}-top: $size;
+    }
+}
+
+@mixin make-spacing-top-lg-max($size,$property:'margin') {
+    @media (max-width: $screen-lg-max) {
+        #{$property}-top: $size;
+    }
+}
+
+@mixin make-spacing-top-xl-max($size,$property:'margin') {
+    @media (max-width: $screen-xl-max) {
+        #{$property}-top: $size;
+    }
+}
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+// spacing for gird
+
+*/
+
+@mixin make-grid-spacing-base($size, $colum) {
+    $next: $colum + 1;
+    > *:nth-child(1n+#{$next}) {
+        margin-top: $size;
+    }
+}
+
+@mixin make-grid-spacing-xs($size, $colum) {
+    @include make-grid-spacing-base($size, $colum);
+}
+
+@mixin make-grid-spacing-sm($size, $colum) {
+    @media (min-width: $screen-sm-min) {
+        @include make-grid-spacing-base($size, $colum);
+    }
+}
+
+@mixin make-grid-spacing-md($size, $colum) {
+    @media (min-width: $screen-md-min) {
+        @include make-grid-spacing-base($size, $colum);
+    }
+}
+
+@mixin make-grid-spacing-lg($size, $colum) {
+    @media (min-width: $screen-lg-min) {
+        @include make-grid-spacing-base($size, $colum);
+    }
+}
+
+@mixin make-grid-spacing-xs-only($size, $colum) {
+    @media (max-width: $screen-xs-max) {
+        @include make-grid-spacing-base($size, $colum);
+    }
+}
+
+@mixin make-grid-spacing-sm-only($size, $colum) {
+    @media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
+        @include make-grid-spacing-base($size, $colum);
+    }
+}
+
+@mixin make-grid-spacing-md-only($size, $colum) {
+    @media (min-width: $screen-md-min) and (max-width: $screen-md-max){
+        @include make-grid-spacing-base($size, $colum);
+    }
+}
+
+@mixin make-grid-spacing-lg($size, $colum) {
+    @media (min-width: $screen-lg-min) {
+        @include make-grid-spacing-base($size, $colum);
+    }
+}
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+Paddings Ros
+
+*/
+
+@mixin make-padding-row-xs-only($size) {
+    @media (max-width: $screen-xs-max) {
+        padding-top: $size;
+        padding-bottom: $size;
+    }
+}
+
+@mixin make-padding-row-sm-only($size) {
+    @media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
+        padding-top: ($size);
+        padding-bottom: ($size);
+    }
+}
+
+@mixin make-padding-row-md-only($size) {
+    @media (min-width: $screen-md-min) and (max-width: $screen-md-max) {
+        padding-top: $size;
+        padding-bottom: $size;
+    }
+}
+
+@mixin make-padding-row-xs($size) {
+    padding-top: $size;
+    padding-bottom: $size;
+}
+
+@mixin make-padding-row-sm($size) {
+    @media (min-width: $screen-sm-min) {
+        padding-top: $size;
+        padding-bottom: $size;
+    }
+}
+
+@mixin make-padding-row-md($size) {
+    @media (min-width: $screen-md-min) {
+        padding-top: $size;
+        padding-bottom: $size;
+    }
+}
+
+@mixin make-padding-row-lg($size) {
+    @media (min-width: $screen-lg-min) {
+        padding-top: $size;
+        padding-bottom: $size;
+    }
+}
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+Spacings of content blocks within the .site-content
+
+*/
+
+@mixin content-section-spacing-padding() {
+    padding-top: $content-section-spacing-xs;
+    padding-bottom: $content-section-spacing-xs;
+    @media (min-width:$screen-sm) {
+        padding-top: $content-section-spacing-sm;
+        padding-bottom: $content-section-spacing-sm;
+    }
+    @media (min-width:$screen-md) {
+        padding-top: $content-section-spacing-md;
+        padding-bottom: $content-section-spacing-md;
+    }
+    @media (min-width:$screen-lg) {
+        padding-top: $content-section-spacing-lg;
+        padding-bottom: $content-section-spacing-lg;
+    }
+    @media (min-width:$screen-xl) {
+        padding-top: $content-section-spacing-xl;
+        padding-bottom: $content-section-spacing-xl;
+    }
+}
+
+@mixin content-section-spacing-margin() {
+    margin-top: $content-section-spacing-xs;
+    margin-bottom: $content-section-spacing-xs;
+    @media (min-width:$screen-sm) {
+        margin-top: $content-section-spacing-sm;
+        margin-bottom: $content-section-spacing-sm;
+    }
+    @media (min-width:$screen-md) {
+        margin-top: $content-section-spacing-md;
+        margin-bottom: $content-section-spacing-md;
+    }
+    @media (min-width:$screen-lg) {
+        margin-top: $content-section-spacing-lg;
+        margin-bottom: $content-section-spacing-lg;
+    }
+    @media (min-width:$screen-xl) {
+        margin-top: $content-section-spacing-xl;
+        margin-bottom: $content-section-spacing-xl;
+    }
+}
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+First and last section withing .site-content
+
+*/
+
+@mixin content-section-first($property: padding-top) {
+    // remove margin
+    margin-top: 0;
+    // add padding
+    #{$property}: $content-section-spacing-first-item-xs;
+    @media (min-width: $screen-sm) {
+        #{$property}: $content-section-spacing-first-item-sm;
+    }
+    @media (min-width: $screen-md) {
+        #{$property}: $content-section-spacing-first-item-md;
+    }
+    @media (min-width: $screen-lg) {
+        #{$property}: $content-section-spacing-first-item-lg;
+    }
+    @media (min-width: $screen-xl) {
+        #{$property}: $content-section-spacing-first-item-xl;
+    }
+}
+
+@mixin content-section-last($property: padding-bottom) {
+    // remove margin
+    margin-bottom: 0;
+    // add padding
+    #{$property}: $content-section-spacing-last-item-xs;
+    @media (min-width: $screen-sm) {
+        #{$property}: $content-section-spacing-last-item-sm;
+    }
+    @media (min-width: $screen-md) {
+        #{$property}: $content-section-spacing-last-item-md;
+    }
+    @media (min-width: $screen-lg) {
+        #{$property}: $content-section-spacing-last-item-lg;
+    }
+    @media (min-width: $screen-xl) {
+        #{$property}: $content-section-spacing-last-item-xl;
+    }
+}
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+Position of absolutely positioned elements (e.g. a text within a parallax)
+
+*/
+
+@mixin content-section-spacing-position($position: bottom) {
+    #{$position}: $overlay-spacing-xs;
+    @media (min-width:$screen-sm) {
+        #{$position}: $overlay-spacing-sm;
+    }
+    @media (min-width:$screen-md) {
+        #{$position}: $overlay-spacing-md;
+    }
+    @media (min-width:$screen-lg) {
+        #{$position}: $overlay-spacing-lg;
+    }
+    @media (min-width:$screen-xl) {
+        #{$position}: $overlay-spacing-xl;
+    }
+}
+

@@ -1,0 +1,27 @@
+@mixin gradient-overlay($height: 100%,$gradient-stars-from-bottom: true, $before: true) {
+
+    $pseude-element: before;
+
+    @if $before == false {
+        $pseude-element: after;
+    }
+
+    &:#{$pseude-element} {
+        content: '';
+        display: block;
+        position: absolute;
+        @if $gradient-stars-from-bottom {
+            bottom: 0;
+        }else {
+            top: 0;
+        }
+        left: 0;
+        width: 100%;
+        height: $height;
+        background: -moz-linear-gradient(top,  rgba($overlay-gradient-start-color,$overlay-gradient-start-opacity) 0%, rgba($overlay-gradient-end-color,$overlay-gradient-end-opacity) 100%);
+        background: -webkit-linear-gradient(top,  rgba($overlay-gradient-start-color,$overlay-gradient-start-opacity) 0%,rgba($overlay-gradient-end-color,$overlay-gradient-end-opacity) 100%);
+        background: linear-gradient(to bottom,  rgba($overlay-gradient-start-color,$overlay-gradient-start-opacity) 0%,rgba($overlay-gradient-end-color,$overlay-gradient-end-opacity) 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#{ie-hex-str($overlay-gradient-start-color)}', endColorstr='#{ie-hex-str($overlay-gradient-end-color)}',GradientType=0 );
+    }
+
+}

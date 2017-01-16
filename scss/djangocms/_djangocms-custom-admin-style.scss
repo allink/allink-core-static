@@ -1,0 +1,264 @@
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+Config
+
+*/
+
+$form-row-spacing: 15px;
+$fieldset-spacing: 15px;
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+Tweaking Django CMS
+
+*/
+
+@mixin hide-options() {
+    padding: 0;
+    height: 0;
+    overflow: hidden;
+    margin-top: 0 !important;
+    border: none !important;
+}
+
+@mixin show-options() {
+    height: auto;
+    padding: $fieldset-spacing;
+    overflow: visible;
+    margin-top: $fieldset-spacing !important;
+}
+
+#content-main {
+    opacity: 0;
+    padding-bottom: 30px;
+    transition: all 300ms ease-in-out;
+    &.visible {
+        opacity: 1;
+    }
+}
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+Visually separate blocks
+
+*/
+
+.change-form {
+    &.cms-admin-modal,
+    form {
+        background-color: #eee !important;
+    }
+}
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+Option Fieldset Spacing
+
+*/
+
+#content {
+
+    form {
+        @media (max-width:$screen-sm-max) {
+            padding: 10px;
+        }
+    }
+
+    fieldset.module {
+
+        border-radius: 2px !important;
+        padding: $fieldset-spacing; // NO important here
+        border: 1px solid #dedede !important;
+        box-shadow: 5px 5px 20px rgba(0,0,0,0.05) !important;
+        background-color: #fff !important;
+        width: 100%;
+        max-width: 1000px;
+
+        // 'disable_when_': hide options for certain
+        &.hide_options {
+            @include hide-options();
+        }
+        // 'only_when_': hide certain plugins options that are only useful with specific plugins
+        &[class*="only_when"] {
+            @include hide-options();
+            &.show_options {
+                @include show-options();
+            }
+        }
+
+        // tweaking children
+        p.help {
+            margin-top: 0 !important;
+            padding-top: 10px !important;
+        }
+
+        div.form-row {
+            padding: 0;
+            min-height: 25px; // fixes the bug when a checkbox
+            & + .form-row {
+                margin-top: $form-row-spacing;
+            }
+        }
+        margin-bottom: 0 !important;
+        & + .module {
+            margin-top: $fieldset-spacing;
+        }
+        > h2 {
+            margin-bottom: 0;
+            & + * {
+                margin-top: $fieldset-spacing;
+            }
+        }
+        .checkbox-row {
+            &:after {
+                content: '';
+                clear: both;
+            }
+        }
+    }
+
+    // inline fields style improvemenets
+    .inline-group {
+        width: 100%;
+        max-width: 1000px;
+        // image fields
+        &[id*="image_set-group"] {
+            .module {
+                & > h2 {
+                    padding-bottom: 30px;
+                }
+            }
+            tr.ui-sortable-helper {
+                opacity: 0.8;
+            }
+            tr.ui-sortable-placeholder {
+                visibility: visible !important;
+                & > td {
+                    background-color: #ddd !important;
+                    height: 157px !important;
+                }
+            }
+            td:nth-child(1) { width: 0; }
+            td:nth-child(2) { width: 90%; padding-left: 0 !important; }
+            td:nth-child(3) { width: 10%; text-align: center; }
+            td.original {
+                & > p {
+                    left: 10px;
+                }
+            }
+        }
+        .add-row {
+            a {
+                color: #0bf;
+                &:before {
+                    color: #0bf;
+                }
+                &:hover,
+                &:focus {
+                    color: #0bf !important;
+                    &:before {
+                        color: #0bf;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+Manual Order Package
+
+*/
+
+.sortedm2m-container {
+    ul.sortedm2m-items {
+        li.sortedm2m-item {
+            padding-top: 0.2em !important;
+            padding-bottom: 0.2em !important;
+            &.ui-sortable-placeholder {
+                background-color: #eee;
+                visibility: visible !important;
+                height: 21px;
+            }
+            > label {
+                position: relative;
+                padding-left: 1.5em !important;
+                > input {
+                    position: absolute;
+                    top: 50%;
+                    left: 0.3em;
+                    transform: translate(0,-50%);
+                    margin-left: 0;
+                    margin-right: 0.3em;
+                }
+            }
+            > a {
+                display: inline-block;
+                margin-left: 0.5em;
+            }
+        }
+    }
+ }
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+App Specific
+
+*/
+
+.change-form {
+    // first of all, we need a proper box-sizing definition
+    * {
+        box-sizing: border-box;
+    }
+    // people app
+    &.app-people {
+        .field-box {
+            &.field-firstname,
+            &.field-lastname,
+            &.field-gender {
+                width: 33.33%;
+                margin-right: 0 !important;
+                padding-right: 20px;
+            }
+            &.field-gender {
+                padding-right: 0;
+            }
+            &.field-phone,
+            &.field-mobile,
+            &.field-fax {
+                width: 33.33%;
+                margin-right: 0 !important;
+                padding-right: 20px;
+                input {
+                    width: 100%;
+                }
+            }
+            &.field-fax {
+                padding-right: 0;
+            }
+        }
+    }
+}
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+Filer field
+
+*/
+
+.filer-dropzone {
+    // file has been selected
+    &.js-object-attached {
+        .filerFile {
+            top: 50% !important;
+            transform: translate(0,-50%);
+        }
+    }
+}

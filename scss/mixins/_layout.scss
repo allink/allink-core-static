@@ -1,0 +1,173 @@
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+Main Container Mixins
+
+*/
+
+@mixin container-fixed($gutter: $grid-gutter-width) {
+    margin-right: auto;
+    margin-left: auto;
+    padding-left: floor($gutter/2);
+    padding-right: ceil($gutter/2);
+    @media (min-width:$screen-md) {
+        padding-left: floor($gutter);
+        padding-right: ceil($gutter);
+    }
+    @include clearfix;
+}
+
+@mixin max-width() {
+    width: auto;
+    position: relative;
+    @if $max-width-xl {
+        @media (min-width:$screen-xl) {
+            max-width: $max-width-xl;
+        }
+    }
+    @if $max-width-xxl {
+        @media (min-width:$screen-xxl) {
+            max-width: $max-width-xxl;
+        }
+    }
+}
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+The ascept-ratio magic
+
+Example Markup:
+
+<div class="example-container">
+    <!-- REQUIRED! (but the class name can be customized overwriting the $inner-container-class parameter) -->
+    <div class="inner">
+        ...
+    </div>
+</div>
+
+SCSS:
+
+.example-container {
+    @include aspect-ratio(2,1);
+}
+
+*/
+
+@mixin aspect-ratio($width: 4, $height: 3, $inner-container-class: 'inner', $hide-overflow: false, $max-height: none) {
+    position: relative;
+    max-height: $max-height;
+    // optionally hide overflow
+    @if $hide-overflow == true {
+        overflow: hidden;
+    }
+    &:before {
+        display: block;
+        content: '';
+        width: 100%;
+        padding-top: ($height / $width) * 100%;
+    }
+    > .#{$inner-container-class} {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+    }
+}
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+Header
+
+*/
+
+@mixin set-site-header-height() {
+    height: $site-header-height-xs;
+    @media (min-width:$screen-md) {
+       height: $site-header-height-md;
+    }
+    @media (min-width:$screen-xl) {
+       height: $site-header-height-xl;
+    }
+    @media (min-width:$screen-xxl) {
+       height: $site-header-height-xxl;
+    }
+}
+
+@mixin set-site-header-compact-mode-height() {
+    height: $site-header-compact-mode-height-xs;
+    @media (min-width:$screen-md) {
+       height: $site-header-compact-mode-height-md;
+    }
+    @media (min-width:$screen-xl) {
+       height: $site-header-compact-mode-height-xl;
+    }
+    @media (min-width:$screen-xxl) {
+       height: $site-header-compact-mode-height-xxl;
+    }
+}
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+Footer
+
+*/
+
+@mixin set-site-footer-height() {
+    height: $site-footer-fixed-height-xs;
+    @media (min-width:$screen-md) {
+        height: $site-footer-fixed-height-md;
+    }
+    @media (min-width:$screen-xl) {
+        height: $site-footer-fixed-height-xl;
+    }
+}
+
+@mixin set-site-footer-body-margin() {
+    margin-bottom: $site-footer-fixed-height-xs;
+    @media (min-width:$screen-md) {
+        margin-bottom: $site-footer-fixed-height-md;
+    }
+    @media (min-width:$screen-xl) {
+        margin-bottom: $site-footer-fixed-height-xl;
+    }
+}
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+CSS tables
+
+*/
+
+@mixin css-table() {
+    display: table;
+    width: 100%;
+    table-layout: fixed; // fixes weird behaviour in IE
+    > * {
+        display: table-cell;
+    }
+}
+
+@mixin css-table-xs-reset() {
+    @media (max-width: $screen-xs-max) {
+        display: block;
+
+        > * {
+            display: block;
+            width: 100% !important;
+        }
+    }
+}
+
+@mixin css-col-w10() { width: 10%; }
+@mixin css-col-w20() { width: 20%; }
+@mixin css-col-w30() { width: 30%; }
+@mixin css-col-w40() { width: 40%; }
+@mixin css-col-w50() { width: 50%; }
+@mixin css-col-w60() { width: 60%; }
+@mixin css-col-w70() { width: 70%; }
+@mixin css-col-w80() { width: 80%; }
+@mixin css-col-w90() { width: 90%; }

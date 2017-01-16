@@ -1,0 +1,40 @@
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+Datepicker
+
+===
+
+Requires the following markup:
+
+<div class="datepicker-container">
+    <input class="datepicker" id="example_date" name="example_date" type="text" placeholder="{% trans "Select date..." %}">
+    <span class="calendar-btn"></span>
+</div>
+
+*/
+
+.datepicker-container {
+    position: relative;
+    width: $datepicker-default-width;
+    max-width: $datepicker-default-max-width;
+    > .form-control {
+        background-color: $datepicker-default-input-bg; // required, because it is set on "readonly" and gets overwritten by Bootstrap
+    }
+    > .calendar-btn {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: $datepicker-default-btn-width;
+        height: 100%;
+        cursor: default;
+        &:after {
+            @include icomoon();
+            content: $datepicker-default-btn-icon;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            font-size: $datepicker-default-btn-icon-size;
+            transform: translate(-50%,-50%);
+        }
+    }
+}

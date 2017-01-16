@@ -1,0 +1,792 @@
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+allink Core SASS Variables
+
+===
+
+This document provides a complete list of settings related to the CORE plugins
+and elements. They act as !default values (but are NOT set as !default due to
+conflicts with Bootstrap) and can easily be overwritten.
+
+*/
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+=Color Definitions
+
+Note: If possible, only use these colors in this settings-file
+
+*/
+
+$black:                      #000;
+$gray-dark:                  #373a3c;
+$gray:                       #55595c;
+$gray-light:                 #818a91;
+$gray-lighter:               #eceeef;
+$gray-lightest:              #f7f7f9;
+$white:                      #fff;
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+Color variables names can be hard to remember.
+I find the following approach worth trying:
+https://davidwalsh.name/sass-color-variables-dont-suck
+
+It's simple: Give a variable a unique but memorable name.
+
+Examples:
+
+// Red Color Variables
+$blood:     #68121a;
+$brick:     #581207;
+$apple:     #fa041b;
+$coral:     #e47f88;
+
+// Blue Color Variables
+$midnight:  #2e3e5c;
+$blueberry: #0067ac;
+$dusk:      #5f6f8e;
+
+Looking for names? Simply type in the HEX-Code on the following site:
+http://chir.ag/projects/name-that-color/#C8E2F9
+
+*/
+
+$brand-primary:              #000;
+$brand-primary-light:        lighten($brand-primary,15%);
+$brand-primary-dark:         darken($brand-primary,15%);
+$brand-secondary:            #000;
+$brand-secondary-light:      lighten($brand-secondary,15%);
+$brand-secondary-dark:       darken($brand-secondary,15%);
+
+$brand-success:              #5cb85c;
+$brand-success-light:        lighten($brand-success,10%);
+$brand-success-dark:         darken($brand-success,10%);
+$brand-info:                 #5bc0de;
+$brand-info-light:           lighten($brand-info,10%);
+$brand-info-dark:            darken($brand-info,10%);
+$brand-warning:              #f0ad4e;
+$brand-warning-light:        lighten($brand-warning,10%);
+$brand-warning-dark:         darken($brand-warning,10%);
+$brand-danger:               #d9534f;
+$brand-danger-light:         lighten($brand-danger,10%);
+$brand-danger-dark:          darken($brand-danger,10%);
+$brand-danger:               #d9534f;
+$brand-danger-light:         lighten($brand-danger,10%);
+$brand-danger-dark:          darken($brand-danger,10%);
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+Django CMS Toolbar
+
+*/
+
+$cms-toolbar-height-expanded:       49px;
+$cms-toolbar-height-collapsed:      5px;
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+Default Transition
+
+This is an attempt of creating the same feel across the site by
+using the same transition duration.
+
+Note: In some cases it makes sense to define different transition settings
+
+*/
+
+$default-transition-property:       all;
+$default-transition-duration:       150ms;
+$default-transition-timing:         ease-in-out;
+$default-transition:                $default-transition-property $default-transition-duration $default-transition-timing;
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+=Links (default)
+
+*/
+
+$link-transition:            $default-transition;
+$link-color:                 $brand-primary;
+$link-decoration:            underline;
+$link-color-hover:           lighten($link-color, 15%);
+$link-decoration-hover:      underline;
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+=Content =Section '.content-section'
+
+VERTICAL spacings of plugin content within '.site-content'
+
+*/
+
+// global spacing between the .content-section
+$content-section-spacing-xs:   30px;
+$content-section-spacing-sm:   45px;
+$content-section-spacing-md:   45px;
+$content-section-spacing-lg:   60px;
+$content-section-spacing-xl:   60px;
+
+// first item
+$content-section-spacing-first-item-xs:     $content-section-spacing-xs;
+$content-section-spacing-first-item-sm:     $content-section-spacing-sm;
+$content-section-spacing-first-item-md:     $content-section-spacing-md;
+$content-section-spacing-first-item-lg:     $content-section-spacing-lg;
+$content-section-spacing-first-item-xl:     $content-section-spacing-xl;
+
+// last item
+$content-section-spacing-last-item-xs:      $content-section-spacing-xs;
+$content-section-spacing-last-item-sm:      $content-section-spacing-sm;
+$content-section-spacing-last-item-md:      $content-section-spacing-md;
+$content-section-spacing-last-item-lg:      $content-section-spacing-lg;
+$content-section-spacing-last-item-xl:      $content-section-spacing-xl;
+
+// Content Plugin > spacing between STACKED COLUMNS (smaller screens)
+// This should be in harmony
+$content-section-col-stack-spacing-xs-max:  $grid-gutter-width/2;
+$content-section-col-stack-spacing-sm-max:  $grid-gutter-width;
+
+// Content Plugin > spacing between SECTION HEADING and the columns
+$content-section-heading-spacing-xs:        $grid-gutter-width/2;
+$content-section-heading-spacing-md:        $grid-gutter-width;
+$content-section-heading-spacing-xl:        $grid-gutter-width;
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+App Content Plugin specifc spacings:
+
+VERTICAL spacing between list or grid items
+
+*/
+
+// LIST template
+$app-content-plugin-list-item-spacing-xs:               $grid-gutter-width;
+$app-content-plugin-list-item-spacing-md:               $grid-gutter-width;
+$app-content-plugin-list-item-spacing-xl:               $grid-gutter-width;
+
+// DYNAMIC grid template
+$app-content-plugin-dynamic-grid-item-spacing-xs:       $grid-gutter-width;
+$app-content-plugin-dynamic-grid-item-spacing-md:       $grid-gutter-width;
+$app-content-plugin-dynamic-grid-item-spacing-xl:       $grid-gutter-width;
+
+// STATIC grid template
+$app-content-plugin-static-grid-item-spacing-xs:        $grid-gutter-width;
+$app-content-plugin-static-grid-item-spacing-md:        $grid-gutter-width;
+$app-content-plugin-static-grid-item-spacing-xl:        $grid-gutter-width;
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+The AJAX container (where items are exchanged OR appended)
+
+*/
+
+// the transition settings for the AJAX container AND the 'load-more-container' when changing categories
+$load-more-swop-category-transition-property:           opacity;
+$load-more-swop-category-transition-duration:           100ms;
+$load-more-swop-category-transition-timing-function:    ease-in;
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+"=Load =More" container
+
+VERTICAL spacing
+
+*/
+
+$load-more-container-spacing-top-xs:                    $grid-gutter-width;
+$load-more-container-spacing-top-md:                    $grid-gutter-width*2;
+$load-more-container-spacing-top-xl:                    $grid-gutter-width*2;
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+'.manage-spacings' container
+
+VERTICAL spacing between standard components (such as image-container, text-container, btn-container, form-container, ...) within the '.manage-spacings' container
+
+*/
+
+$manage-spacings-container-xs: $grid-gutter-width/2;
+$manage-spacings-container-md: $grid-gutter-width/2;
+$manage-spacings-container-xl: $grid-gutter-width/2;
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+Content Plugin specifc Styles
+
+*/
+
+// parallax
+$parallax-bg-image-height:                           130%; // 100% is the size of the parallax section
+
+$parallax-aspect-ratio-width-xs:                     4;
+$parallax-aspect-ratio-height-xs:                    3;
+
+$parallax-aspect-ratio-width-md:                     3000;
+$parallax-aspect-ratio-height-md:                    1300;
+
+$parallax-aspect-ratio-width-xl:                     3000;
+$parallax-aspect-ratio-height-xl:                    1300;
+
+$parallax-max-height:                                800px;
+
+// inner background image
+$content-plugin-inner-bg-container-ratio-width-xs:   4;
+$content-plugin-inner-bg-container-ratio-height-xs:  3;
+
+$content-plugin-inner-bg-container-ratio-width-md:   2;
+$content-plugin-inner-bg-container-ratio-height-md:  1;
+
+$content-plugin-inner-bg-container-ratio-width-xl:   2;
+$content-plugin-inner-bg-container-ratio-height-xl:  1;
+
+// mobile image ratio for video replacement
+$content-plugin-video-mobile-image-ratio-width:      4;
+$content-plugin-video-mobile-image-ratio-height:     3;
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+=Overlay Settings (the background of text above an image)
+
+Overlay text is POSITIONED absolute.
+So 'spacing' in this context relates to the 'top, right, bottom and left' properties.
+
+*/
+
+$overlay-spacing-xs:                       $content-section-spacing-xs;
+$overlay-spacing-sm:                       $content-section-spacing-sm;
+$overlay-spacing-md:                       $content-section-spacing-md;
+$overlay-spacing-lg:                       $content-section-spacing-lg;
+$overlay-spacing-xl:                       $content-section-spacing-xl;
+
+$overlay-heading-color:                    #fff;
+$overlay-text-color:                       #fff;
+$overlay-gradient-start-color:             #000;
+$overlay-gradient-start-opacity:           0;
+$overlay-gradient-end-color:               #000;
+$overlay-gradient-end-opacity:             0.5;
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+=Form Settings
+
+*/
+
+// `.form-group` margin top (except :first-child)
+$form-group-spacing-xs:                $grid-gutter-width/2;
+$form-group-spacing-md:                $grid-gutter-width;
+$form-group-spacing-xl:                $grid-gutter-width;
+
+// `.label-control` margin bottom
+$form-label-spacing-xs:                $grid-gutter-width/4;
+$form-label-spacing-md:                $grid-gutter-width/2;
+$form-label-spacing-xl:                $grid-gutter-width/2;
+
+$form-field-required-icomoon-enabled:  false; // only set to 'true' if an icomoon icon is set below
+$form-field-required-icon:             '*';
+$form-field-required-icon-color:       #ba1414;
+// for accessibility reasons, there is a visually hidden 'required' text, that is set to visibility:hidden, and therefore still uses up some space. By setting dimensions and overflow:hidden we avoid undesired results.
+$form-field-required-icon-height:      0.9em;
+$form-field-required-icon-width:       1em;
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+General Form =Field Settings (.form-control)
+
+These settings apply to:
+
+<input>'s
+<textarea>'s
+
+*/
+
+$form-field-transition:                $default-transition;
+$form-field-border-radius-default:     0;
+$form-field-border-width:              2px;
+$form-field-border-style:              solid;
+$form-field-border-color:              transparent;
+
+// background color
+$input-bg:                             #fff;
+// background color of disabled form field (e.g. text)
+$input-bg-disabled:                    $gray-lighter;
+
+// Text color for `<input>`s
+$input-color:                          $gray;
+
+// horizontal padding settings for form fields and textarea
+$input-padding-left:                   0;
+$input-padding-right:                  1em;
+
+// border color
+$input-border-top-color:               transparent;
+$input-border-right-color:             transparent;
+$input-border-bottom-color:            #000;
+$input-border-left-color:              transparent;
+
+// border color :focus
+$input-border-top-color-focus:         transparent;
+$input-border-right-color-focus:       transparent;
+$input-border-bottom-color-focus:      #000;
+$input-border-left-color-focus:        transparent;
+
+// ERROR styles
+$input-error-border-top-color:         transparent;
+$input-error-border-right-color:       transparent;
+$input-error-border-bottom-color:      $form-field-required-icon-color;
+$input-error-border-left-color:        transparent;
+$input-error-bg:                       #ffeded;
+
+// Placeholder text color
+$input-color-placeholder:              #999;
+
+// legend settings (IMPORTANT: currently not used and optizmied)
+$legend-color:                         $gray-dark;
+$legend-border-color:                  #e5e5e5;
+
+// textual input addons (IMPORTANT: currently not used and optizmied)
+// Background color
+$input-group-addon-bg:                 $gray-lighter;
+// Border color
+$input-group-addon-border-color:       $form-field-border-width;
+
+// Disabled cursor for form controls and buttons.
+$cursor-disabled:                      not-allowed;
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+=Checkboxes
+
+*/
+
+$checkbox-label-spacing:                1.5em;
+$checkbox-siblings-spacing-top:         0.3em;
+$checkbox-spacing-left:                 0.2em;
+$checkbox-bg-color:                     $input-bg;
+$checkbox-bg-color-focus:               $input-bg;
+$checkbox-bg-color-checked:             $input-bg;
+$checkbox-border-width:                 $form-field-border-width;
+$checkbox-border-color:                 $gray-light;
+$checkbox-border-color-focus:           $brand-primary;
+$checkbox-border-color-checked:         $brand-primary;
+$checkbox-size:                         0.8em;
+$checkbox-border-radius:                $form-field-border-radius-default;
+$checkbox-icon-color:                   $brand-primary;
+$checkbox-icon-color-focus:             green;
+$checkbox-transition:                   $form-field-transition;
+
+// optional: icon font settings
+$checkbox-font-icon-enabled:            true; // boolean, if set false, a default css check icon is used as a fallback
+$checkbox-font-icon-code:               '\e206'; // string, e.g. '\e906'
+$checkbox-font-icon-size:               0.8em;
+
+// default: CSS check icon
+$checkbox-css-icon-size:                14px; // the calculations are made automatically according to this value
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+=Radio
+
+Important: Per default, the radio boxes inherit most of the checkbox styles, for they
+usually look similar
+
+*/
+
+$radio-label-spacing:                   $checkbox-label-spacing;
+$radio-siblings-spacing-top:            $checkbox-siblings-spacing-top;
+$radio-spacing-left:                    $checkbox-spacing-left;
+$radio-bg-color:                        $checkbox-bg-color;
+$radio-bg-color-focus:                  $checkbox-bg-color-focus;
+$radio-bg-color-checked:                $checkbox-bg-color-checked;
+$radio-border-width:                    $checkbox-border-width;
+$radio-border-color:                    $checkbox-border-color;
+$radio-border-color-focus:              $checkbox-border-color-focus;
+$radio-border-color-checked:            $checkbox-border-color-checked;
+$radio-size:                            $checkbox-size;
+$radio-transition:                      $checkbox-transition;
+
+// inner circle
+$radio-inner-circle-size:               $radio-size/2;
+$radio-inner-circle-bg:                 $brand-primary;
+$radio-inner-circle-transition:         $checkbox-transition;
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+=Buttons
+
+Usage: In rare cases, you might need a specific value of a
+specific button variant. This is how to acces map values:
+
+color: map-deep-get($btn-variations,'default','bg');
+
+*/
+
+// button config
+$btn-disabled-lighten: 20%;
+
+$btn-variations: (
+    'default': (
+        'color':                         #fff,
+        'bg':                            $brand-primary,
+        // default
+        'border-top-color':              $brand-primary,
+        'border-right-color':            $brand-primary,
+        'border-bottom-color':           $brand-primary,
+        'border-left-color':             $brand-primary,
+        // hover
+        'bg-hover':                      $brand-primary-light,
+        'color-hover':                   #fff,
+        'border-top-color-hover':        $brand-primary-light,
+        'border-right-color-hover':      $brand-primary-light,
+        'border-bottom-color-hover':     $brand-primary-light,
+        'border-left-color-hover':       $brand-primary-light,
+        // disabled
+        'color-disabled':                #fff,
+        'bg-disabled':                   lighten($brand-primary-light,$btn-disabled-lighten),
+        'border-top-color-disabled':     lighten($brand-primary-light,$btn-disabled-lighten),
+        'border-right-color-disabled':   lighten($brand-primary-light,$btn-disabled-lighten),
+        'border-bottom-color-disabled':  lighten($brand-primary-light,$btn-disabled-lighten),
+        'border-left-color-disabled':    lighten($brand-primary-light,$btn-disabled-lighten),
+    ),
+    'primary': (
+        'color':                         #fff,
+        'bg':                            $brand-primary,
+        // default
+        'border-top-color':              $brand-primary,
+        'border-right-color':            $brand-primary,
+        'border-bottom-color':           $brand-primary,
+        'border-left-color':             $brand-primary,
+        // hover
+        'bg-hover':                      $brand-primary-light,
+        'color-hover':                   #fff,
+        'border-top-color-hover':        $brand-primary-light,
+        'border-right-color-hover':      $brand-primary-light,
+        'border-bottom-color-hover':     $brand-primary-light,
+        'border-left-color-hover':       $brand-primary-light,
+        // disabled
+        'color-disabled':                #fff,
+        'bg-disabled':                   lighten($brand-primary-light,$btn-disabled-lighten),
+        'border-top-color-disabled':     lighten($brand-primary-light,$btn-disabled-lighten),
+        'border-right-color-disabled':   lighten($brand-primary-light,$btn-disabled-lighten),
+        'border-bottom-color-disabled':  lighten($brand-primary-light,$btn-disabled-lighten),
+        'border-left-color-disabled':    lighten($brand-primary-light,$btn-disabled-lighten),
+    ),
+    'success': (
+        'color':                         #fff,
+        'bg':                            $brand-success,
+        // default
+        'border-top-color':              $brand-success,
+        'border-right-color':            $brand-success,
+        'border-bottom-color':           $brand-success,
+        'border-left-color':             $brand-success,
+        // hover
+        'bg-hover':                      $brand-success-dark,
+        'color-hover':                   #fff,
+        'border-top-color-hover':        $brand-success-dark,
+        'border-right-color-hover':      $brand-success-dark,
+        'border-bottom-color-hover':     $brand-success-dark,
+        'border-left-color-hover':       $brand-success-dark,
+        // disabled
+        'color-disabled':                #fff,
+        'bg-disabled':                   lighten($brand-success-dark,$btn-disabled-lighten),
+        'border-top-color-disabled':     lighten($brand-success-dark,$btn-disabled-lighten),
+        'border-right-color-disabled':   lighten($brand-success-dark,$btn-disabled-lighten),
+        'border-bottom-color-disabled':  lighten($brand-success-dark,$btn-disabled-lighten),
+        'border-left-color-disabled':    lighten($brand-success-dark,$btn-disabled-lighten),
+    ),
+    'info': (
+        'color':                         #fff,
+        'bg':                            $brand-info,
+        // default
+        'border-top-color':              $brand-info,
+        'border-right-color':            $brand-info,
+        'border-bottom-color':           $brand-info,
+        'border-left-color':             $brand-info,
+        // hover
+        'bg-hover':                      $brand-info-dark,
+        'color-hover':                   #fff,
+        'border-top-color-hover':        $brand-info-dark,
+        'border-right-color-hover':      $brand-info-dark,
+        'border-bottom-color-hover':     $brand-info-dark,
+        'border-left-color-hover':       $brand-info-dark,
+        // disabled
+        'color-disabled':                #fff,
+        'bg-disabled':                   lighten($brand-info-dark,$btn-disabled-lighten),
+        'border-top-color-disabled':     lighten($brand-info-dark,$btn-disabled-lighten),
+        'border-right-color-disabled':   lighten($brand-info-dark,$btn-disabled-lighten),
+        'border-bottom-color-disabled':  lighten($brand-info-dark,$btn-disabled-lighten),
+        'border-left-color-disabled':    lighten($brand-info-dark,$btn-disabled-lighten),
+    ),
+    'warning': (
+        'color':                         #fff,
+        'bg':                            $brand-warning,
+        // default
+        'border-top-color':              $brand-warning,
+        'border-right-color':            $brand-warning,
+        'border-bottom-color':           $brand-warning,
+        'border-left-color':             $brand-warning,
+        // hover
+        'bg-hover':                      $brand-warning-dark,
+        'color-hover':                   #fff,
+        'border-top-color-hover':        $brand-warning-dark,
+        'border-right-color-hover':      $brand-warning-dark,
+        'border-bottom-color-hover':     $brand-warning-dark,
+        'border-left-color-hover':       $brand-warning-dark,
+        // disabled
+        'color-disabled':                #fff,
+        'bg-disabled':                   lighten($brand-warning-dark,$btn-disabled-lighten),
+        'border-top-color-disabled':     lighten($brand-warning-dark,$btn-disabled-lighten),
+        'border-right-color-disabled':   lighten($brand-warning-dark,$btn-disabled-lighten),
+        'border-bottom-color-disabled':  lighten($brand-warning-dark,$btn-disabled-lighten),
+        'border-left-color-disabled':    lighten($brand-warning-dark,$btn-disabled-lighten),
+    ),
+    'danger': (
+        'color':                         #fff,
+        'bg':                            $brand-danger,
+        // default
+        'border-top-color':              $brand-danger,
+        'border-right-color':            $brand-danger,
+        'border-bottom-color':           $brand-danger,
+        'border-left-color':             $brand-danger,
+        // hover
+        'bg-hover':                      $brand-danger-dark,
+        'color-hover':                   #fff,
+        'border-top-color-hover':        $brand-danger-dark,
+        'border-right-color-hover':      $brand-danger-dark,
+        'border-bottom-color-hover':     $brand-danger-dark,
+        'border-left-color-hover':       $brand-danger-dark,
+        // disabled
+        'color-disabled':                #fff,
+        'bg-disabled':                   lighten($brand-danger-dark,$btn-disabled-lighten),
+        'border-top-color-disabled':     lighten($brand-danger-dark,$btn-disabled-lighten),
+        'border-right-color-disabled':   lighten($brand-danger-dark,$btn-disabled-lighten),
+        'border-bottom-color-disabled':  lighten($brand-danger-dark,$btn-disabled-lighten),
+        'border-left-color-disabled':    lighten($brand-danger-dark,$btn-disabled-lighten),
+    ),
+    'link': (
+        'color':                         $link-color,
+        'bg':                            #fff,
+        // default
+        'border-top-color':              transparent,
+        'border-right-color':            transparent,
+        'border-bottom-color':           transparent,
+        'border-left-color':             transparent,
+        // hover
+        'bg-hover':                      transparent,
+        'color-hover':                   $link-color-hover,
+        'border-top-color-hover':        transparent,
+        'border-right-color-hover':      transparent,
+        'border-bottom-color-hover':     transparent,
+        'border-left-color-hover':       transparent,
+        // disabled
+        'color-disabled':                $link-color-hover,
+        'bg-disabled':                   transparent,
+        'border-top-color-disabled':     transparent,
+        'border-right-color-disabled':   transparent,
+        'border-bottom-color-disabled':  transparent,
+        'border-left-color-disabled':    transparent,
+    ),
+);
+
+// Global Button and Input Paddings
+// (important: will be applied to .form-control, too, because we sometimes combine inputs and button, so they need to be the exact same height)
+$btn-padding-top-default:               0.1em; // important: has to be in em's
+$btn-padding-bottom-default:            0.1em; // important: has to be in em's
+$btn-line-height-default:               1.25;
+
+// disabled button
+$btn-link-disabled-color:               $gray-light;
+
+// Allows for customizing button radius independently from global border radius
+$btn-border-radius-base:                $form-field-border-radius-default;
+$btn-border-radius-large:               $form-field-border-radius-default;
+$btn-border-radius-small:               $form-field-border-radius-default;
+
+// .btn-container (spacing between buttons)
+$btn-container-btn-spacing-xs:                      0.5em;
+$btn-container-btn-spacing-md:                      0.5em;
+$btn-container-btn-spacing-xl:                      0.5em;
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+Bootstrap =Select Styles
+
+*/
+
+$select-btn-variation:                  'default'; // needs to be one of the variations defined in $btn-variations
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+=File Upload Styles
+
+*/
+
+$file-upload-btn-variation:            'primary'; // needs to be one of the variations defined in $btn-variations
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+=Datepicker
+
+*/
+
+$datepicker-default-width:              100%;
+$datepicker-default-max-width:          300px;
+$datepicker-default-input-bg:           $input-bg;
+$datepicker-default-btn-width:          35px;
+$datepicker-default-btn-icon:           '\e60e';
+$datepicker-default-btn-icon-size:      0.8em;
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+=Dropdown
+
+*/
+
+$dropdown-border-width:                 2px;
+$dropdown-border-style:                 solid;
+$dropdown-border-color:                 #000;
+$dropdown-border-radius:                0;
+$dropdown-border-top:                   false; // boolean
+$dropdown-toggle-icon:                  '\e903';
+$dropdown-toggle-icon-spacing-right:    1em;
+$dropdown-toggle-icon-spacing-left:     auto;
+$dropdown-toggle-padding-right:         3em;
+$dropdown-toggle-padding-left:          0.5em;
+
+// Background for the dropdown menu.
+$dropdown-bg:                           #fff;
+// Dropdown menu `border-color`.
+$dropdown-border:                       rgba(0,0,0,.15);
+// Dropdown menu `border-color` **for IE8**.
+$dropdown-fallback-border:              #ccc;
+// Divider color for between dropdown items.
+$dropdown-divider-bg:                   #e5e5e5;
+
+// Dropdown link text color.
+$dropdown-link-color:                   $input-color;
+// Hover color for dropdown links.
+$dropdown-link-hover-color:             darken($input-color, 5%);
+// Hover background for dropdown links.
+$dropdown-link-hover-bg:                $gray-lighter;
+
+// Active dropdown menu item text color.
+$dropdown-link-active-color:            $input-color;
+// Active dropdown menu item background color.
+$dropdown-link-active-bg:               $gray-light;
+
+// Disabled dropdown menu item background color.
+$dropdown-link-disabled-color:          $gray-light;
+
+// Text color for headers within dropdown menus.
+$dropdown-header-color:                 $gray-light;
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+=Swiper (=Slider)
+
+Important: The ratio's are closely linked to the thumbnail settings
+
+*/
+
+// aspect ratios (Content Plugin > Column > Gallery Plugin)
+$swiper-gallery-plugin-aspect-ratio-width-xs:   4;
+$swiper-gallery-plugin-aspect-ratio-height-xs:  3;
+
+$swiper-gallery-plugin-aspect-ratio-width-md:   4;
+$swiper-gallery-plugin-aspect-ratio-height-md:  3;
+
+$swiper-gallery-plugin-aspect-ratio-width-xl:   4;
+$swiper-gallery-plugin-aspect-ratio-height-xl:  3;
+
+// aspect ratios (App Content Plugin)
+$swiper-app-content-aspect-ratio-width-xs:      4;
+$swiper-app-content-aspect-ratio-height-xs:     3;
+
+$swiper-app-content-aspect-ratio-width-md:      2;
+$swiper-app-content-aspect-ratio-height-md:     1;
+
+$swiper-app-content-aspect-ratio-width-xl:      2;
+$swiper-app-content-aspect-ratio-height-xl:     1;
+
+// aspect ratios (App Content > Detail View Header)
+$swiper-detail-view-aspect-ratio-width-xs:      4;
+$swiper-detail-view-aspect-ratio-height-xs:     3;
+
+$swiper-detail-view-aspect-ratio-width-md:      4;
+$swiper-detail-view-aspect-ratio-height-md:     3;
+
+$swiper-detail-view-aspect-ratio-width-xl:      4;
+$swiper-detail-view-aspect-ratio-height-xl:     3;
+
+// overlay
+$swiper-default-overlay-styles-enabled:         true;
+$swiper-default-overlay-gradient-height:        60%; // percent value recommended to keep it responsive
+
+// background
+$swiper-default-bg:                             $white;
+
+// pagination
+$swiper-default-pagination-position-top-xs:     $grid-gutter-width/4;
+$swiper-default-pagination-position-bottom-xs:  auto;
+$swiper-default-pagination-position-top-md:     auto;
+$swiper-default-pagination-position-bottom-md:  $grid-gutter-width/4;
+
+// bullets
+$swiper-default-bullet-size:                    15px;
+$swiper-default-bullet-border-width:            1px;
+$swiper-default-bullet-border-style:            solid;
+$swiper-default-bullet-border-color:            #fff;
+$swiper-default-bullet-border-color-active:     transparent;
+$swiper-default-bullet-bg:                      transparent;
+$swiper-default-bullet-bg-active:               #fff;
+
+// arrows
+$swiper-default-arrows-transition:              $link-transition; // recommended to use $link-transition in order to keep it consistent
+$swiper-default-arrows-icon-previous:           '\e904';
+$swiper-default-arrows-icon-next:               '\e905';
+$swiper-default-arrows-icon-size:               1em;
+$swiper-default-arrows-opacity:                 0.8;
+$swiper-default-arrows-opacity-hover:           1;
+$swiper-default-arrows-color:                   #fff;
+$swiper-default-arrows-color-hover:             #fff;
+$swiper-default-arrows-width:                   200px; // usability tip: the clickable area fills the entire height
+// arrow offsets
+$swiper-default-arrows-offset-xs:               $grid-gutter-width/4;
+$swiper-default-arrows-offset-md:               $grid-gutter-width/2;
+$swiper-default-arrows-offset-xl:               $grid-gutter-width;
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+Custom Scrollbars
+
+Used with responsive tables
+
+*/
+
+// track
+$custom-scrollbar-track-shadow:                none;
+$custom-scrollbar-track-bg:                    $gray-lighter;
+$custom-scrollbar-track-border-radius:         6px;
+// thumb (movable bar)
+$custom-scrollbar-thumb-bg:                    darken($gray-lighter,10%);
+$custom-scrollbar-thumb-border-radius:         $custom-scrollbar-track-border-radius; // recommended to be the same as $custom-scrollbar-track-border-radius

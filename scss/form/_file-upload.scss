@@ -1,0 +1,57 @@
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+Custom File Upload
+
+Inpspired by: http://tympanus.net/codrops/2015/09/15/styling-customizing-file-inputs-smart-way/
+
+*/
+
+.custom-file-upload {
+    // visually hide the actual input field...
+    > input {
+        // ...but only IF JavaScript has been detected by Modernizr
+        .js & {
+            width: 0.1px;
+            height: 0.1px;
+            opacity: 0;
+            overflow: hidden;
+            position: absolute;
+            z-index: -1;
+            // optional: when focused, style the LABEL differently
+            &.has-focus + label,
+            &:focus + label {
+                color: map-deep-get($btn-variations,$file-upload-btn-variation,'color-hover');
+                background-color: map-deep-get($btn-variations,$file-upload-btn-variation,'bg-hover');
+                border-top-color: map-deep-get($btn-variations,$file-upload-btn-variation,'border-top-color-hover');
+                border-right-color: map-deep-get($btn-variations,$file-upload-btn-variation,'border-right-color-hover');
+                border-bottom-color: map-deep-get($btn-variations,$file-upload-btn-variation,'border-bottom-color-hover');
+                border-left-color: map-deep-get($btn-variations,$file-upload-btn-variation,'border-left-color-hover');
+            }
+        }
+    }
+    // the label
+    > label {
+        // we simply extend the predifend .btn class and desired button variation defined in variables.scss
+        @extend .btn;
+        @extend .btn-#{$file-upload-btn-variation};
+        @if $file-upload-icon {
+            &:before {
+                content: $file-upload-icon;
+                display: inline-block;
+                font-size: $file-upload-icon-size;
+                margin-right: $file-upload-icon-spacing-right;
+                @include icomoon();
+            }
+        }
+        // no JS, no point in displaying our funky label
+        .no-js & {
+            display: none;
+        }
+    }
+    // optional: custom styles when a file has been selected
+    &.file-selected {
+        > label {
+        }
+    }
+
+}

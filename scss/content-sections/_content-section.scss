@@ -1,0 +1,162 @@
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+Default Content Section Styles
+
+*/
+
+// default content section spacings and general styles
+.content-section {
+
+    // default: using margin
+    @include content-section-spacing-margin();
+
+    // special spacing: container has a background COLOR
+    &.has-bg-color {
+        margin-top: 0;
+        margin-bottom: 0;
+        @include content-section-spacing-padding();
+    }
+
+    // special spacing: container has a background IMAGE
+    &.has-bg-image {
+        margin-top: 0;
+        margin-bottom: 0;
+        @include content-section-spacing-padding();
+    }
+
+    &.has-bg-video {
+        margin: 0;
+        &:first-child,
+        &:last-child {
+            padding: 0;
+        }
+    }
+
+    // the background color variations and manage spacing
+    &.has-bg-color {
+        @each $nr, $color in $project-colors {
+            &.project-color-#{$nr} {
+                background-color: $color;
+                & + .project-color-#{$nr} {
+                    padding-top: 0;
+                }
+            }
+
+        }
+    }
+
+    // global container settings
+    &.container-enabled {
+        .container {
+            @include container-fixed();
+            @include max-width();
+        }
+    }
+
+    // using the available height
+    &.full-height-enabled {
+        // magic
+        @if $site-header-fixed-use-buffer == true and $site-header-fixed-enabled == true {
+            min-height: calc(100vh - #{$site-header-height-xs});
+            @media (min-width:$screen-md) {
+                min-height: calc(100vh - #{$site-header-height-md});
+            }
+            @media (min-width:$screen-xl) {
+                min-height: calc(100vh - #{$site-header-height-xl});
+            }
+            @media (min-width:$screen-xxl) {
+                min-height: calc(100vh - #{$site-header-height-xxl});
+            }
+        }
+        // fallback
+        @else {
+            min-height: 100vh;
+        }
+    }
+
+    // section heading of a 'content plugin' entry needs extra padding, because the columns themselves have the column-padding
+    .main-col-container {
+        .section-heading {
+            > .heading {
+                @include column-paddings();
+                @include column-padding-sm-max();
+            }
+        }
+    }
+
+    .col-container {
+        @include clearfix();
+    }
+
+    // first and last sections
+    &:first-child {
+        @include content-section-first();
+    }
+    &:last-child {
+        @include content-section-last();
+    }
+
+    // reset container max-width within modal (softpage)
+    .tingle-modal & {
+        padding: 0;
+        margin: 0;
+        .container {
+            max-width: none;
+        }
+    }
+
+}
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+Section Headings
+
+*/
+
+// global section heading definitions
+.section-heading {
+    @include clearfix();
+    // spacing to next element
+    & + * {
+        @include make-spacing-top-xs($content-section-heading-spacing-xs);
+        @include make-spacing-top-md($content-section-heading-spacing-md);
+        @include make-spacing-top-xl($content-section-heading-spacing-xl);
+    }
+    > .heading {
+        // default
+        @include h1();
+        // h1
+        .section-heading-h1 & {
+            @include h1();
+        }
+        // h2
+        .section-heading-h2 & {
+            @include h2();
+        }
+    }
+    // some templates require the section heading to break after 2/3
+    @media (min-width:$screen-md) {
+        max-width: 66%;
+    }
+}
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+manage-spacings: The default container for managing global spacings
+
+This class doesn't do anything else than defining spacings between its
+immediate children.
+
+*/
+
+.manage-spacings {
+    & > * {
+        @include make-spacing-top-xs($manage-spacings-container-xs);
+        @include make-spacing-top-md($manage-spacings-container-md);
+        @include make-spacing-top-xl($manage-spacings-container-xl);
+        &:first-child {
+            margin-top: 0;
+        }
+    }
+}

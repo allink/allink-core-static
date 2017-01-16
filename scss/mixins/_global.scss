@@ -1,0 +1,18 @@
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+Print: Add print styles on the spot. Easier than to navigate back and forth
+
+===
+
+.example-element {
+    color: red;
+    @include print() {
+        color: green;
+    }
+}
+
+*/
+
+@mixin print( ) {
+    @media print { @content; }
+}

@@ -1,0 +1,233 @@
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+General Font Styles
+
+*/
+
+@mixin font-family-bold() {
+    font-family: $font-family-bold;
+    font-weight: normal;
+}
+
+@mixin font-family-italic() {
+    font-family: $font-family-italic;
+    font-weight: normal;
+}
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+Font mixins
+
+*/
+
+@mixin text-default() {
+    letter-spacing: $text-default-letter-spacing;
+    text-transform: $text-default-text-transform;
+    font-family: $text-default-font-family;
+    font-weight: normal;
+    @include font-size($text-default-font-sizes);
+    @if $text-default-antialiased-enabled == true {
+        @include antialiased();
+    }
+}
+
+@mixin p-default() {
+    letter-spacing: $p-default-letter-spacing;
+    text-transform: $p-default-text-transform;
+    font-family: $p-default-font-family;
+    font-weight: normal;
+    @include font-size($p-default-font-sizes);
+    @if $p-default-antialiased-enabled == true {
+        @include antialiased();
+    }
+}
+
+@mixin p-small() {
+    letter-spacing: $p-small-letter-spacing;
+    text-transform: $p-small-text-transform;
+    font-family: $p-small-font-family;
+    font-weight: normal;
+    @include font-size($p-small-font-sizes);
+    @if $p-small-antialiased-enabled == true {
+        @include antialiased();
+    }
+}
+
+@mixin p-lead() {
+    letter-spacing: $p-lead-letter-spacing;
+    text-transform: $p-lead-text-transform;
+    font-family: $p-lead-font-family;
+    font-weight: normal;
+    @include font-size($p-lead-font-sizes);
+    @if $p-lead-antialiased-enabled == true {
+        @include antialiased();
+    }
+}
+
+@mixin btn-default() {
+    letter-spacing: $btn-default-letter-spacing;
+    text-transform: $btn-default-text-transform;
+    font-family: $btn-default-font-family;
+    font-weight: normal;
+    @include font-size($btn-default-font-sizes);
+    @if $btn-default-antialiased-enabled == true {
+        @include antialiased();
+    }
+}
+
+@mixin btn-small() {
+    letter-spacing: $btn-small-letter-spacing;
+    text-transform: $btn-small-text-transform;
+    font-family: $btn-small-font-family;
+    font-weight: normal;
+    @include font-size($btn-small-font-sizes);
+    @if $btn-small-antialiased-enabled == true {
+        @include antialiased();
+    }
+}
+
+@mixin btn-large() {
+    letter-spacing: $btn-large-letter-spacing;
+    text-transform: $btn-large-text-transform;
+    font-family: $btn-large-font-family;
+    font-weight: normal;
+    @include font-size($btn-large-font-sizes);
+    @if $btn-large-antialiased-enabled == true {
+        @include antialiased();
+    }
+}
+
+@mixin input-default() {
+    letter-spacing: $input-letter-spacing;
+    text-transform: $input-text-transform;
+    font-family: $input-font-family;
+    font-weight: normal;
+    @include font-size($input-font-sizes);
+    @if $input-antialiased-enabled == true {
+        @include antialiased();
+    }
+}
+
+@mixin nav-primary-font() {
+    letter-spacing: $nav-primary-letter-spacing;
+    text-transform: $nav-primary-text-transform;
+    font-family: $nav-primary-font-family;
+    font-weight: normal;
+    @include font-size($nav-primary-font-sizes);
+    @if $nav-primary-antialiased-enabled == true {
+        @include antialiased();
+    }
+}
+
+@mixin h1() {
+    letter-spacing: $h1-letter-spacing;
+    text-transform: $h1-text-transform;
+    font-family: $h1-font-family;
+    font-weight: normal;
+    @include font-size($h1-font-sizes);
+    @if $h1-antialiased-enabled == true {
+        @include antialiased();
+    }
+}
+
+@mixin h2() {
+    letter-spacing: $h2-letter-spacing;
+    text-transform: $h2-text-transform;
+    font-family: $h2-font-family;
+    font-weight: normal;
+    @include font-size($h2-font-sizes);
+    @if $h2-antialiased-enabled == true {
+        @include antialiased();
+    }
+}
+
+@mixin h3() {
+    letter-spacing: $h3-letter-spacing;
+    text-transform: $h3-text-transform;
+    font-family: $h3-font-family;
+    font-weight: normal;
+    @include font-size($h3-font-sizes);
+    @if $h3-antialiased-enabled == true {
+        @include antialiased();
+    }
+}
+
+@mixin h4() {
+    letter-spacing: $h4-letter-spacing;
+    text-transform: $h4-text-transform;
+    font-family: $h4-font-family;
+    font-weight: normal;
+    @include font-size($h4-font-sizes);
+    @if $h4-antialiased-enabled == true {
+        @include antialiased();
+    }
+}
+
+@mixin display-1() {
+    letter-spacing: $display-1-letter-spacing;
+    text-transform: $display-1-text-transform;
+    font-family: $display-1-font-family;
+    font-weight: normal;
+    @include font-size($display-1-font-sizes);
+    @if $display-1-antialiased-enabled == true {
+        @include antialiased();
+    }
+}
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+Responsive Font Size mixin
+
+*/
+
+@mixin font-size($fs-map, $fs-breakpoints: $font-size-breakpoints) {
+    @each $fs-breakpoint, $fs-font-size in $fs-map {
+        @if $fs-breakpoint == null {
+            @include make-font-size($fs-font-size);
+        }
+        @else {
+            // If $fs-font-size is a key that exists in
+            // $fs-breakpoints, use the value
+            @if map-has-key($fs-breakpoints, $fs-breakpoint) {
+                $fs-breakpoint: map-get($fs-breakpoints, $fs-breakpoint);
+            }
+            @media screen and (min-width: $fs-breakpoint) {
+                @include make-font-size($fs-font-size);
+            }
+        }
+    }
+}
+
+// Utility function for mixin font-size
+@mixin make-font-size($fs-font-size) {
+    // If $fs-font-size is a list, include
+    // both font-size and line-height
+    @if type-of($fs-font-size) == "list" {
+        font-size: nth($fs-font-size, 1);
+        @if (length($fs-font-size) > 1) {
+            line-height: nth($fs-font-size, 2);
+        }
+    }
+    @else {
+        font-size: $fs-font-size;
+    }
+}
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+Antiialiasing
+
+*/
+
+@mixin antialiased() {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+@mixin no-antialiased() {
+    -webkit-font-smoothing: auto;
+    -moz-osx-font-smoothing: auto;
+}
+

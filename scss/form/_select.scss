@@ -1,0 +1,61 @@
+.bootstrap-select {
+    // we don't want to default arrow
+    .bs-caret {
+        display: none;
+    }
+    // I hate to be so specific, but we need to be stronger than the default dropdown styles
+    &.open {
+        > .dropdown-toggle {
+            color: map-deep-get($btn-variations,$select-btn-variation,'color') !important;
+            background-color: map-deep-get($btn-variations,$select-btn-variation,'bg') !important;
+            border-top-color: map-deep-get($btn-variations,$select-btn-variation,'border-top-color') !important;
+            border-right-color: map-deep-get($btn-variations,$select-btn-variation,'border-right-color') !important;
+            border-bottom-color: map-deep-get($btn-variations,$select-btn-variation,'border-bottom-color') !important;
+            border-left-color: map-deep-get($btn-variations,$select-btn-variation,'border-left-color') !important;
+            box-shadow: none !important;
+        }
+    }
+    > .dropdown-toggle {
+        width: auto;
+        padding-right: $dropdown-toggle-padding-right;
+        padding-left: $dropdown-toggle-padding-left;
+        color: map-deep-get($btn-variations,$select-btn-variation,'color') !important;
+        background-color: map-deep-get($btn-variations,$select-btn-variation,'bg') !important;
+        &:focus {
+            outline: none !important; // I appologise, dear accessibility
+        }
+        &:before {
+            @include icomoon();
+            content: $dropdown-toggle-icon;
+            position: absolute;
+            top: 50%;
+            width: auto; // TBD: If not set, icon jumps
+            right: $dropdown-toggle-icon-spacing-right;
+            left: $dropdown-toggle-icon-spacing-left;
+            transition: all 300ms;
+            transform: translateY(-50%) rotate(0deg);
+        }
+        &:hover,
+        &:focus,
+        &:active {
+            color: map-deep-get($btn-variations,$select-btn-variation,'color-hover');
+            background-color: map-deep-get($btn-variations,$select-btn-variation,'bg-hover');
+        }
+    }
+    .dropdown-menu {
+        min-width: 200px !important; // I hate to do this, but because the default styles uses a very specific structure, I was forced to. This can of cousre be overwritten in a different context
+        padding: 0;
+        border-style: $dropdown-border-style;
+        border-width: $dropdown-border-width;
+        border-color: $dropdown-border-color;
+        border-radius: $dropdown-border-radius;
+        @if $dropdown-border-top == false {
+            border-top: none;
+        }
+        > li {
+            > a {
+                outline: none;
+            }
+        }
+    }
+}

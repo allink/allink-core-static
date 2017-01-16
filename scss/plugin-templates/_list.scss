@@ -1,0 +1,30 @@
+.list-container {
+    @include make-row();
+}
+
+.list-item {
+    @include clearfix();
+    .col {
+        &:nth-child(1) {
+            @include make-xs-column(24);
+            @include make-sm-column(12);
+        }
+        &:nth-child(2) {
+            @include make-xs-column(24);
+            @include make-sm-column(12);
+            @include make-spacing-top-xs-max($content-section-col-stack-spacing-xs-max);
+        }
+    }
+    .heading {
+        @include h2();
+    }
+}
+
+
+.list-item {
+    & + .list-item {
+        @include make-spacing-top-xs($app-content-plugin-list-item-spacing-xs);
+        @include make-spacing-top-md($app-content-plugin-list-item-spacing-md);
+        @include make-spacing-top-xl($app-content-plugin-list-item-spacing-xl);
+    }
+}

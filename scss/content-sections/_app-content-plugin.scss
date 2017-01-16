@@ -1,0 +1,109 @@
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+Note: This file contains very basic styling, that will be overwritten
+and customized in an app specific SCSS file.
+
+*/
+
+
+.app-content-plugin {
+
+    // default padding when container is NOT activated
+    > .container {
+        @include column-paddings();
+    }
+
+    /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+    Detail View
+
+    */
+
+    &.detail-view {
+        // default header image spacing to next element
+        .header-image-container {
+            & + * {
+                margin-top: $grid-gutter-width;
+            }
+        }
+        // default heading style
+        .section-heading {
+            .heading {
+                @include h1();
+                max-width: 66%;
+            }
+        }
+    }
+
+}
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+Commonly used column styles that can be re-used
+
+*/
+
+.app-detail-col-container {
+    @include make-row();
+    // on XS we have a smaller column padding
+    @include make-row-sm-max();
+    &.col-2-1 {
+        .col:nth-child(1) {
+            @include make-xs-column(24);
+            @include make-md-column(16);
+        }
+        .col:nth-child(2) {
+            @include make-xs-column(24);
+            @include make-md-column(8);
+            @include make-spacing-top-sm-max($content-section-col-stack-spacing-xs-max);
+        }
+    }
+    .col {
+        @include column-padding-sm-max();
+    }
+}
+
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+Items loaded with AJAX
+
+*/
+
+// default container
+.ajax-items-container {
+
+    opacity: 1;
+    transition: $load-more-swop-category-transition-property $load-more-swop-category-transition-duration $load-more-swop-category-transition-timing-function;
+    // loading effect when switching category
+    &.loading {
+        opacity: 0;
+    }
+
+    // all appended items get the following class
+    .appended {
+        animation: fadeIn 400ms;
+    }
+}
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+The 'load more' container and button
+
+*/
+
+.load-more-container {
+    clear: both;
+    text-align: center;
+    opacity: 1;
+    transition: $load-more-swop-category-transition-property $load-more-swop-category-transition-duration $load-more-swop-category-transition-timing-function;
+    // loading effect when switching category
+    &.loading {
+        opacity: 0;
+    }
+    @include make-spacing-top-xs($load-more-container-spacing-top-xs);
+    @include make-spacing-top-md($load-more-container-spacing-top-md);
+    @include make-spacing-top-xl($load-more-container-spacing-top-xl);
+}

@@ -1,0 +1,60 @@
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+Default Form Styles
+
+*/
+
+.form-default {
+
+    // form group (= form row)
+    .form-group {
+        margin: 0;
+        & + .form-group {
+            margin-top: $form-group-spacing-xs;
+            @media (min-width:$screen-md) {
+                margin-top: $form-group-spacing-md;
+            }
+            @media (min-width:$screen-xl) {
+                margin-top: $form-group-spacing-xl;
+            }
+        }
+    }
+
+    // the default label
+    .control-label {
+        display: inline-block;
+        max-width: 100%;
+        margin: 0;
+        margin-bottom: $form-label-spacing-xs;
+        @media (min-width:$screen-md) {
+            margin-bottom: $form-label-spacing-md;
+        }
+        @media (min-width:$screen-xl) {
+            margin-bottom: $form-label-spacing-xl;
+        }
+    }
+
+    // the label text container
+    .label-text {
+        display: inline-block;
+        font-weight: normal;
+    }
+
+    // prepare the required symbol
+    .required-symbol {
+        display: inline-block;
+        width: $form-field-required-icon-width;
+        height: $form-field-required-icon-height;
+        overflow: hidden;
+        visibility: hidden;
+        &:before {
+            content: $form-field-required-icon;
+            color: $form-field-required-icon-color;
+            visibility: visible;
+            @if $form-field-required-icomoon-enabled == true {
+                @include icomoon();
+            }
+        }
+    }
+
+}

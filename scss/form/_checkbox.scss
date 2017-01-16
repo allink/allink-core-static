@@ -1,0 +1,86 @@
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+Custom Checkbox
+
+***
+
+Requires the following HTML markup:
+
+<div class="checkbox">
+    <label>
+        <input name="send_access" type="checkbox">
+        <span class="custom-checkbox"></span>
+        Example Checkbox Text
+    </label>
+</div>
+
+*/
+
+.checkbox {
+    position: relative;
+    margin: 0;
+    & + .checkbox {
+        margin-top: $checkbox-siblings-spacing-top;
+    }
+    padding: 0;
+    label {
+        padding: 0;
+        padding-left: $checkbox-label-spacing;
+    }
+    // the basic checkbox style
+    .custom-checkbox {
+        position: absolute;
+        top: 50%;
+        left: $checkbox-spacing-left;
+        transform: translate(0,-50%);
+        width: $checkbox-size;
+        height: $checkbox-size;
+        border-width: $checkbox-border-width;
+        border-color: $checkbox-border-color;
+        border-style: solid;
+        border-radius: $checkbox-border-radius;
+        background: $checkbox-bg-color;
+        transition: $form-field-transition;
+    }
+    // styling and focusing the fake checkbox, making use of the ':checked' state of the actual checkbox input
+    input[type=checkbox] {
+        opacity: 0;
+
+        // checked icon
+        &:checked {
+            & + .custom-checkbox {
+                border-color: $checkbox-border-color-checked;
+                background: $checkbox-bg-color-checked;
+                &::after {
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    @if $checkbox-font-icon-enabled == true {
+                        @include icomoon();
+                        content: $checkbox-font-icon-code;
+                        font-size: $checkbox-font-icon-size;
+                        color: $checkbox-icon-color;
+                        transform: translate(-50%,-50%);
+                    }
+                    @else {
+                        content: '';
+                        width: $checkbox-css-icon-size/2;
+                        height: $checkbox-css-icon-size;
+                        border: $checkbox-css-icon-size/4 solid $checkbox-icon-color;
+                        border-left: none;
+                        border-top: none;
+                        transform: translate(-50%,-50%) rotate(45deg);
+                    }
+                }
+            }
+        }
+        // focus and active styles
+        &:hover + .custom-checkbox,
+        &:focus + .custom-checkbox,
+        &:active + .custom-checkbox {
+            border-color: $checkbox-border-color-focus;
+            background: $checkbox-bg-color-focus;
+        }
+    }
+
+}
