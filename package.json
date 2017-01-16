@@ -1,5 +1,5 @@
 {
   "name": "allink-core-static",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "The allink core styles/scripts for our Django CMS setup.",
 }
