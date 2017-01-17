@@ -3,5 +3,5 @@
   "version": "0.0.4",
   "description": "The allink core styles/scripts for our Django CMS setup.",
   "main" : "allink-core-static",
-  "author": "Beat Schenkel - allink",
+  "author": "Beat Schenkel - allink AG"
 }
