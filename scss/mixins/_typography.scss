@@ -25,7 +25,7 @@ Font mixins
     letter-spacing: $text-default-letter-spacing;
     text-transform: $text-default-text-transform;
     font-family: $text-default-font-family;
-    font-weight: normal;
+    font-weight: $text-default-font-family;
     @include font-size($text-default-font-sizes);
     @if $text-default-antialiased-enabled == true {
         @include antialiased();
@@ -36,7 +36,7 @@ Font mixins
     letter-spacing: $p-default-letter-spacing;
     text-transform: $p-default-text-transform;
     font-family: $p-default-font-family;
-    font-weight: normal;
+    font-weight: $p-default-font-family;
     @include font-size($p-default-font-sizes);
     @if $p-default-antialiased-enabled == true {
         @include antialiased();
@@ -47,7 +47,7 @@ Font mixins
     letter-spacing: $p-small-letter-spacing;
     text-transform: $p-small-text-transform;
     font-family: $p-small-font-family;
-    font-weight: normal;
+    font-weight: $p-small-font-family;
     @include font-size($p-small-font-sizes);
     @if $p-small-antialiased-enabled == true {
         @include antialiased();
@@ -58,7 +58,7 @@ Font mixins
     letter-spacing: $p-lead-letter-spacing;
     text-transform: $p-lead-text-transform;
     font-family: $p-lead-font-family;
-    font-weight: normal;
+    font-weight: $p-lead-font-family;
     @include font-size($p-lead-font-sizes);
     @if $p-lead-antialiased-enabled == true {
         @include antialiased();
@@ -69,7 +69,7 @@ Font mixins
     letter-spacing: $btn-default-letter-spacing;
     text-transform: $btn-default-text-transform;
     font-family: $btn-default-font-family;
-    font-weight: normal;
+    font-weight: $btn-default-font-family;
     @include font-size($btn-default-font-sizes);
     @if $btn-default-antialiased-enabled == true {
         @include antialiased();
@@ -80,7 +80,7 @@ Font mixins
     letter-spacing: $btn-small-letter-spacing;
     text-transform: $btn-small-text-transform;
     font-family: $btn-small-font-family;
-    font-weight: normal;
+    font-weight: $btn-small-font-family;
     @include font-size($btn-small-font-sizes);
     @if $btn-small-antialiased-enabled == true {
         @include antialiased();
@@ -91,7 +91,7 @@ Font mixins
     letter-spacing: $btn-large-letter-spacing;
     text-transform: $btn-large-text-transform;
     font-family: $btn-large-font-family;
-    font-weight: normal;
+    font-weight: $btn-large-font-family;
     @include font-size($btn-large-font-sizes);
     @if $btn-large-antialiased-enabled == true {
         @include antialiased();
@@ -102,7 +102,7 @@ Font mixins
     letter-spacing: $input-letter-spacing;
     text-transform: $input-text-transform;
     font-family: $input-font-family;
-    font-weight: normal;
+    font-weight: $input-font-family;
     @include font-size($input-font-sizes);
     @if $input-antialiased-enabled == true {
         @include antialiased();
@@ -113,7 +113,7 @@ Font mixins
     letter-spacing: $nav-primary-letter-spacing;
     text-transform: $nav-primary-text-transform;
     font-family: $nav-primary-font-family;
-    font-weight: normal;
+    font-weight: $nav-primary-font-family;
     @include font-size($nav-primary-font-sizes);
     @if $nav-primary-antialiased-enabled == true {
         @include antialiased();
@@ -124,7 +124,7 @@ Font mixins
     letter-spacing: $h1-letter-spacing;
     text-transform: $h1-text-transform;
     font-family: $h1-font-family;
-    font-weight: normal;
+    font-weight: $h1-font-family;
     @include font-size($h1-font-sizes);
     @if $h1-antialiased-enabled == true {
         @include antialiased();
@@ -135,7 +135,7 @@ Font mixins
     letter-spacing: $h2-letter-spacing;
     text-transform: $h2-text-transform;
     font-family: $h2-font-family;
-    font-weight: normal;
+    font-weight: $h2-font-family;
     @include font-size($h2-font-sizes);
     @if $h2-antialiased-enabled == true {
         @include antialiased();
@@ -146,7 +146,7 @@ Font mixins
     letter-spacing: $h3-letter-spacing;
     text-transform: $h3-text-transform;
     font-family: $h3-font-family;
-    font-weight: normal;
+    font-weight: $h3-font-family;
     @include font-size($h3-font-sizes);
     @if $h3-antialiased-enabled == true {
         @include antialiased();
@@ -157,7 +157,7 @@ Font mixins
     letter-spacing: $h4-letter-spacing;
     text-transform: $h4-text-transform;
     font-family: $h4-font-family;
-    font-weight: normal;
+    font-weight: $h4-font-family;
     @include font-size($h4-font-sizes);
     @if $h4-antialiased-enabled == true {
         @include antialiased();
@@ -168,7 +168,7 @@ Font mixins
     letter-spacing: $display-1-letter-spacing;
     text-transform: $display-1-text-transform;
     font-family: $display-1-font-family;
-    font-weight: normal;
+    font-weight: $display-1-font-family;
     @include font-size($display-1-font-sizes);
     @if $display-1-antialiased-enabled == true {
         @include antialiased();
