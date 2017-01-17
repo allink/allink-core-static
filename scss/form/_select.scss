@@ -38,8 +38,12 @@
         &:hover,
         &:focus,
         &:active {
-            color: map-deep-get($btn-variations,$select-btn-variation,'color-hover');
-            background-color: map-deep-get($btn-variations,$select-btn-variation,'bg-hover');
+            color: map-deep-get($btn-variations,$select-btn-variation,'color-hover') !important;
+            background-color: map-deep-get($btn-variations,$select-btn-variation,'bg-hover') !important;
+            border-top-color: map-deep-get($btn-variations,$select-btn-variation,'border-top-color-hover') !important;
+            border-right-color: map-deep-get($btn-variations,$select-btn-variation,'border-right-color-hover') !important;
+            border-bottom-color: map-deep-get($btn-variations,$select-btn-variation,'border-bottom-color-hover') !important;
+            border-left-color: map-deep-get($btn-variations,$select-btn-variation,'border-left-color-hover') !important;
         }
     }
     .dropdown-menu {
