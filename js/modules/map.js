@@ -92,11 +92,13 @@ export const initMap = function (options) {
     function createMarker(options, markerPos, infowindow_content, map) {
         var pin = {
             url: options.pin_url,
-            size: new google.maps.Size(options.pin_width, options.pin_height), // half the actual size (squeezed), otherwise the info window is not centered correctly
-            scaledSize: new google.maps.Size(options.pin_width, options.pin_height),
+            size: new google.maps.Size(Math.floor(options.pin_width/2), Math.floor(options.pin_height/2)), // half the actual size (squeezed), otherwise the info window is not centered correctly
+            scaledSize: new google.maps.Size(Math.floor(options.pin_width/2), Math.floor(options.pin_height/2)),
             origin: new google.maps.Point(0, 0),
-            anchor: new google.maps.Point(options.pin_width/2, options.pin_height)
-          };
+            anchor: new google.maps.Point(Math.floor(options.pin_width/4), Math.floor(options.pin_height/2)
+)          };
+
+        console.log( pin );
 
         var marker = new google.maps.Marker({
           position: markerPos,
@@ -203,6 +205,7 @@ export const initMap = function (options) {
                 // Multiple Markers: No need to do anything for now
                 else {
                     // niente
+                    this.setZoom(zoomLevel);
                 }
             });
 

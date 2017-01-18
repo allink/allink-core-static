@@ -5,9 +5,6 @@ Basic styles for the picture plugin
 */
 
 .image-container {
-    a {
-        display: inline-block;
-    }
     // default case: we handle the thumbnail sizes in each context
     picture {
         img {
