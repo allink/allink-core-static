@@ -98,8 +98,6 @@ export const initMap = function (options) {
             anchor: new google.maps.Point(Math.floor(options.pin_width/4), Math.floor(options.pin_height/2)
 )          };
 
-        console.log( pin );
-
         var marker = new google.maps.Marker({
           position: markerPos,
           map: map,
