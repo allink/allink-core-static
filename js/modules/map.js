@@ -184,10 +184,7 @@ export const initMap = function (options) {
             var reCenterMap = debounce(function() {
                 // recenter map after resizing
                 map.fitBounds(bounds);
-                // Single Marker: fitBounds zooms in way too close when there's only one marker.
-                if (numberOfMarkers == 1) {
-                    map.setZoom(zoomLevel);
-                }
+                map.setZoom(zoomLevel);
             }, 500);
             // only when viewport width has changed
             $(window).on('viewportWidthHasChanged', function(){
@@ -196,15 +193,7 @@ export const initMap = function (options) {
 
             // handle zoom levels for different scenarios
             google.maps.event.addListenerOnce(map, 'bounds_changed', function(e) {
-                // Single Marker: fitBounds zooms in way too close when there's only one marker.
-                if (numberOfMarkers == 1) {
-                    this.setZoom(zoomLevel);
-                }
-                // Multiple Markers: No need to do anything for now
-                else {
-                    // niente
-                    this.setZoom(zoomLevel);
-                }
+                this.setZoom(zoomLevel);
             });
 
         }
