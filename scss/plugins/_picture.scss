@@ -1,0 +1,23 @@
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+Basic styles for the picture plugin
+
+*/
+
+.image-container {
+    a {
+        display: inline-block;
+    }
+    // default case: we handle the thumbnail sizes in each context
+    picture {
+        img {
+            width: 100%;
+            height: auto;
+        }
+    }
+    // optional: when cropping is disabled
+    img.cropping-disabled {
+        max-width: 100%;
+        height: auto;
+    }
+}

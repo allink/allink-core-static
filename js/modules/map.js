@@ -31,13 +31,10 @@ export const initMap = function (options) {
         options.pin_url = '/static/images/map/pin.png';
     }
     if (!options.pin_width) {
-        options.pin_width = 33;
-    }
-    if (!options.map_control_padding) {
-        options.map_control_padding = 30;
+        options.pin_width = 66;
     }
     if (!options.pin_height) {
-        options.pin_height = 53;
+        options.pin_height = 109;
     }
     if (!options.map_styles) {
         options.map_styles = [
