@@ -9,8 +9,6 @@ Text Fields
     line-height: $btn-line-height-default;
     color: $input-color;
     background-color: $input-bg;
-    padding-top: $btn-padding-top-default;
-    padding-bottom: $btn-padding-bottom-default;
     height: auto;
     width: 100%;
     border-width: $form-field-border-width;
@@ -23,6 +21,9 @@ Text Fields
     padding-right: $input-padding-right;
     box-shadow: none;
     transition: $form-field-transition;
+    // applying button padding (top/bottom) to make them equally high in case of input-groups
+    padding-top: $btn-padding-top-default;
+    padding-bottom: $btn-padding-bottom-default;
     &:focus {
         border-top-color: $input-border-top-color-focus;
         border-right-color: $input-border-right-color-focus;

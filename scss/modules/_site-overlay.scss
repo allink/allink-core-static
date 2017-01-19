@@ -1,0 +1,19 @@
+.site-overlay {
+    position: fixed;
+    background-color: $site-overlay-bg;
+    opacity: 0;
+    visibility: hidden;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: z($site-overlay-z-index-map-key);
+    transition: all $site-overlay-transition-duration $site-overlay-transition-timing-function;
+    &.visible {
+        opacity: $site-overlay-opacity-when-visible;
+        visibility: visible;
+        &.click-close-disabled {
+            cursor: pointer;
+        }
+    }
+}

@@ -1,0 +1,59 @@
+.social-icons-container {
+
+    text-align: $social-profile-icon-alignment;
+
+    ul {
+        padding: 0;
+        margin: 0;
+        list-style: none;
+    }
+
+    li {
+        display: inline-block;
+        & + li {
+            margin-left: $social-profile-icon-spacing;
+        }
+    }
+
+    // no underline, what so ever!
+    a:link,
+    a:visited,
+    a:hover,
+    a:focus,
+    a:active {
+        text-decoration: none;
+        border: none;
+    }
+
+    .social-icon {
+        display: block;
+        &:before {
+            @include icomoon();
+            display: block;
+            font-size: $social-profile-icon-size;
+            color: $social-profile-icon-color;
+            opacity: $social-profile-icon-opacity;
+            transition: $social-profile-icon-transition;
+        }
+    }
+
+    a:hover,
+    a:focus {
+        .social-icon {
+            &:before {
+                color: $social-profile-icon-color-hover;
+                opacity: $social-profile-icon-opacity-hover;
+            }
+        }
+    }
+
+    // $social-profile-icons is defined in the project variables file
+    @each $selector, $icon in $social-profile-icons {
+        .#{$selector} {
+            &:before {
+                content: $icon;
+            }
+        }
+    }
+
+}

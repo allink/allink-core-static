@@ -790,3 +790,64 @@ $custom-scrollbar-track-border-radius:         6px;
 // thumb (movable bar)
 $custom-scrollbar-thumb-bg:                    darken($gray-lighter,10%);
 $custom-scrollbar-thumb-border-radius:         $custom-scrollbar-track-border-radius; // recommended to be the same as $custom-scrollbar-track-border-radius
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+Social Profile Icons
+
+*/
+
+$social-profile-icons: (
+    'facebook': '\e900',
+    'instagram': '\e901',
+    'pinterest': '\e907',
+    'twitter': '\e605',
+    'snapchat': '\e90a',
+    'spotify': '\e908',
+    'linkedin': '\e607',
+    'xing': '\e608',
+    'youtube': '\e601',
+    'vimeo': '\e909',
+    'googleplus': '\e90b',
+    'tripadvisor': '\e902',
+);
+
+$social-profile-icon-alignment:                 right; // horizontal values only: left, center, right
+$social-profile-icon-size:                      2em;
+$social-profile-icon-spacing:                   0.8em;
+$social-profile-icon-opacity:                   1;
+$social-profile-icon-opacity-hover:             0.85;
+$social-profile-icon-color:                     $black;
+$social-profile-icon-color:                     $black;
+$social-profile-icon-color-hover:               $black;
+$social-profile-icon-transition:                $link-transition;
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+Button / Link Plugin
+
+*/
+
+// .button-link-container (spacing between list items)
+$button-link-container-item-spacing-xs:         1em;
+$button-link-container-item-spacing-md:         1em;
+$button-link-container-item-spacing-xl:         1em;
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+Site =Overlay '.site-overlay'
+
+Note: It is recommended to use a solid background color and to
+lower the opacity value, instead of using rgba().
+
+Why? Browsers can transition opacity cheaper, performance-wise.
+
+*/
+
+$site-overlay-z-index-map-key:                  'site-overlay';
+$site-overlay-bg:                               #000;
+$site-overlay-opacity-when-visible:             0.5;
+$site-overlay-transition-duration:              300ms;
+$site-overlay-transition-timing-function:       ease-in;
