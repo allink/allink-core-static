@@ -1,0 +1,40 @@
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+App Specific
+
+*/
+
+.change-form {
+    // first of all, we need a proper box-sizing definition
+    * {
+        box-sizing: border-box;
+    }
+    // people app
+    &.app-people {
+        .field-box {
+            &.field-firstname,
+            &.field-lastname,
+            &.field-gender {
+                width: 33.33%;
+                margin-right: 0 !important;
+                padding-right: 20px;
+            }
+            &.field-gender {
+                padding-right: 0;
+            }
+            &.field-phone,
+            &.field-mobile,
+            &.field-fax {
+                width: 33.33%;
+                margin-right: 0 !important;
+                padding-right: 20px;
+                input {
+                    width: 100%;
+                }
+            }
+            &.field-fax {
+                padding-right: 0;
+            }
+        }
+    }
+}
