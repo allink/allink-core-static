@@ -5,7 +5,6 @@
   "main" : "allink-core-static",
   "author": "Beat Schenkel - allink AG",
   "dependencies": {
-    "allink-core-static": "git://github.com/allink/allink-core-static.git",
     "autoprefixer": "^6.3.7",
     "babel-core": "^6.9.1",
     "babel-loader": "^6.2.4",
