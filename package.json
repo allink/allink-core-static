@@ -50,5 +50,5 @@
     "webpack": "^1.13.1",
     "webpack-bundle-tracker": "0.0.93",
     "webpack-cli": "^1.0.0"
-  },
+  }
 }
