@@ -26,6 +26,6 @@
     "softpage": "git://github.com/allink/softpage.git#v0.1.6",
     "superagent": "^2.0.0",
     "swiper": "^3.4.1",
-    "tingle.js": "^0.7.0",
+    "tingle.js": "^0.7.0"
   }
 }
