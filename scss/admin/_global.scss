@@ -100,6 +100,21 @@ Visually separate blocks
             }
         }
 
+        // heading
+        > h2 {
+            margin-bottom: 0;
+            border-bottom: 1px solid #ddd;
+            & + * {
+                margin-top: $fieldset-spacing;
+            }
+        }
+        // heading
+        &.collapsed {
+            > h2 {
+                border: none;
+            }
+        }
+
         // tweaking children
         p.help {
             margin-top: 0 !important;
@@ -117,12 +132,7 @@ Visually separate blocks
         & + .module {
             margin-top: $fieldset-spacing;
         }
-        > h2 {
-            margin-bottom: 0;
-            & + * {
-                margin-top: $fieldset-spacing;
-            }
-        }
+
         .checkbox-row {
             &:after {
                 content: '';
