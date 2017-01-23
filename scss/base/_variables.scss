@@ -151,6 +151,12 @@ $content-section-spacing-last-item-xl:      $content-section-spacing-xl;
 $content-section-col-stack-spacing-xs-max:  $grid-gutter-width/2;
 $content-section-col-stack-spacing-sm-max:  $grid-gutter-width;
 
+// Content Plugin > For template above >=3 columsL
+// We have to define the spacing when stacked
+$content-plugin-stacked-col-spacing-xs:     $grid-gutter-width/2;
+$content-plugin-stacked-col-spacing-md:     $grid-gutter-width;
+$content-plugin-stacked-col-spacing-xl:     $grid-gutter-width;
+
 // Content Plugin > spacing between SECTION HEADING and the columns
 $content-section-heading-spacing-xs:        $grid-gutter-width/2;
 $content-section-heading-spacing-md:        $grid-gutter-width;

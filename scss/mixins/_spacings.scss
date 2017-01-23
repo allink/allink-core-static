@@ -311,6 +311,26 @@ First and last section withing .site-content
     }
 }
 
+@mixin content-plugin-stacked-col-spacing() {
+    margin-bottom: $content-plugin-stacked-col-spacing-xs;
+    @media (min-width:$screen-md) {
+        margin-bottom: $content-plugin-stacked-col-spacing-md;
+    }
+    @media (min-width:$screen-xl) {
+        margin-bottom: $content-plugin-stacked-col-spacing-xl;
+    }
+}
+
+@mixin content-plugin-stacked-col-container-negative-spacing() {
+    margin-bottom: -$content-plugin-stacked-col-spacing-xs;
+    @media (min-width:$screen-md) {
+        margin-bottom: -$content-plugin-stacked-col-spacing-md;
+    }
+    @media (min-width:$screen-xl) {
+        margin-bottom: -$content-plugin-stacked-col-spacing-xl;
+    }
+}
+
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 
 Position of absolutely positioned elements (e.g. a text within a parallax)
