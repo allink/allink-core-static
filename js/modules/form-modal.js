@@ -4,6 +4,7 @@ Link with class '.toggle-form-modal' will trigger the form lightbox
 
 */
 
+import serialize from 'form-serialize';
 import tingle from 'tingle.js';
 
 $(function(){
