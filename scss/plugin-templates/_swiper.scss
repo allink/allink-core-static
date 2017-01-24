@@ -49,9 +49,10 @@ Global Swiper Custom Styles
 .swiper-button {
     background: none;
     width: $swiper-default-arrows-width;
-    height: 100%;
-    top: 0;
+    height: 40%;
+    top: 50%;
     margin: 0;
+    transform: translate(0,-50%);
     opacity: $swiper-default-arrows-opacity;
     transition: $swiper-default-arrows-transition;
     &:hover,

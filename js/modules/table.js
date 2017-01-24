@@ -35,7 +35,13 @@ $(function(){
     // on page load
     initTableModifications();
 
+    // custom event
     $(window).on('initTableModifications', function() {
+        initTableModifications();
+    });
+
+    // when vietport width changes
+    $(window).on('viewportWidthHasChanged', function(){
         initTableModifications();
     });
 
