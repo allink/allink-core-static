@@ -30,7 +30,9 @@ and customized in an app specific SCSS file.
         .section-heading {
             .heading {
                 @include h1();
-                max-width: 66%;
+                @media (min-width:$screen-md) {
+                    max-width: 66%;
+                }
             }
         }
     }
