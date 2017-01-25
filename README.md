@@ -4,7 +4,7 @@
 
 New variables available:
 
-```CSS
+```SCSS
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 
 =Alerts
