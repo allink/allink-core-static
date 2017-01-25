@@ -58,6 +58,10 @@ $.fn.parallax = function(options) {
 export function initParallax(options) {
     // init
     var options = options || {};
+    // available options and default values
+    if (!options.selector) {
+        options.selector = '.parallax-enabled .bg-image';
+    }
     // no selector, no honey
     if (options.selector) {
         $(options.selector).parallax(options);
@@ -65,12 +69,3 @@ export function initParallax(options) {
         console.warn('parallax() requires CSS selector.')
     }
 }
-
-$(function(){
-
-    // custom events
-    $(window).on('initParallax', function(options) {
-        initParallax(options);
-    });
-
-});

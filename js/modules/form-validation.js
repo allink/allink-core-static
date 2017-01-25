@@ -34,7 +34,7 @@ export function initFormValidation() {
         var form_to_validate = $form.validate({
             onkeyup: false,
             onfocusout: function(element) {
-                // option 1: INSTANT validation after leaving a form field es required
+                // option 1: INSTANT validation after leaving a form field
                 // this.element(element);
                 // option 2: validate on submit
                 return false;
