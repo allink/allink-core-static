@@ -12,6 +12,7 @@ General Font Styles
 @mixin font-family-italic() {
     font-family: $font-family-italic;
     font-weight: normal;
+    font-style: normal;
 }
 
 

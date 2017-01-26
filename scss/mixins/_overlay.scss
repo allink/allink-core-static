@@ -1,4 +1,4 @@
-@mixin gradient-overlay($height: 100%,$gradient-stars-from-bottom: true, $before: true) {
+@mixin gradient-overlay($height: 100%,$gradient-starts-from-bottom: true, $before: true) {
 
     $pseude-element: before;
 
@@ -10,7 +10,7 @@
         content: '';
         display: block;
         position: absolute;
-        @if $gradient-stars-from-bottom {
+        @if $gradient-starts-from-bottom {
             bottom: 0;
         }else {
             top: 0;
