@@ -31,16 +31,10 @@ Basic taeble template
     td {
         vertical-align: top;
         padding: 0.5em 0;
-        border-bottom: 1px solid $black;
     }
     th {
         @include h3();
         text-align: left;
-    }
-    tbody {
-        tr:last-child > td {
-            border-bottom: none;
-        }
     }
 }
 
