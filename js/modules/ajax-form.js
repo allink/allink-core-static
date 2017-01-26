@@ -5,20 +5,19 @@ Global solution for simple AJAX forms
 Usage:
 
 <div id="example-form-container">
-    <form class="ajax-form" data-form-container-id="example-form-container" action="/example-url/">
+    <form class="ajax-form" data-form-container-id="example-form-container" data-success-data-layer-event="newsletter.sent" action="/example-url/">
         <div
             data-layer-variable="example-variable-1"
             data-layer-value="example-value-1"
             >
         </div>
-        <div
-            data-layer-variable="example-variable-2"
-            data-layer-value="example-value-2"
-            >
-        </div>
         ...
     </form>
 </div>
+
+Google Tag Manager GTM note:
+
+Send a custom event to GTM by adding the 'data-success-data-layer-event' attribute to the <form> and pass a value e.g. 'newsletter.sent' that matched your GTM settings.
 
 Important:
 
@@ -30,11 +29,9 @@ export function sendAjaxForm($form) {
 
     // init
     var url = $form.attr('action');
+    var custom_event = $form.attr('data-success-data-layer-event');
     var container_id_selector = '#' + $form.data('form-container-id');
     var postData = $form.serialize();
-
-    // look for data-layer variables inside
-    var $data_layers = $form.find('[data-layer-variable]');
 
     // AJAX magic
     $.ajax({
@@ -46,28 +43,22 @@ export function sendAjaxForm($form) {
             $(container_id_selector).html(data);
 
             // Google Tag Manager
-            if (typeof dataLayer !== 'undefined') {
-                // no GTM in use
+            if (typeof dataLayer === 'undefined') {
+                // GTM not in use or not configured properly
             }
             // Note: If there are errors that we couldn't catch with the JavaScript form validation we get a '206' status code from the form's view
             else if (jqXHR.status === 206) {
                 // something wrong while sending the form
             }
-            else if ($data_layers.length > 0) {
-                // no data layer variables for this form
-            }
             // made it.. finally!
             else {
-                $data_layers.each(function(){
-                    // init
-                    var $data_layer_item = $(this);
-                    var data_layer_variable = $data_layer_item.attr('data-layer-variable');
-                    var data_layer_value = $data_layer_item.attr('data-layer-value');
+                // hold on, is there a custom event defined?
+                if (custom_event) {
                     // add values to array
                     dataLayer.push({
-                        data_layer_variable: data_layer_value,
+                        'event': custom_event,
                     });
-                });
+                }
             }
 
             // trigger custom events
