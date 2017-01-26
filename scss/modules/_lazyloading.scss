@@ -1,0 +1,57 @@
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+Lazyload transition and placeholder styles of images
+
+Usage:
+
+<picture class="lazyloader"> ... </picture>
+
+Optionally we can tell the lazyloader NOT to dislpay an icon:
+
+<picture class="lazyloader no-icon"> ... </picture>
+
+*/
+
+
+.lazyload,
+.lazyloading,
+.lazyloaded {
+    display: block;
+    opacity: 0;
+    width: 100%;
+    height: auto;
+    max-width: none;
+    transform: translate3d(0,0,0);
+}
+
+.lazyloaded {
+    position: relative;
+    opacity: 1;
+    z-index: 2;
+    transition: opacity $lazyloader-transition-duration;
+}
+
+picture.lazyloader {
+    position: relative;
+    display: block;
+    background: $lazyloader-bg-color;
+    @include the-loader();
+    transition: opacity $lazyloader-transition-duration;
+    // modifier classes
+    &.no-icon {
+        &:before {
+            display: none;
+        }
+    }
+    &.no-bg {
+        background: transparent;
+    }
+    // we use the ratio "hack" on the picture element, so we can position the actual image absolute
+    > img {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+    }
+}
