@@ -1,0 +1,58 @@
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+Global table settings
+
+*/
+
+table {
+    // using 'collapse' caused a bug that showed our border delayed. This approach seems to fix this!
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+// make tables responsive when overflowing x
+.table-container {
+    overflow-x: auto;
+    // added when the table width exceeds the container width
+    &.scrolling-enabled {
+        @include custom-scrollbar();
+    }
+}
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+Basic taeble template
+
+*/
+
+.table-default {
+    width: 100%;
+    th,
+    td {
+        vertical-align: top;
+        padding: 0.5em 0;
+        border-bottom: 1px solid $black;
+    }
+    th {
+        @include h3();
+        text-align: left;
+    }
+    tbody {
+        tr:last-child > td {
+            border-bottom: none;
+        }
+    }
+}
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+Default App Content definitions
+
+*/
+
+.table-app-content {
+    td:nth-child(1) { width: 15%; min-width: 120px; }
+    td:nth-child(2) { min-width: 400px; }
+    td:nth-child(3) { width: 20%; min-width: 200px; text-align: right; }
+}
