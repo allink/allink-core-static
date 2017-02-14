@@ -29,10 +29,12 @@ $(function(){
     const init_ajax_form = function(target) {
         var form = target.modal.modalBox.querySelector('form')
 
+
         if (form){
             form.addEventListener('submit', (event)=> {
                 event.preventDefault();
                 // if a success url is defined it should be used otherwise go back to previous page
+
                 try {
                     var success_url = event.currentTarget.querySelector('[name=success_url]').value;
                   } catch(e) {
@@ -134,6 +136,7 @@ $(function(){
             value.addEventListener('click', (event) => {
                 // instantly toggle site overlay (improves "felt performance")
                 $(window).trigger('showSiteOverlay');
+
                 // load softpage
                 event.preventDefault();
                 soft_page.loadPage(event.currentTarget.href, false);
@@ -144,7 +147,6 @@ $(function(){
 
     // on page load
     initSoftpageTrigger();
-
 
     $(window).on('initSoftpageTrigger', function() {
         initSoftpageTrigger();

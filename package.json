@@ -1,9 +1,44 @@
 {
-  "name": "allink-core-static",
-  "version": "0.0.1",
-  "description": "The allink core styles/scripts for our Django CMS setup.",
-  "main" : "allink-core-static",
-  "author": "Beat Schenkel - allink AG",
+  "_args": [
+    [
+      "allink-core-static@git://github.com/allink/allink-core-static.git#3978b70",
+      "/Users/florian/aldryn_projects/hausderfarbe-allink"
+    ]
+  ],
+  "_from": "git://github.com/allink/allink-core-static.git#3978b70",
+  "_id": "allink-core-static@0.0.1",
+  "_inCache": true,
+  "_installable": true,
+  "_location": "/allink-core-static",
+  "_phantomChildren": {},
+  "_requested": {
+    "hosted": {
+      "directUrl": "https://raw.githubusercontent.com/allink/allink-core-static/3978b70/package.json",
+      "gitUrl": "git://github.com/allink/allink-core-static.git#3978b70",
+      "httpsUrl": "git+https://github.com/allink/allink-core-static.git#3978b70",
+      "shortcut": "github:allink/allink-core-static#3978b70",
+      "ssh": "git@github.com:allink/allink-core-static.git#3978b70",
+      "sshUrl": "git+ssh://git@github.com/allink/allink-core-static.git#3978b70",
+      "type": "github"
+    },
+    "name": "allink-core-static",
+    "raw": "allink-core-static@git://github.com/allink/allink-core-static.git#3978b70",
+    "rawSpec": "git://github.com/allink/allink-core-static.git#3978b70",
+    "scope": null,
+    "spec": "git://github.com/allink/allink-core-static.git#3978b70",
+    "type": "hosted"
+  },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "git://github.com/allink/allink-core-static.git#3978b70bc23e87ef8fe8e81d2d5f4319cd2eb78e",
+  "_shasum": "39a87d2f659adc57fd7b2a2b53b892dae85a921e",
+  "_shrinkwrap": null,
+  "_spec": "allink-core-static@git://github.com/allink/allink-core-static.git#3978b70",
+  "_where": "/Users/florian/aldryn_projects/hausderfarbe-allink",
+  "author": {
+    "name": "Beat Schenkel - allink AG"
+  },
   "dependencies": {
     "bootstrap": "^3.3.6",
     "bootstrap-sass": "^3.3.7",
@@ -27,5 +62,14 @@
     "superagent": "^2.0.0",
     "swiper": "^3.4.1",
     "tingle.js": "^0.7.0"
-  }
+  },
+  "description": "The allink core styles/scripts for our Django CMS setup.",
+  "devDependencies": {},
+  "gitHead": "3978b70bc23e87ef8fe8e81d2d5f4319cd2eb78e",
+  "main": "allink-core-static",
+  "name": "allink-core-static",
+  "optionalDependencies": {},
+  "readme": "# Changelog\n\n## v0.0.0\n\nNew variables available:\n\n```SCSS\n/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *\n\n=Alerts\n\n*/\n\n$alert-border-width:            1px;\n$alert-border-style:            solid;\n$alert-border-color:            transparent;\n$alert-padding:                 1em 1em 1em 3em; // Important: Leave some space for the icon!\n$alert-icon-position-left:      1em;\n\n$alert-variations: (\n    'success': (\n        'icon':                 '\\e206',\n        'icon-color':           $brand-success-dark,\n        'border-color':         $brand-success,\n        'bg':                   $brand-success-light,\n        'color':                $brand-success-dark,\n    ),\n    'danger': (\n        'icon':                 '\\e000',\n        'icon-color':           $brand-danger-dark,\n        'border-color':         $brand-danger,\n        'bg':                   $brand-danger-light,\n        'color':                $brand-danger-dark,\n    ),\n    'warning': (\n        'icon':                 '\\e002',\n        'icon-color':           $brand-warning-dark,\n        'border-color':         $brand-warning,\n        'bg':                   $brand-warning-light,\n        'color':                $brand-warning-dark,\n    ),\n    'info': (\n        'icon':                 '\\e2a2',\n        'icon-color':           $brand-info-dark,\n        'border-color':         $brand-info,\n        'bg':                   $brand-info-light,\n        'color':                $brand-info-dark,\n    ),\n);\n```\n",
+  "readmeFilename": "README.md",
+  "version": "0.0.1"
 }
