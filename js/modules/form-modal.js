@@ -6,6 +6,7 @@ Link with class '.toggle-form-modal' will trigger the form lightbox
 
 import serialize from 'form-serialize';
 import tingle from 'tingle.js';
+import request from 'superagent';
 
 $(function(){
 
@@ -88,28 +89,44 @@ $(function(){
     //         event.preventDefault();
     //     });
     // }
-    function handle_form_submit($the_form,url) {
+    function handle_form_submit(form_modal) {
 
-        $the_form.on('submit', function(event){
-            var $this = $(this);
-            var postData = $this.serialize();
-            console.log(postData);
-            $.ajax({
-                type: "POST",
-                url : url,
-                data : postData,
-                success:function(data, textStatus, jqXHR) {
-                    form_modal.setContent(data);
-                    var $the_form = $('.form-modal').find('form');
-                    handle_form_submit($the_form, url);
-                    $(window).trigger('initFormModalClose');
-                },
-                error: function(jqXHR, textStatus, errorThrown) {
-                    //if fails
-                }
+        var form = form_modal.modalBox.querySelector('form')
+        console.log(form_modal);
+        console.log(form);
+
+        if (form){
+            form.addEventListener('submit', (event)=> {
+                event.preventDefault();
+                // if a success url is defined it should be used otherwise go back to previous page
+
+                try {
+                    var success_url = event.currentTarget.querySelector('[name=success_url]').value;
+                  } catch(e) {
+                    var success_url = '.';
+                  }
+
+                request
+                    .post(event.currentTarget.getAttribute('action'))
+                    .set('X-Requested-With', 'XMLHttpRequest')
+                    .set('X-CSRFToken', event.currentTarget.querySelector('[name=csrfmiddlewaretoken]').value)
+                    .type('form')
+                    .send($(event.currentTarget).serialize())
+                    .end((error, result) => {
+                        if(result.statusCode == 200) {
+                            form_modal.destroy();
+                            window.location = success_url;
+
+                        }
+                        else {
+                            console.log('POST FAIL');
+                            form_modal.setContent(result.body.html);
+                            handle_form_submit(form_modal);
+                        }
+                    }
+                );
             });
-            event.preventDefault();
-        });
+        }
     }
 
     // click handler
@@ -117,6 +134,7 @@ $(function(){
         event.preventDefault();
 
         document.querySelector('html').classList.add('form-modal-visible');
+        document.querySelector('.softpage').classList.remove('tingle-modal--visible');
 
         // get and set content
         var url = element.getAttribute('href');
@@ -128,7 +146,7 @@ $(function(){
             var $the_form = $('.form-modal').find('form');
 
             // handle_form($the_form);
-            handle_form_submit($the_form,url);
+            handle_form_submit(form_modal);
             $(window).trigger('initFormModalClose');
             setTimeout(function(){
                 // $(window).trigger('initDatepicker');
