@@ -1,6 +1,23 @@
 # Changelog
 
-## v0.0.0
+## Updates 1.3.2017
+
+New variables available:
+
+### overlay
+
+```SCSS
+$overlay-background-color-sm-max:          #000;
+$overlay-background-opacity-sm-max:        0.5;
+```
+
+### swiper
+
+```SCSS
+$swiper-default-pagination-hidden-sm-max:       true;
+```
+
+## Updates 25.1.2017
 
 New variables available:
 

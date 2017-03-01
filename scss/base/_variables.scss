@@ -279,6 +279,9 @@ $overlay-gradient-start-opacity:           0;
 $overlay-gradient-end-color:               #000;
 $overlay-gradient-end-opacity:             0.5;
 
+$overlay-background-color-sm-max:          #000;
+$overlay-background-opacity-sm-max:        0.5;
+
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 
@@ -748,6 +751,7 @@ $swiper-default-overlay-gradient-height:        60%; // percent value recommende
 $swiper-default-bg:                             $white;
 
 // pagination
+$swiper-default-pagination-hidden-sm-max:       true;
 $swiper-default-pagination-position-top-xs:     $grid-gutter-width/4;
 $swiper-default-pagination-position-bottom-xs:  auto;
 $swiper-default-pagination-position-top-md:     auto;

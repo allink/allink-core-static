@@ -21,7 +21,7 @@ Send a custom event to GTM by adding the 'data-success-data-layer-event' attribu
 
 Important:
 
-Obviously, the container ID has to be unique, not just to pass the HTML validator.
+Obviously, the container ID ("example-form-container") has to be unique, not just to pass the HTML validator.
 
 */
 

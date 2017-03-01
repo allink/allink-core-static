@@ -119,8 +119,11 @@ Global Swiper Custom Styles
             top: $swiper-default-pagination-position-top-md;
             bottom: $swiper-default-pagination-position-bottom-md;
         }
-        @media (max-width:$screen-sm) {
-           display: none;
+        // optionally hide the pagination on sm-max breakpoint
+        @if $swiper-default-pagination-hidden-sm-max == true {
+            @media (max-width:$screen-sm-max) {
+               display: none;
+            }
         }
     }
 }
@@ -169,13 +172,10 @@ Global Swiper Custom Styles
             bottom: 0;
             left: 0;
             @include gradient-overlay($swiper-default-overlay-gradient-height);
-        }
-        //@media (min-width:$screen-xs-max) {
-        //    max-width: 66.66%;
-        //}
-        @media (max-width:$screen-sm) {
-            background-color: $overlay-gradient-end-color;
-            opacity: $overlay-gradient-end-opacity;
+            @media (max-width:$screen-sm-max) {
+                background-color: $overlay-background-color-sm-max;
+                opacity: $overlay-background-opacity-sm-max;
+            }
         }
     }
     .swiper-content-container {
