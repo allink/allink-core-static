@@ -136,10 +136,6 @@ Section Headings
             @include h2();
         }
     }
-    // some templates require the section heading to break after 2/3
-    @media (min-width:$screen-md) {
-        max-width: 66%;
-    }
 }
 
 
