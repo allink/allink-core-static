@@ -139,7 +139,7 @@ $(function(){
 
                 // load softpage
                 event.preventDefault();
-                soft_page.loadPage(event.currentTarget.href, false);
+                soft_page.loadPage(event.currentTarget.href, true);
             });
         });
     }

@@ -6,7 +6,7 @@ General Font Styles
 
 @mixin font-family-bold() {
     font-family: $font-family-bold;
-    font-weight: normal;
+    font-weight: bold;
 }
 
 @mixin font-family-italic() {

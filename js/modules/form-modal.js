@@ -20,75 +20,9 @@ $(function(){
         },
         onOpen: function(){
             $(window).trigger('initFormModalClose');
-            setTimeout(function(){
-                $(window).trigger('initDatepicker');
-            },1000);
         }
     });
 
-    // function handle_form($the_form) {
-        // var $tel = $the_form.find('#id_telephone').parents('.form-group');
-        // var $email = $the_form.find('#id_email').parents('.form-group');
-        // var $dateTime = $the_form.find('#id_date').parents('.form-group');
-        // var $contactTypeField = $the_form.find('#id_contact_type');
-        // var updateFields = function() {
-        //     // show tel option
-        //     if($contactTypeField.val() == 10) {
-        //         $tel.show();
-        //         $dateTime.show();
-        //         $email.hide();
-        //     }
-        //     // show email option
-        //     else if($contactTypeField.val() == 20) {
-        //         $tel.hide();
-        //         $dateTime.hide();
-        //         $email.show();
-        //     }
-        //     // no option (hide everything)
-        //     else {
-        //         $dateTime.hide();
-        //         $tel.hide();
-        //         $email.hide();
-        //     }
-        // };
-
-        // var init_select = function($the_form,$contactTypeField) {
-        //     // change option
-        //     $the_form.on('change', $contactTypeField, function() {
-        //         updateFields();
-        //     });
-        // };
-
-        // initial update
-        // updateFields();
-        // init_select($the_form,$contactTypeField);
-    //
-    // }
-
-    // function handle_contact_type_select($the_form,url) {
-    //
-    //     $the_form.on('submit', function(event){
-    //         var $this = $(this);
-    //         var postData = $this.serialize();
-    //         $.ajax({
-    //             type: "POST",
-    //             url : url,
-    //             data : postData,
-    //             success:function(data, textStatus, jqXHR) {
-    //                 form_modal.setContent(data);
-    //                 var $the_form = $('.form-modal').find('form');
-    //                 handle_form_submit($the_form);
-    //                 handle_contact_type_select($the_form,url);
-    //                 $(window).trigger('initDatepicker');
-    //                 $(window).trigger('initFormModalClose');
-    //             },
-    //             error: function(jqXHR, textStatus, errorThrown) {
-    //                 //if fails
-    //             }
-    //         });
-    //         event.preventDefault();
-    //     });
-    // }
     function handle_form_submit(form_modal) {
 
         var form = form_modal.modalBox.querySelector('form')

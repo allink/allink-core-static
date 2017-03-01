@@ -119,6 +119,9 @@ Global Swiper Custom Styles
             top: $swiper-default-pagination-position-top-md;
             bottom: $swiper-default-pagination-position-bottom-md;
         }
+        @media (max-width:$screen-sm) {
+           display: none;
+        }
     }
 }
 
@@ -166,6 +169,13 @@ Global Swiper Custom Styles
             bottom: 0;
             left: 0;
             @include gradient-overlay($swiper-default-overlay-gradient-height);
+        }
+        //@media (min-width:$screen-xs-max) {
+        //    max-width: 66.66%;
+        //}
+        @media (max-width:$screen-sm) {
+            background-color: $overlay-gradient-end-color;
+            opacity: $overlay-gradient-end-opacity;
         }
     }
     .swiper-content-container {

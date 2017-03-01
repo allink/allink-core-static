@@ -70,6 +70,10 @@ General Settings
             bottom: 0;
             left: 0;
             @include gradient-overlay(50%);
+            @media (max-width:$screen-sm) {
+                background-color: $overlay-gradient-end-color;
+                opacity: $overlay-gradient-end-opacity;
+            }
         }
         // element only exists, if an INNER background image has been defined
         .inner-overlay {
