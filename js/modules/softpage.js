@@ -20,7 +20,7 @@ Example:
 */
 
 import SoftPage from 'softpage';
-import request from 'superagent';
+// import request from 'superagent';
 import { nodeListToArray } from './helper-functions';
 
 $(function(){
@@ -90,11 +90,10 @@ $(function(){
         }
     }
 
-
     const soft_page = new SoftPage({
         onPageLoaded: function(obj) {
             // scroll to top everytime a softpage is opened
-            document.querySelector('.tingle-modal').scrollTop = 0;
+            obj.modal.modal.scrollTop = 0;
             // do stuff slighty delayed, so we get all the information we need
             setTimeout(function(){
                 // init page meta
@@ -123,6 +122,7 @@ $(function(){
             // init forms on softpage
             init_ajax_form(obj);
             init_softpage_in_softpage(obj);
+
         },
         onSoftpageClosed: function (obj) {
             // hide site overlay
@@ -132,18 +132,22 @@ $(function(){
 
 
     function initSoftpageTrigger() {
-        nodeListToArray(document.querySelectorAll('a[data-trigger-softpage]:not([data-softpage-disabled]), [data-trigger-softpage] a:not([data-softpage-disabled])')).map((value) => {
-            value.addEventListener('click', (event) => {
-                // instantly toggle site overlay (improves "felt performance")
-                $(window).trigger('showSiteOverlay');
-
-                // load softpage
-                event.preventDefault();
-                soft_page.loadPage(event.currentTarget.href, true);
-            });
+        // init all softpage trigger links and loop
+        $('[data-trigger-softpage] a:not([data-softpage-disabled])').each(function(i) {
+            // stop multiple event listeners from firing multiple times by removing (off()) and adding (on()) the event listener
+            $(this).
+                off('click').
+                on('click',
+                function(event){
+                    // instantly toggle site overlay (improves "felt performance")
+                    $(window).trigger('showSiteOverlay');
+                    // load softpage
+                    event.preventDefault();
+                    soft_page.loadPage(event.currentTarget.href, true);
+                }
+            );
         });
     }
-
 
     // on page load
     initSoftpageTrigger();
