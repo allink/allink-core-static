@@ -3,7 +3,6 @@ function toggleButtonOptions(type) {
     var type = type || $('.button-link-plugin .field-type input:checked').val();
     var $btn_variations = $('.field-btn_context');
     var $btn_sizes = $('.field-btn_size');
-    console.log( type );
     if (type == 'btn') {
         $btn_variations.show();
         $btn_sizes.show();
@@ -46,7 +45,6 @@ $(function(){
         var $trigger = $(this);
         setActiveStateButtonOptions($trigger);
     });
-
 
     // on page load
     toggleButtonOptions();
