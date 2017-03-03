@@ -14,8 +14,12 @@ $(function(){
         onClose: function() {
             // tbd
             closeFormModal();
-            // trigger custom events
-            $(window).trigger('hideSiteOverlay');
+            // if the softpage is still open in the brackground, we have to keep the overlay, otherwise we can close it
+            if ($('.tingle-modal.softpage').hasClass('tingle-modal--visible')) {
+                // don't do anything
+            }else {
+                $(window).trigger('hideSiteOverlay');
+            }
         },
         onOpen: function(){
             $(window).trigger('initFormModalClose');
