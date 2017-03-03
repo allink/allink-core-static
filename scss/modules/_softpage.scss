@@ -1,0 +1,15 @@
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+Global Softpage definitions
+
+*/
+
+.tingle-modal.softpage {
+
+    // if a form modal is triggered, let's hide the softpage in order to prevent overlapping
+    .form-modal-visible & {
+        opacity: 0;
+        z-index: z("default");
+    }
+
+}
