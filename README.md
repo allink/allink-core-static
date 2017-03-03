@@ -1,6 +1,6 @@
 # Changelog
 
-## Updates 1.3.2017
+## 1.3.2017
 
 New variables available:
 
@@ -17,7 +17,7 @@ $overlay-background-opacity-sm-max:        0.5;
 $swiper-default-pagination-hidden-sm-max:       true;
 ```
 
-## Updates 25.1.2017
+## 25.1.2017
 
 New variables available:
 
