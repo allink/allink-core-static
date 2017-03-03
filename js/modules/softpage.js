@@ -20,59 +20,9 @@ Example:
 */
 
 import SoftPage from 'softpage';
-// import request from 'superagent';
 import { nodeListToArray } from './helper-functions';
 
 $(function(){
-
-    // init ajax form in softpage
-    const init_ajax_form = function(target) {
-        var form = target.modal.modalBox.querySelector('form')
-
-
-        if (form){
-            form.addEventListener('submit', (event)=> {
-                event.preventDefault();
-                // if a success url is defined it should be used otherwise go back to previous page
-
-                try {
-                    var success_url = event.currentTarget.querySelector('[name=success_url]').value;
-                  } catch(e) {
-                    var success_url = '.';
-                  }
-
-                request
-                    .post(event.currentTarget.getAttribute('action'))
-                    .set('X-Requested-With', 'XMLHttpRequest')
-                    .set('X-CSRFToken', event.currentTarget.querySelector('[name=csrfmiddlewaretoken]').value)
-                    .type('form')
-                    .send($(event.currentTarget).serialize())
-                    .end((error, result) => {
-                        if(result.statusCode == 200) {
-                            target.modal.destroy();
-                            if (typeof(Storage) !== "undefined") {
-                                localStorage.setItem("message_to_push", "Deine Änderungen wurden gespeichert.");
-                                localStorage.setItem("message_type", "success");
-                            }
-
-                            window.location = success_url;
-
-                        }
-                        else {
-                            target.modal.setContent(result.body.html);
-                            if(target.modal) {
-                                let error_field = target.modal.modal.querySelector('.has-error');
-                                if(error_field) {
-                                    target.modal.modal.scrollTop = error_field.offsetTop - 20;
-                                }
-                            }
-                            init_ajax_form(target);
-                        }
-                    }
-                );
-            });
-        }
-    }
 
     // init softpage in softpage
     const init_softpage_in_softpage = function(target) {
@@ -122,7 +72,6 @@ $(function(){
             // init forms on softpage
             init_ajax_form(obj);
             init_softpage_in_softpage(obj);
-
         },
         onSoftpageClosed: function (obj) {
             // hide site overlay
@@ -133,7 +82,9 @@ $(function(){
 
     function initSoftpageTrigger() {
         // init all softpage trigger links and loop
-        $('[data-trigger-softpage] a:not([data-softpage-disabled])').each(function(i) {
+        // 1. Text Editor > All links that should trigger a softpage (added by e.g. button link plugin)
+        // 2. App Content > If the Softpage option is enabled.
+        $('a[data-trigger-softpage], [data-trigger-softpage] a:not([data-softpage-disabled])').each(function(i) {
             // stop multiple event listeners from firing multiple times by removing (off()) and adding (on()) the event listener
             $(this).
                 off('click').

@@ -30,8 +30,19 @@ export function sendAjaxForm($form) {
     // init
     var url = $form.attr('action');
     var custom_event = $form.attr('data-success-data-layer-event');
-    var container_id_selector = '#' + $form.data('form-container-id');
+    var success_url = $form.attr('data-success-url');
+    var container_id = $form.attr('data-form-container-id');
     var postData = $form.serialize();
+
+    // define the container in which the ajax response will be written into
+    // 1. in case an ID is defined, select that element
+    if (container_id) {
+        var $form_container = $('#' + container_id);
+    }
+    // 2. default: use immediate parent
+    else {
+        var $form_container = $form.parent();
+    }
 
     // AJAX magic
     $.ajax({
@@ -40,7 +51,7 @@ export function sendAjaxForm($form) {
         data : postData,
         success:function(data, textStatus, jqXHR) {
             // write response content into container
-            $(container_id_selector).html(data);
+            $form_container.html(data);
 
             // Google Tag Manager
             if (typeof dataLayer === 'undefined') {
@@ -62,6 +73,7 @@ export function sendAjaxForm($form) {
             }
 
             // trigger custom events
+            $(window).trigger('ajaxFormSuccess');
             $(window).trigger('initAjaxForm');
             $(window).trigger('initDatepicker');
             $(window).trigger('initFormModalClose');
