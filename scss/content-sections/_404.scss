@@ -1,0 +1,13 @@
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+404 styles (basic)
+
+*/
+
+.tpl-error {
+    .content-section {
+        @media (min-width:$screen-md) {
+            min-height: 500px;
+        }
+    }
+}
