@@ -24,23 +24,7 @@ import { nodeListToArray } from './helper-functions';
 
 $(function(){
 
-    // init softpage in softpage
-    const init_softpage_in_softpage = function(target) {
-        var softpage_in_soft_page = target.modal.modalBox.querySelector('a[data-trigger-softpage]:not([data-softpage-disabled]), [data-trigger-softpage] a:not([data-softpage-disabled]')
-
-        if (softpage_in_soft_page){
-            softpage_in_soft_page.addEventListener('click', (event)=> {
-                event.preventDefault();
-                    // instantly toggle site overlay (improves "felt performance")
-                    $(window).trigger('showSiteOverlay');
-                    // load softpage
-                    event.preventDefault();
-                    soft_page.loadPage(event.currentTarget.href, true);
-            });
-        }
-    }
-
-    const soft_page = new SoftPage({
+    const softpage = new SoftPage({
         onPageLoaded: function(obj) {
             // scroll to top everytime a softpage is opened
             obj.modal.modal.scrollTop = 0;
@@ -65,13 +49,13 @@ $(function(){
                     });
                 }
                 // trigger custom events
+                $(window).trigger('initSoftpageTrigger');
                 $(window).trigger('initFormModalTrigger');
                 $(window).trigger('initOnScreen');
                 $(window).trigger('initiSwiperInstances');
             },50);
             // init forms on softpage
-            init_ajax_form(obj);
-            init_softpage_in_softpage(obj);
+            // init_softpage_in_softpage(obj);
         },
         onSoftpageClosed: function (obj) {
             // hide site overlay
@@ -94,7 +78,7 @@ $(function(){
                     $(window).trigger('showSiteOverlay');
                     // load softpage
                     event.preventDefault();
-                    soft_page.loadPage(event.currentTarget.href, true);
+                    softpage.loadPage(event.currentTarget.href, true);
                 }
             );
         });
