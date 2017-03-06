@@ -51,6 +51,7 @@ $(function(){
                 // trigger custom events
                 $(window).trigger('initSoftpageTrigger');
                 $(window).trigger('initFormModalTrigger');
+                $(window).trigger('initFormModifications');
                 $(window).trigger('initOnScreen');
                 $(window).trigger('initiSwiperInstances');
             },50);
