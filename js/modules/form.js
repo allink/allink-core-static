@@ -18,22 +18,14 @@ $(function(){
                 // store key code
                 var key_code = parseInt(e.which);
                 var current_number_of_characters = parseInt($input.val().length);
-                switch(key_code) {
-                    case 8: // backspace
-                    case 32: // space bar
-                    case 37: // left arrow
-                    case 38: // up arrow
-                    case 39: // right arrow
-                    case 40: // down arrow
-                    case 37: // space bar
-                    case 46: // delete
-                        // can be pressed at all times
-                        break;
-                    default:
-                        // in case it's a character, make sure we respect the limit
-                        if (current_number_of_characters == maxlength) {
-                            return false;
-                        }
+                // key codes 8 until 46 are general key like space, delete, backspace, arrows, ...
+                if (key_code >= 8 && key_code<= 46) {
+                    // can be pressed at all times
+                }else {
+                    // in case it's a character, make sure we respect the limit
+                    if (current_number_of_characters == maxlength) {
+                        return false;
+                    }
                 }
             });
         });

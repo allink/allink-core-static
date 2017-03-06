@@ -1,5 +1,9 @@
 # Changelog
 
+## 6.3.2017
+
+- All `input` fields with the `maxlength` attribute are now forcefully limitted via the `initFormModifications` function.
+
 ## 1.3.2017
 
 New variables available:
