@@ -22,6 +22,7 @@ $(function(){
             }
         },
         onOpen: function(){
+            $(window).trigger('initFormModifications');
             $(window).trigger('initFormModalClose');
             $(window).trigger('initFormValidation');
         }
@@ -43,9 +44,6 @@ $(function(){
             // set modal content and open
             form_modal.setContent(data);
             form_modal.open();
-            // init custom events
-            $(window).trigger('initFormModalClose');
-            $(window).trigger('initFormModalTrigger');
         });
     }
 
