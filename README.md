@@ -1,5 +1,10 @@
 # Changelog
 
+## 7.3.2017
+
+- `tingle.js` close button is now working properly when multiple tingle instances are present.
+- In progress: Static files of default social icons defined `allink-core` will soon be moved to `allink-core-static`
+
 ## 6.3.2017
 
 - All `input` fields with the `maxlength` attribute are now forcefully limitted via the `initFormModifications` function.

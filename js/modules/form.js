@@ -18,8 +18,8 @@ $(function(){
                 // store key code
                 var key_code = parseInt(e.which);
                 var current_number_of_characters = parseInt($input.val().length);
-                // key codes 8 until 46 are general key like space, delete, backspace, arrows, ...
-                if (key_code >= 8 && key_code<= 46) {
+                // key codes 8 until 46 are general keys like space, delete, backspace, arrows, ...
+                if (key_code >= 8 && key_code <= 46) {
                     // can be pressed at all times
                 }else {
                     // in case it's a character, make sure we respect the limit
