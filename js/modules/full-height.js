@@ -22,14 +22,16 @@ $(function(){
         var minimum_height = 450;
         // find elements
         var elements = document.querySelectorAll('.full-height-enabled');
-        // In case there are full height elements, let's get the calculated height of the first element (they're all the same)..
         if (elements.length > 0) {
-            var calculated_height_in_css = parseInt(getComputedStyle(elements[0]).minHeight);
             // ..and looop through all items and set inline height
             for (var element of elements) {
+                // get the calculated height of the element..
+                var calculated_height_in_css = parseInt(getComputedStyle(element).minHeight);
+                // in case of small screens in landscape mode, the height would be too small, so we apply a minimum height
                 if (calculated_height_in_css < 450) {
                     element.style.minHeight = minimum_height + 'px';
                 }
+                // oterhwise we set the calculated height
                 else {
                     element.style.minHeight = calculated_height_in_css + 'px';
                 }

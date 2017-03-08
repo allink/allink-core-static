@@ -49,6 +49,7 @@ $(function(){
                     });
                 }
                 // trigger custom events
+                $(window).trigger('initImageModalTrigger');
                 $(window).trigger('initSoftpageTrigger');
                 $(window).trigger('initFormModalTrigger');
                 $(window).trigger('initFormModifications');

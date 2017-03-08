@@ -3,7 +3,7 @@
 ## 7.3.2017
 
 - `tingle.js` close button is now working properly when multiple tingle instances are present.
-- In progress: Static files of default social icons defined `allink-core` will soon be moved to `allink-core-static`
+- In progress: Static files of default social icons defined in `allink-core` will soon be moved to `allink-core-static`
 
 ## 6.3.2017
 

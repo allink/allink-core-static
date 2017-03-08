@@ -133,6 +133,7 @@ General Settings
             @include content-section-spacing-position();
         }
 
+        // default: display the video proportionally
         .video-container {
             background-size: cover;
             background-position: center center;
@@ -161,6 +162,33 @@ General Settings
                 }
             }
         }
+
+        // full height: center video in full height mode
+        &.full-height-enabled {
+            position: relative;
+            width: 100%;
+            .video-container {
+                position: absolute;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                .the-video {
+                    @media (min-width: $screen-md ) {
+                        display: block;
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        min-width: 100%;
+                        min-height: 100%;
+                        width: auto !important;
+                        height: auto !important;
+                        transform: translate(-50%,-50%);
+                    }
+                }
+            }
+        }
+
     }
 
     &.full-height-enabled {
