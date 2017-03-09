@@ -70,7 +70,7 @@ $(function(){
         // init all softpage trigger links and loop
         // 1. Text Editor > All links that should trigger a softpage (added by e.g. button link plugin)
         // 2. App Content > If the Softpage option is enabled.
-        $('a[data-trigger-softpage], [data-trigger-softpage] a:not([data-softpage-disabled])').each(function(i) {
+        $('a[data-trigger-softpage]:not([data-softpage-disabled]), [data-trigger-softpage] a:not([data-softpage-disabled])').each(function(i) {
             // stop multiple event listeners from firing multiple times by removing (off()) and adding (on()) the event listener
             $(this).
                 off('click').
