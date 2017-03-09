@@ -75,7 +75,7 @@ $(function(){
     initImageModalTrigger();
 
     // custom event
-    $(window).on('initImageModalTrigger', function() {
+    $(window).on('initImageModalTrigger softpage:opened form-modal:opened', function() {
         initImageModalTrigger();
     });
 

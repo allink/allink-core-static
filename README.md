@@ -1,5 +1,20 @@
 # Changelog
 
+## 9.3.2017
+
+New custom events (jQuery)
+- `softpage:opened`: triggered when softpage has been opened
+- `softpage:closed`: triggered when softpage has been closed
+- `form-modal:opened`: triggered when form-modal has been opened
+- `form-modal:closed`: triggered when form-modal has been closed
+
+How to listen to these events:
+```JavaScript
+$(window).on('softpage:opened form-modal:opened', function() {
+    // do something
+});
+```
+
 ## 7.3.2017
 
 - `tingle.js` close button is now working properly when multiple tingle instances are present.

@@ -76,7 +76,7 @@ $(function(){
     initFormValidation();
 
     // custom event
-    $(window).on('initFormValidation', function() {
+    $(window).on('initFormValidation softpage:opened form-modal:opened', function() {
         initFormValidation();
     });
 

@@ -2,6 +2,11 @@
 
 Link with class '.toggle-form-modal' will trigger the form lightbox
 
+Custom Events:
+
+form-modal:opened
+form-modal:closed
+
 */
 
 import tingle from 'tingle.js';
@@ -18,13 +23,13 @@ $(function(){
             if ($('.tingle-modal.softpage').hasClass('tingle-modal--visible')) {
                 // don't do anything
             }else {
+                $(window).trigger('form-modal:closed');
                 $(window).trigger('hideSiteOverlay');
             }
         },
         onOpen: function(){
-            $(window).trigger('initFormModifications');
+            $(window).trigger('form-modal:opened');
             $(window).trigger('initFormModalClose');
-            $(window).trigger('initFormValidation');
         }
     });
 
@@ -73,7 +78,7 @@ $(function(){
     initFormModalTrigger();
 
     // custom event
-    $(window).on('initFormModalTrigger', function() {
+    $(window).on('initFormModalTrigger softpage:loaded softpage:loaded', function() {
         initFormModalTrigger();
     });
 

@@ -114,7 +114,7 @@ $(function(){
     initFormModifications();
 
     // custom event
-    $(window).on('initFormModifications', function() {
+    $(window).on('initFormModifications softpage:opened form-modal:opened', function() {
         initFormModifications();
     });
 

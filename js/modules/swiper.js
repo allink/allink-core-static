@@ -6,6 +6,10 @@ API:
 
 http://idangero.us/swiper/api/
 
+Custom Events:
+
+swiper:initialized
+
 */
 
 import Swiper from 'swiper';
@@ -51,6 +55,7 @@ export function initiSwiperInstances(options) {
                 $swiper_instance.addClass('swiper-initialized');
                 // trigger custom event
                 $(window).trigger('initSoftpageTrigger');
+                $(window).trigger('swiper:initialized');
             },
             effect: options.effect,
             speed: options.transitionDurationBetweenSlides, // Number: Duration of transition between slides (in ms)

@@ -17,6 +17,11 @@ Example:
     <a href="#" data-softpage-disabled>I will NOT trigger a softpage</a>
 </div>
 
+Custom Events:
+
+softpage:opened
+softpage:closed
+
 */
 
 import SoftPage from 'softpage';
@@ -49,19 +54,15 @@ $(function(){
                     });
                 }
                 // trigger custom events
-                $(window).trigger('initImageModalTrigger');
+                $(window).trigger('softpage:opened');
                 $(window).trigger('initSoftpageTrigger');
-                $(window).trigger('initFormModalTrigger');
-                $(window).trigger('initFormModifications');
                 $(window).trigger('initOnScreen');
-                $(window).trigger('initiSwiperInstances');
             },50);
-            // init forms on softpage
-            // init_softpage_in_softpage(obj);
         },
         onSoftpageClosed: function (obj) {
             // hide site overlay
             $(window).trigger('hideSiteOverlay');
+            $(window).trigger('softpage:closed');
         }
     });
 
