@@ -2,6 +2,19 @@
 
 ## 9.3.2017
 
+Support for `Content Plugin` in an app's detail view added. New variables witwh the following defaults available:
+
+```SCSS
+// App Content Plugin > Detail View: Spacings between the .content-section
+$app-detail-content-section-spacing-xs:     $grid-gutter-width;
+$app-detail-content-section-spacing-sm:     $grid-gutter-width;
+$app-detail-content-section-spacing-md:     $grid-gutter-width;
+$app-detail-content-section-spacing-lg:     $grid-gutter-width;
+$app-detail-content-section-spacing-xl:     $grid-gutter-width;
+```
+
+Important: Do not render the placeholder within a `.manage-spacings` container. Wrap it in an element with the class `app-detail-content-container`.
+
 New custom events (jQuery)
 - `softpage:opened`: triggered when softpage has been opened
 - `softpage:closed`: triggered when softpage has been closed

@@ -225,6 +225,8 @@ Spacings of content blocks within the .site-content
 
 */
 
+// in default 'content' placeholder
+
 @mixin content-section-spacing-padding() {
     padding-top: $content-section-spacing-xs;
     padding-bottom: $content-section-spacing-xs;
@@ -266,6 +268,51 @@ Spacings of content blocks within the .site-content
         margin-bottom: $content-section-spacing-xl;
     }
 }
+
+// in detail view of an App Content
+
+@mixin app-detail-content-section-spacing-padding() {
+    padding-top: $app-detail-content-section-spacing-xs;
+    padding-bottom: $app-detail-content-section-spacing-xs;
+    @media (min-width:$screen-sm) {
+        padding-top: $app-detail-content-section-spacing-sm;
+        padding-bottom: $app-detail-content-section-spacing-sm;
+    }
+    @media (min-width:$screen-md) {
+        padding-top: $app-detail-content-section-spacing-md;
+        padding-bottom: $app-detail-content-section-spacing-md;
+    }
+    @media (min-width:$screen-lg) {
+        padding-top: $app-detail-content-section-spacing-lg;
+        padding-bottom: $app-detail-content-section-spacing-lg;
+    }
+    @media (min-width:$screen-xl) {
+        padding-top: $app-detail-content-section-spacing-xl;
+        padding-bottom: $app-detail-content-section-spacing-xl;
+    }
+}
+
+@mixin app-detail-content-section-spacing-margin() {
+    margin-top: $app-detail-content-section-spacing-xs;
+    margin-bottom: $app-detail-content-section-spacing-xs;
+    @media (min-width:$screen-sm) {
+        margin-top: $app-detail-content-section-spacing-sm;
+        margin-bottom: $app-detail-content-section-spacing-sm;
+    }
+    @media (min-width:$screen-md) {
+        margin-top: $app-detail-content-section-spacing-md;
+        margin-bottom: $app-detail-content-section-spacing-md;
+    }
+    @media (min-width:$screen-lg) {
+        margin-top: $app-detail-content-section-spacing-lg;
+        margin-bottom: $app-detail-content-section-spacing-lg;
+    }
+    @media (min-width:$screen-xl) {
+        margin-top: $app-detail-content-section-spacing-xl;
+        margin-bottom: $app-detail-content-section-spacing-xl;
+    }
+}
+
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 

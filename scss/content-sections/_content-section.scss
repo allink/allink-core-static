@@ -9,12 +9,20 @@ Default Content Section Styles
 
     // default: using margin
     @include content-section-spacing-margin();
+    // within detail view
+    .detail-view & {
+        @include app-detail-content-section-spacing-margin();
+    }
 
     // special spacing: container has a background COLOR
     &.has-bg-color {
         margin-top: 0;
         margin-bottom: 0;
         @include content-section-spacing-padding();
+        // within detail view
+        .detail-view & {
+            @include app-detail-content-section-spacing-padding();
+        }
     }
 
     // special spacing: container has a background IMAGE
@@ -22,6 +30,10 @@ Default Content Section Styles
         margin-top: 0;
         margin-bottom: 0;
         @include content-section-spacing-padding();
+        // within detail view
+        .detail-view & {
+            @include app-detail-content-section-spacing-padding();
+        }
     }
 
     // special spacing: container has a background VIDEO

@@ -42,7 +42,7 @@ and customized in an app specific SCSS file.
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 
-Commonly used column styles that can be re-used
+App Content > Detail: Commonly used column styles that can be re-used
 
 */
 
@@ -51,21 +51,33 @@ Commonly used column styles that can be re-used
     // on XS we have a smaller column padding
     @include make-row-sm-max();
     &.col-2-1 {
-        .col:nth-child(1) {
+        > .col:nth-child(1) {
             @include make-xs-column(24);
             @include make-md-column(16);
         }
-        .col:nth-child(2) {
+        > .col:nth-child(2) {
             @include make-xs-column(24);
             @include make-md-column(8);
             @include make-spacing-top-sm-max($content-section-col-stack-spacing-xs-max);
         }
     }
-    .col {
+    > .col {
         @include column-padding-sm-max();
+        // special case: '.content-section' within '.content-section'.
+        // reset container padding, but leave it in case the content-section has a background image/video/color
+        .content-section:not(.has-bg-image):not(.has-bg-video):not(.has-bg-color) {
+            .container {
+                padding: 0;
+            }
+            // reset heading style
+            .section-heading {
+                .heading {
+                    max-width: none;
+                }
+            }
+        }
     }
 }
-
 
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
