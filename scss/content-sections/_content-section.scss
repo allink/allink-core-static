@@ -105,9 +105,17 @@ Default Content Section Styles
     // first and last sections
     &:first-child {
         @include content-section-first();
+        // within detail view
+        .detail-view & {
+            @include app-detail-content-section-first();
+        }
     }
     &:last-child {
         @include content-section-last();
+        // within detail view
+        .detail-view & {
+            @include app-detail-content-section-last();
+        }
     }
 
     // reset container max-width within modal (softpage)
