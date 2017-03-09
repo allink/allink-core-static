@@ -320,6 +320,8 @@ First and last section withing .site-content
 
 */
 
+// in default 'content' placeholder
+
 @mixin content-section-first($property: padding-top) {
     // remove margin
     margin-top: 0;
@@ -355,6 +357,46 @@ First and last section withing .site-content
     }
     @media (min-width: $screen-xl) {
         #{$property}: $content-section-spacing-last-item-xl;
+    }
+}
+
+// in detail view of an App Content
+
+@mixin app-detail-content-section-first($property: padding-top) {
+    // remove margin
+    margin-top: 0;
+    // add padding
+    #{$property}: $app-detail-content-section-spacing-first-item-xs;
+    @media (min-width: $screen-sm) {
+        #{$property}: $app-detail-content-section-spacing-first-item-sm;
+    }
+    @media (min-width: $screen-md) {
+        #{$property}: $app-detail-content-section-spacing-first-item-md;
+    }
+    @media (min-width: $screen-lg) {
+        #{$property}: $app-detail-content-section-spacing-first-item-lg;
+    }
+    @media (min-width: $screen-xl) {
+        #{$property}: $app-detail-content-section-spacing-first-item-xl;
+    }
+}
+
+@mixin app-detail-content-section-last($property: padding-bottom) {
+    // remove margin
+    margin-bottom: 0;
+    // add padding
+    #{$property}: $app-detail-content-section-spacing-last-item-xs;
+    @media (min-width: $screen-sm) {
+        #{$property}: $app-detail-content-section-spacing-last-item-sm;
+    }
+    @media (min-width: $screen-md) {
+        #{$property}: $app-detail-content-section-spacing-last-item-md;
+    }
+    @media (min-width: $screen-lg) {
+        #{$property}: $app-detail-content-section-spacing-last-item-lg;
+    }
+    @media (min-width: $screen-xl) {
+        #{$property}: $app-detail-content-section-spacing-last-item-xl;
     }
 }
 

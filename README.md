@@ -11,6 +11,20 @@ $app-detail-content-section-spacing-sm:     $grid-gutter-width;
 $app-detail-content-section-spacing-md:     $grid-gutter-width;
 $app-detail-content-section-spacing-lg:     $grid-gutter-width;
 $app-detail-content-section-spacing-xl:     $grid-gutter-width;
+
+// App Content Plugin > Detail View: first item
+$app-detail-content-section-spacing-first-item-xs:     $app-detail-content-section-spacing-xs;
+$app-detail-content-section-spacing-first-item-sm:     $app-detail-content-section-spacing-sm;
+$app-detail-content-section-spacing-first-item-md:     $app-detail-content-section-spacing-md;
+$app-detail-content-section-spacing-first-item-lg:     $app-detail-content-section-spacing-lg;
+$app-detail-content-section-spacing-first-item-xl:     $app-detail-content-section-spacing-xl;
+
+// App Content Plugin > Detail View: last item
+$app-detail-content-section-spacing-last-item-xs:      $app-detail-content-section-spacing-xs;
+$app-detail-content-section-spacing-last-item-sm:      $app-detail-content-section-spacing-sm;
+$app-detail-content-section-spacing-last-item-md:      $app-detail-content-section-spacing-md;
+$app-detail-content-section-spacing-last-item-lg:      $app-detail-content-section-spacing-lg;
+$app-detail-content-section-spacing-last-item-xl:      $app-detail-content-section-spacing-xl;
 ```
 
 Important: Do not render the placeholder within a `.manage-spacings` container. Wrap it in an element with the class `app-detail-content-container`.
