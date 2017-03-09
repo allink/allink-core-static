@@ -57,6 +57,7 @@ $(function(){
                 $(window).trigger('softpage:opened');
                 $(window).trigger('initSoftpageTrigger');
                 $(window).trigger('initOnScreen');
+                $(window).trigger('initiSwiperInstances');
             },50);
         },
         onSoftpageClosed: function (obj) {

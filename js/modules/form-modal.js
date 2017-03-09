@@ -78,7 +78,7 @@ $(function(){
     initFormModalTrigger();
 
     // custom event
-    $(window).on('initFormModalTrigger softpage:loaded softpage:loaded', function() {
+    $(window).on('initFormModalTrigger softpage:opened form-modal:opened', function() {
         initFormModalTrigger();
     });
 
