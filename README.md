@@ -2,6 +2,7 @@
 
 ## 10.3.2017
 
+- Content Plugin: Support for column alignment (horizontal) prepared.
 - Content Plugin: Support for column ordering (for mobile only) has been added. Requires the latest `allink-core`.
 - Content Plugin: Empty columns now get the class `col-empty` and are set to `display:none;` by default.
 
