@@ -1,5 +1,10 @@
 # Changelog
 
+## 10.3.2017
+
+- Content Plugin: Support for column ordering (for mobile only) has been added. Requires the latest `allink-core`.
+- Content Plugin: Empty columns now get the class `col-empty` and are set to `display:none;` by default.
+
 ## 9.3.2017
 
 Support for `Content Plugin` in an app's detail view added. New variables witwh the following defaults available:

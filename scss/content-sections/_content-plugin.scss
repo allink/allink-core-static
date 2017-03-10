@@ -216,6 +216,13 @@ General Settings
 
     */
 
+    // on small screens, we don't want empty columns to be displayed
+    .col-empty {
+        @media (max-width:$screen-sm-max) {
+            display: none;
+        }
+    }
+
     .col-1 {
         overflow: hidden; // The negativ margin of the make-row() mixin causes the content to overflow. Let's hide it.
         .col {
@@ -224,14 +231,21 @@ General Settings
     }
 
     .col-1-1 {
+        @include content-plugin-col-mobile-flexbox();
+        @include content-plugin-col-mobile-flexbox-spacing-fix();
         .col {
+            @include make-spacing-top-sm-max($content-section-col-stack-spacing-sm-max);
             @include make-xs-column(24);
             @include make-md-column(12);
-            @include make-spacing-top-sm-max($content-section-col-stack-spacing-xs-max);
         }
     }
 
     .col-2-1 {
+        @include content-plugin-col-mobile-flexbox();
+        @include content-plugin-col-mobile-flexbox-spacing-fix();
+        .col {
+            @include make-spacing-top-sm-max($content-section-col-stack-spacing-sm-max);
+        }
         .col:nth-child(1) {
             @include make-xs-column(24);
             @include make-md-column(12);
@@ -241,11 +255,15 @@ General Settings
             @include make-xs-column(24);
             @include make-md-column(12);
             @include make-lg-column(8);
-            @include make-spacing-top-sm-max($content-section-col-stack-spacing-xs-max);
         }
     }
 
     .col-1-2 {
+        @include content-plugin-col-mobile-flexbox();
+        @include content-plugin-col-mobile-flexbox-spacing-fix();
+        .col {
+            @include make-spacing-top-sm-max($content-section-col-stack-spacing-sm-max);
+        }
         .col:nth-child(1) {
             @include make-xs-column(24);
             @include make-md-column(12);
@@ -255,22 +273,17 @@ General Settings
             @include make-xs-column(24);
             @include make-md-column(12);
             @include make-lg-column(16);
-            @include make-spacing-top-sm-max($content-section-col-stack-spacing-xs-max);
         }
     }
 
     .col-3 {
+        @include content-plugin-col-mobile-flexbox($flex-bp: $screen-xs-max);
+        @include content-plugin-col-mobile-flexbox-spacing-fix($flex-bp: $screen-sm-max);
         .col {
             @include make-xs-column(24);
             @include make-sm-column(12);
             @include make-md-column(8);
-            @include make-spacing-top-xs-max($content-section-col-stack-spacing-xs-max);
-            &:nth-child(3) {
-                @include make-spacing-top-sm-max($content-section-col-stack-spacing-sm-max);
-            }
-            &:first-child {
-                margin-top: 0;
-            }
+            @include make-spacing-top-sm-max($content-section-col-stack-spacing-sm-max);
         }
     }
 
@@ -357,5 +370,22 @@ General Settings
             }
         }
     }
+
+    /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+    Mobile Column Ordering. Flexbox to the rescue!
+
+    Note: Currently only up to 3 colum templates are supported
+
+    */
+
+    .col-order-mobile-0 { order: 0; }
+    .col-order-mobile-1 { order: 1; }
+    .col-order-mobile-2 { order: 2; }
+
+    // .col-order-mobile-3 { order: 3; }
+    // .col-order-mobile-4 { order: 4; }
+    // .col-order-mobile-5 { order: 5; }
+
 
 }
