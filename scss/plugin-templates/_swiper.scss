@@ -13,7 +13,7 @@ Global Swiper Custom Styles
             @include aspect-ratio($swiper-gallery-plugin-aspect-ratio-width-md,$swiper-gallery-plugin-aspect-ratio-height-md);
         }
         @media (min-width:$screen-xl) {
-            @include aspect-ratio($swiper-gallery-plugin-aspect-ratio-width-xl,$swiper-gallery-plugin-aspect-ratio-height-xs);
+            @include aspect-ratio($swiper-gallery-plugin-aspect-ratio-width-xl,$swiper-gallery-plugin-aspect-ratio-height-xl);
         }
     }
     // App Content > Displaying entries as a slider
@@ -23,7 +23,7 @@ Global Swiper Custom Styles
             @include aspect-ratio($swiper-app-content-aspect-ratio-width-md,$swiper-app-content-aspect-ratio-height-md);
         }
         @media (min-width:$screen-xl) {
-            @include aspect-ratio($swiper-app-content-aspect-ratio-width-xl,$swiper-app-content-aspect-ratio-height-xs);
+            @include aspect-ratio($swiper-app-content-aspect-ratio-width-xl,$swiper-app-content-aspect-ratio-height-xl);
         }
     }
     // App Content > Detail View
@@ -33,7 +33,7 @@ Global Swiper Custom Styles
             @include aspect-ratio($swiper-detail-view-aspect-ratio-width-md,$swiper-detail-view-aspect-ratio-height-md);
         }
         @media (min-width:$screen-xl) {
-            @include aspect-ratio($swiper-detail-view-aspect-ratio-width-xl,$swiper-detail-view-aspect-ratio-height-xs);
+            @include aspect-ratio($swiper-detail-view-aspect-ratio-width-xl,$swiper-detail-view-aspect-ratio-height-xl);
         }
     }
 }
