@@ -12,27 +12,24 @@ $(function(){
         var $maxlength_inputs = $('form').find('input[maxlength]');
         // loop elements and listen for key event
         $maxlength_inputs.each(function (e) {
+            // init
             var $input = $(this);
             var maxlength = $input.attr('maxlength');
-            $input.keydown(function(e) {
-                // store key code
-                var key_code = parseInt(e.which);
-                var current_number_of_characters = parseInt($input.val().length);
-                // key codes 8 until 46 are general keys like space, delete, backspace, arrows, ...
-                if (key_code >= 8 && key_code <= 46) {
-                    // can be pressed at all times
-                }else {
-                    // in case it's a character, make sure we respect the limit
-                    if (current_number_of_characters == maxlength) {
-                        return false;
-                    }
-                }
+            // listen to relevant events
+            $input.on('keydown', function(e) {
+                return handleInputMaxlength(this,e,maxlength);
+            });
+            $input.on('focus', function(e) {
+                return handleInputMaxlength(this,e,maxlength);
+            });
+            $input.on('click', function(e) {
+                return handleInputMaxlength(this,e,maxlength);
             });
         });
 
         /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 
-        Disable scroll for input type "number" to prevent Cromium browsers change the value when scrolling
+        Disable scroll for input type "number" to prevent Chromium browsers change the value when scrolling
 
         */
 
@@ -108,6 +105,50 @@ $(function(){
         //         rows = Math.ceil((this.scrollHeight - this.baseScrollHeight) / 17);
         //         this.rows = minRows + rows;
         //     });
+    }
+
+    function getSelectedText() {
+        var text = "";
+        if (typeof window.getSelection != "undefined") {
+            text = window.getSelection().toString();
+        } else if (typeof document.selection != "undefined" && document.selection.type == "Text") {
+            text = window.selection.createRange().text;
+        }
+        return text;
+    }
+
+
+    function handleInputMaxlength(input,e,maxlength) {
+        // store key code
+        var $input = $(input);
+        var input_field = input;
+        var key_code = parseInt(e.which);
+        var current_number_of_characters = parseInt($input.val().length);
+        var input_text_is_selected = false;
+        // try to get selected text
+        if (getSelectedText()) {
+            input_text_is_selected = true;
+        }
+        // always accepted: key codes 8 until 46 are general keys like space, delete, backspace, arrows, ...
+        if (key_code >= 8 && key_code <= 46 ) {
+            // all good. keep going.
+        }
+        // any other system keys (and the COMMAND key of Macs)
+        else if( e.altKey || e.ctrlKey || e.shiftKey || key_code == 91) {
+            // all good. keep going.
+        }
+        // any other case should be checked
+        else {
+            // only block typing if NO text is selected
+            if (input_text_is_selected === true) {
+                // we're overwriting marked text, keep going!
+            }else {
+                // in case it's a character, make sure we respect the limit
+                if (current_number_of_characters == maxlength) {
+                    return false;
+                }
+            }
+        }
     }
 
     // on page load

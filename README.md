@@ -2,6 +2,8 @@
 
 ## 12.3.2017
 
+- Improvement: Default browser input type "number" arrows are now hidden.
+- Bugfix: Input type "number" limitted key functionality solved.
 - Bugfix: Swiper (Slider) variables were wrong.
 
 ## 10.3.2017

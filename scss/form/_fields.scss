@@ -63,3 +63,15 @@ Placeholder
    color: $input-color-placeholder;
 }
 
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+Input type "number" - let's get rid of the ugly arrows
+
+*/
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
