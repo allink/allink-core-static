@@ -1,5 +1,9 @@
 # Changelog
 
+## 12.3.2017
+
+- Bugfix: Swiper (Slider) variables were wrong.
+
 ## 10.3.2017
 
 - Content Plugin: Support for column alignment (horizontal) prepared.
