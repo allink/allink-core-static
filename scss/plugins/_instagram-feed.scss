@@ -1,0 +1,110 @@
+.instagramfeed-plugin-container {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -$grid-gutter-width;
+    margin-right: -$grid-gutter-width;
+
+    @media(max-width: $screen-sm) {
+        margin-left: -$grid-gutter-width / 2;
+        margin-right: -$grid-gutter-width / 2;
+    }
+
+    &:after {
+        clear: both;
+    }
+
+    .grid-item {
+        margin-bottom: 0;
+
+        @media(max-width: $screen-sm) {
+            width: 50% !important;
+
+            &:last-child {
+                display: none;
+            }
+        }
+
+        img {
+            width: 100%;
+        }
+    }
+}
+
+.instagramfeed-follow__outer {
+    background-color: $brand-primary;
+    display: inline-block;
+    position: relative;
+    text-transform: uppercase;
+
+    @media(max-width: $screen-sm) {
+        order: -1;
+    }
+
+    &:before {
+        content: '';
+        display: block;
+        padding-top: 100%;
+        width: 100%;
+    }
+}
+
+.instagramfeed-follow__text {
+    @include h2();
+    color: $white;
+
+    @media(max-width: $screen-sm) {
+        margin-top: 10px;
+    }
+}
+
+.instagramfeed-follow__inner {
+    left: 50%;
+    overflow: hidden;
+    position: absolute;
+    text-align: center;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+}
+
+.instagramfeed-follow__link {
+    @include h3();
+    @include font-family-bold();
+    border: 3px solid $white;
+    color: $white;
+    display: inline-block;
+    margin-top: 20%;
+    padding: 20px 35px;
+    text-decoration: none;
+    transition: $default-transition;
+
+    &:hover {
+        background-color: $white;
+        color: $brand-primary;
+
+        .instagramfeed-follow__icon__text {
+            color: $brand-primary;
+        }
+    }
+
+    @media(max-width: $screen-sm) {
+        margin-top: 10%;
+        padding: 5px 10px;
+        width: 100%;
+    }
+}
+
+.instagramfeed-follow__icon__text {
+    color: inherit;
+    display: inline-block;
+    margin: 5px 0;
+    text-transform: uppercase;
+    vertical-align: top;
+
+    @include icon-left($icon: '\e901', $icon-size: 2em, $padding: 3em);
+
+    @media(max-width: $screen-sm) {
+        margin: 0;
+        vertical-align: top;
+    }
+}
