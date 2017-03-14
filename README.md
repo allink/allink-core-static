@@ -1,5 +1,9 @@
 # Changelog
 
+## 14.3.2017
+
+- Feature: Added new instagram feed styles.
+
 ## 12.3.2017
 
 - Improvement: Default browser input type "number" arrows are now hidden.
