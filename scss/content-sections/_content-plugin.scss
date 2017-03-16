@@ -400,10 +400,13 @@ General Settings
     // mobile
 
     @media (max-width:$screen-sm-max) {
-        .alignment-h-mobile-center {
+        .align-h-mobile-left {
             text-align: center;
         }
-        .alignment-h-mobile-right {
+        .align-h-mobile-center {
+            text-align: center;
+        }
+        .align-h-mobile-right {
             text-align: right;
         }
     }
@@ -411,10 +414,13 @@ General Settings
     // desktop
 
     @media (min-width:$screen-md) {
-        .alignment-h-desktop-center {
+        .align-h-desktop-left {
             text-align: center;
         }
-        .alignment-h-desktop-right {
+        .align-h-desktop-center {
+            text-align: center;
+        }
+        .align-h-desktop-right {
             text-align: right;
         }
     }
