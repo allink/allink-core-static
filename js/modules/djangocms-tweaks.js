@@ -46,3 +46,15 @@ $(function(){
     }
 
 });
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+Initialize CMS-Plugins after Ajax-Request
+
+*/
+
+(function($){
+    $(window).on('ajaxLoadItems:success', function(event){
+        CMS.Plugin._initializeTree();
+    });
+})($);
