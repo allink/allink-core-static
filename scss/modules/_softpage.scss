@@ -10,7 +10,7 @@ Global Softpage definitions
     &[data-softpage-variation="small"] {
         .tingle-modal-box {
             @media (min-width: $screen-sm) {
-                max-width: $softpage-small-xs-max-width;
+                max-width: $softpage-small-sm-max-width;
             }
             @media (min-width:$screen-xxl) {
                 max-width: $softpage-small-xxl-max-width;
