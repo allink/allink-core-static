@@ -1,14 +1,14 @@
-/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
-
-Disable Scrolling when Django Modal is open
-
-Inspiration:
-
-http://jsfiddle.net/ybGCF/
-
-*/
-
 $(function(){
+
+    /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+    Disable Scrolling when Django Modal is open
+
+    Inspiration:
+
+    http://jsfiddle.net/ybGCF/
+
+    */
 
     // init
     var djangocms_modal, observer_config, djangocms_modal_observer;
@@ -45,16 +45,17 @@ $(function(){
 
     }
 
+
+    /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+    Initialize CMS-Plugins after Ajax-Request
+
+    */
+
+    if (typeof CMS !== 'undefined') {
+        $(window).on('ajaxLoadItems:success', function(event){
+            CMS.Plugin._initializeTree();
+        });
+    }
+
 });
-
-/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
-
-Initialize CMS-Plugins after Ajax-Request
-
-*/
-
-(function($){
-    $(window).on('ajaxLoadItems:success', function(event){
-        CMS.Plugin._initializeTree();
-    });
-})($);

@@ -1,0 +1,40 @@
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+Global helper classes for horizontal (h) content alignment
+
+Default: left (no class required), but can be overwritten
+
+Plugins that use these classes:
+
+- Content Plugin Column
+- Button/Link Plugin
+
+*/
+
+// mobile
+
+@media (max-width:$screen-sm-max) {
+    .align-h-mobile-left {
+        text-align: center;
+    }
+    .align-h-mobile-center {
+        text-align: center;
+    }
+    .align-h-mobile-right {
+        text-align: right;
+    }
+}
+
+// desktop
+
+@media (min-width:$screen-md) {
+    .align-h-desktop-left {
+        text-align: center;
+    }
+    .align-h-desktop-center {
+        text-align: center;
+    }
+    .align-h-desktop-right {
+        text-align: right;
+    }
+}

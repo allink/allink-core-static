@@ -388,41 +388,4 @@ General Settings
     // .col-order-mobile-4 { order: 4; }
     // .col-order-mobile-5 { order: 5; }
 
-
-    /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
-
-    Horizontal (h) column content alignment
-
-    Default: left (no class required)
-
-    */
-
-    // mobile
-
-    @media (max-width:$screen-sm-max) {
-        .align-h-mobile-left {
-            text-align: center;
-        }
-        .align-h-mobile-center {
-            text-align: center;
-        }
-        .align-h-mobile-right {
-            text-align: right;
-        }
-    }
-
-    // desktop
-
-    @media (min-width:$screen-md) {
-        .align-h-desktop-left {
-            text-align: center;
-        }
-        .align-h-desktop-center {
-            text-align: center;
-        }
-        .align-h-desktop-right {
-            text-align: right;
-        }
-    }
-
 }

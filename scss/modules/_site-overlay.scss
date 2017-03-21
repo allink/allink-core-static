@@ -9,6 +9,7 @@
     left: 0;
     z-index: z($site-overlay-z-index-map-key);
     transition: all $site-overlay-transition-duration $site-overlay-transition-timing-function;
+    will-change: opacity;
     &.visible {
         opacity: $site-overlay-opacity-when-visible;
         visibility: visible;

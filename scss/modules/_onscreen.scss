@@ -1,0 +1,16 @@
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+Resetting default transition WITHIN SOFTPAGE when elements are becoming visible during scrolling
+
+Effects all elements with the attribute [data-scroll-spy]
+
+*/
+
+@if $softpage-content-transition-enabled == false {
+    [data-scroll-spy] {
+        .tingle-modal & {
+            opacity: 1;
+            transition: none;
+        }
+    }
+}
