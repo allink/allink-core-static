@@ -31,6 +31,8 @@ $(function(){
 
     const softpage = new SoftPage({
         onPageLoaded: function(obj) {
+
+            // obj.modal.modal.classList.add('small');
             // scroll to top everytime a softpage is opened
             obj.modal.modal.scrollTop = 0;
             // do stuff slighty delayed, so we get all the information we need
@@ -64,7 +66,9 @@ $(function(){
             // hide site overlay
             $(window).trigger('hideSiteOverlay');
             $(window).trigger('softpage:closed');
-        }
+            // remove variation definition
+            $(obj.modal.modal).removeAttr('data-softpage-variation');
+        },
     });
 
 
@@ -78,6 +82,11 @@ $(function(){
                 off('click').
                 on('click',
                 function(event){
+                    // optional: get softpage variation string and set attribute
+                    var softpage_variation = $(this).attr('data-softpage-variation');
+                    if (softpage_variation) {
+                        $('.tingle-modal.softpage').attr('data-softpage-variation', softpage_variation);
+                    }
                     // instantly toggle site overlay (improves "felt performance")
                     $(window).trigger('showSiteOverlay');
                     // load softpage

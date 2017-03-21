@@ -6,6 +6,18 @@ Global Softpage definitions
 
 .tingle-modal.softpage {
 
+    // variations
+    &[data-softpage-variation="small"] {
+        .tingle-modal-box {
+            @media (min-width: $screen-sm) {
+                max-width: $softpage-small-xs-max-width;
+            }
+            @media (min-width:$screen-xxl) {
+                max-width: $softpage-small-xxl-max-width;
+            }
+        }
+    }
+
     // if a form modal is triggered, let's hide the softpage in order to prevent overlapping
     .form-modal-visible & {
         opacity: 0;

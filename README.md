@@ -7,6 +7,12 @@
 ```SCSS
 $softpage-content-transition-enabled:       false;
 ```
+- Feature: Beside the default softpage, we now support the option for a `small` softpage. Requires the latest core. New settings available:
+```SCSS
+// variations
+$softpage-small-sm-max-width:                   500px;
+$softpage-small-xxl-max-width:                  700px;
+```
 
 ## 14.3.2017
 
