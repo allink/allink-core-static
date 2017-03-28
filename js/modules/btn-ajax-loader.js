@@ -18,20 +18,12 @@ Required markup (button style can vary, of course:
 
 */
 
-function resetBtnAjaxLoader($element) {
-    $element.removeClass('loading');
-    $element
-        .css('width','')
-        .css('height','');
+function resetBtnAjaxLoader($btn) {
+    $btn.removeClass('loading');
 }
 
 function setBtnAjaxLoader($btn) {
     $btn.addClass('loading');
-    var width = $btn.outerWidth();
-    var height = $btn.outerHeight();
-    $btn
-        .css('width',width)
-        .css('height',height);
 }
 
 function initBtnAjaxLoader() {
@@ -39,13 +31,25 @@ function initBtnAjaxLoader() {
     var btn_elements = document.querySelectorAll('[data-btn-ajax-loader]');
     if(btn_elements.length > 0) {
         for (var i = 0; i < btn_elements.length; i++) {
+            // init
             var $element = $(btn_elements[i]);
-            $element.on('click',function(e){
+            // set dimensions...
+            var width = $element.outerWidth();
+            var height = $element.outerHeight();
+            // ...but only if the item is visible (in case the element is within an elemnt with display:none, we get 0)
+            if (width > 0) {
+                $element
+                    .css('width',width)
+                    .css('height',height);
+            }
+            // listen for click event
+            $element.on('click', function(e){
                 // init
                 var $btn = $(this);
                 // are we validation the form? Delayed check so we can check if the error class has been added in the meanwhile
                 if ($btn.parents('form').hasClass('validate-form') === true) {
-                    // only apply 'loading' styles when there are no errors
+                    // only apply 'loading' styles when there are NO errors
+                    // required mini-delay to check if the class has been added
                     setTimeout(function(){
                         if($btn.parents('form').hasClass('has-errors') === false) {
                             setBtnAjaxLoader($btn);
@@ -74,6 +78,21 @@ function btnAjaxLoaderDone() {
     }
 }
 
+function resetBtnAjaxLoaderSize() {
+    // find buttons and loop!
+    var btn_elements = document.querySelectorAll('[data-btn-ajax-loader]');
+    if(btn_elements.length > 0) {
+        for (var i = 0; i < btn_elements.length; i++) {
+            // init
+            var $element = $(btn_elements[i]);
+            // re-set dimensions
+            $element
+                .css('width','')
+                .css('height','');
+        }
+    }
+}
+
 $(function(){
 
     // on page load
@@ -87,6 +106,16 @@ $(function(){
     // custom event
     $(window).on('btnAjaxLoaderDone', function() {
         btnAjaxLoaderDone();
+    });
+
+    // listen for a viewport width change and re-init the loaders (because of resizing the)
+    $(window).on('viewportWidthHasChanged', function(){
+        // reset sizes
+        resetBtnAjaxLoaderSize();
+        // and delayed: set sizes anew
+        setTimeout(function(){
+            initBtnAjaxLoader();
+        },150);
     });
 
 });
