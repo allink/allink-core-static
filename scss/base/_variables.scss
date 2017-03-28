@@ -349,6 +349,8 @@ $form-field-border-color:              transparent;
 $input-bg:                             #fff;
 // background color of disabled form field (e.g. text)
 $input-bg-disabled:                    $gray-lighter;
+// background color :focus
+$input-bg-focus:                       $gray-light;
 
 // Text color for `<input>`s
 $input-color:                          $gray;

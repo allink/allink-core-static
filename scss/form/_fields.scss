@@ -25,6 +25,7 @@ Text Fields
     padding-top: $btn-padding-top-default;
     padding-bottom: $btn-padding-bottom-default;
     &:focus {
+        background-color: $input-bg-focus;
         border-top-color: $input-border-top-color-focus;
         border-right-color: $input-border-right-color-focus;
         border-bottom-color: $input-border-bottom-color-focus;

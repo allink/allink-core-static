@@ -1,5 +1,8 @@
 # Changelog
 
+## 28.3.2017
+- Improvement: Added $input-bg-focus variable to set bg color of form field :focus
+
 ## 21.3.2017
 
 - Feature: Horizontal alignment classes have been turned into utility classes that are globally usable. Currently, only the `Content Plugin Column` and the `Button/Link Plugin` use these classes: `.align-h-mobile-left`, `.align-h-mobile-center`, `.align-h-mobile-right` and `.align-h-desktop-left`, `.align-h-desktop-center`, `.align-h-desktop-right`
