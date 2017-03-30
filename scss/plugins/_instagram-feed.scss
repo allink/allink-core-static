@@ -1,3 +1,12 @@
+// temporary spacing fix until we remove the .content-section markup from the instagram plugin (in the future we ONLY want to place the feed within columns of the Content Plugin, not asa standalone plugin)
+.content-section {
+    &.instagram-plugin {
+        padding: 0;
+        margin: 0;
+    }
+}
+
+
 .instagramfeed-plugin-container {
     display: flex;
     flex-wrap: wrap;

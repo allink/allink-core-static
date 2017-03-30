@@ -39,7 +39,7 @@ $input-bg-focus:                       $gray-light;
 
 ### FIXES
 
-
+- Instagram Plugin: Temporary spacing fix until we remove the .content-section markup from the instagram plugin (in the future we ONLY want to place the feed within columns of the Content Plugin, not asa standalone plugin)
 
 
 # Older Changes
