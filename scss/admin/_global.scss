@@ -61,6 +61,22 @@ Tweaking Django CMS
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 
+Form tweaks
+
+*/
+
+form {
+    select[multiple] {
+        padding: 6px;
+        option {
+            padding: 6px;
+        }
+    }
+}
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
 Option Fieldset Spacing
 
 Visually separate blocks
