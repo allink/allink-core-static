@@ -10,11 +10,21 @@ This feature can optionally be activated in an 'App Content Plugin' in the 'Disp
 In some cases, not all links within a section should trigger a softpage. That's why
 we added the 'data-softpage-disabled' attribute for those links.
 
-Example:
+Default (loading a links href-attribute:
 
 <div class"example-container" data-trigger-softpage>
-    <a href="#">I will trigger a softpage</a>
-    <a href="#" data-softpage-disabled>I will NOT trigger a softpage</a>
+    <a href="/link-to-page">I will trigger a softpage</a>
+    <a href="/link-to-page" data-softpage-disabled>I will NOT trigger a softpage</a>
+</div>
+
+Optional (loading content of a specific element):
+
+<a href="/link-to-page" data-trigger-softpage data-softpage-content-id="example-element">I will trigger a softpage</a>
+
+<div id="example-element">
+    ...
+        <h1>Anything in here will be displayed in the Softpage</h1>
+    ...
 </div>
 
 Custom Events:
@@ -82,6 +92,11 @@ $(function(){
                 off('click').
                 on('click',
                 function(event){
+                    // init
+                    var softpage_content_id = '';
+                    var href = event.currentTarget.href;
+                    // optional: use a node's content instead of href-attribute
+                    var softpage_content_id = $(this).attr('data-softpage-content-id');
                     // optional: get softpage variation string and set attribute
                     var softpage_variation = $(this).attr('data-softpage-variation');
                     if (softpage_variation) {
@@ -91,7 +106,7 @@ $(function(){
                     $(window).trigger('showSiteOverlay');
                     // load softpage
                     event.preventDefault();
-                    softpage.loadPage(event.currentTarget.href, true);
+                    softpage.loadPage(href, true, softpage_content_id);
                 }
             );
         });

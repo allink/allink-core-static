@@ -31,6 +31,16 @@ $form-field-transition:                background-color $default-transition-dura
 
 ### NEW
 
+- Optional (loading content of a specific element):
+```HTML
+<a href="/link-to-page" data-trigger-softpage data-softpage-content-id="example-element">I will trigger a softpage</a>
+
+<div id="example-element">
+    ...
+        <h1>Anything in here will be displayed in the Softpage</h1>
+    ...
+</div>
+```
 - Content Plugin: Support for vertical alignment of columns added (the tallest element defines the boundaries). Important: Requires `allink-core` commit `4c060098fd93890d9355870b2cf54d2505650eda`
 - Added new variable to set background color of form fields when `:focus`:
 ```SCSS
