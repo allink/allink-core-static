@@ -3,7 +3,18 @@
 }
 
 .list-item {
+
+    // FLEXBOX time!
+    display: flex;
+
     @include clearfix();
+
+    & + .list-item {
+        @include make-spacing-top-xs($app-content-plugin-list-item-spacing-xs);
+        @include make-spacing-top-md($app-content-plugin-list-item-spacing-md);
+        @include make-spacing-top-xl($app-content-plugin-list-item-spacing-xl);
+    }
+
     .col {
         &:nth-child(1) {
             @include make-xs-column(24);
@@ -17,14 +28,5 @@
     }
     .heading {
         @include h2();
-    }
-}
-
-
-.list-item {
-    & + .list-item {
-        @include make-spacing-top-xs($app-content-plugin-list-item-spacing-xs);
-        @include make-spacing-top-md($app-content-plugin-list-item-spacing-md);
-        @include make-spacing-top-xl($app-content-plugin-list-item-spacing-xl);
     }
 }

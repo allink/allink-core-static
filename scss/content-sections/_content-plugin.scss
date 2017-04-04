@@ -200,14 +200,33 @@ General Settings
         }
     }
 
-
     /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 
-    Variations (custom classes)
+    FLEXBOX Time!
 
     */
 
-    // Project specific classes can be defined here..
+    .col-container-inner {
+        display: flex;
+    }
+
+    // Mobile Column Ordering.. Flexbox to the rescue!
+    // Note: Currently only up to 3 colum templates are supported
+    @media (max-width:$screen-sm-max) {
+        .col-order-mobile-0 { order: 0; }
+        .col-order-mobile-1 { order: 1; }
+        .col-order-mobile-2 { order: 2; }
+        // .col-order-mobile-3 { order: 3; }
+        // .col-order-mobile-4 { order: 4; }
+        // .col-order-mobile-5 { order: 5; }
+    }
+
+    // vertical alignment
+    @media (min-width:$screen-md) {
+        .align-v-desktop-top {  align-self: flex-start; }
+        .align-v-desktop-middle {  align-self: center; }
+        .align-v-desktop-bottom {  align-self: flex-end; }
+    }
 
 
     /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
@@ -370,22 +389,5 @@ General Settings
             }
         }
     }
-
-
-    /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
-
-    Mobile Column Ordering. Flexbox to the rescue!
-
-    Note: Currently only up to 3 colum templates are supported
-
-    */
-
-    .col-order-mobile-0 { order: 0; }
-    .col-order-mobile-1 { order: 1; }
-    .col-order-mobile-2 { order: 2; }
-
-    // .col-order-mobile-3 { order: 3; }
-    // .col-order-mobile-4 { order: 4; }
-    // .col-order-mobile-5 { order: 5; }
 
 }
