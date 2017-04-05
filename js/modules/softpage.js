@@ -32,6 +32,11 @@ Custom Events:
 softpage:opened
 softpage:closed
 
+Event Listeners:
+
+initSoftpageTrigger
+closeSoftpage
+
 */
 
 import SoftPage from 'softpage';
@@ -112,11 +117,19 @@ $(function(){
         });
     }
 
+    function closeSoftpage() {
+        softpage.closeSoftpage();
+    }
+
     // on page load
     initSoftpageTrigger();
 
+    // custom events
     $(window).on('initSoftpageTrigger', function() {
         initSoftpageTrigger();
+    });
+    $(window).on('closeSoftpage', function() {
+        closeSoftpage();
     });
 
 });
