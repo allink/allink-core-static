@@ -7,7 +7,7 @@ Each release is divided into the following main categories:
 - FIXES: General bugfixes
 
 
-## v0.0.1
+## v0.0.1 (under development)
 
 ### IMPORTANT
 
@@ -50,6 +50,7 @@ $input-bg-focus:                       $gray-light;
 
 ### FIXES
 
+- Admin: Automatically set size-attribute of multi-select fields (e.g. used for conten section classes)
 - Instagram Plugin: Temporary spacing fix until we remove the .content-section markup from the instagram plugin (in the future we ONLY want to place the feed within columns of the Content Plugin, not asa standalone plugin)
 
 

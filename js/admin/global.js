@@ -54,4 +54,18 @@ $(function(){
     // when loading the modal, get currently selected template and and toggle visibility
     toggle_option_group_visibility($('#id_template').val());
 
+    // make sure all option of a multi-select field are visible
+    $('select[multiple]').each(function(){
+        var $select = $(this);
+        var nr_of_select_options = $select.children().length;
+        // in case there are no options, hide the field (entire form row)
+        if (nr_of_select_options == 0) {
+            $select.parents('.form-row').hide();
+        }
+        // otherwise set the size-attribute
+        else {
+            $select.attr('size',nr_of_select_options);
+        }
+    });
+
 });
