@@ -31,7 +31,7 @@ $form-field-transition:                background-color $default-transition-dura
 
 ### NEW
 
-- Optional (loading content of a specific element):
+- Softpage: Option for loading content of a specific element instead of href-attribute added:
 ```HTML
 <a href="/link-to-page" data-trigger-softpage data-softpage-content-id="example-element">I will trigger a softpage</a>
 
