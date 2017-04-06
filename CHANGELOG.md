@@ -31,6 +31,17 @@ $form-field-transition:                background-color $default-transition-dura
 
 ### NEW
 
+- Video Plugin: Basic styles added with the following settings variables:
+```SCSS
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+=video plugin
+
+*/
+
+$video-embed-default-ratio-width:               16;
+$video-embed-default-ratio-height:               9;
+```
 - Softpage: New event `closeSoftpage` to close softpage from a custom toggle:
 ```js
 $(window).trigger('closeSoftpage');
