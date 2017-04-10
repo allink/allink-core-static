@@ -47,15 +47,31 @@ export function initiSwiperInstances(options) {
             $swiper_instance.addClass('swiper-disabled');
             return true;
         }
+        // swiper counter dom node
+        var $counter = $('.swiper-counter');
+        if ($counter) {
+            $counter.addClass('active');
+        }
         // default
         var mySwiper = new Swiper ($swiper_instance, {
             // global settings
-            onInit: function(){
+            onInit: function(swiper){
                 // leave a flag when an instance has been initialized in order to prevent re-initialization
                 $swiper_instance.addClass('swiper-initialized');
                 // trigger custom event
                 $(window).trigger('initSoftpageTrigger');
                 $(window).trigger('swiper:initialized');
+
+                if ($counter) {
+                    $counter.children('.total').html(number_of_slides);
+                    $counter.children('.current').html(swiper.realIndex + 1);
+                }
+            },
+            onSlideChangeStart: function(swiper) {
+                // if counter dom node exists in template
+                if ($counter) {
+                    $counter.children('.current').html(swiper.realIndex + 1);
+                }
             },
             effect: options.effect,
             speed: options.transitionDurationBetweenSlides, // Number: Duration of transition between slides (in ms)

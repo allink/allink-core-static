@@ -191,6 +191,15 @@ Global Swiper Custom Styles
     }
 }
 
+// Slider counter
+.swiper-counter {
+    display: none;
+
+    &.active {
+        display: block;
+    }
+}
+
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 
 Basic slider content styling
