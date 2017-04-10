@@ -65,6 +65,7 @@ $input-bg-focus:                       $gray-light;
 
 ### FIXES
 
+- Swiper: Background image repeated on some mobile devices due to the padding ratio approach. Now set to `background-repeat: no-repeat`.
 - Admin: Automatically set size-attribute of multi-select fields (e.g. used for conten section classes)
 - Instagram Plugin: Temporary spacing fix until we remove the .content-section markup from the instagram plugin (in the future we ONLY want to place the feed within columns of the Content Plugin, not asa standalone plugin)
 
