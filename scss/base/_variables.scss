@@ -689,6 +689,7 @@ $datepicker-default-btn-icon-size:      0.8em;
 
 */
 
+$dropdown-min-width:                    0;
 $dropdown-border-width:                 2px;
 $dropdown-border-style:                 solid;
 $dropdown-border-color:                 #000;
@@ -949,3 +950,18 @@ $softpage-small-xxl-max-width:                  700px;
 
 $video-embed-default-ratio-width:               16;
 $video-embed-default-ratio-height:               9;
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+App Content > Filter spacing
+
+*/
+
+// spacing to next element (grid, list, ...)
+$filter-container-spacing-bottom-xs:             $grid-gutter-width/2;
+$filter-container-spacing-bottom-md:             $grid-gutter-width;
+$filter-container-spacing-bottom-xl:             $grid-gutter-width;
+
+// spacing between selects
+$filter-container-spacing-between-select:        0.5em; // 'em' recommended

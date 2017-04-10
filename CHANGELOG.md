@@ -31,6 +31,23 @@ $form-field-transition:                background-color $default-transition-dura
 
 ### NEW
 
+- Dropdown: New variables `$dropdown-min-width` available (default to `0`).
+- App Content Filter: Functionality added with new available variables:
+```SCSS
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+App Content > Filter spacing
+
+*/
+
+// spacing to next element (grid, list, ...)
+$filter-container-spacing-bottom-xs:             $grid-gutter-width/2;
+$filter-container-spacing-bottom-md:             $grid-gutter-width;
+$filter-container-spacing-bottom-xl:             $grid-gutter-width;
+
+// spacing between selects
+$filter-container-spacing-between-select:        0.5em; // 'em' recommended
+```
 - Video Plugin: Basic styles added with the following settings variables:
 ```SCSS
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *

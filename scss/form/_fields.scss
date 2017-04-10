@@ -40,6 +40,10 @@ Text Fields
         border-left-color: $input-error-border-left-color;
         background-color: $input-error-bg;
     }
+    // reset bg color in case of a bootstrap-select container
+    &.bootstrap-select {
+        background-color: transparent;
+    }
 }
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *

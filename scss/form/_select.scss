@@ -47,7 +47,7 @@
         }
     }
     .dropdown-menu {
-        min-width: 200px !important; // I hate to do this, but because the default styles uses a very specific structure, I was forced to. This can of cousre be overwritten in a different context
+        min-width: $dropdown-min-width !important; // I hate to do this, but because the default styles uses a very specific structure, I was forced to. This can of cousre be overwritten in a different context
         padding: 0;
         border-style: $dropdown-border-style;
         border-width: $dropdown-border-width;

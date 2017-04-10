@@ -121,3 +121,29 @@ The 'load more' container and button
     @include make-spacing-top-md($load-more-container-spacing-top-md);
     @include make-spacing-top-xl($load-more-container-spacing-top-xl);
 }
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+Filter Container
+
+*/
+
+.filter-container {
+    & + * {
+        @include make-spacing-top-xs($filter-container-spacing-bottom-xs);
+        @include make-spacing-top-md($filter-container-spacing-bottom-md);
+        @include make-spacing-top-xl($filter-container-spacing-bottom-xl);
+    }
+}
+
+.filter-container-inner {
+    // define spacing to next element
+    margin-top: -$grid-gutter-width/2;
+    // define spacing between select boxes
+    > * {
+        width: auto !important;
+        margin-top: $grid-gutter-width/2 !important;
+        margin-right: $grid-gutter-width/2 !important;
+    }
+}

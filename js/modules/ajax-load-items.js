@@ -37,6 +37,52 @@ To make the "Load Items" functionality work, it REQUIRES the following elements:
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 
+Initialize the app content filter and listen for the change event
+
+Next, determine the active category and call the `loadAjaxItems` function
+as simulation it was the trigger. 2 in 1!
+
+*/
+
+function initAjaxFilter(options) {
+    // find and loop through filter containers
+    $('.filter-container').each(function(){
+        var $plugin_container = $(this).parents('.app-content-plugin');
+        // find
+        $(this).find('select').each(function(){
+            $(this).change(function(e){
+                var $category_container = $plugin_container.find('.app-content-categories');
+                var $active_category = $category_container.find('.active a');
+                loadAjaxItems($active_category, options);
+            });
+        });
+    });
+}
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+Function that appends the filters values to the active category
+
+*/
+
+function appendFilterToURL(ajax_url,$filter_container) {
+    $filter_container.find('select').each(function(){
+        // console.log( $(this) );
+        var selected_value = $(this).find('option:selected').val();
+        if (selected_value) {
+            // determine field name
+            var field_name = $(this).attr('name');
+            //
+            ajax_url += '&' + field_name + '=' + selected_value;
+        }
+    });
+    return ajax_url;
+}
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
 Function that searches for elements
 
 */
@@ -68,6 +114,9 @@ export function initAjaxLoadItemsTrigger(options) {
         });
     });
 
+    // init the filter switch
+    initAjaxFilter(options);
+
 }
 
 
@@ -89,11 +138,12 @@ export function loadAjaxItems($trigger,options,masonry_grid,masonry_instance) {
     // init
     var masonry_grid = masonry_grid || null,
         masonry_instance = masonry_instance || null,
-        href_value = $trigger.attr('href'),
-        $section_container = $trigger.parents('.app-content-plugin'),
-        $items_container = $section_container.find('.ajax-items-container'),
+        ajax_url = $trigger.attr('href'),
+        $plugin_container = $trigger.parents('.app-content-plugin'),
+        $filter_container = $plugin_container.find('.filter-container'),
+        $items_container = $plugin_container.find('.ajax-items-container'),
         $category_container = $trigger.parents('.app-content-categories'),
-        $load_more_container = $section_container.find('.load-more-container'),
+        $load_more_container = $plugin_container.find('.load-more-container'),
         $load_more_btn = $load_more_container.find('.btn-load-more'),
         category_active_class = 'active',
         loading_class = 'loading',
@@ -116,9 +166,12 @@ export function loadAjaxItems($trigger,options,masonry_grid,masonry_instance) {
         $trigger.parents('li').addClass(category_active_class);
     }
 
+    // append filter values to URL
+    ajax_url = appendFilterToURL(ajax_url,$filter_container);
+
     $.ajax({
         type: 'GET',
-        url: href_value,
+        url: ajax_url,
         contentType: 'application/json',
         success: function(data) {
 
@@ -163,6 +216,8 @@ export function loadAjaxItems($trigger,options,masonry_grid,masonry_instance) {
                 $(window).trigger('initSoftpageTrigger');
                 $(window).trigger('btnAjaxLoaderDone');
                 $(window).trigger('ajaxLoadItems:success');
+                // reveals next section in case there are no results when filtering
+                $(window).trigger('initOnScreen');
 
                 // remove loading class
                 $items_container.removeClass(loading_class);
