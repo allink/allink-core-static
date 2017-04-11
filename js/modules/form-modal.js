@@ -58,7 +58,7 @@ $(function(){
 
     function initFormModalTrigger(){
         // init all trigger links and loop
-        $('.toggle-form-modal').each(function(i) {
+        $('.toggle-form-modal,[data-trigger-form-modal]').each(function(i) {
             // stop multiple event listeners from firing multiple times by removing (off()) and adding (on()) the event listener
             $(this).
                 off('click').

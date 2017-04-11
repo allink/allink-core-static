@@ -7,7 +7,22 @@ Each release is divided into the following main categories:
 - FIXES: General bugfixes
 
 
-## v0.0.1 (under development)
+## v0.0.2 (under development)
+
+### IMPORTANT
+
+-
+
+### NEW
+
+-
+
+### FIXES
+
+- Swiper Buttons: Edge displayed globally set `border` and `text-decoration` of links
+- Swiper Buttons: Edge had a conflict when link color and `&:before` had different colors
+
+## v0.0.1
 
 ### IMPORTANT
 
@@ -84,7 +99,8 @@ $input-bg-focus:                       $gray-light;
 
 ### FIXES
 
-- Swiper: Background image repeated on some mobile devices due to the padding ratio approach. Now set to `background-repeat: no-repeat`.
+- Button Link Plugin: Link target are now respected in the template.
+- Swiper: Background image repeated on some mobile devices due to the padding ratio approach (when thumbnail and placeholder ratio are not the same). Now set to `background-repeat: no-repeat`.
 - Admin: Automatically set size-attribute of multi-select fields (e.g. used for conten section classes)
 - Instagram Plugin: Temporary spacing fix until we remove the .content-section markup from the instagram plugin (in the future we ONLY want to place the feed within columns of the Content Plugin, not asa standalone plugin)
 

@@ -56,9 +56,17 @@ Global Swiper Custom Styles
     transform: translate(0,-50%);
     opacity: $swiper-default-arrows-opacity;
     transition: $swiper-default-arrows-transition;
+    &:link,
+    &:visited {
+        color: $swiper-default-arrows-color;
+        border: none;
+        text-decoration: none;
+    }
     &:hover,
     &:focus {
         opacity: $swiper-default-arrows-opacity-hover;
+        border: none;
+        text-decoration: none;
         > i {
             color: $swiper-default-arrows-color-hover;
         }
@@ -103,6 +111,10 @@ Global Swiper Custom Styles
             right: $swiper-default-arrows-offset-xl;
         }
     }
+}
+
+.swiper-button-fullscreen {
+    display: none;
 }
 
 // Pagination
