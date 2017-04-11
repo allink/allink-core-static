@@ -48,6 +48,8 @@ $form-field-transition:                background-color $default-transition-dura
 
 - Dropdown: New variables `$dropdown-min-width` available (default to `0`).
 - App Content Filter: Functionality added with new available variables:
+- Slider counter styles
+- Slider fullscreen mode
 ```SCSS
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 

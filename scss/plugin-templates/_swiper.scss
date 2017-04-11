@@ -113,6 +113,10 @@ Global Swiper Custom Styles
     }
 }
 
+.swiper-button-fullscreen {
+    display: none;
+}
+
 // Pagination
 .swiper-container-horizontal {
     // no point in displaying controls if there is only 1 slide
@@ -196,6 +200,15 @@ Global Swiper Custom Styles
                 color: $overlay-text-color;
             }
         }
+    }
+}
+
+// Slider counter
+.swiper-counter {
+    display: none;
+
+    &.active {
+        display: block;
     }
 }
 
