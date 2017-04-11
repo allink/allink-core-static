@@ -15,7 +15,7 @@ Each release is divided into the following main categories:
 
 ### NEW
 
-- Backend Colorpicker static files added (currently under development)
+- Backend Colorpicker static files added and optimized.
 
 ### FIXES
 
