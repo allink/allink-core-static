@@ -19,7 +19,8 @@ Each release is divided into the following main categories:
 
 ### FIXES
 
--
+- Swiper Buttons: Edge displayed globally set `border` and `text-decoration` of links
+- Swiper Buttons: Edge had a conflict when link color and `&:before` had different colors
 
 ## v0.0.1
 
