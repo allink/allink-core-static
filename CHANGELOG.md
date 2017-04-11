@@ -7,7 +7,21 @@ Each release is divided into the following main categories:
 - FIXES: General bugfixes
 
 
-## v0.0.1 (under development)
+## v0.0.2 (under development)
+
+### IMPORTANT
+
+-
+
+### NEW
+
+-
+
+### FIXES
+
+-
+
+## v0.0.1
 
 ### IMPORTANT
 
