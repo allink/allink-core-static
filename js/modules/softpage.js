@@ -82,6 +82,12 @@ $(function(){
             // remove variation definition
             $(obj.modal.modal).removeAttr('data-softpage-variation');
         },
+        onBeforeClose: function(){
+            if ($('.tingle-modal.form-modal').hasClass('tingle-modal--visible')) {
+                return false;
+
+            }
+        }
     });
 
 
