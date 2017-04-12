@@ -1,0 +1,33 @@
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+Global modal definitions
+
+*/
+
+.tingle-modal {
+
+    // add scroll bars per defeault
+    overflow-y: auto;
+
+    // positioning fix on mobile
+    @media (max-width:$screen-xs-max) {
+        top: 0;
+    }
+    // add correct pointer
+    cursor: pointer;
+    &.tingle-modal--noOverlayClose {
+        cursor: default;
+    }
+    // variations
+    &.form-modal {
+        transition: $form-modal-transition;
+    }
+}
+
+// reset transform per default, and add project specific if desired
+.tingle-modal-box {
+    transform: none;
+    .tingle-modal--visible & {
+        transform: none;
+    }
+}

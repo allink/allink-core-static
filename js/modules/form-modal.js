@@ -17,20 +17,24 @@ $(function(){
     var form_modal = new tingle.modal({
         cssClass: ['form-modal'],
         onClose: function() {
-            // tbd
-            closeFormModal();
+            // remove class from html
+            document.querySelector('html').classList.remove('form-modal-visible');
+            // trigger class
+            $(window).trigger('form-modal:closed');
             // if the softpage is still open in the brackground, we have to keep the overlay, otherwise we can close it
             if ($('.tingle-modal.softpage').hasClass('tingle-modal--visible')) {
-                // don't do anything
+                // tingle removes the class from the body, so let's re-add it
+                document.querySelector('body').classList.add('tingle-enabled');
             }else {
-                $(window).trigger('form-modal:closed');
                 $(window).trigger('hideSiteOverlay');
             }
         },
         onOpen: function(){
+            // trigger custom events
             $(window).trigger('form-modal:opened');
             $(window).trigger('initFormModalClose');
-        }
+        },
+        closeMethods: []
     });
 
     // click handler
@@ -49,11 +53,9 @@ $(function(){
             // set modal content and open
             form_modal.setContent(data);
             form_modal.open();
+            // scroll to top everytime a modal is opened
+            form_modal.modal.scrollTop = 0;
         });
-    }
-
-    function closeFormModal() {
-        document.querySelector('html').classList.remove('form-modal-visible');
     }
 
     function initFormModalTrigger(){
@@ -83,22 +85,9 @@ $(function(){
     });
 
     function initFormModalClose() {
-        // prevent clicks on background to close modal
-        // $('.tingle-modal.form-modal').each(function(i) {
-        //     // stop multiple event listeners from firing multiple times by removing (off()) and adding (on()) the event listener
-        //     $(this).off('click').
-        //         on('click',
-        //         function(event){
-        //             // load softpage
-        //             console.log( event );
-        //             event.preventDefault();
-        //             return false;
-        //         }
-        //     );
-        // });
         // look for triggers
-        if (document.querySelector('.close-form-modal')) {
-            var close_form_modal = document.querySelector('.close-form-modal');
+        if (document.querySelector('.close-form-modal,[data-close-form-modal]')) {
+            var close_form_modal = document.querySelector('.close-form-modal,[data-close-form-modal]');
             close_form_modal.addEventListener('click', function(event) {
                 event.preventDefault();
                 form_modal.close();

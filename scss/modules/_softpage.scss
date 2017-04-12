@@ -6,6 +6,10 @@ Global Softpage definitions
 
 .tingle-modal.softpage {
 
+    .tingle-modal-box {
+        margin-left: auto;
+    }
+
     // variations
     &[data-softpage-variation="small"] {
         .tingle-modal-box {

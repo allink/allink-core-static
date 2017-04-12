@@ -350,7 +350,7 @@ $input-bg:                             #fff;
 // background color of disabled form field (e.g. text)
 $input-bg-disabled:                    $gray-lighter;
 // background color :focus
-$input-bg-focus:                       $gray-light;
+$input-bg-focus:                       $white;
 
 // Text color for `<input>`s
 $input-color:                          $gray;
@@ -965,3 +965,15 @@ $filter-container-spacing-bottom-xl:             $grid-gutter-width;
 
 // spacing between selects
 $filter-container-spacing-between-select:        0.5em; // 'em' recommended
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+=form =modal
+
+*/
+
+$form-modal-transition-duration:                150ms;
+$form-modal-transition-timing-function:       ease-in;
+$form-modal-transition:         visibility $form-modal-transition-duration $form-modal-transition-timing-function,
+                                opacity $form-modal-transition-duration $form-modal-transition-timing-function;

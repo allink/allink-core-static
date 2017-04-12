@@ -46,8 +46,6 @@ $(function(){
 
     const softpage = new SoftPage({
         onPageLoaded: function(obj) {
-
-            // obj.modal.modal.classList.add('small');
             // scroll to top everytime a softpage is opened
             obj.modal.modal.scrollTop = 0;
             // do stuff slighty delayed, so we get all the information we need
