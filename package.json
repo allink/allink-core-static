@@ -61,7 +61,7 @@
     "softpage": "git://github.com/allink/softpage.git#fefbe3f22b4bda0d4a93c9fad6f93b7e4e86006b",
     "superagent": "^2.0.0",
     "swiper": "^3.4.1",
-    "tingle.js": "^0.7.0"
+    "tingle.js": "^0.10.0"
   },
   "description": "The allink core styles/scripts for our Django CMS setup.",
   "devDependencies": {},
