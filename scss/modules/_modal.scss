@@ -24,6 +24,11 @@ Global modal definitions
     }
 }
 
+// remove default padding when overflow
+.tingle-modal--overflow {
+    padding-top: 0;
+}
+
 // reset transform per default, and add project specific if desired
 .tingle-modal-box {
     transform: none;

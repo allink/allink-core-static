@@ -83,9 +83,11 @@ $(function(){
             $(obj.modal.modal).removeAttr('data-softpage-variation');
         },
         onBeforeClose: function(){
+            // prevent closing of the softpage as long as the form modal is opened
             if ($('.tingle-modal.form-modal').hasClass('tingle-modal--visible')) {
                 return false;
-
+            }else {
+                return true;
             }
         }
     });
