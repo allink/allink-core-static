@@ -46,7 +46,7 @@ export function initiSwiperInstances(options) {
     if (!options.slidesPerView) {
         options.slidesPerView = 'auto';
     }
-    if (typeof options.loop === undefined) {
+    if (typeof options.loop === 'undefined') {
         options.loop = true;
     }
     if (!options.initialSlide) {
@@ -84,6 +84,11 @@ export function initiSwiperInstances(options) {
                     $counter.children('.total').html(number_of_slides);
                     $counter.children('.current').html(swiper.realIndex + 1);
                 }
+
+                // if loop is false, stop autoplay
+                if (!options.loop) {
+                    swiper.stopAutoplay();
+                }
             },
             onSlideChangeStart: function(swiper) {
                 // if counter dom node exists in template
@@ -120,15 +125,15 @@ export function initiSwiperInstances(options) {
 
             // clone container, remove all inline styles of old swiper instance
             var $swiper_fullscreen_container = $('.swiper-fullscreen-container');
-            $swiper_fullscreen_container.children('.swiper-fullscreen')
-                .html($swiper_instance.clone())
+            $swiper_fullscreen_container
+                .children('.swiper-fullscreen').html($swiper_instance.clone())
                 .children('.swiper-default').removeClass('swiper-initialized')
-                .find('*').removeAttr('style');
+                .find('*').removeAttr('style')
+                .find('.swiper-slide-duplicate').remove();
 
             // set new options
             var fullscreen_options = options;
             fullscreen_options.initialSlide = mySwiper.realIndex;
-            fullscreen_options.slidesPerView = 0;
             fullscreen_options.loop = false;
 
             setTimeout(function() {
