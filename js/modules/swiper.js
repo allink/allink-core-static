@@ -29,7 +29,6 @@ The associated styles need to be added in the project's _swiper.scss file.
 import Swiper from 'swiper';
 
 export function initiSwiperInstances(options) {
-    console.log('options', options);
 
     // initialize options
     var options = options || {};
