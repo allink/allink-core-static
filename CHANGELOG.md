@@ -35,6 +35,7 @@ $form-modal-transition:         visibility $form-modal-transition-duration $form
 - Form Modal: The form modal can now <strong>only</strong> be closed by clicking on an element with the attribute `data-close-form-modal` inside the modal
 - Swiper Buttons: Edge displayed globally set `border` and `text-decoration` of links
 - Swiper Buttons: Edge had a conflict when link color and `&:before` had different colors
+- Swiper Fullscreen mode: fixed not applied options in fullscreen mode
 
 ## v0.0.1
 
