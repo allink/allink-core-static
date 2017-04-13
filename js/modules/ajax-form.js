@@ -50,9 +50,14 @@ export function sendAjaxForm($form) {
         url : url,
         data : postData,
         success:function(data, textStatus, jqXHR) {
-            // write response content into container
-            $form_container.html(data);
-
+            // do we get a custom URL from view?
+            if (data.success_url) {
+                window.location.href = data.success_url;
+            }
+            // otherwise, write HTML
+            else {
+                $form_container.html(data);
+            }
             // Google Tag Manager
             if (typeof dataLayer === 'undefined') {
                 // GTM not in use or not configured properly

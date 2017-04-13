@@ -15,6 +15,7 @@ Each release is divided into the following main categories:
 
 ### NEW
 
+- AJAX form: The optional `success_url` parameter from the AJAX response is now supported
 - `tingle.js` updated to `0.10.0`: New variables for the `form modal` with the following default values are now available:
 ```SCSS
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
@@ -32,6 +33,7 @@ $form-modal-transition:         visibility $form-modal-transition-duration $form
 
 ### FIXES
 
+- Softpage: `.tingle-modal-box` is now handling the `overflow-y`.
 - Form Modal: The form modal can now <strong>only</strong> be closed by clicking on an element with the attribute `data-close-form-modal` inside the modal
 - Swiper Buttons: Edge displayed globally set `border` and `text-decoration` of links
 - Swiper Buttons: Edge had a conflict when link color and `&:before` had different colors

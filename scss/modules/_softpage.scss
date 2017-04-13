@@ -6,8 +6,17 @@ Global Softpage definitions
 
 .tingle-modal.softpage {
 
+    // in case of the softpage, we want our .tingle-modal-box to handle to overflow scrolling
+    overflow: hidden;
+
     .tingle-modal-box {
-        margin-left: auto;
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        overflow-y: auto;
+        margin: 0;
+        min-height: 0 !important; // this one is set on a project basis, so we gotta force it
     }
 
     // variations
