@@ -1,0 +1,22 @@
+.lockdown-section {
+}
+
+.lockdown-plugin {
+    max-width: 500px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.lockdown-form {
+    #id_password {
+        max-width: 200px;
+        margin: 0 auto;
+    }
+    .btn-container {
+        text-align: center;
+        .btn {
+            margin: 0;
+            float: none;
+        }
+    }
+}

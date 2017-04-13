@@ -15,6 +15,7 @@ Each release is divided into the following main categories:
 
 ### NEW
 
+- Lockdown: Basic styles added.
 - App Filter: Filtering now works independent of category navigation. Requires the latest core. Of COREs..
 - App Filter: Basic styles for `no-results-container` added
 - Form: New `data-submit-form` trigger listener added that will submit its parent `form` (used for the logout mini form of the `Members Plugin`.
