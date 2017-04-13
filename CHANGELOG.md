@@ -15,6 +15,22 @@ Each release is divided into the following main categories:
 
 ### NEW
 
+- Form: New `data-submit-form` trigger listener added that will submit its parent `form` (used for the logout mini form of the `Members Plugin`.
+- Members Plugin: New variables available:
+```SCSS
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+=members plugin
+
+*/
+
+$members-modal-spacing-top-xs:                      60px;
+$members-modal-spacing-bottom-xs:                   60px;
+$members-modal-spacing-top-md:                      60px;
+$members-modal-spacing-bottom-md:                   60px;
+$members-modal-spacing-top-xl:                      60px;
+$members-modal-spacing-bottom-xl:                   60px;
+```
 - AJAX form: The optional `success_url` parameter from the AJAX response is now supported
 - `tingle.js` updated to `0.10.0`: New variables for the `form modal` with the following default values are now available:
 ```SCSS
@@ -33,6 +49,7 @@ $form-modal-transition:         visibility $form-modal-transition-duration $form
 
 ### FIXES
 
+- Softpage: `.tingle-modal__close:before` is now set to `absolute` and is therefore centered correctly
 - Softpage: `.tingle-modal-box` is now handling the `overflow-y`.
 - Form Modal: The form modal can now <strong>only</strong> be closed by clicking on an element with the attribute `data-close-form-modal` inside the modal
 - Swiper Buttons: Edge displayed globally set `border` and `text-decoration` of links

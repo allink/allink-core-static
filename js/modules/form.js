@@ -4,6 +4,21 @@ $(function(){
 
         /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 
+        Submit form from trigger (that is not an input type 'submit')
+
+        */
+
+        $('[data-submit-form]').on('click',function(e){
+            // init
+            e.preventDefault();
+            var $trigger = $(this);
+            // find and submit form
+            $trigger.parents('form').submit();
+        });
+
+
+        /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
         The maxlength attribute is being ignored on type="number" inputs. Let's make this work.
 
         */

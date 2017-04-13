@@ -24,6 +24,13 @@ Global modal definitions
     }
 }
 
+// fix for projects where the position property has been forgotten
+.tingle-modal__close {
+    &:before {
+        position: absolute;
+    }
+}
+
 // remove default padding when overflow
 .tingle-modal--overflow {
     padding-top: 0;

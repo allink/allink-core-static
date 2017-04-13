@@ -1,0 +1,26 @@
+.members-plugin {
+    &.detail-view {
+
+        // form tweaks
+        .btn-container {
+            .btn {
+                margin-top: 0;
+            }
+        }
+
+        // within softpage
+        .tingle-modal.softpage & {
+            margin-top: 0;
+            padding-top: $members-modal-spacing-top-xs;
+            padding-bottom: $members-modal-spacing-bottom-xs;
+            @media (min-width:$screen-md) {
+                padding-top: $members-modal-spacing-top-md;
+                padding-bottom: $members-modal-spacing-bottom-md;
+            }
+            @media (min-width:$screen-xl) {
+                padding-top: $members-modal-spacing-top-xl;
+                padding-bottom: $members-modal-spacing-bottom-xl;
+            }
+        }
+    }
+}
