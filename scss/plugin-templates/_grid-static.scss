@@ -13,6 +13,10 @@
         @media (min-width:$screen-md) {
             margin-bottom: -$app-content-plugin-static-grid-item-spacing-xl;
         }
+        // remove negative margins in case there are no results
+        .no-results & {
+            margin-bottom: 0;
+        }
     }
 
     // column settings

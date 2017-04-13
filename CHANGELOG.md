@@ -15,6 +15,8 @@ Each release is divided into the following main categories:
 
 ### NEW
 
+- App Filter: Filtering now works independent of category navigation. Requires the latest core. Of COREs..
+- App Filter: Basic styles for `no-results-container` added
 - Form: New `data-submit-form` trigger listener added that will submit its parent `form` (used for the logout mini form of the `Members Plugin`.
 - Members Plugin: New variables available:
 ```SCSS
@@ -49,6 +51,8 @@ $form-modal-transition:         visibility $form-modal-transition-duration $form
 
 ### FIXES
 
+- Content Plugin: Removed `overflow:hidden` of `col-1` templates.
+- List Template: Added `@include make-row-sm-max();` that fixes a spacing issue on mobile.
 - Softpage: `.tingle-modal__close:before` is now set to `absolute` and is therefore centered correctly
 - Softpage: `.tingle-modal-box` is now handling the `overflow-y`.
 - Form Modal: The form modal can now <strong>only</strong> be closed by clicking on an element with the attribute `data-close-form-modal` inside the modal

@@ -1,0 +1,12 @@
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+Global container when recieving an empty result
+
+*/
+
+.no-results-container {
+
+    @include make-xs-column(24);
+    @include column-padding-sm-max();
+
+}

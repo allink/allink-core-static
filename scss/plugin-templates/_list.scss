@@ -1,5 +1,7 @@
 .list-container {
     @include make-row();
+    // on XS we have a smaller column padding
+    @include make-row-sm-max();
 }
 
 .list-item {

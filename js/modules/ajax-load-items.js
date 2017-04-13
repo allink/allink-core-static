@@ -47,13 +47,23 @@ as simulation it was the trigger. 2 in 1!
 function initAjaxFilter(options) {
     // find and loop through filter containers
     $('.filter-container').each(function(){
+        var $filter_container = $(this);
         var $plugin_container = $(this).parents('.app-content-plugin');
-        // find
+        // find all selects and loop
         $(this).find('select').each(function(){
+            // when a filter (select) is changed:
             $(this).change(function(e){
+                // combined with categories?
                 var $category_container = $plugin_container.find('.app-content-categories');
-                var $active_category = $category_container.find('.active a');
-                loadAjaxItems($active_category, options);
+                if ($category_container.length > 0) {
+                    var $active_category = $category_container.find('.active a');
+                    loadAjaxItems($active_category, options);
+                }
+                // only filters: in this case, our filter-container is the trigger
+                else {
+                    loadAjaxItems($filter_container, options);
+                }
+
             });
         });
     });
@@ -62,13 +72,12 @@ function initAjaxFilter(options) {
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 
-Function that appends the filters values to the active category
+Function that appends the filters values (= selected options) to the active category
 
 */
 
 function appendFilterToURL(ajax_url,$filter_container) {
     $filter_container.find('select').each(function(){
-        // console.log( $(this) );
         var selected_value = $(this).find('option:selected').val();
         if (selected_value) {
             // determine field name
@@ -139,6 +148,7 @@ export function loadAjaxItems($trigger,options,masonry_grid,masonry_instance) {
     var masonry_grid = masonry_grid || null,
         masonry_instance = masonry_instance || null,
         ajax_url = $trigger.attr('href'),
+        ajax_filter_base_url = $trigger.attr('data-ajax-filter-base-url'),
         $plugin_container = $trigger.parents('.app-content-plugin'),
         $filter_container = $plugin_container.find('.filter-container'),
         $items_container = $plugin_container.find('.ajax-items-container'),
@@ -166,6 +176,11 @@ export function loadAjaxItems($trigger,options,masonry_grid,masonry_instance) {
         $trigger.parents('li').addClass(category_active_class);
     }
 
+    // with disabled categories we don't get a href, which mean we get a base url from the filter-container
+    if (typeof ajax_url === 'undefined') {
+        ajax_url = ajax_filter_base_url;
+    }
+
     // append filter values to URL
     ajax_url = appendFilterToURL(ajax_url,$filter_container);
 
@@ -185,6 +200,13 @@ export function loadAjaxItems($trigger,options,masonry_grid,masonry_instance) {
 
             // depending on the CSS transition settings, do stuff with or without delay
             setTimeout(function(){
+
+                // temporary quick and dirty fix: toggle class on plugin container if the response contains the string 'no-results-container'
+                if (data.rendered_content.search('no-results-container') > 0) {
+                    $plugin_container.addClass('no-results');
+                }else {
+                    $plugin_container.removeClass('no-results');
+                }
 
                 // masonry grid: requires different appending technique
                 if (masonry_instance !== null) {
