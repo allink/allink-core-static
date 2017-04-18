@@ -86,6 +86,7 @@ $form-field-transition:                background-color $default-transition-dura
 
 ### NEW
 
+- Content Plugin: The inner container background image is now handled with a separate HTML-element that allows us to stack the image and the overlay text on small screens. Requires the latest core.
 - Dropdown: New variables `$dropdown-min-width` available (default to `0`).
 - App Content Filter: Functionality added with new available variables:
 - Slider counter styles

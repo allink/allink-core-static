@@ -89,12 +89,10 @@ Default Content Section Styles
     }
 
     // section heading of a 'content plugin' entry needs extra padding, because the columns themselves have the column-padding
-    .main-col-container {
-        .section-heading {
-            > .heading {
-                @include column-paddings();
-                @include column-padding-sm-max();
-            }
+    .section-heading {
+        .heading {
+            @include column-paddings();
+            @include column-padding-sm-max();
         }
     }
 

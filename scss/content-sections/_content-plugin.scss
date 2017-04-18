@@ -97,10 +97,12 @@ General Settings
     &.inner-container-has-bg-image {
         .inner {
             margin: 0;
+            position: relative;
+        }
+        .bg-image-inner {
             background-repeat: no-repeat;
             background-size: cover;
             background-position: center;
-            position: relative;
             @include aspect-ratio($content-plugin-inner-bg-container-ratio-width-xs,$content-plugin-inner-bg-container-ratio-height-xs);
             @media (min-width:$screen-md) {
                 @include aspect-ratio($content-plugin-inner-bg-container-ratio-width-md,$content-plugin-inner-bg-container-ratio-height-md);
@@ -109,11 +111,56 @@ General Settings
                 @include aspect-ratio($content-plugin-inner-bg-container-ratio-width-xl,$content-plugin-inner-bg-container-ratio-height-md);
             }
         }
+        .inner-overlay {
+            display: none;
+            @media (min-width:$screen-md) {
+                display: block;
+            }
+        }
         .main-text-container {
-            position: absolute;
-            @include content-section-spacing-position(bottom);
-            @include content-section-spacing-position(left);
-            @include content-section-spacing-position(right);
+            @media (min-width:$screen-md) {
+                position: absolute;
+                @include content-section-spacing-position(bottom);
+                @include content-section-spacing-position(left);
+                @include content-section-spacing-position(right);
+            }
+        }
+        // reset overlay styles on mobile
+        @media (max-width:$screen-sm-max) {
+            // specificy wars.. damn it..
+            .col-container {
+                .col-container-inner {
+                    .col {
+                        padding-left: 0 !important;
+                        padding-right: 0 !important;
+                    }
+                }
+            }
+            // let's pretend we're in a manage-spacings context
+            .main-text-container {
+                @include make-spacing-top-xs($manage-spacings-container-xs);
+                @include make-spacing-top-md($manage-spacings-container-md);
+                @include make-spacing-top-xl($manage-spacings-container-xl);
+            }
+            .heading {
+                padding-left: 0 !important;
+                padding-right: 0 !important;
+            }
+            &.section-heading-h1 {
+                .heading {
+                    color: $h1-color;
+                }
+            }
+            &.section-heading-h2 {
+                .heading {
+                    color: $h2-color;
+                }
+            }
+            .text-container {
+                > * {
+                    color: $body-color;
+                }
+            }
         }
     }
 
