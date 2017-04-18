@@ -188,7 +188,7 @@ export function loadAjaxItems($trigger,options,masonry_grid,masonry_instance) {
         type: 'GET',
         url: ajax_url,
         contentType: 'application/json',
-        success: function(data) {
+        success: function(data, textStatus, jqXHR) {
 
             // init
             var final_transition_duration = 0;
@@ -202,7 +202,7 @@ export function loadAjaxItems($trigger,options,masonry_grid,masonry_instance) {
             setTimeout(function(){
 
                 // temporary quick and dirty fix: toggle class on plugin container if the response contains the string 'no-results-container'
-                if (data.rendered_content.search('no-results-container') > 0) {
+                if (jqXHR.status === 206) {
                     $plugin_container.addClass('no-results');
                 }else {
                     $plugin_container.removeClass('no-results');
