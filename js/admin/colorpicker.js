@@ -55,10 +55,13 @@ $(function () {
               "hsla(" + h + ", " + s + "%, " + l + "%, " + a + ")";
             },
             toHex: function () {
-                return rgbToHex(r, g, b);
+                return rgbToHex(r, g, b, a);
             },
             toHexString: function (force6Char) {
-                return '#' + rgbToHex(r, g, b, force6Char);
+                if (rgbToHex(r, g, b, a, force6Char) != ''){
+                    return '#' + rgbToHex(r, g, b, a, force6Char);
+                }
+                return 'transparent';
             },
             toRgb: function () {
                 return { r: mathRound(r), g: mathRound(g), b: mathRound(b), a: a };
@@ -69,10 +72,10 @@ $(function () {
               "rgba(" + mathRound(r) + ", " + mathRound(g) + ", " + mathRound(b) + ", " + a + ")";
             },
             toName: function () {
-                return hexNames[rgbToHex(r, g, b)] || false;
+                return hexNames[rgbToHex(r, g, b, a)] || false;
             },
             toFilter: function () {
-                var hex = rgbToHex(r, g, b);
+                var hex = rgbToHex(r, g, b, a);
                 var alphaHex = Math.round(parseFloat(a) * 255).toString(16);
                 return "progid:DXImageTransform.Microsoft.gradient(startColorstr=#" +
                 alphaHex + hex + ",endColorstr=#" + alphaHex + hex + ")";
@@ -334,9 +337,13 @@ $(function () {
     // Converts an RGB color to hex
     // Assumes r, g, and b are contained in the set [0, 255]
     // Returns a 3 or 6 character hex
-    function rgbToHex(r, g, b, force6Char) {
+    function rgbToHex(r, g, b, a, force6Char) {
         function pad(c) {
             return c.length == 1 ? '0' + c : '' + c;
+        }
+
+        if (a == 0) {
+            return '';
         }
 
         var hex = [
@@ -871,6 +878,7 @@ $(function () {
             var tiny = tinycolor(p[i]);
             var c = tiny.toHsl().l < .5 ? "sp-thumb-dark" : "sp-thumb-light";
             c += (tinycolor.equals(color, p[i])) ? " sp-thumb-active" : "";
+            if (tiny.toHexString() == 'transparent') {c += " transparent";}
             html.push('<span title="' + tiny.toHexString() + '" data-color="' + tiny.toHexString() + '" style="background-color:' + tiny.toRgbString() + ';" class="' + c + '"></span>');
         }
         return "<div class='sp-cf " + className + "'>" + html.join('') + "</div>";
@@ -919,6 +927,7 @@ $(function () {
             currentHue = 0,
             currentSaturation = 0,
             currentValue = 0,
+            currentAlpha = 0,
             palette = opts.palette.slice(0),
             paletteArray = $.isArray(palette[0]) ? palette : [palette],
             selectionPalette = opts.selectionPalette.slice(0),
@@ -1210,10 +1219,15 @@ $(function () {
 
             var newColor = tinycolor(color);
             var newHsv = newColor.toHsv();
+            if (color == "transparent") {
+                newColor.alpha = 0;
+            }
+            var alpha = newColor.alpha;
 
             currentHue = newHsv.h;
             currentSaturation = newHsv.s;
             currentValue = newHsv.v;
+            currentAlpha = alpha;
 
             updateUI();
 
@@ -1223,7 +1237,7 @@ $(function () {
         }
 
         function get() {
-            return tinycolor.fromRatio({ h: currentHue, s: currentSaturation, v: currentValue });
+            return tinycolor.fromRatio({ h: currentHue, s: currentSaturation, v: currentValue, a:currentAlpha });
         }
 
         function isValid() {
@@ -1243,14 +1257,14 @@ $(function () {
             updateHelperLocations();
 
             // Update dragger background color (gradients take care of saturation and value).
-            var flatColor = tinycolor({ h: currentHue, s: "1.0", v: "1.0" });
-            dragger.css("background-color", flatColor.toHexString());
+            var flatColor = tinycolor({ h: currentHue, s: "1.0", v: "1.0", a: currentAlpha});
+            dragger.css("background-color", flatColor.toRgbString());
 
             var realColor = get(),
                 realHex = realColor.toHexString();
 
             // Update the replaced elements background color (with actual selected color)
-            previewElement.css("background-color", realHex);
+            previewElement.css("background-color", realColor.toRgbString());
 
             // Update the text entry input as it changes happen
             if (showInput) {
@@ -1296,7 +1310,13 @@ $(function () {
             var color = get();
 
             if (isInput) {
-                boundElement.val(color.toString(currentPreferredFormat)).change();
+                if (color.toString(currentPreferredFormat) == "transparent") {
+                    var input = '';
+                }
+                else {
+                    var input = color.toString(currentPreferredFormat);
+                }
+                boundElement.val(input).change();
             }
 
             var hasChanged = !tinycolor.equals(color, colorOnShow);
@@ -1562,6 +1582,9 @@ $(function () {
     for(var i = 0; i < window.colorFields.length; i++){
         var id = window.colorFields[i].id;
         var color = window.colorFields[i].color;
+        var showPaletteOnly = window.colorFields[i].showPaletteOnly;
+        var palette = window.colorFields[i].palette;
+        var localStorageKey = window.colorFields[i].localStorageKey;
         $(id).spectrum({
             preferredFormat: "hex",
             color: color,
@@ -1569,9 +1592,11 @@ $(function () {
             showInput: true,
             showInitial: true,
             showPalette: true,
-            showSelectionPalette: true,
-            localStorageKey: "spectrum.colors",
-            showButtons: false,
+            showSelectionPalette: false,
+            localStorageKey: localStorageKey,
+            showButtons: true,
+            showPaletteOnly: showPaletteOnly,
+            palette: palette,
         });
     };
 
