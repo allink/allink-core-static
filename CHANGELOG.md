@@ -52,6 +52,7 @@ $form-modal-transition:         visibility $form-modal-transition-duration $form
 
 ### FIXES
 
+- Softpage: Momentum scrolling added for iWhatever devices. Baam!
 - Content Plugin: Removed `overflow:hidden` of `col-1` templates.
 - List Template: Added `@include make-row-sm-max();` that fixes a spacing issue on mobile.
 - Softpage: `.tingle-modal__close:before` is now set to `absolute` and is therefore centered correctly
