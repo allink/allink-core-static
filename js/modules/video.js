@@ -64,25 +64,25 @@ $(function() {
             // first of all, check whether we're on mobile or not
             var show_video = toggleVideoVisibility( $vid );
 
+            // enable videos on iPads
+            enableInlineVideo($vid.get(0), {
+                iPad: true
+            });
+
             // in the mobile version the video element is not visible
             if( true === show_video ) {
 
                 // start video when element is on screen
                 if( $vid.videoIsOnScreen() ) {
 
-                    // per default, a video is "on pause"
+                    // per default, a video is "on pause" - let's remove this and don't come back here when there is no on_pause_class, because that means the video is playing
                     if( $vid.hasClass( on_pause_class ) ) {
-
-                        if(isIpad === true) {
-                            enableInlineVideo($vid.get(0));
-                        }else {
-                            $vid.get(0).play();
-                        }
-                        $vid.parents('.video-content').addClass(loaded_class);
-
                         // remove class
                         $vid.removeClass( on_pause_class );
-
+                        // let's play
+                        $vid.get(0).play();
+                        // and mark the video as loaded (for possible transitions)
+                        $vid.parents('.video-content').addClass(loaded_class);
                     }
 
                 }

@@ -52,6 +52,7 @@ $form-modal-transition:         visibility $form-modal-transition-duration $form
 
 ### FIXES
 
+- iPad Video: `autoplay` now works for content section videos.
 - Softpage: Momentum scrolling added for iWhatever devices. Baam!
 - Content Plugin: Removed `overflow:hidden` of `col-1` templates.
 - List Template: Added `@include make-row-sm-max();` that fixes a spacing issue on mobile.
