@@ -6,7 +6,7 @@ Video functionality for our "Content Plugin"
 
 // Enable support for iPads
 // https://github.com/bfred-it/iphone-inline-video
-import makeVideoPlayableInline from 'iphone-inline-video';
+import enableInlineVideo from 'iphone-inline-video';
 
 $(function() {
 
@@ -28,7 +28,7 @@ $(function() {
     $.fn.videoScrollStopped = function(callback) {
 
         // init
-        var timeout = 30;
+        var timeout = 50;
 
         // fire delayed scroll
         $( this ).scroll(function(){
@@ -40,18 +40,6 @@ $(function() {
         });
 
     };
-
-    $(window).resize(function() {
-
-        // init
-        var timeout = 150;
-
-        if(this.resizeTO) clearTimeout(this.resizeTO);
-        this.resizeTO = setTimeout(function() {
-            $(this).trigger('resizeEnd');
-        }, timeout);
-
-    });
 
     /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 
@@ -85,25 +73,12 @@ $(function() {
                     // per default, a video is "on pause"
                     if( $vid.hasClass( on_pause_class ) ) {
 
-                        // check load status of video
-                        // https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/readyState
-                        var video_state = parseInt( $vid.get(0).readyState );
-                        if( 0 === video_state ) {
-                            $vid.get(0).load();
-                        }else if(isIpad === true) {
-                            makeVideoPlayableInline($vid.get(0), false /* hasAudio */, false /* false = run everywhere */);
+                        if(isIpad === true) {
+                            enableInlineVideo($vid.get(0));
+                        }else {
+                            $vid.get(0).play();
                         }
-
-                        $vid.get(0).play();
-
-                        $vid.parents('.video-container').addClass(loaded_class);
-                        $vid.get(0).addEventListener('canplay', function() {
-                            $vid.addClass(loaded_class);
-                        });
-
-                        setTimeout(function(){
-
-                        },150);
+                        $vid.parents('.video-content').addClass(loaded_class);
 
                         // remove class
                         $vid.removeClass( on_pause_class );
@@ -176,7 +151,7 @@ $(function() {
     });
 
     // when resizing the window
-    $(window).on( 'resizeEnd', function(){
+    $(window).on( 'viewportWidthHasChanged', function(){
         handleVideoPlayback();
     });
 
