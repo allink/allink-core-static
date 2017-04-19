@@ -11,7 +11,7 @@ Each release is divided into the following main categories:
 
 ### IMPORTANT
 
--
+- Softpage: `.conent-section` withing a tingle modal were globally resetted to `padding:0` and `margin:0`. Double check the spacings when updating, or ask Beat for advice ;)
 
 ### NEW
 

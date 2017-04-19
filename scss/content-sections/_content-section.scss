@@ -118,8 +118,6 @@ Default Content Section Styles
 
     // reset container max-width within modal (softpage)
     .tingle-modal & {
-        padding: 0;
-        margin: 0;
         .container {
             max-width: none;
         }
