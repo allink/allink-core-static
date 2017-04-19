@@ -15,6 +15,7 @@ Each release is divided into the following main categories:
 
 ### NEW
 
+- Softpage: Prevent reloading a softpage (in case of our placeholder menus) by toggling the attribute `data-softpage-toggled` on the trigger element.
 - Lockdown: Basic styles added.
 - App Filter: Filtering now works independent of category navigation. Requires the latest core. Of COREs..
 - App Filter: Basic styles for `no-results-container` added

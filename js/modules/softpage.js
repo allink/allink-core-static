@@ -104,14 +104,20 @@ $(function(){
                 on('click',
                 function(event){
                     // init
+                    var $trigger = $(this);
                     var softpage_content_id = '';
                     var href = event.currentTarget.href;
                     // optional: use a node's content instead of href-attribute
-                    var softpage_content_id = $(this).attr('data-softpage-content-id');
+                    var softpage_content_id = $trigger.attr('data-softpage-content-id');
                     // optional: get softpage variation string and set attribute
-                    var softpage_variation = $(this).attr('data-softpage-variation');
+                    var softpage_variation = $trigger.attr('data-softpage-variation');
                     if (softpage_variation) {
                         $('.tingle-modal.softpage').attr('data-softpage-variation', softpage_variation);
+                    }
+                    // special case: prevent softpage reload in case of a menu that has been toggled already and is about to be closed
+                    var softpage_already_toggled = $trigger.attr('data-softpage-toggled');
+                    if (typeof softpage_already_toggled !== 'undefined' && softpage_already_toggled !== false) {
+                        return true;
                     }
                     // instantly toggle site overlay (improves "felt performance")
                     $(window).trigger('showSiteOverlay');
