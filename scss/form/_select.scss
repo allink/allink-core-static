@@ -17,6 +17,7 @@
     }
     > .dropdown-toggle {
         width: auto;
+        min-width: $dropdown-min-width;
         padding-right: $dropdown-toggle-padding-right;
         padding-left: $dropdown-toggle-padding-left;
         color: map-deep-get($btn-variations,$select-btn-variation,'color') !important;
@@ -46,7 +47,7 @@
             border-left-color: map-deep-get($btn-variations,$select-btn-variation,'border-left-color-hover') !important;
         }
     }
-    .dropdown-menu {
+    > .dropdown-menu {
         min-width: $dropdown-min-width !important; // I hate to do this, but because the default styles uses a very specific structure, I was forced to. This can of cousre be overwritten in a different context
         padding: 0;
         border-style: $dropdown-border-style;
@@ -56,10 +57,8 @@
         @if $dropdown-border-top == false {
             border-top: none;
         }
-        > li {
-            > a {
-                outline: none;
-            }
+        a {
+            outline: none;
         }
     }
 }
