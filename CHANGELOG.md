@@ -52,6 +52,7 @@ $form-modal-transition:         visibility $form-modal-transition-duration $form
 
 ### FIXES
 
+- Bootstrap Select: `selected` styles are now supported.
 - Bootstrap Select: `min-width` is now used for the actual dropdown as well, not only the button.
 - iPad Video: `autoplay` now works for content section videos.
 - Softpage: Momentum scrolling added for iWhatever devices. Baam!

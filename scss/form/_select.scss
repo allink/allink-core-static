@@ -3,18 +3,6 @@
     .bs-caret {
         display: none;
     }
-    // I hate to be so specific, but we need to be stronger than the default dropdown styles
-    &.open {
-        > .dropdown-toggle {
-            color: map-deep-get($btn-variations,$select-btn-variation,'color') !important;
-            background-color: map-deep-get($btn-variations,$select-btn-variation,'bg') !important;
-            border-top-color: map-deep-get($btn-variations,$select-btn-variation,'border-top-color') !important;
-            border-right-color: map-deep-get($btn-variations,$select-btn-variation,'border-right-color') !important;
-            border-bottom-color: map-deep-get($btn-variations,$select-btn-variation,'border-bottom-color') !important;
-            border-left-color: map-deep-get($btn-variations,$select-btn-variation,'border-left-color') !important;
-            box-shadow: none !important;
-        }
-    }
     > .dropdown-toggle {
         width: auto;
         min-width: $dropdown-min-width;
@@ -22,8 +10,19 @@
         padding-left: $dropdown-toggle-padding-left;
         color: map-deep-get($btn-variations,$select-btn-variation,'color') !important;
         background-color: map-deep-get($btn-variations,$select-btn-variation,'bg') !important;
+        box-shadow: none !important;
         &:focus {
             outline: none !important; // I appologise, dear accessibility
+        }
+        &:hover,
+        &:focus,
+        &:active {
+            color: map-deep-get($btn-variations,$select-btn-variation,'color-hover') !important;
+            background-color: map-deep-get($btn-variations,$select-btn-variation,'bg-hover') !important;
+            border-top-color: map-deep-get($btn-variations,$select-btn-variation,'border-top-color-hover') !important;
+            border-right-color: map-deep-get($btn-variations,$select-btn-variation,'border-right-color-hover') !important;
+            border-bottom-color: map-deep-get($btn-variations,$select-btn-variation,'border-bottom-color-hover') !important;
+            border-left-color: map-deep-get($btn-variations,$select-btn-variation,'border-left-color-hover') !important;
         }
         &:before {
             @include icomoon();
@@ -36,17 +35,32 @@
             transition: all 300ms;
             transform: translateY(-50%) rotate(0deg);
         }
-        &:hover,
-        &:focus,
-        &:active {
-            color: map-deep-get($btn-variations,$select-btn-variation,'color-hover') !important;
-            background-color: map-deep-get($btn-variations,$select-btn-variation,'bg-hover') !important;
-            border-top-color: map-deep-get($btn-variations,$select-btn-variation,'border-top-color-hover') !important;
-            border-right-color: map-deep-get($btn-variations,$select-btn-variation,'border-right-color-hover') !important;
-            border-bottom-color: map-deep-get($btn-variations,$select-btn-variation,'border-bottom-color-hover') !important;
-            border-left-color: map-deep-get($btn-variations,$select-btn-variation,'border-left-color-hover') !important;
+
+    }
+
+    // I hate to be so specific, but we need to be stronger than the default dropdown styles
+    &.open {
+        > .dropdown-toggle {
+            &:hover,
+            &:focus,
+            &:active {
+                color: map-deep-get($btn-variations,$select-btn-variation,'color') !important;
+                background-color: map-deep-get($btn-variations,$select-btn-variation,'bg') !important;
+                border-top-color: map-deep-get($btn-variations,$select-btn-variation,'border-top-color') !important;
+                border-right-color: map-deep-get($btn-variations,$select-btn-variation,'border-right-color') !important;
+                border-bottom-color: map-deep-get($btn-variations,$select-btn-variation,'border-bottom-color') !important;
+                border-left-color: map-deep-get($btn-variations,$select-btn-variation,'border-left-color') !important;
+            }
         }
     }
+
+
+    /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+    Dropdown Menu
+
+    */
+
     > .dropdown-menu {
         min-width: $dropdown-min-width !important; // I hate to do this, but because the default styles uses a very specific structure, I was forced to. This can of cousre be overwritten in a different context
         padding: 0;
@@ -59,6 +73,14 @@
         }
         a {
             outline: none;
+            padding: $dropdown-link-padding;
+        }
+        // selected list item
+        .selected {
+            a {
+                color: $dropdown-link-active-color;
+                background-color: $dropdown-link-active-bg;
+            }
         }
     }
 }
