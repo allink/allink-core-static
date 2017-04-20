@@ -21,6 +21,7 @@ Each release is divided into the following main categories:
 - App Filter: Basic styles for `no-results-container` added
 - Form: New `data-submit-form` trigger listener added that will submit its parent `form` (used for the logout mini form of the `Members Plugin`.
 - Members Plugin: New variables available:
+- Custom Newsletter Collapse functionality
 ```SCSS
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 
