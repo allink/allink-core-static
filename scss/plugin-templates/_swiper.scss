@@ -254,3 +254,13 @@ Slider in Detail View
 
 }
 
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+Temp fix: Hide the gallery counter by default
+
+*/
+
+.swiper-counter {
+    display: none;
+}

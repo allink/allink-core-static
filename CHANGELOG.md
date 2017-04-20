@@ -53,6 +53,8 @@ $form-modal-transition:         visibility $form-modal-transition-duration $form
 
 ### FIXES
 
+- Swiper: `swiper-counter` is now hidden per default. Only a temporary fix until gallery plugin is extended with flags.
+- Softpage: Callback `onPageLoaded` now also called when working with `softpage_content_id` instead of the AJAX request.
 - Bootstrap Select: `selected` styles are now supported.
 - Bootstrap Select: `min-width` is now used for the actual dropdown as well, not only the button.
 - iPad Video: `autoplay` now works for content section videos.

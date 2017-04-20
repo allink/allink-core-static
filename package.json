@@ -58,7 +58,7 @@
     "picturefill": "^3.0.2",
     "riveted": "git://github.com/robflaherty/riveted.git#0.6.1",
     "scroll-depth": "^0.9.1",
-    "softpage": "git://github.com/allink/softpage.git#v0.1.11",
+    "softpage": "git://github.com/allink/softpage.git#v0.1.12",
     "superagent": "^2.0.0",
     "swiper": "^3.4.1",
     "tingle.js": "^0.10.0"
