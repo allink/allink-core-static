@@ -98,34 +98,45 @@ $(function(){
         // 1. Text Editor > All links that should trigger a softpage (added by e.g. button link plugin)
         // 2. App Content > If the Softpage option is enabled.
         $('a[data-trigger-softpage]:not([data-softpage-disabled]), [data-trigger-softpage] a:not([data-softpage-disabled])').each(function(i) {
-            // stop multiple event listeners from firing multiple times by removing (off()) and adding (on()) the event listener
-            $(this).
-                off('click').
-                on('click',
-                function(event){
-                    // init
-                    var $trigger = $(this);
-                    var softpage_content_id = '';
-                    var href = event.currentTarget.href;
-                    // optional: use a node's content instead of href-attribute
-                    var softpage_content_id = $trigger.attr('data-softpage-content-id');
-                    // optional: get softpage variation string and set attribute
-                    var softpage_variation = $trigger.attr('data-softpage-variation');
-                    if (softpage_variation) {
-                        $('.tingle-modal.softpage').attr('data-softpage-variation', softpage_variation);
+            // stop multiple event listeners on the same element by adding an initialized attribute that we can check the next time we call this function
+            // init
+            var $trigger = $(this);
+            var initialized_attr = 'data-trigger-initialized';
+            // check for initialized trigger
+            var trigger_initialized = $trigger.attr(initialized_attr);
+            // NOT initialized yet
+            if (typeof trigger_initialized === 'undefined') {
+                // add event listener
+                $trigger.
+                    on('click',
+                    function(event){
+                        // init
+                        var $trigger = $(this);
+                        var softpage_content_id = '';
+                        var href = event.currentTarget.href;
+                        // optional: use a node's content instead of href-attribute
+                        var softpage_content_id = $trigger.attr('data-softpage-content-id');
+                        // optional: get softpage variation string and set attribute
+                        var softpage_variation = $trigger.attr('data-softpage-variation');
+                        if (softpage_variation) {
+                            $('.tingle-modal.softpage').attr('data-softpage-variation', softpage_variation);
+                        }
+                        // special case: prevent softpage reload in case of a menu that has been toggled already and is about to be closed
+                        var softpage_already_toggled = $trigger.attr('data-softpage-toggled');
+                        if (typeof softpage_already_toggled !== 'undefined' && softpage_already_toggled !== false) {
+                            return true;
+                        }
+                        // instantly toggle site overlay (improves "felt performance")
+                        $(window).trigger('showSiteOverlay');
+                        // load softpage
+                        event.preventDefault();
+                        softpage.loadPage(href, true, softpage_content_id);
                     }
-                    // special case: prevent softpage reload in case of a menu that has been toggled already and is about to be closed
-                    var softpage_already_toggled = $trigger.attr('data-softpage-toggled');
-                    if (typeof softpage_already_toggled !== 'undefined' && softpage_already_toggled !== false) {
-                        return true;
-                    }
-                    // instantly toggle site overlay (improves "felt performance")
-                    $(window).trigger('showSiteOverlay');
-                    // load softpage
-                    event.preventDefault();
-                    softpage.loadPage(href, true, softpage_content_id);
-                }
-            );
+                );
+                // mark as initialized
+                $trigger.attr(initialized_attr,'');
+            }
+
         });
     }
 
