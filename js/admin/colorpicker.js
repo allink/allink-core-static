@@ -789,7 +789,7 @@ $(function () {
     window.tinycolor = tinycolor;
 
 
-   
+
 
     var defaultOpts = {
 
@@ -801,7 +801,7 @@ $(function () {
         hide: noop,
 
         // Options
-        color: false,
+        color: 'transparent',
         flat: false,
         showInput: false,
         showButtons: true,
