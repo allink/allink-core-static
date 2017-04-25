@@ -29,7 +29,12 @@ picture.lazyloader {
     }
     // the background color variations
     @each $nr, $color in $project-colors {
+        // set via templatetag
         &.project-color-#{$nr} {
+            background-color: $color;
+        }
+        // set via image plugin
+        .image-container.project-color-#{$nr} & {
             background-color: $color;
         }
     }
