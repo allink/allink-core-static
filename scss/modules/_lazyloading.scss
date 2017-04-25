@@ -19,13 +19,14 @@ picture.lazyloader {
     @include the-loader();
     transition: opacity $lazyloader-transition-duration;
     // modifier classes
-    &.no-icon {
+    &.icon-disabled {
         &:before {
             display: none;
         }
     }
-    &.no-bg {
-        background: transparent;
+    &.bg-disabled {
+        // this is stronger than setting a bg color
+        background: transparent !important;
     }
     // the background color variations
     @each $nr, $color in $project-colors {
