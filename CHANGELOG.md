@@ -15,6 +15,7 @@ Each release is divided into the following main categories:
 
 ### NEW
 
+- Picture Elements (Image Plugin or by templatetag): `$project-colors` can now be used for `picutre` element by adding `project-color-1`, `project-color-2`, ...
 - Softpage: Prevent reloading a softpage (in case of our placeholder menus) by toggling the attribute `data-softpage-toggled` on the trigger element.
 - Lockdown: Basic styles added.
 - App Filter: Filtering now works independent of category navigation. Requires the latest core. Of COREs..

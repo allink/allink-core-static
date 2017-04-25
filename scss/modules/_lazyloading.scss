@@ -27,6 +27,12 @@ picture.lazyloader {
     &.no-bg {
         background: transparent;
     }
+    // the background color variations
+    @each $nr, $color in $project-colors {
+        &.project-color-#{$nr} {
+            background-color: $color;
+        }
+    }
     // we use the ratio "hack" on the picture element, so we can position the actual image absolute
     > img {
         position: absolute;
