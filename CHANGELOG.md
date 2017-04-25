@@ -55,6 +55,7 @@ $form-modal-transition:         visibility $form-modal-transition-duration $form
 
 ### FIXES
 
+- Softpage: Modal now scrolls to top every time a softpage is opened (was broken with tingle update).
 - Colorpicker: Default color is now set to `transparent`
 - Swiper: `swiper-counter` is now hidden per default. Only a temporary fix until gallery plugin is extended with flags.
 - Softpage: Callback `onPageLoaded` now also called when working with `softpage_content_id` instead of the AJAX request.
