@@ -1,0 +1,8 @@
+.default-contact-form {
+    .heading-container {
+        margin-bottom: $grid-gutter-width;
+    }
+    .heading {
+        @include h2();
+    }
+}
