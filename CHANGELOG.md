@@ -15,6 +15,7 @@ Each release is divided into the following main categories:
 
 ### NEW
 
+- Form Modal: Trigger now also gets the `data-trigger-initialized` when the `click` event listener has been attached (prevents event listener stacking).
 - Dropdown: New variable with default value added `$dropdown-link-padding: 0;`
 - Picture Elements (Image Plugin or by templatetag): `$project-colors` can now be used for `picutre` element by adding `project-color-1`, `project-color-2`, ...
 - Softpage: Prevent reloading a softpage (in case of our placeholder menus) by toggling the attribute `data-softpage-toggled` on the trigger element.
