@@ -61,18 +61,27 @@ $(function(){
     function initFormModalTrigger(){
         // init all trigger links and loop
         $('.toggle-form-modal,[data-trigger-form-modal]').each(function(i) {
-            // stop multiple event listeners from firing multiple times by removing (off()) and adding (on()) the event listener
-            $(this).
-                off('click').
-                on('click',
-                function(event){
-                    // instantly toggle site overlay (improves "felt performance")
-                    $(window).trigger('showSiteOverlay');
-                    // load softpage
-                    event.preventDefault();
-                    openFormModal(this,event);
-                }
-            );
+            // stop multiple event listeners on the same element by adding an initialized attribute that we can check the next time we call this function
+            // init
+            var $trigger = $(this);
+            var initialized_attr = 'data-trigger-initialized';
+            // check for initialized trigger
+            var trigger_initialized = $trigger.attr(initialized_attr);
+            // NOT initialized yet
+            if (typeof trigger_initialized === 'undefined') {
+                $trigger.
+                    on('click',
+                    function(event){
+                        // instantly toggle site overlay (improves "felt performance")
+                        $(window).trigger('showSiteOverlay');
+                        // load softpage
+                        event.preventDefault();
+                        openFormModal(this,event);
+                    }
+                );
+                // mark as initialized
+                $trigger.attr(initialized_attr,'');
+            }
         });
     }
 

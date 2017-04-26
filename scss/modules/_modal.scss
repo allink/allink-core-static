@@ -43,3 +43,16 @@ Global modal definitions
         transform: none;
     }
 }
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+Form Modal Modifications (to be relocated ASAP)
+
+*/
+
+.tingle-modal.form-modal {
+    .tingle-modal-box {
+        align-self: center;
+    }
+}
+
