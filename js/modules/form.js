@@ -1,112 +1,151 @@
-/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
-
-Link with class '.toggle-form-modal' will trigger the form lightbox
-
-Custom Events:
-
-form-modal:opened
-form-modal:closed
-
-*/
-
-import tingle from 'tingle.js';
-
 $(function(){
 
-    // initialize modal
-    var form_modal = new tingle.modal({
-        cssClass: ['form-modal'],
-        onClose: function() {
-            // remove class from html
-            document.querySelector('html').classList.remove('form-modal-visible');
-            // trigger class
-            $(window).trigger('form-modal:closed');
-            // if the softpage is still open in the brackground, we have to keep the overlay, otherwise we can close it
-            if ($('.tingle-modal.softpage').hasClass('tingle-modal--visible')) {
-                // tingle removes the class from the body, so let's re-add it
-                document.querySelector('body').classList.add('tingle-enabled');
-            }else {
-                $(window).trigger('hideSiteOverlay');
-            }
-        },
-        onOpen: function(){
-            // trigger custom events
-            $(window).trigger('form-modal:opened');
-            $(window).trigger('initFormModalClose');
-        },
-        closeMethods: []
-    });
+    function initFormModifications(){
 
-    // click handler
-    function openFormModal(element,event) {
-        // init
-        event.preventDefault();
+        /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 
-        // in case we opened a form modal from within a softpage, we need to hide the softpage
-        document.querySelector('html').classList.add('form-modal-visible');
-        // document.querySelector('.softpage').classList.remove('tingle-modal--visible');
+        Submit form from trigger (that is not an input type 'submit')
 
-        // get and set content
-        var url = element.getAttribute('href');
+        */
 
-        $.get(url, function(data) {
-            // set modal content and open
-            form_modal.setContent(data);
-            form_modal.open();
-            // scroll to top everytime a modal is opened
-            form_modal.modal.scrollTop = 0;
-        });
-    }
-
-    function initFormModalTrigger(){
-        // init all trigger links and loop
-        $('.toggle-form-modal,[data-trigger-form-modal]').each(function(i) {
-            // stop multiple event listeners on the same element by adding an initialized attribute that we can check the next time we call this function
+        $('[data-submit-form]').on('click',function(e){
             // init
+            e.preventDefault();
             var $trigger = $(this);
-            var initialized_attr = 'data-trigger-initialized';
-            // check for initialized trigger
-            var trigger_initialized = $trigger.attr(initialized_attr);
-            // NOT initialized yet
-            if (typeof trigger_initialized === 'undefined') {
-                $trigger.
-                    on('click',
-                    function(event){
-                        // instantly toggle site overlay (improves "felt performance")
-                        $(window).trigger('showSiteOverlay');
-                        // load softpage
-                        event.preventDefault();
-                        openFormModal(this,event);
-                    }
-                );
-                // mark as initialized
-                $trigger.attr(initialized_attr,'');
-            }
+            // find and submit form
+            $trigger.parents('form').submit();
         });
+
+
+        /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+        The maxlength attribute is being ignored on type="number" inputs. Let's make this work.
+
+        */
+
+        // find inputs with maxlength attribute
+        var $maxlength_inputs = $('form').find('input[maxlength]');
+        // loop elements and listen for key event
+        $maxlength_inputs.each(function (e) {
+            // init
+            var $input = $(this);
+            var maxlength = $input.attr('maxlength');
+            // listen to relevant events
+            $input.on('keydown', function(e) {
+                return handleInputMaxlength(this,e,maxlength);
+            });
+            $input.on('focus', function(e) {
+                return handleInputMaxlength(this,e,maxlength);
+            });
+            $input.on('click', function(e) {
+                return handleInputMaxlength(this,e,maxlength);
+            });
+        });
+
+        /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+        Disable scroll for input type "number" to prevent Chromium browsers change the value when scrolling
+
+        */
+
+        $('form').on('focus', 'input[type=number]', function (e) {
+            $(this).on('mousewheel.disableScroll', function (e) {
+                e.preventDefault();
+            });
+        });
+        $('form').on('blur', 'input[type=number]', function (e) {
+            $(this).off('mousewheel.disableScroll');
+        });
+
+
+        /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+        Custom File Upload
+
+        Inspired by: http://tympanus.net/codrops/2015/09/15/styling-customizing-file-inputs-smart-way/
+
+        */
+
+        $( '.custom-file-upload' ).each( function() {
+            var $container = $(this),
+                $input = $container.find( 'input' ),
+                $label = $container.find( 'label' ),
+                labelVal = $label.html();
+
+            $input.on( 'change', function( e ) {
+                var fileName = '';
+
+                if( this.files && this.files.length > 1 )
+                    fileName = ( this.getAttribute( 'data-multiple-caption' ) || '' ).replace( '{count}', this.files.length );
+                else if( e.target.value )
+                    fileName = e.target.value.split( '\\' ).pop();
+
+                if( fileName ) {
+                    $container.addClass('file-selected');
+                    $label.html( fileName );
+                } else {
+                    $label.html( labelVal );
+                }
+            });
+
+            // Firefox bug fix
+            $input
+            .on( 'focus', function(){ $input.addClass( 'has-focus' ); })
+            .on( 'blur', function(){ $input.removeClass( 'has-focus' ); });
+        });
+
     }
 
-    // on page load
-    initFormModalTrigger();
+    function getSelectedText() {
+        var text = "";
+        if (typeof window.getSelection != "undefined") {
+            text = window.getSelection().toString();
+        } else if (typeof document.selection != "undefined" && document.selection.type == "Text") {
+            text = window.selection.createRange().text;
+        }
+        return text;
+    }
 
-    // custom event
-    $(window).on('initFormModalTrigger softpage:opened form-modal:opened', function() {
-        initFormModalTrigger();
-    });
 
-    function initFormModalClose() {
-        // look for triggers
-        if (document.querySelector('.close-form-modal,[data-close-form-modal]')) {
-            var close_form_modal = document.querySelector('.close-form-modal,[data-close-form-modal]');
-            close_form_modal.addEventListener('click', function(event) {
-                event.preventDefault();
-                form_modal.close();
-            });
+    function handleInputMaxlength(input,e,maxlength) {
+        // store key code
+        var $input = $(input);
+        var input_field = input;
+        var key_code = parseInt(e.which);
+        var current_number_of_characters = parseInt($input.val().length);
+        var input_text_is_selected = false;
+        // try to get selected text
+        if (getSelectedText()) {
+            input_text_is_selected = true;
+        }
+        // always accepted: key codes 8 until 46 are general keys like space, delete, backspace, arrows, ...
+        if (key_code >= 8 && key_code <= 46 ) {
+            // all good. keep going.
+        }
+        // any other system keys (and the COMMAND key of Macs)
+        else if( e.altKey || e.ctrlKey || e.shiftKey || key_code == 91) {
+            // all good. keep going.
+        }
+        // any other case should be checked
+        else {
+            // only block typing if NO text is selected
+            if (input_text_is_selected === true) {
+                // we're overwriting marked text, keep going!
+            }else {
+                // in case it's a character, make sure we respect the limit
+                if (current_number_of_characters == maxlength) {
+                    return false;
+                }
+            }
         }
     }
 
+    // on page load
+    initFormModifications();
+
     // custom event
-    $(window).on('initFormModalClose', function() {
-        initFormModalClose();
+    $(window).on('initFormModifications softpage:opened form-modal:opened', function() {
+        initFormModifications();
     });
 
 });
