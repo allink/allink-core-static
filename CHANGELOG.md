@@ -15,6 +15,26 @@ Each release is divided into the following main categories:
 
 ### NEW
 
+- Video File Update (requires latest `allink-core`): New variables available:
+```SCSS
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+=Video File
+
+*/
+
+$video-controls-width:                      150px;
+$video-controls-height:                     150px;
+$video-controls-transition-property:        all;
+$video-controls-transition-duration:        150ms;
+$video-controls-transition-timing-function: ease-in;
+$video-controls-fallback-arrow-color:       $white;
+$video-controls-fallback-arrow-width:       25px;
+$video-controls-fallback-arrow-height:      25px;
+$video-controls-image-path-play:            false; // SVG recommended. Path to file e.g. '/static/images/video-controls/play.svg'
+$video-controls-image-width:                150px;
+$video-controls-image-height:               150px;
+```
 - Form Modal: Trigger now also gets the `data-trigger-initialized` when the `click` event listener has been attached (prevents event listener stacking).
 - Dropdown: New variable with default value added `$dropdown-link-padding: 0;`
 - Picture Elements (Image Plugin or by templatetag): `$project-colors` can now be used for `picutre` element by adding `project-color-1`, `project-color-2`, ...

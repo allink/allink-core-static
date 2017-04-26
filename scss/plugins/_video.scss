@@ -10,9 +10,66 @@
 }
 
 .video-file-plugin {
+    position: relative;
     .the-video {
         display: block;
         width: 100%;
         height: auto;
+    }
+    .video-controls {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        cursor: pointer;
+        span {
+            visibility: hidden;
+            opacity: 0;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transition-property: $video-controls-transition-property;
+            transition-duration: $video-controls-transition-duration;
+            transition-timing-function: $video-controls-transition-timing-function;
+        }
+        @if $video-controls-image-path-play {
+            span {
+                width: $video-controls-image-width;
+                height: $video-controls-image-height;
+                background-repeat: no-repeat;
+                background-size: cover;
+                background-image: url($video-controls-image-path-play);
+            }
+        }
+        @else {
+            span {
+                transform: translate(-50%,-50%);
+                width: 0;
+                height: 0;
+                border-style: solid;
+                border-width: $video-controls-fallback-arrow-height 0 $video-controls-fallback-arrow-height $video-controls-fallback-arrow-width;
+                border-color: transparent transparent transparent $video-controls-fallback-arrow-color;
+
+            }
+        }
+    }
+    // autoplay enabled
+    &.autoplay-enabled {
+        @media (min-width:$screen-md) {
+            .video-controls {
+                display: none;
+                cursor: default;
+            }
+        }
+    }
+    // playing
+    &.on-pause {
+        .video-controls {
+            span {
+                visibility: visible;
+                opacity: 1;
+            }
+        }
     }
 }

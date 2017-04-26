@@ -53,92 +53,92 @@ $(function() {
         var $videos = $( '.the-video' );
         var loaded_class = 'loaded';
         var on_pause_class = 'on-pause';
+        var autoplay_class = 'autoplay-enabled';
+        var initialized_attr = 'data-controls-initialized';
+        var window_width = $(window).width();
+        var mobile_max_width = 767;
+        var mobile_class = 'is-mobile';
         var isIpad = navigator.userAgent.indexOf("iPad") != -1 ;
+
+        // general mobile check
+        var is_mobile = false;
+        if (window_width <= mobile_max_width ) {
+            is_mobile = true;
+        }
 
         // loop through video sections
         $videos.each( function(){
 
             // init
             var $vid = $( this );
-
-            // first of all, check whether we're on mobile or not
-            var show_video = toggleVideoVisibility( $vid );
+            var $plugin_container = $vid.parents('.app-content-plugin');
+            var $video_controls = $plugin_container.find('.video-controls');
 
             // enable videos on iPads
             enableInlineVideo($vid.get(0), {
                 iPad: true
             });
 
-            // in the mobile version the video element is not visible
-            if( true === show_video ) {
+            // on mobile: make sure autoplay is disabled (data usage alert!)
+            if (is_mobile) {
+                $vid.removeAttr('autoplay');
+                $plugin_container.removeClass(autoplay_class);
+            }
 
+            // add event listener to video controls, but only continue if autplay is DISABLED
+            if ($plugin_container.hasClass(autoplay_class) === false) {
+                var controls_initialized = $video_controls.attr(initialized_attr);
+                // NOT initialized yet
+                if (typeof controls_initialized === 'undefined') {
+                    $video_controls.
+                        on('click',
+                        function(){
+                            if( $plugin_container.hasClass( on_pause_class ) ) {
+                                // remove class
+                                $plugin_container.removeClass( on_pause_class );
+                                // let's play
+                                $vid.get(0).play();
+                                // and mark the video as loaded (for possible transitions)
+                                $plugin_container.addClass(loaded_class);
+                            }else {
+                                // pause the video and..
+                                $vid.get(0).pause();
+                                // ..add class
+                                $plugin_container.addClass( on_pause_class );
+                            }
+                        }
+                    );
+                    // mark as initialized
+                    $video_controls.attr(initialized_attr,'');
+                }
+            }
+
+            // only continue if autoplay is enabled
+            if ($plugin_container.hasClass(autoplay_class)) {
                 // start video when element is on screen
                 if( $vid.videoIsOnScreen() ) {
-
                     // per default, a video is "on pause" - let's remove this and don't come back here when there is no on_pause_class, because that means the video is playing
-                    if( $vid.hasClass( on_pause_class ) ) {
-                        // remove class
-                        $vid.removeClass( on_pause_class );
-                        // let's play
-                        $vid.get(0).play();
-                        // and mark the video as loaded (for possible transitions)
-                        $vid.parents('.video-content').addClass(loaded_class);
+                    if( $plugin_container.hasClass( on_pause_class ) ) {
+                        setTimeout(function(){
+                            // remove class
+                            $plugin_container.removeClass( on_pause_class );
+                            // let's play
+                            $vid.get(0).play();
+                            // and mark the video as loaded (for possible transitions)
+                            $plugin_container.addClass(loaded_class);
+                        },100);
                     }
-
                 }
                 // not on screen? pause it
                 else {
-
                     // pause the video and..
                     $vid.get(0).pause();
-
                     // ..add class
-                    $vid.addClass( on_pause_class );
-
+                    $plugin_container.addClass( on_pause_class );
                 }
-
             }
 
         });
-
-    }
-
-    function toggleVideoVisibility( $vid ) {
-
-        // init
-        var window_width = parseInt( $( window ).width() );
-        var min_width_breakpoint = 768;
-        var show_video = false;
-        var loaded_class = 'loaded';
-
-        // don't re-apply the changes
-        if( !$vid.hasClass( loaded_class ) ) {
-
-            // make sure to ONLY load the video when not on mobile
-            if( window_width >= min_width_breakpoint ) {
-
-                // set poster
-                var poster = $vid.attr( 'data-poster' );
-                $vid.attr( 'poster', poster );
-
-                // set video source
-                var $source = $vid.find( 'source' );
-                var video_source = $source.attr( 'data-src' );
-                $source.attr( 'src', video_source );
-
-                // set flag so we won't do it again
-                $vid.addClass( loaded_class );
-
-                // set return value
-                show_video = true;
-
-            }
-
-        }else {
-            show_video = true;
-        }
-
-        return show_video;
 
     }
 
