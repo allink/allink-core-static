@@ -16,6 +16,22 @@ Each release is divided into the following main categories:
 
 ### NEW
 
+- NPM dependencies: All packages are now set to a fixed version. This prevents unwanted changes when executing the command `npm update`.
+- Input Label: New variable available:
+```SCSS
+$form-label-bold-enabled:              true;
+```
+- Input Field: Error color variables available:
+```SCSS
+// error label
+$form-label-error-color:               $body-color;
+
+// error message
+$form-field-error-spacing-xs:          $grid-gutter-width/4;
+$form-field-error-spacing-md:          $grid-gutter-width/4;
+$form-field-error-spacing-xl:          $grid-gutter-width/4;
+$form-field-error-color:               $brand-danger;
+```
 - Input Fields: Inverted color variables available:
 ```SCSS
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *

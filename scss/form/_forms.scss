@@ -50,6 +50,9 @@ Default Form Styles
         @media (min-width:$screen-xl) {
             margin-bottom: $form-label-spacing-xl;
         }
+        @if $form-label-bold-enabled == true {
+            @include font-family-bold();
+        }
     }
 
     // the label text container
@@ -57,6 +60,30 @@ Default Form Styles
     .label-text {
         display: inline-block;
         font-weight: normal;
+
+    }
+
+    // error label
+    .has-error {
+        label,
+        .label-text {
+            color: $form-label-error-color;
+        }
+    }
+
+    // error messages
+    .errorlist {
+        margin-top: $form-field-error-spacing-xs;
+        @media (min-width:$screen-md) {
+            margin-top: $form-field-error-spacing-md;
+        }
+        @media (min-width:$screen-xl) {
+            margin-top: $form-field-error-spacing-xl;
+        }
+        > li {
+            @include p-small();
+            color: $form-field-error-color;
+        }
     }
 
     // prepare the required symbol

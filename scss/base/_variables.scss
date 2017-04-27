@@ -316,6 +316,7 @@ $form-group-spacing-md:                $grid-gutter-width;
 $form-group-spacing-xl:                $grid-gutter-width;
 
 // `.label-control` margin bottom
+$form-label-bold-enabled:              true;
 $form-label-spacing-xs:                $grid-gutter-width/4;
 $form-label-spacing-md:                $grid-gutter-width/2;
 $form-label-spacing-xl:                $grid-gutter-width/2;
@@ -377,6 +378,15 @@ $input-error-border-right-color:       transparent;
 $input-error-border-bottom-color:      $form-field-required-icon-color;
 $input-error-border-left-color:        transparent;
 $input-error-bg:                       #ffeded;
+
+// error label
+$form-label-error-color:               $body-color;
+
+// error message
+$form-field-error-spacing-xs:          $grid-gutter-width/4;
+$form-field-error-spacing-md:          $grid-gutter-width/4;
+$form-field-error-spacing-xl:          $grid-gutter-width/4;
+$form-field-error-color:               $brand-danger;
 
 // Placeholder text color
 $input-color-placeholder:              #999;

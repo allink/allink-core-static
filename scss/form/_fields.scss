@@ -33,12 +33,18 @@ Text Fields
         box-shadow: none;
     }
 
+    // error styles
+    .has-error &,
     &.error {
-        border-top-color: $input-error-border-top-color;
-        border-right-color: $input-error-border-right-color;
-        border-bottom-color: $input-error-border-bottom-color;
-        border-left-color: $input-error-border-left-color;
-        background-color: $input-error-bg;
+        &,
+        &:focus {
+            border-top-color: $input-error-border-top-color;
+            border-right-color: $input-error-border-right-color;
+            border-bottom-color: $input-error-border-bottom-color;
+            border-left-color: $input-error-border-left-color;
+            background-color: $input-error-bg;
+            box-shadow: none;
+        }
     }
 
     // optional we can make use of the .inverted-colors context
