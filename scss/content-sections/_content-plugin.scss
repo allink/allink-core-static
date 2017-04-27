@@ -247,6 +247,14 @@ General Settings
         }
     }
 
+    // section heading of a 'content plugin' entry needs extra padding, because the columns themselves have the column-padding
+    .section-heading {
+        .heading {
+            @include column-paddings();
+            @include column-padding-sm-max();
+        }
+    }
+
     /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 
     FLEXBOX Time!

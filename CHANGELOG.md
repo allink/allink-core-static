@@ -154,6 +154,7 @@ $form-modal-transition:         visibility $form-modal-transition-duration $form
 
 ### FIXES
 
+- Section Heading: Padding fix after changing the philisophy that app content belongs into a column of a content plugin.
 - Softpage: Modal now scrolls to top every time a softpage is opened (was broken with tingle update).
 - Colorpicker: Default color is now set to `transparent`
 - Swiper: `swiper-counter` is now hidden per default. Only a temporary fix until gallery plugin is extended with flags.
