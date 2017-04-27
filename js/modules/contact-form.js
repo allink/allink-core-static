@@ -49,7 +49,7 @@ $(function(){
     initContactForm();
 
     // custom event
-    $(window).on('initContactForm softpage:opened form-modal:opened', function() {
+    $(window).on('initContactForm ajaxFormSuccess softpage:opened form-modal:opened', function() {
         initContactForm();
     });
 
