@@ -34,7 +34,7 @@ $(function(){
             $(window).trigger('form-modal:opened');
             $(window).trigger('initFormModalClose');
         },
-        closeMethods: []
+        closeMethods: ['button']
     });
 
     // click handler
