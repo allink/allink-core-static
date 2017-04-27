@@ -41,6 +41,7 @@
     // I hate to be so specific, but we need to be stronger than the default dropdown styles
     &.open {
         > .dropdown-toggle {
+            &,
             &:hover,
             &:focus,
             &:active {

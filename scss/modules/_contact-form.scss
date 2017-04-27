@@ -5,4 +5,13 @@
     .heading {
         @include h2();
     }
+    .phone-container {
+        .datepicker-container,
+        .datepicker-rendered,
+        .dropdown-toggle,
+        .dropdown-menu {
+            width: 100%;
+            max-width: none;
+        }
+    }
 }

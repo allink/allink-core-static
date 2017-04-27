@@ -6,6 +6,24 @@ Default Form Styles
 
 .form-default {
 
+    // only in markup if columns are used
+    .col-container {
+        @include make-row();
+    }
+
+    // column variations: applied to `form-group` container
+    .col-1-1 {
+        .col {
+            @include make-xs-column(24);
+            @include make-sm-column(12);
+            @include make-spacing-top-xs-max($form-label-spacing-xs);
+        }
+        @media (min-width:$screen-sm) {
+            .col-1 { padding-right: $grid-gutter-width/4; }
+            .col-2 { padding-left: $grid-gutter-width/4; }
+        }
+    }
+
     // form group (= form row)
     .form-group {
         margin: 0;
@@ -35,6 +53,7 @@ Default Form Styles
     }
 
     // the label text container
+    label,
     .label-text {
         display: inline-block;
         font-weight: normal;
