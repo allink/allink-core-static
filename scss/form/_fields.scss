@@ -40,11 +40,45 @@ Text Fields
         border-left-color: $input-error-border-left-color;
         background-color: $input-error-bg;
     }
+
+    // optional we can make use of the .inverted-colors context
+    @if $form-field-inverted-enabled == true {
+        .inverted-colors & {
+            color: $input-inverted-color;
+            background-color: $input-inverted-bg;
+            border-width: $form-field-inverted-border-width;
+            border-top-color: $input-inverted-border-top-color;
+            border-right-color: $input-inverted-border-right-color;
+            border-bottom-color: $input-inverted-border-bottom-color;
+            border-left-color: $input-inverted-border-left-color;
+            border-radius: $form-field-inverted-border-radius-default;
+            padding-left: $input-inverted-padding-left;
+            padding-right: $input-inverted-padding-right;
+            transition: $form-field-inverted-transition;
+            &:focus {
+                background-color: $input-inverted-bg-focus;
+                border-top-color: $input-inverted-border-top-color-focus;
+                border-right-color: $input-inverted-border-right-color-focus;
+                border-bottom-color: $input-inverted-border-bottom-color-focus;
+                border-left-color: $input-inverted-border-left-color-focus;
+            }
+
+            &.error {
+                border-top-color: $input-inverted-error-border-top-color;
+                border-right-color: $input-inverted-error-border-right-color;
+                border-bottom-color: $input-inverted-error-border-bottom-color;
+                border-left-color: $input-inverted-error-border-left-color;
+                background-color: $input-inverted-error-bg;
+            }
+        }
+    }
+
     // reset bg color in case of a bootstrap-select container
     &.bootstrap-select {
-        background-color: transparent;
+        background-color: transparent !important;
     }
 }
+
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 

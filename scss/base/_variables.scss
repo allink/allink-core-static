@@ -397,6 +397,65 @@ $cursor-disabled:                      not-allowed;
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 
+INVERTED colors for form =Fields (.form-control)
+
+How to use it: Simply add a class `inverted-colors` to one of the parents of a form.
+
+Example:
+
+<div class="site-footer inverted-colors">
+    <form>
+        <input class="form-control" type="text" name="me-has-inverted-form-styles">
+    </form>
+</div>
+
+*/
+
+// set to false per default because of backward compatibility
+$form-field-inverted-enabled:                   false;
+
+$form-field-inverted-transition:                $form-field-transition;
+$form-field-inverted-border-radius-default:     $form-field-border-radius-default;
+$form-field-inverted-border-width:              $form-field-border-width;
+$form-field-inverted-border-style:              $form-field-border-style;
+$form-field-inverted-border-color:              $form-field-border-color;
+
+// background color
+$input-inverted-bg:                             $input-bg;
+// background color of disabled form field (e.g. type="text")
+$input-inverted-bg-disabled:                    $input-bg-disabled;
+// background color :focus
+$input-inverted-bg-focus:                       $input-bg-focus;
+
+// Text color for `<input>`s
+$input-inverted-color:                          $input-color;
+
+// horizontal padding settings for form fields and textarea
+$input-inverted-padding-left:                   $input-padding-left;
+$input-inverted-padding-right:                  $input-padding-right;
+
+// border color
+$input-inverted-border-top-color:               $input-border-top-color;
+$input-inverted-border-right-color:             $input-border-right-color;
+$input-inverted-border-bottom-color:            $input-border-bottom-color;
+$input-inverted-border-left-color:              $input-border-left-color;
+
+// border color :focus
+$input-inverted-border-top-color-focus:         $input-border-top-color-focus;
+$input-inverted-border-right-color-focus:       $input-border-right-color-focus;
+$input-inverted-border-bottom-color-focus:      $input-border-bottom-color-focus;
+$input-inverted-border-left-color-focus:        $input-border-left-color-focus;
+
+// ERROR styles
+$input-inverted-error-border-top-color:         $input-error-border-top-color;
+$input-inverted-error-border-right-color:       $input-error-border-right-color;
+$input-inverted-error-border-bottom-color:      $input-error-border-bottom-color;
+$input-inverted-error-border-left-color:        $input-error-border-left-color;
+$input-inverted-error-bg:                       $input-error-bg;
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
 =Checkboxes
 
 */
