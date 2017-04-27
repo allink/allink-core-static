@@ -1,3 +1,16 @@
+// this is a quick and dirty solution to fight the bootstrap-select loading jumping bloody effect
+select.selectpicker {
+    display: inline-block !important;
+    position: static !important;
+    height: $select-placeholder-height-xs !important;
+    @media (min-width:$screen-md) {
+        height: $select-placeholder-height-md !important;
+    }
+    @media (min-width:$screen-xxl) {
+        height: $select-placeholder-height-xxl !important;
+    }
+}
+
 .bootstrap-select {
     // we don't want to default arrow
     .bs-caret {

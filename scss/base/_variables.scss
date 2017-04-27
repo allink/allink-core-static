@@ -729,6 +729,12 @@ Bootstrap =Select Styles
 
 $select-btn-variation:                  'default'; // needs to be one of the variations defined in $btn-variations
 
+// this is a quick and dirty solution to fight the bootstrap-select loading jumping bloody effect
+// Important: Get height of rendered bootstrap-select at each breakpoint AFTER the typography has been approved.
+$select-placeholder-height-xs:          35px;
+$select-placeholder-height-md:          35px;
+$select-placeholder-height-xxl:         35px;
+
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 

@@ -16,6 +16,14 @@ Each release is divided into the following main categories:
 
 ### NEW
 
+- Bootstrap Select: New variables available:
+```SCSS
+// this is a quick and dirty solution to fight the bootstrap-select loading jumping bloody effect
+// Important: Get height of rendered bootstrap-select at each breakpoint AFTER the typography has been approved.
+$select-placeholder-height-xs:          35px;
+$select-placeholder-height-md:          35px;
+$select-placeholder-height-xxl:         35px;
+```
 - NPM dependencies: All packages are now set to a fixed version. This prevents unwanted changes when executing the command `npm update`.
 - Input Label: New variable available:
 ```SCSS
