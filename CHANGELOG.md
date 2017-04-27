@@ -24,7 +24,7 @@ $form-label-bold-enabled:              true;
 - Input Field: Error color variables available:
 ```SCSS
 // error label
-$form-label-error-color:               $body-color;
+$form-label-error-color:               $black;
 
 // error message
 $form-field-error-spacing-xs:          $grid-gutter-width/4;
