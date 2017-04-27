@@ -9,6 +9,10 @@ select.selectpicker {
     @media (min-width:$screen-xxl) {
         height: $select-placeholder-height-xxl !important;
     }
+    // when rendered, we're in the .bootstrap-select container, hide!
+    .bootstrap-select & {
+        position: absolute !important;
+    }
 }
 
 .bootstrap-select {
