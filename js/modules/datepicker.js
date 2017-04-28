@@ -44,7 +44,7 @@ function initDatepicker() {
     // determine currently active language
     var active_lang = document.querySelector('html').getAttribute('lang');
     // fallback lang
-    if (active_lang) {
+    if (!active_lang) {
         active_lang = 'en';
     }
 
