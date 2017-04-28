@@ -3,6 +3,7 @@
 // Author: Brian Grinstead
 // License: MIT
 // Requires: jQuery, spectrum.css
+// Modified by allink AG
 
 $(function () {
     // TinyColor.js - <https://github.com/bgrins/TinyColor> - 2011 Brian Grinstead - v0.5
@@ -1579,25 +1580,27 @@ $(function () {
         }
     });
 
-    for(var i = 0; i < window.colorFields.length; i++){
-        var id = window.colorFields[i].id;
-        var color = window.colorFields[i].color;
-        var showPaletteOnly = window.colorFields[i].showPaletteOnly;
-        var palette = window.colorFields[i].palette;
-        var localStorageKey = window.colorFields[i].localStorageKey;
-        $(id).spectrum({
-            preferredFormat: "hex",
-            color: color,
-            clickoutFiresChange: true,
-            showInput: true,
-            showInitial: true,
-            showPalette: true,
-            showSelectionPalette: false,
-            localStorageKey: localStorageKey,
-            showButtons: true,
-            showPaletteOnly: showPaletteOnly,
-            palette: palette,
-        });
-    };
+    if (window.colorFields && window.colorFields.length > 0) {
+        for(var i = 0; i < window.colorFields.length; i++){
+            var id = window.colorFields[i].id;
+            var color = window.colorFields[i].color;
+            var showPaletteOnly = window.colorFields[i].showPaletteOnly;
+            var palette = window.colorFields[i].palette;
+            var localStorageKey = window.colorFields[i].localStorageKey;
+            $(id).spectrum({
+                preferredFormat: "hex",
+                color: color,
+                clickoutFiresChange: true,
+                showInput: true,
+                showInitial: true,
+                showPalette: true,
+                showSelectionPalette: false,
+                localStorageKey: localStorageKey,
+                showButtons: true,
+                showPaletteOnly: showPaletteOnly,
+                palette: palette,
+            });
+        };
+    }
 
 });
