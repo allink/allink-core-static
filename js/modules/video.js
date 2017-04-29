@@ -47,7 +47,7 @@ $(function() {
 
     */
 
-    function handleVideoPlayback() {
+    function initInlineVideo() {
 
         // init
         var $videos = $( '.the-video' );
@@ -143,16 +143,16 @@ $(function() {
     }
 
     // on page load
-    handleVideoPlayback();
+    initInlineVideo();
 
     // when scrolling has stopped
     $(window).videoScrollStopped(function(){
-        handleVideoPlayback();
+        initInlineVideo();
     });
 
     // when resizing the window
-    $(window).on( 'viewportWidthHasChanged', function(){
-        handleVideoPlayback();
+    $(window).on( 'viewportWidthHasChanged softpage:opened', function(){
+        initInlineVideo();
     });
 
 });
