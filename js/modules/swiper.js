@@ -187,13 +187,15 @@ function setSwiperFullscreenDimensions($inner,$gallery) {
     // determine browser window dimensions
     var window_width = $(window).width();
     var window_height = $(window).height();
+    // TBD: option to leave some space for captions or spacings
+    var available_height = window_height-120;
     // determine swiper dimensions
     var swiper_width = $gallery.width();
     var swiper_height = $gallery.height();
     // the gallery doesn't fit into the window, let's reset the dimensions
-    if (swiper_height > window_height) {
-        var adjusted_swiper_height = window_height;
-        var adjusted_swiper_width = (window_height*swiper_width)/swiper_height;
+    if (swiper_height > available_height) {
+        var adjusted_swiper_height = available_height;
+        var adjusted_swiper_width = (available_height*swiper_width)/swiper_height;
         $inner.width(adjusted_swiper_width);
         $inner.height(adjusted_swiper_height);
     }else {
