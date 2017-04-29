@@ -118,13 +118,20 @@ export function initiSwiperInstances(options) {
 
         // enter fullscreen mode
         $swiper_instance.find('[data-trigger-swiper-fullscreen]').on('click', function(e) {
+
+            // init
             e.preventDefault();
+            var $swiper_fullscreen_container = $('.swiper-fullscreen-container');
+            var $swiper_fullscreen = $('.swiper-fullscreen');
+
+            // prevent scrolling while lightbox is opened
+            $('html').addClass('scrolling-disabled');
 
             // stop autoplay of default swiper
             mySwiper.stopAutoplay();
 
             // clone container, remove all inline styles of old swiper instance
-            var $swiper_fullscreen_container = $('.swiper-fullscreen-container');
+
             $swiper_fullscreen_container
                 .children('.swiper-fullscreen').html($swiper_instance.clone())
                 .children('.swiper-default').removeClass('swiper-initialized')
@@ -137,13 +144,16 @@ export function initiSwiperInstances(options) {
             fullscreen_options.loop = false;
 
             setTimeout(function() {
-                initiSwiperInstances(fullscreen_options);
+                // init dimensions
+                initSwiperFullscreenDimensions();
                 // hide softpage if open
                 if ($('.tingle-modal.softpage').hasClass('tingle-modal--visible')) {
                     // do nothing
                 } else {
                     $(window).trigger('showSiteOverlay');
                 }
+                // instanciate swiper
+                initiSwiperInstances(fullscreen_options);
                 // make gallery visible
                 $swiper_fullscreen_container.addClass('active');
                 $('body').addClass('swiper-fullscreen-visible');
@@ -173,6 +183,54 @@ export function initiSwiperInstances(options) {
 
 }
 
+function setSwiperFullscreenDimensions($inner,$gallery) {
+    // determine browser window dimensions
+    var window_width = $(window).width();
+    var window_height = $(window).height();
+    // determine swiper dimensions
+    var swiper_width = $gallery.width();
+    var swiper_height = $gallery.height();
+    // the gallery doesn't fit into the window, let's reset the dimensions
+    if (swiper_height > window_height) {
+        var adjusted_swiper_height = window_height;
+        var adjusted_swiper_width = (window_height*swiper_width)/swiper_height;
+        $inner.width(adjusted_swiper_width);
+        $inner.height(adjusted_swiper_height);
+    }else {
+        // reset dimensions
+        $inner.css({
+            'width':'',
+            'height':'',
+        });
+    }
+}
+
+function initSwiperFullscreenDimensions(width_has_changed=false) {
+
+    // init
+    var $container = $('.swiper-fullscreen-container');
+    var $inner = $container.find('.swiper-fullscreen');
+    var $gallery = $container.find('.swiper-container');
+
+    if (width_has_changed) {
+        // reset dimensions
+        $inner.css({
+            'width':'',
+            'height':'',
+        });
+        // remove initialized flag
+        $gallery.removeClass('swiper-initialized');
+        setTimeout(function(){
+            setSwiperFullscreenDimensions($inner,$gallery);
+            setTimeout(function(){
+                initiSwiperInstances();
+            },10);
+        },50);
+    }else {
+        setSwiperFullscreenDimensions($inner,$gallery);
+    }
+}
+
 function closeSwiperFullscreen() {
     if ($('.tingle-modal.softpage').hasClass('tingle-modal--visible')) {
         $('body').removeClass('swiper-fullscreen-visible');
@@ -180,7 +238,23 @@ function closeSwiperFullscreen() {
         $('body').removeClass('swiper-fullscreen-visible');
         $(window).trigger('hideSiteOverlay');
     }
+    // init
     var $swiper_fullscreen_container = $('.swiper-fullscreen-container');
+    var $swiper_fullscreen = $swiper_fullscreen_container.find('.swiper-fullscreen');
+    // remove active state
     $swiper_fullscreen_container.removeClass('active');
-    $swiper_fullscreen_container.children('.swiper-fullscreen').empty();
+    // remove content
+    $swiper_fullscreen.empty();
+    // reset dimensions
+    $swiper_fullscreen.css({
+        'width':'',
+        'height':'',
+    });
+    // enable scrolling again
+    $('html').removeClass('scrolling-disabled');
 }
+
+$(window).on('viewportWidthHasChanged',function(){
+    var width_has_changed = true;
+    initSwiperFullscreenDimensions(width_has_changed);
+});
