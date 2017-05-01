@@ -11,6 +11,7 @@ Each release is divided into the following main categories:
 
 ### IMPORTANT
 
+- Form Modal: The close button is now inside the modal for better UX. Go get the content of `modal/_form.scss` from teo jakob.
 - Print: Lazyload images that are not in viewport yet can be loaded when printing the page by including the following plugin in the project's `app.js` BEFORE the main `lazysizes` import:
 ```JS
 import 'lazysizes/plugins/print/ls.print'; // needs to be BEFORE the main script
