@@ -83,10 +83,17 @@ $(function(){
             $(obj.modal.modal).removeAttr('data-softpage-variation');
         },
         onBeforeClose: function(){
-            // prevent closing of the softpage as long as the form modal is opened
+            // prevent closing of the softpage as long as..
+            // 1. the form modal is opened
             if ($('.tingle-modal.form-modal').hasClass('tingle-modal--visible')) {
                 return false;
-            }else {
+            }
+            // 2. the swiper fullscreen gallery is visible
+            else if($('html').hasClass('swiper-fullscreen-visible')) {
+                return false;
+            }
+            // default
+            else {
                 return true;
             }
         }

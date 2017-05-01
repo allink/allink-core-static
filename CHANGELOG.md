@@ -168,6 +168,7 @@ $form-modal-transition:         visibility $form-modal-transition-duration $form
 
 ### FIXES
 
+- Swiper Fullscreen Gallery: Closing fixes.
 - Video: re-init when softpage is loaded.
 - Colopicker JS Bug fixed.
 - Section Heading: Padding fix after changing the philisophy that app content belongs into a column of a content plugin.

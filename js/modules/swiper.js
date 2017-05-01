@@ -52,6 +52,9 @@ export function initiSwiperInstances(options) {
     if (!options.initialSlide) {
         options.initialSlide = 0;
     }
+    if (!options.fullscreen_active_class_delay) {
+        options.fullscreen_active_class_delay = 300;
+    }
 
     // loop through instances (that have NOT been initialized yet)
     $('.swiper-default:not(.swiper-initialized)').each(function(i) {
@@ -146,6 +149,8 @@ export function initiSwiperInstances(options) {
             setTimeout(function() {
                 // init dimensions
                 initSwiperFullscreenDimensions();
+                // init close click
+                initSwiperFullscreenClose($swiper_fullscreen_container,$swiper_fullscreen);
                 // hide softpage if open
                 if ($('.tingle-modal.softpage').hasClass('tingle-modal--visible')) {
                     // do nothing
@@ -155,8 +160,11 @@ export function initiSwiperInstances(options) {
                 // instanciate swiper
                 initiSwiperInstances(fullscreen_options);
                 // make gallery visible
-                $swiper_fullscreen_container.addClass('active');
-                $('body').addClass('swiper-fullscreen-visible');
+                $('html').addClass('swiper-fullscreen-visible');
+                // add some delay
+                setTimeout(function(){
+                    $swiper_fullscreen_container.addClass('active');
+                },options.fullscreen_active_class_delay);
             }, 10);
         });
 
@@ -183,12 +191,26 @@ export function initiSwiperInstances(options) {
 
 }
 
+function initSwiperFullscreenClose($swiper_fullscreen_container,$swiper_fullscreen) {
+
+    // close fullscreen gallery when clicking anywhere on the container
+    $swiper_fullscreen_container.on('click',function(e){
+        closeSwiperFullscreen();
+    });
+
+    // prevent closing the gallery when clicking inside the gallery itself
+    $swiper_fullscreen.on('click',function(e){
+        e.stopPropagation();
+    });
+
+}
+
 function setSwiperFullscreenDimensions($inner,$gallery) {
     // determine browser window dimensions
     var window_width = $(window).width();
     var window_height = $(window).height();
     // TBD: option to leave some space for captions or spacings
-    var available_height = window_height-120;
+    var available_height = window_height-100;
     // determine swiper dimensions
     var swiper_width = $gallery.width();
     var swiper_height = $gallery.height();
@@ -234,26 +256,28 @@ function initSwiperFullscreenDimensions(width_has_changed=false) {
 }
 
 function closeSwiperFullscreen() {
-    if ($('.tingle-modal.softpage').hasClass('tingle-modal--visible')) {
-        $('body').removeClass('swiper-fullscreen-visible');
-    } else {
-        $('body').removeClass('swiper-fullscreen-visible');
-        $(window).trigger('hideSiteOverlay');
-    }
-    // init
-    var $swiper_fullscreen_container = $('.swiper-fullscreen-container');
-    var $swiper_fullscreen = $swiper_fullscreen_container.find('.swiper-fullscreen');
-    // remove active state
-    $swiper_fullscreen_container.removeClass('active');
-    // remove content
-    $swiper_fullscreen.empty();
-    // reset dimensions
-    $swiper_fullscreen.css({
-        'width':'',
-        'height':'',
-    });
-    // enable scrolling again
-    $('html').removeClass('scrolling-disabled');
+    setTimeout(function(){
+        if ($('.tingle-modal.softpage').hasClass('tingle-modal--visible')) {
+            $('html').removeClass('swiper-fullscreen-visible');
+        } else {
+            $('html').removeClass('swiper-fullscreen-visible');
+            $(window).trigger('hideSiteOverlay');
+        }
+        // init
+        var $swiper_fullscreen_container = $('.swiper-fullscreen-container');
+        var $swiper_fullscreen = $swiper_fullscreen_container.find('.swiper-fullscreen');
+        // remove active state
+        $swiper_fullscreen_container.removeClass('active');
+        // remove content
+        $swiper_fullscreen.empty();
+        // reset dimensions
+        $swiper_fullscreen.css({
+            'width':'',
+            'height':'',
+        });
+        // enable scrolling again
+        $('html').removeClass('scrolling-disabled');
+    },10);
 }
 
 $(window).on('viewportWidthHasChanged',function(){
