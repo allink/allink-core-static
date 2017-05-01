@@ -3,6 +3,8 @@ select.selectpicker {
     display: inline-block !important;
     position: static !important;
     height: $select-placeholder-height-xs !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
     @media (min-width:$screen-md) {
         height: $select-placeholder-height-md !important;
     }

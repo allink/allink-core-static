@@ -169,6 +169,7 @@ $form-modal-transition:         visibility $form-modal-transition-duration $form
 
 ### FIXES
 
+- Bootstrap Select: Default select now hidden per default in order to prevent the flicker when rendering.
 - Trigger Class on Scroll: IE11 fix.
 - Swiper Fullscreen Gallery: Closing fixes.
 - Video: re-init when softpage is loaded.
