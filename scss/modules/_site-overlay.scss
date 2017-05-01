@@ -17,4 +17,7 @@
             cursor: pointer;
         }
     }
+    @include print() {
+        display: none !important;
+    }
 }

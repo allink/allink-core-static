@@ -11,11 +11,16 @@ Each release is divided into the following main categories:
 
 ### IMPORTANT
 
+- Print: Lazyload images that are not in viewport yet can be loaded when printing the page by including the following plugin in the project's `app.js` BEFORE the main `lazysizes` import:
+```JS
+import 'lazysizes/plugins/print/ls.print'; // needs to be BEFORE the main script
+```
 - Contact Form: New script added that can be included in `app.js` with `import 'allink-core-static/js/modules/contact-form';`
 - Softpage: `.conent-section` withing a tingle modal were globally resetted to `padding:0` and `margin:0`. Double check the spacings when updating, or ask Beat for advice ;)
 
 ### NEW
 
+- Global print styles optimized.
 - Trigger Class on Scroll: New option `debounce_delay` with default value `20` available.
 - Bootstrap Select: New variables available:
 ```SCSS

@@ -4,6 +4,20 @@ Global modal definitions
 
 */
 
+body.tingle-enabled {
+    @media print {
+        height: auto !important;
+        margin: 0 !important;
+        overflow: visible !important;
+        #cms-top,
+        .site-header,
+        .site-content,
+        .site-footer {
+            display: none;
+        }
+    }
+}
+
 .tingle-modal {
 
     // add scroll bars per defeault
@@ -22,6 +36,7 @@ Global modal definitions
     &.form-modal {
         transition: $form-modal-transition;
     }
+
 }
 
 // fix for projects where the position property has been forgotten
@@ -42,7 +57,19 @@ Global modal definitions
     .tingle-modal--visible & {
         transform: none;
     }
+    @include print() {
+        position: static !important;
+    }
 }
+
+.tingle-modal--visible {
+    @media print {
+        position: static !important;
+        overflow: visible !important;
+        top: 0 !important;
+    }
+}
+
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 

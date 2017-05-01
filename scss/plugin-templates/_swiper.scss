@@ -264,3 +264,18 @@ Temp fix: Hide the gallery counter by default
 .swiper-counter {
     display: none;
 }
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+Print Styles
+
+*/
+
+// background images can not easily be printed, so we simply hide the swiper galleries
+.swiper-container {
+    @include print() {
+        display: none !important;
+    }
+}
+

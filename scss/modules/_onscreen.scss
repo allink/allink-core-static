@@ -14,3 +14,10 @@ Effects all elements with the attribute [data-scroll-spy]
         }
     }
 }
+
+// making sure all items are visible when the page is loaded
+[data-scroll-spy] {
+    @include print() {
+        opacity: 1 !important;
+    }
+}
