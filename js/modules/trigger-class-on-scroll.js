@@ -1,25 +1,24 @@
-import { debounce } from './helper-functions';
-
 export function triggerClassOnScroll(options) {
+
+    // init options
     if (!options.element) {
         console.error('triggerClassOnScroll: No element set');
     }
-    if (!options.debounce_delay) {
-        options.debounce_delay = 20;
-    }
+
+    // init vars
     let class_to_trigger = options.class_to_trigger,
         scroll = options.scroll || 0,
         element = options.element;
 
-    // delayed call of function in order to improve scroll-smoothness
-    var scrollHandler = debounce(function() {
-        if(window.scrollY >= scroll && !element.classList.contains(class_to_trigger)) {
-            element.classList.add(class_to_trigger);
+    // handler
+    var scrollHandler = function(){
+        if(window.pageYOffset >= scroll && !$(element).hasClass(class_to_trigger)) {
+            $(element).addClass(class_to_trigger);
         }
-        else if(window.scrollY < scroll && element.classList.contains(class_to_trigger)) {
-            element.classList.remove(class_to_trigger);
+        else if(window.pageYOffset < scroll && $(element).hasClass(class_to_trigger)) {
+            $(element).removeClass(class_to_trigger);
         }
-    }, options.debounce_delay);
+    }
 
     // on page load
     scrollHandler();
