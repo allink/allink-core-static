@@ -44,6 +44,9 @@ body.tingle-enabled {
     &:before {
         position: absolute;
     }
+    @include print() {
+        display: none !important;
+    }
 }
 
 // remove default padding when overflow
