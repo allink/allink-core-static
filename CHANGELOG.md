@@ -16,6 +16,7 @@ Each release is divided into the following main categories:
 
 ### NEW
 
+- Trigger Class on Scroll: New option `debounce_delay` with default value `20` available.
 - Bootstrap Select: New variables available:
 ```SCSS
 // this is a quick and dirty solution to fight the bootstrap-select loading jumping bloody effect

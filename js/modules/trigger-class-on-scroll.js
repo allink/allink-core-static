@@ -4,7 +4,9 @@ export function triggerClassOnScroll(options) {
     if (!options.element) {
         console.error('triggerClassOnScroll: No element set');
     }
-
+    if (!options.debounce_delay) {
+        options.debounce_delay = 20;
+    }
     let class_to_trigger = options.class_to_trigger,
         scroll = options.scroll || 0,
         element = options.element;
@@ -17,7 +19,7 @@ export function triggerClassOnScroll(options) {
         else if(window.scrollY < scroll && element.classList.contains(class_to_trigger)) {
             element.classList.remove(class_to_trigger);
         }
-    }, 20);
+    }, options.debounce_delay);
 
     // on page load
     scrollHandler();
