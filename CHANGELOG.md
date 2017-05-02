@@ -123,9 +123,13 @@ $video-controls-transition-timing-function: ease-in;
 $video-controls-fallback-arrow-color:       $white;
 $video-controls-fallback-arrow-width:       25px;
 $video-controls-fallback-arrow-height:      25px;
-$video-controls-image-path-play:            false; // SVG recommended. Path to file e.g. '/static/images/video-controls/play.svg'
-$video-controls-image-width:                150px;
-$video-controls-image-height:               150px;
+$video-controls-image-path-play:            false; // SVG recommended. Path to file e.g. '/static/images/icons/play.svg'
+$video-controls-image-width-xs:             50px;
+$video-controls-image-height-xs:            50px;
+$video-controls-image-width-md:             80px;
+$video-controls-image-height-md:            80px;
+$video-controls-image-width-xl:             100px;
+$video-controls-image-height-xl:            100px;
 ```
 - Form Modal: Trigger now also gets the `data-trigger-initialized` when the `click` event listener has been attached (prevents event listener stacking).
 - Dropdown: New variable with default value added `$dropdown-link-padding: 0;`

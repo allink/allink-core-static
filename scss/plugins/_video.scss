@@ -29,17 +29,26 @@
             position: absolute;
             top: 50%;
             left: 50%;
+            transform: translate(-50%,-50%);
             transition-property: $video-controls-transition-property;
             transition-duration: $video-controls-transition-duration;
             transition-timing-function: $video-controls-transition-timing-function;
         }
         @if $video-controls-image-path-play {
             span {
-                width: $video-controls-image-width;
-                height: $video-controls-image-height;
                 background-repeat: no-repeat;
                 background-size: cover;
                 background-image: url($video-controls-image-path-play);
+                width: $video-controls-image-width-xs;
+                height: $video-controls-image-height-xs;
+                @media (min-width:$screen-md) {
+                    width: $video-controls-image-width-md;
+                    height: $video-controls-image-height-md;
+                }
+                @media (min-width:$screen-xl) {
+                    width: $video-controls-image-width-xl;
+                    height: $video-controls-image-height-xl;
+                }
             }
         }
         @else {
