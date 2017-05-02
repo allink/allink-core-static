@@ -173,6 +173,7 @@ $form-modal-transition:         visibility $form-modal-transition-duration $form
 
 ### FIXES
 
+- Content Section: The first content section now gets the class `first` (fixes :first-child spacing issue when logged in).
 - Bootstrap Select: Default select now hidden per default in order to prevent the flicker when rendering.
 - Trigger Class on Scroll: IE11 fix.
 - Swiper Fullscreen Gallery: Closing fixes.

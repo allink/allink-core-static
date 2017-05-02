@@ -93,7 +93,8 @@ Default Content Section Styles
     }
 
     // first and last sections
-    &:first-child {
+    &:first-child,
+    &.first {
         @include content-section-first();
         // within detail view
         .detail-view & {
