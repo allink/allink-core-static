@@ -173,6 +173,9 @@ $form-modal-transition:         visibility $form-modal-transition-duration $form
 
 ### FIXES
 
+- Softpage: Remove content when softpages closes (video was still playing in the background)
+- Video: In progress..
+- Form Fields: iPad shadow removed.
 - Content Section: The first content section now gets the class `first` (fixes :first-child spacing issue when logged in).
 - Bootstrap Select: Default select now hidden per default in order to prevent the flicker when rendering.
 - Trigger Class on Scroll: IE11 fix.

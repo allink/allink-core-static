@@ -54,14 +54,15 @@ export function initFormValidation() {
                     return true;
                 }
             },
-            highlight: function(element) {
-                $(element).addClass('error');
+            invalidHandler: function(event, validator){
                 $form.addClass('has-errors');
             },
             unhighlight: function(element) {
                 $(element).removeClass('error');
-                $form.removeClass('has-errors');
-            }
+            },
+            highlight: function(element) {
+                $(element).addClass('error');
+            },
         });
         // optional: validate on page load by adding a class to the form
         if ($form.hasClass('validate-on-page-load')) {

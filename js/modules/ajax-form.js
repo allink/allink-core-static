@@ -38,6 +38,9 @@ export function sendAjaxForm($form) {
     // 1. in case an ID is defined, select that element
     if (container_id) {
         var $form_container = $('#' + container_id);
+        if ($form_container.length == 0) {
+            console.warn('The form\'s "data-form-container-id" is set to "' + container_id + '" but element can not be found in DOM');
+        }
     }
     // 2. default: use immediate parent
     else {

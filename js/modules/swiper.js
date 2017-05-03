@@ -220,12 +220,14 @@ function setSwiperFullscreenDimensions($inner,$gallery) {
         var adjusted_swiper_width = (available_height*swiper_width)/swiper_height;
         $inner.width(adjusted_swiper_width);
         $inner.height(adjusted_swiper_height);
+        $inner.addClass('dimensions-set');
     }else {
         // reset dimensions
         $inner.css({
             'width':'',
             'height':'',
         });
+        $inner.removeClass('dimensions-set');
     }
 }
 

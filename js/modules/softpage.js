@@ -81,6 +81,8 @@ $(function(){
             $(window).trigger('softpage:closed');
             // remove variation definition
             $(obj.modal.modal).removeAttr('data-softpage-variation');
+            // remove any content (issue: video was still playing)
+            $(obj.modal.modal).find('.tingle-modal-box__content').empty();
         },
         onBeforeClose: function(){
             // prevent closing of the softpage as long as..

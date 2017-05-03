@@ -56,13 +56,15 @@ $(function() {
         var autoplay_class = 'autoplay-enabled';
         var initialized_attr = 'data-controls-initialized';
         var window_width = $(window).width();
-        var mobile_max_width = 767;
+        var mobile_max_width = 1024;
         var mobile_class = 'is-mobile';
+        var ipad_class = 'is-ipad';
         var isIpad = navigator.userAgent.indexOf("iPad") != -1 ;
 
         // general mobile check
         var is_mobile = false;
-        if (window_width <= mobile_max_width ) {
+        // this includes tablet, EXPLUDING iPad
+        if (window_width <= mobile_max_width && isIpad === false ) {
             is_mobile = true;
         }
 
@@ -75,9 +77,16 @@ $(function() {
             var $video_controls = $plugin_container.find('.video-controls');
 
             // enable videos on iPads
-            enableInlineVideo($vid.get(0), {
-                iPad: true
-            });
+            if (isIpad) {
+                enableInlineVideo($vid.get(0), {
+                    iPad: true
+                });
+            }
+
+            // add class to indicate we're on an iPad
+            if (isIpad) {
+                $plugin_container.addClass(ipad_class);
+            }
 
             // on mobile: make sure autoplay is disabled (data usage alert!)
             if (is_mobile) {

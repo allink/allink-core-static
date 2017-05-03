@@ -24,6 +24,8 @@ Text Fields
     // applying button padding (top/bottom) to make them equally high in case of input-groups
     padding-top: $btn-padding-top-default;
     padding-bottom: $btn-padding-bottom-default;
+    // iPad improvements
+    -webkit-appearance: none;
     &:focus {
         background-color: $input-bg-focus;
         border-top-color: $input-border-top-color-focus;
@@ -31,6 +33,7 @@ Text Fields
         border-bottom-color: $input-border-bottom-color-focus;
         border-left-color: $input-border-left-color-focus;
         box-shadow: none;
+
     }
 
     // error styles
