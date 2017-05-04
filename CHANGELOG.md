@@ -115,8 +115,6 @@ $input-inverted-error-bg:                       $input-error-bg;
 
 */
 
-$video-controls-width:                      150px;
-$video-controls-height:                     150px;
 $video-controls-transition-property:        all;
 $video-controls-transition-duration:        150ms;
 $video-controls-transition-timing-function: ease-in;

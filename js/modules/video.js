@@ -92,6 +92,8 @@ $(function() {
             if (is_mobile) {
                 $vid.removeAttr('autoplay');
                 $plugin_container.removeClass(autoplay_class);
+                // removing the attribute wasn't good enough, let's pause the video
+                $vid.get(0).pause();
             }
 
             // add event listener to video controls, but only continue if autplay is DISABLED
