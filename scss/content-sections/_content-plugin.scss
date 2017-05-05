@@ -320,12 +320,12 @@ General Settings
         .col {
             @include make-spacing-top-sm-max($content-section-col-stack-spacing-sm-max);
         }
-        .col:nth-child(1) {
+        .col-1 {
             @include make-xs-column(24);
             @include make-md-column(12);
             @include make-lg-column(16);
         }
-        .col:nth-child(2) {
+        .col-2 {
             @include make-xs-column(24);
             @include make-md-column(12);
             @include make-lg-column(8);
@@ -338,12 +338,12 @@ General Settings
         .col {
             @include make-spacing-top-sm-max($content-section-col-stack-spacing-sm-max);
         }
-        .col:nth-child(1) {
+        .col-1 {
             @include make-xs-column(24);
             @include make-md-column(12);
             @include make-lg-column(8);
         }
-        .col:nth-child(2) {
+        .col-2 {
             @include make-xs-column(24);
             @include make-md-column(12);
             @include make-lg-column(16);
