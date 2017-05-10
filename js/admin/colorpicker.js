@@ -1265,6 +1265,11 @@ $(function () {
                 realHex = realColor.toHexString();
 
             // Update the replaced elements background color (with actual selected color)
+            if (realColor.alpha === 0) {
+                previewElement.addClass('transparent');
+            }else {
+                previewElement.removeClass('transparent');
+            }
             previewElement.css("background-color", realColor.toRgbString());
 
             // Update the text entry input as it changes happen

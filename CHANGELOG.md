@@ -22,6 +22,7 @@ import 'lazysizes/plugins/print/ls.print'; // needs to be BEFORE the main script
 
 ### NEW
 
+- Bootstrap Select: Dropdowns now forcefully expand "downwards".
 - Global print styles optimized.
 - Trigger Class on Scroll: New option `debounce_delay` with default value `20` available.
 - Bootstrap Select: New variables available:
@@ -172,6 +173,7 @@ $form-modal-transition:         visibility $form-modal-transition-duration $form
 
 ### FIXES
 
+- Colorpicker: More userfriendly, prettier, transparent preview added.
 - Softpage: Remove content when softpages closes (video was still playing in the background)
 - Video: In progress..
 - Form Fields: iPad shadow removed.
