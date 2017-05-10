@@ -11,6 +11,7 @@ Each release is divided into the following main categories:
 
 ### IMPORTANT
 
+- Form Validation: Now classes are added to form group or error state handler (in case of multi column forms -> Our Contact Form)
 - Content Plugin column classes: Django CMS adds extra markup when logged it, that's why the `nth-child` pseudo selector wasn't working. Instead, we now added classes `col-1`, `col-2` and so on and removed the `nth-child` definition. This requires the latest `allink-core`, or you need to overwrite the `column.html` template of the `djangocms_content` plugin.
 - Form Modal: The close button is now inside the modal for better UX. Go get the content of `modal/_form.scss` from teo jakob.
 - Print: Lazyload images that are not in viewport yet can be loaded when printing the page by including the following plugin in the project's `app.js` BEFORE the main `lazysizes` import:

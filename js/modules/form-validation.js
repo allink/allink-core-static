@@ -58,10 +58,26 @@ export function initFormValidation() {
                 $form.addClass('has-errors');
             },
             unhighlight: function(element) {
+                // form element itself
                 $(element).removeClass('error');
+                // form group, or error state handler (in case of multi column forms)
+                var $error_state_handler = $(element).parents('.error-state-handler');
+                if ($error_state_handler.length > 0) {
+                    $error_state_handler.removeClass('has-error');
+                }else {
+                    $(element).parents('.form-group').first().removeClass('has-error');
+                }
             },
             highlight: function(element) {
+                // form element itself
                 $(element).addClass('error');
+                // form group, or error state handler (in case of multi column forms)
+                var $error_state_handler = $(element).parents('.error-state-handler');
+                if ($error_state_handler.length > 0) {
+                    $error_state_handler.addClass('has-error');
+                }else {
+                    $(element).parents('.form-group').first().addClass('has-error');
+                }
             },
         });
         // optional: validate on page load by adding a class to the form
