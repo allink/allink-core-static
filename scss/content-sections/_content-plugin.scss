@@ -239,6 +239,7 @@ General Settings
     }
 
     &.full-height-enabled {
+        position: relative;
         .main-col-container {
             position: absolute;
             left: 0;

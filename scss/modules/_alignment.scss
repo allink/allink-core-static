@@ -15,7 +15,7 @@ Plugins that use these classes:
 
 @media (max-width:$screen-sm-max) {
     .align-h-mobile-left {
-        text-align: center;
+        text-align: left;
     }
     .align-h-mobile-center {
         text-align: center;
@@ -29,7 +29,7 @@ Plugins that use these classes:
 
 @media (min-width:$screen-md) {
     .align-h-desktop-left {
-        text-align: center;
+        text-align: left;
     }
     .align-h-desktop-center {
         text-align: center;

@@ -94,6 +94,15 @@ Visually separate blocks
         }
     }
 
+    // inline fields padding fix
+    .tabular table tbody td {
+        padding-left: 2px !important;
+        &.delete {
+            padding-left: 10px !important;
+        }
+    }
+
+    // general module style
     fieldset.module {
 
         border-radius: 2px !important;
@@ -212,6 +221,20 @@ Visually separate blocks
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 
+Attributes Field
+
+*/
+
+.djangocms-attributes-field {
+    .related-widget-wrapper {
+        margin-top: 10px;
+    }
+}
+
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
 Manual Order Package
 
 */
@@ -256,9 +279,29 @@ Filer field
 .filer-dropzone {
     // file has been selected
     &.js-object-attached {
+        min-height: 122px !important;
         .filerFile {
             top: 50% !important;
             transform: translate(0,-50%);
+            text-align: left !important;
+        }
+        .dz-thumbnail {
+            width: 50px !important;
+            height: 50px !important;
+            img {
+                width: 100% !important;
+                height: 100% !important;
+            }
         }
     }
+}
+
+// no file selected: the link
+form .form-row .js-filer-dropzone.filer-dropzone .filerFile .related-lookup {
+    float: none !important;
+}
+
+// file selected
+form .form-row .filer-dropzone .filerFile .dz-name {
+    margin-top: 14px;
 }
