@@ -174,6 +174,7 @@ $form-modal-transition:         visibility $form-modal-transition-duration $form
 
 ### FIXES
 
+- Colorpicker: Initial color value is now properly set to `transparent`
 - Content Section: Full height mode fix (sectino now set to `position: relative`)
 - Button/Link Container: Horizontal alignment 'left' is now working.
 - Colorpicker: More userfriendly, prettier, transparent preview added.

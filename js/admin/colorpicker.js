@@ -1592,6 +1592,10 @@ $(function () {
             var showPaletteOnly = window.colorFields[i].showPaletteOnly;
             var palette = window.colorFields[i].palette;
             var localStorageKey = window.colorFields[i].localStorageKey;
+            // when creating a new entry (e.g. content section), we get "None" as a color value
+            if (color === 'None') {
+                color = 'transparent';
+            }
             $(id).spectrum({
                 preferredFormat: "hex",
                 color: color,
