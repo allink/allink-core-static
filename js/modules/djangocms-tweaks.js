@@ -54,7 +54,7 @@ $(function(){
 
     if (typeof CMS !== 'undefined') {
         $(window).on('ajaxLoadItems:success', function(event){
-            CMS.Plugin._initializeTree();
+            // CMS.Plugin._initializeTree();
         });
     }
 
