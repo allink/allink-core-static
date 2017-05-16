@@ -104,6 +104,7 @@ Custom Styles
             }
             &.selected {
                 background-color: #00a8e6;
+                border-top-color: #00a8e6;
                 > a {
                     background-color: transparent;
                     &,
@@ -116,11 +117,24 @@ Custom Styles
                 }
             }
             > a {
-                padding: 10px;
+                padding: 10px !important;
+                &.opt {
+                    padding: 10px 10px 10px 20px !important;
+                }
             }
         }
     }
+    .dropdown-header {
+        border: none !important;
+        background-color: #666;
+        .text {
+            display: block;
+            padding: 10px;
+            color: white;
+            font-weight: normal;
+        }
+    }
+    .divider {
+        display: none;
+    }
 }
-
-
-
