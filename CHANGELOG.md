@@ -6,8 +6,21 @@ Each release is divided into the following main categories:
 - NEW: New features or plugins
 - FIXES: General bugfixes
 
+## v0.0.3 (under development)
 
-## v0.0.2 (under development)
+### IMPORTANT
+
+-
+
+### NEW
+
+- Admin Forms: select elements with class `selectpicker` are now converted to `bootstrap-select` inputs.
+
+### FIXES
+
+-
+
+## v0.0.2
 
 ### IMPORTANT
 

@@ -1,0 +1,126 @@
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+Bootstrap Core variables
+
+*/
+
+@import "~bootstrap-sass/assets/stylesheets/bootstrap/variables";
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+Our variables
+
+*/
+
+@import "base/variables";
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+Mixins
+
+*/
+
+@import "~bootstrap-sass/assets/stylesheets/bootstrap/mixins";
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+Core CSS
+
+*/
+
+// @import "~bootstrap-sass/assets/stylesheets/bootstrap/scaffolding";
+@import "~bootstrap-sass/assets/stylesheets/bootstrap/type";
+@import "~bootstrap-sass/assets/stylesheets/bootstrap/code";
+@import "~bootstrap-sass/assets/stylesheets/bootstrap/grid";
+// @import "~bootstrap-sass/assets/stylesheets/bootstrap/tables";
+@import "~bootstrap-sass/assets/stylesheets/bootstrap/forms";
+@import "~bootstrap-sass/assets/stylesheets/bootstrap/buttons";
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+Components
+
+*/
+
+@import "~bootstrap-sass/assets/stylesheets/bootstrap/dropdowns"; // required, when using bootstrap-select
+@import "~bootstrap-sass/assets/stylesheets/bootstrap/button-groups";
+@import "~bootstrap-sass/assets/stylesheets/bootstrap/input-groups";
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+Utility classes
+
+*/
+
+@import "~bootstrap-sass/assets/stylesheets/bootstrap/utilities";
+@import "~bootstrap-sass/assets/stylesheets/bootstrap/responsive-utilities";
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+Finally, the bootstrap-select styles
+
+*/
+
+// pretty select
+@import '~bootstrap-select/sass/bootstrap-select';
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+Custom Styles
+
+*/
+
+.bootstrap-select {
+    > select {
+        visibility: hidden;
+    }
+    .dropdown-toggle {
+        padding: 6px 35px 6px 10px !important;
+    }
+    .dropdown-menu {
+        background-color: white;
+        border: 1px solid #dedede;
+        border-radius: 2px;
+        box-shadow: 5px 5px 20px rgba(0,0,0,0.05);
+        > li {
+            padding: 0 !important;
+            a {
+                &:hover,
+                &:focus {
+                    color: black !important;
+                    background-color: #efefef;
+                }
+            }
+            // navigation via keyboard
+            &.active {
+                a {
+                    background-color: #efefef;
+                }
+            }
+            &.selected {
+                background-color: #00a8e6;
+                > a {
+                    background-color: transparent;
+                    &,
+                    &:link,
+                    &:visited,
+                    &:hover,
+                    &:focus {
+                        color: white !important;
+                    }
+                }
+            }
+            > a {
+                padding: 10px;
+            }
+        }
+    }
+}
+
+
+
