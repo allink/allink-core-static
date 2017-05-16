@@ -144,6 +144,10 @@ Section Headings
         .section-heading-h2 & {
             @include h2();
         }
+        // h3
+        .section-heading-h3 & {
+            @include h3();
+        }
         // prevent the section heading from being too wide. make it 2/3
         @media (min-width:$screen-md) {
             max-width: 66.66%;

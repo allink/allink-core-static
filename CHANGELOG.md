@@ -14,6 +14,7 @@ Each release is divided into the following main categories:
 
 ### NEW
 
+- Section Heading: Support for <strong>heading small</strong> added.
 - Admin Forms: select elements with class `selectpicker` are now converted to `bootstrap-select` inputs.
 
 ### FIXES
