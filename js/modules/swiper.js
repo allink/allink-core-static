@@ -68,7 +68,8 @@ export function initiSwiperInstances(options) {
             return true;
         }
         // swiper counter dom node
-        var $counter = $('.swiper-counter');
+        var $counter = $swiper_instance.find('.swiper-counter');
+
         if ($counter) {
             $counter.addClass('active');
         }

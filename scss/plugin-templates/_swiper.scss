@@ -113,8 +113,9 @@ Global Swiper Custom Styles
     }
 }
 
+// Slider fullscreen button
 .swiper-button-fullscreen {
-    display: none;
+    float: right;
 }
 
 // Pagination
@@ -206,6 +207,7 @@ Global Swiper Custom Styles
 // Slider counter
 .swiper-counter {
     display: none;
+    float: left;
 
     &.active {
         display: block;
@@ -257,17 +259,6 @@ Slider in Detail View
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 
-Temp fix: Hide the gallery counter by default
-
-*/
-
-.swiper-counter {
-    display: none;
-}
-
-
-/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
-
 Print Styles
 
 */
@@ -278,4 +269,3 @@ Print Styles
         display: none !important;
     }
 }
-
