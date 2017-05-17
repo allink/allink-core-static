@@ -104,3 +104,19 @@ Default Form Styles
     }
 
 }
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+Form Modal
+
+*/
+
+.form-heading-container {
+    .heading {
+        @include h2();
+    }
+    + * {
+        margin-top: $grid-gutter-width;
+    }
+}
+

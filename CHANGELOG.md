@@ -14,6 +14,7 @@ Each release is divided into the following main categories:
 
 ### NEW
 
+- Form Heading: Default styles for optional form heading in `form_base.html` added.
 - Section Heading: Support for <strong>heading small</strong> added.
 - Admin Forms: select elements with class `selectpicker` are now converted to `bootstrap-select` inputs.
 
