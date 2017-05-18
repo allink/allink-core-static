@@ -96,58 +96,61 @@ $(function() {
                 $vid.get(0).pause();
             }
 
-            // add event listener to video controls, but only continue if autplay is DISABLED
-            if ($plugin_container.hasClass(autoplay_class) === false) {
-                var controls_initialized = $video_controls.attr(initialized_attr);
-                // NOT initialized yet
-                if (typeof controls_initialized === 'undefined') {
-                    $video_controls.
-                        on('click',
-                        function(){
-                            if( $plugin_container.hasClass( on_pause_class ) ) {
+            // after checking for mobile devices, continue slightly delayed
+            setTimeout(function(){
+                // add event listener to video controls, but only continue if autplay is DISABLED
+                if ($plugin_container.hasClass(autoplay_class) === false) {
+                    var controls_initialized = $video_controls.attr(initialized_attr);
+                    // NOT initialized yet
+                    if (typeof controls_initialized === 'undefined') {
+                        $video_controls.
+                            on('click',
+                            function(){
+                                if( $plugin_container.hasClass( on_pause_class ) ) {
+                                    // remove class
+                                    $plugin_container.removeClass( on_pause_class );
+                                    // let's play
+                                    $vid.get(0).play();
+                                    // and mark the video as loaded (for possible transitions)
+                                    $plugin_container.addClass(loaded_class);
+                                }else {
+                                    // pause the video and..
+                                    $vid.get(0).pause();
+                                    // ..add class
+                                    $plugin_container.addClass( on_pause_class );
+                                }
+                            }
+                        );
+                        // mark as initialized
+                        $video_controls.attr(initialized_attr,'');
+                    }
+                }
+
+                // only continue if autoplay is enabled
+                if ($plugin_container.hasClass(autoplay_class)) {
+                    // start video when element is on screen
+                    if( $vid.videoIsOnScreen() ) {
+                        // per default, a video is "on pause" - let's remove this and don't come back here when there is no on_pause_class, because that means the video is playing
+                        if( $plugin_container.hasClass( on_pause_class ) ) {
+                            setTimeout(function(){
                                 // remove class
                                 $plugin_container.removeClass( on_pause_class );
                                 // let's play
                                 $vid.get(0).play();
                                 // and mark the video as loaded (for possible transitions)
                                 $plugin_container.addClass(loaded_class);
-                            }else {
-                                // pause the video and..
-                                $vid.get(0).pause();
-                                // ..add class
-                                $plugin_container.addClass( on_pause_class );
-                            }
+                            },100);
                         }
-                    );
-                    // mark as initialized
-                    $video_controls.attr(initialized_attr,'');
-                }
-            }
-
-            // only continue if autoplay is enabled
-            if ($plugin_container.hasClass(autoplay_class)) {
-                // start video when element is on screen
-                if( $vid.videoIsOnScreen() ) {
-                    // per default, a video is "on pause" - let's remove this and don't come back here when there is no on_pause_class, because that means the video is playing
-                    if( $plugin_container.hasClass( on_pause_class ) ) {
-                        setTimeout(function(){
-                            // remove class
-                            $plugin_container.removeClass( on_pause_class );
-                            // let's play
-                            $vid.get(0).play();
-                            // and mark the video as loaded (for possible transitions)
-                            $plugin_container.addClass(loaded_class);
-                        },100);
+                    }
+                    // not on screen? pause it
+                    else {
+                        // pause the video and..
+                        $vid.get(0).pause();
+                        // ..add class
+                        $plugin_container.addClass( on_pause_class );
                     }
                 }
-                // not on screen? pause it
-                else {
-                    // pause the video and..
-                    $vid.get(0).pause();
-                    // ..add class
-                    $plugin_container.addClass( on_pause_class );
-                }
-            }
+            },10);
 
         });
 

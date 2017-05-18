@@ -21,6 +21,7 @@ Each release is divided into the following main categories:
 
 ### FIXES
 
+- Video (Mobile): The `poster-only-on-mobile` flag now works on iOs, too.
 - Bootstrap Select: The select is now checking for available space (above or below). Should you want to disable this feature and to force the dropdown to expand below, add the `data-dropup-auto="false"` attribute.
 
 ## v0.0.2
