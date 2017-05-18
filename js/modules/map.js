@@ -105,33 +105,6 @@ export const initMap = function (options) {
                 ]
             },
             {
-                "featureType": "administrative.province",
-                "elementType": "geometry",
-                "stylers": [
-                    {
-                        "visibility": "off"
-                    }
-                ]
-            },
-            {
-                "featureType": "administrative.locality",
-                "elementType": "geometry",
-                "stylers": [
-                    {
-                        "visibility": "simplified"
-                    }
-                ]
-            },
-            {
-                "featureType": "administrative.locality",
-                "elementType": "geometry.fill",
-                "stylers": [
-                    {
-                        "visibility": "off"
-                    }
-                ]
-            },
-            {
                 "featureType": "administrative.locality",
                 "elementType": "labels",
                 "stylers": [
@@ -381,7 +354,10 @@ export const initMap = function (options) {
             if (api_key == '') {
                 console.warn('Google Map API key is missing');
             }else {
-                google_maps_script.src = 'https://maps.googleapis.com/maps/api/js?key='+api_key+'&callback=initMap';
+                // get document language
+                var lang = $('html').attr('lang');
+                // load script
+                google_maps_script.src = 'https://maps.googleapis.com/maps/api/js?key='+api_key+'&callback=initMap&language='+lang;
                 document.body.appendChild(google_maps_script);
             }
         }

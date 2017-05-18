@@ -150,7 +150,7 @@ $(function() {
                         $plugin_container.addClass( on_pause_class );
                     }
                 }
-            },10);
+            },100);
 
         });
 
