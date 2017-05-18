@@ -14,6 +14,7 @@ Each release is divided into the following main categories:
 
 ### NEW
 
+- Google Map Styles: New default style (https://snazzymaps.com/style/105672/django-cms-default)
 - Form Heading: Default styles for optional form heading in `form_base.html` added.
 - Section Heading: Support for <strong>heading small</strong> added.
 - Admin Forms: select elements with class `selectpicker` are now converted to `bootstrap-select` inputs.
