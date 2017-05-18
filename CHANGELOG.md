@@ -21,7 +21,7 @@ Each release is divided into the following main categories:
 
 ### FIXES
 
--
+- Bootstrap Select: The select is now checking for available space (above or below). Should you want to disable this feature and to force the dropdown to expand below, add the `data-dropup-auto="false"` attribute.
 
 ## v0.0.2
 
