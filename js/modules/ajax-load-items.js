@@ -103,24 +103,36 @@ export function initAjaxLoadItemsTrigger(options) {
 
     // find links and load items
     $('.ajax-load-items').each(function(){
-        $(this).on('click',function(e){
-            // init
-            var $trigger = $(this);
-            // let me handle this ;)
-            e.preventDefault();
-            // special case 1: adios, when clicking on a category that is already active.
-            if ($trigger.parent('li').hasClass('active')) {
-                return false;
-            }
-            // special case 2: the dynamic grid (masonry.js) handles appending items by itself
-            if ($trigger.parents('.grid_dynamic-template').length > 0) {
-                return false;
-            }
-            // default
-            else {
-                loadAjaxItems($trigger,options);
-            }
-        });
+        // init
+        var $trigger = $(this);
+        var initialized_attr = 'data-trigger-initialized';
+        // check for initialized trigger
+        var trigger_initialized = $trigger.attr(initialized_attr);
+
+        // NOT initialized yet
+        if (typeof trigger_initialized === 'undefined') {
+            // add event listener
+            $trigger.on('click',function(e){
+                // init
+                var $trigger = $(this);
+                // let me handle this ;)
+                e.preventDefault();
+                // special case 1: adios, when clicking on a category that is already active.
+                if ($trigger.parent('li').hasClass('active')) {
+                    return false;
+                }
+                // special case 2: the dynamic grid (masonry.js) handles appending items by itself
+                if ($trigger.parents('.grid_dynamic-template').length > 0) {
+                    return false;
+                }
+                // default
+                else {
+                    loadAjaxItems($trigger,options);
+                }
+            });
+            // mark as initialized
+            $trigger.attr(initialized_attr,'');
+        }
     });
 
     // init the filter switch

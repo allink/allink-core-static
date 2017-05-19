@@ -21,6 +21,15 @@ Each release is divided into the following main categories:
 
 ### FIXES
 
+- Ajax Load Items: `data-trigger-initialized` is now added to prevent multiple event listeners on same trigger (e.g. when initialized again when softpage has been opened). The re-init has to be added in the project's `ajax-load-items.js`, because we work with options:
+```JS
+// re-init when softpage has been opened
+$(window).on('softpage:opened',function(){
+    initAjaxLoadItemsTrigger(options);
+    initMasonry(options);
+});
+```
+- Content Plugin Column: Due to the switch to `flexbox`, columns didn't break anymore (default flexbox behaviour). They now do as desired.
 - Video (Mobile): The `poster-only-on-mobile` flag now works on iOs, too.
 - Bootstrap Select: The select is now checking for available space (above or below). Should you want to disable this feature and to force the dropdown to expand below, add the `data-dropup-auto="false"` attribute.
 
