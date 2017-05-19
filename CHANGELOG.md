@@ -10,18 +10,7 @@ Each release is divided into the following main categories:
 
 ### IMPORTANT
 
--
-
-### NEW
-
-- Google Map Styles: New default style (https://snazzymaps.com/style/105672/django-cms-default)
-- Form Heading: Default styles for optional form heading in `form_base.html` added.
-- Section Heading: Support for <strong>heading small</strong> added.
-- Admin Forms: select elements with class `selectpicker` are now converted to `bootstrap-select` inputs.
-
-### FIXES
-
-- Ajax Load Items: `data-trigger-initialized` is now added to prevent multiple event listeners on same trigger (e.g. when initialized again when softpage has been opened). The re-init has to be added in the project's `ajax-load-items.js`, because we work with options:
+- Ajax Load Items: `data-trigger-initialized` is now added to prevent multiple event listeners on same trigger (e.g. when initialized again when softpage has been opened). Should you require a "load more" functionality within a softpage, you need to add the following lines to the project's `ajax-load-items.js`:
 ```JS
 // re-init when softpage has been opened
 $(window).on('softpage:opened',function(){
@@ -29,6 +18,16 @@ $(window).on('softpage:opened',function(){
     initMasonry(options);
 });
 ```
+
+### NEW
+
+- Google Map Styles: New improved default style (https://snazzymaps.com/style/105672/django-cms-default)
+- Form Heading: Default styles for optional form heading in `form_base.html` added.
+- Section Heading: Support for <strong>heading small</strong> added.
+- Admin Forms: select elements with class `selectpicker` are now converted to `bootstrap-select` inputs.
+
+### FIXES
+
 - Content Plugin Column: Due to the switch to `flexbox`, columns didn't break anymore (default flexbox behaviour). They now do as desired.
 - Video (Mobile): The `poster-only-on-mobile` flag now works on iOs, too.
 - Bootstrap Select: The select is now checking for available space (above or below). Should you want to disable this feature and to force the dropdown to expand below, add the `data-dropup-auto="false"` attribute.
