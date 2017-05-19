@@ -264,6 +264,7 @@ General Settings
 
     .col-container-inner {
         display: flex;
+        flex-wrap: wrap;
     }
 
     // Mobile Column Ordering.. Flexbox to the rescue!
