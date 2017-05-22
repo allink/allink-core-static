@@ -20,9 +20,12 @@ body.tingle-enabled {
 
 .tingle-modal {
 
-    // add scroll bars per defeault
+    // add scroll bars per default
     overflow-y: auto;
-
+    // fixes scroll isues on iOS
+    @media (max-width: 1024px) {
+        -webkit-overflow-scrolling: touch;
+    }
     // positioning fix on mobile
     @media (max-width:$screen-xs-max) {
         top: 0;
