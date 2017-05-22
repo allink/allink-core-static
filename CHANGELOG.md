@@ -10,11 +10,18 @@ Each release is divided into the following main categories:
 
 ### IMPORTANT
 
--
+- Ajax Load Items: `data-trigger-initialized` is now added to prevent multiple event listeners on same trigger (e.g. when initialized again when softpage has been opened). Should you require a "load more" functionality within a softpage, you need to add the following lines to the project's `ajax-load-items.js`:
+```JS
+// re-init when softpage has been opened
+$(window).on('softpage:opened',function(){
+    initAjaxLoadItemsTrigger(options);
+    initMasonry(options);
+});
+```
 
 ### NEW
 
-- Google Map Styles: New default style (https://snazzymaps.com/style/105672/django-cms-default)
+- Google Map Styles: New improved default style (https://snazzymaps.com/style/105672/django-cms-default)
 - Form Heading: Default styles for optional form heading in `form_base.html` added.
 - Section Heading: Support for <strong>heading small</strong> added.
 - Admin Forms: select elements with class `selectpicker` are now converted to `bootstrap-select` inputs.
