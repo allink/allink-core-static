@@ -266,6 +266,7 @@ export const initMap = function (options) {
             var mapInstance = document.getElementById('map-' + mapID);
             var zoomLevel = parseInt(mapInstance.getAttribute('data-zoom-level'));
             var numberOfMarkers = countObjectProperties(window.MAPS[i].locations);
+            var page_load_window_width = $(window).width();
 
             // define map options
             var mapOptions = {
@@ -320,9 +321,14 @@ export const initMap = function (options) {
 
             // delayed re-center the map when a user resizes the window
             var reCenterMap = debounce(function() {
-                // recenter map after resizing
+                // init
+                var window_width = $(window).width();
+                // in any case, we want to fit all marker onto the map
                 map.fitBounds(bounds);
-                map.setZoom(zoomLevel);
+                // set zoom level on larger screens
+                if (window_width >= 768) {
+                    map.setZoom(zoomLevel);
+                }
             }, 500);
             // only when viewport width has changed
             $(window).on('viewportWidthHasChanged', function(){
@@ -332,6 +338,10 @@ export const initMap = function (options) {
             // handle zoom levels for different scenarios
             google.maps.event.addListenerOnce(map, 'bounds_changed', function(e) {
                 this.setZoom(zoomLevel);
+                // mobile: fit all marker onto the map
+                if (page_load_window_width < 768) {
+                    this.fitBounds(bounds);
+                }
             });
 
         }

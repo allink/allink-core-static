@@ -21,6 +21,7 @@ Each release is divided into the following main categories:
 
 ### FIXES
 
+- Google Maps: On mobile, `fitBounds` now makes sure that all markers are visible.
 - Ajax Load Items: `data-trigger-initialized` is now added to prevent multiple event listeners on same trigger (e.g. when initialized again when softpage has been opened). The re-init has to be added in the project's `ajax-load-items.js`, because we work with options:
 ```JS
 // re-init when softpage has been opened
