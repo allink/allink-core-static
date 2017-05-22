@@ -6,7 +6,6 @@ Text Fields
 
 .form-control {
     font-size: inherit;
-    line-height: $btn-line-height-default;
     color: $input-color;
     background-color: $input-bg;
     height: auto;
@@ -33,7 +32,6 @@ Text Fields
         border-bottom-color: $input-border-bottom-color-focus;
         border-left-color: $input-border-left-color-focus;
         box-shadow: none;
-
     }
 
     // error styles

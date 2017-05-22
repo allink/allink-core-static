@@ -54,10 +54,19 @@ Global Button Definitions
     }
 
     // IMPORTANT: Has to be set AFTER the font definition, for we ignore the line-height defined in the font settings of buttons
-    line-height: $btn-line-height-default;
     border-style: $form-field-border-style;
     border-width: $form-field-border-width;
     border-color: $form-field-border-color;
+
+    // optional we can make use of the .inverted-colors context
+    @if $form-field-inverted-enabled == true {
+        .inverted-colors & {
+            transition: $form-field-inverted-transition;
+            border-style: $form-field-inverted-border-style;
+            border-width: $form-field-inverted-border-width;
+            border-color: $form-field-inverted-border-color;
+        }
+    }
 
     padding-top: $btn-padding-top-default;
     padding-bottom: $btn-padding-bottom-default;

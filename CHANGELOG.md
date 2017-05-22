@@ -28,6 +28,7 @@ $(window).on('softpage:opened',function(){
 
 ### FIXES
 
+- Form Fields: Variables `$btn-line-height-default` has been removed. Line heights are now only defined in the `=Typography` section of the `variables.scss`.
 - Google Maps: On mobile, `fitBounds` now makes sure that all markers are visible.
 - Ajax Load Items: `data-trigger-initialized` is now added to prevent multiple event listeners on same trigger (e.g. when initialized again when softpage has been opened). The re-init has to be added in the project's `ajax-load-items.js`, because we work with options:
 ```JS
