@@ -15,7 +15,6 @@ $(function(){
         $('.selectpicker').selectpicker({
           style: 'btn-default bs-placeholder',
           size: 'auto',
-          dropupAuto: false, // forces the dropdown the expand "downwards"
         });
     }
 
