@@ -88,6 +88,8 @@ select.selectpicker {
         border-width: $dropdown-border-width;
         border-color: $dropdown-border-color;
         border-radius: $dropdown-border-radius;
+        // when dropdown opens below, there's an ugly gap
+        margin-bottom: 0;
         @if $dropdown-border-top == false {
             border-top: none;
         }
