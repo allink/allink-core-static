@@ -48,9 +48,13 @@ Global Button Definitions
     @include btn-default();
     &.btn-sm {
         @include btn-small();
+        // make sure our button has the correct lineheight
+        line-height: $btn-line-height-default;
     }
     &.btn-lg {
         @include btn-large();
+        // make sure our button has the correct lineheight
+        line-height: $btn-line-height-default;
     }
 
     // IMPORTANT: Has to be set AFTER the font definition, for we ignore the line-height defined in the font settings of buttons
@@ -70,6 +74,7 @@ Global Button Definitions
 
     padding-top: $btn-padding-top-default;
     padding-bottom: $btn-padding-bottom-default;
+    line-height: $btn-line-height-default;
 
 }
 

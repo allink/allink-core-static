@@ -10,6 +10,28 @@ Each release is divided into the following main categories:
 
 ### IMPORTANT
 
+- IE 11 Button fix: Create and import a `ie/_ie.scss` file with the following definitions:
+```SCSS
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+IE 11 quick and dirty fixes
+
+---
+
+'Cause that's what he/she deserves!
+
+*/
+
+*::-ms-backdrop, .btn { line-height: 1.15 !important; }
+```
+- Form Fields: Variables `$btn-line-height-default` has now been implemented in the core. On a project basis, your have to update the following CSS definitions in `typography/_global.scss`:
+```SCSS
+.form-control,
+.dropdown-menu {
+    @include input-default();
+    line-height: $btn-line-height-default;
+}
+```
 - Ajax Load Items: `data-trigger-initialized` is now added to prevent multiple event listeners on same trigger (e.g. when initialized again when softpage has been opened). Should you require a "load more" functionality within a softpage, you need to add the following lines to the project's `ajax-load-items.js`:
 ```JS
 // re-init when softpage has been opened
@@ -29,7 +51,6 @@ $(window).on('softpage:opened',function(){
 ### FIXES
 
 - iPad: Modal wasn't scrolling when touching an input field followed by an up or down swipe gesture.
-- Form Fields: Variables `$btn-line-height-default` has been removed. Line heights are now only defined in the `=Typography` section of the `variables.scss`.
 - Google Maps: On mobile, `fitBounds` now makes sure that all markers are visible.
 - Ajax Load Items: `data-trigger-initialized` is now added to prevent multiple event listeners on same trigger (e.g. when initialized again when softpage has been opened). The re-init has to be added in the project's `ajax-load-items.js`, because we work with options:
 ```JS
