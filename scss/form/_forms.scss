@@ -236,6 +236,12 @@ Default Form Styles
                 }
             }
         }
+        .help-block {
+            padding-left: calc(#{$input-padding-left} + #{$form-field-border-width});
+            .inverted-colors & {
+                padding-left: calc(#{$input-inverted-padding-left} + #{$form-field-inverted-border-width});
+            }
+        }
     }
 
 
