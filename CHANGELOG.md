@@ -43,6 +43,67 @@ $(window).on('softpage:opened',function(){
 
 ### NEW
 
+- Form Style `placeholder-enabled`: New variables available:
+```SCSS
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+=form =placeholder-enabled
+
+*/
+
+// spacing between .form-group
+$form-placeholder-enabled-group-spacing-top-xs:    $grid-gutter-width/4;
+$form-placeholder-enabled-group-spacing-top-md:    $grid-gutter-width/4;
+$form-placeholder-enabled-group-spacing-top-xl:    $grid-gutter-width/4;
+```
+- Form Style `side-by-side`: New variables available:
+```SCSS
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+=form =side by side
+
+*/
+
+$form-side-by-side-max-width:           800px;
+$form-side-by-side-label-width:         240px;
+$form-side-by-side-label-gap:           $grid-gutter-width;
+$form-side-by-side-label-text-align:    left; // "text-align" values accepted
+
+// spacing between .form-group
+$form-side-by-side-group-spacing-top-xs:    $grid-gutter-width/4;
+$form-side-by-side-group-spacing-top-md:    $grid-gutter-width/4;
+$form-side-by-side-group-spacing-top-xl:    $grid-gutter-width/4;
+```
+- Form: New variable with following default available:
+```SCSS
+$form-default-max-width:                800px;
+```
+- Form Fieldset and Legend: New variables available:
+```SCSS
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+=Fieldset and =Legend
+
+*/
+
+// spacing between fieldsets
+$form-fieldset-spacing-xs:             $grid-gutter-width;
+$form-fieldset-spacing-md:             $grid-gutter-width*1.5;
+$form-fieldset-spacing-xl:             $grid-gutter-width*2;
+
+// legend heading size (h1, h2, h3 or h4)
+$form-legend-heading-size:             'h2';
+
+// form group container spacing to previous element (legend or .fieldset-text)
+$form-group-container-spacing-top-xs:  $grid-gutter-width;
+$form-group-container-spacing-top-md:  $grid-gutter-width;
+$form-group-container-spacing-top-xl:  $grid-gutter-width;
+
+// fieldset intro text spacing to legend
+$form-fieldset-text-spacing-top-xs:    $grid-gutter-width/2;
+$form-fieldset-text-spacing-top-md:    $grid-gutter-width/2;
+$form-fieldset-text-spacing-top-xl:    $grid-gutter-width/2;
+```
 - Google Map Styles: New improved default style (https://snazzymaps.com/style/105672/django-cms-default)
 - Form Heading: Default styles for optional form heading in `form_base.html` added.
 - Section Heading: Support for <strong>heading small</strong> added.

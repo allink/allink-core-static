@@ -6,23 +6,7 @@ Default Form Styles
 
 .form-default {
 
-    // only in markup if columns are used
-    .col-container {
-        @include make-row();
-    }
-
-    // column variations: applied to `form-group` container
-    .col-1-1 {
-        .col {
-            @include make-xs-column(24);
-            @include make-sm-column(12);
-            @include make-spacing-top-xs-max($form-label-spacing-xs);
-        }
-        @media (min-width:$screen-sm) {
-            .col-1 { padding-right: $grid-gutter-width/4; }
-            .col-2 { padding-left: $grid-gutter-width/4; }
-        }
-    }
+    max-width: $form-default-max-width;
 
     // form group (= form row)
     .form-group {
@@ -86,6 +70,10 @@ Default Form Styles
         }
     }
 
+    .help-block {
+        @include p-small();
+    }
+
     // prepare the required symbol
     .required-symbol {
         display: inline-block;
@@ -100,6 +88,204 @@ Default Form Styles
             @if $form-field-required-icomoon-enabled == true {
                 @include icomoon();
             }
+        }
+    }
+
+    // fieldsets
+    fieldset {
+        + fieldset {
+            margin-top: $form-fieldset-spacing-xs;
+            @media (min-width:$screen-md) {
+                margin-top: $form-fieldset-spacing-md;
+            }
+            @media (min-width:$screen-xl) {
+                margin-top: $form-fieldset-spacing-xl;
+            }
+        }
+    }
+
+    // legend
+    legend {
+
+        // heading size
+        @if $form-legend-heading-size == 'h1' {
+            @include h1();
+            color: $h1-color;
+            .inverted-colors & {
+                color: $h1-color-inverted;
+            }
+        }
+        @if $form-legend-heading-size == 'h2' {
+            @include h2();
+            color: $h2-color;
+            .inverted-colors & {
+                color: $h2-color-inverted;
+            }
+        }
+        @if $form-legend-heading-size == 'h3' {
+            @include h3();
+            color: $h3-color;
+            .inverted-colors & {
+                color: $h3-color-inverted;
+            }
+        }
+        @if $form-legend-heading-size == 'h4' {
+            @include h4();
+            color: $h4-color;
+            .inverted-colors & {
+                color: $h4-color-inverted;
+            }
+        }
+
+        // reset styles
+        border: none;
+        margin: 0;
+    }
+
+    .form-group-container {
+        margin-top: $form-group-container-spacing-top-xs;
+        @media (min-width:$screen-md) {
+            margin-top: $form-group-container-spacing-top-md;
+        }
+        @media (min-width:$screen-xl) {
+            margin-top: $form-group-container-spacing-top-xl;
+        }
+    }
+
+    // intro text within fieldset
+    .fieldset-text {
+        margin-top: $form-fieldset-text-spacing-top-xs;
+        @media (min-width:$screen-md) {
+            margin-top: $form-fieldset-text-spacing-top-md;
+        }
+        @media (min-width:$screen-xl) {
+            margin-top: $form-fieldset-text-spacing-top-xl;
+        }
+    }
+
+    /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+    "Side by Side" variation
+
+    */
+
+    &.side-by-side {
+
+        max-width: $form-side-by-side-max-width;
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            @media (min-width:$screen-md) {
+                flex-direction: row;
+            }
+            + .form-group {
+                margin-top: $form-side-by-side-group-spacing-top-xs;
+                @media (min-width:$screen-md) {
+                    margin-top: $form-side-by-side-group-spacing-top-md;
+                }
+                @media (min-width:$screen-xl) {
+                    margin-top: $form-side-by-side-group-spacing-top-xl;
+                }
+            }
+        }
+        .control-label {
+            @media (min-width:$screen-md) {
+                min-width: $form-side-by-side-label-width;
+                max-width: $form-side-by-side-label-width;
+                flex-grow: 1;
+                padding-top: $btn-padding-top-default;
+                padding-bottom: $btn-padding-bottom-default;
+                padding-right: $form-side-by-side-label-gap;
+                text-align: $form-side-by-side-label-text-align;
+                margin-bottom: 0;
+            }
+        }
+        .form-field-container {
+            @media (min-width:$screen-md) {
+                flex-grow: 1;
+            }
+        }
+    }
+
+
+    /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+    "Placeholder" variation
+
+    */
+
+    &.placeholder-enabled {
+        .control-label {
+            @include sr-only();
+        }
+        // in case of "select" fields, we want the label
+        .field-type-select {
+           .control-label {
+               @include undo-sr-only();
+           }
+        }
+        .form-group {
+            + .form-group {
+                margin-top: $form-placeholder-enabled-group-spacing-top-xs;
+                @media (min-width:$screen-md) {
+                    margin-top: $form-placeholder-enabled-group-spacing-top-md;
+                }
+                @media (min-width:$screen-xl) {
+                    margin-top: $form-placeholder-enabled-group-spacing-top-xl;
+                }
+            }
+        }
+    }
+
+
+
+    /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+    column variations: applied to `form-group` container:
+
+    <div class="form-group col-1-1">
+        <div class="control-label required">
+            <span class="label-text">{% trans "Choose date and time" %}</span>
+            <span class="required-symbol">{% trans "(required)" %}</span>
+        </div>
+        <div class="col-container">
+            <div class="col col-1 error-state-handler {% if form.date.errors %}has-error{% endif %}">
+                <label for="{{ form.date.id_for_label }}" class="sr-only">
+                    {% trans "Choose a date" %}
+                </label>
+                <div class="datepicker-container">
+                    {% render_field form.date class+="datepicker" required="required" %}
+                    <span class="calendar-btn"></span>
+                </div>
+                {{ form.date.errors }}
+            </div>
+            <div class="col col-2 error-state-handler {% if form.time.errors %}has-error{% endif %}">
+                <label for="{{ form.time.id_for_label }}" class="sr-only">
+                    {% trans "Choose a time" %}
+                </label>
+                {% render_field form.time class+="selectpicker form-control" required="required" %}
+                {{ form.time.errors }}
+            </div>
+        </div>
+    </div>
+
+    */
+
+    // only in markup if columns are used
+    .col-container {
+        @include make-row();
+    }
+
+    .col-1-1 {
+        .col {
+            @include make-xs-column(24);
+            @include make-sm-column(12);
+            @include make-spacing-top-xs-max($form-label-spacing-xs);
+        }
+        @media (min-width:$screen-sm) {
+            .col-1 { padding-right: $grid-gutter-width/4; }
+            .col-2 { padding-left: $grid-gutter-width/4; }
         }
     }
 

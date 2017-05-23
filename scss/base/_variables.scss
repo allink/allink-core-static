@@ -310,6 +310,8 @@ $overlay-background-opacity-sm-max:        0.5;
 
 */
 
+$form-default-max-width:                600px;
+
 // `.form-group` margin top (except :first-child)
 $form-group-spacing-xs:                $grid-gutter-width/2;
 $form-group-spacing-md:                $grid-gutter-width;
@@ -327,6 +329,43 @@ $form-field-required-icon-color:       #ba1414;
 // for accessibility reasons, there is a visually hidden 'required' text, that is set to visibility:hidden, and therefore still uses up some space. By setting dimensions and overflow:hidden we avoid undesired results.
 $form-field-required-icon-height:      0.9em;
 $form-field-required-icon-width:       1em;
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+=Fieldset and =Legend
+
+*/
+
+// spacing between fieldsets
+$form-fieldset-spacing-xs:             $grid-gutter-width;
+$form-fieldset-spacing-md:             $grid-gutter-width*1.5;
+$form-fieldset-spacing-xl:             $grid-gutter-width*2;
+
+// legend heading size (h1, h2, h3 or h4)
+$form-legend-heading-size:             'h2';
+
+// form group container spacing to previous element (legend or .fieldset-text)
+$form-group-container-spacing-top-xs:  $grid-gutter-width;
+$form-group-container-spacing-top-md:  $grid-gutter-width;
+$form-group-container-spacing-top-xl:  $grid-gutter-width;
+
+// fieldset intro text spacing to legend
+$form-fieldset-text-spacing-top-xs:    $grid-gutter-width/2;
+$form-fieldset-text-spacing-top-md:    $grid-gutter-width/2;
+$form-fieldset-text-spacing-top-xl:    $grid-gutter-width/2;
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+=form =side by side
+
+*/
+
+$form-side-by-side-max-width:           800px;
+$form-side-by-side-label-width:         240px;
+$form-side-by-side-label-gap:           $grid-gutter-width;
+$form-side-by-side-label-text-align:    left; // "text-align" values accepted
 
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
@@ -351,7 +390,7 @@ $input-bg:                             #fff;
 // background color of disabled form field (e.g. text)
 $input-bg-disabled:                    $gray-lighter;
 // background color :focus
-$input-bg-focus:                       $white;
+$input-bg-focus:                       #fff;
 
 // Text color for `<input>`s
 $input-color:                          $gray;
