@@ -65,7 +65,8 @@ $form-placeholder-enabled-group-spacing-top-xl:    $grid-gutter-width/4;
 */
 
 $form-side-by-side-max-width:           800px;
-$form-side-by-side-label-width:         240px;
+$form-side-by-side-label-width-md:      240px; // change according to longest label text
+$form-side-by-side-label-width-xxl:     300px; // change according to longest label text
 $form-side-by-side-label-gap:           $grid-gutter-width;
 $form-side-by-side-label-text-align:    left; // "text-align" values accepted
 

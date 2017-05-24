@@ -191,14 +191,18 @@ Default Form Styles
         }
         .control-label {
             @media (min-width:$screen-md) {
-                min-width: $form-side-by-side-label-width;
-                max-width: $form-side-by-side-label-width;
+                min-width: $form-side-by-side-label-width-md;
+                max-width: $form-side-by-side-label-width-md;
                 flex-grow: 1;
                 padding-top: $btn-padding-top-default;
                 padding-bottom: $btn-padding-bottom-default;
                 padding-right: $form-side-by-side-label-gap;
                 text-align: $form-side-by-side-label-text-align;
                 margin-bottom: 0;
+            }
+            @media (min-width:$screen-xxl) {
+                min-width: $form-side-by-side-label-width-xxl;
+                max-width: $form-side-by-side-label-width-xxl;
             }
         }
         .form-field-container {
