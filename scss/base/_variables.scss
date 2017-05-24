@@ -376,6 +376,18 @@ $form-side-by-side-group-spacing-top-xl:    $grid-gutter-width/4;
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 
+=form =placeholder-enabled
+
+*/
+
+// spacing between .form-group
+$form-placeholder-enabled-group-spacing-top-xs:    $grid-gutter-width/4;
+$form-placeholder-enabled-group-spacing-top-md:    $grid-gutter-width/4;
+$form-placeholder-enabled-group-spacing-top-xl:    $grid-gutter-width/4;
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
 General Form =Field Settings (.form-control)
 
 These settings apply to:
