@@ -83,24 +83,9 @@
     }
     // on mobile, only show poster
     &.poster-only-on-mobile {
-        @media (max-width:1024px) {
-            .the-video {
-                &::-internal-media-controls-overlay-cast-button {
-                    display: none;
-                }
-            }
+        &.controls-disabled {
             .video-controls {
                 display: none;
-            }
-            &.is-ipad {
-                .the-video {
-                    &::-internal-media-controls-overlay-cast-button {
-                        display: block;
-                    }
-                }
-                .video-controls {
-                    display: block;
-                }
             }
         }
     }

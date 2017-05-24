@@ -54,17 +54,19 @@ $(function() {
         var loaded_class = 'loaded';
         var on_pause_class = 'on-pause';
         var autoplay_class = 'autoplay-enabled';
+        var disable_remote_playback_attribute = 'disableRemotePlayback';
+        var controls_disabled_class = 'controls-disabled';
         var initialized_attr = 'data-controls-initialized';
         var window_width = $(window).width();
         var mobile_max_width = 1024;
         var mobile_class = 'is-mobile';
         var ipad_class = 'is-ipad';
-        var isIpad = navigator.userAgent.indexOf("iPad") != -1 ;
+        var is_iPad = navigator.userAgent.indexOf("iPad") != -1 ;
 
         // general mobile check
         var is_mobile = false;
         // this includes tablet, EXPLUDING iPad
-        if (window_width <= mobile_max_width && isIpad === false ) {
+        if (window_width <= mobile_max_width && is_iPad === false ) {
             is_mobile = true;
         }
 
@@ -77,14 +79,14 @@ $(function() {
             var $video_controls = $plugin_container.find('.video-controls');
 
             // enable videos on iPads
-            if (isIpad) {
+            if (is_iPad) {
                 enableInlineVideo($vid.get(0), {
                     iPad: true
                 });
             }
 
             // add class to indicate we're on an iPad
-            if (isIpad) {
+            if (is_iPad) {
                 $plugin_container.addClass(ipad_class);
             }
 
@@ -94,6 +96,18 @@ $(function() {
                 $plugin_container.removeClass(autoplay_class);
                 // removing the attribute wasn't good enough, let's pause the video
                 $vid.get(0).pause();
+            }
+
+            // in case of mobile but not iPad, hide the controls
+            if (is_mobile && is_iPad === false) {
+                // hide controls with CSS
+                $plugin_container.addClass(controls_disabled_class);
+                // make sure there is no remote playback button (Android)
+                $vid.attr(disable_remote_playback_attribute,'');
+            }else {
+                $plugin_container.removeClass(controls_disabled_class);
+                disable_remote_playback_attribute
+                $vid.removeAttr(disable_remote_playback_attribute);
             }
 
             // after checking for mobile devices, continue slightly delayed

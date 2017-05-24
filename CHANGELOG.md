@@ -112,6 +112,7 @@ $form-fieldset-text-spacing-top-xl:    $grid-gutter-width/2;
 
 ### FIXES
 
+- Video (Mobile): The `poster-only-on-mobile` flag now <strong>finally</strong> works on iOs, too.
 - iPad: Modal wasn't scrolling when touching an input field followed by an up or down swipe gesture.
 - Google Maps: On mobile, `fitBounds` now makes sure that all markers are visible.
 - Ajax Load Items: `data-trigger-initialized` is now added to prevent multiple event listeners on same trigger (e.g. when initialized again when softpage has been opened). The re-init has to be added in the project's `ajax-load-items.js`, because we work with options:
@@ -123,7 +124,6 @@ $(window).on('softpage:opened',function(){
 });
 ```
 - Content Plugin Column: Due to the switch to `flexbox`, columns didn't break anymore (default flexbox behaviour). They now do as desired.
-- Video (Mobile): The `poster-only-on-mobile` flag now works on iOs, too.
 - Bootstrap Select: The select is now checking for available space (above or below). Should you want to disable this feature and to force the dropdown to expand below, add the `data-dropup-auto="false"` attribute.
 
 ## v0.0.2
