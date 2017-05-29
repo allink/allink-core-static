@@ -18,3 +18,8 @@ Basic styles for the picture plugin
         height: auto;
     }
 }
+
+figcaption {
+    margin-top: $grid-gutter-width/2;
+    @include p-small();
+}
