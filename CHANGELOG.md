@@ -43,6 +43,11 @@ $(window).on('softpage:opened',function(){
 
 ### NEW
 
+- App Filter: Loader icon has been added with the following new default settings:
+```SCSS
+$load-more-swop-category-loader-spacing-top-xs:         100px;
+$load-more-swop-category-loader-spacing-top-sm:         150px;
+```
 - Form Style `placeholder-enabled`: New variables available:
 ```SCSS
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *

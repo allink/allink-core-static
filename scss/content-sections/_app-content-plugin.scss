@@ -89,11 +89,32 @@ Items loaded with AJAX
 // default container
 .ajax-items-container {
 
-    opacity: 1;
-    transition: $load-more-swop-category-transition-property $load-more-swop-category-transition-duration $load-more-swop-category-transition-timing-function;
+    // prepare immediate children of the container for the transition
+    @include the-loader();
+    &:before {
+        opacity: 0;
+        margin-top: 0;
+        transition: $load-more-swop-category-transition-property $load-more-swop-category-transition-duration $load-more-swop-category-transition-timing-function;
+        top: $load-more-swop-category-loader-spacing-top-xs;
+        @media (min-width:$screen-sm) {
+            top: $load-more-swop-category-loader-spacing-top-sm;
+        }
+    }
+    > * {
+        opacity: 1;
+        transition: $load-more-swop-category-transition-property $load-more-swop-category-transition-duration $load-more-swop-category-transition-timing-function;
+    }
     // loading effect when switching category
     &.loading {
-        opacity: 0;
+        // loader
+        &:before {
+            transition-delay: 0ms;
+            opacity: 1;
+        }
+        // reveal any children
+        > * {
+            opacity: 0;
+        }
     }
 
     // all appended items get the following class
