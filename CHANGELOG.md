@@ -114,6 +114,7 @@ $form-fieldset-text-spacing-top-xl:    $grid-gutter-width/2;
 - Form Heading: Default styles for optional form heading in `form_base.html` added.
 - Section Heading: Support for <strong>heading small</strong> added.
 - Admin Forms: select elements with class `selectpicker` are now converted to `bootstrap-select` inputs.
+- Swiper: Disable autoplay of gallery with `data-autoplay="false"` attribute on `.swiper-default` tag
 
 ### FIXES
 

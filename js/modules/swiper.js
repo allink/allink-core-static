@@ -73,6 +73,10 @@ export function initiSwiperInstances(options) {
         if ($counter) {
             $counter.addClass('active');
         }
+        // disable loop when .swiper-default attribute data-autoplay="false" is present
+        if ($swiper_instance.attr('data-autoplay') === "false") {
+            options.loop = false;
+        }
 
         // default
         var mySwiper = new Swiper ($swiper_instance, {
