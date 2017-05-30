@@ -1,4 +1,6 @@
 @mixin custom-scrollbar() {
+    // add momentum scrolling
+    -webkit-overflow-scrolling: touch;
     &::-webkit-scrollbar {
         height: $custom-scrollbar-track-size;
         width: $custom-scrollbar-track-size;

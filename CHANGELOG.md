@@ -122,6 +122,7 @@ Each release is divided into the following main categories:
 
 ### FIXES
 
+- Admin Modal: Image preview now bigger.
 - Softpage (Firefox bug): Any selected text is now "deselected" when openen the softpage.
 - Video (Mobile): The `poster-only-on-mobile` flag now <strong>finally</strong> works on iOs, too.
 - iPad: Modal wasn't scrolling when touching an input field followed by an up or down swipe gesture.
