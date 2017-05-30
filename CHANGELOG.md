@@ -132,6 +132,7 @@ $(window).on('softpage:opened',function(){
 ```
 - Content Plugin Column: Due to the switch to `flexbox`, columns didn't break anymore (default flexbox behaviour). They now do as desired.
 - Bootstrap Select: The select is now checking for available space (above or below). Should you want to disable this feature and to force the dropdown to expand below, add the `data-dropup-auto="false"` attribute.
+- Softpage: Fixed navigating back after open softpage has been reloaded (deeplink).
 
 ## v0.0.2
 
