@@ -10,7 +10,7 @@ Each release is divided into the following main categories:
 
 ### IMPORTANT
 
-- IE 11 Button fix: Create and import a `ie/_ie.scss` file with the following definitions:
+- IE 11 Button fix: Create and import a `ie/_ie.scss` file with the following definitions (but make sure to test it in IE 11 and adjust the line-height accordingly):
     ```SCSS
     /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 
