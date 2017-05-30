@@ -11,105 +11,109 @@ Each release is divided into the following main categories:
 ### IMPORTANT
 
 - IE 11 Button fix: Create and import a `ie/_ie.scss` file with the following definitions:
-```SCSS
-/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+    ```SCSS
+    /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 
-IE 11 quick and dirty fixes
+    IE 11 quick and dirty fixes
 
----
+    ---
 
-'Cause that's what he/she deserves!
+    'Cause that's what he/she deserves!
 
-*/
+    */
 
-*::-ms-backdrop, .btn { line-height: 1.15 !important; }
-```
+    *::-ms-backdrop, .btn { line-height: 1.15 !important; }
+    ```
 - Form Fields: Variables `$btn-line-height-default` has now been implemented in the core. On a project basis, your have to update the following CSS definitions in `typography/_global.scss`:
-```SCSS
-.form-control,
-.dropdown-menu {
-    @include input-default();
-    line-height: $btn-line-height-default;
-}
-```
+    ```SCSS
+    .form-control,
+    .dropdown-menu {
+        @include input-default();
+        line-height: $btn-line-height-default;
+    }
+    ```
 - Ajax Load Items: `data-trigger-initialized` is now added to prevent multiple event listeners on same trigger (e.g. when initialized again when softpage has been opened). Should you require a "load more" functionality within a softpage, you need to add the following lines to the project's `ajax-load-items.js`:
-```JS
-// re-init when softpage has been opened
-$(window).on('softpage:opened',function(){
-    initAjaxLoadItemsTrigger(options);
-    initMasonry(options);
-});
-```
+    ```JS
+    // re-init when softpage has been opened
+    $(window).on('softpage:opened',function(){
+        initAjaxLoadItemsTrigger(options);
+        initMasonry(options);
+    });
+    ```
 
 ### NEW
 
+- Custom Scrollbars: New variable with default value available:
+    ```SCSS
+    $custom-scrollbar-track-size:                  12px;
+    ```
 - App Filter: Loader icon has been added with the following new default settings:
-```SCSS
-$load-more-swop-category-loader-spacing-top-xs:         100px;
-$load-more-swop-category-loader-spacing-top-sm:         150px;
-```
+    ```SCSS
+    $load-more-swop-category-loader-spacing-top-xs:         100px;
+    $load-more-swop-category-loader-spacing-top-sm:         150px;
+    ```
 - Form Style `placeholder-enabled`: New variables available:
-```SCSS
-/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+    ```SCSS
+    /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 
-=form =placeholder-enabled
+    =form =placeholder-enabled
 
-*/
+    */
 
-// spacing between .form-group
-$form-placeholder-enabled-group-spacing-top-xs:    $grid-gutter-width/4;
-$form-placeholder-enabled-group-spacing-top-md:    $grid-gutter-width/4;
-$form-placeholder-enabled-group-spacing-top-xl:    $grid-gutter-width/4;
-```
-- Form Style `side-by-side`: New variables available:
-```SCSS
-/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+    // spacing between .form-group
+    $form-placeholder-enabled-group-spacing-top-xs:    $grid-gutter-width/4;
+    $form-placeholder-enabled-group-spacing-top-md:    $grid-gutter-width/4;
+    $form-placeholder-enabled-group-spacing-top-xl:    $grid-gutter-width/4;
+    ```
+    - Form Style `side-by-side`: New variables available:
+    ```SCSS
+    /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 
-=form =side by side
+    =form =side by side
 
-*/
+    */
 
-$form-side-by-side-max-width:           800px;
-$form-side-by-side-label-width-md:      240px; // change according to longest label text
-$form-side-by-side-label-width-xxl:     300px; // change according to longest label text
-$form-side-by-side-label-gap:           $grid-gutter-width;
-$form-side-by-side-label-text-align:    left; // "text-align" values accepted
+    $form-side-by-side-max-width:           800px;
+    $form-side-by-side-label-width-md:      240px; // change according to longest label text
+    $form-side-by-side-label-width-xxl:     300px; // change according to longest label text
+    $form-side-by-side-label-gap:           $grid-gutter-width;
+    $form-side-by-side-label-text-align:    left; // "text-align" values accepted
 
-// spacing between .form-group
-$form-side-by-side-group-spacing-top-xs:    $grid-gutter-width/4;
-$form-side-by-side-group-spacing-top-md:    $grid-gutter-width/4;
-$form-side-by-side-group-spacing-top-xl:    $grid-gutter-width/4;
-```
+    // spacing between .form-group
+    $form-side-by-side-group-spacing-top-xs:    $grid-gutter-width/4;
+    $form-side-by-side-group-spacing-top-md:    $grid-gutter-width/4;
+    $form-side-by-side-group-spacing-top-xl:    $grid-gutter-width/4;
+    ```
 - Form: New variable with following default available:
-```SCSS
-$form-default-max-width:                800px;
-```
+    ```SCSS
+    $form-default-max-width:                800px;
+    ```
 - Form Fieldset and Legend: New variables available:
-```SCSS
-/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+    ```SCSS
+    /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 
-=Fieldset and =Legend
+    =Fieldset and =Legend
 
-*/
+    */
 
-// spacing between fieldsets
-$form-fieldset-spacing-xs:             $grid-gutter-width;
-$form-fieldset-spacing-md:             $grid-gutter-width*1.5;
-$form-fieldset-spacing-xl:             $grid-gutter-width*2;
+    // spacing between fieldsets
+    $form-fieldset-spacing-xs:             $grid-gutter-width;
+    $form-fieldset-spacing-md:             $grid-gutter-width*1.5;
+    $form-fieldset-spacing-xl:             $grid-gutter-width*2;
 
-// legend heading size (h1, h2, h3 or h4)
-$form-legend-heading-size:             'h2';
+    // legend heading size (h1, h2, h3 or h4)
+    $form-legend-heading-size:             'h2';
 
-// form group container spacing to previous element (legend or .fieldset-text)
-$form-group-container-spacing-top-xs:  $grid-gutter-width;
-$form-group-container-spacing-top-md:  $grid-gutter-width;
-$form-group-container-spacing-top-xl:  $grid-gutter-width;
+    // form group container spacing to previous element (legend or .fieldset-text)
+    $form-group-container-spacing-top-xs:  $grid-gutter-width;
+    $form-group-container-spacing-top-md:  $grid-gutter-width;
+    $form-group-container-spacing-top-xl:  $grid-gutter-width;
 
-// fieldset intro text spacing to legend
-$form-fieldset-text-spacing-top-xs:    $grid-gutter-width/2;
-$form-fieldset-text-spacing-top-md:    $grid-gutter-width/2;
-$form-fieldset-text-spacing-top-xl:    $grid-gutter-width/2;
-```
+    // fieldset intro text spacing to legend
+    $form-fieldset-text-spacing-top-xs:    $grid-gutter-width/2;
+    $form-fieldset-text-spacing-top-md:    $grid-gutter-width/2;
+    $form-fieldset-text-spacing-top-xl:    $grid-gutter-width/2;
+    ```
 - Google Map Styles: New improved default style (https://snazzymaps.com/style/105672/django-cms-default)
 - Form Heading: Default styles for optional form heading in `form_base.html` added.
 - Section Heading: Support for <strong>heading small</strong> added.
@@ -123,13 +127,13 @@ $form-fieldset-text-spacing-top-xl:    $grid-gutter-width/2;
 - iPad: Modal wasn't scrolling when touching an input field followed by an up or down swipe gesture.
 - Google Maps: On mobile, `fitBounds` now makes sure that all markers are visible.
 - Ajax Load Items: `data-trigger-initialized` is now added to prevent multiple event listeners on same trigger (e.g. when initialized again when softpage has been opened). The re-init has to be added in the project's `ajax-load-items.js`, because we work with options:
-```JS
-// re-init when softpage has been opened
-$(window).on('softpage:opened',function(){
-    initAjaxLoadItemsTrigger(options);
-    initMasonry(options);
-});
-```
+    ```JS
+    // re-init when softpage has been opened
+    $(window).on('softpage:opened',function(){
+        initAjaxLoadItemsTrigger(options);
+        initMasonry(options);
+    });
+    ```
 - Content Plugin Column: Due to the switch to `flexbox`, columns didn't break anymore (default flexbox behaviour). They now do as desired.
 - Bootstrap Select: The select is now checking for available space (above or below). Should you want to disable this feature and to force the dropdown to expand below, add the `data-dropup-auto="false"` attribute.
 - Softpage: Fixed navigating back after open softpage has been reloaded (deeplink).
@@ -142,9 +146,9 @@ $(window).on('softpage:opened',function(){
 - Content Plugin column classes: Django CMS adds extra markup when logged it, that's why the `nth-child` pseudo selector wasn't working. Instead, we now added classes `col-1`, `col-2` and so on and removed the `nth-child` definition. This requires the latest `allink-core`, or you need to overwrite the `column.html` template of the `djangocms_content` plugin.
 - Form Modal: The close button is now inside the modal for better UX. Go get the content of `modal/_form.scss` from teo jakob.
 - Print: Lazyload images that are not in viewport yet can be loaded when printing the page by including the following plugin in the project's `app.js` BEFORE the main `lazysizes` import:
-```JS
-import 'lazysizes/plugins/print/ls.print'; // needs to be BEFORE the main script
-```
+    ```JS
+    import 'lazysizes/plugins/print/ls.print'; // needs to be BEFORE the main script
+    ```
 - Contact Form: New script added that can be included in `app.js` with `import 'allink-core-static/js/modules/contact-form';`
 - Softpage: `.conent-section` withing a tingle modal were globally resetted to `padding:0` and `margin:0`. Double check the spacings when updating, or ask Beat for advice ;)
 
