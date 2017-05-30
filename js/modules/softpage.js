@@ -140,6 +140,8 @@ $(function(){
                         // load softpage
                         event.preventDefault();
                         softpage.loadPage(href, true, softpage_content_id);
+                        // fixes bug in firefox: softpage text was selected - let's remove any selection
+                        document.getSelection().removeAllRanges();
                     }
                 );
                 // mark as initialized

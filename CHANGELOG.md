@@ -118,6 +118,7 @@ $form-fieldset-text-spacing-top-xl:    $grid-gutter-width/2;
 
 ### FIXES
 
+- Softpage (Firefox bug): Any selected text is now "deselected" when openen the softpage.
 - Video (Mobile): The `poster-only-on-mobile` flag now <strong>finally</strong> works on iOs, too.
 - iPad: Modal wasn't scrolling when touching an input field followed by an up or down swipe gesture.
 - Google Maps: On mobile, `fitBounds` now makes sure that all markers are visible.
