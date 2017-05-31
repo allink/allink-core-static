@@ -14,4 +14,14 @@
             max-width: none;
         }
     }
+    &.side-by-side {
+        .phone-container {
+            .col {
+                width: 100%;
+                + .col {
+                    margin-top: $grid-gutter-width/4;
+                }
+            }
+        }
+    }
 }

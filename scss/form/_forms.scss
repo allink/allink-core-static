@@ -42,9 +42,8 @@ Default Form Styles
     // the label text container
     label,
     .label-text {
-        display: inline-block;
+        display: inline;
         font-weight: normal;
-
     }
 
     // error label
@@ -176,6 +175,7 @@ Default Form Styles
         .form-group {
             display: flex;
             flex-direction: column;
+            align-items: flex-start;
             @media (min-width:$screen-md) {
                 flex-direction: row;
             }
@@ -296,6 +296,13 @@ Default Form Styles
         @media (min-width:$screen-sm) {
             .col-1 { padding-right: $grid-gutter-width/4; }
             .col-2 { padding-left: $grid-gutter-width/4; }
+        }
+    }
+
+    &.side-by-side {
+        @media (min-width:$screen-sm) {
+            .col-1 { padding-right: $grid-gutter-width/2; }
+            .col-2 { padding-left: $grid-gutter-width/2; }
         }
     }
 
