@@ -15,6 +15,11 @@
         }
     }
     &.side-by-side {
+        // reset the default form max-width when within form modal
+        .form-modal & {
+            max-width: none;
+        }
+        // stack columns
         .phone-container {
             .col {
                 width: 100%;
