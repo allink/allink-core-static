@@ -327,4 +327,9 @@ Button/Link Plugin
     .messagelist {
         display: none;
     }
+    &.popup ul.messagelist {
+        + #content {
+            margin-top: 20px !important;
+        }
+    }
 }
