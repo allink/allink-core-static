@@ -10,6 +10,24 @@ Each release is divided into the following main categories:
 
 ### IMPORTANT
 
+- Softpage Width: This is defined on a project basis only, but it is highly recommended to update existing code with the following (especially because of a better UX on iPad):
+    ```SCSS
+    // in _variabless.scss
+    $softpage-max-width-sm:                         850px;
+    $softpage-max-width-xl:                         1000px;
+    $softpage-max-width-xxl:                        1200px;
+
+    // in _softpage.scss
+    @media (min-width: $screen-sm) {
+        max-width: $softpage-max-width-sm;
+    }
+    @media (min-width: $screen-xl) {
+        max-width: $softpage-max-width-xl;
+    }
+    @media (min-width:$screen-xxl) {
+        max-width: $softpage-max-width-xxl;
+    }
+    ```
 - IE 11 Button fix: Create and import a `ie/_ie.scss` file with the following definitions (but make sure to test it in IE 11 and adjust the line-height accordingly):
     ```SCSS
     /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
