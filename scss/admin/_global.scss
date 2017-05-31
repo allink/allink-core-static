@@ -145,7 +145,8 @@ Visually separate blocks
             margin-top: 0 !important;
             padding-top: 10px !important;
             font-size: 12px !important;
-            strong {
+            strong,
+            em {
                 font-size: 12px !important;
             }
         }
@@ -313,4 +314,17 @@ form .form-row .js-filer-dropzone.filer-dropzone .filerFile .related-lookup {
 form .form-row .filer-dropzone .filerFile .dz-name,
 form .form-row .filer-dropzone .filerFile .description_text {
     margin-top: 16px;
+}
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+Button/Link Plugin
+
+*/
+
+.app-djangocms_button_link {
+    .messagelist {
+        display: none;
+    }
 }
