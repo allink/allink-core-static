@@ -12,7 +12,7 @@ Each release is divided into the following main categories:
 
 - Softpage Width: This is defined on a project basis only, but it is highly recommended to update existing code with the following (especially because of a better UX on iPad):
     ```SCSS
-    // in _variabless.scss
+    // in _variables.scss
     $softpage-max-width-sm:                         850px;
     $softpage-max-width-xl:                         1000px;
     $softpage-max-width-xxl:                        1200px;
