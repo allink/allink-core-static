@@ -51,7 +51,6 @@ Form modifications
             display: inline-block;
             position: relative;
             background-color: map-deep-get($value,'bg') !important;
-            color: map-deep-get($value,'color') !important;
             border-top-color: map-deep-get($value,'border-top-color') !important;
             border-right-color: map-deep-get($value,'border-right-color') !important;
             border-bottom-color: map-deep-get($value,'border-bottom-color') !important;
@@ -77,6 +76,9 @@ Form modifications
                 border-bottom-color: map-deep-get($value,'border-bottom-color-hover') !important;
                 border-left-color: map-deep-get($value,'border-left-color-hover') !important;
                 outline: none; // not very good because of accessibility reasons, but the default style looks too ugly.
+            }
+            > label {
+                color: map-deep-get($value,'color') !important;
             }
             input {
                 position: absolute;
