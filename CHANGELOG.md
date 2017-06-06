@@ -62,6 +62,7 @@ Each release is divided into the following main categories:
 
 ### NEW
 
+- Button Link Plugin: When displaying a CMS page within a softpage, we add the `data-cms-page` attribute to the link. This will strip out unnecessary markup so we only have the actual sections.
 - Custom Scrollbars: New variable with default value available:
     ```SCSS
     $custom-scrollbar-track-size:                  12px;

@@ -121,6 +121,7 @@ $(function(){
                     function(event){
                         // init
                         var $trigger = $(this);
+                        var $softpage = $('.tingle-modal.softpage');
                         var softpage_content_id = '';
                         var href = event.currentTarget.href;
                         // optional: use a node's content instead of href-attribute
@@ -128,7 +129,14 @@ $(function(){
                         // optional: get softpage variation string and set attribute
                         var softpage_variation = $trigger.attr('data-softpage-variation');
                         if (softpage_variation) {
-                            $('.tingle-modal.softpage').attr('data-softpage-variation', softpage_variation);
+                            $softpage.attr('data-softpage-variation', softpage_variation);
+                        }
+                        // optional: we are about to display a CMS page within the softpage
+                        var softpage_cms_page = $trigger.attr('data-cms-page');
+                        console.log( softpage_cms_page );
+                        if (typeof softpage_cms_page !== 'undefined' && softpage_cms_page !== false) {
+                            console.log( 'drin' );
+                            $softpage.attr('data-cms-page', '');
                         }
                         // special case: prevent softpage reload in case of a menu that has been toggled already and is about to be closed
                         var softpage_already_toggled = $trigger.attr('data-softpage-toggled');
@@ -164,6 +172,21 @@ $(function(){
     });
     $(window).on('closeSoftpage', function() {
         closeSoftpage();
+    });
+
+    // clean up content when a CMS page is about to be displayed within a softpage
+    $(window).on('softpage:opened',function(){
+        // init
+        var $softpage = $('.softpage');
+        // check if CMS page attribute is set
+        var $softpage_content_container = $softpage.find('.tingle-modal-box__content');
+        var is_cms_page = $softpage.attr('data-cms-page');
+        if (typeof is_cms_page !== 'undefined' && is_cms_page !== false) {
+            // select/store the content we want to put inside the modal box content
+            var $ajax_page_container = $softpage.find('.site-content').children();
+            // empty the box content and append the just stored markup
+            $softpage_content_container.empty().append($ajax_page_container);
+        }
     });
 
 });
