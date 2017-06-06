@@ -136,7 +136,7 @@ Each release is divided into the following main categories:
 - Form Heading: Default styles for optional form heading in `form_base.html` added.
 - Section Heading: Support for <strong>heading small</strong> added.
 - Admin Forms: select elements with class `selectpicker` are now converted to `bootstrap-select` inputs.
-- Swiper: Disable autoplay of gallery with `data-autoplay="false"` attribute on `.swiper-default` tag
+- Swiper: Disable autoplay of gallery with `data-autoplay="false"` attribute on `.swiper-default` tag, updated autoplay option to work on single instance
 
 ### FIXES
 
