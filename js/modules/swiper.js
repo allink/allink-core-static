@@ -73,9 +73,12 @@ export function initiSwiperInstances(options) {
         if ($counter) {
             $counter.addClass('active');
         }
-        // disable loop when .swiper-default attribute data-autoplay="false" is present
+
+        // local variable for loop. options.loop is a global setting for all swiper instances
+        let loop = options.loop;
+        // disable loop when attribute data-autoplay on .swiper-default element is present
         if ($swiper_instance.attr('data-autoplay') === "false") {
-            options.loop = false;
+            loop = false;
         }
 
         // default
@@ -94,7 +97,7 @@ export function initiSwiperInstances(options) {
                 }
 
                 // if loop is false, stop autoplay
-                if (!options.loop) {
+                if (!loop) {
                     swiper.stopAutoplay();
                 }
             },
@@ -110,7 +113,7 @@ export function initiSwiperInstances(options) {
             slidesPerView: options.slidesPerView,
             spaceBetween: 30,
             direction: 'horizontal',
-            loop: options.loop, // important: Set to 'false' when scrollbar is enabled
+            loop: loop, // important: Set to 'false' when scrollbar is enabled
             grabCursor: true,
             initialSlide: options.initialSlide,
 
