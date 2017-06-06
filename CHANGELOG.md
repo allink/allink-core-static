@@ -10,6 +10,7 @@ Each release is divided into the following main categories:
 
 ### IMPORTANT
 
+- Button Link Plugin: Button are now correctly displayed. There was an issue after implementing `bootstrap-select` that is now fixed. Requires the latest version of `allink-core` because of markup change.
 - Softpage Width: This is defined on a project basis only, but it is highly recommended to update existing code with the following (especially because of a better UX on iPad):
     ```SCSS
     // in _variables.scss

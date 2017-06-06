@@ -23,53 +23,60 @@ Form modifications
 
     .btn-container {
         padding: 15px;
-        background-color: #efefef;
+        background-color: #fff;
         border: 1px solid #ddd;
+        display: inline-block;
+        width: 100%;
     }
 
-    .btn {
-        outline: 2px solid transparent;
-    }
+    .btn-item {
+        float: left;
+        padding: 10px;
+        background-color: white;
+        border: 2px solid transparent;
+        }
 
     .active {
-        outline-color: #000;
+        border-color: #000;
         background-color: #fff;
+    }
+
+    label {
+        margin: 0;
     }
 
     // colors
     @each $key, $value in $btn-variations {
         .btn-#{$key} {
             display: inline-block;
-            padding: 10px;
-            > label {
-                position: relative;
-                background-color: map-deep-get($value,'bg') !important;
+            position: relative;
+            background-color: map-deep-get($value,'bg') !important;
+            color: map-deep-get($value,'color') !important;
+            border-top-color: map-deep-get($value,'border-top-color') !important;
+            border-right-color: map-deep-get($value,'border-right-color') !important;
+            border-bottom-color: map-deep-get($value,'border-bottom-color') !important;
+            border-left-color: map-deep-get($value,'border-left-color') !important;
+            // add our padding
+            padding: 0.4em 1em !important;
+            margin: 0;
+            line-height: 1.25 !important;
+            &,
+            &:link,
+            &:visited {
                 color: map-deep-get($value,'color') !important;
-                border-top-color: map-deep-get($value,'border-top-color') !important;
-                border-right-color: map-deep-get($value,'border-right-color') !important;
-                border-bottom-color: map-deep-get($value,'border-bottom-color') !important;
-                border-left-color: map-deep-get($value,'border-left-color') !important;
-                // add our padding
-                padding: 0.4em 1em !important;
-                margin: 0;
-                &,
-                &:link,
-                &:visited {
-                    color: map-deep-get($value,'color') !important;
-                }
-                &:hover,
-                &:focus,
-                &:focus:active,
-                &:active,
-                &:active:hover {
-                    background-color: map-deep-get($value,'bg-hover') !important;
-                    color: map-deep-get($value,'color-hover') !important;
-                    border-top-color: map-deep-get($value,'border-top-color-hover') !important;
-                    border-right-color: map-deep-get($value,'border-right-color-hover') !important;
-                    border-bottom-color: map-deep-get($value,'border-bottom-color-hover') !important;
-                    border-left-color: map-deep-get($value,'border-left-color-hover') !important;
-                    outline: none; // not very good because of accessibility reasons, but the default style looks too ugly.
-                }
+            }
+            &:hover,
+            &:focus,
+            &:focus:active,
+            &:active,
+            &:active:hover {
+                background-color: map-deep-get($value,'bg-hover') !important;
+                color: map-deep-get($value,'color-hover') !important;
+                border-top-color: map-deep-get($value,'border-top-color-hover') !important;
+                border-right-color: map-deep-get($value,'border-right-color-hover') !important;
+                border-bottom-color: map-deep-get($value,'border-bottom-color-hover') !important;
+                border-left-color: map-deep-get($value,'border-left-color-hover') !important;
+                outline: none; // not very good because of accessibility reasons, but the default style looks too ugly.
             }
             input {
                 position: absolute;
@@ -83,11 +90,13 @@ Form modifications
     .btn-sm {
         > label {
             font-size: 10px;
+            line-height: 1.25 !important;
         }
     }
     .btn-lg {
         > label {
             font-size: 22px;
+            line-height: 1.25 !important;
         }
     }
 

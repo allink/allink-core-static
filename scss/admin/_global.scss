@@ -102,6 +102,11 @@ Visually separate blocks
         }
     }
 
+    // input[type=checkbox],
+    input[type=radio] {
+        top: -4px;
+    }
+
     // general module style
     fieldset.module {
 

@@ -31,11 +31,11 @@ Core CSS
 */
 
 // @import "~bootstrap-sass/assets/stylesheets/bootstrap/scaffolding";
-@import "~bootstrap-sass/assets/stylesheets/bootstrap/type";
-@import "~bootstrap-sass/assets/stylesheets/bootstrap/code";
-@import "~bootstrap-sass/assets/stylesheets/bootstrap/grid";
+// @import "~bootstrap-sass/assets/stylesheets/bootstrap/type";
+// @import "~bootstrap-sass/assets/stylesheets/bootstrap/code";
+// @import "~bootstrap-sass/assets/stylesheets/bootstrap/grid";
 // @import "~bootstrap-sass/assets/stylesheets/bootstrap/tables";
-@import "~bootstrap-sass/assets/stylesheets/bootstrap/forms";
+// @import "~bootstrap-sass/assets/stylesheets/bootstrap/forms";
 @import "~bootstrap-sass/assets/stylesheets/bootstrap/buttons";
 
 
@@ -81,6 +81,18 @@ Custom Styles
     }
     .dropdown-toggle {
         padding: 6px 35px 6px 10px !important;
+        background-color: #fff !important;
+        &,
+        &:hover,
+        &:focus,
+        &:active,
+        &:focus:active,
+        &:active:hover {
+            background-color: #fff !important;
+            border-color: #ddd !important;
+            box-shadow: none !important;
+            appearance: none;
+        }
     }
     .dropdown-menu {
         background-color: white;
