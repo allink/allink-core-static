@@ -10,6 +10,20 @@ Each release is divided into the following main categories:
 
 ### IMPORTANT
 
+- Smooth Scroll: Requires `import 'allink-core-static/js/modules/smooth-scroll';` in the project's `app.js`. How to use it:
+    ```HTML
+    Basic usage:
+
+    <a href="#id-of-target-element" data-smooth-scroll>Smooth Scroll Link</a>
+
+    Custom duration (only numbers accepted, otherwise the script fails):
+
+    <a href="#id-of-target-element" data-smooth-scroll data-scroll-duration="300">Smooth Scroll Link</a>
+
+    Custom easing function (only predefined easing function will work, otherwise the script will fail):
+
+    <a href="#id-of-target-element" data-smooth-scroll data-scroll-easing="linear">Smooth Scroll Link</a>
+    ```
 - Button Link Plugin: Button are now correctly displayed. There was an issue after implementing `bootstrap-select` that is now fixed. Requires the latest version of `allink-core` because of markup change.
 - Softpage Width: This is defined on a project basis only, but it is highly recommended to update existing code with the following (especially because of a better UX on iPad):
     ```SCSS

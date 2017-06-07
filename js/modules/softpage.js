@@ -58,7 +58,8 @@ $(function(){
                 if (modal_page_title_element != null) {
                     var modal_page_title = modal_page_title_element.textContent;
                 }else {
-                    console.warn('Softpage is missing #softpage-page-title.');
+                    // used during development phase, but no need anymore
+                    // console.warn('Softpage is missing #softpage-page-title.');
                 }
                 // Google Tag Manager
                 if (typeof dataLayer !== 'undefined') {
@@ -133,9 +134,7 @@ $(function(){
                         }
                         // optional: we are about to display a CMS page within the softpage
                         var softpage_cms_page = $trigger.attr('data-cms-page');
-                        console.log( softpage_cms_page );
                         if (typeof softpage_cms_page !== 'undefined' && softpage_cms_page !== false) {
-                            console.log( 'drin' );
                             $softpage.attr('data-cms-page', '');
                         }
                         // special case: prevent softpage reload in case of a menu that has been toggled already and is about to be closed
