@@ -125,7 +125,7 @@ General Settings
                 @include content-section-spacing-position(right);
             }
         }
-        // reset overlay styles on mobile
+        // reset overlay spacings and colors on mobile
         @media (max-width:$screen-sm-max) {
             // specificy wars.. damn it..
             .col-container {
@@ -133,7 +133,17 @@ General Settings
                     .col {
                         padding-left: 0 !important;
                         padding-right: 0 !important;
+                        &.col-order-mobile-0 {
+                            margin-top: $content-section-heading-spacing-xs;
+                        }
                     }
+                }
+            }
+            // reset heading padding
+            .section-heading {
+                .heading {
+                    padding-left: 0 !important;
+                    padding-right: 0 !important;
                 }
             }
             // let's pretend we're in a manage-spacings context
@@ -141,10 +151,6 @@ General Settings
                 @include make-spacing-top-xs($manage-spacings-container-xs);
                 @include make-spacing-top-md($manage-spacings-container-md);
                 @include make-spacing-top-xl($manage-spacings-container-xl);
-            }
-            .heading {
-                padding-left: 0 !important;
-                padding-right: 0 !important;
             }
             &.section-heading-h1 {
                 .heading {
@@ -154,6 +160,11 @@ General Settings
             &.section-heading-h2 {
                 .heading {
                     color: $h2-color;
+                }
+            }
+            &.section-heading-h3 {
+                .heading {
+                    color: $h3-color;
                 }
             }
             .text-container {
