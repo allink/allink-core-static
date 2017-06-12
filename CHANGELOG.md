@@ -10,6 +10,10 @@ Each release is divided into the following main categories:
 
 ### IMPORTANT
 
+- Feature Detection: JavaScript detection has been moved to core, so we don't need to load 'modernizr' locally, unless you really need to detect some special features on a project basis. All you need to do is to imoprt the new file:
+    ```JS
+    import 'allink-core-static/js/modules/feature-detection';
+    ```
 - Smooth Scroll: Requires `import 'allink-core-static/js/modules/smooth-scroll';` in the project's `app.js`. How to use it:
     ```HTML
     Basic usage:
