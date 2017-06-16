@@ -7,9 +7,22 @@ We use the package "Flatpickr"
 Docs: https://chmln.github.io/flatpickr/
 Options: https://chmln.github.io/flatpickr/#options
 
-IMPORTANT:
+Available Attribute Options (Django Form):
 
-All of the string/boolean config options can also be supplied using data attributes, e.g. data-min-date, data-default-date, data-date-format etc.
+date_time = forms.DateTimeField(
+    label=_(u'Date and Time'),
+    widget=forms.widgets.DateTimeInput(
+        attrs={
+            'placeholder': _(u'Please choose date and time'),
+            'data-dateFormat': 'Y-m-d H:i',
+            'data-altFormat': 'D, j. F Y, H:i',
+            'data-minDate': str(datetime.date.today() - datetime.timedelta(days=180)),
+            'data-maxDate': 'today',
+            'data-enableTime': True,
+            'data-noCalendar': True,
+        }
+    ),
+)
 
 */
 
@@ -48,26 +61,91 @@ function initDatepicker() {
         active_lang = 'en';
     }
 
-    // Define options
-    var options = {
-        locale: active_lang, // IMPORTANT: We're gonna select the language according to the "lang" attribute of the <html> element
-        altInput: true,
-        altInputClass: 'form-control datepicker-rendered',
-        disableMobile: true,
-        altFormat: 'D, j. F Y',
-        clickOpens: true,
-        allowInput: false,
-        dateFormat: 'Y-m-d',
-        minDate: 'today',
-        wrap: false,
-    };
-
     // find datepicker elements and loop!
     var datepicker_elements = document.querySelectorAll('.datepicker');
     if(datepicker_elements.length > 0) {
         for (var i = 0; i < datepicker_elements.length; i++) {
+
+            /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+            get custom options from the input's data-attribute or set default options
+
+            */
+
+            // TIME only
+            var noCalendar = $(datepicker_elements[i]).attr('data-noCalendar');
+            if (typeof noCalendar === 'undefined') {
+                noCalendar = false;
+            } else {
+                noCalendar = true;
+            }
+            // date AND time
+            var enableTime = $(datepicker_elements[i]).attr('data-enableTime');
+            if (typeof enableTime === 'undefined') {
+                enableTime = false;
+            } else {
+                enableTime = true;
+            }
+            // technical format
+            var dateFormat = $(datepicker_elements[i]).attr('data-dateFormat');
+            if (!dateFormat) {
+                dateFormat = 'Y-m-d';
+            }
+            // Pretty Format
+            var altFormat = $(datepicker_elements[i]).attr('data-altFormat');
+            if (!altFormat) {
+                altFormat = 'D, j. F Y';
+            }
+            // MAX date
+            var maxDate = $(datepicker_elements[i]).attr('data-maxDate');
+            if (!maxDate) {
+                maxDate = false;
+            }
+            // MIN date
+            var minDate = $(datepicker_elements[i]).attr('data-minDate');
+            if (!minDate) {
+                minDate = 'today';
+            }
+            // set options
+            var options = {
+                locale: active_lang, // IMPORTANT: We're gonna select the language according to the "lang" attribute of the <html> element
+                time_24hr: true,
+                altInput: true,
+                altInputClass: 'form-control datepicker-rendered',
+                disableMobile: true,
+                altFormat: altFormat,
+                clickOpens: true,
+                allowInput: false,
+                dateFormat: dateFormat,
+                minDate: minDate,
+                maxDate: maxDate,
+                wrap: false,
+                enableTime: enableTime,
+                noCalendar: noCalendar,
+            };
+
+            // init
             var element = datepicker_elements[i];
             var flatpickr_instance = new Flatpickr(element,options);
+            console.log( flatpickr_instance );
+
+            // calendar toggle
+            var $calendar = $(element).siblings('.calendar-btn');
+            $calendar.on('click',function(){
+                // a click outside the datepicker input field closes it. By delaying the call we can
+                setTimeout(function(){
+                    flatpickr_instance.toggle();
+                },0);
+            });
+
+            // label toggle
+            var $label = $(element).parents('.form-field-container').siblings('.control-label');
+            $label.on('click',function(){
+                // a click outside the datepicker input field closes it. By delaying the call we can
+                setTimeout(function(){
+                    flatpickr_instance.toggle();
+                },0);
+            });
         }
     }
 

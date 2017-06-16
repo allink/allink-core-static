@@ -80,6 +80,23 @@ Each release is divided into the following main categories:
 
 ### NEW
 
+- Datepicker: Support for all three input methods (date, datetime, time) added. Requires latest core update. How to add the config per form field (all available/supported options at the time of writing):
+    ```python
+    date_time = forms.DateTimeField(
+        label=_(u'Date and Time'),
+        widget=forms.widgets.DateTimeInput(
+            attrs={
+                'placeholder': _(u'Please choose date and time'),
+                'data-dateFormat': 'Y-m-d H:i',
+                'data-altFormat': 'D, j. F Y, H:i',
+                'data-minDate': str(datetime.date.today() - datetime.timedelta(days=180)),
+                'data-maxDate': 'today',
+                'data-enableTime': True,
+                'data-noCalendar': True,
+            }
+        ),
+    )
+    ```
 - Button Link Plugin: When displaying a CMS page within a softpage, we add the `data-cms-page` attribute to the link. This will strip out unnecessary markup so we only have the actual sections.
 - Custom Scrollbars: New variable with default value available:
     ```SCSS

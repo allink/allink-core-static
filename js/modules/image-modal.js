@@ -1,8 +1,14 @@
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 
-Link with data attribute 'data-toggle-image-modal' will trigger the image lightbox
+Link with class '.toggle-image-modal' will trigger the form lightbox
+
+Custom Events:
+
+image-modal:opened
+image-modal:closed
 
 */
+
 import tingle from 'tingle.js';
 
 $(function(){
@@ -11,77 +17,83 @@ $(function(){
     var image_modal = new tingle.modal({
         cssClass: ['image-modal'],
         onClose: function() {
-            close_image_modal_handler();
-            // trigger custom events
-            $(window).trigger('hideSiteOverlay');
+            // remove class from html
+            document.querySelector('html').classList.remove('image-modal-visible');
+            // trigger class
+            $(window).trigger('image-modal:closed');
+            // if the softpage is still open in the brackground, we have to keep the overlay, otherwise we can close it
+            if ($('.tingle-modal.softpage').hasClass('tingle-modal--visible')) {
+                // tingle removes the class from the body, so let's re-add it
+                document.querySelector('body').classList.add('tingle-enabled');
+            }else {
+                $(window).trigger('hideSiteOverlay');
+            }
         },
         onOpen: function(){
+            // trigger custom events
+            $(window).trigger('image-modal:opened');
             $(window).trigger('initImageModalClose');
-        }
+        },
     });
 
-
     // click handler
-    function open_image_modal_handler(element,event) {
+    function openImageModal(element,event,$image_modal_content) {
+        // init
         event.preventDefault();
+
+        // in case we opened a form modal from within a softpage, we need to hide the softpage
         document.querySelector('html').classList.add('image-modal-visible');
 
-        // get and set content
-        var url = element.getAttribute('data-href');
-        var picture = element.getElementsByTagName("picture")[0].cloneNode(true);
-        picture.getElementsByTagName('img')[0].setAttribute('data-srcset', url);
-
-        image_modal.setContent(picture);
+        // set content
+        $(image_modal.modalBoxContent).html($image_modal_content);
         image_modal.open();
-        $(window).trigger('initImageModalClose');
-            setTimeout(function(){
-                $(window).trigger('initImageModalTrigger');
-            },1500);
-
-        // add functionality to close the modal with the ESCAPE key
-        document.onkeydown = function(evt) {
-            evt = evt || window.event;
-            var isEscape = false;
-            if ("key" in evt) {
-                isEscape = evt.key == "Escape";
-            } else {
-                isEscape = evt.keyCode == 27;
-            }
-            if (isEscape) {
-                image_modal.close();
-            }
-        };
-    }
-
-    function close_image_modal_handler() {
-        document.querySelector('html').classList.remove('image-modal-visible');
     }
 
     function initImageModalTrigger(){
-        if(document.querySelector('a[data-toggle-image-modal]')) {
-            var image_modal_elements = document.querySelectorAll('a[data-toggle-image-modal]');
-            for (var i = 0; i < image_modal_elements.length; i++) {
-                image_modal_elements[i].addEventListener('click', function(event) {
-                    // instantly toggle site overlay (improves "felt perimageance")
-                    $(window).trigger('showSiteOverlay');
-                    // open modal
-                    open_image_modal_handler(this,event);
-                });
+        // init all trigger links and loop
+        $('[data-trigger-image-modal]').each(function(i) {
+            // stop multiple event listeners on the same element by adding an initialized attribute that we can check the next time we call this function
+            // init
+            var $trigger = $(this);
+            var initialized_attr = 'data-trigger-initialized';
+            // check for initialized trigger
+            var trigger_initialized = $trigger.attr(initialized_attr);
+            // NOT initialized yet
+            if (typeof trigger_initialized === 'undefined') {
+                $trigger.
+                    on('click',
+                    function(event){
+                        // init
+                        event.preventDefault();
+                        var $trigger = $(this);
+                        // get content of modal
+                        var $image_modal_content = $trigger.find('.image-modal-content').contents().clone();
+                        if ($image_modal_content.length > 0) {
+                            // instantly toggle site overlay (improves "felt performance")
+                            $(window).trigger('showSiteOverlay');
+                            // load softpage
+                            openImageModal(this,event,$image_modal_content);
+                        }
+                    }
+                );
+                // mark as initialized
+                $trigger.attr(initialized_attr,'');
             }
-        }
+        });
     }
 
     // on page load
     initImageModalTrigger();
 
     // custom event
-    $(window).on('initImageModalTrigger softpage:opened form-modal:opened', function() {
+    $(window).on('initImageModalTrigger softpage:opened image-modal:opened', function() {
         initImageModalTrigger();
     });
 
     function initImageModalClose() {
-        if (document.querySelector('.close-image-modal')) {
-            var close_image_modal = document.querySelector('.close-image-modal');
+        // look for triggers
+        if (document.querySelector('.close-image-modal,[data-close-image-modal]')) {
+            var close_image_modal = document.querySelector('.close-image-modal,[data-close-image-modal]');
             close_image_modal.addEventListener('click', function(event) {
                 event.preventDefault();
                 image_modal.close();
