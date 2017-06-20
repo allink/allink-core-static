@@ -32,7 +32,11 @@ Each release is divided into the following main categories:
     ```JS
     import 'allink-core-static/js/modules/feature-detection';
     ```
-- Smooth Scroll: Requires `import 'allink-core-static/js/modules/smooth-scroll';` in the project's `app.js`. How to use it:
+- Smooth Scroll: Requires the following import in the project's `app.js`:
+    ```JS
+    import 'allink-core-static/js/modules/smooth-scroll';
+    ```
+    How to use it:
     ```HTML
     Basic usage:
 
