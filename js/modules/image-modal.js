@@ -41,7 +41,7 @@ $(function(){
         // init
         event.preventDefault();
 
-        // in case we opened a form modal from within a softpage, we need to hide the softpage
+        // indicate that the image modal is visible
         document.querySelector('html').classList.add('image-modal-visible');
 
         // set content
