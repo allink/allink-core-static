@@ -10,6 +10,20 @@ Each release is divided into the following main categories:
 
 ### IMPORTANT
 
+- Image Modal: Some styles are on a project basis only on `modal/_image.scss` (take MFGZ as a reference). New variables available:
+    ```SCSS
+    /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+    =Image Modal
+
+    */
+
+    // transition
+    $image-modal-transition-duration:                150ms;
+    $image-modal-transition-timing-function:       ease-in;
+    $image-modal-transition:         visibility $image-modal-transition-duration $image-modal-transition-timing-function,
+                                    opacity $image-modal-transition-duration $image-modal-transition-timing-function;
+    ```
 - Lazyload Default Placeholder: Recommended setting (works on any background):
     ```SCSS
     $lazyloader-bg-color:               rgba(black,0.1);

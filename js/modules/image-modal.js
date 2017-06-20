@@ -66,14 +66,24 @@ $(function(){
                         // init
                         event.preventDefault();
                         var $trigger = $(this);
-                        // get content of modal
-                        var $image_modal_content = $trigger.find('.image-modal-content').contents().clone();
-                        if ($image_modal_content.length > 0) {
-                            // instantly toggle site overlay (improves "felt performance")
-                            $(window).trigger('showSiteOverlay');
-                            // load softpage
-                            openImageModal(this,event,$image_modal_content);
+                        var href = $trigger.attr('href');
+                        var window_width = $(window).width();
+                        // mobile, show in new tab instead
+                        if (window_width < 768) {
+                            window.open(href,'_blank');
                         }
+                        // larger screens, show modal
+                        else {
+                            // get content of modal
+                            var $image_modal_content = $trigger.find('.image-modal-content').contents().clone();
+                            if ($image_modal_content.length > 0) {
+                                // instantly toggle site overlay (improves "felt performance")
+                                $(window).trigger('showSiteOverlay');
+                                // load softpage
+                                openImageModal(this,event,$image_modal_content);
+                            }
+                        }
+
                     }
                 );
                 // mark as initialized
