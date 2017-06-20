@@ -95,8 +95,11 @@ function resetBtnAjaxLoaderSize() {
 
 $(function(){
 
-    // on page load
-    initBtnAjaxLoader();
+    // on page load (delayed, because there was an issue when the page wasn't rendered properly and the button size was set wrong)
+    // But it doesn't matter anyway, no need to rush, this can happen in the background
+    setTimeout(function(){
+        initBtnAjaxLoader();
+    },1500);
 
     // custom event
     $(window).on('initBtnAjaxLoader', function() {

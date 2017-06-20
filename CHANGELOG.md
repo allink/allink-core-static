@@ -222,6 +222,7 @@ Each release is divided into the following main categories:
 
 ### FIXES
 
+- Btn AJAX Loader: Now executed with a delay, as it caused button size issues when the page wasn't fully rendered yet.
 - Admin Modal: Image preview now bigger.
 - Softpage (Firefox bug): Any selected text is now "deselected" when openen the softpage.
 - Video (Mobile): The `poster-only-on-mobile` flag now <strong>finally</strong> works on iOs, too.
