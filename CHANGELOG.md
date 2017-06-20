@@ -10,6 +10,10 @@ Each release is divided into the following main categories:
 
 ### IMPORTANT
 
+- Lazyload Default Placeholder: Recommended setting (works on any background):
+    ```SCSS
+    $lazyloader-bg-color:               rgba(black,0.1);
+    ```
 - Feature Detection: JavaScript detection has been moved to core, so we don't need to load 'modernizr' locally, unless you really need to detect some special features on a project basis. All you need to do is to imoprt the new file:
     ```JS
     import 'allink-core-static/js/modules/feature-detection';
