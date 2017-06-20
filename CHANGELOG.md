@@ -80,6 +80,33 @@ Each release is divided into the following main categories:
 
 ### NEW
 
+- Datepicker: New variables with the following defaults available:
+    ```SCSS
+    /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+    =Datepicker
+
+    */
+
+    // default button: calendar
+    $datepicker-default-width:                  100%;
+    $datepicker-default-max-width:              320px;
+    $datepicker-default-input-bg:               $input-bg;
+    $datepicker-default-btn-width:              30px;
+    $datepicker-default-btn-icon:               '\e60e';
+    $datepicker-default-btn-icon-size:          0.8em;
+    $datepicker-default-btn-icon-color:         $black;
+    $datepicker-default-btn-icon-color-hover:   $black;
+    // time button
+    $datepicker-time-btn-icon:                  '\e60e';
+    // clear button
+    $datepicker-clear-btn-icon:                 '\e209';
+    $datepicker-clear-btn-icon-size:            1em;
+    $datepicker-clear-btn-icon-color:           $black;
+    $datepicker-clear-btn-icon-color-hover:     $black;
+    $datepicker-clear-btn-position-right:       $datepicker-default-btn-width;
+    $datepicker-clear-btn-transition:           all 150ms cubic-bezier(0.7, 0.91, 0.41, 1.64);
+    ```
 - Datepicker: Support for all three input methods (date, datetime, time) added. Requires latest core update. How to add the config per form field (all available/supported options at the time of writing):
     ```python
     date_time = forms.DateTimeField(

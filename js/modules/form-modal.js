@@ -69,7 +69,7 @@ $(function(){
 
     function initFormModalTrigger(){
         // init all trigger links and loop
-        $('.toggle-form-modal,[data-trigger-form-modal]').each(function(i) {
+        $('.toggle-form-modal:not([data-softpage-disabled]),[data-trigger-form-modal]:not([data-softpage-disabled])').each(function(i) {
             // stop multiple event listeners on the same element by adding an initialized attribute that we can check the next time we call this function
             // init
             var $trigger = $(this);

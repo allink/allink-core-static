@@ -72,37 +72,42 @@ function initDatepicker() {
 
             */
 
+            // init
+            var $datepicker_element = $(datepicker_elements[i]);
+            var $datepicker_container = $datepicker_element.parents('.datepicker-container');
+            var has_value_class = 'has-value';
+
             // TIME only
-            var noCalendar = $(datepicker_elements[i]).attr('data-noCalendar');
+            var noCalendar = $datepicker_element.attr('data-noCalendar');
             if (typeof noCalendar === 'undefined') {
                 noCalendar = false;
             } else {
                 noCalendar = true;
             }
             // date AND time
-            var enableTime = $(datepicker_elements[i]).attr('data-enableTime');
+            var enableTime = $datepicker_element.attr('data-enableTime');
             if (typeof enableTime === 'undefined') {
                 enableTime = false;
             } else {
                 enableTime = true;
             }
             // technical format
-            var dateFormat = $(datepicker_elements[i]).attr('data-dateFormat');
+            var dateFormat = $datepicker_element.attr('data-dateFormat');
             if (!dateFormat) {
                 dateFormat = 'Y-m-d';
             }
             // Pretty Format
-            var altFormat = $(datepicker_elements[i]).attr('data-altFormat');
+            var altFormat = $datepicker_element.attr('data-altFormat');
             if (!altFormat) {
                 altFormat = 'D, j. F Y';
             }
             // MAX date
-            var maxDate = $(datepicker_elements[i]).attr('data-maxDate');
+            var maxDate = $datepicker_element.attr('data-maxDate');
             if (!maxDate) {
                 maxDate = false;
             }
             // MIN date
-            var minDate = $(datepicker_elements[i]).attr('data-minDate');
+            var minDate = $datepicker_element.attr('data-minDate');
             if (!minDate) {
                 minDate = 'today';
             }
@@ -122,17 +127,31 @@ function initDatepicker() {
                 wrap: false,
                 enableTime: enableTime,
                 noCalendar: noCalendar,
+                onValueUpdate: function(){
+                    // add class, so we can show the clear button
+                    $datepicker_container.addClass(has_value_class);
+                }
             };
 
             // init
             var element = datepicker_elements[i];
             var flatpickr_instance = new Flatpickr(element,options);
-            console.log( flatpickr_instance );
+
+            // clear value
+            var $clear_btn = $(element).siblings('.clear-btn');
+            $clear_btn.on('click',function(){
+                // a click outside the datepicker input field closes it. So we gotta "delay" it.
+                setTimeout(function(){
+                    flatpickr_instance.clear();
+                    // add class, so we can show the clear button
+                    $datepicker_container.removeClass(has_value_class);
+                },0);
+            });
 
             // calendar toggle
-            var $calendar = $(element).siblings('.calendar-btn');
-            $calendar.on('click',function(){
-                // a click outside the datepicker input field closes it. By delaying the call we can
+            var $datetime_btn = $(element).siblings('.calendar-btn, .time-btn');
+            $datetime_btn.on('click',function(){
+                // a click outside the datepicker input field closes it. So we gotta "delay" it.
                 setTimeout(function(){
                     flatpickr_instance.toggle();
                 },0);
