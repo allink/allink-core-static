@@ -191,7 +191,10 @@ export function initiSwiperInstances(options) {
                 isEscape = evt.keyCode == 27;
             }
             if (isEscape) {
-                closeSwiperFullscreen();
+                // only call if the swiper is actually visible
+                if ($('html').hasClass('swiper-fullscreen-visible')) {
+                    closeSwiperFullscreen();
+                }
             }
         });
 
@@ -267,12 +270,15 @@ function initSwiperFullscreenDimensions(width_has_changed=false) {
 
 function closeSwiperFullscreen() {
     setTimeout(function(){
+        // if we opened a fullscreen gallery from within softpage, keep the site overlay visible
         if ($('.tingle-modal.softpage').hasClass('tingle-modal--visible')) {
-            $('html').removeClass('swiper-fullscreen-visible');
-        } else {
-            $('html').removeClass('swiper-fullscreen-visible');
+            // nada
+        }
+        // otherwise, hide it!
+        else {
             $(window).trigger('hideSiteOverlay');
         }
+        $('html').removeClass('swiper-fullscreen-visible');
         // init
         var $swiper_fullscreen_container = $('.swiper-fullscreen-container');
         var $swiper_fullscreen = $swiper_fullscreen_container.find('.swiper-fullscreen');
