@@ -17,6 +17,14 @@
             cursor: pointer;
         }
     }
+    // when form modal is visible
+    .form-modal-visible & {
+        z-index: z("site-overlay-form-modal");
+    }
+    // when image modal is visible
+    .form-modal-visible & {
+        z-index: z("site-overlay-image-modal");
+    }
     @include print() {
         display: none !important;
     }

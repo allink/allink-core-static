@@ -231,7 +231,7 @@ Basic slider content styling
     }
 
     .heading {
-        @include p-lead();
+        @include text-lead();
     }
 }
 

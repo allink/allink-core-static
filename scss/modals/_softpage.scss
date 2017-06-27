@@ -1,0 +1,159 @@
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+Softpage
+
+*/
+
+.softpage {
+
+    // in case of the softpage, we want our .tingle-modal-box to handle to overflow scrolling
+    overflow: hidden;
+
+    .form-modal-visible &,
+    .image-modal-visible & {
+        opacity: 0;
+    }
+
+    .tingle-modal-box {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: auto;
+        margin: 0;
+        min-height: 0 !important; // this one is set on a project basis, so we gotta force it
+        overflow-y: scroll; // has to be scroll, not auto
+        overflow-x: hidden;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .tingle-modal-box {
+        margin-right: 0;
+        top: 0 !important;
+        min-height: 100%;
+        opacity: 0;
+        transform: translate($softpage-content-box-offset,0);
+        transition: $softpage-content-box-transition;
+        width: 100%;
+        @media (min-width: $screen-sm) {
+            max-width: $softpage-max-width-sm;
+        }
+        @media (min-width: $screen-xl) {
+            max-width: $softpage-max-width-xl;
+        }
+        @media (min-width:$screen-xxl) {
+            max-width: $softpage-max-width-xxl;
+        }
+
+        // default
+        top: 0 !important;
+        @media (min-width:$screen-md) {
+            top: $site-header-height-md !important;
+        }
+        @media (min-width:$screen-xl) {
+            top: $site-header-height-xl !important;
+        }
+        @media (min-width:$screen-xxl) {
+            top: $site-header-height-xxl !important;
+        }
+
+        // Special case: Softpage behind site-header
+        @if $site-header-compact-mode-enabled == true {
+            .header-compact-mode & {
+                top: 0 !important;
+                @media (min-width:$screen-md) {
+                    top: $site-header-compact-mode-height-md !important;
+                }
+                @media (min-width:$screen-xl) {
+                    top: $site-header-compact-mode-height-xl !important;
+                }
+                @media (min-width:$screen-xxl) {
+                    top: $site-header-compact-mode-height-xxl !important;
+                }
+            }
+        }
+
+    }
+
+    .tingle-modal-box__content {
+        padding: 0;
+        // padding-top: $grid-gutter-width*2;
+        // padding-bottom: $grid-gutter-width*2;
+    }
+
+    .tingle-modal__close {
+        position: fixed;
+        line-height: 1;
+        top: 0;
+        right: 0;
+        left: auto;
+        &:focus {
+            outline: none;
+        }
+
+        // default
+        top: 0 !important;
+        @media (min-width:$screen-sm) {
+            top: $site-header-height-xs !important;
+        }
+        @media (min-width:$screen-md) {
+            top: $site-header-height-md !important;
+        }
+        @media (min-width:$screen-xl) {
+            top: $site-header-height-xl !important;
+        }
+        @media (min-width:$screen-xxl) {
+            top: $site-header-height-xxl !important;
+        }
+
+        // Special case: Softpage behind site-header
+        @if $site-header-compact-mode-enabled == true {
+            .header-compact-mode & {
+                top: 0 !important;
+                @media (min-width:$screen-md) {
+                    top: $site-header-compact-mode-height-md !important;
+                }
+                @media (min-width:$screen-xl) {
+                    top: $site-header-compact-mode-height-xl !important;
+                }
+                @media (min-width:$screen-xxl) {
+                    top: $site-header-compact-mode-height-xxl !important;
+                }
+            }
+        }
+
+        @media (min-width: $screen-sm) {
+            width: 60px;
+            height: 60px;
+            transform: translate(0,0);
+            background: transparent;
+            border-radius: 0;
+        }
+        @media (min-width:$screen-md) {
+            right: $softpage-close-btn-position-right-md;
+        }
+        @media (min-width:$screen-xl) {
+            right: $softpage-close-btn-position-right-xl;
+        }
+    }
+
+    &.tingle-modal--visible {
+        .tingle-modal-box {
+            transform: translate(0,0);
+            opacity: 1;
+        }
+    }
+
+    // variations
+    &[data-softpage-variation="small"] {
+        .tingle-modal-box {
+            @media (min-width: $screen-sm) {
+                max-width: $softpage-small-sm-max-width;
+            }
+            @media (min-width:$screen-xxl) {
+                max-width: $softpage-small-xxl-max-width;
+            }
+        }
+    }
+
+}

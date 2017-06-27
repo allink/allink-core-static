@@ -1,0 +1,199 @@
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+Django CMS specific adjustments
+
+Position when logged in. This prevents overlapping with the CMS toolbar.
+
+*/
+
+html.cms-ready {
+    // collapsed
+    .tingle-modal {
+        top: $cms-toolbar-height-collapsed;
+        @media (min-width:$screen-sm) {
+            .tingle-modal__close {
+                top: $cms-toolbar-height-collapsed;
+            }
+        }
+    }
+    // toolbar expanded
+    &.cms-toolbar-expanded {
+        .tingle-modal {
+            top: $cms-toolbar-height-expanded;
+        }
+        @media (min-width:$screen-sm) {
+            .tingle-modal__close {
+                top: $cms-toolbar-height-expanded;
+            }
+        }
+    }
+}
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+Global modal definitions
+
+*/
+
+body.tingle-enabled {
+    @media print {
+        height: auto !important;
+        margin: 0 !important;
+        overflow: visible !important;
+        #cms-top,
+        .site-header,
+        .site-content,
+        .site-footer {
+            display: none;
+        }
+    }
+}
+
+.tingle-modal {
+
+    // add scroll bars per default
+    overflow-y: auto;
+    // fixes scroll isues on iOS
+    @media (max-width: 1024px) {
+        -webkit-overflow-scrolling: touch;
+    }
+    // positioning fix on mobile
+    @media (max-width:$screen-xs-max) {
+        top: 0;
+    }
+    // add correct pointer
+    cursor: pointer;
+    &.tingle-modal--noOverlayClose {
+        cursor: default;
+    }
+}
+
+// fix for projects where the position property has been forgotten
+.tingle-modal__close {
+    &:before {
+        position: absolute;
+    }
+    @include print() {
+        display: none !important;
+    }
+}
+
+// remove default padding when overflow
+.tingle-modal--overflow {
+    padding-top: 0;
+}
+
+// reset transform per default, and add project specific if desired
+.tingle-modal-box {
+    transform: none;
+    .tingle-modal--visible & {
+        transform: none;
+    }
+    @include print() {
+        position: static !important;
+    }
+}
+
+.tingle-modal--visible {
+    @media print {
+        position: static !important;
+        overflow: visible !important;
+        top: 0 !important;
+    }
+}
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+Used to be on project basis
+
+*/
+
+.tingle-modal {
+    background: none;
+    cursor: pointer;
+    transition: $modal-default-overlay-transition;
+    z-index: z("modal");
+    h1 {
+        font-size: inherit;
+    }
+}
+
+.tingle-modal-box {
+    transition: none;
+    border-radius: 0;
+    background-color: $modal-default-content-bg;
+    @media (min-width:$screen-md) {
+        width: 90%;
+    }
+    @media (min-width:$screen-xl) {
+        max-width: $max-width-xl;
+    }
+    @media (min-width:$screen-xxl) {
+        max-width: $max-width-xxl;
+    }
+}
+
+.tingle-modal__close {
+    transition: none;
+    background: transparent;
+    width: $modal-default-close-btn-size;
+    height: $modal-default-close-btn-size;
+    &:hover,
+    &:focus,
+    &:active {
+        &:before {
+            color: $modal-default-close-icon-color-hover;
+        }
+    }
+    &:before {
+        content: $modal-default-close-icon;
+        color: $modal-default-close-icon-color;
+        font-size: $modal-default-close-icon-size;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        transition: $modal-default-close-icon-transition;
+        @include icomoon();
+    }
+    > span {
+        text-indent: -9999px;
+        display: inline-block;
+    }
+    @media (max-width: $screen-xs-max) {
+        transform: translate3d(0,0,10px);
+        position: absolute !important;
+    }
+}
+
+body.tingle-enabled {
+    @media (max-width: $screen-xs-max) {
+        .site-header,
+        .site-content,
+        .site-footer,
+        .to-the-top {
+            opacity: 0;
+            visibility: hidden;
+        }
+    }
+}
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+Print Settings for modal
+
+*/
+
+body.tingle-enabled {
+    @media print {
+        height: auto;
+        margin: 0;
+        overflow: visible;
+        .site-header,
+        .main-blog-container,
+        .site-footer {
+            display: none;
+        }
+    }
+}

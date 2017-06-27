@@ -64,13 +64,13 @@ Default Form Styles
             margin-top: $form-field-error-spacing-xl;
         }
         > li {
-            @include p-small();
+            @include text-small();
             color: $form-field-error-color;
         }
     }
 
     .help-block {
-        @include p-small();
+        @include text-small();
     }
 
     // prepare the required symbol

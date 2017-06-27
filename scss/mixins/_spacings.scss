@@ -246,6 +246,10 @@ Spacings of content blocks within the .site-content
         padding-top: $content-section-spacing-xl;
         padding-bottom: $content-section-spacing-xl;
     }
+    @media (min-width:$screen-xxl) {
+        padding-top: $content-section-spacing-xxl;
+        padding-bottom: $content-section-spacing-xxl;
+    }
 }
 
 @mixin content-section-spacing-margin() {
@@ -267,49 +271,9 @@ Spacings of content blocks within the .site-content
         margin-top: $content-section-spacing-xl;
         margin-bottom: $content-section-spacing-xl;
     }
-}
-
-// in detail view of an App Content
-
-@mixin app-detail-content-section-spacing-padding() {
-    padding-top: $app-detail-content-section-spacing-xs;
-    padding-bottom: $app-detail-content-section-spacing-xs;
-    @media (min-width:$screen-sm) {
-        padding-top: $app-detail-content-section-spacing-sm;
-        padding-bottom: $app-detail-content-section-spacing-sm;
-    }
-    @media (min-width:$screen-md) {
-        padding-top: $app-detail-content-section-spacing-md;
-        padding-bottom: $app-detail-content-section-spacing-md;
-    }
-    @media (min-width:$screen-lg) {
-        padding-top: $app-detail-content-section-spacing-lg;
-        padding-bottom: $app-detail-content-section-spacing-lg;
-    }
-    @media (min-width:$screen-xl) {
-        padding-top: $app-detail-content-section-spacing-xl;
-        padding-bottom: $app-detail-content-section-spacing-xl;
-    }
-}
-
-@mixin app-detail-content-section-spacing-margin() {
-    margin-top: $app-detail-content-section-spacing-xs;
-    margin-bottom: $app-detail-content-section-spacing-xs;
-    @media (min-width:$screen-sm) {
-        margin-top: $app-detail-content-section-spacing-sm;
-        margin-bottom: $app-detail-content-section-spacing-sm;
-    }
-    @media (min-width:$screen-md) {
-        margin-top: $app-detail-content-section-spacing-md;
-        margin-bottom: $app-detail-content-section-spacing-md;
-    }
-    @media (min-width:$screen-lg) {
-        margin-top: $app-detail-content-section-spacing-lg;
-        margin-bottom: $app-detail-content-section-spacing-lg;
-    }
-    @media (min-width:$screen-xl) {
-        margin-top: $app-detail-content-section-spacing-xl;
-        margin-bottom: $app-detail-content-section-spacing-xl;
+    @media (min-width:$screen-xxl) {
+        margin-top: $content-section-spacing-xxl;
+        margin-bottom: $content-section-spacing-xxl;
     }
 }
 
@@ -339,6 +303,9 @@ First and last section withing .site-content
     @media (min-width: $screen-xl) {
         #{$property}: $content-section-spacing-first-item-xl;
     }
+    @media (min-width: $screen-xxl) {
+        #{$property}: $content-section-spacing-first-item-xxl;
+    }
 }
 
 @mixin content-section-last($property: padding-bottom) {
@@ -358,47 +325,187 @@ First and last section withing .site-content
     @media (min-width: $screen-xl) {
         #{$property}: $content-section-spacing-last-item-xl;
     }
+    @media (min-width: $screen-xxl) {
+        #{$property}: $content-section-spacing-last-item-xxl;
+    }
 }
 
-// in detail view of an App Content
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 
-@mixin app-detail-content-section-first($property: padding-top) {
-    // remove margin
-    margin-top: 0;
-    // add padding
-    #{$property}: $app-detail-content-section-spacing-first-item-xs;
+App Detail
+
+*/
+
+// main container within softpage
+@mixin app-detail-softpage-spacing() {
+    padding: $app-detail-softpage-spacing-xs;
     @media (min-width: $screen-sm) {
-        #{$property}: $app-detail-content-section-spacing-first-item-sm;
+        padding: $app-detail-softpage-spacing-sm;
     }
     @media (min-width: $screen-md) {
-        #{$property}: $app-detail-content-section-spacing-first-item-md;
+        padding: $app-detail-softpage-spacing-md;
     }
     @media (min-width: $screen-lg) {
-        #{$property}: $app-detail-content-section-spacing-first-item-lg;
+        padding: $app-detail-softpage-spacing-lg;
     }
     @media (min-width: $screen-xl) {
-        #{$property}: $app-detail-content-section-spacing-first-item-xl;
+        padding: $app-detail-softpage-spacing-xl;
+    }
+    @media (min-width: $screen-xxl) {
+        padding: $app-detail-softpage-spacing-xxl;
     }
 }
 
-@mixin app-detail-content-section-last($property: padding-bottom) {
-    // remove margin
-    margin-bottom: 0;
-    // add padding
-    #{$property}: $app-detail-content-section-spacing-last-item-xs;
+// header section: deeplink
+@mixin app-detail-header-section-spacing($property: margin) {
+    // reset first
+    padding: 0;
+    margin: 0;
+    // add spacing
+    #{$property}: $app-detail-header-section-spacing-xs;
     @media (min-width: $screen-sm) {
-        #{$property}: $app-detail-content-section-spacing-last-item-sm;
+        #{$property}: $app-detail-header-section-spacing-sm;
     }
     @media (min-width: $screen-md) {
-        #{$property}: $app-detail-content-section-spacing-last-item-md;
+        #{$property}: $app-detail-header-section-spacing-md;
     }
     @media (min-width: $screen-lg) {
-        #{$property}: $app-detail-content-section-spacing-last-item-lg;
+        #{$property}: $app-detail-header-section-spacing-lg;
     }
     @media (min-width: $screen-xl) {
-        #{$property}: $app-detail-content-section-spacing-last-item-xl;
+        #{$property}: $app-detail-header-section-spacing-xl;
+    }
+    @media (min-width: $screen-xxl) {
+        #{$property}: $app-detail-header-section-spacing-xxl;
     }
 }
+
+// header section: softpage
+@mixin app-detail-softpage-header-section-spacing($property: margin) {
+    // reset first
+    padding: 0;
+    margin: 0;
+    // add spacing
+    #{$property}: $app-detail-softpage-header-section-spacing-xs;
+    @media (min-width: $screen-sm) {
+        #{$property}: $app-detail-softpage-header-section-spacing-sm;
+    }
+    @media (min-width: $screen-md) {
+        #{$property}: $app-detail-softpage-header-section-spacing-md;
+    }
+    @media (min-width: $screen-lg) {
+        #{$property}: $app-detail-softpage-header-section-spacing-lg;
+    }
+    @media (min-width: $screen-xl) {
+        #{$property}: $app-detail-softpage-header-section-spacing-xl;
+    }
+    @media (min-width: $screen-xxl) {
+        #{$property}: $app-detail-softpage-header-section-spacing-xxl;
+    }
+}
+
+// section heading container: deeplink
+@mixin app-detail-section-heading-container-spacing($property: margin) {
+    // reset first
+    padding: 0;
+    margin: 0;
+    // add spacing
+    #{$property}: $app-detail-section-heading-container-spacing-xs;
+    @media (min-width: $screen-sm) {
+        #{$property}: $app-detail-section-heading-container-spacing-sm;
+    }
+    @media (min-width: $screen-md) {
+        #{$property}: $app-detail-section-heading-container-spacing-md;
+    }
+    @media (min-width: $screen-lg) {
+        #{$property}: $app-detail-section-heading-container-spacing-lg;
+    }
+    @media (min-width: $screen-xl) {
+        #{$property}: $app-detail-section-heading-container-spacing-xl;
+    }
+    @media (min-width: $screen-xxl) {
+        #{$property}: $app-detail-section-heading-container-spacing-xxl;
+    }
+}
+
+// section heading container: softpage
+@mixin app-detail-softpage-section-heading-container-spacing($property: margin) {
+    // reset first
+    padding: 0;
+    margin: 0;
+    // add spacing
+    #{$property}: $app-detail-softpage-section-heading-container-spacing-xs;
+    @media (min-width: $screen-sm) {
+        #{$property}: $app-detail-softpage-section-heading-container-spacing-sm;
+    }
+    @media (min-width: $screen-md) {
+        #{$property}: $app-detail-softpage-section-heading-container-spacing-md;
+    }
+    @media (min-width: $screen-lg) {
+        #{$property}: $app-detail-softpage-section-heading-container-spacing-lg;
+    }
+    @media (min-width: $screen-xl) {
+        #{$property}: $app-detail-softpage-section-heading-container-spacing-xl;
+    }
+    @media (min-width: $screen-xxl) {
+        #{$property}: $app-detail-softpage-section-heading-container-spacing-xxl;
+    }
+}
+
+// content section: deeplink
+@mixin app-detail-content-section-spacing($property: margin) {
+    // reset first
+    padding: 0;
+    margin: 0;
+    // add spacing
+    #{$property}: $app-detail-content-section-spacing-xs;
+    @media (min-width: $screen-sm) {
+        #{$property}: $app-detail-content-section-spacing-sm;
+    }
+    @media (min-width: $screen-md) {
+        #{$property}: $app-detail-content-section-spacing-md;
+    }
+    @media (min-width: $screen-lg) {
+        #{$property}: $app-detail-content-section-spacing-lg;
+    }
+    @media (min-width: $screen-xl) {
+        #{$property}: $app-detail-content-section-spacing-xl;
+    }
+    @media (min-width: $screen-xxl) {
+        #{$property}: $app-detail-content-section-spacing-xxl;
+    }
+}
+
+// content section: softpage
+@mixin app-detail-softpage-content-section-spacing($property: margin) {
+    // reset first
+    padding: 0;
+    margin: 0;
+    // add spacing
+    #{$property}: $app-detail-softpage-content-section-spacing-xs;
+    @media (min-width: $screen-sm) {
+        #{$property}: $app-detail-softpage-content-section-spacing-sm;
+    }
+    @media (min-width: $screen-md) {
+        #{$property}: $app-detail-softpage-content-section-spacing-md;
+    }
+    @media (min-width: $screen-lg) {
+        #{$property}: $app-detail-softpage-content-section-spacing-lg;
+    }
+    @media (min-width: $screen-xl) {
+        #{$property}: $app-detail-softpage-content-section-spacing-xl;
+    }
+    @media (min-width: $screen-xxl) {
+        #{$property}: $app-detail-softpage-content-section-spacing-xxl;
+    }
+}
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+Content Section: Stacked columns
+
+*/
 
 @mixin content-plugin-stacked-col-spacing() {
     margin-bottom: $content-plugin-stacked-col-spacing-xs;
@@ -419,6 +526,7 @@ First and last section withing .site-content
         margin-bottom: -$content-plugin-stacked-col-spacing-xl;
     }
 }
+
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 

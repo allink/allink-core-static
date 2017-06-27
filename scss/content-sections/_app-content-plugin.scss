@@ -1,79 +1,85 @@
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 
-Note: This file contains very basic styling, that will be overwritten
-and customized in an app specific SCSS file.
+Detail View
 
 */
 
+.app-detail {
 
-.app-content-plugin {
-
-    // default padding when container is NOT activated
-    > .container {
-        @include column-paddings();
+    // within modal
+    .tingle-modal & {
+        @include app-detail-softpage-spacing();
+        max-width: $app-detail-softpage-content-max-width;
+        margin: 0 auto;
     }
 
-    /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
-
-    Detail View
-
-    */
-
-    &.detail-view {
-        // default header image spacing to next element
-        .header-image-container {
-            & + * {
-                margin-top: $grid-gutter-width;
-            }
-        }
-        // default heading style
-        .section-heading {
-            .heading {
-                @include h1();
-                @media (min-width:$screen-md) {
-                    max-width: 66%;
-                }
-            }
+    &__header {
+        @include app-detail-header-section-spacing($app-detail-header-section-spacing-property);
+        .tingle-modal & {
+            @include app-detail-softpage-header-section-spacing($app-detail-softpage-header-section-spacing-property);
         }
     }
 
-}
+    &__header-col {
+        @include make-xs-column(24);
+        @include make-md-column(16);
+    }
 
+    &__section-heading-col {
 
-/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+    }
 
-App Content > Detail: Commonly used column styles that can be re-used
+    &__content {
+        @include app-detail-content-section-spacing($app-detail-content-section-spacing-property);
+        .tingle-modal & {
+            @include app-detail-softpage-content-section-spacing($app-detail-softpage-content-section-spacing-property);
+        }
+    }
 
-*/
+    &__section-heading-container {
+        @include app-detail-section-heading-container-spacing($app-detail-section-heading-container-spacing-property);
+        .tingle-modal & {
+            @include app-detail-softpage-section-heading-container-spacing($app-detail-softpage-section-heading-container-spacing-property);
+        }
+    }
 
-.app-detail-col-container {
-    @include make-row();
-    // on XS we have a smaller column padding
-    @include make-row-sm-max();
-    &.col-2-1 {
-        > .col:nth-child(1) {
+    &__section-heading {
+        @include h1();
+    }
+
+    &__col-container {
+        @include make-row();
+        // on XS we have a smaller column padding
+        @include make-row-sm-max();
+    }
+
+    &__col-2-1 {
+        .app_detail__col-1 {
             @include make-xs-column(24);
             @include make-md-column(16);
         }
-        > .col:nth-child(2) {
+        .app_detail__col-2 {
             @include make-xs-column(24);
             @include make-md-column(8);
             @include make-spacing-top-sm-max($content-section-col-stack-spacing-xs-max);
         }
     }
-    > .col {
+
+    &__col {
         @include column-padding-sm-max();
         // special case: '.content-section' within '.content-section'.
+    }
+
+    // the actual container that holds the plugins
+    &__content-container {
         // reset container padding, but leave it in case the content-section has a background image/video/color
         .content-section:not(.has-bg-image):not(.has-bg-video):not(.has-bg-color) {
-            .container {
+            .content-section__container {
                 padding: 0;
             }
             // reset heading style
-            .section-heading {
-                .heading {
-                    max-width: none;
-                }
+            .content-section__section-heading {
+                max-width: none;
             }
         }
     }

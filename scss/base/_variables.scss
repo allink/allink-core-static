@@ -1159,3 +1159,43 @@ $form-modal-transition-duration:                150ms;
 $form-modal-transition-timing-function:       ease-in;
 $form-modal-transition:         visibility $form-modal-transition-duration $form-modal-transition-timing-function,
                                 opacity $form-modal-transition-duration $form-modal-transition-timing-function;
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+404 Template
+
+*/
+
+$template-404-min-height-xs:        0;
+$template-404-min-height-sm:        500px;
+$template-404-min-height-md:        500px;
+$template-404-min-height-xl:        500px;
+$template-404-min-height-xxl:       500px;
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+z-index defaults
+
+*/
+
+$z-layers: (
+    "site-header":              2000,
+    "site-content":                5,
+
+    "site-overlay":              900,
+    "site-overlay-form-modal":  2500,
+    "site-overlay-image-modal": 2500,
+
+    "form-modal":               3000,
+    "image-modal":              3000,
+    "modal":                    1000,
+    "to-the-top":                 30,
+
+    "below":                      -1,
+    "below-all":             -100000,
+    "default":                     1,
+    "above":                       2,
+    "above-all":          2147483647, // highest possible z-index
+);

@@ -33,35 +33,24 @@ Font mixins
     }
 }
 
-@mixin p-default() {
-    letter-spacing: $p-default-letter-spacing;
-    text-transform: $p-default-text-transform;
-    font-family: $p-default-font-family;
-    font-weight: $p-default-font-weight;
-    @include font-size($p-default-font-sizes);
-    @if $p-default-antialiased-enabled == true {
+@mixin text-small() {
+    letter-spacing: $text-small-letter-spacing;
+    text-transform: $text-small-text-transform;
+    font-family: $text-small-font-family;
+    font-weight: $text-small-font-weight;
+    @include font-size($text-small-font-sizes);
+    @if $text-small-antialiased-enabled == true {
         @include antialiased();
     }
 }
 
-@mixin p-small() {
-    letter-spacing: $p-small-letter-spacing;
-    text-transform: $p-small-text-transform;
-    font-family: $p-small-font-family;
-    font-weight: $p-small-font-weight;
-    @include font-size($p-small-font-sizes);
-    @if $p-small-antialiased-enabled == true {
-        @include antialiased();
-    }
-}
-
-@mixin p-lead() {
-    letter-spacing: $p-lead-letter-spacing;
-    text-transform: $p-lead-text-transform;
-    font-family: $p-lead-font-family;
-    font-weight: $p-lead-font-weight;
-    @include font-size($p-lead-font-sizes);
-    @if $p-lead-antialiased-enabled == true {
+@mixin text-lead() {
+    letter-spacing: $text-lead-letter-spacing;
+    text-transform: $text-lead-text-transform;
+    font-family: $text-lead-font-family;
+    font-weight: $text-lead-font-weight;
+    @include font-size($text-lead-font-sizes);
+    @if $text-lead-antialiased-enabled == true {
         @include antialiased();
     }
 }

@@ -1,0 +1,42 @@
+$editor-font-family: 'Helvetica Neue', 'Arial', 'Tahoma', 'Verdana', 'Sans-Serif';
+
+.editor-body {
+
+    box-sizing: border-box;
+    max-width: 900px;
+    margin: 0;
+
+    padding: 15px;
+
+    p, h1, h2, h3, h4, h5, h6 {
+        padding: 15px 7px 7px 7px !important;
+        margin: 15px 0 !important;
+    }
+
+}
+
+.cke_panel_grouptitle {
+    font-family: $editor-font-family;
+}
+
+.cke_panel_list {
+
+    h2 { @include h1(); }
+    h3 { @include h2(); }
+    h4 { @include h3(); }
+    h5 { @include h4(); }
+
+    .display-1 { @include display-1(); }
+
+    > li {
+        > a {
+            text-decoration: none;
+        }
+    }
+
+    // making sure that default dropdowns have a standard font family
+    [role="cmsplugins"] & {
+        font-family: $editor-font-family !important;
+    }
+
+}

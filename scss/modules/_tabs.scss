@@ -1,0 +1,112 @@
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+Tabs
+
+*/
+
+.custom-nav-tabs {
+
+    padding: 0;
+
+    border-bottom-width: $custom-tabs-border-bottom-width;
+    border-bottom-style: $custom-tabs-border-bottom-style;
+    border-bottom-color: $custom-tabs-border-bottom-color;
+    // mobile optimizations
+    @media (max-width:$screen-xs-max) {
+        border-bottom: none;
+    }
+
+    @include clearfix();
+
+    // define spacing to next element
+    & + * {
+        @include make-spacing-top-xs($custom-tabs-spacing-bottom-xs);
+        @include make-spacing-top-md($custom-tabs-spacing-bottom-md);
+        @include make-spacing-top-xl($custom-tabs-spacing-bottom-xl);
+    }
+
+    &__item {
+        list-style: none;
+        float: left;
+        margin-left: -$custom-tabs-item-border-width;
+        // mobile optimizations
+        @media (max-width:$screen-xs-max) {
+            margin-left: 0;
+            margin-right: $grid-gutter-width/4;
+            &:last-child {
+                margin-right: 0;
+            }
+        }
+        @if $custom-tabs-register-look-activated == true {
+            margin-bottom: -$custom-tabs-item-border-width;
+            // mobile optimizations
+            @media (max-width:$screen-xs-max) {
+                margin-bottom: $grid-gutter-width/4;
+            }
+        }
+        &:first-child {
+            margin-left: 0;
+        }
+
+        &.active {
+
+            // ACTIVE state
+            > a {
+                &,
+                &:link,
+                &:visited {
+                    color: $custom-tabs-item-color-active;
+                    background-color: $custom-tabs-item-bg-active;
+                }
+                &:hover,
+                &:active,
+                &:focus {
+                    background-color: $custom-tabs-item-bg-active-hover;
+                    span {
+                        border: none;
+                    }
+                }
+            }
+        }
+
+    }
+
+    &__link {
+        display: block;
+        padding: $custom-tabs-item-padding-xs;
+        border-width: $custom-tabs-item-border-width;
+        border-style: $custom-tabs-item-border-style;
+        border-color: $custom-tabs-item-border-color;
+        border-bottom: none;
+        text-decoration: none;
+        transition: $custom-tabs-item-transition;
+
+        // mobile optimizations
+        @media (max-width:$screen-xs-max) {
+            border-bottom-width: $custom-tabs-item-border-width;
+            border-bottom-style: $custom-tabs-item-border-style;
+            border-bottom-color: $custom-tabs-item-border-color;
+        }
+
+        @media (min-width:$screen-md) {
+            padding: $custom-tabs-item-padding-md;
+        }
+
+        // DEFAULT state
+        &,
+        &:link,
+        &:visited {
+            color: $custom-tabs-item-color-default;
+            background-color: $custom-tabs-item-bg-default;
+        }
+        &:hover,
+        &:active,
+        &:focus {
+            background-color: $custom-tabs-item-bg-default-hover;
+            span {
+                border-bottom: 1px solid $brand-secondary;
+            }
+        }
+    }
+
+}
