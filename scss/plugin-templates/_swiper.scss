@@ -6,44 +6,6 @@ Global Swiper Custom Styles
 
 // Slide ratios (works closely together with the thumbnail settings)
 .swiper-slide {
-    // Used in Content Plugin > Column
-    .swiper-gallery-plugin & {
-        @include aspect-ratio($swiper-gallery-plugin-aspect-ratio-width-xs,$swiper-gallery-plugin-aspect-ratio-height-xs);
-        @media (min-width:$screen-md) {
-            @include aspect-ratio($swiper-gallery-plugin-aspect-ratio-width-md,$swiper-gallery-plugin-aspect-ratio-height-md);
-        }
-        @media (min-width:$screen-xl) {
-            @include aspect-ratio($swiper-gallery-plugin-aspect-ratio-width-xl,$swiper-gallery-plugin-aspect-ratio-height-xl);
-        }
-    }
-    // App Content > Displaying entries as a slider
-    .swiper-app-content & {
-        @include aspect-ratio($swiper-app-content-aspect-ratio-width-xs,$swiper-app-content-aspect-ratio-height-xs);
-        @media (min-width:$screen-md) {
-            @include aspect-ratio($swiper-app-content-aspect-ratio-width-md,$swiper-app-content-aspect-ratio-height-md);
-        }
-        @media (min-width:$screen-xl) {
-            @include aspect-ratio($swiper-app-content-aspect-ratio-width-xl,$swiper-app-content-aspect-ratio-height-xl);
-        }
-    }
-    // App Content > Detail View
-    .swiper-detail-view & {
-        @include aspect-ratio($swiper-detail-view-aspect-ratio-width-xs,$swiper-detail-view-aspect-ratio-height-xs);
-        @media (min-width:$screen-md) {
-            @include aspect-ratio($swiper-detail-view-aspect-ratio-width-md,$swiper-detail-view-aspect-ratio-height-md);
-        }
-        @media (min-width:$screen-xl) {
-            @include aspect-ratio($swiper-detail-view-aspect-ratio-width-xl,$swiper-detail-view-aspect-ratio-height-xl);
-        }
-    }
-}
-
-// Slide basic styles
-.swiper-slide {
-    background-color: $swiper-default-bg;
-    background-size: cover;
-    background-position: center center;
-    background-repeat: no-repeat;
 }
 
 // Buttons (arrows)
@@ -175,40 +137,58 @@ Global Swiper Custom Styles
     }
 }
 
-// overlay
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+Overlay
+
+*/
+
 @if $swiper-default-overlay-styles-enabled == true {
-    .swiper-content-overlay {
+    .swiper-content__overlay {
         // modifier class for a swiper instance (set on container)
-        .overlay-bg-enabled & {
-            position: absolute;
-            top: 0;
-            right: 0;
-            bottom: 0;
-            left: 0;
-            @include gradient-overlay($swiper-default-overlay-gradient-height);
-            @media (max-width:$screen-sm-max) {
-                background-color: $overlay-background-color-sm-max;
-                opacity: $overlay-background-opacity-sm-max;
-            }
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 5;
+        @include gradient-overlay($swiper-default-overlay-gradient-height);
+        @media (max-width:$screen-sm-max) {
+            background-color: $overlay-background-color-sm-max;
+            opacity: $overlay-background-opacity-sm-max;
         }
     }
-    .swiper-content-container {
-        .heading {
-            color: $overlay-heading-color;
-        }
-        .text-container {
-            > * {
-                color: $overlay-text-color;
-            }
+    .swiper-content__heading {
+        color: $overlay-heading-color;
+    }
+    .swiper-content__text-container {
+        > * {
+            color: $overlay-text-color;
         }
     }
 }
 
-// Slider counter
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+Image
+
+*/
+
+.swiper-content__image {
+    position: relative;
+    z-index: 1;
+}
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+Counter
+
+*/
+
 .swiper-counter {
     display: none;
     float: left;
-
     &.active {
         display: block;
     }
@@ -220,52 +200,17 @@ Basic slider content styling
 
 */
 
-.swiper-content-container {
+.swiper-content__content-container {
     position: absolute;
     @include content-section-spacing-position(bottom);
     @include content-section-spacing-position(left);
     @include content-section-spacing-position(right);
-
+    z-index: 10;
     @media (min-width:$screen-lg) {
         max-width: 66.66%;
     }
-
-    .heading {
-        @include text-lead();
-    }
 }
 
-
-/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
-
-Slider in Detail View
-
-*/
-
-.swiper-detail-view {
-
-    .swiper-slide {
-        @include aspect-ratio($swiper-detail-view-aspect-ratio-width-xs,$swiper-detail-view-aspect-ratio-height-xs);
-        @media (min-width:$screen-md) {
-            @include aspect-ratio($swiper-detail-view-aspect-ratio-width-md,$swiper-detail-view-aspect-ratio-height-md);
-        }
-        @media (min-width:$screen-xl) {
-            @include aspect-ratio($swiper-detail-view-aspect-ratio-width-xl,$swiper-detail-view-aspect-ratio-height-md);
-        }
-    }
-
-}
-
-
-/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
-
-Print Styles
-
-*/
-
-// background images can not easily be printed, so we simply hide the swiper galleries
-.swiper-container {
-    @include print() {
-        display: none !important;
-    }
+.swiper-content__heading {
+    @include h2();
 }

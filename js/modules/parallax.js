@@ -15,11 +15,13 @@ $.fn.parallax = function(options) {
     };
 
     var positionParallaxImage = function($gallery) {
+        var parallax_image_height = $gallery.outerHeight();
         var $parent = $gallery.parent();
-        var height = $gallery.parent().outerHeight();
-        var difference = $gallery.outerHeight() - $parent.outerHeight();
+        var parent_height = $parent.outerHeight();
+        var difference = parallax_image_height - parent_height;
+        console.log( difference );
         var scrollTop = getScrollTop($window.scrollTop(), $parent.offset().top);
-        var scrollProgress = scrollTop / ($window.height() + height);
+        var scrollProgress = scrollTop / ($window.height() + parent_height);
 
         if(options.updateCallback) {
             options.updateCallback($gallery, difference, scrollProgress);
@@ -60,7 +62,7 @@ export function initParallax(options) {
     var options = options || {};
     // available options and default values
     if (!options.selector) {
-        options.selector = '.parallax-enabled .bg-image';
+        options.selector = '.parallax-enabled .content-section__bg-image-outer > picture';
     }
     // no selector, no honey
     if (options.selector) {

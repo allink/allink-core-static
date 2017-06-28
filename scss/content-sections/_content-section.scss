@@ -4,6 +4,14 @@ Default Content Section Styles
 
 */
 
+// reusable mixons on the spot
+@mixin main-col-container-positioning() {
+    position: absolute;
+    left: 0;
+    right: 0;
+    @include content-section-spacing-position();
+}
+
 // default content section spacings and general styles
 .content-section {
 
@@ -26,7 +34,55 @@ Default Content Section Styles
     &.has-bg-image {
         margin-top: 0;
         margin-bottom: 0;
-        @include content-section-spacing-padding();
+        padding-top: 0;
+        padding-bottom: 0;
+        overflow: hidden;
+        position: relative;
+        // default image ratio
+        &:not(.full-height-enabled):not(.dynamic-height-enabled) {
+            @include aspect-ratio($content-section-bg-image-outer-width-xs,$content-section-bg-image-outer-height-xs,'content-section__bg-image-ratio');
+            @media (min-width:$screen-md) {
+                @include aspect-ratio($content-section-bg-image-outer-width-md,$content-section-bg-image-outer-height-md,'content-section__bg-image-ratio');
+            }
+            @media (min-width:$screen-xl) {
+                @include aspect-ratio($content-section-bg-image-outer-width-xl,$content-section-bg-image-outer-height-md,'content-section__bg-image-ratio');
+            }
+        }
+        .content-section__main-col-container {
+            @include main-col-container-positioning();
+        }
+        // in case the dynamic height options is enabled:
+        &.dynamic-height-enabled {
+            // re-add padding
+            @include content-section-spacing-padding();
+            // hide the ratio
+            &:before {
+                display: none;
+            }
+            // get the text in the flow
+            .content-section__main-col-container {
+                position: relative;
+                top: auto;
+                right: auto;
+                bottom: auto;
+                left: auto;
+            }
+        }
+    }
+
+    // per default, align section image vertically
+    &__bg-image-outer {
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        left: 0;
+        top: 0;
+        z-index: 1;
+        picture {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+        }
     }
 
     // special spacing: container has a background VIDEO
@@ -36,6 +92,9 @@ Default Content Section Styles
         &:first-child,
         &:last-child {
             padding: 0;
+        }
+        .content-section__main-col-container {
+            @include main-col-container-positioning();
         }
     }
 
@@ -77,6 +136,30 @@ Default Content Section Styles
 
     /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 
+    Default Text Container
+
+    */
+
+    &__main-col-container {
+        position: relative;
+        z-index: 10;
+    }
+
+
+    /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+    Dynamic Height
+
+    */
+
+    &.dynamic-height-enabled {
+
+    }
+
+
+
+    /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
     Parallax
 
     */
@@ -87,33 +170,29 @@ Default Content Section Styles
         padding: 0;
         // apply min-height only IF the full height mode is NOT active
         &:not(.full-height-enabled) {
-            @include aspect-ratio($parallax-aspect-ratio-width-xs,$parallax-aspect-ratio-height-xs);
+            @include aspect-ratio($parallax-aspect-ratio-width-xs,$parallax-aspect-ratio-height-xs,'content-section__bg-image-ratio');
             @media (min-width:$screen-md) {
-                @include aspect-ratio($parallax-aspect-ratio-width-md,$parallax-aspect-ratio-height-md);
+                @include aspect-ratio($parallax-aspect-ratio-width-md,$parallax-aspect-ratio-height-md,'content-section__bg-image-ratio');
             }
             @media (min-width:$screen-xl) {
-                @include aspect-ratio($parallax-aspect-ratio-width-xl,$parallax-aspect-ratio-height-md);
-                // has to be set AFTER the ratio mixin
-                max-height: $parallax-max-height;
+                @include aspect-ratio($parallax-aspect-ratio-width-xl,$parallax-aspect-ratio-height-md,'content-section__bg-image-ratio');
+            }
+        }
+        .content-section__bg-image-outer {
+            position: relative;
+            picture {
+                top: auto;
+                transform: none;
+            }
+        }
+        &.full-height-enabled {
+            .content-section__bg-image-outer {
+                transform: translateY(-50%);
             }
         }
         .content-section__main-col-container {
-            position: absolute;
-            left: 0;
-            right: 0;
-            @include content-section-spacing-position();
+            @include main-col-container-positioning();
         }
-    }
-
-    &__bg-image {
-        background-repeat: no-repeat;
-        height: $parallax-bg-image-height;
-        width: 100%;
-        background-size: cover;
-        background-position: center;
-        position: absolute;
-        left: 0;
-        top: 0;
     }
 
 
@@ -143,20 +222,23 @@ Default Content Section Styles
         right: 0;
         bottom: 0;
         left: 0;
-        @include gradient-overlay(50%);
-        @media (max-width:$screen-sm-max) {
-            background-color: $overlay-background-color-sm-max;
-            opacity: $overlay-background-opacity-sm-max;
+        z-index: 5;
+        @include gradient-overlay($content-section-outer-overlay-gradient-height-xs);
+        @media (min-width:$screen-sm) {
+            @include gradient-overlay($content-section-outer-overlay-gradient-height-sm);
         }
-    }
-    // element only exists, if an INNER background image has been defined
-    &__inner-overlay {
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        @include gradient-overlay(66%);
+        @media (min-width:$screen-md) {
+            @include gradient-overlay($content-section-outer-overlay-gradient-height-md);
+        }
+        @media (min-width:$screen-lg) {
+            @include gradient-overlay($content-section-outer-overlay-gradient-height-lg);
+        }
+        @media (min-width:$screen-xl) {
+            @include gradient-overlay($content-section-outer-overlay-gradient-height-xl);
+        }
+        @media (min-width:$screen-xxl) {
+            @include gradient-overlay($content-section-outer-overlay-gradient-height-xxl);
+        }
     }
 
 
@@ -172,21 +254,31 @@ Default Content Section Styles
             position: relative;
         }
         .content_section__bg-image-inner {
-            background-repeat: no-repeat;
-            background-size: cover;
-            background-position: center;
-            @include aspect-ratio($content-plugin-inner-bg-container-ratio-width-xs,$content-plugin-inner-bg-container-ratio-height-xs);
-            @media (min-width:$screen-md) {
-                @include aspect-ratio($content-plugin-inner-bg-container-ratio-width-md,$content-plugin-inner-bg-container-ratio-height-md);
-            }
-            @media (min-width:$screen-xl) {
-                @include aspect-ratio($content-plugin-inner-bg-container-ratio-width-xl,$content-plugin-inner-bg-container-ratio-height-md);
-            }
+            position: relative;
+            z-index: 1;
         }
         .content-section__inner-overlay {
-            display: none;
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            z-index: 5;
+            @include gradient-overlay($content-section-bg-image-inner-overlay-gradient-height-xs);
+            @media (min-width:$screen-sm) {
+                @include gradient-overlay($content-section-bg-image-inner-overlay-gradient-height-sm);
+            }
             @media (min-width:$screen-md) {
-                display: block;
+                @include gradient-overlay($content-section-bg-image-inner-overlay-gradient-height-md);
+            }
+            @media (min-width:$screen-lg) {
+                @include gradient-overlay($content-section-bg-image-inner-overlay-gradient-height-lg);
+            }
+            @media (min-width:$screen-xl) {
+                @include gradient-overlay($content-section-bg-image-inner-overlay-gradient-height-xl);
+            }
+            @media (min-width:$screen-xxl) {
+                @include gradient-overlay($content-section-bg-image-inner-overlay-gradient-height-xxl);
             }
         }
         .content-section__main-text-container {
@@ -253,41 +345,10 @@ Default Content Section Styles
     */
 
     &.has-bg-video {
-
         position: relative;
-
-        // min heights for mobile image
-        @media (max-width:$screen-sm-max) {
-            @include aspect-ratio($content-plugin-video-mobile-image-ratio-width,$content-plugin-video-mobile-image-ratio-height);
-        }
-
-        .content-section__main-col-container {
-            position: absolute;
-            left: 0;
-            right: 0;
-            @include content-section-spacing-position();
-        }
 
         // default: display the video proportionally
         .content-section__video-container {
-            background-size: cover;
-            background-position: center center;
-            overflow: hidden;
-
-            @media (max-width:$screen-sm-max) {
-                position: absolute;
-                top: 0;
-                right: 0;
-                bottom: 0;
-                left: 0;
-            }
-
-            &.align-right {
-                background-position: center right;
-            }
-            &.align-left {
-                background-position: center left;
-            }
             .the-video {
                 display: none;
                 @media (min-width: $screen-md ) {
@@ -295,6 +356,20 @@ Default Content Section Styles
                     width: 100% !important;
                     height: auto !important;
                 }
+            }
+        }
+
+        // mobile fallback
+        .content-section__video-mobile-image {
+            display: block;
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            overflow: hidden;
+            @media (min-width:$screen-md) {
+                display: none;
             }
         }
 
@@ -326,16 +401,71 @@ Default Content Section Styles
 
     }
 
-    // using the available height
+    /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+    Full height
+
+    */
+
     &.full-height-enabled {
         position: relative;
-        .content-section__main-col-container {
-            position: absolute;
-            left: 0;
-            right: 0;
-            @include content-section-spacing-position();
+
+        .content-section__video-mobile-image {
+            picture {
+                position: absolute;
+                top: 50%;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                transform: translate(0,-50%);
+                img {
+                    display: block;
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    min-width: 100%;
+                    min-height: 100%;
+                    width: auto !important;
+                    height: auto !important;
+                    transform: translate(-50%,-50%);
+                }
+            }
         }
-        // magic
+
+        .content-section__bg-image-outer {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            picture {
+                position: absolute;
+                top: 50%;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                transform: translate(0,-50%);
+                img {
+                    display: block;
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    min-width: 100%;
+                    min-height: 100%;
+                    width: auto !important;
+                    height: auto !important;
+                    transform: translate(-50%,-50%);
+                }
+            }
+        }
+
+        // set height
         @if $site-header-fixed-use-buffer == true and $site-header-fixed-enabled == true {
             min-height: calc(100vh - #{$site-header-height-xs});
             @media (min-width:$screen-md) {
