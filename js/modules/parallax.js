@@ -19,7 +19,6 @@ $.fn.parallax = function(options) {
         var $parent = $gallery.parent();
         var parent_height = $parent.outerHeight();
         var difference = parallax_image_height - parent_height;
-        console.log( difference );
         var scrollTop = getScrollTop($window.scrollTop(), $parent.offset().top);
         var scrollProgress = scrollTop / ($window.height() + parent_height);
 
