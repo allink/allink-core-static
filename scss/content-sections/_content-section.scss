@@ -40,12 +40,22 @@ Default Content Section Styles
         position: relative;
         // default image ratio
         &:not(.full-height-enabled):not(.dynamic-height-enabled) {
-            @include aspect-ratio($content-section-bg-image-outer-width-xs,$content-section-bg-image-outer-height-xs,'content-section__bg-image-ratio');
+            $content-section-bg-image-outer-ratio-container: 'content-section__bg-image-ratio';
+            @include aspect-ratio($content-section-bg-image-outer-width-xs,$content-section-bg-image-outer-height-xs,$content-section-bg-image-outer-ratio-container);
+            @media (min-width:$screen-sm) {
+                @include aspect-ratio($content-section-bg-image-outer-width-sm,$content-section-bg-image-outer-height-sm,$content-section-bg-image-outer-ratio-container);
+            }
             @media (min-width:$screen-md) {
-                @include aspect-ratio($content-section-bg-image-outer-width-md,$content-section-bg-image-outer-height-md,'content-section__bg-image-ratio');
+                @include aspect-ratio($content-section-bg-image-outer-width-md,$content-section-bg-image-outer-height-md,$content-section-bg-image-outer-ratio-container);
+            }
+            @media (min-width:$screen-lg) {
+                @include aspect-ratio($content-section-bg-image-outer-width-lg,$content-section-bg-image-outer-height-lg,$content-section-bg-image-outer-ratio-container);
             }
             @media (min-width:$screen-xl) {
-                @include aspect-ratio($content-section-bg-image-outer-width-xl,$content-section-bg-image-outer-height-md,'content-section__bg-image-ratio');
+                @include aspect-ratio($content-section-bg-image-outer-width-xl,$content-section-bg-image-outer-height-xl,$content-section-bg-image-outer-ratio-container);
+            }
+            @media (min-width:$screen-xxl) {
+                @include aspect-ratio($content-section-bg-image-outer-width-xxl,$content-section-bg-image-outer-height-xxl,$content-section-bg-image-outer-ratio-container);
             }
         }
         .content-section__main-col-container {
@@ -78,7 +88,7 @@ Default Content Section Styles
         left: 0;
         top: 0;
         z-index: 1;
-        picture {
+        > picture {
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
@@ -140,7 +150,14 @@ Default Content Section Styles
 
     */
 
+    // for columns
     &__main-col-container {
+        position: relative;
+        z-index: 10;
+    }
+
+    // container
+    &__main-text-container {
         position: relative;
         z-index: 10;
     }
@@ -170,12 +187,22 @@ Default Content Section Styles
         padding: 0;
         // apply min-height only IF the full height mode is NOT active
         &:not(.full-height-enabled) {
-            @include aspect-ratio($parallax-aspect-ratio-width-xs,$parallax-aspect-ratio-height-xs,'content-section__bg-image-ratio');
+            $parallax-ratio-container: 'content-section__bg-image-ratio';
+            @include aspect-ratio($parallax-aspect-ratio-width-xs,$parallax-aspect-ratio-height-xs,$parallax-ratio-container);
+            @media (min-width:$screen-sm) {
+                @include aspect-ratio($parallax-aspect-ratio-width-sm,$parallax-aspect-ratio-height-sm,$parallax-ratio-container);
+            }
             @media (min-width:$screen-md) {
-                @include aspect-ratio($parallax-aspect-ratio-width-md,$parallax-aspect-ratio-height-md,'content-section__bg-image-ratio');
+                @include aspect-ratio($parallax-aspect-ratio-width-md,$parallax-aspect-ratio-height-md,$parallax-ratio-container);
+            }
+            @media (min-width:$screen-lg) {
+                @include aspect-ratio($parallax-aspect-ratio-width-lg,$parallax-aspect-ratio-height-lg,$parallax-ratio-container);
             }
             @media (min-width:$screen-xl) {
-                @include aspect-ratio($parallax-aspect-ratio-width-xl,$parallax-aspect-ratio-height-md,'content-section__bg-image-ratio');
+                @include aspect-ratio($parallax-aspect-ratio-width-xl,$parallax-aspect-ratio-height-xl,$parallax-ratio-container);
+            }
+            @media (min-width:$screen-xxl) {
+                @include aspect-ratio($parallax-aspect-ratio-width-xxl,$parallax-aspect-ratio-height-xxl,$parallax-ratio-container);
             }
         }
         .content-section__bg-image-outer {
@@ -359,14 +386,18 @@ Default Content Section Styles
             }
         }
 
+        .content-section__main-col-container {
+            @include main-col-container-positioning();
+        }
+
         // mobile fallback
         .content-section__video-mobile-image {
-            display: block;
-            position: absolute;
-            top: 0;
-            right: 0;
-            bottom: 0;
-            left: 0;
+            // display: block;
+            // position: absolute;
+            // top: 0;
+            // right: 0;
+            // bottom: 0;
+            // left: 0;
             overflow: hidden;
             @media (min-width:$screen-md) {
                 display: none;
@@ -383,6 +414,7 @@ Default Content Section Styles
                 right: 0;
                 bottom: 0;
                 left: 0;
+                overflow: hidden;
                 .the-video {
                     @media (min-width: $screen-md ) {
                         display: block;
@@ -411,7 +443,7 @@ Default Content Section Styles
         position: relative;
 
         .content-section__video-mobile-image {
-            picture {
+            > picture {
                 position: absolute;
                 top: 50%;
                 right: 0;
@@ -420,7 +452,7 @@ Default Content Section Styles
                 width: 100%;
                 height: 100%;
                 transform: translate(0,-50%);
-                img {
+                > img {
                     display: block;
                     position: absolute;
                     top: 50%;
@@ -442,7 +474,7 @@ Default Content Section Styles
             left: 0;
             width: 100%;
             height: 100%;
-            picture {
+            > picture {
                 position: absolute;
                 top: 50%;
                 right: 0;
@@ -451,7 +483,10 @@ Default Content Section Styles
                 width: 100%;
                 height: 100%;
                 transform: translate(0,-50%);
-                img {
+                @media (max-width:$screen-sm-max) {
+                    height: $parallax-full-height-mobile-height;
+                }
+                > img {
                     display: block;
                     position: absolute;
                     top: 50%;
