@@ -1,10 +1,13 @@
 .styleguide-section {
-    > .container {
+    .content-section__container {
         @include container-fixed();
         @include max-width();
         @media (min-width:$screen-lg) {
             max-width: 60%;
         }
+    }
+    .content-section__section-heading {
+        padding: 0;
     }
 }
 
