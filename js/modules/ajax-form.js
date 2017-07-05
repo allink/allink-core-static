@@ -30,6 +30,8 @@ export function sendAjaxForm($form) {
     // init
     var url = $form.attr('action');
     var custom_event = $form.attr('data-success-data-layer-event');
+    var custom_event_id = $form.attr('data-success-data-layer-event-identifier');
+    if (! custom_event_id) custom_event_id = '';
     var success_url = $form.attr('data-success-url');
     var container_id = $form.attr('data-form-container-id');
     var postData = $form.serialize();
@@ -74,6 +76,7 @@ export function sendAjaxForm($form) {
                         // add values to array
                         dataLayer.push({
                             'event': custom_event,
+                            'form_id': custom_event_id
                         });
                     }
                 }
