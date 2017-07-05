@@ -4,8 +4,8 @@ Global Swiper Custom Styles
 
 */
 
-// Slide ratios (works closely together with the thumbnail settings)
-.swiper-slide {
+.swiper-container-inner {
+    position: relative;
 }
 
 // Buttons (arrows)
@@ -137,6 +137,12 @@ Global Swiper Custom Styles
     }
 }
 
+.swiper-optional-container {
+    position: relative;
+    margin-top: $grid-gutter-width/4;
+    @include clearfix();
+}
+
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 
 Overlay
@@ -187,11 +193,27 @@ Counter
 */
 
 .swiper-counter {
+
     display: none;
-    float: left;
-    &.active {
-        display: block;
+    float: right;
+
+    &__current {
     }
+
+    &__separator {
+        &:before {
+            content: '/';
+        }
+    }
+
+    &__total {
+
+    }
+}
+
+// activated via plugin
+.swiper-counter--active {
+    display: block;
 }
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *

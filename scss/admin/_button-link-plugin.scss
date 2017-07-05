@@ -4,12 +4,19 @@ Button/Link Plugin
 
 */
 
-body.app-djangocms_button_link {
+body.app-allink_button_link {
     #container {
         background-color: $container-bg;
     }
     fieldset.module {
         padding: $fieldset-spacing !important;
+    }
+    &.popup {
+        #content {
+            form {
+                padding: 0;
+            }
+        }
     }
 }
 

@@ -92,6 +92,7 @@ Custom Styles
             border-color: #ddd !important;
             box-shadow: none !important;
             appearance: none;
+            color: #333 !important;
         }
     }
     .dropdown-menu {
@@ -102,6 +103,11 @@ Custom Styles
         > li {
             padding: 0 !important;
             a {
+                &,
+                &:link,
+                &:visited {
+                    color: #444 !important;
+                }
                 &:hover,
                 &:focus {
                     color: black !important;

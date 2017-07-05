@@ -1,13 +1,4 @@
-// temporary spacing fix until we remove the .content-section markup from the instagram plugin (in the future we ONLY want to place the feed within columns of the Content Plugin, not asa standalone plugin)
-.content-section {
-    &.instagram-plugin {
-        padding: 0;
-        margin: 0;
-    }
-}
-
-
-.instagramfeed-plugin-container {
+.instagram-plugin {
     display: flex;
     flex-wrap: wrap;
     margin-left: -$grid-gutter-width;
@@ -39,7 +30,7 @@
     }
 }
 
-.instagramfeed-follow__outer {
+.instagram-follow__outer {
     background-color: $brand-primary;
     display: inline-block;
     position: relative;
@@ -57,7 +48,7 @@
     }
 }
 
-.instagramfeed-follow__text {
+.instagram-follow__text {
     @include h2();
     color: $white;
 
@@ -66,7 +57,7 @@
     }
 }
 
-.instagramfeed-follow__inner {
+.instagram-follow__inner {
     left: 50%;
     overflow: hidden;
     position: absolute;
@@ -76,7 +67,7 @@
     width: 80%;
 }
 
-.instagramfeed-follow__link {
+.instagram-follow__link {
     @include h3();
     @include font-family-bold();
     border: 3px solid $white;
@@ -91,7 +82,7 @@
         background-color: $white;
         color: $brand-primary;
 
-        .instagramfeed-follow__icon__text {
+        .instagram-follow__icon__text {
             color: $brand-primary;
         }
     }
@@ -103,7 +94,7 @@
     }
 }
 
-.instagramfeed-follow__icon__text {
+.instagram-follow__icon__text {
     color: inherit;
     display: inline-block;
     margin: 5px 0;

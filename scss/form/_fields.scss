@@ -21,8 +21,8 @@ Text Fields
     box-shadow: none;
     transition: $form-field-transition;
     // applying button padding (top/bottom) to make them equally high in case of input-groups
-    padding-top: $btn-padding-top-default;
-    padding-bottom: $btn-padding-bottom-default;
+    padding-top: $btn-padding-top;
+    padding-bottom: $btn-padding-bottom;
     // iPad improvements
     -webkit-appearance: none;
     &:focus {

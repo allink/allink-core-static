@@ -12,11 +12,6 @@ Basic styles for the picture plugin
             height: auto;
         }
     }
-    // optional: when cropping is disabled
-    img.cropping-disabled {
-        max-width: 100%;
-        height: auto;
-    }
 }
 
 figcaption {

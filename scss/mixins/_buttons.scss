@@ -1,0 +1,109 @@
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+Get a specific button variation on the spot
+
+===
+
+How to use:
+
+.some-link {
+    @include button-variation('primary');
+}
+
+*/
+
+@mixin button-variation($variation: 'default') {
+    // base styles
+    transition: $form-field-transition;
+    display: inline-block;
+    // variation styles
+    background-color: map-deep-get($btn-variations,$variation,'bg');
+    border-top-color: map-deep-get($btn-variations,$variation,'border-top-color');
+    border-right-color: map-deep-get($btn-variations,$variation,'border-right-color');
+    border-bottom-color: map-deep-get($btn-variations,$variation,'border-bottom-color');
+    border-left-color: map-deep-get($btn-variations,$variation,'border-left-color');
+    &,
+    &:link,
+    &:visited {
+        color: map-deep-get($btn-variations,$variation,'color');
+    }
+    &:hover,
+    &:focus,
+    &:focus:active,
+    &:active,
+    &:active:hover {
+        background-color: map-deep-get($btn-variations,$variation,'bg-hover');
+        color: map-deep-get($btn-variations,$variation,'color-hover');
+        border-top-color: map-deep-get($btn-variations,$variation,'border-top-color-hover');
+        border-right-color: map-deep-get($btn-variations,$variation,'border-right-color-hover');
+        border-bottom-color: map-deep-get($btn-variations,$variation,'border-bottom-color-hover');
+        border-left-color: map-deep-get($btn-variations,$variation,'border-left-color-hover');
+        outline: none; // not very good because of accessibility reasons, but the default style looks too ugly.
+    }
+    &.disabled,
+    &[disabled],
+    fieldset[disabled] & {
+        opacity: 1;
+        background-color: map-deep-get($btn-variations,$variation,'bg-disabled');
+        color: map-deep-get($btn-variations,$variation,'color-disabled');
+        border-top-color: map-deep-get($btn-variations,$variation,'border-top-color-disabled');
+        border-right-color: map-deep-get($btn-variations,$variation,'border-right-color-disabled');
+        border-bottom-color: map-deep-get($btn-variations,$variation,'border-bottom-color-disabled');
+        border-left-color: map-deep-get($btn-variations,$variation,'border-left-color-disabled');
+    }
+}
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+Get the base styles for a button
+
+*/
+
+@mixin button-base() {
+
+    &:link,
+    &:visited {
+        text-decoration: none;
+        box-shadow: none;
+    }
+    &:hover,
+    &:focus,
+    &:active {
+        text-decoration: none;
+        box-shadow: none;
+        outline: none;
+    }
+    // font sizes
+    @include text-btn-default();
+    &.btn-sm {
+        @include text-btn-small();
+        // make sure our button has the correct lineheight
+        line-height: $btn-line-height;
+    }
+    &.btn-lg {
+        @include text-btn-large();
+        // make sure our button has the correct lineheight
+        line-height: $btn-line-height;
+    }
+
+    // IMPORTANT: Has to be set AFTER the font definition, for we ignore the line-height defined in the font settings of buttons
+    border-style: $form-field-border-style;
+    border-width: $form-field-border-width;
+    border-color: $form-field-border-color;
+
+    // optional we can make use of the .inverted-colors context
+    @if $form-field-inverted-enabled == true {
+        .inverted-colors & {
+            transition: $form-field-inverted-transition;
+            border-style: $form-field-inverted-border-style;
+            border-width: $form-field-inverted-border-width;
+            border-color: $form-field-inverted-border-color;
+        }
+    }
+
+    padding-top: $btn-padding-top;
+    padding-right: $btn-padding-right;
+    padding-bottom: $btn-padding-bottom;
+    padding-left: $btn-padding-left;
+    line-height: $btn-line-height;
+}

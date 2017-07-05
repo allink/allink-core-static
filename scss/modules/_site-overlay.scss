@@ -19,11 +19,14 @@
     }
     // when form modal is visible
     .form-modal-visible & {
-        z-index: z("site-overlay-form-modal");
+        z-index: z("site-overlay-above-all");
     }
     // when image modal is visible
     .form-modal-visible & {
-        z-index: z("site-overlay-image-modal");
+        z-index: z("site-overlay-above-all");
+    }
+    .swiper-fullscreen-visible & {
+        z-index: z("site-overlay-above-all");
     }
     @include print() {
         display: none !important;

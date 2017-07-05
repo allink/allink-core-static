@@ -23,13 +23,19 @@ One specific breakpoint ONLY
 }
 
 @mixin make-spacing-top-lg-only($size,$property:'margin') {
-    @media (min-width: $screen-lg-min) {
+    @media (min-width: $screen-lg-min) and (max-width: $screen-lg-max) {
         #{$property}-top: $size;
     }
 }
 
 @mixin make-spacing-top-xl-only($size,$property:'margin') {
-    @media (min-width: $screen-xl-min) {
+    @media (min-width: $screen-xl-min) and (max-width: $screen-xs-max) {
+        #{$property}-top: $size;
+    }
+}
+
+@mixin make-spacing-top-xxl-only($size,$property:'margin') {
+    @media (min-width: $screen-xxl-min) {
         #{$property}-top: $size;
     }
 }
@@ -37,26 +43,23 @@ One specific breakpoint ONLY
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 
-MINimum breakpoint and EVERYTHING below
+MINimum breakpoint and EVERYTHING above
 
 */
 
 @mixin make-spacing-top-xs($size,$property:'margin') {
     #{$property}-top: $size;
 }
-
 @mixin make-spacing-top-sm($size,$property:'margin') {
     @media (min-width: $screen-sm-min) {
         #{$property}-top: $size;
     }
 }
-
 @mixin make-spacing-top-md($size,$property:'margin') {
     @media (min-width: $screen-md-min) {
         #{$property}-top: $size;
     }
 }
-
 @mixin make-spacing-top-lg($size,$property:'margin') {
     @media (min-width: $screen-lg-min) {
         #{$property}-top: $size;
@@ -64,6 +67,11 @@ MINimum breakpoint and EVERYTHING below
 }
 @mixin make-spacing-top-xl($size,$property:'margin') {
     @media (min-width: $screen-xl-min) {
+        #{$property}-top: $size;
+    }
+}
+@mixin make-spacing-top-xxl($size,$property:'margin') {
+    @media (min-width: $screen-xxl-min) {
         #{$property}-top: $size;
     }
 }
@@ -79,25 +87,21 @@ MAXimum breakpoint and EVERYTHING below
         #{$property}-top: $size;
     }
 }
-
 @mixin make-spacing-top-sm-max($size,$property:'margin') {
     @media (max-width: $screen-sm-max) {
         #{$property}-top: $size;
     }
 }
-
 @mixin make-spacing-top-md-max($size,$property:'margin') {
     @media (max-width: $screen-md-max) {
         #{$property}-top: $size;
     }
 }
-
 @mixin make-spacing-top-lg-max($size,$property:'margin') {
     @media (max-width: $screen-lg-max) {
         #{$property}-top: $size;
     }
 }
-
 @mixin make-spacing-top-xl-max($size,$property:'margin') {
     @media (max-width: $screen-xl-max) {
         #{$property}-top: $size;
@@ -356,7 +360,7 @@ App Detail
     }
 }
 
-// header section: deeplink
+// header section
 @mixin app-detail-header-section-spacing($property: margin) {
     // reset first
     padding: 0;
@@ -380,123 +384,116 @@ App Detail
     }
 }
 
-// header section: softpage
-@mixin app-detail-softpage-header-section-spacing($property: margin) {
-    // reset first
-    padding: 0;
-    margin: 0;
+// heading container
+@mixin app-detail-heading-container-spacing-bottom() {
     // add spacing
-    #{$property}: $app-detail-softpage-header-section-spacing-xs;
+    margin-bottom: $app-detail-heading-container-spacing-bottom-xs;
     @media (min-width: $screen-sm) {
-        #{$property}: $app-detail-softpage-header-section-spacing-sm;
+        margin-bottom: $app-detail-heading-container-spacing-bottom-sm;
     }
     @media (min-width: $screen-md) {
-        #{$property}: $app-detail-softpage-header-section-spacing-md;
+        margin-bottom: $app-detail-heading-container-spacing-bottom-md;
     }
     @media (min-width: $screen-lg) {
-        #{$property}: $app-detail-softpage-header-section-spacing-lg;
+        margin-bottom: $app-detail-heading-container-spacing-bottom-lg;
     }
     @media (min-width: $screen-xl) {
-        #{$property}: $app-detail-softpage-header-section-spacing-xl;
+        margin-bottom: $app-detail-heading-container-spacing-bottom-xl;
     }
     @media (min-width: $screen-xxl) {
-        #{$property}: $app-detail-softpage-header-section-spacing-xxl;
+        margin-bottom: $app-detail-heading-container-spacing-bottom-xxl;
     }
 }
 
-// section heading container: deeplink
-@mixin app-detail-section-heading-container-spacing($property: margin) {
-    // reset first
-    padding: 0;
-    margin: 0;
+// lead (spacing to next element)
+@mixin app-detail-spacing-between-lead-and-content() {
     // add spacing
-    #{$property}: $app-detail-section-heading-container-spacing-xs;
+    margin-top: $app-detail-spacing-between-lead-and-content-xs;
     @media (min-width: $screen-sm) {
-        #{$property}: $app-detail-section-heading-container-spacing-sm;
+        margin-top: $app-detail-spacing-between-lead-and-content-sm;
     }
     @media (min-width: $screen-md) {
-        #{$property}: $app-detail-section-heading-container-spacing-md;
+        margin-top: $app-detail-spacing-between-lead-and-content-md;
     }
     @media (min-width: $screen-lg) {
-        #{$property}: $app-detail-section-heading-container-spacing-lg;
+        margin-top: $app-detail-spacing-between-lead-and-content-lg;
     }
     @media (min-width: $screen-xl) {
-        #{$property}: $app-detail-section-heading-container-spacing-xl;
+        margin-top: $app-detail-spacing-between-lead-and-content-xl;
     }
     @media (min-width: $screen-xxl) {
-        #{$property}: $app-detail-section-heading-container-spacing-xxl;
+        margin-top: $app-detail-spacing-between-lead-and-content-xxl;
     }
 }
 
-// section heading container: softpage
-@mixin app-detail-softpage-section-heading-container-spacing($property: margin) {
-    // reset first
-    padding: 0;
-    margin: 0;
+// created
+@mixin app-detail-created-spacing-top() {
     // add spacing
-    #{$property}: $app-detail-softpage-section-heading-container-spacing-xs;
+    margin-top: $app-detail-created-spacing-top-xs;
     @media (min-width: $screen-sm) {
-        #{$property}: $app-detail-softpage-section-heading-container-spacing-sm;
+        margin-top: $app-detail-created-spacing-top-sm;
     }
     @media (min-width: $screen-md) {
-        #{$property}: $app-detail-softpage-section-heading-container-spacing-md;
+        margin-top: $app-detail-created-spacing-top-md;
     }
     @media (min-width: $screen-lg) {
-        #{$property}: $app-detail-softpage-section-heading-container-spacing-lg;
+        margin-top: $app-detail-created-spacing-top-lg;
     }
     @media (min-width: $screen-xl) {
-        #{$property}: $app-detail-softpage-section-heading-container-spacing-xl;
+        margin-top: $app-detail-created-spacing-top-xl;
     }
     @media (min-width: $screen-xxl) {
-        #{$property}: $app-detail-softpage-section-heading-container-spacing-xxl;
+        margin-top: $app-detail-created-spacing-top-xxl;
     }
 }
 
-// content section: deeplink
-@mixin app-detail-content-section-spacing($property: margin) {
-    // reset first
-    padding: 0;
-    margin: 0;
-    // add spacing
-    #{$property}: $app-detail-content-section-spacing-xs;
-    @media (min-width: $screen-sm) {
-        #{$property}: $app-detail-content-section-spacing-sm;
+@mixin app-detail-content-section-spacing-padding() {
+    padding-top: $app-detail-content-section-spacing-xs;
+    padding-bottom: $app-detail-content-section-spacing-xs;
+    @media (min-width:$screen-sm) {
+        padding-top: $app-detail-content-section-spacing-sm;
+        padding-bottom: $app-detail-content-section-spacing-sm;
     }
-    @media (min-width: $screen-md) {
-        #{$property}: $app-detail-content-section-spacing-md;
+    @media (min-width:$screen-md) {
+        padding-top: $app-detail-content-section-spacing-md;
+        padding-bottom: $app-detail-content-section-spacing-md;
     }
-    @media (min-width: $screen-lg) {
-        #{$property}: $app-detail-content-section-spacing-lg;
+    @media (min-width:$screen-lg) {
+        padding-top: $app-detail-content-section-spacing-lg;
+        padding-bottom: $app-detail-content-section-spacing-lg;
     }
-    @media (min-width: $screen-xl) {
-        #{$property}: $app-detail-content-section-spacing-xl;
+    @media (min-width:$screen-xl) {
+        padding-top: $app-detail-content-section-spacing-xl;
+        padding-bottom: $app-detail-content-section-spacing-xl;
     }
-    @media (min-width: $screen-xxl) {
-        #{$property}: $app-detail-content-section-spacing-xxl;
+    @media (min-width:$screen-xxl) {
+        padding-top: $app-detail-content-section-spacing-xxl;
+        padding-bottom: $app-detail-content-section-spacing-xxl;
     }
 }
 
-// content section: softpage
-@mixin app-detail-softpage-content-section-spacing($property: margin) {
-    // reset first
-    padding: 0;
-    margin: 0;
-    // add spacing
-    #{$property}: $app-detail-softpage-content-section-spacing-xs;
-    @media (min-width: $screen-sm) {
-        #{$property}: $app-detail-softpage-content-section-spacing-sm;
+@mixin app-detail-content-section-spacing-margin() {
+    margin-top: $app-detail-content-section-spacing-xs;
+    margin-bottom: $app-detail-content-section-spacing-xs;
+    @media (min-width:$screen-sm) {
+        margin-top: $app-detail-content-section-spacing-sm;
+        margin-bottom: $app-detail-content-section-spacing-sm;
     }
-    @media (min-width: $screen-md) {
-        #{$property}: $app-detail-softpage-content-section-spacing-md;
+    @media (min-width:$screen-md) {
+        margin-top: $app-detail-content-section-spacing-md;
+        margin-bottom: $app-detail-content-section-spacing-md;
     }
-    @media (min-width: $screen-lg) {
-        #{$property}: $app-detail-softpage-content-section-spacing-lg;
+    @media (min-width:$screen-lg) {
+        margin-top: $app-detail-content-section-spacing-lg;
+        margin-bottom: $app-detail-content-section-spacing-lg;
     }
-    @media (min-width: $screen-xl) {
-        #{$property}: $app-detail-softpage-content-section-spacing-xl;
+    @media (min-width:$screen-xl) {
+        margin-top: $app-detail-content-section-spacing-xl;
+        margin-bottom: $app-detail-content-section-spacing-xl;
     }
-    @media (min-width: $screen-xxl) {
-        #{$property}: $app-detail-softpage-content-section-spacing-xxl;
+    @media (min-width:$screen-xxl) {
+        margin-top: $app-detail-content-section-spacing-xxl;
+        margin-bottom: $app-detail-content-section-spacing-xxl;
     }
 }
 

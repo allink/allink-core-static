@@ -1,0 +1,138 @@
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+Gallery Plugin
+
+*/
+
+.gallery-slide {
+
+    &____image-container {
+        position: relative;
+        z-index: 1;
+    }
+
+    &__content-container {
+        position: absolute;
+        @include content-section-spacing-position(bottom);
+        @include content-section-spacing-position(left);
+        @include content-section-spacing-position(right);
+        z-index: 10;
+        @media (min-width:$screen-lg) {
+            max-width: 66.66%;
+        }
+    }
+
+    &__heading {
+        @include h2();
+    }
+
+    @if $gallery-plugin-slide-overlay-styles-enabled == true {
+        &__overlay {
+            // modifier class for a swiper instance (set on container)
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            z-index: 5;
+            @include gradient-overlay($gallery-plugin-slide-overlay-gradient-height);
+        }
+        &__heading {
+            color: $overlay-heading-color;
+        }
+        &__text-container {
+            > * {
+                color: $overlay-text-color;
+            }
+        }
+    }
+
+}
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+Fullscreen Gallery
+
+*/
+
+.swiper-button-fullscreen {
+    position: absolute;
+    top: 50%;
+    right: 100px;
+    transform: translate(0,-50%);
+    .swiper-fullscreen-container & {
+        display: none;
+    }
+}
+
+.swiper-fullscreen-container {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    overflow: hidden;
+    transition: all $site-overlay-transition-duration $site-overlay-transition-timing-function;
+    width: 100%;
+    opacity: 0;
+    visibility: hidden;
+    z-index: z('fullscreen-gallery');
+
+    .swiper-fullscreen {
+        flex-shrink: 1;
+        align-self: center;
+        justify-content: center;
+        width: 100%;
+        margin: auto;
+    }
+
+    &.active {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .cms-toolbar-expanded & {
+        // top: $grid-gutter-width + $cms-toolbar-height-expanded;
+    }
+
+    .swiper-content-container,
+    .swiper-counter {
+        position: relative;
+        color: $white;
+
+        * {
+            color: $white;
+        }
+    }
+
+    .swiper-content-container {
+        opacity: 0;
+    }
+
+    .swiper-slide {
+        background-size: cover;
+    }
+
+    .swiper-slide-active {
+        .swiper-content-container {
+            opacity: 1;
+        }
+    }
+}
+
+.swiper-button-fullscreen-close {
+    &.tingle-modal__close {
+        &:before {
+            color: $white;
+        }
+        &:hover,
+        &:focus {
+            &:before {
+                color: $white;
+            }
+        }
+    }
+}

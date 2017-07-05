@@ -85,6 +85,27 @@ Requires the following markup:
     }
 }
 
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+Selected Day
+
+*/
+
+.flatpickr-day {
+    &.selected {
+        &,
+        &:hover,
+        &:focus {
+            color: $datepicker-selected-day-color;
+            background-color: $datepicker-selected-day-bg;
+            border-color: $datepicker-selected-day-border-color;
+            border-width: $datepicker-selected-day-border-width;
+        }
+    }
+}
+
+
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 
 Overwriting default flatpickr styles of time picker to increase accessibility

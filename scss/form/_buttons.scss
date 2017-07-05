@@ -29,53 +29,7 @@ Global Button Definitions
 */
 
 .btn {
-
-    transition: $form-field-transition;
-
-    &:link,
-    &:visited {
-        text-decoration: none;
-        box-shadow: none;
-    }
-    &:hover,
-    &:focus,
-    &:active {
-        text-decoration: none;
-        box-shadow: none;
-        outline: none;
-    }
-    // font sizes
-    @include btn-default();
-    &.btn-sm {
-        @include btn-small();
-        // make sure our button has the correct lineheight
-        line-height: $btn-line-height-default;
-    }
-    &.btn-lg {
-        @include btn-large();
-        // make sure our button has the correct lineheight
-        line-height: $btn-line-height-default;
-    }
-
-    // IMPORTANT: Has to be set AFTER the font definition, for we ignore the line-height defined in the font settings of buttons
-    border-style: $form-field-border-style;
-    border-width: $form-field-border-width;
-    border-color: $form-field-border-color;
-
-    // optional we can make use of the .inverted-colors context
-    @if $form-field-inverted-enabled == true {
-        .inverted-colors & {
-            transition: $form-field-inverted-transition;
-            border-style: $form-field-inverted-border-style;
-            border-width: $form-field-inverted-border-width;
-            border-color: $form-field-inverted-border-color;
-        }
-    }
-
-    padding-top: $btn-padding-top-default;
-    padding-bottom: $btn-padding-bottom-default;
-    line-height: $btn-line-height-default;
-
+    @include button-base();
 }
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
@@ -86,40 +40,7 @@ Basic Button Variations
 
 @each $key, $value in $btn-variations {
     .btn-#{$key} {
-        background-color: map-deep-get($value,'bg');
-        border-top-color: map-deep-get($value,'border-top-color');
-        border-right-color: map-deep-get($value,'border-right-color');
-        border-bottom-color: map-deep-get($value,'border-bottom-color');
-        border-left-color: map-deep-get($value,'border-left-color');
-        &,
-        &:link,
-        &:visited {
-            color: map-deep-get($value,'color');
-        }
-        &:hover,
-        &:focus,
-        &:focus:active,
-        &:active,
-        &:active:hover {
-            background-color: map-deep-get($value,'bg-hover');
-            color: map-deep-get($value,'color-hover');
-            border-top-color: map-deep-get($value,'border-top-color-hover');
-            border-right-color: map-deep-get($value,'border-right-color-hover');
-            border-bottom-color: map-deep-get($value,'border-bottom-color-hover');
-            border-left-color: map-deep-get($value,'border-left-color-hover');
-            outline: none; // not very good because of accessibility reasons, but the default style looks too ugly.
-        }
-        &.disabled,
-        &[disabled],
-        fieldset[disabled] & {
-            opacity: 1;
-            background-color: map-deep-get($value,'bg-disabled');
-            color: map-deep-get($value,'color-disabled');
-            border-top-color: map-deep-get($value,'border-top-color-disabled');
-            border-right-color: map-deep-get($value,'border-right-color-disabled');
-            border-bottom-color: map-deep-get($value,'border-bottom-color-disabled');
-            border-left-color: map-deep-get($value,'border-left-color-disabled');
-        }
+        @include button-variation($key);
     }
 }
 

@@ -7,7 +7,14 @@
     text-align: center;
 }
 
-.lockdown-form {
+.lockdown-plugin__heading {
+    @include h1();
+}
+
+.lockdown-plugin__text {
+}
+
+.lockdown-plugin__form {
     #id_password {
         max-width: 200px;
         margin: 0 auto;

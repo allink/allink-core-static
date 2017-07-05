@@ -1,22 +1,68 @@
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 
+List View (this includes ALL plugin templates such as Grid (Static), Table, and co)
+
+*/
+
+.app-list {
+    &__detail-link {
+        @include button-base();
+        @include button-variation($app-list-btn-variation);
+        @if $app-list-btn-padding-enabled == false {
+            padding: 0;
+        }
+    }
+
+    &__load-more-link {
+        @include button-base();
+        @include button-variation($app-list-load-more-btn-variation);
+        @if $app-list-load-more-btn-padding-enabled == false {
+            padding: 0;
+        }
+    }
+}
+
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
 Detail View
 
 */
 
 .app-detail {
 
-    // within modal
+    // set max width
+    max-width: $app-detail-content-container-max-width;
+    margin: 0 auto;
+
+    // within modal, add some spacing
     .tingle-modal & {
         @include app-detail-softpage-spacing();
-        max-width: $app-detail-softpage-content-max-width;
-        margin: 0 auto;
     }
+
+
+    /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+    Header
+
+    */
 
     &__header {
         @include app-detail-header-section-spacing($app-detail-header-section-spacing-property);
-        .tingle-modal & {
-            @include app-detail-softpage-header-section-spacing($app-detail-softpage-header-section-spacing-property);
+        // within softage
+        .softpage & {
+            margin-top: 0;
+            padding-top: 0;
+        }
+    }
+
+    // in case no preview image is set or no plugin has been added to the header section
+    &__header--empty {
+        margin-bottom: 0;
+        // within softage
+        .softpage & {
+            display: none;
         }
     }
 
@@ -29,45 +75,36 @@ Detail View
 
     }
 
+
+    /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+    Content Structure
+
+    */
+
     &__content {
-        @include app-detail-content-section-spacing($app-detail-content-section-spacing-property);
-        .tingle-modal & {
-            @include app-detail-softpage-content-section-spacing($app-detail-softpage-content-section-spacing-property);
-        }
-    }
-
-    &__section-heading-container {
-        @include app-detail-section-heading-container-spacing($app-detail-section-heading-container-spacing-property);
-        .tingle-modal & {
-            @include app-detail-softpage-section-heading-container-spacing($app-detail-softpage-section-heading-container-spacing-property);
-        }
-    }
-
-    &__section-heading {
-        @include h1();
+        padding-top: 0;
+        margin-top: 0;
     }
 
     &__col-container {
         @include make-row();
-        // on XS we have a smaller column padding
-        @include make-row-sm-max();
     }
 
     &__col-2-1 {
-        .app_detail__col-1 {
+        .app-detail__col-1 {
             @include make-xs-column(24);
             @include make-md-column(16);
         }
-        .app_detail__col-2 {
+        .app-detail__col-2 {
             @include make-xs-column(24);
             @include make-md-column(8);
-            @include make-spacing-top-sm-max($content-section-col-stack-spacing-xs-max);
+            @include make-spacing-top-sm-max($app-detail-col-stack-spacing-xs-max);
         }
     }
 
     &__col {
         @include column-padding-sm-max();
-        // special case: '.content-section' within '.content-section'.
     }
 
     // the actual container that holds the plugins
@@ -77,12 +114,68 @@ Detail View
             .content-section__container {
                 padding: 0;
             }
-            // reset heading style
-            .content-section__section-heading {
-                max-width: none;
+        }
+        // remove spacing for first content section
+        .content-section {
+            &.first {
+                margin-top: 0;
+            }
+            &:last-child {
+                margin-bottom: 0;
             }
         }
     }
+
+    // spacing between items in the 2. column
+    &__col-2-manage-spacings {
+        > * {
+            + * {
+                @include make-spacing-top-xs($app-detail-col-2-manage-spacing-xs);
+                @include make-spacing-top-sm($app-detail-col-2-manage-spacing-sm);
+                @include make-spacing-top-md($app-detail-col-2-manage-spacing-md);
+                @include make-spacing-top-lg($app-detail-col-2-manage-spacing-lg);
+                @include make-spacing-top-xl($app-detail-col-2-manage-spacing-xl);
+                @include make-spacing-top-xxl($app-detail-col-2-manage-spacing-xxl);
+            }
+        }
+    }
+
+
+    /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+    Heading
+
+    */
+
+    &__heading-conatiner {
+        @include make-row();
+        @include app-detail-heading-container-spacing-bottom();
+    }
+
+    &__heading {
+        @include h2();
+        @include make-xs-column(24);
+        @include make-md-column(16);
+    }
+
+    &__created {
+        @include make-xs-column(24);
+        @include app-detail-created-spacing-top();
+    }
+
+    /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+    Content
+
+    */
+
+    &__lead {
+        @include text-lead();
+        + .app-detail__content-container {
+            @include app-detail-spacing-between-lead-and-content();
+        }
+    }
+
 }
 
 

@@ -1,0 +1,22 @@
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+manage-spacings: The default container for managing global spacings
+
+This class doesn't do anything else than defining spacings between its
+immediate children.
+
+*/
+
+.manage-spacings {
+    & > * {
+        @include make-spacing-top-xs($manage-spacings-container-xs);
+        @include make-spacing-top-sm($manage-spacings-container-sm);
+        @include make-spacing-top-md($manage-spacings-container-md);
+        @include make-spacing-top-lg($manage-spacings-container-lg);
+        @include make-spacing-top-xl($manage-spacings-container-xl);
+        @include make-spacing-top-xxl($manage-spacings-container-xxl);
+        &:first-child {
+            margin-top: 0;
+        }
+    }
+}

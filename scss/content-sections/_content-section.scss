@@ -22,12 +22,19 @@ Default Content Section Styles
 
     // default: using margin
     @include content-section-spacing-margin();
+    .app-detail__content-container & {
+        @include app-detail-content-section-spacing-margin();
+    }
 
     // special spacing: container has a background COLOR
     &.has-bg-color {
         margin-top: 0;
         margin-bottom: 0;
         @include content-section-spacing-padding();
+        // within App Detail
+        .app-detail__content-container & {
+            @include app-detail-content-section-spacing-padding();
+        }
     }
 
     // special spacing: container has a background IMAGE
@@ -65,6 +72,10 @@ Default Content Section Styles
         &.dynamic-height-enabled {
             // re-add padding
             @include content-section-spacing-padding();
+            // within App Detail
+            .app-detail__content-container & {
+                @include app-detail-content-section-spacing-padding();
+            }
             // hide the ratio
             &:before {
                 display: none;
@@ -231,10 +242,13 @@ Default Content Section Styles
 
     &.overlay-enabled {
         position: relative;
-        // set overlay text colors
+        // overwrite global text color
+        color: $overlay-text-color;
+        // overwrite sections color
         .content-section__section-heading {
             color: $overlay-heading-color;
         }
+        // make sure all kids of a text-container get the right color
         .text-container {
             > * {
                 color: $overlay-text-color;
@@ -721,10 +735,25 @@ Default Content Section Styles
     }
 
     // add smaller columns on XS (big ass selector, but we have to fight the specifcy war in order to avoid an !important). The only alternative would be to add this mixin to all columns, which wouldn't be pretty either.
-    .content-section__main-col-container {
+    &__main-col-container {
         .content-section__col-container {
             .content-section__col {
                 @include column-padding-sm-max();
+            }
+        }
+    }
+
+    // spacings between plugins within a columns
+    &__column-manage-spacings {
+        & > * {
+            @include make-spacing-top-xs($content-section-column-manage-spacings-container-xs);
+            @include make-spacing-top-sm($content-section-column-manage-spacings-container-sm);
+            @include make-spacing-top-md($content-section-column-manage-spacings-container-md);
+            @include make-spacing-top-lg($content-section-column-manage-spacings-container-lg);
+            @include make-spacing-top-xl($content-section-column-manage-spacings-container-xl);
+            @include make-spacing-top-xxl($content-section-column-manage-spacings-container-xxl);
+            &:first-child {
+                margin-top: 0;
             }
         }
     }
@@ -769,25 +798,5 @@ Section Headings
     // prevent the section heading from being too wide. make it 2/3
     @media (min-width:$screen-md) {
         max-width: 66.66%;
-    }
-}
-
-/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
-
-manage-spacings: The default container for managing global spacings
-
-This class doesn't do anything else than defining spacings between its
-immediate children.
-
-*/
-
-.manage-spacings {
-    & > * {
-        @include make-spacing-top-xs($manage-spacings-container-xs);
-        @include make-spacing-top-md($manage-spacings-container-md);
-        @include make-spacing-top-xl($manage-spacings-container-xl);
-        &:first-child {
-            margin-top: 0;
-        }
     }
 }

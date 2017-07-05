@@ -58,20 +58,22 @@ export function initiSwiperInstances(options) {
 
     // loop through instances (that have NOT been initialized yet)
     $('.swiper-default:not(.swiper-initialized)').each(function(i) {
+
         // init
         var $swiper_instance = $(this);
+
         // determine number of slides
         var number_of_slides = $swiper_instance.find('.swiper-slide').length;
+
         // no point in initializing swiper if there is only one slide
         if(number_of_slides < 2) {
             $swiper_instance.addClass('swiper-disabled');
             return true;
         }
         // swiper counter dom node
-        var $counter = $swiper_instance.find('.swiper-counter');
-
+        var $counter = $swiper_instance.parent().find('.swiper-counter');
         if ($counter) {
-            $counter.addClass('active');
+            $counter.addClass('swiper-counter--active');
         }
 
         // local variable for loop. options.loop is a global setting for all swiper instances
@@ -92,8 +94,8 @@ export function initiSwiperInstances(options) {
                 $(window).trigger('swiper:initialized');
 
                 if ($counter) {
-                    $counter.children('.total').html(number_of_slides);
-                    $counter.children('.current').html(swiper.realIndex + 1);
+                    $counter.children('.swiper-counter__total').html(number_of_slides);
+                    $counter.children('.swiper-counter__current').html(swiper.realIndex + 1);
                 }
 
                 // if loop is false, stop autoplay
@@ -104,7 +106,7 @@ export function initiSwiperInstances(options) {
             onSlideChangeStart: function(swiper) {
                 // if counter dom node exists in template
                 if ($counter) {
-                    $counter.children('.current').html(swiper.realIndex + 1);
+                    $counter.children('.swiper-counter__current').html(swiper.realIndex + 1);
                 }
             },
             effect: options.effect,
@@ -128,7 +130,7 @@ export function initiSwiperInstances(options) {
         });
 
         // enter fullscreen mode
-        $swiper_instance.find('[data-trigger-swiper-fullscreen]').on('click', function(e) {
+        $swiper_instance.parent().find('[data-trigger-swiper-fullscreen]').on('click', function(e) {
 
             // init
             e.preventDefault();
@@ -181,7 +183,7 @@ export function initiSwiperInstances(options) {
             closeSwiperFullscreen();
         });
 
-        // Close Subnave when hitting ESC
+        // Close when hitting ESC
         $(document).keydown(function(evt) {
             evt = evt || window.event;
             var isEscape = false;
