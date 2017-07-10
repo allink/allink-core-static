@@ -213,11 +213,11 @@ export function loadAjaxItems($trigger,options,masonry_grid,masonry_instance) {
             // depending on the CSS transition settings, do stuff with or without delay
             setTimeout(function(){
 
-                // temporary quick and dirty fix: toggle class on plugin container if the response contains the string 'no-results-container'
-                if (jqXHR.status === 206) {
-                    $plugin_container.addClass('no-results');
+                // toggle class on plugin container if the response contains the string 'no-results-container'
+                if (data.no_results === true) {
+                    $plugin_container.addClass('app-list__no-results');
                 }else {
-                    $plugin_container.removeClass('no-results');
+                    $plugin_container.removeClass('app-list__no-results');
                 }
 
                 // masonry grid: requires different appending technique

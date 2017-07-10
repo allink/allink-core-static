@@ -4,8 +4,7 @@ Global solution for simple AJAX forms
 
 Usage:
 
-<div id="example-form-container">
-    <form class="ajax-form" data-form-container-id="example-form-container" data-success-data-layer-event="newsletter.sent" action="/example-url/">
+    <form class="ajax-form" data-ajax-response-container-id="example-form-container" data-success-data-layer-event="newsletter.sent" action="/example-url/">
         <div
             data-layer-variable="example-variable-1"
             data-layer-value="example-value-1"
@@ -13,6 +12,9 @@ Usage:
         </div>
         ...
     </form>
+
+<div id="example-form-container">
+    ...results are loaded here because of the 'data-ajax-response-container-id' attribute
 </div>
 
 Google Tag Manager GTM note:
@@ -31,20 +33,20 @@ export function sendAjaxForm($form) {
     var url = $form.attr('action');
     var custom_event = $form.attr('data-success-data-layer-event');
     var success_url = $form.attr('data-success-url');
-    var container_id = $form.attr('data-form-container-id');
+    var ajax_response_container_id = $form.attr('data-ajax-response-container-id');
     var postData = $form.serialize();
 
     // define the container in which the ajax response will be written into
     // 1. in case an ID is defined, select that element
-    if (container_id) {
-        var $form_container = $('#' + container_id);
-        if ($form_container.length == 0) {
-            console.warn('The form\'s "data-form-container-id" is set to "' + container_id + '" but element can not be found in DOM');
+    if (ajax_response_container_id) {
+        var $ajax_response_container = $('#' + ajax_response_container_id);
+        if ($ajax_response_container.length == 0) {
+            console.warn('The form\'s "data-ajax-response-container-id" is set to "' + ajax_response_container_id + '" but element can not be found in DOM');
         }
     }
     // 2. default: use immediate parent
     else {
-        var $form_container = $form.parent();
+        var $ajax_response_container = $form.parent();
     }
 
     // AJAX magic
@@ -53,15 +55,21 @@ export function sendAjaxForm($form) {
         url : url,
         data : postData,
         success:function(data, textStatus, jqXHR) {
-            console.log( data );
             // do we get a custom URL from view?
             if (data.success_url) {
                 window.location.href = data.success_url;
             }
             // otherwise, write HTML
             else {
-                $form_container.html(data);
+                $ajax_response_container.html(data.rendered_content);
+                // toggle class on plugin container if the response contains the string 'no-results-container'
+                if (data.no_results === true) {
+                    $ajax_response_container.addClass('app-list__no-results');
+                }else {
+                    $ajax_response_container.removeClass('app-list__no-results');
+                }
             }
+
             // Note: If there are errors that we couldn't catch with the JavaScript form validation we get a '206' status code from the form's view
             if (jqXHR.status === 206) {
                 // something wrong while sending the form
@@ -86,6 +94,8 @@ export function sendAjaxForm($form) {
             $(window).trigger('initDatepicker');
             $(window).trigger('initFormModalClose');
             $(window).trigger('initFormValidation');
+            // reveals next section in case there are no results when filtering
+            $(window).trigger('initOnScreen');
         },
         error: function(jqXHR, textStatus, errorThrown) {
             //if fails

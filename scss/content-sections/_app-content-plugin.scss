@@ -20,6 +20,15 @@ List View (this includes ALL plugin templates such as Grid (Static), Table, and 
             padding: 0;
         }
     }
+    &__no-results {
+        min-height: $app-list-no-result-cotainer-min-height-xs;
+        @media (min-width:$screen-md) {
+            min-height: $app-list-no-result-cotainer-min-height-md;
+        }
+        @media (min-width:$screen-xxl) {
+            min-height: $app-list-no-result-cotainer-min-height-xxl;
+        }
+    }
 }
 
 

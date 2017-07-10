@@ -1,0 +1,84 @@
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+Newsletter signup form
+
+*/
+
+.signup-form {
+
+    &__form-container {
+        width: 100%;
+        max-width: $signup-form-max-width;
+    }
+
+    &__input {
+        position: relative;
+        z-index: 1;
+        // specificity wars
+        &.form-control {
+            padding: $signup-form-button-input-padding;
+            display: block;
+        }
+    }
+    &__input-group-btn {
+        display: block;
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        @if $signup-form-button-variation-enabled == false {
+            width: $signup-form-button-btn-width;
+        }
+    }
+
+    &__btn {
+        height: 100%;
+        cursor: pointer;
+        @include button-base();
+        @if $signup-form-button-variation-enabled {
+            @include button-variation($signup-form-button-variation);
+        }
+        @else {
+            position: relative;
+            display: block;
+            background-color: $signup-form-button-bg;
+            width: $signup-form-button-btn-width;
+            z-index: 5;
+            &:after {
+                @include icomoon();
+                transition: all $btn-loader-transition-duration $btn-loader-transition-timing-function $btn-loader-transition-delay;
+                content: $signup-form-button-icon;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%,-50%);
+                font-size: $signup-form-button-icon-size;
+                color: $signup-form-button-icon-color;
+            }
+            &:hover,
+            &:focus {
+                background-color: $signup-form-button-bg-hover;
+            }
+        }
+        // when loading
+        &.loading {
+            // modify loader icon
+            &:before {
+                border-top-color: $signup-form-button-loader-icon-color;
+                border-bottom-color: $signup-form-button-loader-icon-color;
+            }
+            &:after {
+                opacity: 0;
+            }
+        }
+    }
+    &__btn-text {
+        @if $signup-form-button-variation-enabled == false {
+            display: block;
+            opacity: 0;
+            width: 1px;
+            overflow: hidden;
+        }
+    }
+
+}
