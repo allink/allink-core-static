@@ -110,3 +110,15 @@ Form modifications
     }
 
 }
+
+
+.app-djangocms_button_link {
+    .messagelist {
+        display: none;
+    }
+    &.popup ul.messagelist {
+        + #content {
+            margin-top: 20px !important;
+        }
+    }
+}

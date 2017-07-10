@@ -95,7 +95,7 @@ Content Plugin > Simple flexbox mixins to add support for ordering on mobile dev
 
 @mixin content-plugin-col-mobile-flexbox($flex-bp: $screen-sm-max) {
     @media (max-width:$flex-bp) {
-        .col-container-inner {
+        .content-section__col-container-inner {
             flex-direction: column;
         }
     }
@@ -103,7 +103,7 @@ Content Plugin > Simple flexbox mixins to add support for ordering on mobile dev
 
 @mixin content-plugin-col-mobile-flexbox-spacing-fix($flex-bp: $screen-sm-max) {
     @media (max-width:$flex-bp) {
-        .col-container-inner {
+        .content-section__col-container-inner {
             margin-top: -$content-plugin-stacked-col-spacing-xs;
         }
     }

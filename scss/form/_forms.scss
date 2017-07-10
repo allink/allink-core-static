@@ -64,13 +64,13 @@ Default Form Styles
             margin-top: $form-field-error-spacing-xl;
         }
         > li {
-            @include text-small();
+            @include font-small();
             color: $form-field-error-color;
         }
     }
 
     .help-block {
-        @include text-small();
+        @include font-small();
     }
 
     // prepare the required symbol
@@ -79,6 +79,7 @@ Default Form Styles
         width: $form-field-required-icon-width;
         height: $form-field-required-icon-height;
         overflow: hidden;
+        visibility: hidden;
         &:before {
             content: $form-field-required-icon;
             color: $form-field-required-icon-color;
@@ -107,28 +108,28 @@ Default Form Styles
 
         // heading size
         @if $form-legend-heading-size == 'h1' {
-            @include h1();
+            @include font-h1();
             color: $h1-color;
             .inverted-colors & {
                 color: $h1-color-inverted;
             }
         }
         @if $form-legend-heading-size == 'h2' {
-            @include h2();
+            @include font-h2();
             color: $h2-color;
             .inverted-colors & {
                 color: $h2-color-inverted;
             }
         }
         @if $form-legend-heading-size == 'h3' {
-            @include h3();
+            @include font-h3();
             color: $h3-color;
             .inverted-colors & {
                 color: $h3-color-inverted;
             }
         }
         @if $form-legend-heading-size == 'h4' {
-            @include h4();
+            @include font-h4();
             color: $h4-color;
             .inverted-colors & {
                 color: $h4-color-inverted;
@@ -315,9 +316,10 @@ Form Modal
 
 .form-heading-container {
     .heading {
-        @include h2();
+        @include font-h2();
     }
     + * {
         margin-top: $grid-gutter-width;
     }
 }
+

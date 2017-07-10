@@ -1,0 +1,12 @@
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+Cleaning up the bootstrap dropdown
+
+*/
+
+.dropdown-menu {
+    box-shadow: none;
+    border-radius: none;
+    border: none;
+    margin: 0;
+}

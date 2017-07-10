@@ -1,0 +1,85 @@
+.to-the-top {
+
+    &:link,
+    &:visited {
+        position: fixed;
+        outline: none;
+        width: $ttt-width;
+        height: $ttt-height;
+        overflow: hidden;
+
+        z-index: z("to-the-top");
+
+        bottom: 0;
+        right: 0;
+
+        transform: translate(-$ttt-visible-spacing-right-xs,100%);
+
+        opacity: 0;
+
+        @media (min-width:$screen-md) {
+            transform: translate(-$ttt-visible-spacing-right-md,100%);
+        }
+
+        transition: $ttt-movement-transition;
+
+        > .inner {
+            position: relative;
+            display: block;
+            width: 100%;
+            height: 100%;
+            background: $ttt-bg-color;
+            border-color: transparent;
+            border-radius: $ttt-border-radius;
+            transition: $ttt-hover-transition;
+            opacity: $ttt-opacity;
+            &:after {
+                @include icomoon();
+                content: $ttt-icon;
+                position: absolute;
+                font-size: $ttt-icon-size;
+                color: $ttt-icon-color;
+                width: 100%;
+                top: 50%;
+                left: 0;
+                transform: translate(0,-50%);
+                text-align: center;
+                transition: $ttt-hover-transition;
+            }
+        }
+    }
+
+    &.visible {
+
+        &:link,
+        &:visited {
+            transform: translate(-$ttt-visible-spacing-right-xs,-$ttt-visible-spacing-bottom-xs);
+            opacity: 1;
+            @media (min-width:$screen-md) {
+                transform: translate(-$ttt-visible-spacing-right-md,-$ttt-visible-spacing-bottom-md);
+            }
+            // hide when navigation is visible
+            .nav-expanded & {
+                opacity: 0;
+            }
+        }
+
+        &:hover,
+        &:focus,
+        &:active {
+            > .inner {
+                background: $ttt-bg-color-hover;
+                opacity: $ttt-opacity-hover;
+                &:after {
+                    color: $ttt-icon-color-hover;
+                    transform: translate(0,-80%);
+                }
+            }
+        }
+    }
+
+    @include print() {
+        display: none;
+    }
+
+}

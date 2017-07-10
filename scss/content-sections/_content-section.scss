@@ -1,10 +1,4 @@
-/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
-
-Default Content Section Styles
-
-*/
-
-// reusable mixons on the spot
+// reusable mixins on the spot
 @mixin main-col-container-positioning() {
     position: absolute;
     left: 0;
@@ -12,7 +6,12 @@ Default Content Section Styles
     @include content-section-spacing-position();
 }
 
-// default content section spacings and general styles
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+Default Content Section Styles
+
+*/
+
 .content-section {
 
     // in case a background image is set
@@ -236,12 +235,11 @@ Default Content Section Styles
 
     /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 
-    Overlay Enabled
+    Inverted colors
 
     */
 
-    &.overlay-enabled {
-        position: relative;
+    &.inverted-colors-enabled {
         // overwrite global text color
         color: $overlay-text-color;
         // overwrite sections color
@@ -254,6 +252,17 @@ Default Content Section Styles
                 color: $overlay-text-color;
             }
         }
+    }
+
+
+    /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+    Overlay Enabled
+
+    */
+
+    &.overlay-enabled {
+        position: relative;
     }
 
     // element only exists, if an OUTER background image has been defined
@@ -782,18 +791,18 @@ Section Headings
     @include column-paddings();
     @include column-padding-sm-max();
     // default
-    @include h1();
+    @include font-h1();
     // h1
     .section-heading-h1 & {
-        @include h1();
+        @include font-h1();
     }
     // h2
     .section-heading-h2 & {
-        @include h2();
+        @include font-h2();
     }
     // h3
     .section-heading-h3 & {
-        @include h3();
+        @include font-h3();
     }
     // prevent the section heading from being too wide. make it 2/3
     @media (min-width:$screen-md) {

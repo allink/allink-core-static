@@ -118,7 +118,7 @@
     // default heading
     .grid-item {
         .heading {
-            @include h2();
+            @include font-h2();
         }
     }
 

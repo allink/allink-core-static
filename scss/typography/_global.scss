@@ -1,0 +1,65 @@
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+General Font Settings
+
+*/
+
+html {
+  font-size: 62.5%; // (Almost) equal to 10px (when default browser setting of 16px). Meaning 1rem ~= 10px
+}
+
+// default text color
+body {
+    color: $body-color;
+    @include font-default();
+    @include print() {
+        color: $body-color-print;
+    }
+}
+// inverted text color
+.inverted-colors {
+    color: $body-inverted-color;
+}
+
+.form-control,
+.dropdown-menu {
+    @include font-input-default();
+    line-height: $btn-line-height-default;
+}
+
+strong {
+    @include font-family-bold();
+}
+
+em {
+    @include font-family-italic();
+}
+
+p {
+    // reset any margins, they are applied through the parent .text-container or on the spot
+    margin: 0;
+    @include font-default();
+    &.small {
+        @include font-small();
+    }
+    &.lead {
+        @include font-lead();
+    }
+}
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+Selected Text
+
+*/
+
+::-moz-selection {
+    background: $selection-bg-color;
+    color: $selection-color;
+}
+
+::selection {
+    background: $selection-bg-color;
+    color: $selection-color;
+}

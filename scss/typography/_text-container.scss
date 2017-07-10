@@ -1,0 +1,262 @@
+.text-container,
+.editor-body {
+
+    /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+    Images
+
+    */
+
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+
+
+    /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+    Spacing between elements
+
+    */
+
+    p,
+    ul,
+    ol,
+    table,
+    figure {
+        margin: $text-container-element-default-margin-xs;
+        @media (min-width:$screen-sm) {
+            margin: $text-container-element-default-margin-sm;
+        }
+        @media (min-width:$screen-md) {
+            margin: $text-container-element-default-margin-md;
+        }
+        @media (min-width:$screen-lg) {
+            margin: $text-container-element-default-margin-lg;
+        }
+        @media (min-width:$screen-xl) {
+            margin: $text-container-element-default-margin-xl;
+        }
+        @media (min-width:$screen-xxl) {
+            margin: $text-container-element-default-margin-xxl;
+        }
+
+    }
+
+
+    /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+    Paragraphs
+
+    */
+
+    p {
+        &.lead {
+            @include font-lead();
+            margin: $p-lead-margin-xs;
+            @media (min-width:$screen-sm) {
+                margin: $p-lead-margin-sm;
+            }
+            @media (min-width:$screen-md) {
+                margin: $p-lead-margin-md;
+            }
+            @media (min-width:$screen-lg) {
+                margin: $p-lead-margin-lg;
+            }
+            @media (min-width:$screen-xl) {
+                margin: $p-lead-margin-xl;
+            }
+            @media (min-width:$screen-xxl) {
+                margin: $p-lead-margin-xxl;
+            }
+
+        }
+        &.small {
+            @include font-small();
+        }
+    }
+
+
+    /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+    Lists
+
+    */
+
+    ul,
+    ol {
+        padding: 0;
+        li {
+            position: relative;
+            list-style: none;
+            padding-left: $list-padding-xs;
+            @media (min-width:$screen-md) {
+                padding-left: $list-padding-md;
+            }
+            &:before {
+                position: absolute;
+            }
+        }
+    }
+
+    ul {
+        padding: 0;
+        li {
+            margin-left: 0;
+            &:before {
+                content: $unordered-list-item-icon;
+                font-size: $unordered-list-item-icon-size;
+                left: $unordered-list-item-icon-spacing-left-xs;
+                top: $unordered-list-item-icon-spacing-top-xs;
+                transform: translate(0,-50%);
+                @include icomoon();
+                @media (min-width:$screen-md) {
+                    left: $unordered-list-item-icon-spacing-left-md;
+                    top: $unordered-list-item-icon-spacing-top-md;
+                }
+            }
+        }
+    }
+
+    ol {
+        counter-reset: custom-counter;
+        li {
+            &:before {
+                content: counter(custom-counter)'.';
+                counter-increment: custom-counter;
+                left: $ordered-list-item-icon-spacing-left-xs;
+                @media (min-width:$screen-md) {
+                    left: $ordered-list-item-icon-spacing-left-md;
+                }
+            }
+        }
+    }
+
+
+    /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+    Headings
+
+    */
+
+    h2 {
+        @include font-h1();
+        margin: $text-container-h1-margin-xs;
+        @media (min-width:$screen-sm) {
+            margin: $text-container-h1-margin-sm;
+        }
+        @media (min-width:$screen-md) {
+            margin: $text-container-h1-margin-md;
+        }
+        @media (min-width:$screen-lg) {
+            margin: $text-container-h1-margin-lg;
+        }
+        @media (min-width:$screen-xl) {
+            margin: $text-container-h1-margin-xl;
+        }
+        @media (min-width:$screen-xxl) {
+            margin: $text-container-h1-margin-xxl;
+        }
+
+        a {
+            &.text {
+                @include font-h1();
+            }
+        }
+    }
+    h3 {
+        @include font-h2();
+        margin: $text-container-h2-margin-xs;
+        @media (min-width:$screen-sm) {
+            margin: $text-container-h2-margin-sm;
+        }
+        @media (min-width:$screen-md) {
+            margin: $text-container-h2-margin-md;
+        }
+        @media (min-width:$screen-lg) {
+            margin: $text-container-h2-margin-lg;
+        }
+        @media (min-width:$screen-xl) {
+            margin: $text-container-h2-margin-xl;
+        }
+        @media (min-width:$screen-xxl) {
+            margin: $text-container-h2-margin-xxl;
+        }
+
+    }
+    h4 {
+        @include font-h3();
+        margin: $text-container-h3-margin-xs;
+        @media (min-width:$screen-sm) {
+            margin: $text-container-h3-margin-sm;
+        }
+        @media (min-width:$screen-md) {
+            margin: $text-container-h3-margin-md;
+        }
+        @media (min-width:$screen-lg) {
+            margin: $text-container-h3-margin-lg;
+        }
+        @media (min-width:$screen-xl) {
+            margin: $text-container-h3-margin-xl;
+        }
+        @media (min-width:$screen-xxl) {
+            margin: $text-container-h3-margin-xxl;
+        }
+
+    }
+    h5 {
+        @include font-h4();
+        margin: $text-container-h4-margin-xs;
+        @media (min-width:$screen-sm) {
+            margin: $text-container-h4-margin-sm;
+        }
+        @media (min-width:$screen-md) {
+            margin: $text-container-h4-margin-md;
+        }
+        @media (min-width:$screen-lg) {
+            margin: $text-container-h4-margin-lg;
+        }
+        @media (min-width:$screen-xl) {
+            margin: $text-container-h4-margin-xl;
+        }
+        @media (min-width:$screen-xxl) {
+            margin: $text-container-h4-margin-xxl;
+        }
+
+    }
+
+    .display-1 {
+        @include font-display-1();
+        margin: $text-container-display-1-margin-xs;
+        @media (min-width:$screen-sm) {
+            margin: $text-container-display-1-margin-sm;
+        }
+        @media (min-width:$screen-md) {
+            margin: $text-container-display-1-margin-md;
+        }
+        @media (min-width:$screen-lg) {
+            margin: $text-container-display-1-margin-lg;
+        }
+        @media (min-width:$screen-xl) {
+            margin: $text-container-display-1-margin-xl;
+        }
+        @media (min-width:$screen-xxl) {
+            margin: $text-container-display-1-margin-xxl;
+        }
+
+    }
+
+
+    /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+    First/Last element, forcefully remove unnecessary spacing
+
+    Hint: Should you need "that" extra spacing for some reason, then the .text-container
+    is not the right parent for this case.
+
+    */
+
+    *:first-child { margin-top: 0 !important; }
+    *:last-child { margin-bottom: 0 !important; }
+
+}

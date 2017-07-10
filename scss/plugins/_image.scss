@@ -16,5 +16,5 @@ Basic styles for the picture plugin
 
 figcaption {
     margin-top: $grid-gutter-width/2;
-    @include text-small();
+    @include font-small();
 }

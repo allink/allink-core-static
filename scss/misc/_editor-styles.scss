@@ -21,12 +21,12 @@ $editor-font-family: 'Helvetica Neue', 'Arial', 'Tahoma', 'Verdana', 'Sans-Serif
 
 .cke_panel_list {
 
-    h2 { @include h1(); }
-    h3 { @include h2(); }
-    h4 { @include h3(); }
-    h5 { @include h4(); }
+    h2 { @include font-h1(); }
+    h3 { @include font-h2(); }
+    h4 { @include font-h3(); }
+    h5 { @include font-h4(); }
 
-    .display-1 { @include display-1(); }
+    .display-1 { @include font-display-1(); }
 
     > li {
         > a {

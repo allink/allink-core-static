@@ -33,7 +33,7 @@ Basic taeble template
         padding: 0.5em 0;
     }
     th {
-        @include h3();
+        @include font-h3();
         text-align: left;
     }
 }

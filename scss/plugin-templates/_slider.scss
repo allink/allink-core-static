@@ -22,7 +22,7 @@ Slider Template
             }
     &__heading {
         color: $overlay-heading-color;
-        @include h2();
+        @include font-h2();
     }
     &__lead {
         color: $overlay-heading-color;

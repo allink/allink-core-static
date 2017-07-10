@@ -321,20 +321,20 @@ form .form-row .filer-dropzone .filerFile .description_text {
     margin-top: 16px;
 }
 
-
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 
-Button/Link Plugin
+CSS CLASSES checkboxes
 
 */
 
-.app-djangocms_button_link {
-    .messagelist {
-        display: none;
+#id_project_css_classes {
+    padding: 0;
+    margin: 0;
+    border: none;
+    li {
+        border: none;
     }
-    &.popup ul.messagelist {
-        + #content {
-            margin-top: 20px !important;
-        }
+    label {
+        text-transform: none;
     }
 }

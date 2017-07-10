@@ -8,7 +8,7 @@
 }
 
 .lockdown-plugin__heading {
-    @include h1();
+    @include font-h1();
 }
 
 .lockdown-plugin__text {

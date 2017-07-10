@@ -1,0 +1,46 @@
+* {
+    box-sizing: border-box;
+    &:before,
+    &:after {
+        box-sizing: border-box;
+    }
+    // removes tap highlight on touch devices
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    -webkit-tap-highlight-color: transparent;
+}
+
+html{
+
+    // basic setting
+    &.base-root {
+        position: relative;
+        min-height: 100%;
+    }
+
+    // prevent scrolling when e.g. modal is opened
+    &.scrolling-disabled {
+        overflow-y: hidden;
+        overflow: hidden;
+    }
+}
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+When the mobile navigation is visible, all elements defined
+in the sass-list will be hidden using a transition.
+
+*/
+
+@if variable-exists(nav-expanded-hide-container) {
+    @each $selector in $nav-expanded-hide-container {
+        #{$selector} {
+            transition: $nav-expanded-hide-container-transition;
+        }
+        .nav-expanded {
+            #{$selector} {
+                opacity: 0;
+            }
+        }
+    }
+}

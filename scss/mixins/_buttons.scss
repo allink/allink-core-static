@@ -74,14 +74,14 @@ Get the base styles for a button
         outline: none;
     }
     // font sizes
-    @include text-btn-default();
+    @include font-btn-default();
     &.btn-sm {
-        @include text-btn-small();
+        @include font-btn-small();
         // make sure our button has the correct lineheight
         line-height: $btn-line-height;
     }
     &.btn-lg {
-        @include text-btn-large();
+        @include font-btn-large();
         // make sure our button has the correct lineheight
         line-height: $btn-line-height;
     }

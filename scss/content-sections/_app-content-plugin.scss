@@ -32,9 +32,12 @@ Detail View
 
 .app-detail {
 
-    // set max width
-    max-width: $app-detail-content-container-max-width;
-    margin: 0 auto;
+    // forcefully set max width
+    @if $app-detail-content-container-max-width {
+        .content-section__container {
+            max-width: $app-detail-content-container-max-width !important;
+        }
+    }
 
     // within modal, add some spacing
     .tingle-modal & {
@@ -91,7 +94,13 @@ Detail View
         @include make-row();
     }
 
-    &__col-2-1 {
+    &__template__col-1 {
+        .app-detail__col-1 {
+            @include make-xs-column(24);
+        }
+    }
+
+    &__template__col-2-1 {
         .app-detail__col-1 {
             @include make-xs-column(24);
             @include make-md-column(16);
@@ -153,7 +162,7 @@ Detail View
     }
 
     &__heading {
-        @include h2();
+        @include font-h2();
         @include make-xs-column(24);
         @include make-md-column(16);
     }
@@ -170,7 +179,7 @@ Detail View
     */
 
     &__lead {
-        @include text-lead();
+        @include font-lead();
         + .app-detail__content-container {
             @include app-detail-spacing-between-lead-and-content();
         }

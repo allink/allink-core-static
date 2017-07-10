@@ -49,7 +49,7 @@
 }
 
 .instagram-follow__text {
-    @include h2();
+    @include font-h2();
     color: $white;
 
     @media(max-width: $screen-sm) {
@@ -68,7 +68,7 @@
 }
 
 .instagram-follow__link {
-    @include h3();
+    @include font-h3();
     @include font-family-bold();
     border: 3px solid $white;
     color: $white;

@@ -57,9 +57,6 @@ $(function(){
                 // Info for developer, that #softpage-page-title is missing on the detail page
                 if (modal_page_title_element != null) {
                     var modal_page_title = modal_page_title_element.textContent;
-                }else {
-                    // used during development phase, but no need anymore
-                    // console.warn('Softpage is missing #softpage-page-title.');
                 }
                 // Google Tag Manager
                 if (typeof dataLayer !== 'undefined') {

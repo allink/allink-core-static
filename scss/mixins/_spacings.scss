@@ -281,6 +281,25 @@ Spacings of content blocks within the .site-content
     }
 }
 
+@mixin content-section-specific-spacing($property: 'margin-top') {
+    #{$property}: $content-section-spacing-xs;
+    @media (min-width:$screen-sm) {
+        #{$property}: $content-section-spacing-sm;
+    }
+    @media (min-width:$screen-md) {
+        #{$property}: $content-section-spacing-md;
+    }
+    @media (min-width:$screen-lg) {
+        #{$property}: $content-section-spacing-lg;
+    }
+    @media (min-width:$screen-xl) {
+        #{$property}: $content-section-spacing-xl;
+    }
+    @media (min-width:$screen-xxl) {
+        #{$property}: $content-section-spacing-xxl;
+    }
+}
+
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 

@@ -23,7 +23,7 @@ Gallery Plugin
     }
 
     &__heading {
-        @include h2();
+        @include font-h2();
     }
 
     @if $gallery-plugin-slide-overlay-styles-enabled == true {

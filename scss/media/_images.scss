@@ -1,0 +1,14 @@
+/* Make sure embeded media fit their containers */
+embed,
+iframe,
+object{
+    max-width: 100%;
+}
+
+img {
+    vertical-align: middle;
+}
+
+picture {
+    display: block;
+}

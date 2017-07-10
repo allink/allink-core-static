@@ -28,7 +28,7 @@
     }
     .heading-container {
         .heading {
-            @include h2();
+            @include font-h2();
         }
     }
 }
