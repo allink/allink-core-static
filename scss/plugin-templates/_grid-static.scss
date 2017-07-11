@@ -14,8 +14,10 @@
             margin-bottom: -$app-content-plugin-static-grid-item-spacing-xl;
         }
         // remove negative margins in case there are no results
-        .no-results & {
+        &.app-list__no-results {
             margin-bottom: 0;
+            margin-left: 0;
+            margin-right: 0;
         }
     }
 

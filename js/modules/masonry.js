@@ -9,6 +9,9 @@ export function initMasonry(options) {
 
     // initialize grid
     if(document.querySelector('.grid-dynamic-container')) {
+
+        // init
+        var initialized_class = 'grid-initialized';
         var grids_on_page = document.querySelectorAll( '.grid-dynamic-container' );
 
         var MasonryImagesReveal = function(masonry, items) {
@@ -35,33 +38,42 @@ export function initMasonry(options) {
         for ( var i = 0, len = grids_on_page.length; i < len; i++ ) {
 
             // init
+            var $grid_container = $(grids_on_page[i]);
             var masonry_grid = grids_on_page[i].querySelector('.the-grid');
             var $content_section = $(masonry_grid).parents('.content-section');
 
-            // instanciate grid
-            var masonry_instance = new Masonry(masonry_grid, {
-                columnWidth: '.grid-sizer',
-                percentagePosition: true,
-                transitionDuration: '0'
-            });
+            // only continue if the grid hasn't been initialized yet
+            if ($grid_container.hasClass(initialized_class) === false) {
 
-            // handle AJAX requests (usually done with ajax-load-items.js, but masonry is a bit trickier so we handle it separately)
-            $content_section.find('.ajax-load-items').on('click', function(e){
+                // mark as initialized
+                $grid_container.addClass(initialized_class);
 
-                // init
-                var $trigger = $(this);
-                e.preventDefault();
+                // instanciate grid
+                var masonry_instance = new Masonry(masonry_grid, {
+                    columnWidth: '.grid-sizer',
+                    percentagePosition: true,
+                    transitionDuration: '0'
+                });
 
-                // Do AJAX stuff
-                loadAjaxItems($trigger, options, masonry_grid, masonry_instance);
+                // handle AJAX requests (usually done with ajax-load-items.js, but masonry is a bit trickier so we handle it separately)
+                $content_section.find('.ajax-load-items').on('click', function(e){
 
-            });
+                    // init
+                    var $trigger = $(this);
+                    e.preventDefault();
 
-            // reveal Masonry Images
-            new MasonryImagesReveal(
-                masonry_instance,
-                grids_on_page[i].querySelectorAll('.grid-items .grid-item')
-            );
+                    // Do AJAX stuff
+                    loadAjaxItems($trigger, options, masonry_grid, masonry_instance);
+
+                });
+
+                // reveal Masonry Images
+                new MasonryImagesReveal(
+                    masonry_instance,
+                    grids_on_page[i].querySelectorAll('.grid-items .grid-item')
+                );
+
+            }
 
         }
     }
