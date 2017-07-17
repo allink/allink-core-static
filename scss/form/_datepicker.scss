@@ -85,15 +85,18 @@ Requires the following markup:
     }
 }
 
+
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 
 Overwriting default flatpickr styles of time picker to increase accessibility
 
 */
 
+// make time selection bigger and arrows always visible
 .numInputWrapper {
     span {
         width: 35px;
+        opacity: 1;
         &:after {
             left: 50%;
             transform: translateX(-50%);
@@ -101,3 +104,15 @@ Overwriting default flatpickr styles of time picker to increase accessibility
     }
 }
 
+// remove year arrows
+.flatpickr-current-month {
+    .numInputWrapper {
+        &:hover,
+        &:focus {
+            background: white;
+        }
+        span {
+            display: none;
+        }
+    }
+}
