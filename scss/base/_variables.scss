@@ -544,6 +544,33 @@ $lazyloader-transition-duration:    600ms;
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 
+To The Top! =ttt
+
+*/
+
+$ttt-bg-color:                      $black;
+$ttt-bg-color-hover:                $black;
+$ttt-border-radius:                 0;
+$ttt-visible-spacing-right-xs:      15px;
+$ttt-visible-spacing-bottom-xs:     15px;
+$ttt-visible-spacing-right-md:      30px;
+$ttt-visible-spacing-bottom-md:     30px;
+$ttt-width:                         40px;
+$ttt-height:                        40px;
+$ttt-icon:                          '\e90b';
+$ttt-icon-size:                     15px;
+$ttt-icon-color:                    $white;
+$ttt-icon-color-hover:              $white;
+$ttt-opacity:                       1;
+$ttt-opacity-hover:                 1;
+$ttt-movement-transition:           $site-header-compact-mode-transition;
+$ttt-hover-transition-property:            all; // per default we use $site-header-compact-mode-transition, because they are meant to be toggled at the same time
+$ttt-hover-transition-duration:            $link-transition-duration;
+$ttt-hover-transition-timing-function:     $link-transition-duration;
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
 =form Settings
 
 */
