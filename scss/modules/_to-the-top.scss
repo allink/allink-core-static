@@ -31,7 +31,9 @@
             background: $ttt-bg-color;
             border-color: transparent;
             border-radius: $ttt-border-radius;
-            transition: $ttt-hover-transition;
+            transition-property: $ttt-hover-transition-property;
+            transition-duration: $ttt-hover-transition-duration;
+            transition-timing-function: $ttt-hover-transition-timing-function;
             opacity: $ttt-opacity;
             &:after {
                 @include icomoon();
@@ -44,7 +46,6 @@
                 left: 0;
                 transform: translate(0,-50%);
                 text-align: center;
-                transition: $ttt-hover-transition;
             }
         }
     }

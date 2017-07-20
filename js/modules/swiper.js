@@ -10,6 +10,18 @@ Custom Events:
 
 swiper:initialized
 
+===
+
+Optional data-attributes for the .swiper-container:
+
+data-duration-per-slide="6000"
+Note: Duration in miliseconds
+
+data-autoplay="false"
+Note: Not set (default) is "true"
+
+===
+
 To enable the fullscreen mode of Swiper
 add the following markup at the end in the body tag in the base template:
 
@@ -83,7 +95,14 @@ export function initiSwiperInstances(options) {
             loop = false;
         }
 
-        // default
+        // try to get value from instance container
+        var durationPerSlide = parseInt($swiper_instance.attr('data-duration-per-slide'));
+        // fallback: get option value
+        if (isNaN(durationPerSlide)) {
+            durationPerSlide = options.durationPerSlide;
+        }
+
+        // create instance
         var mySwiper = new Swiper ($swiper_instance, {
             // global settings
             onInit: function(swiper){
@@ -115,7 +134,7 @@ export function initiSwiperInstances(options) {
             },
             effect: options.effect,
             speed: options.transitionDurationBetweenSlides, // Number: Duration of transition between slides (in ms)
-            autoplay: options.durationPerSlide, // Number: Delay between transitions (in ms). If this parameter is not specified, auto play will be disabled
+            autoplay: durationPerSlide, // Number: Delay between transitions (in ms). If this parameter is not specified, auto play will be disabled
             slidesPerView: options.slidesPerView,
             spaceBetween: 30,
             direction: 'horizontal',

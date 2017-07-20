@@ -45,7 +45,9 @@
             font-size: $social-profile-icon-size;
             color: $social-profile-icon-color;
             opacity: $social-profile-icon-opacity;
-            transition: $social-profile-icon-transition;
+            transition-property: $social-profile-icon-transition-property;
+            transition-duration: $social-profile-icon-transition-duration;
+            transition-timing-function: $social-profile-icon-transition-timing-function;
         }
     }
 

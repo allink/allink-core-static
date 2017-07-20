@@ -1,0 +1,44 @@
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+'detail-and-map' template
+
+*/
+
+.details-and-map-container {
+    @include make-row();
+    + .details-and-map-container {
+        margin-top: $grid-gutter-width*2;
+    }
+    &__heading {
+        @include font-h2();
+    }
+    &__col-1 {
+        @include make-xs-column(24);
+        @include make-md-column(12);
+    }
+    &__col-2 {
+        @include make-xs-column(24);
+        @include make-md-column(12);
+        @include make-spacing-top-sm-max($grid-gutter-width);
+    }
+    &__map-container {
+        // mobile ratios
+        @media (max-width:$screen-sm-max) {
+            @include aspect-ratio(3,2,'locations-map');
+        }
+        // desktop ratios
+        @media (min-width:$screen-md) {
+            @include aspect-ratio(3,2,'locations-map');
+        }
+    }
+    &__text-line {
+        display: block;
+        + .details-and-map-container__text-line {
+            margin-top: 0;
+        }
+    }
+    &__link {
+        display: block;
+        margin-top: $grid-gutter-width/2;
+    }
+}

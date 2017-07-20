@@ -122,7 +122,6 @@ Detail View
     }
 
     &__col {
-        @include column-padding-sm-max();
     }
 
     // the actual container that holds the plugins

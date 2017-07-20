@@ -95,10 +95,24 @@ Note: In some cases it makes sense to define different transition settings
 
 */
 
-$default-transition-property:       all;
-$default-transition-duration:       150ms;
-$default-transition-timing:         ease-in-out;
-$default-transition:                $default-transition-property $default-transition-duration $default-transition-timing;
+$default-transition-property:           all;
+$default-transition-duration:           150ms;
+$default-transition-timing-function:    ease-in-out;
+$default-transition:                    $default-transition-property $default-transition-duration $default-transition-timing-function;
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+=Body
+
+*/
+
+$body-bg:                   $white; // background
+$body-color:                $black; // text
+$body-color-print:          $black;
+
+// inverted text on dark background
+$body-inverted-color:         $white;
 
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
@@ -107,11 +121,28 @@ $default-transition:                $default-transition-property $default-transi
 
 */
 
-$link-transition:            $default-transition;
-$link-color:                 $brand-primary;
-$link-decoration:            underline;
-$link-color-hover:           lighten($link-color, 15%);
-$link-decoration-hover:      underline;
+$link-transition-property:           color, border-color;
+$link-transition-duration:           $default-transition-duration;
+$link-transition-timing-function:    $default-transition-timing-function;
+$link-color:                         $brand-secondary;
+$link-decoration:                    underline;
+$link-color-hover:                   $brand-secondary-light;
+$link-decoration-hover:              underline;
+
+// border enabled?
+$link-border-enabled:       false;
+$link-border-width:         1px;
+$link-border-style:         solid;
+$link-border-color:         $brand-secondary;
+$link-border-color-hover:   $brand-primary;
+$link-border:               $link-border-width $link-border-style $link-border-color-hover;
+$link-border-hover:         $link-border-width $link-border-style $link-border-color-hover;
+
+// inverted text on dark background
+$link-inverted-color:               $white;
+$link-inverted-color-hover:         $white;
+$link-inverted-border-color:        $brand-secondary;
+$link-inverted-border-color-hover:  $brand-secondary;
 
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
@@ -128,6 +159,7 @@ $content-section-spacing-sm:   45px;
 $content-section-spacing-md:   45px;
 $content-section-spacing-lg:   60px;
 $content-section-spacing-xl:   60px;
+$content-section-spacing-xxl:   60px;
 
 // first item
 $content-section-spacing-first-item-xs:     $content-section-spacing-xs;
@@ -135,6 +167,7 @@ $content-section-spacing-first-item-sm:     $content-section-spacing-sm;
 $content-section-spacing-first-item-md:     $content-section-spacing-md;
 $content-section-spacing-first-item-lg:     $content-section-spacing-lg;
 $content-section-spacing-first-item-xl:     $content-section-spacing-xl;
+$content-section-spacing-first-item-xxl:    $content-section-spacing-xxl;
 
 // last item
 $content-section-spacing-last-item-xs:      $content-section-spacing-xs;
@@ -142,15 +175,16 @@ $content-section-spacing-last-item-sm:      $content-section-spacing-sm;
 $content-section-spacing-last-item-md:      $content-section-spacing-md;
 $content-section-spacing-last-item-lg:      $content-section-spacing-lg;
 $content-section-spacing-last-item-xl:      $content-section-spacing-xl;
+$content-section-spacing-last-item-xxl:     $content-section-spacing-xxl;
 
 // Content Plugin > spacing between STACKED COLUMNS (smaller screens)
 // This should be in harmony
-$content-section-col-stack-spacing-xs-max:  $grid-gutter-width/2;
+$content-section-col-stack-spacing-xs-max:  $grid-gutter-width;
 $content-section-col-stack-spacing-sm-max:  $grid-gutter-width;
 
-// Content Plugin > For template above >=3 columsL
+// Content Plugin > For template above >=3 colums
 // We have to define the spacing when stacked
-$content-plugin-stacked-col-spacing-xs:     $grid-gutter-width/2;
+$content-plugin-stacked-col-spacing-xs:     $grid-gutter-width;
 $content-plugin-stacked-col-spacing-md:     $grid-gutter-width;
 $content-plugin-stacked-col-spacing-xl:     $grid-gutter-width;
 
@@ -159,26 +193,146 @@ $content-section-heading-spacing-xs:        $grid-gutter-width/2;
 $content-section-heading-spacing-md:        $grid-gutter-width;
 $content-section-heading-spacing-xl:        $grid-gutter-width;
 
-// App Content Plugin > Detail View: Spacings between the .content-section
-$app-detail-content-section-spacing-xs:     $grid-gutter-width;
-$app-detail-content-section-spacing-sm:     $grid-gutter-width;
-$app-detail-content-section-spacing-md:     $grid-gutter-width;
-$app-detail-content-section-spacing-lg:     $grid-gutter-width;
-$app-detail-content-section-spacing-xl:     $grid-gutter-width;
+// bg image INNER - overlay gradient (percentage values recommended)
+$content-section-bg-image-inner-overlay-gradient-height-xs:   0; // text is not overlapping image
+$content-section-bg-image-inner-overlay-gradient-height-sm:   0; // text is not overlapping image
+$content-section-bg-image-inner-overlay-gradient-height-md:   66%;
+$content-section-bg-image-inner-overlay-gradient-height-lg:   66%;
+$content-section-bg-image-inner-overlay-gradient-height-xl:   66%;
+$content-section-bg-image-inner-overlay-gradient-height-xxl:  66%;
 
-// App Content Plugin > Detail View: first item
-$app-detail-content-section-spacing-first-item-xs:     $app-detail-content-section-spacing-xs;
-$app-detail-content-section-spacing-first-item-sm:     $app-detail-content-section-spacing-sm;
-$app-detail-content-section-spacing-first-item-md:     $app-detail-content-section-spacing-md;
-$app-detail-content-section-spacing-first-item-lg:     $app-detail-content-section-spacing-lg;
-$app-detail-content-section-spacing-first-item-xl:     $app-detail-content-section-spacing-xl;
+// bg image OUTER - overlay gradient (percentage values recommended)
+$content-section-outer-overlay-gradient-height-xs:   66%;
+$content-section-outer-overlay-gradient-height-sm:   66%;
+$content-section-outer-overlay-gradient-height-md:   66%;
+$content-section-outer-overlay-gradient-height-lg:   66%;
+$content-section-outer-overlay-gradient-height-xl:   66%;
+$content-section-outer-overlay-gradient-height-xxl:  66%;
 
-// App Content Plugin > Detail View: last item
-$app-detail-content-section-spacing-last-item-xs:      $app-detail-content-section-spacing-xs;
-$app-detail-content-section-spacing-last-item-sm:      $app-detail-content-section-spacing-sm;
-$app-detail-content-section-spacing-last-item-md:      $app-detail-content-section-spacing-md;
-$app-detail-content-section-spacing-last-item-lg:      $app-detail-content-section-spacing-lg;
-$app-detail-content-section-spacing-last-item-xl:      $app-detail-content-section-spacing-xl;
+// spacings between plugins within a columns
+$content-section-column-manage-spacings-container-xs:       $grid-gutter-width;
+$content-section-column-manage-spacings-container-sm:       $grid-gutter-width;
+$content-section-column-manage-spacings-container-md:       $grid-gutter-width;
+$content-section-column-manage-spacings-container-lg:       $grid-gutter-width;
+$content-section-column-manage-spacings-container-xl:       $grid-gutter-width;
+$content-section-column-manage-spacings-container-xxl:      $grid-gutter-width;
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+App - List View (this includes ALL plugin templates such as Grid (Static), Table, and co)
+
+*/
+
+// "read more" link: globally set the button style
+$app-list-btn-variation:            'link'; // only valid button variations keyboard e.g. 'default', 'primary', ...
+$app-list-btn-padding-enabled:      false; // set to 'false' if the default button padding should be removed (might be desired with varation 'link')
+
+// "load more/all" link: globally set the button style
+$app-list-load-more-btn-variation:          'default';
+$app-list-load-more-btn-padding-enabled:    true; // set to 'false' if the default button padding should be removed (might be desired with varation 'link')
+
+// vertical spacings of content of e.g. grid items
+$manage-spacings-container-xs:      $grid-gutter-width/2;
+$manage-spacings-container-sm:      $grid-gutter-width/2;
+$manage-spacings-container-md:      $grid-gutter-width/2;
+$manage-spacings-container-lg:      $grid-gutter-width/2;
+$manage-spacings-container-xl:      $grid-gutter-width/2;
+$manage-spacings-container-xxl:     $grid-gutter-width/2;
+
+// in case of an empty results, define a global min height
+$app-list-no-result-cotainer-min-height-xs:         100px;
+$app-list-no-result-cotainer-min-height-md:         200px;
+$app-list-no-result-cotainer-min-height-xxl:        300px;
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+App - List View (default templates)
+
+*/
+
+// slider
+$app-list-slider-overlay-gradient-height:           66%;
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+App - Detail View (within Softpage or as Deeplink)
+
+*/
+
+// stacked columns
+$app-detail-col-stack-spacing-xs-max:                 $grid-gutter-width;
+
+// set max-width for any app detail (in softpage AND deeplink)
+$app-detail-content-container-max-width:              false; // pixel value. set to 'false' if default container width should be used
+
+// within softpage, create some spacing around all sections
+// Note: Sets 'padding'-property
+$app-detail-softpage-spacing-xs:                      $grid-gutter-width 0 0 0;
+$app-detail-softpage-spacing-sm:                      $grid-gutter-width 0 0 0;
+$app-detail-softpage-spacing-md:                      $grid-gutter-width 0 0 0;
+$app-detail-softpage-spacing-lg:                      $grid-gutter-width 0 0 0;
+$app-detail-softpage-spacing-xl:                      $grid-gutter-width 0 0 0;
+$app-detail-softpage-spacing-xxl:                     $grid-gutter-width 0 0 0;
+
+// Header section (spacing between)
+$app-detail-header-section-spacing-property:          'margin'; // either 'margin' or 'padding'
+$app-detail-header-section-spacing-xs:                $content-section-spacing-xs 0 $content-section-spacing-xs 0;
+$app-detail-header-section-spacing-sm:                $content-section-spacing-sm 0 $content-section-spacing-sm 0;
+$app-detail-header-section-spacing-md:                $content-section-spacing-md 0 $content-section-spacing-md 0;
+$app-detail-header-section-spacing-lg:                $content-section-spacing-lg 0 $content-section-spacing-lg 0;
+$app-detail-header-section-spacing-xl:                $content-section-spacing-xl 0 $content-section-spacing-xl 0;
+$app-detail-header-section-spacing-xxl:               $content-section-spacing-xxl 0 $content-section-spacing-xxl 0;
+
+// Heading Container (spacing to next element)
+$app-detail-heading-container-spacing-bottom-xs:      $grid-gutter-width;
+$app-detail-heading-container-spacing-bottom-sm:      $grid-gutter-width;
+$app-detail-heading-container-spacing-bottom-md:      $grid-gutter-width;
+$app-detail-heading-container-spacing-bottom-lg:      $grid-gutter-width;
+$app-detail-heading-container-spacing-bottom-xl:      $grid-gutter-width;
+$app-detail-heading-container-spacing-bottom-xxl:     $grid-gutter-width;
+
+// Spacing between LEAD and CONTENT
+$app-detail-spacing-between-lead-and-content-xs:      $grid-gutter-width;
+$app-detail-spacing-between-lead-and-content-sm:      $grid-gutter-width;
+$app-detail-spacing-between-lead-and-content-md:      $grid-gutter-width;
+$app-detail-spacing-between-lead-and-content-lg:      $grid-gutter-width;
+$app-detail-spacing-between-lead-and-content-xl:      $grid-gutter-width;
+$app-detail-spacing-between-lead-and-content-xxl:     $grid-gutter-width;
+
+// Created (spacing top)
+$app-detail-created-spacing-top-xs:                   $grid-gutter-width/2;
+$app-detail-created-spacing-top-sm:                   $grid-gutter-width/2;
+$app-detail-created-spacing-top-md:                   $grid-gutter-width/2;
+$app-detail-created-spacing-top-lg:                   $grid-gutter-width/2;
+$app-detail-created-spacing-top-xl:                   $grid-gutter-width/2;
+$app-detail-created-spacing-top-xxl:                  $grid-gutter-width/2;
+
+// Content Section
+$app-detail-content-section-spacing-xs:               $grid-gutter-width;
+$app-detail-content-section-spacing-sm:               $grid-gutter-width;
+$app-detail-content-section-spacing-md:               $grid-gutter-width;
+$app-detail-content-section-spacing-lg:               $grid-gutter-width;
+$app-detail-content-section-spacing-xl:               $grid-gutter-width;
+$app-detail-content-section-spacing-xxl:              $grid-gutter-width;
+
+// manage spacings of containers in 2. column (margin-top between containers)
+$app-detail-col-2-manage-spacing-xs:                  $grid-gutter-width;
+$app-detail-col-2-manage-spacing-sm:                  $grid-gutter-width;
+$app-detail-col-2-manage-spacing-md:                  $grid-gutter-width;
+$app-detail-col-2-manage-spacing-lg:                  $grid-gutter-width;
+$app-detail-col-2-manage-spacing-xl:                  $grid-gutter-width;
+$app-detail-col-2-manage-spacing-xxl:                 $grid-gutter-width;
+
+// spacing between items in the 2. column
+$app-detail-col-2-manage-spacing-xs:        $grid-gutter-width;
+$app-detail-col-2-manage-spacing-sm:        $grid-gutter-width;
+$app-detail-col-2-manage-spacing-md:        $grid-gutter-width;
+$app-detail-col-2-manage-spacing-lg:        $grid-gutter-width;
+$app-detail-col-2-manage-spacing-xl:        $grid-gutter-width;
+$app-detail-col-2-manage-spacing-xxl:       $grid-gutter-width;
 
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
@@ -196,13 +350,13 @@ $app-content-plugin-list-item-spacing-xl:               $grid-gutter-width;
 
 // DYNAMIC grid template
 $app-content-plugin-dynamic-grid-item-spacing-xs:       $grid-gutter-width;
-$app-content-plugin-dynamic-grid-item-spacing-md:       $grid-gutter-width;
-$app-content-plugin-dynamic-grid-item-spacing-xl:       $grid-gutter-width;
+$app-content-plugin-dynamic-grid-item-spacing-md:       $grid-gutter-width*2;
+$app-content-plugin-dynamic-grid-item-spacing-xl:       $grid-gutter-width*2;
 
 // STATIC grid template
 $app-content-plugin-static-grid-item-spacing-xs:        $grid-gutter-width;
-$app-content-plugin-static-grid-item-spacing-md:        $grid-gutter-width;
-$app-content-plugin-static-grid-item-spacing-xl:        $grid-gutter-width;
+$app-content-plugin-static-grid-item-spacing-md:        $grid-gutter-width*2;
+$app-content-plugin-static-grid-item-spacing-xl:        $grid-gutter-width*2;
 
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
@@ -247,68 +401,150 @@ $manage-spacings-container-xl: $grid-gutter-width/2;
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 
-Content Plugin specifc Styles
+=Parallax
+
+===
+
+Important: The following ratios are closely linked to the THUMBNAIL_WIDTH_ALIASES in settings.py.
+
+How it works:
+
+1. SCSS variables: Define the visible area with a ratio
+2. settings.py: Define AT LEAST the same ratio as in CSS (which results in NO parallax effect).
+   The more the HEIGHT differs, the stronger the parallax effect will be.
 
 */
 
-// parallax
-$parallax-bg-image-height:                           130%; // 100% is the size of the parallax section
+$parallax-full-height-mobile-height:                 120%; // The higher the number, the stronger the parallax effect. 100% = no effect
 
 $parallax-aspect-ratio-width-xs:                     4;
 $parallax-aspect-ratio-height-xs:                    3;
 
-$parallax-aspect-ratio-width-md:                     3000;
-$parallax-aspect-ratio-height-md:                    1300;
+$parallax-aspect-ratio-width-sm:                     4;
+$parallax-aspect-ratio-height-sm:                    3;
 
-$parallax-aspect-ratio-width-xl:                     3000;
-$parallax-aspect-ratio-height-xl:                    1300;
+$parallax-aspect-ratio-width-md:                     16;
+$parallax-aspect-ratio-height-md:                    6;
 
-$parallax-max-height:                                800px;
+$parallax-aspect-ratio-width-lg:                     16;
+$parallax-aspect-ratio-height-lg:                    6;
 
-// inner background image
-$content-plugin-inner-bg-container-ratio-width-xs:   4;
-$content-plugin-inner-bg-container-ratio-height-xs:  3;
+$parallax-aspect-ratio-width-xl:                     16;
+$parallax-aspect-ratio-height-xl:                    6;
 
-$content-plugin-inner-bg-container-ratio-width-md:   2;
-$content-plugin-inner-bg-container-ratio-height-md:  1;
-
-$content-plugin-inner-bg-container-ratio-width-xl:   2;
-$content-plugin-inner-bg-container-ratio-height-xl:  1;
-
-// mobile image ratio for video replacement
-$content-plugin-video-mobile-image-ratio-width:      4;
-$content-plugin-video-mobile-image-ratio-height:     3;
+$parallax-aspect-ratio-width-xxl:                    16;
+$parallax-aspect-ratio-height-xxl:                   6;
 
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 
-=Overlay Settings (the background of text above an image)
+Section bg image (=outer)
 
-Overlay text is POSITIONED absolute.
-So 'spacing' in this context relates to the 'top, right, bottom and left' properties.
+===
+
+Important: The following ratios are closely linked to the THUMBNAIL_WIDTH_ALIASES in settings.py.
 
 */
 
+$content-section-bg-image-outer-width-xs:                     4;
+$content-section-bg-image-outer-height-xs:                    3;
+
+$content-section-bg-image-outer-width-sm:                     4;
+$content-section-bg-image-outer-height-sm:                    3;
+
+$content-section-bg-image-outer-width-md:                     16;
+$content-section-bg-image-outer-height-md:                    6;
+
+$content-section-bg-image-outer-width-lg:                     16;
+$content-section-bg-image-outer-height-lg:                    6;
+
+$content-section-bg-image-outer-width-xl:                     16;
+$content-section-bg-image-outer-height-xl:                    6;
+
+$content-section-bg-image-outer-width-xxl:                    16;
+$content-section-bg-image-outer-height-xxl:                   6;
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+=Overlay =Gradient Settings (the background of text above an image)
+
+*/
+
+// Overlay text is POSITIONED absolute.
+// So 'spacing' in this context relates to the 'top, right, bottom and left' properties.
 $overlay-spacing-xs:                       $content-section-spacing-xs;
 $overlay-spacing-sm:                       $content-section-spacing-sm;
 $overlay-spacing-md:                       $content-section-spacing-md;
 $overlay-spacing-lg:                       $content-section-spacing-lg;
 $overlay-spacing-xl:                       $content-section-spacing-xl;
 
-$overlay-heading-color:                    #fff;
-$overlay-text-color:                       #fff;
+// overlay heading and text colors
+$overlay-heading-color:                    $white;
+$overlay-text-color:                       $white;
+
+// global overlay gradient definition
 $overlay-gradient-start-color:             #000;
 $overlay-gradient-start-opacity:           0;
 $overlay-gradient-end-color:               #000;
 $overlay-gradient-end-opacity:             0.5;
 
+// on mobile, show a background color instead of a gradient to improve readibility
 $overlay-background-color-sm-max:          #000;
 $overlay-background-opacity-sm-max:        0.5;
 
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 
-=Form Settings
+=hamburger =toggle
+
+*/
+
+$navbar-toggle-spacing-top:                10px;
+$navbar-toggle-spacing-right:              $grid-gutter-width/2;
+$navbar-toggle-bar-bg-collapsed:           $body-color;
+$navbar-toggle-bar-bg-collapsed-hover:     $black;
+$navbar-toggle-bar-bg-expanded:            $body-color;
+$navbar-toggle-bar-bg-expanded-hover:      $black;
+$navbar-toggle-bar-transition:             all 200ms ease-in;
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+=loader
+
+*/
+
+// default styles
+$loader-size:                           30px;
+$loader-border-width:                   1px;
+$loader-animation-duration:             1200ms;
+$loader-animation-timing-function:      cubic-bezier(0.32, 0.46, 0.46, 1);
+$loader-border-top-color:               $black;
+$loader-border-bottom-color:            $black;
+
+// within button
+$btn-loader-size:                       1em;
+$btn-loader-border-top-color:           $white;
+$btn-loader-border-bottom-color:        $white;
+$btn-loader-transition-duration:        300ms;
+$btn-loader-transition-delay:           300ms; // note: this is important, because we only want to see the loader icon if it is taking longer than it should.
+$btn-loader-transition-timing-function: ease-in-out;
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+=lazy =loading
+
+*/
+
+$lazyloader-bg-color:               rgba(0,0,0,0.1);
+$lazyloader-transition-duration:    600ms;
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+=form Settings
 
 */
 
@@ -320,10 +556,21 @@ $form-group-spacing-md:                $grid-gutter-width;
 $form-group-spacing-xl:                $grid-gutter-width;
 
 // `.label-control` margin bottom
-$form-label-bold-enabled:              true;
 $form-label-spacing-xs:                $grid-gutter-width/4;
 $form-label-spacing-md:                $grid-gutter-width/2;
 $form-label-spacing-xl:                $grid-gutter-width/2;
+
+// optionally mark label as bold
+$form-label-bold-enabled:              true;
+
+// error label
+$form-label-error-color:               $black;
+
+// error message
+$form-field-error-spacing-xs:          $grid-gutter-width/4;
+$form-field-error-spacing-md:          $grid-gutter-width/4;
+$form-field-error-spacing-xl:          $grid-gutter-width/4;
+$form-field-error-color:               $brand-danger;
 
 $form-field-required-icomoon-enabled:  false; // only set to 'true' if an icomoon icon is set below
 $form-field-required-icon:             '*';
@@ -390,7 +637,32 @@ $form-placeholder-enabled-group-spacing-top-xl:    $grid-gutter-width/4;
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 
-General Form =Field Settings (.form-control)
+=fieldset and =legend
+
+*/
+
+// spacing between fieldsets
+$form-fieldset-spacing-xs:             $grid-gutter-width;
+$form-fieldset-spacing-md:             $grid-gutter-width*1.5;
+$form-fieldset-spacing-xl:             $grid-gutter-width*2;
+
+// legend heading size (h1, h2, h3 or h4)
+$form-legend-heading-size:             'h2';
+
+// form group container spacing to previous element (legend or .fieldset-text)
+$form-group-container-spacing-top-xs:  $grid-gutter-width;
+$form-group-container-spacing-top-md:  $grid-gutter-width;
+$form-group-container-spacing-top-xl:  $grid-gutter-width;
+
+// fieldset intro text spacing to legend
+$form-fieldset-text-spacing-top-xs:    $grid-gutter-width/2;
+$form-fieldset-text-spacing-top-md:    $grid-gutter-width/2;
+$form-fieldset-text-spacing-top-xl:    $grid-gutter-width/2;
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+General Form =field Settings (.form-control)
 
 These settings apply to:
 
@@ -399,56 +671,47 @@ These settings apply to:
 
 */
 
-$form-field-transition:                $default-transition;
+$form-field-transition:                background-color $default-transition-duration $default-transition-timing-function, color $default-transition-duration $default-transition-timing-function, border $default-transition-duration $default-transition-timing-function;
 $form-field-border-radius-default:     0;
-$form-field-border-width:              2px;
+$form-field-border-width:              1px;
 $form-field-border-style:              solid;
 $form-field-border-color:              transparent;
 
 // background color
 $input-bg:                             #fff;
-// background color of disabled form field (e.g. text)
-$input-bg-disabled:                    $gray-lighter;
-// background color :focus
+// background color
 $input-bg-focus:                       #fff;
+// background color of disabled form field (e.g. type="text")
+$input-bg-disabled:                    $gray-lightest;
 
 // Text color for `<input>`s
-$input-color:                          $gray;
+$input-color:                          $black;
 
 // horizontal padding settings for form fields and textarea
-$input-padding-left:                   0;
-$input-padding-right:                  1em;
+$input-padding-left:                   0.5em;
+$input-padding-right:                  0.5em;
 
 // border color
-$input-border-top-color:               transparent;
-$input-border-right-color:             transparent;
-$input-border-bottom-color:            #000;
-$input-border-left-color:              transparent;
+$input-border-top-color:               $black;
+$input-border-right-color:             $black;
+$input-border-bottom-color:            $black;
+$input-border-left-color:              $black;
 
 // border color :focus
-$input-border-top-color-focus:         transparent;
-$input-border-right-color-focus:       transparent;
-$input-border-bottom-color-focus:      #000;
-$input-border-left-color-focus:        transparent;
+$input-border-top-color-focus:         $black;
+$input-border-right-color-focus:       $black;
+$input-border-bottom-color-focus:      $black;
+$input-border-left-color-focus:        $black;
 
 // ERROR styles
-$input-error-border-top-color:         transparent;
-$input-error-border-right-color:       transparent;
+$input-error-border-top-color:         $form-field-required-icon-color;
+$input-error-border-right-color:       $form-field-required-icon-color;
 $input-error-border-bottom-color:      $form-field-required-icon-color;
-$input-error-border-left-color:        transparent;
-$input-error-bg:                       #ffeded;
-
-// error label
-$form-label-error-color:               $black;
-
-// error message
-$form-field-error-spacing-xs:          $grid-gutter-width/4;
-$form-field-error-spacing-md:          $grid-gutter-width/4;
-$form-field-error-spacing-xl:          $grid-gutter-width/4;
-$form-field-error-color:               $brand-danger;
+$input-error-border-left-color:        $form-field-required-icon-color;
+$input-error-bg:                       #fff;
 
 // Placeholder text color
-$input-color-placeholder:              #999;
+$input-color-placeholder:              $black;
 
 // legend settings (IMPORTANT: currently not used and optizmied)
 $legend-color:                         $gray-dark;
@@ -466,7 +729,7 @@ $cursor-disabled:                      not-allowed;
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 
-INVERTED colors for form =Fields (.form-control)
+INVERTED colors for form =fields (.form-control)
 
 How to use it: Simply add a class `inverted-colors` to one of the parents of a form.
 
@@ -525,7 +788,7 @@ $input-inverted-error-bg:                       $input-error-bg;
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 
-=Checkboxes
+=checkboxes
 
 */
 
@@ -556,10 +819,10 @@ $checkbox-css-icon-size:                14px; // the calculations are made autom
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 
-=Radio
+=radio
 
 Important: Per default, the radio boxes inherit most of the checkbox styles, for they
-usually look similar
+usually SHOULD look similar in terms of size and spacings
 
 */
 
@@ -584,7 +847,7 @@ $radio-inner-circle-transition:         $checkbox-transition;
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 
-=Buttons
+=buttons
 
 Usage: In rare cases, you might need a specific value of a
 specific button variant. This is how to acces map values:
@@ -593,35 +856,61 @@ color: map-deep-get($btn-variations,'default','bg');
 
 */
 
-// button config
+$btn-transition-duration:                150ms;
+$btn-transition-timing-function:       ease-in;
+$btn-transition:         color $btn-transition-duration $btn-transition-timing-function,
+                                background-color $btn-transition-duration $btn-transition-timing-function, border-color $btn-transition-duration $btn-transition-timing-function;
+
+// Global Button and Input Paddings
+// (important: TOP and BOTTOM will be applied to .form-control, too, because we sometimes combine inputs and button, so they need to be the exact same height)
+$btn-padding-top:                       0.7em; // important: has to be in em's
+$btn-padding-bottom:                    0.6em; // important: has to be in em's
+$btn-padding-right:                     1em; // important: has to be in em's
+$btn-padding-left:                      1em; // important: has to be in em's
+$btn-line-height:                       1.25;
+
+// disabled button
+$btn-link-disabled-color:               $gray-light;
+
+// Allows for customizing button radius independently from global border radius
+$btn-border-radius-base:                $form-field-border-radius-default;
+$btn-border-radius-large:               $form-field-border-radius-default;
+$btn-border-radius-small:               $form-field-border-radius-default;
+
+// .btn-container (spacing between buttons)
+$btn-container-btn-spacing-xs:                      0.5em;
+$btn-container-btn-spacing-md:                      0.5em;
+$btn-container-btn-spacing-xl:                      0.5em;
+
+// button variation config
 $btn-disabled-lighten: 20%;
 
 $btn-variations: (
     'default': (
-        'color':                         #fff,
-        'bg':                            $brand-primary,
+        'color':                         $white,
+        'bg':                            $brand-secondary,
         // default
-        'border-top-color':              $brand-primary,
-        'border-right-color':            $brand-primary,
-        'border-bottom-color':           $brand-primary,
-        'border-left-color':             $brand-primary,
+        'border-top-color':              $brand-secondary,
+        'border-right-color':            $brand-secondary,
+        'border-bottom-color':           $brand-secondary,
+        'border-left-color':             $brand-secondary,
         // hover
-        'bg-hover':                      $brand-primary-light,
-        'color-hover':                   #fff,
-        'border-top-color-hover':        $brand-primary-light,
-        'border-right-color-hover':      $brand-primary-light,
-        'border-bottom-color-hover':     $brand-primary-light,
-        'border-left-color-hover':       $brand-primary-light,
+        'bg-hover':                      $brand-secondary-light,
+        'color-hover':                   $white,
+        'border-top-color-hover':        $brand-secondary-light,
+        'border-right-color-hover':      $brand-secondary-light,
+        'border-bottom-color-hover':     $brand-secondary-light,
+        'border-left-color-hover':       $brand-secondary-light,
         // disabled
-        'color-disabled':                #fff,
-        'bg-disabled':                   lighten($brand-primary-light,$btn-disabled-lighten),
-        'border-top-color-disabled':     lighten($brand-primary-light,$btn-disabled-lighten),
-        'border-right-color-disabled':   lighten($brand-primary-light,$btn-disabled-lighten),
-        'border-bottom-color-disabled':  lighten($brand-primary-light,$btn-disabled-lighten),
-        'border-left-color-disabled':    lighten($brand-primary-light,$btn-disabled-lighten),
+        'color-disabled':                $white,
+        'bg-disabled':                   lighten($brand-secondary,$btn-disabled-lighten),
+        'border-top-color-disabled':     lighten($brand-secondary,$btn-disabled-lighten),
+        'border-right-color-disabled':   lighten($brand-secondary,$btn-disabled-lighten),
+        'border-bottom-color-disabled':  lighten($brand-secondary,$btn-disabled-lighten),
+        'border-left-color-disabled':    lighten($brand-secondary,$btn-disabled-lighten),
     ),
     'primary': (
-        'color':                         #fff,
+        'color':                         $brand-secondary,
         'bg':                            $brand-primary,
         // default
         'border-top-color':              $brand-primary,
@@ -629,14 +918,14 @@ $btn-variations: (
         'border-bottom-color':           $brand-primary,
         'border-left-color':             $brand-primary,
         // hover
-        'bg-hover':                      $brand-primary-light,
-        'color-hover':                   #fff,
-        'border-top-color-hover':        $brand-primary-light,
-        'border-right-color-hover':      $brand-primary-light,
-        'border-bottom-color-hover':     $brand-primary-light,
-        'border-left-color-hover':       $brand-primary-light,
+        'bg-hover':                      $brand-primary-dark,
+        'color-hover':                   $brand-secondary,
+        'border-top-color-hover':        $brand-primary-dark,
+        'border-right-color-hover':      $brand-primary-dark,
+        'border-bottom-color-hover':     $brand-primary-dark,
+        'border-left-color-hover':       $brand-primary-dark,
         // disabled
-        'color-disabled':                #fff,
+        'color-disabled':                $brand-secondary,
         'bg-disabled':                   lighten($brand-primary-light,$btn-disabled-lighten),
         'border-top-color-disabled':     lighten($brand-primary-light,$btn-disabled-lighten),
         'border-right-color-disabled':   lighten($brand-primary-light,$btn-disabled-lighten),
@@ -736,8 +1025,8 @@ $btn-variations: (
         'border-left-color-disabled':    lighten($brand-danger-dark,$btn-disabled-lighten),
     ),
     'link': (
-        'color':                         $link-color,
-        'bg':                            #fff,
+        'color':                         $brand-secondary,
+        'bg':                            transparent,
         // default
         'border-top-color':              transparent,
         'border-right-color':            transparent,
@@ -745,13 +1034,13 @@ $btn-variations: (
         'border-left-color':             transparent,
         // hover
         'bg-hover':                      transparent,
-        'color-hover':                   $link-color-hover,
+        'color-hover':                   $brand-secondary-light,
         'border-top-color-hover':        transparent,
         'border-right-color-hover':      transparent,
         'border-bottom-color-hover':     transparent,
         'border-left-color-hover':       transparent,
         // disabled
-        'color-disabled':                $link-color-hover,
+        'color-disabled':                $brand-secondary-light,
         'bg-disabled':                   transparent,
         'border-top-color-disabled':     transparent,
         'border-right-color-disabled':   transparent,
@@ -760,29 +1049,10 @@ $btn-variations: (
     ),
 );
 
-// Global Button and Input Paddings
-// (important: will be applied to .form-control, too, because we sometimes combine inputs and button, so they need to be the exact same height)
-$btn-padding-top-default:               0.1em; // important: has to be in em's
-$btn-padding-bottom-default:            0.1em; // important: has to be in em's
-$btn-line-height-default:               1.25;
-
-// disabled button
-$btn-link-disabled-color:               $gray-light;
-
-// Allows for customizing button radius independently from global border radius
-$btn-border-radius-base:                $form-field-border-radius-default;
-$btn-border-radius-large:               $form-field-border-radius-default;
-$btn-border-radius-small:               $form-field-border-radius-default;
-
-// .btn-container (spacing between buttons)
-$btn-container-btn-spacing-xs:                      0.5em;
-$btn-container-btn-spacing-md:                      0.5em;
-$btn-container-btn-spacing-xl:                      0.5em;
-
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 
-Bootstrap =Select Styles
+=bootstrap =select
 
 */
 
@@ -790,9 +1060,9 @@ $select-btn-variation:                  'default'; // needs to be one of the var
 
 // this is a quick and dirty solution to fight the bootstrap-select loading jumping bloody effect
 // Important: Get height of rendered bootstrap-select at each breakpoint AFTER the typography has been approved.
-$select-placeholder-height-xs:          35px;
-$select-placeholder-height-md:          35px;
-$select-placeholder-height-xxl:         35px;
+$select-placeholder-height-xs:          41px;
+$select-placeholder-height-md:          41px;
+$select-placeholder-height-xxl:         51px;
 
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
@@ -801,12 +1071,15 @@ $select-placeholder-height-xxl:         35px;
 
 */
 
-$file-upload-btn-variation:            'primary'; // needs to be one of the variations defined in $btn-variations
+$file-upload-btn-variation:             'default'; // needs to be one of the variations defined in $btn-variations
+$file-upload-icon:                      '\e90c';
+$file-upload-icon-size:                 0.8em;
+$file-upload-icon-spacing-right:        0.3em;
 
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 
-=Datepicker
+=datepicker
 
 */
 
@@ -830,94 +1103,168 @@ $datepicker-clear-btn-position-right:       $datepicker-default-btn-width;
 $datepicker-clear-btn-transition:           all 150ms cubic-bezier(0.7, 0.91, 0.41, 1.64);
 // selected day
 $datepicker-selected-day-color:             $white;
-$datepicker-selected-day-bg:                $black;
-$datepicker-selected-day-border-color:      $black;
+$datepicker-selected-day-bg:                $brand-primary;
+$datepicker-selected-day-border-color:      $brand-primary;
 $datepicker-selected-day-border-width:      1;
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 
-=Dropdown
+=dropdown
 
 */
 
-$dropdown-min-width:                    0;
-$dropdown-border-width:                 2px;
+$dropdown-min-width:                    280px;
+$dropdown-border-width:                 1px;
 $dropdown-border-style:                 solid;
-$dropdown-border-color:                 #000;
+$dropdown-border-color:                 $black;
 $dropdown-border-radius:                0;
 $dropdown-border-top:                   false; // boolean
-$dropdown-toggle-icon:                  '\e903';
+
+// toggle
+$dropdown-toggle-icon:                  '\e905';
 $dropdown-toggle-icon-spacing-right:    1em;
 $dropdown-toggle-icon-spacing-left:     auto;
 $dropdown-toggle-padding-right:         3em;
 $dropdown-toggle-padding-left:          0.5em;
-$dropdown-link-padding:                 0;
 
-// Background for the dropdown menu.
-$dropdown-bg:                           #fff;
-// Dropdown menu `border-color`.
-$dropdown-border:                       rgba(0,0,0,.15);
-// Dropdown menu `border-color` **for IE8**.
-$dropdown-fallback-border:              #ccc;
-// Divider color for between dropdown items.
-$dropdown-divider-bg:                   #e5e5e5;
+// dropdown
+$dropdown-bg:                           $white;
 
-// Dropdown link text color.
-$dropdown-link-color:                   $input-color;
-// Hover color for dropdown links.
-$dropdown-link-hover-color:             darken($input-color, 5%);
-// Hover background for dropdown links.
-$dropdown-link-hover-bg:                $gray-lighter;
+// link: default
+$dropdown-link-padding:                 0.5em 0.5em;
+$dropdown-link-color:                   $black;
+$dropdown-link-hover-color:             $black;
+$dropdown-link-hover-bg:                transparent;
 
-// Active dropdown menu item text color.
-$dropdown-link-active-color:            $input-color;
-// Active dropdown menu item background color.
-$dropdown-link-active-bg:               $gray-light;
-
-// Disabled dropdown menu item background color.
+// link: active
+$dropdown-link-active-color:            $black;
+$dropdown-link-active-bg:               $white;
 $dropdown-link-disabled-color:          $gray-light;
 
-// Text color for headers within dropdown menus.
+// not used in default dropdowns
+$dropdown-divider-bg:                   transparent;
 $dropdown-header-color:                 $gray-light;
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+=tabs
+
+*/
+
+// container
+$custom-tabs-border-bottom-width:               0;
+$custom-tabs-border-bottom-style:               solid;
+$custom-tabs-border-bottom-color:               #000;
+$custom-tabs-register-look-activated:           true; // creates a negative margin according to the $custom-tabs-border-bottom-width in order to achieve a 'register look'
+
+// default: uses the same distance like we have between section title and the categories
+$custom-tabs-spacing-bottom-xs:                 $content-section-heading-spacing-xs;
+$custom-tabs-spacing-bottom-md:                 $content-section-heading-spacing-md;
+$custom-tabs-spacing-bottom-xl:                 $content-section-heading-spacing-xl;
+
+// item
+$custom-tabs-item-transition:                   $default-transition;
+$custom-tabs-item-border-width:                 $custom-tabs-border-bottom-width;
+$custom-tabs-item-border-style:                 $custom-tabs-border-bottom-style;
+$custom-tabs-item-border-color:                 $custom-tabs-border-bottom-color;
+$custom-tabs-item-padding-xs:                   0.6em 0.8em;
+$custom-tabs-item-padding-md:                   0.6em 0.8em;
+$custom-tabs-item-bg-default:                   #fff;
+$custom-tabs-item-bg-default-hover:             #fff;
+$custom-tabs-item-color-default:                $brand-secondary;
+$custom-tabs-item-bg-active:                    $brand-primary;
+$custom-tabs-item-bg-active-hover:              $brand-primary;
+$custom-tabs-item-color-active:                 $brand-secondary;
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+=modal
+
+*/
+
+$modal-default-overlay-transition:              all 400ms ease-out;
+$modal-default-content-bg:                      #fff;
+$modal-default-close-btn-size:                  60px;
+$modal-default-close-icon:                      '\e209';
+$modal-default-close-icon-color:                #000;
+$modal-default-close-icon-color-hover:          #444;
+$modal-default-close-icon-size:                 25px;
+$modal-default-close-icon-transition-property:          all;
+$modal-default-close-icon-transition-duration:          $link-transition-duration;
+$modal-default-close-icon-transition-timing-function:   $link-transition-timing-function;
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+=default =modal
+
+*/
+
+$default-modal-transition-duration:                150ms;
+$default-modal-transition-timing-function:       ease-in;
+$default-modal-transition:         visibility $default-modal-transition-duration $default-modal-transition-timing-function,
+                                opacity $default-modal-transition-duration $default-modal-transition-timing-function;
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+=image =modal
+
+*/
+
+// transition
+$image-modal-transition-duration:                150ms;
+$image-modal-transition-timing-function:       ease-in;
+$image-modal-transition:         visibility $image-modal-transition-duration $image-modal-transition-timing-function,
+                                opacity $image-modal-transition-duration $image-modal-transition-timing-function;
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+=form =modal
+
+*/
+
+$form-modal-transition-duration:                150ms;
+$form-modal-transition-timing-function:       ease-in;
+$form-modal-transition:         visibility $form-modal-transition-duration $form-modal-transition-timing-function,
+                                opacity $form-modal-transition-duration $form-modal-transition-timing-function;
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+=softpage
+
+*/
+
+// whether to enabled scroll-spy or not
+$softpage-content-transition-enabled:          false;
+
+$softpage-content-box-transition:               $modal-default-overlay-transition;
+$softpage-content-box-offset:                   3%; // y coordinates, any unit is fine
+$softpage-max-width-sm:                         850px;
+$softpage-max-width-xl:                         1200px;
+$softpage-max-width-xxl:                        1400px;
+
+// aligning button to the content (dependent of the $modal-default-close-btn-size
+$softpage-close-btn-position-right-md:          11px;
+$softpage-close-btn-position-right-xl:          11px;
+
+// variations
+$softpage-small-sm-max-width:                   500px;
+$softpage-small-xxl-max-width:                  700px;
 
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 
 =Swiper (=Slider)
 
-Important: The ratio's are closely linked to the thumbnail settings
-
 */
 
-// aspect ratios (Content Plugin > Column > Gallery Plugin)
-$swiper-gallery-plugin-aspect-ratio-width-xs:   4;
-$swiper-gallery-plugin-aspect-ratio-height-xs:  3;
-
-$swiper-gallery-plugin-aspect-ratio-width-md:   4;
-$swiper-gallery-plugin-aspect-ratio-height-md:  3;
-
-$swiper-gallery-plugin-aspect-ratio-width-xl:   4;
-$swiper-gallery-plugin-aspect-ratio-height-xl:  3;
-
-// aspect ratios (App Content Plugin)
-$swiper-app-content-aspect-ratio-width-xs:      4;
-$swiper-app-content-aspect-ratio-height-xs:     3;
-
-$swiper-app-content-aspect-ratio-width-md:      2;
-$swiper-app-content-aspect-ratio-height-md:     1;
-
-$swiper-app-content-aspect-ratio-width-xl:      2;
-$swiper-app-content-aspect-ratio-height-xl:     1;
-
-// aspect ratios (App Content > Detail View Header)
-$swiper-detail-view-aspect-ratio-width-xs:      4;
-$swiper-detail-view-aspect-ratio-height-xs:     3;
-
-$swiper-detail-view-aspect-ratio-width-md:      4;
-$swiper-detail-view-aspect-ratio-height-md:     3;
-
-$swiper-detail-view-aspect-ratio-width-xl:      4;
-$swiper-detail-view-aspect-ratio-height-xl:     3;
+// flags
+$swiper-default-pagination-hidden-sm-max:       true;
 
 // overlay
 $swiper-default-overlay-styles-enabled:         true;
@@ -927,7 +1274,6 @@ $swiper-default-overlay-gradient-height:        60%; // percent value recommende
 $swiper-default-bg:                             $white;
 
 // pagination
-$swiper-default-pagination-hidden-sm-max:       true;
 $swiper-default-pagination-position-top-xs:     $grid-gutter-width/4;
 $swiper-default-pagination-position-bottom-xs:  auto;
 $swiper-default-pagination-position-top-md:     auto;
@@ -935,20 +1281,23 @@ $swiper-default-pagination-position-bottom-md:  $grid-gutter-width/4;
 
 // bullets
 $swiper-default-bullet-size:                    15px;
-$swiper-default-bullet-border-width:            1px;
+$swiper-default-bullet-border-width:            2px;
 $swiper-default-bullet-border-style:            solid;
-$swiper-default-bullet-border-color:            #fff;
-$swiper-default-bullet-border-color-active:     transparent;
+$swiper-default-bullet-border-color:            $brand-secondary;
+$swiper-default-bullet-border-color-active:     $brand-secondary;
 $swiper-default-bullet-bg:                      transparent;
-$swiper-default-bullet-bg-active:               #fff;
+$swiper-default-bullet-bg-active:               $brand-secondary;
 
 // arrows
-$swiper-default-arrows-transition:              $link-transition; // recommended to use $link-transition in order to keep it consistent
-$swiper-default-arrows-icon-previous:           '\e904';
-$swiper-default-arrows-icon-next:               '\e905';
+$swiper-default-arrows-transition-property:            all; // per default we use $site-header-compact-mode-transition, because they are meant to be toggled at the same time
+$swiper-default-arrows-transition-duration:            $link-transition-duration;
+$swiper-default-arrows-transition-timing-function:     $link-transition-duration;
+
+$swiper-default-arrows-icon-previous:           '\e906';
+$swiper-default-arrows-icon-next:               '\e904';
 $swiper-default-arrows-icon-size:               1em;
-$swiper-default-arrows-opacity:                 0.8;
-$swiper-default-arrows-opacity-hover:           1;
+$swiper-default-arrows-opacity:                 1;
+$swiper-default-arrows-opacity-hover:           0.8;
 $swiper-default-arrows-color:                   #fff;
 $swiper-default-arrows-color-hover:             #fff;
 $swiper-default-arrows-width:                   200px; // usability tip: the clickable area fills the entire height
@@ -960,17 +1309,17 @@ $swiper-default-arrows-offset-xl:               $grid-gutter-width;
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 
-Custom Scrollbars
+custom =scrollbars
 
 Used with responsive tables
 
 */
 
 // track
-$custom-scrollbar-track-size:                  12px;
 $custom-scrollbar-track-shadow:                none;
 $custom-scrollbar-track-bg:                    $gray-lighter;
 $custom-scrollbar-track-border-radius:         6px;
+$custom-scrollbar-track-size:                  12px;
 // thumb (movable bar)
 $custom-scrollbar-thumb-bg:                    darken($gray-lighter,10%);
 $custom-scrollbar-thumb-border-radius:         $custom-scrollbar-track-border-radius; // recommended to be the same as $custom-scrollbar-track-border-radius
@@ -978,43 +1327,44 @@ $custom-scrollbar-thumb-border-radius:         $custom-scrollbar-track-border-ra
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 
-Social Profile Icons
+=Social =Profile Icons
 
 */
 
 $social-profile-icons: (
-    'facebook': '\e900',
+    'facebook': '\e905',
     'instagram': '\e901',
     'pinterest': '\e907',
-    'twitter': '\e605',
+    'twitter': '\e904',
     'snapchat': '\e90a',
     'spotify': '\e908',
-    'linkedin': '\e607',
+    'linkedin': '\e903',
     'xing': '\e608',
-    'youtube': '\e601',
+    'youtube': '\e900',
     'vimeo': '\e909',
-    'googleplus': '\e90b',
+    'googleplus': '\e900',
     'tripadvisor': '\e902',
-    'kununu': '\e90d',
+    'kununu': '\e910',
 );
 
-$social-profile-icon-alignment:                 right; // horizontal values only: left, center, right
-$social-profile-icon-size:                      2em;
+$social-profile-icon-alignment:                 left; // horizontal values only: left, center, right
+$social-profile-icon-size:                      30px;
 $social-profile-icon-spacing:                   0.8em;
 $social-profile-icon-opacity:                   1;
-$social-profile-icon-opacity-hover:             0.85;
-$social-profile-icon-color:                     $black;
+$social-profile-icon-opacity-hover:             1;
 $social-profile-icon-color:                     $black;
 $social-profile-icon-color-hover:               $black;
-$social-profile-icon-transition:                $link-transition;
+$social-profile-icon-transition-property:            all; // per default we use $site-header-compact-mode-transition, because they are meant to be toggled at the same time
+$social-profile-icon-transition-duration:            $link-transition-duration;
+$social-profile-icon-transition-timing-function:     $link-transition-duration;
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 
-Button / Link Plugin
+Button / Link Plugin '.button-link-container '
 
 */
 
-// .button-link-container (spacing between list items)
+// spacing between list items
 $button-link-container-item-spacing-xs:         1em;
 $button-link-container-item-spacing-md:         1em;
 $button-link-container-item-spacing-xl:         1em;
@@ -1033,7 +1383,7 @@ Why? Browsers can transition opacity cheaper, performance-wise.
 
 $site-overlay-z-index-map-key:                  'site-overlay';
 $site-overlay-bg:                               #000;
-$site-overlay-opacity-when-visible:             0.5;
+$site-overlay-opacity-when-visible:             0.7;
 $site-overlay-transition-duration:              300ms;
 $site-overlay-transition-timing-function:       ease-in;
 
@@ -1084,19 +1434,6 @@ $alert-variations: (
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 
-=softpage
-
-*/
-
-$softpage-content-transition-enabled:       false;
-
-// variations
-$softpage-small-sm-max-width:                   500px;
-$softpage-small-xxl-max-width:                  700px;
-
-
-/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
-
 =members plugin
 
 */
@@ -1115,6 +1452,7 @@ $members-modal-spacing-bottom-xl:                   60px;
 
 */
 
+// default ratio when nothing is set via plugin
 $video-embed-default-ratio-width:               16;
 $video-embed-default-ratio-height:               9;
 
@@ -1152,18 +1490,6 @@ $filter-container-spacing-bottom-xl:             $grid-gutter-width;
 
 // spacing between selects
 $filter-container-spacing-between-select:        0.5em; // 'em' recommended
-
-
-/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
-
-=form =modal
-
-*/
-
-$form-modal-transition-duration:                150ms;
-$form-modal-transition-timing-function:       ease-in;
-$form-modal-transition:         visibility $form-modal-transition-duration $form-modal-transition-timing-function,
-                                opacity $form-modal-transition-duration $form-modal-transition-timing-function;
 
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *

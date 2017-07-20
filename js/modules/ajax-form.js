@@ -89,7 +89,7 @@ export function sendAjaxForm($form) {
             }
 
             // trigger custom events
-            $(window).trigger('ajaxFormSuccess');
+            $(window).trigger('ajaxForm:success');
             $(window).trigger('initAjaxForm');
             $(window).trigger('initDatepicker');
             $(window).trigger('initFormModalClose');
@@ -98,7 +98,8 @@ export function sendAjaxForm($form) {
             $(window).trigger('initOnScreen');
         },
         error: function(jqXHR, textStatus, errorThrown) {
-            //if fails
+            // if something goes wrong
+            $(window).trigger('ajaxForm:error');
         }
     });
 

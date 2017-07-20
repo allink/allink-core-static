@@ -153,7 +153,9 @@ Used to be on project basis
         top: 50%;
         left: 50%;
         transform: translate(-50%,-50%);
-        transition: $modal-default-close-icon-transition;
+        transition-property: $modal-default-close-icon-transition-property;
+        transition-duration: $modal-default-close-icon-transition-duration;
+        transition-timing-function: $modal-default-close-icon-transition-timing-function;
         @include icomoon();
     }
     > span {

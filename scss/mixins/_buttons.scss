@@ -61,10 +61,12 @@ Get the base styles for a button
 
 @mixin button-base() {
 
+    &,
     &:link,
     &:visited {
         text-decoration: none;
         box-shadow: none;
+        transition: $btn-transition;
     }
     &:hover,
     &:focus,

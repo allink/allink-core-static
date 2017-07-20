@@ -24,7 +24,7 @@ body {
 .form-control,
 .dropdown-menu {
     @include font-input-default();
-    line-height: $btn-line-height-default;
+    line-height: $btn-line-height;
 }
 
 strong {

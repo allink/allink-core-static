@@ -15,6 +15,7 @@ $(function(){
         $('.selectpicker').selectpicker({
           style: 'btn-default bs-placeholder',
           size: 'auto',
+          windowPadding: [120,0,0,0],
         });
     }
 
@@ -22,7 +23,7 @@ $(function(){
     initBootstrapSelect();
 
     // custom event
-    $(window).on('initBootstrapSelect ajaxFormSuccess softpage:opened form-modal:opened', function() {
+    $(window).on('initBootstrapSelect ajaxForm:success softpage:opened form-modal:opened', function() {
         initBootstrapSelect();
     });
 

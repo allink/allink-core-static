@@ -163,7 +163,7 @@ $(function(){
     initSoftpageTrigger();
 
     // custom events
-    $(window).on('initSoftpageTrigger', function() {
+    $(window).on('initSoftpageTrigger ajaxForm:success', function() {
         initSoftpageTrigger();
     });
     $(window).on('closeSoftpage', function() {

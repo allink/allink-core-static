@@ -23,7 +23,7 @@ $(function(){
     initBootstrapSelect();
 
     // custom event
-    $(window).on('initBootstrapSelect ajaxFormSuccess softpage:opened form-modal:opened', function() {
+    $(window).on('initBootstrapSelect ajaxForm:success softpage:opened form-modal:opened', function() {
         initBootstrapSelect();
     });
 

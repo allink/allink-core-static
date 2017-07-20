@@ -65,6 +65,7 @@ Default Content Section Styles
             }
         }
         .content-section__main-col-container {
+            z-index: 10;
             @include main-col-container-positioning();
         }
         // in case the dynamic height options is enabled:
@@ -159,12 +160,6 @@ Default Content Section Styles
     Default Text Container
 
     */
-
-    // for columns
-    &__main-col-container {
-        position: relative;
-        z-index: 10;
-    }
 
     // container
     &__main-text-container {
@@ -608,6 +603,7 @@ Default Content Section Styles
         // overflow: hidden; // The negativ margin of the make-row() mixin causes the content to overflow. Let's hide it.
         .content-section__col {
             @include make-xs-column(24);
+            position: static;
         }
     }
 
@@ -618,6 +614,7 @@ Default Content Section Styles
             @include make-spacing-top-sm-max($content-section-col-stack-spacing-sm-max);
             @include make-xs-column(24);
             @include make-md-column(12);
+            position: static;
         }
     }
 
@@ -631,11 +628,13 @@ Default Content Section Styles
             @include make-xs-column(24);
             @include make-md-column(12);
             @include make-lg-column(16);
+            position: static;
         }
         .content-section__col-2 {
             @include make-xs-column(24);
             @include make-md-column(12);
             @include make-lg-column(8);
+            position: static;
         }
     }
 
@@ -649,11 +648,13 @@ Default Content Section Styles
             @include make-xs-column(24);
             @include make-md-column(12);
             @include make-lg-column(8);
+            position: static;
         }
         .content-section__col-2 {
             @include make-xs-column(24);
             @include make-md-column(12);
             @include make-lg-column(16);
+            position: static;
         }
     }
 
@@ -664,6 +665,7 @@ Default Content Section Styles
             @include make-xs-column(24);
             @include make-sm-column(12);
             @include make-md-column(8);
+            position: static;
             @include make-spacing-top-sm-max($content-section-col-stack-spacing-sm-max);
         }
     }
@@ -684,6 +686,7 @@ Default Content Section Styles
                 &:nth-child(2n+1) { clear: none; }
                 &:nth-child(4n+1) { clear: left; }
             }
+            position: static;
         }
     }
 
@@ -712,6 +715,7 @@ Default Content Section Styles
                 &:nth-child(4n+1) { clear: none; }
                 &:nth-child(5n+1) { clear: left; }
             }
+            position: static;
         }
     }
 
@@ -740,6 +744,7 @@ Default Content Section Styles
                 &:nth-child(3n+1) { clear: none; }
                 &:nth-child(6n+1) { clear: left; }
             }
+            position: static;
         }
     }
 

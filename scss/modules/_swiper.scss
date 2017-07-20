@@ -17,7 +17,9 @@ Global Swiper Custom Styles
     margin: 0;
     transform: translate(0,-50%);
     opacity: $swiper-default-arrows-opacity;
-    transition: $swiper-default-arrows-transition;
+    transition-property: $swiper-default-arrows-transition-property;
+    transition-duration: $swiper-default-arrows-transition-duration;
+    transition-timing-function: $swiper-default-arrows-transition-timing-function;
     &:link,
     &:visited {
         color: $swiper-default-arrows-color;
@@ -75,10 +77,6 @@ Global Swiper Custom Styles
     }
 }
 
-// Slider fullscreen button
-.swiper-button-fullscreen {
-    float: right;
-}
 
 // Pagination
 .swiper-container-horizontal {

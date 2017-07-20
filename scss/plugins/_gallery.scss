@@ -4,6 +4,15 @@ Gallery Plugin
 
 */
 
+.gallery-plugin {
+    // when counter is enabled, hide bullet pagination
+    &.counter-enabled {
+        .swiper-pagination {
+            display: none;
+        }
+    }
+}
+
 .gallery-slide {
 
     &____image-container {
@@ -57,10 +66,8 @@ Fullscreen Gallery
 */
 
 .swiper-button-fullscreen {
-    position: absolute;
-    top: 50%;
-    right: 100px;
-    transform: translate(0,-50%);
+    float: right;
+    // hide within fullscreen container
     .swiper-fullscreen-container & {
         display: none;
     }

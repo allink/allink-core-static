@@ -1,0 +1,78 @@
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+Form modal
+
+*/
+
+.default-modal {
+
+    overflow-x: hidden;
+    z-index: z("default-modal");
+    transition: $default-modal-transition;
+
+    &.tingle-modal--visible {
+        .tingle-modal-box {
+            animation-name: fadeIn;
+            animation-duration: 500ms;
+            animation-timing-function: ease-in;
+            animation-fill-mode: forwards;
+        }
+    }
+
+    .tingle-modal-box {
+        align-self: center;
+        top: 0;
+        width: 100%;
+        opacity: 0;
+        @media (min-width:$screen-md) {
+            align-self: center;
+            max-width: 500px;
+        }
+        @media (min-width:$screen-xxl) {
+            max-width: 700px;
+        }
+    }
+
+    .tingle-modal-box__content {
+        padding: $grid-gutter-width/2;
+        padding-top: $grid-gutter-width*2;
+        @media (min-width:$screen-sm) {
+            padding: $grid-gutter-width;
+        }
+    }
+
+    // button close enabled?
+
+    .tingle-modal__close {
+        display: none;
+    }
+
+    &.tingle-modal--ButtonClose {
+        .tingle-modal__close {
+            display: block;
+            position: absolute;
+            top: 0;
+            right: 0;
+            left: auto;
+            width: 50px;
+            height: 50px;
+            line-height: 1;
+            top: 0 !important;
+            &:focus {
+                outline: none;
+            }
+            @media (min-width: $screen-md) {
+                right: 0; top: 0;
+                width: 80px;
+                height: 70px;
+                transform: translate(0,0);
+                border-radius: 0;
+            }
+        }
+    }
+
+    // overlay close enabled?
+    &.tingle-modal--OverlayClose {
+        cursor: pointer;
+    }
+}

@@ -141,6 +141,11 @@
 
     h2 {
         @include font-h1();
+        // make sure that online styles are not stronger
+        strong,
+        em {
+            @include font-h1();
+        }
         margin: $text-container-h1-margin-xs;
         @media (min-width:$screen-sm) {
             margin: $text-container-h1-margin-sm;
@@ -166,6 +171,11 @@
     }
     h3 {
         @include font-h2();
+        // make sure that online styles are not stronger
+        strong,
+        em {
+            @include font-h2();
+        }
         margin: $text-container-h2-margin-xs;
         @media (min-width:$screen-sm) {
             margin: $text-container-h2-margin-sm;
@@ -186,6 +196,11 @@
     }
     h4 {
         @include font-h3();
+        // make sure that online styles are not stronger
+        strong,
+        em {
+            @include font-h3();
+        }
         margin: $text-container-h3-margin-xs;
         @media (min-width:$screen-sm) {
             margin: $text-container-h3-margin-sm;
@@ -206,6 +221,11 @@
     }
     h5 {
         @include font-h4();
+        // make sure that online styles are not stronger
+        strong,
+        em {
+            @include font-h4();
+        }
         margin: $text-container-h4-margin-xs;
         @media (min-width:$screen-sm) {
             margin: $text-container-h4-margin-sm;
@@ -227,6 +247,11 @@
 
     .display-1 {
         @include font-display-1();
+        // make sure that online styles are not stronger
+        strong,
+        em {
+            @include font-display-1();
+        }
         margin: $text-container-display-1-margin-xs;
         @media (min-width:$screen-sm) {
             margin: $text-container-display-1-margin-sm;
@@ -252,7 +277,7 @@
     First/Last element, forcefully remove unnecessary spacing
 
     Hint: Should you need "that" extra spacing for some reason, then the .text-container
-    is not the right parent for this case.
+    is not the right parent for your case.
 
     */
 

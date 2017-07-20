@@ -1,6 +1,6 @@
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 
-Link with class '.toggle-form-modal' will trigger the form lightbox
+Link with class [data-trigger-form-modal] will trigger the form lightbox
 
 Custom Events:
 
