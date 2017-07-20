@@ -117,6 +117,177 @@ $body-inverted-color:         $white;
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 
+=Heading Colors
+
+*/
+
+$h1-color:                   $abbey;
+$h1-color-inverted:          $body-inverted-color;
+$h2-color:                   $abbey;
+$h2-color-inverted:          $body-inverted-color;
+$h3-color:                   $abbey;
+$h3-color-inverted:          $body-inverted-color;
+$h4-color:                   $abbey;
+$h4-color-inverted:          $body-inverted-color;
+$display-1-color:            $abbey;
+$display-1-color-inverted:   $body-inverted-color;
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+=Text Container (text structure withing '.text-container')
+
+*/
+
+// for paragraphs, lists, tables and images (first and last item will be treated automatically)
+$text-container-element-default-margin-xs:  10px 0;
+$text-container-element-default-margin-sm:  15px 0;
+$text-container-element-default-margin-md:  15px 0;
+$text-container-element-default-margin-lg:  15px 0;
+$text-container-element-default-margin-xl:  15px 0;
+$text-container-element-default-margin-xxl: 15px 0;
+
+// p.lead
+$p-lead-margin-xs:                          20px 0;
+$p-lead-margin-sm:                          30px 0;
+$p-lead-margin-md:                          30px 0;
+$p-lead-margin-lg:                          30px 0;
+$p-lead-margin-xl:                          30px 0;
+$p-lead-margin-xxl:                         30px 0;
+
+// h1
+$text-container-h1-margin-xs:               $grid-gutter-width*1.5 0 $grid-gutter-width/2 0;
+$text-container-h1-margin-sm:               $grid-gutter-width*1.5 0 $grid-gutter-width/2 0;
+$text-container-h1-margin-md:               $grid-gutter-width*1.5 0 $grid-gutter-width/2 0;
+$text-container-h1-margin-lg:               $grid-gutter-width*1.5 0 $grid-gutter-width/2 0;
+$text-container-h1-margin-xl:               $grid-gutter-width*1.5 0 $grid-gutter-width/2 0;
+$text-container-h1-margin-xxl:              $grid-gutter-width*1.5 0 $grid-gutter-width/2 0;
+
+// h2
+$text-container-h2-margin-xs:               $grid-gutter-width*1.5 0 $grid-gutter-width/2 0;
+$text-container-h2-margin-sm:               $grid-gutter-width*1.5 0 $grid-gutter-width/2 0;
+$text-container-h2-margin-md:               $grid-gutter-width*1.5 0 $grid-gutter-width/2 0;
+$text-container-h2-margin-lg:               $grid-gutter-width*1.5 0 $grid-gutter-width/2 0;
+$text-container-h2-margin-xl:               $grid-gutter-width*1.5 0 $grid-gutter-width/2 0;
+$text-container-h2-margin-xxl:              $grid-gutter-width*1.5 0 $grid-gutter-width/2 0;
+
+// h3
+$text-container-h3-margin-xs:               $grid-gutter-width*1.5 0 $grid-gutter-width/2 0;
+$text-container-h3-margin-sm:               $grid-gutter-width*1.5 0 $grid-gutter-width/2 0;
+$text-container-h3-margin-md:               $grid-gutter-width*1.5 0 $grid-gutter-width/2 0;
+$text-container-h3-margin-lg:               $grid-gutter-width*1.5 0 $grid-gutter-width/2 0;
+$text-container-h3-margin-xl:               $grid-gutter-width*1.5 0 $grid-gutter-width/2 0;
+$text-container-h3-margin-xxl:              $grid-gutter-width*1.5 0 $grid-gutter-width/2 0;
+
+// h4
+$text-container-h4-margin-xs:               $grid-gutter-width*1.5 0 $grid-gutter-width/2 0;
+$text-container-h4-margin-sm:               $grid-gutter-width*1.5 0 $grid-gutter-width/2 0;
+$text-container-h4-margin-md:               $grid-gutter-width*1.5 0 $grid-gutter-width/2 0;
+$text-container-h4-margin-lg:               $grid-gutter-width*1.5 0 $grid-gutter-width/2 0;
+$text-container-h4-margin-xl:               $grid-gutter-width*1.5 0 $grid-gutter-width/2 0;
+$text-container-h4-margin-xxl:              $grid-gutter-width*1.5 0 $grid-gutter-width/2 0;
+
+// display-1
+$text-container-display-1-margin-xs:        $grid-gutter-width 0 $grid-gutter-width/2 0;
+$text-container-display-1-margin-sm:        $grid-gutter-width 0 $grid-gutter-width/2 0;
+$text-container-display-1-margin-md:        $grid-gutter-width 0 $grid-gutter-width/2 0;
+$text-container-display-1-margin-lg:        $grid-gutter-width 0 $grid-gutter-width/2 0;
+$text-container-display-1-margin-xl:        $grid-gutter-width 0 $grid-gutter-width/2 0;
+$text-container-display-1-margin-xxl:       $grid-gutter-width 0 $grid-gutter-width/2 0;
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+=Lists (withing .text-container)
+
+Make sure to define this list AFTER the typography (especially font size
+and line height) is defined. Otherwise you will have to readjust it.
+
+*/
+
+// general
+$list-padding-xs: 30px;
+$list-padding-md: 35px;
+// ul
+$unordered-list-item-icon: '-';
+$unordered-list-item-icon-size: 0.8em;
+// x position of icon/number (might need some fine tuning, depending on the icon and icon size)
+$unordered-list-item-icon-spacing-top-xs: 10px;
+$unordered-list-item-icon-spacing-top-md: 9px;
+$unordered-list-item-icon-spacing-left-xs: 9px;
+$unordered-list-item-icon-spacing-left-md: 12px;
+$ordered-list-item-icon-spacing-left-xs: 10px;
+$ordered-list-item-icon-spacing-left-md: 10px;
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+=Header
+
+*/
+
+$site-header-bg-color:                         $white;
+$site-header-bg-color-opacity:                 1;
+$site-header-fixed-enabled:                    true; //boolean
+$site-header-fixed-use-buffer:                 true; //boolean
+$site-header-fixed-buffer-bg-color:            $white;
+$site-header-height-xs:                        60px;
+$site-header-height-md:                        120px;
+$site-header-height-xl:                        120px;
+$site-header-height-xxl:                       120px;
+$site-header-compact-mode-enabled:             true; //boolean
+$site-header-compact-mode-transition:          all 300ms ease-in-out;
+$site-header-compact-mode-height-xs:           60px;
+$site-header-compact-mode-height-md:           80px;
+$site-header-compact-mode-height-xl:           80px;
+$site-header-compact-mode-height-xxl:          80px;
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+=Branding
+
+Important: The values are closely linked to the header height.
+
+*/
+
+$brand-logo-height-xs:                         30px;
+$brand-logo-height-md:                         60px;
+$brand-logo-height-xl:                         60px;
+$brand-logo-height-xxl:                        60px;
+
+
+// COMPACT MODE - Requires the following:
+// 1. The '.site-header' element needs an extra class '.compact-mode-enabled' to trigger the compact header using JavaScript
+// 2. '$site-header-compact-mode-enabled' has to be set to 'true'
+$brand-logo-compact-mode-height-xs:            30px;
+$brand-logo-compact-mode-height-md:            40px;
+$brand-logo-compact-mode-height-xl:            40px;
+$brand-logo-compact-mode-height-xxl:           40px;
+
+// it is recommended to be the same as $site-header-compact-mode-transition
+$brand-logo-compact-mode-transition:           $site-header-compact-mode-transition;
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+=Footer
+
+*/
+
+$site-footer-bg-color:                         $black;
+$site-footer-fixed-enabled:                    false; //boolean
+// the following settings only matter if $site-footer-fixed-enabled is set to 'true'
+$site-footer-fixed-height-xs:                  240px;
+$site-footer-fixed-height-md:                  230px;
+$site-footer-fixed-height-xl:                  230px;
+// gap between footer elements
+$site-footer-elements-spacing-xs:              $grid-gutter-width;
+$site-footer-elements-spacing-md:              $grid-gutter-width;
+$site-footer-elements-spacing-xl:              $grid-gutter-width*2;
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
 =Links (default)
 
 */
