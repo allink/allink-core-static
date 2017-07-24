@@ -153,9 +153,8 @@ function initSmoothScroll() {
             var trigger_initialized = $trigger.attr(initialized_attr);
             // NOT initialized yet
             if (typeof trigger_initialized === 'undefined') {
-                $trigger.on('click',function(e){
+                $trigger.on('click',function(){
                     // init target
-                    e.preventDefault();
                     var $trigger = $(this);
                     var anchor = $trigger.attr('href');
                     var $target = $(anchor);

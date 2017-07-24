@@ -226,6 +226,7 @@ Each release is divided into the following main categories:
 
 ### FIXES
 
+- Button Link Plugin: Internal link dropdown text is now visible (again).
 - Swiper Fullscreen: Hitting the ESC key closed a form modal. Fixed!
 - Btn AJAX Loader: Now executed with a delay, as it caused button size issues when the page wasn't fully rendered yet.
 - Admin Modal: Image preview now bigger.

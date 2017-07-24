@@ -79,6 +79,7 @@ Default Form Styles
         width: $form-field-required-icon-width;
         height: $form-field-required-icon-height;
         overflow: hidden;
+        visibility: hidden;
         &:before {
             content: $form-field-required-icon;
             color: $form-field-required-icon-color;
@@ -321,3 +322,4 @@ Form Modal
         margin-top: $grid-gutter-width;
     }
 }
+
