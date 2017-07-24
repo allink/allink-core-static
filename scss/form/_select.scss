@@ -1,3 +1,22 @@
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+On the spot animations
+
+*/
+
+@keyframes bsSelectDropdownAnimation {
+    0% {
+        opacity: 0;
+        transform: translate(0,-15px);
+
+    }
+    100% {
+        opacity: 1;
+        transform: translate(0,0);
+    }
+}
+
+
 // this is a quick and dirty solution to fight the bootstrap-select loading jumping bloody effect
 select.selectpicker {
     display: inline-block !important;
@@ -32,6 +51,7 @@ select.selectpicker {
         color: map-deep-get($btn-variations,$select-btn-variation,'color') !important;
         background-color: map-deep-get($btn-variations,$select-btn-variation,'bg') !important;
         box-shadow: none !important;
+        z-index: 10;
         &:focus {
             outline: none !important; // I appologise, dear accessibility
         }
@@ -59,6 +79,47 @@ select.selectpicker {
 
     }
 
+
+    /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+    Dropdown Menu
+
+    */
+
+    > .dropdown-menu {
+        // sizing and styles
+        min-width: $dropdown-min-width !important; // I hate to do this, but because the default styles uses a very specific structure, I was forced to. This can of cousre be overwritten in a different context
+        padding: 0;
+        border-style: $dropdown-border-style;
+        border-width: $dropdown-border-width;
+        border-color: $dropdown-border-color;
+        border-radius: $dropdown-border-radius;
+        // when dropdown opens below, there's an ugly gap
+        margin-bottom: 0;
+        @if $dropdown-border-top == false {
+            border-top: none;
+        }
+        z-index: 1;
+        a {
+            outline: none;
+            padding: $dropdown-link-padding;
+        }
+        // selected list item
+        .selected {
+            a {
+                color: $dropdown-link-active-color;
+                background-color: $dropdown-link-active-bg;
+            }
+        }
+    }
+
+
+    /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+    Opened State
+
+    */
+
     // I hate to be so specific, but we need to be stronger than the default dropdown styles
     &.open {
         > .dropdown-toggle {
@@ -74,37 +135,29 @@ select.selectpicker {
                 border-left-color: map-deep-get($btn-variations,$select-btn-variation,'border-left-color') !important;
             }
         }
+        // > .dropdown-menu {
+        //     opacity: 1;
+        //     transform: translate(0,0);
+        // }
     }
 
 
     /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 
-    Dropdown Menu
+    When assigning dropdown to another container (e.g. body) we can't
+    work with transition (because element doesn't exist on page load).
+    We have to use an animation instead.
 
     */
 
     > .dropdown-menu {
-        min-width: $dropdown-min-width !important; // I hate to do this, but because the default styles uses a very specific structure, I was forced to. This can of cousre be overwritten in a different context
-        padding: 0;
-        border-style: $dropdown-border-style;
-        border-width: $dropdown-border-width;
-        border-color: $dropdown-border-color;
-        border-radius: $dropdown-border-radius;
-        // when dropdown opens below, there's an ugly gap
-        margin-bottom: 0;
-        @if $dropdown-border-top == false {
-            border-top: none;
-        }
-        a {
-            outline: none;
-            padding: $dropdown-link-padding;
-        }
-        // selected list item
-        .selected {
-            a {
-                color: $dropdown-link-active-color;
-                background-color: $dropdown-link-active-bg;
-            }
+        opacity: 0;
+        &.animate {
+            animation-name: bsSelectDropdownAnimation;
+            animation-duration: 300ms;
+            animation-timing-function: ease-in-out;
+            animation-fill-mode: forwards;
         }
     }
+
 }

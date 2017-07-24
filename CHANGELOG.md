@@ -9,7 +9,10 @@ Each release is divided into the following main categories:
 ## v1.0.0 (under development)
 
 ### IMPORTANT
--
+- New Javascript plugin `expandable` is now available:
+  ```JS
+  import 'allink-core-static/js/modules/expandable';
+  ```
 ### NEW
 -
 ### FIXES

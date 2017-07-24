@@ -13,7 +13,7 @@ $(function(){
 
     function initBootstrapSelect() {
         $('.selectpicker').selectpicker({
-          style: 'btn-default bs-placeholder',
+          style: 'bs-placeholder',
           size: 'auto',
           windowPadding: [120,0,0,0],
         });
