@@ -124,7 +124,7 @@ export function setExpandableHeight() {
     $('.expandable--expanded').each(function(){
         var $container = $(this);
         var $content = $container.find('.expandable__content');
-        var container_height = $content.outerHeight();
+        var container_height = $content.outerHeight(true); // 'true': includes margin
         $container.css('height',container_height);
     });
 }
@@ -133,7 +133,7 @@ export function initExpandable() {
     $('.expandable').each(function(){
         var $container = $(this);
         var $content = $container.find('.expandable__content');
-        var container_height = $content.outerHeight();
+        var container_height = $content.outerHeight(true); // 'true': includes margin
         $container.attr('data-height',container_height);
     });
 }
