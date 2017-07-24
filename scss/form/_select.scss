@@ -7,7 +7,7 @@ On the spot animations
 @keyframes bsSelectDropdownAnimation {
     0% {
         opacity: 0;
-        transform: translate(0,-15px);
+        transform: translate(0,$select-dropdown-animation-initial-translate-y);
 
     }
     100% {
@@ -151,12 +151,14 @@ select.selectpicker {
     */
 
     > .dropdown-menu {
-        opacity: 0;
-        &.animate {
-            animation-name: bsSelectDropdownAnimation;
-            animation-duration: 300ms;
-            animation-timing-function: ease-in-out;
-            animation-fill-mode: forwards;
+        @if $select-dropdown-animation-enabled {
+            opacity: 0;
+            &.animate {
+                animation-name: bsSelectDropdownAnimation;
+                animation-duration: $select-dropdown-animation-duration;
+                animation-timing-function: $select-dropdown-animation-timing-function;
+                animation-fill-mode: forwards;
+            }
         }
     }
 

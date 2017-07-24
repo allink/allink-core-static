@@ -1262,6 +1262,12 @@ $select-placeholder-height-xs:          41px;
 $select-placeholder-height-md:          41px;
 $select-placeholder-height-xxl:         51px;
 
+// dropdown animation settings
+$select-dropdown-animation-enabled:             true;
+$select-dropdown-animation-duration:            300ms;
+$select-dropdown-animation-timing-function:     ease-in-out;
+$select-dropdown-animation-initial-translate-y: -15px;
+
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 
@@ -1728,3 +1734,18 @@ $z-layers: (
     "above":                       2,
     "above-all":          2147483647, // highest possible z-index
 );
+
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+=expandable container
+
+*/
+
+$expandable-transition-duration:            300ms;
+$expandable-transition-property:            height, opacity;
+$expandable-transition-timing-function:     ease-in-out;
+
+// flags
+$expandable-opacity-transition-enabled:     true;
