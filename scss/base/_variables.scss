@@ -941,9 +941,6 @@ Example:
 
 */
 
-// set to false per default because of backward compatibility
-$form-field-inverted-enabled:                   false;
-
 $form-field-inverted-transition:                $form-field-transition;
 $form-field-inverted-border-radius-default:     $form-field-border-radius-default;
 $form-field-inverted-border-width:              $form-field-border-width;
@@ -983,6 +980,8 @@ $input-inverted-error-border-bottom-color:      $input-error-border-bottom-color
 $input-inverted-error-border-left-color:        $input-error-border-left-color;
 $input-inverted-error-bg:                       $input-error-bg;
 
+// Placeholder text color
+$input-inverted-color-placeholder:              $input-color;
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 
@@ -1279,6 +1278,7 @@ $file-upload-btn-variation:             'default'; // needs to be one of the var
 $file-upload-icon:                      '\e90c';
 $file-upload-icon-size:                 0.8em;
 $file-upload-icon-spacing-right:        0.3em;
+$file-upload-padding-left:              0.5em;
 
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
@@ -1289,6 +1289,7 @@ $file-upload-icon-spacing-right:        0.3em;
 
 // default button: calendar
 $datepicker-default-width:                  100%;
+$datepicker-default-min-width:              320px;
 $datepicker-default-max-width:              320px;
 $datepicker-default-input-bg:               $input-bg;
 $datepicker-default-btn-width:              30px;
@@ -1310,6 +1311,7 @@ $datepicker-selected-day-color:             $white;
 $datepicker-selected-day-bg:                $brand-primary;
 $datepicker-selected-day-border-color:      $brand-primary;
 $datepicker-selected-day-border-width:      1;
+
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 
@@ -1561,6 +1563,10 @@ $social-profile-icon-color-hover:               $black;
 $social-profile-icon-transition-property:            all; // per default we use $site-header-compact-mode-transition, because they are meant to be toggled at the same time
 $social-profile-icon-transition-duration:            $link-transition-duration;
 $social-profile-icon-transition-timing-function:     $link-transition-duration;
+
+// inverted colors
+$social-profile-icon-inverted-color:                 $white;
+$social-profile-icon-inverted-color-hover:           $white;
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 

@@ -34,6 +34,7 @@ Inpspired by: http://tympanus.net/codrops/2015/09/15/styling-customizing-file-in
         // we simply extend the predifend .btn class and desired button variation defined in variables.scss
         @extend .btn;
         @extend .btn-#{$file-upload-btn-variation};
+        padding-left: $file-upload-padding-left;
         @if $file-upload-icon {
             &:before {
                 content: $file-upload-icon;

@@ -46,6 +46,9 @@
                 left: 0;
                 transform: translate(0,-50%);
                 text-align: center;
+                transition-property: $ttt-hover-transition-property;
+                transition-duration: $ttt-hover-transition-duration;
+                transition-timing-function: $ttt-hover-transition-timing-function;
             }
         }
     }

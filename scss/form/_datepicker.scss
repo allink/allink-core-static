@@ -20,6 +20,7 @@ Requires the following markup:
 .datepicker-container {
     position: relative;
     width: $datepicker-default-width;
+    min-width: $datepicker-default-min-width;
     max-width: $datepicker-default-max-width;
     > .form-control {
         position: relative;

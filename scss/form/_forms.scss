@@ -162,6 +162,13 @@ Default Form Styles
         }
     }
 
+    // modifying input group
+    .input-group {
+        .form-control:first-child {
+            border-right: none;
+        }
+    }
+
     /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 
     "Side by Side" variation

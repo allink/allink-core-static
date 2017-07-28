@@ -93,14 +93,11 @@ Get the base styles for a button
     border-width: $form-field-border-width;
     border-color: $form-field-border-color;
 
-    // optional we can make use of the .inverted-colors context
-    @if $form-field-inverted-enabled == true {
-        .inverted-colors & {
-            transition: $form-field-inverted-transition;
-            border-style: $form-field-inverted-border-style;
-            border-width: $form-field-inverted-border-width;
-            border-color: $form-field-inverted-border-color;
-        }
+    .inverted-colors & {
+        // transition: $form-field-inverted-transition;
+        // border-style: $form-field-inverted-border-style;
+        // border-width: $form-field-inverted-border-width;
+        // border-color: $form-field-inverted-border-color;
     }
 
     padding-top: $btn-padding-top;

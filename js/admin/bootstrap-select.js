@@ -15,7 +15,6 @@ $(function(){
         $('.selectpicker').selectpicker({
           style: 'bs-placeholder',
           size: 'auto',
-          windowPadding: [120,0,0,0],
         });
     }
 

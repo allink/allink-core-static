@@ -32,6 +32,10 @@
                 &:before {
                     color: $social-profile-icon-color-hover;
                     opacity: $social-profile-icon-opacity-hover;
+                    // inverted colors
+                    .inverted-colors & {
+                        color: $social-profile-icon-inverted-color-hover;
+                    }
                 }
             }
         }
@@ -48,6 +52,10 @@
             transition-property: $social-profile-icon-transition-property;
             transition-duration: $social-profile-icon-transition-duration;
             transition-timing-function: $social-profile-icon-transition-timing-function;
+            // inverted colors
+            .inverted-colors & {
+                color: $social-profile-icon-inverted-color;
+            }
         }
     }
 

@@ -1,0 +1,14 @@
+@mixin placeholder($color: #666, $selector: '') {
+    #{$selector}::-webkit-input-placeholder {
+       color: $color;
+    }
+    #{$selector}:-moz-placeholder { /* Firefox 18- */
+       color: $color;
+    }
+    #{$selector}::-moz-placeholder {  /* Firefox 19+ */
+       color: $color;
+    }
+    #{$selector}:-ms-input-placeholder {
+       color: $color;
+    }
+}

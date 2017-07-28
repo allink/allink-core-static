@@ -107,8 +107,13 @@ select.selectpicker {
         // selected list item
         .selected {
             a {
-                color: $dropdown-link-active-color;
                 background-color: $dropdown-link-active-bg;
+            }
+            .text {
+                color: $dropdown-link-active-color;
+                @if $dropdown-link-active-underline-enabled {
+                    text-decoration: underline;
+                }
             }
         }
     }
