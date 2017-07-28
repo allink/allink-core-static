@@ -406,6 +406,7 @@ Default Content Section Styles
 
         .content-section__main-col-container {
             @include main-col-container-positioning();
+            z-index: 10;
         }
 
         // mobile fallback
