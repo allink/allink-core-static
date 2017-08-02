@@ -10,7 +10,7 @@
 
     &__list-item {
         display: inline-block;
-        & + &__list-item {
+        & + .social-icons__list-item {
             margin-left: $social-profile-icon-spacing;
         }
     }

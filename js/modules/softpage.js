@@ -81,6 +81,8 @@ $(function(){
             $(obj.modal.modal).removeAttr('data-softpage-variation');
             // remove any content (issue: video was still playing)
             $(obj.modal.modal).find('.tingle-modal-box__content').empty();
+            // remove flag on html element
+            $('html').removeClass('softpage-visible');
         },
         onBeforeClose: function(){
             // prevent closing of the softpage as long as..
@@ -122,6 +124,8 @@ $(function(){
                         var $softpage = $('.tingle-modal.softpage');
                         var softpage_content_id = '';
                         var href = event.currentTarget.href;
+                        // set flag on html element
+                        $('html').addClass('softpage-visible');
                         // optional: use a node's content instead of href-attribute
                         var softpage_content_id = $trigger.attr('data-softpage-content-id');
                         // optional: get softpage variation string and set attribute

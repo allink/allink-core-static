@@ -25,6 +25,12 @@ Default Content Section Styles
         @include app-detail-content-section-spacing-margin();
     }
 
+    // first section
+    &.first {
+        margin-top: 0;
+        @include content-section-specific-spacing($property: 'padding-top');
+    }
+
     // special spacing: container has a background COLOR
     &.has-bg-color {
         margin-top: 0;
