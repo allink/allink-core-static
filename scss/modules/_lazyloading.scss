@@ -1,5 +1,18 @@
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 
+on the spot mixin
+
+*/
+
+@mixin lazyloader-transition() {
+    transition-property: opacity;
+    transition-duration: $lazyloader-transition-duration;
+    transition-timing-function: ease-in-out;
+}
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
 Lazyload transition and placeholder styles of images
 
 Usage:
@@ -15,9 +28,25 @@ Optionally we can tell the lazyloader NOT to dislpay an icon:
 picture.lazyloader {
     position: relative;
     display: block;
-    background: $lazyloader-bg-color;
+    overflow: hidden;
     @include the-loader();
-    transition: opacity $lazyloader-transition-duration;
+    @include lazyloader-transition();
+    &:before {
+        opacity: 1;
+        @include lazyloader-transition();
+    }
+    // "background" color
+    &:after {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background-color: $lazyloader-bg-color;
+        opacity: 1;
+        @include lazyloader-transition();
+    }
     // modifier classes
     &.icon-disabled,
     &.no-icon {
@@ -38,30 +67,51 @@ picture.lazyloader {
         }
         // set via image plugin
         .image-container.project-color-#{$nr} & {
-            background-color: $color;
+            &:after {
+                background-color: $color;
+            }
         }
     }
     // we use the ratio "hack" on the picture element, so we can position the actual image absolute
     > img {
         position: absolute;
         top: 0;
-        right: 0;
-        bottom: 0;
         left: 0;
         opacity: 0;
-        transition: opacity $lazyloader-transition-duration;
+        transition-property: opacity;
+        transition-duration: $lazyloader-transition-duration;
+        transition-timing-function: ease-in-out;
 
-        &.lazyload,
-        &.lazyloading,
+        display: block;
+        // due to subpixel rendering issues, we place the image slightly offset
+        width: 100.5%;
+        height: 100.5%;
+        max-width: none;
+        transform: translate3d(0,0,0);
+
         &.lazyloaded {
-            display: block;
-            width: 100%;
-            height: auto;
-            max-width: none;
-            transform: translate3d(0,0,0);
+            opacity: 1;
+            z-index: 2;
         }
-
-        &.lazyloaded {
+    }
+    // 1. we done? set background color to nada and hide loader
+    // 2. in rare cases, lazyloading is disabled
+    &--loaded,
+    &--disabled {
+        // hide loader
+        &:before {
+            opacity: 0;
+        }
+        // hide background color
+        &:after {
+            opacity: 0;
+            // but in case of a specific PROJECT_COLORS background color (via Image Plugin) we want to keep it
+            .image-container.has-bg-color & {
+                opacity: 1;
+            }
+        }
+        // make sure to show image (in case of disabled lazyloading)
+        img {
             opacity: 1;
             z-index: 2;
         }
