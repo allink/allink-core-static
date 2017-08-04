@@ -227,6 +227,20 @@ Visually separate blocks
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 
+Delete Button fix
+
+*/
+
+.submit-row {
+    a.deletelink {
+        height: auto;
+    }
+}
+
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
 Attributes Field
 
 */

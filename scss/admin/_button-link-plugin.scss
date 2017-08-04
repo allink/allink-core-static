@@ -52,10 +52,10 @@ Form modifications
         margin: 0;
     }
 
-    // colors
+    // loop through button variations
     @each $key, $value in $btn-variations {
         .btn-#{$key} {
-            display: inline-block;
+            display: none;
             position: relative;
             background-color: map-deep-get($value,'bg') !important;
             border-top-color: map-deep-get($value,'border-top-color') !important;
@@ -94,6 +94,14 @@ Form modifications
             }
         }
     }
+
+    // Only display available button variations
+    @each $btn-variation in $available-btn-variations {
+        .btn-#{$btn-variation} {
+            display: inline-block;
+        }
+    }
+
 
     // sizes
     .btn-sm {

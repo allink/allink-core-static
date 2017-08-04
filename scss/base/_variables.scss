@@ -1053,6 +1053,11 @@ color: map-deep-get($btn-variations,'default','bg');
 
 */
 
+// define, which button are available in the Button Link Plugin
+$available-btn-variations: (
+    'default',
+);
+
 $btn-transition-duration:                150ms;
 $btn-transition-timing-function:       ease-in;
 $btn-transition:         color $btn-transition-duration $btn-transition-timing-function,
