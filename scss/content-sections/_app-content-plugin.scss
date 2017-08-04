@@ -136,6 +136,9 @@ Detail View
         .content-section {
             &.first {
                 margin-top: 0;
+                &:not(.has-bg-image):not(.has-bg-video):not(.has-bg-color) {
+                    padding-top: 0;
+                }
             }
             &:last-child {
                 margin-bottom: 0;

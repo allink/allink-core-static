@@ -103,7 +103,7 @@ export function initiSwiperInstances(options) {
         }
 
         // create instance
-        var mySwiper = new Swiper ($swiper_instance, {
+        const mySwiper = new Swiper ($swiper_instance, {
             // global settings
             onInit: function(swiper){
                 // leave a flag when an instance has been initialized in order to prevent re-initialization
