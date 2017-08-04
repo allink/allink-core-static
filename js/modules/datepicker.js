@@ -73,7 +73,8 @@ function initDatepicker() {
             */
 
             // init
-            var $datepicker_element = $(datepicker_elements[i]);
+            var element = datepicker_elements[i];
+            var $datepicker_element = $(element);
             var $datepicker_container = $datepicker_element.parents('.datepicker-container');
             var has_value_class = 'has-value';
 
@@ -112,7 +113,7 @@ function initDatepicker() {
                 minDate = 'today';
             }
             // set options
-            var options = {
+            const options = {
                 locale: active_lang, // IMPORTANT: We're gonna select the language according to the "lang" attribute of the <html> element
                 time_24hr: true,
                 altInput: true,
@@ -127,18 +128,19 @@ function initDatepicker() {
                 wrap: false,
                 enableTime: enableTime,
                 noCalendar: noCalendar,
-                onValueUpdate: function(){
+                onValueUpdate: function(selectedDates, dateStr, instance){
+                    // get parent container
+                    var $datepicker_container = $(instance.element).parents('.datepicker-container');
                     // add class, so we can show the clear button
                     $datepicker_container.addClass(has_value_class);
                 }
             };
 
             // init
-            var element = datepicker_elements[i];
-            var flatpickr_instance = new Flatpickr(element,options);
+            const flatpickr_instance = new Flatpickr(element,options);
 
             // clear value
-            var $clear_btn = $(element).siblings('.clear-btn');
+            const $clear_btn = $(element).siblings('.clear-btn');
             $clear_btn.on('click',function(){
                 // a click outside the datepicker input field closes it. So we gotta "delay" it.
                 setTimeout(function(){
@@ -149,7 +151,7 @@ function initDatepicker() {
             });
 
             // calendar toggle
-            var $datetime_btn = $(element).siblings('.calendar-btn, .time-btn');
+            const $datetime_btn = $(element).siblings('.calendar-btn, .time-btn');
             $datetime_btn.on('click',function(){
                 // a click outside the datepicker input field closes it. So we gotta "delay" it.
                 setTimeout(function(){
@@ -158,7 +160,7 @@ function initDatepicker() {
             });
 
             // label toggle
-            var $label = $(element).parents('.form-field-container').siblings('.control-label');
+            const $label = $(element).parents('.form-field-container').siblings('.control-label');
             $label.on('click',function(){
                 // a click outside the datepicker input field closes it. By delaying the call we can
                 setTimeout(function(){
