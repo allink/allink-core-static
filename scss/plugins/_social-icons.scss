@@ -46,12 +46,18 @@
         &:before {
             @include icomoon();
             display: block;
-            font-size: $social-profile-icon-size;
             color: $social-profile-icon-color;
             opacity: $social-profile-icon-opacity;
             transition-property: $social-profile-icon-transition-property;
             transition-duration: $social-profile-icon-transition-duration;
             transition-timing-function: $social-profile-icon-transition-timing-function;
+            font-size: $social-profile-icon-size-xs;
+            @media (min-width:$screen-md) {
+                font-size: $social-profile-icon-size-md;
+            }
+            @media (min-width:$screen-xl) {
+                font-size: $social-profile-icon-size-xl;
+            }
             // inverted colors
             .inverted-colors & {
                 color: $social-profile-icon-inverted-color;
