@@ -62,19 +62,18 @@ Detail View
 
     &__header {
         @include app-detail-header-section-spacing($app-detail-header-section-spacing-property);
+        // in case no preview image is set or no plugin has been added to the header section
+        &--empty {
+            margin: 0;
+            // within softage
+            .softpage & {
+                display: none;
+            }
+        }
         // within softage
         .softpage & {
             margin-top: 0;
             padding-top: 0;
-        }
-    }
-
-    // in case no preview image is set or no plugin has been added to the header section
-    &__header--empty {
-        margin-bottom: 0;
-        // within softage
-        .softpage & {
-            display: none;
         }
     }
 
@@ -97,6 +96,10 @@ Detail View
     &__content {
         padding-top: 0;
         margin-top: 0;
+        // in case the content section is empty
+        &--empty {
+            display: none;
+        }
     }
 
     &__col-container {
@@ -167,7 +170,7 @@ Detail View
 
     */
 
-    &__heading-conatiner {
+    &__heading-container {
         @include make-row();
         @include app-detail-heading-container-spacing-bottom();
     }

@@ -75,7 +75,7 @@ $(function() {
 
             // init
             var $vid = $( this );
-            var $plugin_container = $vid.parents('.app-content-plugin');
+            var $plugin_container = $vid.parents('.content-plugin');
             var $video_controls = $plugin_container.find('.video-controls');
 
             // enable videos on iPads
