@@ -1500,7 +1500,7 @@ $swiper-default-bullet-bg:                      transparent;
 $swiper-default-bullet-bg-active:               $brand-secondary;
 
 // arrows
-$swiper-default-arrows-transition-property:            all; // per default we use $site-header-compact-mode-transition, because they are meant to be toggled at the same time
+$swiper-default-arrows-transition-property:            all;
 $swiper-default-arrows-transition-duration:            $link-transition-duration;
 $swiper-default-arrows-transition-timing-function:     $link-transition-duration;
 
@@ -1511,12 +1511,13 @@ $swiper-default-arrows-opacity:                 1;
 $swiper-default-arrows-opacity-hover:           0.8;
 $swiper-default-arrows-color:                   #fff;
 $swiper-default-arrows-color-hover:             #fff;
-$swiper-default-arrows-width:                   200px; // usability tip: the clickable area fills the entire height
-// arrow offsets
-$swiper-default-arrows-offset-xs:               $grid-gutter-width/4;
-$swiper-default-arrows-offset-md:               $grid-gutter-width/2;
-$swiper-default-arrows-offset-xl:               $grid-gutter-width;
-
+$swiper-default-arrows-button-bg-xs:            transparent;
+$swiper-default-arrows-button-width-xs:         30px;
+$swiper-default-arrows-button-height-xs:        30px;
+$swiper-default-arrows-button-width-md:         40px;
+$swiper-default-arrows-button-height-md:        40px;
+$swiper-default-arrows-button-width-xl:         50px;
+$swiper-default-arrows-button-height-xl:        50px;
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 

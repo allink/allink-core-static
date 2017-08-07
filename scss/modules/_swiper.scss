@@ -11,15 +11,11 @@ Global Swiper Custom Styles
 // Buttons (arrows)
 .swiper-button {
     background: none;
-    width: $swiper-default-arrows-width;
-    height: 40%;
+    width: 50%;
+    height: 100%;
     top: 50%;
     margin: 0;
     transform: translate(0,-50%);
-    opacity: $swiper-default-arrows-opacity;
-    transition-property: $swiper-default-arrows-transition-property;
-    transition-duration: $swiper-default-arrows-transition-duration;
-    transition-timing-function: $swiper-default-arrows-transition-timing-function;
     &:link,
     &:visited {
         color: $swiper-default-arrows-color;
@@ -28,20 +24,51 @@ Global Swiper Custom Styles
     }
     &:hover,
     &:focus {
-        opacity: $swiper-default-arrows-opacity-hover;
         border: none;
         text-decoration: none;
         > i {
             color: $swiper-default-arrows-color-hover;
         }
+        .swiper-button__inner {
+            opacity: $swiper-default-arrows-opacity-hover;
+        }
     }
-    &:before {
+    // icon
+    &__inner {
+        display: block;
         position: absolute;
         top: 50%;
         transform: translate(0,-50%);
-        color: $swiper-default-arrows-color;
-        font-size: $swiper-default-arrows-icon-size;
-        @include icomoon();
+        opacity: $swiper-default-arrows-opacity;
+        transition-property: $swiper-default-arrows-transition-property;
+        transition-duration: $swiper-default-arrows-transition-duration;
+        transition-timing-function: $swiper-default-arrows-transition-timing-function;
+        width: $swiper-default-arrows-button-width-xs;
+        height: $swiper-default-arrows-button-height-xs;
+        background-color: $swiper-default-arrows-button-bg-xs;
+        @media (min-width:$screen-md) {
+            width: $swiper-default-arrows-button-width-md;
+            height: $swiper-default-arrows-button-height-md;
+        }
+        @media (min-width:$screen-xl) {
+            width: $swiper-default-arrows-button-width-xl;
+            height: $swiper-default-arrows-button-height-xl;
+        }
+        &:before {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            color: $swiper-default-arrows-color;
+            font-size: $swiper-default-arrows-icon-size-xs;
+            @media (min-width:$screen-md) {
+                font-size: $swiper-default-arrows-icon-size-md;
+            }
+            @media (min-width:$screen-xl) {
+                font-size: $swiper-default-arrows-icon-size-xl;
+            }
+            @include icomoon();
+        }
     }
     // no point in displaying controls if there is only 1 slide. Class toggled via JS.
     .swiper-disabled & {
@@ -51,28 +78,21 @@ Global Swiper Custom Styles
 
 .swiper-button-prev {
     left: 0;
-    &:before {
-        content: $swiper-default-arrows-icon-previous;
-        left: $swiper-default-arrows-offset-xs;
-        @media (min-width:$screen-md) {
-            left: $swiper-default-arrows-offset-md;
-        }
-        @media (min-width:$screen-xl) {
-            left: $swiper-default-arrows-offset-xl;
+    &__inner {
+        left: 0;
+        &:before {
+            content: $swiper-default-arrows-icon-previous;
+
         }
     }
 }
 
 .swiper-button-next {
-    right: 0;
-    &:before {
-        content: $swiper-default-arrows-icon-next;
-        right: $swiper-default-arrows-offset-xs;
-        @media (min-width:$screen-md) {
-            right: $swiper-default-arrows-offset-md;
-        }
-        @media (min-width:$screen-xl) {
-            right: $swiper-default-arrows-offset-xl;
+    right: -1px; // fixes subpixel issue
+    &__inner {
+        right: 0;
+        &:before {
+            content: $swiper-default-arrows-icon-next;
         }
     }
 }
@@ -234,3 +254,24 @@ Basic slider content styling
 .swiper-content__heading {
     @include font-h2();
 }
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+Toggle opacity of active/inactive slides
+
+Fixes issue where slide WITHOUT background color/image causes text of different slides to stack
+
+*/
+
+.swiper-container-fade {
+    .swiper-slide {
+        opacity: 0 !important;
+        transition: opacity 600ms ease-in-out;
+        &.swiper-slide-active,
+        &.swiper-slide-duplicate-active {
+            opacity: 1 !important;
+        }
+    }
+}
+
