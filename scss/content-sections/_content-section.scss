@@ -94,6 +94,17 @@ Default Content Section Styles
                 bottom: auto;
                 left: auto;
             }
+            picture {
+                display: block;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                min-width: 100%;
+                min-height: 100%;
+                width: auto !important;
+                height: auto !important;
+                transform: translate(-50%,-50%);
+            }
         }
     }
 
@@ -172,18 +183,6 @@ Default Content Section Styles
         position: relative;
         z-index: 10;
     }
-
-
-    /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
-
-    Dynamic Height
-
-    */
-
-    &.dynamic-height-enabled {
-
-    }
-
 
 
     /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
@@ -417,12 +416,6 @@ Default Content Section Styles
 
         // mobile fallback
         .content-section__video-mobile-image {
-            // display: block;
-            // position: absolute;
-            // top: 0;
-            // right: 0;
-            // bottom: 0;
-            // left: 0;
             overflow: hidden;
             @media (min-width:$screen-md) {
                 display: none;
