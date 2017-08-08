@@ -124,13 +124,13 @@ export function initiSwiperInstances(options) {
             },
             onSlideChangeStart: function(swiper) {
                 $(window).trigger('swiper:onSlideChangeStart');
+            },
+            onSlideChangeEnd: function(swiper) {
+                $(window).trigger('swiper:onSlideChangeEnd');
                 // if counter dom node exists in template
                 if ($counter) {
                     $counter.children('.swiper-counter__current').html(swiper.realIndex + 1);
                 }
-            },
-            onSlideChangeEnd: function(swiper) {
-                $(window).trigger('swiper:onSlideChangeEnd');
             },
             effect: options.effect,
             speed: options.transitionDurationBetweenSlides, // Number: Duration of transition between slides (in ms)
