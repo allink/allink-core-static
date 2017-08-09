@@ -489,6 +489,14 @@ $app-detail-content-section-spacing-lg:               $grid-gutter-width;
 $app-detail-content-section-spacing-xl:               $grid-gutter-width;
 $app-detail-content-section-spacing-xxl:              $grid-gutter-width;
 
+// manage spacings of containers in 1. column (margin-top between containers)
+$app-detail-col-1-manage-spacing-xs:                  $grid-gutter-width;
+$app-detail-col-1-manage-spacing-sm:                  $grid-gutter-width;
+$app-detail-col-1-manage-spacing-md:                  $grid-gutter-width;
+$app-detail-col-1-manage-spacing-lg:                  $grid-gutter-width;
+$app-detail-col-1-manage-spacing-xl:                  $grid-gutter-width;
+$app-detail-col-1-manage-spacing-xxl:                 $grid-gutter-width;
+
 // manage spacings of containers in 2. column (margin-top between containers)
 $app-detail-col-2-manage-spacing-xs:                  $grid-gutter-width;
 $app-detail-col-2-manage-spacing-sm:                  $grid-gutter-width;
@@ -496,14 +504,6 @@ $app-detail-col-2-manage-spacing-md:                  $grid-gutter-width;
 $app-detail-col-2-manage-spacing-lg:                  $grid-gutter-width;
 $app-detail-col-2-manage-spacing-xl:                  $grid-gutter-width;
 $app-detail-col-2-manage-spacing-xxl:                 $grid-gutter-width;
-
-// spacing between items in the 2. column
-$app-detail-col-2-manage-spacing-xs:        $grid-gutter-width;
-$app-detail-col-2-manage-spacing-sm:        $grid-gutter-width;
-$app-detail-col-2-manage-spacing-md:        $grid-gutter-width;
-$app-detail-col-2-manage-spacing-lg:        $grid-gutter-width;
-$app-detail-col-2-manage-spacing-xl:        $grid-gutter-width;
-$app-detail-col-2-manage-spacing-xxl:       $grid-gutter-width;
 
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *

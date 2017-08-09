@@ -149,6 +149,20 @@ Detail View
         }
     }
 
+    // spacing between items in the 1. column (if not content sections)
+    &__col-1-manage-spacings {
+        > * {
+            + * {
+                @include make-spacing-top-xs($app-detail-col-1-manage-spacing-xs);
+                @include make-spacing-top-sm($app-detail-col-1-manage-spacing-sm);
+                @include make-spacing-top-md($app-detail-col-1-manage-spacing-md);
+                @include make-spacing-top-lg($app-detail-col-1-manage-spacing-lg);
+                @include make-spacing-top-xl($app-detail-col-1-manage-spacing-xl);
+                @include make-spacing-top-xxl($app-detail-col-1-manage-spacing-xxl);
+            }
+        }
+    }
+
     // spacing between items in the 2. column
     &__col-2-manage-spacings {
         > * {
