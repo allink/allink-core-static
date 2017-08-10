@@ -137,6 +137,10 @@ $(function(){
                         if (typeof softpage_cms_page !== 'undefined' && softpage_cms_page !== false) {
                             $softpage.attr('data-cms-page', '');
                         }
+                        // otherwise, make sure the attribute is removed
+                        else {
+                            $softpage.removeAttr('data-cms-page');
+                        }
                         // special case: prevent softpage reload in case of a menu that has been toggled already and is about to be closed
                         var softpage_already_toggled = $trigger.attr('data-softpage-toggled');
                         if (typeof softpage_already_toggled !== 'undefined' && softpage_already_toggled !== false) {
