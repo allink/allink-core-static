@@ -72,10 +72,13 @@ export function initiSwiperInstances(options) {
     $('.swiper-default:not(.swiper-initialized)').each(function(i) {
 
         // init
-        var $swiper_instance = $(this);
+        const $swiper_instance = $(this);
 
         // determine number of slides
         var number_of_slides = $swiper_instance.find('.swiper-slide').length;
+
+        var $btn_next = $swiper_instance.find('.swiper-button-next');
+        var $btn_prev = $swiper_instance.find('.swiper-button-prev');
 
         // no point in initializing swiper if there is only one slide
         if(number_of_slides < 2) {
@@ -103,7 +106,7 @@ export function initiSwiperInstances(options) {
         }
 
         // create instance
-        const mySwiper = new Swiper ($swiper_instance, {
+        const mySwiper = new Swiper($swiper_instance, {
             // global settings
             onInit: function(swiper){
                 // leave a flag when an instance has been initialized in order to prevent re-initialization
@@ -148,8 +151,8 @@ export function initiSwiperInstances(options) {
             paginationClickable: true,
 
             // Navigation arrows
-            nextButton: '.swiper-button-next',
-            prevButton: '.swiper-button-prev',
+            nextButton: $btn_next,
+            prevButton: $btn_prev,
         });
 
         // enter fullscreen mode
