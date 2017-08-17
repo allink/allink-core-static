@@ -89,7 +89,7 @@ export function sendAjaxForm($form) {
             }
 
             // trigger custom events
-            $(window).trigger('ajaxForm:success');
+            $(window).trigger('ajaxForm:success', [$form]);
             $(window).trigger('initAjaxForm');
             $(window).trigger('initDatepicker');
             $(window).trigger('initFormModalClose');
