@@ -49,6 +49,9 @@ export function sendAjaxForm($form) {
         var $ajax_response_container = $form.parent();
     }
 
+    // trigger custom event to indicate that we sent the AJAX request
+    $(window).trigger('ajaxForm:request-sent', [$form]);
+
     // AJAX magic
     $.ajax({
         type: "POST",
