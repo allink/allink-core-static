@@ -1449,6 +1449,10 @@ $default-modal-close-btn-height-xl:             $modal-global-close-btn-height-x
 $default-modal-close-btn-width-xxl:             $modal-global-close-btn-width-xxl;
 $default-modal-close-btn-height-xxl:            $modal-global-close-btn-height-xxl;
 
+// max width setting
+$defaul-modal-max-width-md:                     500px;
+$defaul-modal-max-width-xxl:                    700px;
+
 // content padding
 $default-modal-spacing-xs:                      60px $grid-gutter-width/2 $grid-gutter-width/2;
 $default-modal-spacing-md:                      $grid-gutter-width;

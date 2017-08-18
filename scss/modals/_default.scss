@@ -10,63 +10,57 @@ Form modal
     z-index: z("default-modal");
     transition: $default-modal-transition;
 
-    &.tingle-modal--visible {
-        .tingle-modal-box {
-            animation-name: fadeIn;
-            animation-duration: 500ms;
-            animation-timing-function: ease-in;
-            animation-fill-mode: forwards;
-        }
-    }
-
     .tingle-modal-box {
         align-self: center;
         top: 0;
         width: 100%;
-        opacity: 0;
         @media (min-width:$screen-md) {
-            max-width: 500px;
+            max-width: $defaul-modal-max-width-md;
         }
         @media (min-width:$screen-xxl) {
-            max-width: 700px;
+            max-width: $defaul-modal-max-width-xxl;
         }
     }
 
     .tingle-modal-box__content {
-        padding: $grid-gutter-width/2;
-        padding-top: $grid-gutter-width*2;
-        @media (min-width:$screen-sm) {
-            padding: $grid-gutter-width;
+        padding: $default-modal-spacing-xs;
+        @media (min-width:$screen-md) {
+            padding: $default-modal-spacing-md;
         }
     }
 
-    // button close enabled?
-
+    // close button hidden per default
     .tingle-modal__close {
         display: none;
-    }
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: auto;
+        line-height: 1;
+        top: 0 !important;
+        &:focus {
+            outline: none;
+        }
+        width: $default-modal-close-btn-width-xs;
+        height: $default-modal-close-btn-height-xs;
 
+        @media (min-width:$screen-md) {
+            width: $default-modal-close-btn-width-md;
+            height: $default-modal-close-btn-height-md;
+        }
+        @media (min-width:$screen-xl) {
+            width: $default-modal-close-btn-width-xl;
+            height: $default-modal-close-btn-height-xl;
+        }
+        @media (min-width:$screen-xxl) {
+            width: $default-modal-close-btn-width-xxl;
+            height: $default-modal-close-btn-height-xxl;
+        }
+    }
+    // close button enabled
     &.tingle-modal--ButtonClose {
         .tingle-modal__close {
             display: block;
-            position: absolute;
-            top: 0;
-            right: 0;
-            left: auto;
-            width: 50px;
-            height: 50px;
-            line-height: 1;
-            top: 0 !important;
-            &:focus {
-                outline: none;
-            }
-            @media (min-width: $screen-md) {
-                right: 0; top: 0;
-                width: 80px;
-                height: 70px;
-                transform: translate(0,0);
-                border-radius: 0;
-            }
         }
     }
 
