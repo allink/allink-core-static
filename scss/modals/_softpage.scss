@@ -47,28 +47,34 @@ Softpage
 
         // default
         top: 0 !important;
-        @media (min-width:$screen-md) {
-            top: $site-header-height-md !important;
-        }
-        @media (min-width:$screen-xl) {
-            top: $site-header-height-xl !important;
-        }
-        @media (min-width:$screen-xxl) {
-            top: $site-header-height-xxl !important;
+        // keep site header visible when opened
+        @if $softpage-site-header-visible-when-opened {
+            @media (min-width:$screen-md) {
+                top: $softpage-offset-top-md !important;
+            }
+            @media (min-width:$screen-xl) {
+                top: $softpage-offset-top-xl !important;
+            }
+            @media (min-width:$screen-xxl) {
+                top: $softpage-offset-top-xxl !important;
+            }
         }
 
         // Special case: Softpage behind site-header
         @if $site-header-compact-mode-enabled == true {
             .header-compact-mode & {
                 top: 0 !important;
-                @media (min-width:$screen-md) {
-                    top: $site-header-compact-mode-height-md !important;
-                }
-                @media (min-width:$screen-xl) {
-                    top: $site-header-compact-mode-height-xl !important;
-                }
-                @media (min-width:$screen-xxl) {
-                    top: $site-header-compact-mode-height-xxl !important;
+                // keep site header visible when opened
+                @if $softpage-site-header-visible-when-opened {
+                    @media (min-width:$screen-md) {
+                        top: $softpage-offset-top-compact-mode-md !important;
+                    }
+                    @media (min-width:$screen-xl) {
+                        top: $softpage-offset-top-compact-mode-xl !important;
+                    }
+                    @media (min-width:$screen-xxl) {
+                        top: $softpage-offset-top-compact-mode-xxl !important;
+                    }
                 }
             }
         }
@@ -77,63 +83,75 @@ Softpage
 
     .tingle-modal-box__content {
         padding: 0;
-        // padding-top: $grid-gutter-width*2;
-        // padding-bottom: $grid-gutter-width*2;
     }
 
     .tingle-modal__close {
         position: fixed;
         line-height: 1;
         top: 0;
-        right: 0;
         left: auto;
+
         &:focus {
             outline: none;
         }
 
         // default
         top: 0 !important;
-        @media (min-width:$screen-sm) {
-            top: $site-header-height-xs !important;
-        }
-        @media (min-width:$screen-md) {
-            top: $site-header-height-md !important;
-        }
-        @media (min-width:$screen-xl) {
-            top: $site-header-height-xl !important;
-        }
-        @media (min-width:$screen-xxl) {
-            top: $site-header-height-xxl !important;
+        // keep site header visible when opened
+        @if $softpage-site-header-visible-when-opened {
+            @media (min-width:$screen-md) {
+                top: $softpage-offset-top-md !important;
+            }
+            @media (min-width:$screen-xl) {
+                top: $softpage-offset-top-xl !important;
+            }
+            @media (min-width:$screen-xxl) {
+                top: $softpage-offset-top-xxl !important;
+            }
         }
 
         // Special case: Softpage behind site-header
         @if $site-header-compact-mode-enabled == true {
             .header-compact-mode & {
                 top: 0 !important;
-                @media (min-width:$screen-md) {
-                    top: $site-header-compact-mode-height-md !important;
-                }
-                @media (min-width:$screen-xl) {
-                    top: $site-header-compact-mode-height-xl !important;
-                }
-                @media (min-width:$screen-xxl) {
-                    top: $site-header-compact-mode-height-xxl !important;
+                // keep site header visible when opened
+                @if $softpage-site-header-visible-when-opened {
+                    @media (min-width:$screen-md) {
+                        top: $softpage-offset-top-compact-mode-md !important;
+                    }
+                    @media (min-width:$screen-xl) {
+                        top: $softpage-offset-top-compact-mode-xl !important;
+                    }
+                    @media (min-width:$screen-xxl) {
+                        top: $softpage-offset-top-compact-mode-xxl !important;
+                    }
                 }
             }
         }
 
-        @media (min-width: $screen-sm) {
-            width: 60px;
-            height: 60px;
+        right: $softpage-close-btn-position-right-xs;
+        width: $softpage-close-btn-width-xs;
+        height: $softpage-close-btn-height-xs;
+
+        @media (min-width: $screen-md) {
             transform: translate(0,0);
             background: transparent;
             border-radius: 0;
         }
         @media (min-width:$screen-md) {
             right: $softpage-close-btn-position-right-md;
+            width: $softpage-close-btn-width-md;
+            height: $softpage-close-btn-height-md;
         }
         @media (min-width:$screen-xl) {
             right: $softpage-close-btn-position-right-xl;
+            width: $softpage-close-btn-width-xl;
+            height: $softpage-close-btn-height-xl;
+        }
+        @media (min-width:$screen-xxl) {
+            right: $softpage-close-btn-position-right-xxl;
+            width: $softpage-close-btn-width-xxl;
+            height: $softpage-close-btn-height-xxl;
         }
     }
 

@@ -22,7 +22,7 @@
         z-index: z("site-overlay-above-all");
     }
     // when image modal is visible
-    .form-modal-visible & {
+    .image-modal-visible & {
         z-index: z("site-overlay-above-all");
     }
     .swiper-fullscreen-visible & {

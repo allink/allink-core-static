@@ -25,7 +25,6 @@ Form modal
         width: 100%;
         opacity: 0;
         @media (min-width:$screen-md) {
-            align-self: center;
             max-width: 500px;
         }
         @media (min-width:$screen-xxl) {

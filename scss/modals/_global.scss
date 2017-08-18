@@ -112,7 +112,7 @@ Used to be on project basis
 .tingle-modal {
     background: none;
     cursor: pointer;
-    transition: $modal-default-overlay-transition;
+    transition: $modal-global-overlay-transition;
     z-index: z("modal");
     h1 {
         font-size: inherit;
@@ -122,7 +122,7 @@ Used to be on project basis
 .tingle-modal-box {
     transition: none;
     border-radius: 0;
-    background-color: $modal-default-content-bg;
+    background-color: $modal-global-content-bg;
     @media (min-width:$screen-md) {
         width: 90%;
     }
@@ -137,25 +137,23 @@ Used to be on project basis
 .tingle-modal__close {
     transition: none;
     background: transparent;
-    width: $modal-default-close-btn-size;
-    height: $modal-default-close-btn-size;
     &:hover,
     &:focus,
     &:active {
         &:before {
-            color: $modal-default-close-icon-color-hover;
+            color: $modal-global-close-icon-color-hover;
         }
     }
     &:before {
-        content: $modal-default-close-icon;
-        color: $modal-default-close-icon-color;
-        font-size: $modal-default-close-icon-size;
+        content: $modal-global-close-icon;
+        color: $modal-global-close-icon-color;
+        font-size: $modal-global-close-icon-size;
         top: 50%;
         left: 50%;
         transform: translate(-50%,-50%);
-        transition-property: $modal-default-close-icon-transition-property;
-        transition-duration: $modal-default-close-icon-transition-duration;
-        transition-timing-function: $modal-default-close-icon-transition-timing-function;
+        transition-property: $modal-global-close-icon-transition-property;
+        transition-duration: $modal-global-close-icon-transition-duration;
+        transition-timing-function: $modal-global-close-icon-transition-timing-function;
         @include icomoon();
     }
     > span {
@@ -169,7 +167,7 @@ Used to be on project basis
 }
 
 body.tingle-enabled {
-    @media (max-width: $screen-xs-max) {
+    @media (max-width: $screen-sm-max) {
         .site-header,
         .site-content,
         .site-footer,
