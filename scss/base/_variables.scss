@@ -1532,7 +1532,7 @@ $form-modal-max-width-xxl:                   950px;
 // whether to enabled scroll-spy or not
 $softpage-content-transition-enabled:           false;
 
-$softpage-content-box-transition:               $modal-default-overlay-transition;
+$softpage-content-box-transition:               $modal-global-overlay-transition;
 $softpage-content-box-offset:                   3%; // y coordinates, any unit is fine
 $softpage-max-width-sm:                         850px;
 $softpage-max-width-xl:                         1000px;
@@ -1540,12 +1540,12 @@ $softpage-max-width-xxl:                        1100px;
 
 // softpage positioning
 $softpage-site-header-visible-when-opened:      true;
-$softpage-offset-top-md:                        $site-header-height-md + $site-header-border-top-width;
-$softpage-offset-top-xl:                        $site-header-height-xl + $site-header-border-top-width;
-$softpage-offset-top-xxl:                       $site-header-height-xxl + $site-header-border-top-width;
-$softpage-offset-top-compact-mode-md:           $site-header-compact-mode-height-md + $site-header-border-top-width;
-$softpage-offset-top-compact-mode-xl:           $site-header-compact-mode-height-xl + $site-header-border-top-width;
-$softpage-offset-top-compact-mode-xxl:          $site-header-compact-mode-height-xxl + $site-header-border-top-width;
+$softpage-offset-top-md:                        $site-header-height-md;
+$softpage-offset-top-xl:                        $site-header-height-xl;
+$softpage-offset-top-xxl:                       $site-header-height-xxl;
+$softpage-offset-top-compact-mode-md:           $site-header-compact-mode-height-md;
+$softpage-offset-top-compact-mode-xl:           $site-header-compact-mode-height-xl;
+$softpage-offset-top-compact-mode-xxl:          $site-header-compact-mode-height-xxl;
 
 // close button
 $softpage-close-btn-width-xs:                   60px;
