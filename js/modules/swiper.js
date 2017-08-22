@@ -44,16 +44,14 @@ export function initiSwiperInstances(options) {
 
     // initialize options
     var options = options || {};
+    var viewport_width = $(window).width();
 
     // available options with default values
     if (!options.transitionDurationBetweenSlides) {
-        options.transitionDurationBetweenSlides = 1000;
+        options.transitionDurationBetweenSlides = 500;
     }
     if (!options.durationPerSlide) {
         options.durationPerSlide = 4000;
-    }
-    if (!options.effect) {
-        options.effect = 'fade';
     }
     if (!options.slidesPerView) {
         options.slidesPerView = 'auto';
@@ -66,6 +64,11 @@ export function initiSwiperInstances(options) {
     }
     if (!options.fullscreen_active_class_delay) {
         options.fullscreen_active_class_delay = 300;
+    }
+    // set effect depending on viewport width
+    var effect = 'slide';
+    if (viewport_width > 1024) {
+        effect = 'fade';
     }
 
     // loop through instances (that have NOT been initialized yet)
@@ -135,7 +138,7 @@ export function initiSwiperInstances(options) {
                     $counter.children('.swiper-counter__current').html(swiper.realIndex + 1);
                 }
             },
-            effect: options.effect,
+            effect: effect,
             speed: options.transitionDurationBetweenSlides, // Number: Duration of transition between slides (in ms)
             autoplay: durationPerSlide, // Number: Delay between transitions (in ms). If this parameter is not specified, auto play will be disabled
             slidesPerView: options.slidesPerView,
