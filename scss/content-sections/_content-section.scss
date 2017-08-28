@@ -1,9 +1,28 @@
 // reusable mixins on the spot
 @mixin main-col-container-positioning() {
+    display: flex;
+    justify-content: center;
     position: absolute;
     left: 0;
     right: 0;
-    @include content-section-spacing-position();
+    @include content-section-spacing-position('bottom');
+    @include content-section-spacing-position('top');
+
+    .content-section {
+        &__container {
+            flex-grow: 1;
+        }
+        &__inner {
+            height: 100%;
+        }
+        &__col-container {
+            height: 100%;
+        }
+        &__col-container-inner {
+            height: 100%;
+        }
+    }
+
 }
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
@@ -195,8 +214,8 @@ Default Content Section Styles
         overflow: hidden;
         position: relative;
         padding: 0;
-        // apply min-height only IF the full height mode is NOT active
-        &:not(.full-height-enabled) {
+        // define ratio
+        &:not(.full-height-enabled):not(.dynamic-height-enabled) {
             $parallax-ratio-container: 'content-section__bg-image-ratio';
             @include aspect-ratio($parallax-aspect-ratio-width-xs,$parallax-aspect-ratio-height-xs,$parallax-ratio-container);
             @media (min-width:$screen-sm) {
