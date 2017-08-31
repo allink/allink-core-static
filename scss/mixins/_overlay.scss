@@ -6,6 +6,19 @@
         $pseude-element: after;
     }
 
+    // gradient start/end
+    $start-color: $overlay-gradient-start-color;
+    $start-opacity: $overlay-gradient-start-opacity;
+    $end-color: $overlay-gradient-end-color;
+    $end-opacity: $overlay-gradient-end-opacity;
+
+    @if $gradient-starts-from-bottom == false {
+        $start-color: $overlay-gradient-end-color;
+        $start-opacity: $overlay-gradient-end-opacity;
+        $end-color: $overlay-gradient-start-color;
+        $end-opacity: $overlay-gradient-start-opacity;
+    }
+
     &:#{$pseude-element} {
         content: '';
         display: block;
@@ -18,10 +31,10 @@
         left: 0;
         width: 100%;
         height: $height;
-        background: -moz-linear-gradient(top,  rgba($overlay-gradient-start-color,$overlay-gradient-start-opacity) 0%, rgba($overlay-gradient-end-color,$overlay-gradient-end-opacity) 100%);
-        background: -webkit-linear-gradient(top,  rgba($overlay-gradient-start-color,$overlay-gradient-start-opacity) 0%,rgba($overlay-gradient-end-color,$overlay-gradient-end-opacity) 100%);
-        background: linear-gradient(to bottom,  rgba($overlay-gradient-start-color,$overlay-gradient-start-opacity) 0%,rgba($overlay-gradient-end-color,$overlay-gradient-end-opacity) 100%);
-        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#{ie-hex-str($overlay-gradient-start-color)}', endColorstr='#{ie-hex-str($overlay-gradient-end-color)}',GradientType=0 );
+        background: -moz-linear-gradient(top,  rgba($start-color,$start-opacity) 0%, rgba($end-color,$end-opacity) 100%);
+        background: -webkit-linear-gradient(top,  rgba($start-color,$start-opacity) 0%,rgba($end-color,$end-opacity) 100%);
+        background: linear-gradient(to bottom,  rgba($start-color,$start-opacity) 0%,rgba($end-color,$end-opacity) 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#{ie-hex-str($start-color)}', endColorstr='#{ie-hex-str($end-color)}',GradientType=0 );
     }
 
 }
