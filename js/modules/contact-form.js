@@ -17,17 +17,24 @@ $(function(){
         var updateFields = function() {
             // show PHONE option
             if($contact_type_select.val() == 10) {
+                $phone_container.find("input").attr('disabled', false);
                 $phone_container.show();
+                $email_container.find("input").attr('disabled', true);
                 $email_container.hide();
             }
             // show EMAIL option
             else if($contact_type_select.val() == 20) {
-                $phone_container.hide();
+                $email_container.find("input").attr('disabled', false);
                 $email_container.show();
+                $phone_container.find("input").attr('disabled', true);
+                $phone_container.hide();
             }
             // no option (hide everything)
             else {
+                console.log( 'drin' );
+                $phone_container.find("input").attr('disabled', true);
                 $phone_container.hide();
+                $email_container.find("input").attr('disabled', true);
                 $email_container.hide();
             }
         };
@@ -54,4 +61,3 @@ $(function(){
     });
 
 });
-
