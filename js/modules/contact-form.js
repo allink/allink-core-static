@@ -31,7 +31,6 @@ $(function(){
             }
             // no option (hide everything)
             else {
-                console.log( 'drin' );
                 $phone_container.find("input").attr('disabled', true);
                 $phone_container.hide();
                 $email_container.find("input").attr('disabled', true);
