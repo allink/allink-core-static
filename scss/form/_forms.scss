@@ -75,15 +75,17 @@ Default Form Styles
 
     // prepare the required symbol
     .required-symbol {
+        position: relative;
         display: inline-block;
         width: $form-field-required-icon-width;
         height: $form-field-required-icon-height;
-        overflow: hidden;
-        visibility: hidden;
+        margin-left: $form-field-required-icon-spacing;
         &:before {
+            position: absolute;
+            top: $form-field-required-icon-position-y;
             content: $form-field-required-icon;
             color: $form-field-required-icon-color;
-            visibility: visible;
+            font-size: $form-field-required-icon-size;
             @if $form-field-required-icomoon-enabled == true {
                 @include icomoon();
             }

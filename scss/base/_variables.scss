@@ -772,9 +772,12 @@ $form-field-error-color:               $brand-danger;
 $form-field-required-icomoon-enabled:  false; // only set to 'true' if an icomoon icon is set below
 $form-field-required-icon:             '*';
 $form-field-required-icon-color:       #ba1414;
-// for accessibility reasons, there is a visually hidden 'required' text, that is set to visibility:hidden, and therefore still uses up some space. By setting dimensions and overflow:hidden we avoid undesired results.
-$form-field-required-icon-height:      0.9em;
-$form-field-required-icon-width:       1em;
+// styling of required symbol
+$form-field-required-icon-size:        1em;
+$form-field-required-icon-width:       20px;
+$form-field-required-icon-height:      1em;
+$form-field-required-icon-spacing:     0.2em;
+$form-field-required-icon-position-y:  0;
 
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
