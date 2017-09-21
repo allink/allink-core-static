@@ -17,6 +17,10 @@
             cursor: pointer;
         }
     }
+    // when default modal is visible
+    .default-modal-visible & {
+        z-index: z("site-overlay-above-all");
+    }
     // when form modal is visible
     .form-modal-visible & {
         z-index: z("site-overlay-above-all");
