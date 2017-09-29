@@ -58,6 +58,9 @@ picture.lazyloader {
     &.no-bg {
         // this is stronger than setting a bg color
         background: transparent !important;
+        &:after {
+            display: none;
+        }
     }
     // the background color variations
     @each $nr, $color in $project-colors {

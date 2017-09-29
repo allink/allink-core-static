@@ -18,6 +18,7 @@ html{
     }
 
     // prevent scrolling when e.g. modal is opened
+    &.nav-expanded,
     &.scrolling-disabled {
         overflow-y: hidden;
         overflow: hidden;

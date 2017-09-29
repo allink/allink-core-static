@@ -593,9 +593,6 @@ Default Content Section Styles
         .col-order-mobile-0 { order: 0; }
         .col-order-mobile-1 { order: 1; }
         .col-order-mobile-2 { order: 2; }
-        // .col-order-mobile-3 { order: 3; }
-        // .col-order-mobile-4 { order: 4; }
-        // .col-order-mobile-5 { order: 5; }
     }
 
     // vertical alignment
@@ -698,6 +695,8 @@ Default Content Section Styles
         // equalizes the margin bottom of the columns
         @include content-plugin-stacked-col-container-negative-spacing();
         .content-section__col {
+            // temporarily reset column ordering until
+            order: 0;
             // add margin bottom to all columns
             @include content-plugin-stacked-col-spacing();
             @include make-xs-column(24);
@@ -718,6 +717,8 @@ Default Content Section Styles
         // equalizes the margin bottom of the columns
         @include content-plugin-stacked-col-container-negative-spacing();
         .content-section__col {
+            // temporarily reset column ordering until
+            order: 0;
             // add margin bottom to all columns
             @include content-plugin-stacked-col-spacing();
             @include make-xs-column(12);
@@ -747,6 +748,8 @@ Default Content Section Styles
         // equalizes the margin bottom of the columns
         @include content-plugin-stacked-col-container-negative-spacing();
         .content-section__col {
+            // temporarily reset column ordering until
+            order: 0;
             // add margin bottom to all columns
             @include content-plugin-stacked-col-spacing();
             @include make-xs-column(12);
