@@ -75,7 +75,7 @@ function initDatepicker() {
             // init
             var element = datepicker_elements[i];
             var $datepicker_element = $(element);
-            var $datepicker_container = $datepicker_element.parents('.datepicker-container');
+            const $datepicker_container = $datepicker_element.parents('.datepicker-container');
             var has_value_class = 'has-value';
 
             // TIME only
@@ -145,7 +145,7 @@ function initDatepicker() {
                 // a click outside the datepicker input field closes it. So we gotta "delay" it.
                 setTimeout(function(){
                     flatpickr_instance.clear();
-                    // add class, so we can show the clear button
+                    // add class, so we can hide the clear button
                     $datepicker_container.removeClass(has_value_class);
                 },0);
             });
