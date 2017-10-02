@@ -55,6 +55,8 @@ $(function(){
             // remove closing method classes
             var closing_method_attr_value = $modal.attr('data-default-modal-closing-methods');
             $modal.removeClass(closing_method_attr_value);
+            // remove any content (issue: video was still playing)
+            $modal.find('.tingle-modal-box__content').empty();
             // if the softpage is still open in the brackground, we have to keep the overlay, otherwise we can close it
             if ($('.tingle-modal.softpage').hasClass('tingle-modal--visible')) {
                 // tingle removes the class from the body, so let's re-add it
