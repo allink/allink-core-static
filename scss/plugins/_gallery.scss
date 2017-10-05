@@ -132,9 +132,6 @@ Fullscreen Gallery
 
 .swiper-button-fullscreen-close {
     &.tingle-modal__close {
-        left: auto;
-        right: 0;
-        width: 70px;
         &:before {
             color: $white;
         }

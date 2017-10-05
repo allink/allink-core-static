@@ -36,12 +36,21 @@ Form modifications
         width: 100%;
     }
 
+    // hide all, and display only enabled variations later on
     .btn-item {
+        display: none;
         float: left;
         padding: 10px;
         background-color: white;
         border: 2px solid transparent;
+    }
+
+    // the button sizes have to be displayed at all times
+    .field-btn_size {
+        .btn-item {
+            display: block;
         }
+    }
 
     .active {
         border-color: #000;
@@ -55,7 +64,6 @@ Form modifications
     // loop through button variations
     @each $key, $value in $btn-variations {
         .btn-#{$key} {
-            display: none;
             position: relative;
             background-color: map-deep-get($value,'bg') !important;
             border-top-color: map-deep-get($value,'border-top-color') !important;
@@ -97,11 +105,10 @@ Form modifications
 
     // Only display available button variations
     @each $btn-variation in $available-btn-variations {
-        .btn-#{$btn-variation} {
-            display: inline-block;
+        .btn-#{$btn-variation}-container {
+            display: block;
         }
     }
-
 
     // sizes
     .btn-sm {

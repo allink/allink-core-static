@@ -54,7 +54,7 @@ export function initiSwiperInstances(options) {
         options.durationPerSlide = 4000;
     }
     if (!options.slidesPerView) {
-        options.slidesPerView = 1;
+        options.slidesPerView = 'auto';
     }
     if (typeof options.loop === 'undefined') {
         options.loop = true;
