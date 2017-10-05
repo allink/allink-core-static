@@ -41,10 +41,27 @@ Detail View
 
 .app-detail {
 
-    // forcefully set max width
-    @if $app-detail-content-container-max-width {
-        .content-section__container {
-            max-width: $app-detail-content-container-max-width !important;
+    // optionally: set max width of detail view
+    .content-section__container {
+        @if $app-detail-content-container-max-width-xs {
+            max-width: $app-detail-content-container-max-width-xs !important;
+        }
+        @if $app-detail-content-container-max-width-xxl {
+            @media (min-width:$screen-xxl) {
+                max-width: $app-detail-content-container-max-width-xxl !important;
+            }
+        }
+        @if $app-detail-content-container-softpage-max-width-xs {
+            .softpage & {
+                max-width: $app-detail-content-container-softpage-max-width-xs !important;
+            }
+        }
+        @if $app-detail-content-container-softpage-max-width-xxl {
+            .softpage & {
+                @media (min-width:$screen-xxl) {
+                    max-width: $app-detail-content-container-softpage-max-width-xxl !important;
+                }
+            }
         }
     }
 

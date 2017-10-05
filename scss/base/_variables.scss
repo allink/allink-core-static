@@ -435,8 +435,12 @@ App - Detail View (within Softpage or as Deeplink)
 // stacked columns
 $app-detail-col-stack-spacing-xs-max:                 $grid-gutter-width;
 
-// set max-width for any app detail (in softpage AND deeplink)
-$app-detail-content-container-max-width:              false; // pixel value. set to 'false' if default container width should be used
+// deeplink: set max-width
+$app-detail-content-container-max-width-xs:           850px; // pixel value. set to 'false' if default container width should be used
+$app-detail-content-container-max-width-xxl:          1000px; // pixel value. set to 'false' if default container width should be used
+// within softpage: set max-width
+$app-detail-content-container-softpage-max-width-xs:  false; // pixel value. set to 'false' if default container width should be used
+$app-detail-content-container-softpage-max-width-xxl: false; // pixel value. set to 'false' if default container width should be used
 
 // within softpage, create some spacing around all sections
 // Note: Sets 'padding'-property
