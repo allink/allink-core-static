@@ -128,14 +128,64 @@ export function initAjaxForm() {
 
 }
 
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+Live Search
+
+Usage:
+
+Add the 'data-live-search' attribute to a text input and the script will listen for keyup events:
+
+<input class="example-class form-control" id="example" name="example" type="search" data-live-search>
+
+*/
+
+export function initLiveSearch() {
+    // init
+    let $live_search_inputs = $('[data-live-search]');
+    $live_search_inputs.each(function(){
+        // init
+        let $input = $(this);
+        let timeoutId = 0;
+        let initialized_attr = 'data-trigger-initialized';
+        // check for initialized trigger
+        let trigger_initialized = $input.attr(initialized_attr);
+        // NOT initialized yet
+        if (typeof trigger_initialized === 'undefined') {
+            // listen for keyup event
+            $input.keyup(function(e) {
+                // e.preventDefault();
+                // init
+                let $form = $(this).parents('form').first();
+                let $plugin = $(this).parents('.app-content-plugin').first();
+                let $ajax_container = $plugin.find('.ajax-items-container');
+                let loading_class = 'loading';
+                // indicate that we are loading while typing
+                $ajax_container.addClass(loading_class);
+                // clear timeout
+                clearTimeout(timeoutId);
+                timeoutId = setTimeout(function(){
+                    sendAjaxForm($form);
+                }, 800);
+            });
+            // mark as initialized
+            $input.attr(initialized_attr,'');
+        }
+
+    });
+}
+
 $(function(){
 
     // on page load
     initAjaxForm();
+    initLiveSearch();
 
     // custom event
     $(window).on('initAjaxForm', function() {
         initAjaxForm();
+        initLiveSearch();
     });
 
 });
