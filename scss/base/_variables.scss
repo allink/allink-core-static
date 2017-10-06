@@ -428,7 +428,7 @@ $app-list-slider-overlay-gradient-height:           66%;
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 
-App - Detail View (within Softpage or as Deeplink)
+App - =detail View (within Softpage or as Deeplink)
 
 */
 
@@ -436,11 +436,11 @@ App - Detail View (within Softpage or as Deeplink)
 $app-detail-col-stack-spacing-xs-max:                 $grid-gutter-width;
 
 // deeplink: set max-width
-$app-detail-content-container-max-width-xs:           850px; // pixel value. set to 'false' if default container width should be used
+$app-detail-content-container-max-width-xs:           900px; // pixel value. set to 'false' if default container width should be used
 $app-detail-content-container-max-width-xxl:          1000px; // pixel value. set to 'false' if default container width should be used
 // within softpage: set max-width
-$app-detail-content-container-softpage-max-width-xs:  false; // pixel value. set to 'false' if default container width should be used
-$app-detail-content-container-softpage-max-width-xxl: false; // pixel value. set to 'false' if default container width should be used
+$app-detail-content-container-softpage-max-width-xs:  none; // pixel value. set to 'none' if the deeplink width should be used
+$app-detail-content-container-softpage-max-width-xxl: none; // pixel value. set to 'none' if the deeplink width should be used
 
 // within softpage, create some spacing around all sections
 // Note: Sets 'padding'-property

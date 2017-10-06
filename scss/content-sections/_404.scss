@@ -5,19 +5,21 @@
 */
 
 .tpl-error {
-    .content-section {
-        min-height: $template-404-min-height-xs;
-        @media (min-width:$screen-sm) {
-            min-height: $template-404-min-height-sm;
-        }
-        @media (min-width:$screen-md) {
-            min-height: $template-404-min-height-md;
-        }
-        @media (min-width:$screen-xl) {
-            min-height: $template-404-min-height-xl;
-        }
-        @media (min-width:$screen-xxl) {
-            min-height: $template-404-min-height-xxl;
+    .site-content {
+        .content-section {
+            min-height: $template-404-min-height-xs;
+            @media (min-width:$screen-sm) {
+                min-height: $template-404-min-height-sm;
+            }
+            @media (min-width:$screen-md) {
+                min-height: $template-404-min-height-md;
+            }
+            @media (min-width:$screen-xl) {
+                min-height: $template-404-min-height-xl;
+            }
+            @media (min-width:$screen-xxl) {
+                min-height: $template-404-min-height-xxl;
+            }
         }
     }
 }
