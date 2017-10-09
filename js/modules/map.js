@@ -263,10 +263,19 @@ export const initMap = function (options) {
 
             // init vars
             var mapID = window.MAPS[i].id;
+            var totalNumberOfLocations = 0;
             var mapInstance = document.getElementById('map-' + mapID);
             var zoomLevel = parseInt(mapInstance.getAttribute('data-zoom-level'));
-            var numberOfMarkers = countObjectProperties(window.MAPS[i].locations);
             var page_load_window_width = $(window).width();
+
+            // fallback: determine total number of locations according to locations property
+            if (typeof window.MAPS[i].totalNumberOfLocations === 'undefined') {
+                totalNumberOfLocations = countObjectProperties(window.MAPS[i].locations);
+            }
+            // in newer templates, we get the 'totalNumberOfLocations' property
+            else {
+                totalNumberOfLocations = window.MAPS[i].totalNumberOfLocations;
+            }
 
             // define map options
             var mapOptions = {
@@ -291,12 +300,17 @@ export const initMap = function (options) {
             map.mapTypes.set('map_style', styledMap);
             map.setMapTypeId('map_style');
 
-            for (var counter = 1; counter <= numberOfMarkers; counter++) {
+            for (var counter = 1; counter <= totalNumberOfLocations; counter++) {
 
                 // init object
                 var marker_obj = window.MAPS[i].locations[counter];
 
-                // get merker values
+                // within a loop it can happen that a location doesn't contain coordinates, which skips some locations which creates a gap in the foorloop.counter (e.g. 1, 2, 3, 5, 6, 7). In this case we get an undefined variable and "continue" the journey.
+                if (typeof marker_obj === 'undefined') {
+                    continue;
+                }
+
+                // get marker values
                 var lat = parseFloat(marker_obj.lat.replace(',', '.'));
                 var lng = parseFloat(marker_obj.lng.replace(',', '.'));
                 var infowindow_content = marker_obj.infowindow_content;
