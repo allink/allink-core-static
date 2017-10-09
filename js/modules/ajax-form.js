@@ -155,9 +155,9 @@ export function initLiveSearch() {
         if (typeof trigger_initialized === 'undefined') {
             // listen for keyup event
             $input.keyup(function(e) {
-                // e.preventDefault();
                 // init
-                let $form = $(this).parents('form').first();
+                e.preventDefault();
+                let $form = $(this).parents('.ajax-form').first();
                 let $plugin = $(this).parents('.app-content-plugin').first();
                 let $ajax_container = $plugin.find('.ajax-items-container');
                 let loading_class = 'loading';
