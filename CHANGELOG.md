@@ -18,6 +18,6 @@ Each release is divided into the following main categories:
   import 'allink-core-static/js/modules/expandable';
   ```
 ### NEW
--
+- Swiper: New variable `options.transitionDurationBetweenSlides_mobile` available.
 ### FIXES
 -

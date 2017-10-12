@@ -47,6 +47,9 @@ export function initiSwiperInstances(options) {
     var viewport_width = $(window).width();
 
     // available options with default values
+    if (!options.transitionDurationBetweenSlides_mobile) {
+        options.transitionDurationBetweenSlides_mobile = 500;
+    }
     if (!options.transitionDurationBetweenSlides) {
         options.transitionDurationBetweenSlides = 500;
     }
@@ -67,8 +70,10 @@ export function initiSwiperInstances(options) {
     }
     // set effect depending on viewport width
     var effect = 'slide';
+    var transitionDurationBetweenSlides = options.transitionDurationBetweenSlides_mobile;
     if (viewport_width > 1024) {
         effect = 'fade';
+        transitionDurationBetweenSlides = options.transitionDurationBetweenSlides;
     }
 
     // loop through instances (that have NOT been initialized yet)
@@ -139,7 +144,7 @@ export function initiSwiperInstances(options) {
                 }
             },
             effect: effect,
-            speed: options.transitionDurationBetweenSlides, // Number: Duration of transition between slides (in ms)
+            speed: transitionDurationBetweenSlides, // Number: Duration of transition between slides (in ms)
             autoplay: durationPerSlide, // Number: Delay between transitions (in ms). If this parameter is not specified, auto play will be disabled
             slidesPerView: options.slidesPerView,
             spaceBetween: 30,
