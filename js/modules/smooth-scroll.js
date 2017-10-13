@@ -16,6 +16,18 @@ Custom easing function (only predefined easing function will work, otherwise the
 
 <a href="#id-of-target-element" data-smooth-scroll data-scroll-easing="linear">Smooth Scroll Link</a>
 
+Specific offsets:
+
+<a href="#id-of-target-element" data-smooth-scroll data-offset-xs="50" data-offset-md="100">Smooth Scroll Link</a>
+
+Dynamic offset
+
+<a href="#id-of-target-element" data-smooth-scroll data-respect-compact-header-height>Smooth Scroll Link</a>
+
+The dynamic offset requires the following markup right after the `.site-header-buffer` in `base.html`:
+
+<div class="smooth-scroll-header-compact-mode-size"></div>
+
 */
 
 // Browser support:
@@ -39,7 +51,8 @@ Custom easing function (only predefined easing function will work, otherwise the
  * @param {string} easing - Timing function name (Allowed values: 'linear', 'easeInQuad', 'easeOutQuad', 'easeInOutQuad', 'easeInCubic', 'easeOutCubic', 'easeInOutCubic', 'easeInQuart', 'easeOutQuart', 'easeInOutQuart', 'easeInQuint', 'easeOutQuint', 'easeInOutQuint')
  * @param {function} callback - Optional callback invoked after animation
  */
-function scrollIt(destination, duration = 200, easing = 'linear', callback) {
+
+function scrollIt(destination, compact_header_offset, offset_xs, offset_md, duration , easing, callback) {
 
     // Predefine list of available timing functions
     // If you need more, tween js is full of great examples
@@ -86,6 +99,22 @@ function scrollIt(destination, duration = 200, easing = 'linear', callback) {
         }
     };
 
+    // offset:
+    // manual offset first
+    const window_width = window.outerWidth;
+    var offset = 0;
+    if (window_width < 768 && offset_xs) {
+        offset = offset_xs;
+    }
+    if (window_width >= 768 && offset_md) {
+        offset = offset_md;
+    }
+    // dynamic offset is stronger than manual offset
+    if( compact_header_offset > 0 ) {
+        offset = compact_header_offset;
+    }
+
+
     // Store initial position of a window and time
     // If performance is not available in your browser
     // It will fallback to new Date().getTime() - thanks IE < 10
@@ -99,7 +128,7 @@ function scrollIt(destination, duration = 200, easing = 'linear', callback) {
     // Resolve destination type (node or number)
     const documentHeight = Math.max(document.body.scrollHeight, document.body.offsetHeight, document.documentElement.clientHeight, document.documentElement.scrollHeight, document.documentElement.offsetHeight);
     const windowHeight = window.innerHeight || document.documentElement.clientHeight || document.getElementsByTagName('body')[0].clientHeight;
-    const destinationOffset = typeof destination === 'number' ? destination : destination.offsetTop;
+    const destinationOffset = (typeof destination === 'number' ? destination : destination.offsetTop) - offset;
     const destinationOffsetToScroll = Math.round(documentHeight - destinationOffset < windowHeight ? documentHeight - windowHeight : destinationOffset);
 
 
@@ -163,6 +192,29 @@ function initSmoothScroll() {
                         console.warn('Smooth scroll target with selector "' + anchor + '"" could not be found in the DOM')
                         return false;
                     }
+                    // optional: offset (priority 1): use compact header height as offset (to make sure the scroll target is visible)
+                    var compact_header_offset = 0;
+                    var respect_compact_header_height = $trigger.attr('data-respect-compact-header-height');
+                    if (typeof respect_compact_header_height !== 'undefined') {
+                        var $compact_header_sizer = $('.smooth-scroll-header-compact-mode-size');
+                        if ($compact_header_sizer.length > 0) {
+                            compact_header_offset = $compact_header_sizer.outerHeight();
+                        }else {
+                            console.warn('".smooth-scroll-header-compact-mode-size" element is missing in the DOM')
+                        }
+                    }
+                    // optional: offset (priority 2): manually set offset for XS breakpoint
+                    var offset_xs = 0;
+                    var offset_xs_from_attribute = $trigger.attr('data-offset-xs');
+                    if (offset_xs_from_attribute) {
+                        offset_xs = parseInt(offset_xs_from_attribute);
+                    }
+                    // optional: offset (priority 2): manually set offset for MD breakpoint
+                    var offset_md = 0;
+                    var offset_md_from_attribute = $trigger.attr('data-offset-md');
+                    if (offset_md_from_attribute) {
+                        offset_md = parseInt(offset_md_from_attribute);
+                    }
                     // optional: individual scroll duration
                     var scroll_duration = 300;
                     var scroll_duration_from_attribute = $trigger.attr('data-scroll-duration');
@@ -180,6 +232,9 @@ function initSmoothScroll() {
                     // scroll!
                     scrollIt(
                         $target.get(0),
+                        compact_header_offset,
+                        offset_xs,
+                        offset_md,
                         scroll_duration,
                         scroll_easing,
                         function(){

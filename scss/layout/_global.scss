@@ -32,6 +32,25 @@ body {
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 
+Smooth scroll
+
+The following guy is used for our smooth scroll offset calucation.
+
+It has to be placed right after the `.site-header-buffer` in `base.html`
+
+*/
+
+.smooth-scroll-header-compact-mode-size {
+    position: absolute;
+    opacity: 0;
+    visibility: hidden;
+    width: 1px;
+    @include set-site-header-compact-mode-height();
+}
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
 When the mobile navigation is visible, all elements defined
 in the sass-list will be hidden using a transition.
 

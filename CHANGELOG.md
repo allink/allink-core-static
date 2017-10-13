@@ -18,6 +18,7 @@ Each release is divided into the following main categories:
   import 'allink-core-static/js/modules/expandable';
   ```
 ### NEW
+- Smooth Scroll: New offest variable `data` attributes available. Details in script header.
 - Swiper: New variable `options.transitionDurationBetweenSlides_mobile` available.
 ### FIXES
 -
