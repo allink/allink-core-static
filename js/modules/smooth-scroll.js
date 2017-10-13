@@ -86,7 +86,6 @@ function scrollIt(destination, duration = 200, easing = 'linear', callback) {
         }
     };
 
-
     // Store initial position of a window and time
     // If performance is not available in your browser
     // It will fallback to new Date().getTime() - thanks IE < 10
@@ -159,6 +158,11 @@ function initSmoothScroll() {
                     var $trigger = $(this);
                     var anchor = $trigger.attr('href');
                     var $target = $(anchor);
+                    // target not found? adios!
+                    if ($target.length === 0) {
+                        console.warn('Smooth scroll target with selector "' + anchor + '"" could not be found in the DOM')
+                        return false;
+                    }
                     // optional: individual scroll duration
                     var scroll_duration = 300;
                     var scroll_duration_from_attribute = $trigger.attr('data-scroll-duration');
