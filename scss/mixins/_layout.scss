@@ -53,9 +53,11 @@ SCSS:
 
 */
 
-@mixin aspect-ratio($width: 4, $height: 3, $inner-container-class: 'inner', $hide-overflow: false, $max-height: none) {
+@mixin aspect-ratio($width: 4, $height: 3, $inner-container-class: 'inner', $hide-overflow: false, $max-height: false) {
     position: relative;
-    max-height: $max-height;
+    @if $max-height {
+        max-height: $max-height;
+    }
     // optionally hide overflow
     @if $hide-overflow == true {
         overflow: hidden;
