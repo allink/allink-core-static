@@ -58,6 +58,13 @@ Tweaking Django CMS
     }
 }
 
+// trying to get rid of blocking overlay when using SHIFT-Space. It might have been there for a reason, but I think mainly to annoy the editors
+.cms-dragitem {
+    .cms-dragitem-success {
+        display: none !important;
+    }
+}
+
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 

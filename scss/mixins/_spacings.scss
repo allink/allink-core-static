@@ -281,22 +281,23 @@ Spacings of content blocks within the .site-content
     }
 }
 
-@mixin content-section-specific-spacing($property: 'margin-top') {
-    #{$property}: $content-section-spacing-xs;
+// per default, we use the 'spacing-factor' 1.. but sometimes we want to proportionally increase the spacing without adding new variables.
+@mixin content-section-specific-spacing($property: 'margin-top', $spacing-factor: 1) {
+    #{$property}: $content-section-spacing-xs * $spacing-factor;
     @media (min-width:$screen-sm) {
-        #{$property}: $content-section-spacing-sm;
+        #{$property}: $content-section-spacing-sm * $spacing-factor;
     }
     @media (min-width:$screen-md) {
-        #{$property}: $content-section-spacing-md;
+        #{$property}: $content-section-spacing-md * $spacing-factor;
     }
     @media (min-width:$screen-lg) {
-        #{$property}: $content-section-spacing-lg;
+        #{$property}: $content-section-spacing-lg * $spacing-factor;
     }
     @media (min-width:$screen-xl) {
-        #{$property}: $content-section-spacing-xl;
+        #{$property}: $content-section-spacing-xl * $spacing-factor;
     }
     @media (min-width:$screen-xxl) {
-        #{$property}: $content-section-spacing-xxl;
+        #{$property}: $content-section-spacing-xxl * $spacing-factor;
     }
 }
 
