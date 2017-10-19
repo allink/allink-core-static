@@ -839,5 +839,9 @@ Section Headings
     // prevent the section heading from being too wide. make it 2/3
     @media (min-width:$screen-md) {
         max-width: 66.66%;
+        // reset max-width in context of an app detail template
+        .app-detail__content & {
+            max-width: none;
+        }
     }
 }
