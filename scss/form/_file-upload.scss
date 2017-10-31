@@ -7,6 +7,8 @@ Inpspired by: http://tympanus.net/codrops/2015/09/15/styling-customizing-file-in
 */
 
 .custom-file-upload {
+    // in case of long file names, hide overlapping string
+    overflow: hidden;
     // visually hide the actual input field...
     > input {
         // ...but only IF JavaScript has been detected by Modernizr
@@ -32,9 +34,10 @@ Inpspired by: http://tympanus.net/codrops/2015/09/15/styling-customizing-file-in
     // the label
     > label {
         // we simply extend the predifend .btn class and desired button variation defined in variables.scss
-        @extend .btn;
-        @extend .btn-#{$file-upload-btn-variation};
+        @include button-base();
+        @include button-variation($file-upload-btn-variation)
         padding-left: $file-upload-padding-left;
+        cursor: pointer;
         @if $file-upload-icon {
             &:before {
                 content: $file-upload-icon;
@@ -52,6 +55,7 @@ Inpspired by: http://tympanus.net/codrops/2015/09/15/styling-customizing-file-in
     // optional: custom styles when a file has been selected
     &.file-selected {
         > label {
+            text-transform: none;
         }
     }
 

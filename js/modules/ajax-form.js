@@ -34,7 +34,8 @@ export function sendAjaxForm($form) {
     var custom_event = $form.attr('data-success-data-layer-event');
     var success_url = $form.attr('data-success-url');
     var ajax_response_container_id = $form.attr('data-ajax-response-container-id');
-    var postData = $form.serialize();
+    // we now support file uploads, too
+    var formData = new FormData($form[0]);
 
     // define the container in which the ajax response will be written into
     // 1. in case an ID is defined, select that element
@@ -55,8 +56,13 @@ export function sendAjaxForm($form) {
     // AJAX magic
     $.ajax({
         type: "POST",
+        enctype: 'multipart/form-data',
+        processData: false,  // Important!
+        contentType: false,
+        cache: false,
+        timeout: 600000,
         url : url,
-        data : postData,
+        data : formData,
         success:function(data, textStatus, jqXHR) {
             // do we get a custom URL from view?
             if (data.success_url) {
