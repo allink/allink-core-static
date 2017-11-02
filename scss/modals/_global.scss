@@ -50,7 +50,8 @@ body.tingle-enabled {
 }
 
 .tingle-modal {
-
+    // fixes bug that selects text when closing the modal by clicking on the overlay
+    -moz-user-select: none;
     // add scroll bars per default
     overflow-y: auto;
     // fixes scroll isues on iOS
@@ -85,6 +86,9 @@ body.tingle-enabled {
 
 // reset transform per default, and add project specific if desired
 .tingle-modal-box {
+    // make sure text within the modal is selectable
+    -moz-user-select: text;
+    // trans
     transform: none;
     .tingle-modal--visible & {
         transform: none;
