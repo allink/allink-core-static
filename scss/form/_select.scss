@@ -52,6 +52,10 @@ select.selectpicker {
         background-color: map-deep-get($btn-variations,$select-btn-variation,'bg') !important;
         box-shadow: none !important;
         z-index: 10;
+        // on mobile devices, remove min width
+        @media (max-width:320px) {
+            min-width: 0;
+        }
         &:focus {
             outline: none !important; // I appologise, dear accessibility
         }
@@ -99,7 +103,6 @@ select.selectpicker {
         @if $dropdown-border-top == false {
             border-top: none;
         }
-        z-index: 1;
         a {
             outline: none;
             padding: $dropdown-link-padding;
