@@ -36,6 +36,18 @@ export function sendAjaxForm($form) {
     var ajax_response_container_id = $form.attr('data-ajax-response-container-id');
     // we now support file uploads, too
     var formData = new FormData($form[0]);
+    $form.find('[type="file"]').each(function(){
+        // init
+        var $input = $(this);
+        var id = $input.attr('id');
+        var file = $input.get(0).files[0];
+        // strip "id_" so django finds the file
+        formData.append(id.substring(3), file);
+    });
+    // debug formData
+    //for (var pair of formData.entries()) {
+    //      console.log(pair[0]+ ', ' + pair[1]);
+    //}
 
     // define the container in which the ajax response will be written into
     // 1. in case an ID is defined, select that element
