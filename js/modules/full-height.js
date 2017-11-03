@@ -25,8 +25,12 @@ $(function(){
         if (elements.length > 0) {
             // ..and looop through all items and set inline height
             for (var element of elements) {
-                // get the calculated height of the element..
-                var calculated_height_in_css = parseInt(getComputedStyle(element).minHeight);
+                // NOT WORKING: get the calculated height of the element..
+                // Safari on iOS and Chrome on Android rendered 100vh to the height WITHOUT address bar
+                // https://stackoverflow.com/questions/37112218/css3-100vh-not-constant-in-mobile-browser
+                // var calculated_height_in_css = parseInt(getComputedStyle(element).minHeight);
+                // bullet-proof version: JS!
+                var calculated_height_in_css = $(window).height();
                 // in case of small screens in landscape mode, the height would be too small, so we apply a minimum height
                 if (calculated_height_in_css < 450) {
                     element.style.minHeight = minimum_height + 'px';
