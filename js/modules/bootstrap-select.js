@@ -24,6 +24,7 @@ $(function(){
             $('.bootstrap-select .dropdown-toggle').each(function(){
                 this.innerHTML = this.innerHTML.replace(/&nbsp;/g,'');
                 $(this).find('.bs-caret').remove();
+                $(this).addClass('toggle-initialized');
             });
         },0);
     }
