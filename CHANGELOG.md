@@ -9,12 +9,6 @@ Each release is divided into the following main categories:
 ## v1.0.0 (under development)
 
 ### IMPORTANT
-- Dropdown (Bootstrap Select): New variables available:
-  ```SCSS
-  // link:hover
-  $dropdown-link-hover-color:             $black;
-  $dropdown-link-hover-bg:                $gray-lightest;
-  ```
 - New Javascript plugin `pagechooser` is now available:
   ```JS
   import 'allink-core-static/js/modules/pagechooser';
