@@ -99,6 +99,11 @@ Global Swiper Custom Styles
 
 
 // Pagination
+.swiper-pagination {
+    // making sure the bullets are above the buttons
+    z-index: 15;
+}
+
 .swiper-container-horizontal {
     // no point in displaying controls if there is only 1 slide
     .swiper-disabled & {
