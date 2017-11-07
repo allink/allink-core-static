@@ -9,6 +9,10 @@ Each release is divided into the following main categories:
 ## v1.0.0 (under development)
 
 ### IMPORTANT
+- New Javascript module `to-the-top` is now available:
+  ```JS
+  import 'allink-core-static/js/modules/to-the-top';
+  ```
 - New Javascript plugin `pagechooser` is now available:
   ```JS
   import 'allink-core-static/js/modules/pagechooser';

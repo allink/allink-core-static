@@ -29,6 +29,10 @@ export function showSiteOverlay(click_close_enabled) {
     $('html').addClass('site-overlay-visible');
     // make overlay visible
     $site_overlay.addClass('visible');
+    // animating
+    setTimeout(function(){
+        $site_overlay.addClass('animating');
+    },0);
     // enable click close
     if (click_close_enabled) {
         $site_overlay.addClass('click-close-enabled');
@@ -38,11 +42,15 @@ export function showSiteOverlay(click_close_enabled) {
 export function hideSiteOverlay() {
     // init
     var $site_overlay = $('.site-overlay');
+    var site_overlay = $site_overlay.get(0);
     // helper class in case we need to modify any other elements if the site-overlay is visible
     $('html').removeClass('site-overlay-visible');
     // remove classes
-    $site_overlay.removeClass('visible');
+    $site_overlay.removeClass('animating');
     $site_overlay.removeClass('click-close-enabled');
+    setTimeout(function(){
+        $site_overlay.removeClass('visible');
+    },300);
 }
 
 $(function(){

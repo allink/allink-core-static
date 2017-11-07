@@ -2,20 +2,22 @@
     position: fixed;
     background-color: $site-overlay-bg;
     opacity: 0;
-    visibility: hidden;
+    display: none;
     top: 0;
     right: 0;
     bottom: 0;
     left: 0;
     z-index: z($site-overlay-z-index-map-key);
-    transition: all $site-overlay-transition-duration $site-overlay-transition-timing-function;
+    transition: opacity $site-overlay-transition-duration $site-overlay-transition-timing-function;
     will-change: opacity;
     &.visible {
-        opacity: $site-overlay-opacity-when-visible;
-        visibility: visible;
+        display: block;
         &.click-close-disabled {
             cursor: pointer;
         }
+    }
+    &.animating {
+        opacity: $site-overlay-opacity-when-visible;
     }
     // when default modal is visible
     .default-modal-visible & {

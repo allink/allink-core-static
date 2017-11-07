@@ -13,12 +13,12 @@
         bottom: 0;
         right: 0;
 
-        transform: translate(-$ttt-visible-spacing-right-xs,100%);
+        transform: translate3d(-$ttt-visible-spacing-right-xs,100%,0);
 
         opacity: 0;
 
         @media (min-width:$screen-md) {
-            transform: translate(-$ttt-visible-spacing-right-md,100%);
+            transform: translate3d(-$ttt-visible-spacing-right-md,100%,0);
         }
 
         transition: $ttt-movement-transition;
@@ -54,23 +54,19 @@
     }
 
     &.visible {
-
-        &:link,
-        &:visited {
-            transform: translate(-$ttt-visible-spacing-right-xs,-$ttt-visible-spacing-bottom-xs);
-            opacity: 1;
-            @media (min-width:$screen-md) {
-                transform: translate(-$ttt-visible-spacing-right-md,-$ttt-visible-spacing-bottom-md);
-            }
-            // hide when navigation is visible
-            .nav-expanded & {
-                opacity: 0;
-            }
+        transform: translate3d(-$ttt-visible-spacing-right-xs,-$ttt-visible-spacing-bottom-xs,0);
+        opacity: 1;
+        @media (min-width:$screen-md) {
+            transform: translate3d(-$ttt-visible-spacing-right-md,-$ttt-visible-spacing-bottom-md,0);
         }
+        // hide when navigation is visible
+        .nav-expanded & {
+            opacity: 0;
+        }
+    }
 
-        &:hover,
-        &:focus,
-        &:active {
+    &.hover {
+        & {
             > .inner {
                 background: $ttt-bg-color-hover;
                 opacity: $ttt-opacity-hover;
