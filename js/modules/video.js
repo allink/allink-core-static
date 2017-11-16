@@ -179,7 +179,7 @@ $(function() {
     });
 
     // when resizing the window
-    $(window).on( 'viewportWidthHasChanged softpage:opened', function(){
+    $(window).on( 'initInlineVideo viewportWidthHasChanged softpage:opened', function(){
         initInlineVideo();
     });
 
