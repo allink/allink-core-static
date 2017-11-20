@@ -61,6 +61,8 @@ Get the base styles for a button
 
 @mixin button-base() {
 
+    border-radius: $btn-border-radius-base;
+
     &,
     &:link,
     &:visited {
@@ -81,11 +83,13 @@ Get the base styles for a button
         @include font-btn-small();
         // make sure our button has the correct lineheight
         line-height: $btn-line-height;
+        border-radius: $btn-border-radius-small;
     }
     &.btn-lg {
         @include font-btn-large();
         // make sure our button has the correct lineheight
         line-height: $btn-line-height;
+        border-radius: $btn-border-radius-large;
     }
 
     // IMPORTANT: Has to be set AFTER the font definition, for we ignore the line-height defined in the font settings of buttons
