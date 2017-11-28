@@ -46,6 +46,14 @@ Requires the following HTML markup:
     input[type=checkbox] {
         opacity: 0;
 
+        // focus and active styles
+        &:hover + .custom-checkbox,
+        &:focus + .custom-checkbox,
+        &:active + .custom-checkbox {
+            border-color: $checkbox-border-color-focus;
+            background: $checkbox-bg-color-focus;
+        }
+
         // checked icon
         &:checked {
             & + .custom-checkbox {
@@ -74,13 +82,7 @@ Requires the following HTML markup:
                 }
             }
         }
-        // focus and active styles
-        &:hover + .custom-checkbox,
-        &:focus + .custom-checkbox,
-        &:active + .custom-checkbox {
-            border-color: $checkbox-border-color-focus;
-            background: $checkbox-bg-color-focus;
-        }
+
     }
 
 }
