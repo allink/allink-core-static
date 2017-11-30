@@ -108,7 +108,6 @@ export function initAjaxLoadItemsTrigger(options) {
         var initialized_attr = 'data-trigger-initialized';
         // check for initialized trigger
         var trigger_initialized = $trigger.attr(initialized_attr);
-
         // NOT initialized yet
         if (typeof trigger_initialized === 'undefined') {
             // add event listener
@@ -161,6 +160,7 @@ export function loadAjaxItems($trigger,options,masonry_grid,masonry_instance) {
         masonry_instance = masonry_instance || null,
         ajax_url = $trigger.attr('href'),
         ajax_filter_base_url = $trigger.attr('data-ajax-filter-base-url'),
+        insert_before_selector = $trigger.attr('data-insert-before-selector'),
         $plugin_container = $trigger.parents('.app-content-plugin'),
         $filter_container = $plugin_container.find('.filter-container'),
         $items_container = $plugin_container.find('.ajax-items-container'),
@@ -228,7 +228,16 @@ export function loadAjaxItems($trigger,options,masonry_grid,masonry_instance) {
                 else {
                     // append
                     if (append === true) {
-                        $items_container.append(data.rendered_content);
+                        // inserst before specific element
+                        if (typeof insert_before_selector !== 'undefined') {
+                            // init
+                            var $insert_before_element = $plugin_container.find('.'+insert_before_selector);
+                            $(data.rendered_content).insertBefore($insert_before_element);
+                        }
+                        // default ajax container
+                        else {
+                            $items_container.append(data.rendered_content);
+                        }
                     }
                     // exchange entire content
                     else {
