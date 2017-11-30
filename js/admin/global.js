@@ -7,19 +7,30 @@ template has been selected.
 
 function toggle_option_group_visibility(selected_template) {
 
-    // 'disable_when_' selectors
+    // 1. 'disable_when_' selectors
+    // 2. 'enable_when_' selectors
     $('fieldset').each(function(i){
         // init
         var $fieldset = $(this);
-        // it's a match! Hide!
+
+        // 1. 'disable_when_' selectors
         if ($fieldset.hasClass('disable_when_'+selected_template)) {
             $fieldset.removeClass('show_options');
             $fieldset.addClass('hide_options');
         }
-        // no match, make sure to remove the hide class
-        if (!$fieldset.hasClass('disable_when_'+selected_template)) {
+
+
+        // 2. 'enable_when_' selectors
+        if ($fieldset.hasClass('enable_when_'+selected_template)) {
+            $fieldset.addClass('show_options');
             $fieldset.removeClass('hide_options');
         }
+
+        // no match, make sure to remove the hide class
+        if (!$fieldset.hasClass('disable_when_'+selected_template) && !$fieldset.hasClass('enable_when_'+selected_template)) {
+            $fieldset.removeClass('hide_options');
+        }
+
     });
 
     // 'only_when_' selectors
