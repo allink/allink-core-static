@@ -71,6 +71,7 @@ body.tingle-enabled {
 
 // fix for projects where the position property has been forgotten
 .tingle-modal__close {
+    border-radius: 0;
     &:before {
         position: absolute;
     }
