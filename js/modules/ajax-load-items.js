@@ -258,6 +258,9 @@ export function loadAjaxItems($trigger,options,masonry_grid,masonry_instance) {
                 // trigger custom events
                 $(window).trigger('ajaxLoadItems:success',[$trigger]);
                 $(window).trigger('initSoftpageTrigger');
+                $(window).trigger('initFormModalTrigger');
+                $(window).trigger('initImageModalTrigger');
+                $(window).trigger('initDefaultModalTrigger');
                 $(window).trigger('btnAjaxLoaderDone');
                 // reveals next section in case there are no results when filtering
                 $(window).trigger('initOnScreen');
