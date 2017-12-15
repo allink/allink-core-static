@@ -33,20 +33,6 @@ body {
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 
-Feature detection
-
-*/
-
-@supports (object-fit: cover){
-    html::before {
-        content: "objectfit";
-        display: none;
-    }
-}
-
-
-/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
-
 Smooth scroll
 
 The following guy is used for our smooth scroll offset calucation.

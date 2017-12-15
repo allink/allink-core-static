@@ -1,0 +1,12 @@
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+Feature detection
+
+*/
+
+@supports (object-fit: cover){
+    html::before {
+        content: "objectfit";
+        display: none;
+    }
+}
