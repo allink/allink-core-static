@@ -6,13 +6,16 @@ Feature Detection
 
 $(function(){
 
+    // init
+    const $html = $('html');
+
     /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 
     Swop class if JavaScript is enabled
 
     */
 
-    $('html').removeClass('no-js').addClass('js');
+    $html.removeClass('no-js').addClass('js');
 
 
     /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
@@ -23,7 +26,6 @@ $(function(){
 
     */
 
-    const $html = $('html');
     const objectfit_supported = (getComputedStyle( $html[0], ':before' ).content == 'none') ? false : true;
     if (objectfit_supported === true) {
         $html.addClass('objectfit');
