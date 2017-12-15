@@ -23,10 +23,25 @@ html{
         overflow-y: hidden;
         overflow: hidden;
     }
+
 }
 
 body {
     background-color: $body-bg;
+}
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+Feature detection
+
+*/
+
+@supports (object-fit: cover){
+    html::before {
+        content: "objectfit";
+        display: none;
+    }
 }
 
 

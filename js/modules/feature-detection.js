@@ -2,13 +2,33 @@
 
 Feature Detection
 
-At the time of writing, we only need to detect the following features in order to make the allink-core-static work.
-
 */
 
 $(function(){
 
-    //  Swop class if JavaScript is enabled
+    /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+    Swop class if JavaScript is enabled
+
+    */
+
     $('html').removeClass('no-js').addClass('js');
+
+
+    /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+    object-fit detection without using Modernizr
+
+    Inspiration: https://www.bmorecreativeinc.com/edge-object-fit-fallback-without-polyfill-modernizr/
+
+    */
+
+    const $html = $('html');
+    const objectfit_supported = (getComputedStyle( $html[0], ':before' ).content == 'none') ? false : true;
+    if (objectfit_supported === true) {
+        $html.addClass('objectfit');
+    }else {
+        $html.addClass('no-objectfit');
+    }
 
 });
