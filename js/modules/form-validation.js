@@ -89,6 +89,25 @@ export function initFormValidation() {
 
 $(function(){
 
+    /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+    optimize email validation
+
+    note: by using the keyword 'email' we don't have to do anything in the existing markup
+
+    inspiration: https://stackoverflow.com/questions/37609828/jquery-validate-email-without-top-level-domain-valid#answer-40392540
+
+    */
+
+    $.validator.addMethod('email', function(val, elem){
+        var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+        if(!filter.test(val)) {
+            return false;
+        } else {
+            return true;
+        }
+    }, '*');
+
     // on page load
     initFormValidation();
 
