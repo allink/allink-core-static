@@ -7,6 +7,7 @@ Newsletter signup form
 .signup-form {
 
     &__form-container {
+        display: flex;
         width: 100%;
         max-width: $signup-form-max-width;
     }
@@ -14,6 +15,8 @@ Newsletter signup form
     &__input {
         position: relative;
         z-index: 1;
+        float: none;
+        flex-grow: 1;
         // specificity wars
         &.form-control {
             padding: $signup-form-button-input-padding;
@@ -21,11 +24,9 @@ Newsletter signup form
         }
     }
     &__input-group-btn {
+        flex-grow: 0;
         display: block;
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
+        width: auto;
         @if $signup-form-button-variation-enabled == false {
             width: $signup-form-button-btn-width;
         }
