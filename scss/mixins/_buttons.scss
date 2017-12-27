@@ -53,6 +53,7 @@ How to use:
     }
 }
 
+
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 
 Get the base styles for a button
@@ -97,16 +98,30 @@ Get the base styles for a button
     border-width: $form-field-border-width;
     border-color: $form-field-border-color;
 
-    .inverted-colors & {
-        // transition: $form-field-inverted-transition;
-        // border-style: $form-field-inverted-border-style;
-        // border-width: $form-field-inverted-border-width;
-        // border-color: $form-field-inverted-border-color;
-    }
-
+    // set paddings
     padding-top: $btn-padding-top;
     padding-right: $btn-padding-right;
     padding-bottom: $btn-padding-bottom;
     padding-left: $btn-padding-left;
     line-height: $btn-line-height;
 }
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+Get desired button size
+
+*/
+
+@mixin button-size($size: 'default') {
+    @if ($size == 'small') {
+        @include font-btn-small();
+    }
+    @if ($size == 'default') {
+        @include font-btn-default();
+    }
+    @if ($size == 'large') {
+        @include font-btn-large();
+    }
+}
+
