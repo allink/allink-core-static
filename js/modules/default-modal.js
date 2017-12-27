@@ -41,7 +41,7 @@ $(function(){
     var button_close_method_enabled_class = 'tingle-modal--ButtonClose';
 
     // initialize modal
-    var default_modal = new tingle.modal({
+    window.default_modal = new tingle.modal({
         cssClass: ['default-modal'],
         onClose: function() {
             // init

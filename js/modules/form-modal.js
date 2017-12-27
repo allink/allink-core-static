@@ -14,7 +14,7 @@ import tingle from 'tingle.js';
 $(function(){
 
     // initialize modal
-    var form_modal = new tingle.modal({
+    window.form_modal = new tingle.modal({
         cssClass: ['form-modal'],
         onClose: function() {
             // remove class from html

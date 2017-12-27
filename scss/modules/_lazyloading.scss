@@ -103,7 +103,7 @@ picture.lazyloader {
     &--disabled {
         // hide loader
         &:before {
-            opacity: 0;
+            display: none;
         }
         // hide background color
         &:after {

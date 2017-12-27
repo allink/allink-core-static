@@ -44,7 +44,7 @@ import { nodeListToArray } from './helper-functions';
 
 $(function(){
 
-    const softpage = new SoftPage({
+    window.softpage = new SoftPage({
         onPageLoaded: function(obj) {
             // scroll to top everytime a softpage is opened
             obj.modal.modal.querySelector('.tingle-modal-box').scrollTop = 0;

@@ -16,8 +16,10 @@ function lazysizesLoadListener() {
         img.addEventListener('load', () => {
             // init
             const $img = $(img);
-            // mark parent as loaded
-            $img.parents('.lazyloader').addClass('lazyloader--loaded');
+            // mark parent as loaded with some delay (to make sure the animation has finished)
+            setTimeout(function(){
+                $img.parents('.lazyloader').addClass('lazyloader--loaded');
+            },1000);
         });
     });
 }

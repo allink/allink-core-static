@@ -14,7 +14,7 @@ import tingle from 'tingle.js';
 $(function(){
 
     // initialize modal
-    var image_modal = new tingle.modal({
+    window.image_modal = new tingle.modal({
         cssClass: ['image-modal'],
         onClose: function() {
             // remove class from html
