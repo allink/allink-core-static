@@ -1,4 +1,4 @@
-site_name: allink-core
+site_name: allink-core-static
 pages:
   - Introduction: 'index.md'
   - Apps:
