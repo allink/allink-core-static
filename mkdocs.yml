@@ -1,7 +1,7 @@
 site_name: allink-core-static
 pages:
+  - Introduction: 'index.md'
   - Overview:
-    - Introduction: 'index.md'
     - Important notes: 'important.md'
     - How to update: 'update.md'
     - Webpack: 'webpack.md'
