@@ -23,7 +23,7 @@ pages:
     - Setting up app plugin templates: 'html/plugins.md'
 
 extra_css:
-      - custom.css
+    - custom.css
 
 markdown_extensions:
     - admonition
