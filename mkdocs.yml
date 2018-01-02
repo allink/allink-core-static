@@ -13,15 +13,16 @@ pages:
   - Stylesheets:
     - General Usage: 'stylesheets/usage.md'
     - Libraries: 'stylesheets/libraries.md'
+    - Styleguide: 'stylesheets/styleguide.md'
     - Variables: 'stylesheets/variables.md'
     - Grid: 'stylesheets/grid.md'
     - Colors: 'stylesheets/colors.md'
-    - TBD: 'stylesheets/TBD.md'
   - Templates:
     - Base: 'html/base.md'
     - Setting up page templates: 'html/page-templates.md'
     - Setting up app plugin templates: 'html/plugins.md'
-  extra_css:
+
+extra_css:
       - custom.css
 
 markdown_extensions:
