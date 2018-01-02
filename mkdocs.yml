@@ -11,13 +11,15 @@ pages:
     - Custom Events: 'javascript/custom-events.md'
     - Libraries: 'javascript/libraries.md'
   - Stylesheets:
-    - Concept: 'stylesheets/concept.md'
+    - General Usage: 'stylesheets/usage.md'
     - Libraries: 'stylesheets/libraries.md'
-    - Usage: 'stylesheets/usage.md'
+    - Variables: 'stylesheets/variables.md'
+    - Grid: 'stylesheets/grid.md'
+    - Colors: 'stylesheets/colors.md'
   - Templates:
     - Base: 'html/base.md'
     - Setting up page templates: 'html/page-templates.md'
-    - Plugin template: 'html/plugins.md'
+    - Setting up app plugin templates: 'html/plugins.md'
   extra_css:
       - custom.css
 

@@ -12,3 +12,5 @@ CMS_TEMPLATES = (
     ('no-header.html', _('No header')),
 )
 ```
+
+In the file `no-header.html` we can then overwrite any blocks from either `base_root.html` or `base.html`.
