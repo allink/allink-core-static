@@ -1,22 +1,25 @@
 site_name: allink-core-static
 pages:
-  - Introduction: 'index.md'
-  - Apps:
-    - core: 'core/core.md'
-    - core_apps: 'core/core_apps.md'
-    - apps: 'core/apps.md'
-  - Working on client project:
-    - 'Installation': 'client/install.md'
-    - 'Fork app': 'client/fork_app.md'
-    - 'Create new app': 'client/new_app.md'
-    - 'Translations': 'client/translations.md'
-    - 'Conventions': 'client/conventions.md'
-  - Working on allink-core:
-    - 'Contribute': 'contribute/contribute.md'
-    - 'General help': 'contribute/help.md'
-
-extra_css:
-    - custom.css
+  - Overview:
+    - Introduction: 'index.md'
+    - Important notes: 'important.md'
+    - How to update: 'update.md'
+    - Webpack: 'webpack.md'
+    - NPM: 'npm.md'
+  - Javascript:
+    - General Usage: 'javascript/usage.md'
+    - Custom Events: 'javascript/custom-events.md'
+    - Libraries: 'javascript/libraries.md'
+  - Stylesheets:
+    - Concept: 'stylesheets/concept.md'
+    - Libraries: 'stylesheets/libraries.md'
+    - Usage: 'stylesheets/usage.md'
+  - Templates:
+    - Base: 'html/base.md'
+    - Setting up page templates: 'html/page-templates.md'
+    - Plugin template: 'html/plugins.md'
+  extra_css:
+      - custom.css
 
 markdown_extensions:
     - admonition
