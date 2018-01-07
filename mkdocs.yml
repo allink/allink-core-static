@@ -12,20 +12,25 @@ pages:
     - Libraries: 'javascript/libraries.md'
   - Stylesheets:
     - General Usage: 'stylesheets/usage.md'
-    - Libraries: 'stylesheets/libraries.md'
-    - Styleguide: 'stylesheets/styleguide.md'
+    - Bootstrap: 'stylesheets/bootstrap.md'
+    - BEM methodology: 'stylesheets/bem.md'
     - Variables: 'stylesheets/variables.md'
     - Grid: 'stylesheets/grid.md'
     - Colors: 'stylesheets/colors.md'
+    - Spacings: 'stylesheets/spacings.md'
+    - Text Container: 'stylesheets/text-container.md'
+    - Typography: 'stylesheets/typography.md'
+  - Modules:
+    - Modals: 'modules/modals.md'
+    - Editor: 'modules/editor.md'
   - Templates:
-    - Base: 'html/base.md'
-    - Setting up page templates: 'html/page-templates.md'
-    - Setting up app plugin templates: 'html/plugins.md'
-
+    - Base: 'templates/base.md'
+    - Setting up page templates: 'templates/page-templates.md'
+    - Setting up app plugin templates: 'templates/plugins.md'
+    - Image Template Tag: 'templates/image.md'
+    - Styleguide: 'templates/styleguide.md'
 extra_css:
-    - custom.css
-
+  - custom.css
 markdown_extensions:
-    - admonition
-
+  - admonition
 theme: readthedocs

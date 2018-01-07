@@ -1,6 +1,6 @@
 # `base.html`
 
-Starting from the `allink-boilerplate-v1.0`, the only template we have at the beginning is `base.html`. It extends the `base_root.html` template which should not be necessary to be overwritten on a project basis.
+Starting from the `allink-boilerplate-1.0`, the only template we have at the beginning is `base.html`. It extends the `base_root.html` template which should not be necessary to be overwritten on a project basis.
 
 ## Adjust, but be careful
 
@@ -23,7 +23,13 @@ The styles for the hamburger can be changed in `static/scss/navigation/_nav-togg
 
 
 
+## Footer
+
+For our footer we use a `static_placeholder`, as it occurs across the entire website. That's why we put it in a separate `site-footer` container.
+
+Ideally, our `Content Plugin` is used to build the footer's structure, for then all the logic, options and features are available.
+
 ## To the top
 
-Our `to-the-top` element is also working and displayed per default. Should you want to hide it simly comment the entire block.
+Our `to-the-top` element is also working and displayed per default. Should you want to hide it simply comment the entire block.
 

@@ -1,6 +1,6 @@
 # Grid
 
-One of the only bootstrap features we use are the <strong>grid mixins</strong>.
+One of the very few bootstrap features we use are the <strong>grid mixins</strong>, which we extended with additional breakpoints and column paddings.
 
 <strong>NEVER</strong> use CSS classes in the markup, only use the Sass mixins provided.
 
@@ -48,6 +48,30 @@ A basic example of how to create a two column grid would look like this:
     @include make-xs-column(24);
     @include make-sm-column(12);
     @include make-lg-column(16);
+  }
+}
+```
+
+## Defining `$grid-gutter-width`
+
+At the beginning of a project we have to define the gutter width of our grid. This can be done in `static/scss/base/_grid.scss`.
+
+## Defining `$grid-columns`
+
+We use a `24` column grid. This setting should not be changed.
+
+Should you require a `5` column layout (which is tricky with `24`), simply do the following:
+
+```SCSS
+.example-module {
+  ...
+  &__col {
+    ...
+    @include make-xs-column(24);
+    @include make-sm-column(12);
+    @media (min-width:$screen-lg) {
+      width: 20%
+    }
   }
 }
 ```

@@ -1,6 +1,6 @@
 # Variables Overview
 
-In case you worked with bootstrap before, you will notice that our `_variables.scss` feels familliar.
+In case you worked with bootstrap before, you will notice that our `static/scss/base/_variables.scss` feels familliar.
 
 But since our setup has different requirements, the available variables are optimized to our needs.
 

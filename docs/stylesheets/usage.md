@@ -1,9 +1,9 @@
 # Usage
 
-In general, we have two separate javascript files that are being uglified and minified using [Webpack](overview/webpack.md):
+In general, we have two separate CSS files that are being minified and autoprefixed using [Webpack](overview/webpack.md):
 
-1. `static/js/app.js`: Includes all libraries and tools that are required for the <strong>website</strong>.
-2. `static/js/djangocms-custom-admin-scripts.js`: Includes all libraries and tools that are required for the <strong>admin form</strong> of our plugins.
+1. `static/scss/style.scss`: Includes all libraries and styles that are required for the <strong>website</strong>.
+2. `static/scss/djangocms-custom-admin-style.scss`: Includes all styles that are required for the <strong>admin form</strong> of our plugins.
 
 ## jQuery vs. Vanilla JS
 
