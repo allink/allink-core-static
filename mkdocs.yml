@@ -16,17 +16,23 @@ pages:
     - BEM methodology: 'stylesheets/bem.md'
     - Variables: 'stylesheets/variables.md'
     - Grid: 'stylesheets/grid.md'
+    - Breakpoints: 'stylesheets/breakpoints.md'
     - Colors: 'stylesheets/colors.md'
     - Spacings: 'stylesheets/spacings.md'
     - Text Container: 'stylesheets/text-container.md'
     - Typography: 'stylesheets/typography.md'
+    - z-index: 'stylesheets/z-index.md'
+  - Plugins:
+    - Content Plugin: 'plugins/content-plugin.md'
   - Modules:
     - Modals: 'modules/modals.md'
     - Editor: 'modules/editor.md'
+    - Lazyloading: 'modules/lazyloading.md'
   - Templates:
     - Base: 'templates/base.md'
     - Setting up page templates: 'templates/page-templates.md'
     - Setting up app plugin templates: 'templates/plugins.md'
+    - App detail view: 'templates/app-detail.md'
     - Image Template Tag: 'templates/image.md'
     - Styleguide: 'templates/styleguide.md'
 extra_css:

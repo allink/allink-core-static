@@ -56,7 +56,7 @@ The reason for this double definition is that our color picker library requires 
 
 Usually, the default color scheme is <strong>dark text on a bright background</strong>.
 
-When ever this is not the case, we call this <strong>inverted colors</strong>.
+When ever the opposite is the case, we refer to this as <strong>inverted colors</strong>.
 
 Standard text, links and most form elements's have variables for both situations. An example:
 
@@ -67,13 +67,13 @@ $body-color:              $black;
 $body-inverted-color:     $white;
 ```
 
-All you have to do is either setting the option `Activate "inverted text colors"` in a `Content Plugin`s admin form, or do it manually in a custom template:
+All you have to do is either setting the option `Activate "inverted text colors"` in a [Content Plugin](../plugins/content-plugin.md)s admin form, or do it manually in a custom template:
 
 ```HTML
 <div class="example-module">
   default colors applied
 </div>
 <div class="example-module inverted-colors">
-  inverted colors applied to all children
+  inverted colors applied
 </div>
 ```
