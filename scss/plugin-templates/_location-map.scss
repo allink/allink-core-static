@@ -1,0 +1,20 @@
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+locations 'map' template
+
+the ratio can be overwritten by copying this markup into the projects static folder and adjust the values.
+
+*/
+
+.locations-plugin {
+
+    &.map-template {
+        @media (max-width:$screen-sm-max) {
+            @include aspect-ratio(3,2,'locations-map');
+        }
+        // desktop ratios
+        @media (min-width:$screen-md) {
+            @include aspect-ratio(3,2,'locations-map');
+        }
+    }
+}

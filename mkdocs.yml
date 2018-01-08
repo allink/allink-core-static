@@ -1,24 +1,42 @@
-site_name: allink-core
+site_name: allink-core-static
 pages:
   - Introduction: 'index.md'
-  - Apps:
-    - core: 'core/core.md'
-    - core_apps: 'core/core_apps.md'
-    - apps: 'core/apps.md'
-  - Working on client project:
-    - 'Installation': 'client/install.md'
-    - 'Fork app': 'client/fork_app.md'
-    - 'Create new app': 'client/new_app.md'
-    - 'Translations': 'client/translations.md'
-    - 'Conventions': 'client/conventions.md'
-  - Working on allink-core:
-    - 'Contribute': 'contribute/contribute.md'
-    - 'General help': 'contribute/help.md'
-
+  - Overview:
+    - Important notes: 'important.md'
+    - How to update: 'update.md'
+    - Webpack: 'webpack.md'
+    - NPM: 'npm.md'
+  - Javascript:
+    - General Usage: 'javascript/usage.md'
+    - Custom Events: 'javascript/custom-events.md'
+    - Libraries: 'javascript/libraries.md'
+  - Stylesheets:
+    - General Usage: 'stylesheets/usage.md'
+    - Bootstrap: 'stylesheets/bootstrap.md'
+    - BEM methodology: 'stylesheets/bem.md'
+    - Variables: 'stylesheets/variables.md'
+    - Grid: 'stylesheets/grid.md'
+    - Breakpoints: 'stylesheets/breakpoints.md'
+    - Colors: 'stylesheets/colors.md'
+    - Spacings: 'stylesheets/spacings.md'
+    - Text Container: 'stylesheets/text-container.md'
+    - Typography: 'stylesheets/typography.md'
+    - z-index: 'stylesheets/z-index.md'
+  - Plugins:
+    - Content Plugin: 'plugins/content-plugin.md'
+  - Modules:
+    - Modals: 'modules/modals.md'
+    - Editor: 'modules/editor.md'
+    - Lazyloading: 'modules/lazyloading.md'
+  - Templates:
+    - Base: 'templates/base.md'
+    - Setting up page templates: 'templates/page-templates.md'
+    - Setting up app plugin templates: 'templates/plugins.md'
+    - App detail view: 'templates/app-detail.md'
+    - Image Template Tag: 'templates/image.md'
+    - Styleguide: 'templates/styleguide.md'
 extra_css:
-    - custom.css
-
+  - custom.css
 markdown_extensions:
-    - admonition
-
+  - admonition
 theme: readthedocs
