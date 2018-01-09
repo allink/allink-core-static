@@ -1,6 +1,6 @@
 site_name: allink-core-static
 pages:
-  - Introduction: 'overview/index.md'
+  - Introduction: 'index.md'
   - Overview:
     - Important notes: 'overview/important.md'
     - How to update: 'overview/update.md'
