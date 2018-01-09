@@ -2,10 +2,10 @@ site_name: allink-core-static
 pages:
   - Introduction: 'index.md'
   - Overview:
-    - Important notes: 'important.md'
-    - How to update: 'update.md'
-    - Webpack: 'webpack.md'
-    - NPM: 'npm.md'
+    - Important notes: 'overview/important.md'
+    - How to update: 'overview/update.md'
+    - Webpack: 'overview/webpack.md'
+    - NPM: 'overview/npm.md'
   - Javascript:
     - General Usage: 'javascript/usage.md'
     - Custom Events: 'javascript/custom-events.md'
