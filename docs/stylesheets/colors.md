@@ -4,7 +4,7 @@ Only use colors that are defined as variables in `static/scss/base/_colors.scss`
 
 ## Color variable names
 
-Research and our own experience has shown that the following approach on how to name colors variables works best in most cases:
+Research and our own experience has shown that the following approach on how to name color variables works best in most cases:
 
 ```SCSS
 $brand-green:                #some-green-hex-value;
@@ -19,12 +19,12 @@ $brand-blue-dark:            darken($brand-blue,5%);
 ### Explanation
 
 1. The prefix `$brand-` indicates it is a color related to the project's brand identity.
-2. The name of the color is according to its main color group (such as green, red, blue, ...) and is therefore memorable. This approach works well as long as you don't have 2 green tones.
+2. The name of the color is according to its main color group (such as green, red, blue, ...) and is therefore memorable. This approach works well as long as you don't have two tones of the same color group.
 3. The variations `-light` and `-dark` are useful for hover effects or borders.
 
-## `$project-colors`
+## The `$project-colors` map
 
-Some colors that are defined in CSS are used in as e.g. 'content-section' background colors.
+Some colors that are defined in CSS are used as e.g. `content-section` background colors.
 
 How to define the colors in CSS:
 
@@ -67,7 +67,7 @@ $body-color:              $black;
 $body-inverted-color:     $white;
 ```
 
-All you have to do is either setting the option `Activate "inverted text colors"` in a [Content Plugin](../plugins/content-plugin.md)s admin form, or do it manually in a custom template:
+All you have to do is either setting the option `Activate "inverted text colors"` in a [Content Plugin](../plugins/content-plugin.md)'s admin form, or do it manually in a custom template:
 
 ```HTML
 <div class="example-module">

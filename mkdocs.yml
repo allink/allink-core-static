@@ -24,9 +24,10 @@ pages:
     - z-index: 'stylesheets/z-index.md'
   - Plugins:
     - Content Plugin: 'plugins/content-plugin.md'
+    - App Content Plugin: 'plugins/app-content-plugin.md'
   - Modules:
     - Modals: 'modules/modals.md'
-    - Editor: 'modules/editor.md'
+    - WYSYWIG Editor: 'modules/editor.md'
     - Lazyloading: 'modules/lazyloading.md'
   - Templates:
     - Base: 'templates/base.md'

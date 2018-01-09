@@ -8,7 +8,7 @@ In our `settings.py` there is a variable called `CKEDITOR_SETTINGS` through whic
 
 ### Limit available heading sizes
 
-The amount of available heading sizes varies from project to project. After defining the [typography](typography.md) styles, make sure to comment all heading sizes that are NOT being used.
+The amount of available heading sizes varies from project to project. After defining the [typography](../stylesheets/typography.md) styles, make sure to comment all heading sizes that are NOT being used.
 
 ## Heading logic
 

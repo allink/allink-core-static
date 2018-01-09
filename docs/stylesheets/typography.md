@@ -6,7 +6,7 @@ We researched and tested quite a few approaches, and this is the result that has
 
 Web fonts can either be added as a direct include in the `<head>` (which sometimes is the only way), but also using `@import`. When ever possible, add a web font using `@import` (when using a font service) or via `@font-face` (when font is self-hosted) in the file `static/scss/typography/_global.scss`.
 
-This makes the web font available in the CMS [editor](editor.md), which increases the look and feel for editors, and the feeling for text length is more accurate.
+This makes the web font available in the CMS [editor](../modules/editor.md), which increases the look and feel for editors, and the feeling for text length is more accurate.
 
 ## Making the fonts available
 

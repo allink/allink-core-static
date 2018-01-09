@@ -1,6 +1,6 @@
 # Grid
 
-One of the very few bootstrap features we use are the <strong>grid mixins</strong>, which we extended with additional breakpoints and column paddings.
+One of the very few [bootstrap](bootstrap.md) features we use are the <strong>grid mixins</strong>, which we extended with additional breakpoints and column paddings.
 
 <strong>NEVER</strong> use CSS classes in the markup, only use the Sass mixins provided.
 

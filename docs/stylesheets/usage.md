@@ -7,22 +7,18 @@ In general, we have two separate CSS files that are being minified and autoprefi
 
 ## Read the comments
 
-All stylesheets are farely well documented in the code.
+Most stylesheets are farely well documented in the code.
 
-## Customize, but think twice
+## When the `allink-core-static` styles don't do what's required
 
-Should a script miss a feature, a project specific version can be created and included while commenting the core include:
+Unlike with [Javascript](../javascript/usage.md), we grouped SCSS partials and import only the `_base.scss` of each group. This approach helped as when introducing a new module within a group, which would then automatically be imported, too.
 
-```JS
-// allink-core-static includes
-...
-// import 'allink-core-static/js/modules/pagechooser';
-...
+The following example imports all available [modal](../modules/modals.md) styles:
 
-// Project specifc includes
-...
-import './modules/pagechooser';
-...
+```SCSS
+@import '~allink-core-static/scss/modals/base';
 ```
 
-<strong>But remember:</strong> Before you add a project specifc version, ask yourself: Might this feature be reused and does it make more sense to update the `allink-core-static` instead? If in doubt or do you have a feature request, get in touch with the responsible person at allink.
+So should you want to make adjustments to e.g. the `form-modal` styles, then you would have make them in a project specifc `static/scss/modals/_form.scss`, which is included <strong>after</strong> the standard styles.
+
+But
