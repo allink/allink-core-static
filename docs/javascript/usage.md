@@ -1,6 +1,6 @@
 # Usage
 
-In general, we have two separate javascript files that are being uglified and minified using [Webpack](overview/webpack.md):
+In general, we have two separate javascript files that are being uglified and minified using [Webpack](../overview/webpack.md):
 
 1. `static/js/app.js`: Includes all libraries and tools that are required for the <strong>website</strong>.
 2. `static/js/djangocms-custom-admin-scripts.js`: Includes all libraries and tools that are required for the <strong>admin form</strong> of our plugins.
@@ -8,6 +8,8 @@ In general, we have two separate javascript files that are being uglified and mi
 ## jQuery vs. Vanilla JS
 
 Since these scripts and libraries are a collection of tools and existing scripts, we now have a bit of a mix of coding styles. We tried to unify the code as much as time allowed us to.
+
+Feel free to use what ever coding style you prefer.
 
 ## Read the comments
 

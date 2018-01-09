@@ -1,17 +1,13 @@
 # Usage
 
-In general, we have two separate CSS files that are being minified and autoprefixed using [Webpack](overview/webpack.md):
+In general, we have two separate CSS files that are being minified and autoprefixed using [Webpack](../overview/webpack.md):
 
 1. `static/scss/style.scss`: Includes all libraries and styles that are required for the <strong>website</strong>.
 2. `static/scss/djangocms-custom-admin-style.scss`: Includes all styles that are required for the <strong>admin form</strong> of our plugins.
 
-## jQuery vs. Vanilla JS
-
-Since these scripts and libraries are a collection of tools and existing scripts, we now have a bit of a mix of coding styles. We tried to unify the code as much as time allowed us to.
-
 ## Read the comments
 
-All scripts are farely well documented in the code, and most of them have a block comment at the beginning of the file that explains its usage and options.
+All stylesheets are farely well documented in the code.
 
 ## Customize, but think twice
 

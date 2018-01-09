@@ -8,7 +8,7 @@ But since our setup has different requirements, the available variables are opti
 
 Creating a variable for every available CSS property of all our modules is simply impossible and can be (as we learned) a waste of time.
 
-So this is why there is only variables for the most common settings (usually colors, icons and spacings) that are kept reoccuring in our projects.
+So this is why there is only variables for the most common settings (usually colors, icons and spacings) that kept reoccuring in our projects.
 
 ## How to find your way around
 

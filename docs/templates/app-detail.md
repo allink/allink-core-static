@@ -4,3 +4,9 @@ The detail template of `App Plugin` content (e.g. `News` or `Work`) can either b
 
 In both cases the exact same detail template is being used. The only difference is, that in a softpage only the content is displayed (header and footer are not included).
 
+## Global styles for all app detail templates
+
+TBD:
+
+variables
+=Detail
