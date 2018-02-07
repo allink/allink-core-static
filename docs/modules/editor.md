@@ -1,6 +1,6 @@
 # Editor
 
-Rich text is added via the `TinyMCE` editor. Here are a few things to know when working with our setup.
+Rich text is added via the `TinyMCE` editor. There are a few things to know when working with our setup:
 
 ## Settings
 

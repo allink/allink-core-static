@@ -18,7 +18,6 @@ pages:
     - Grid: 'stylesheets/grid.md'
     - Breakpoints: 'stylesheets/breakpoints.md'
     - Colors: 'stylesheets/colors.md'
-    - Spacings: 'stylesheets/spacings.md'
     - Text Container: 'stylesheets/text-container.md'
     - Typography: 'stylesheets/typography.md'
     - z-index: 'stylesheets/z-index.md'
@@ -29,6 +28,7 @@ pages:
     - Modals: 'modules/modals.md'
     - WYSYWIG Editor: 'modules/editor.md'
     - Lazyloading: 'modules/lazyloading.md'
+    - Forms: 'modules/forms.md'
   - Templates:
     - Base: 'templates/base.md'
     - Setting up page templates: 'templates/page-templates.md'

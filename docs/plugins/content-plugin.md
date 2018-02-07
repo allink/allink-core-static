@@ -16,7 +16,7 @@ CONTENT_CSS_CLASSES = (
 )
 ```
 
-When selecting this option, our markup will be extended:
+When selecting this option, our (simplified) markup will be extended:
 
 ```HTML
 <div class="content-section example-class">
@@ -43,7 +43,7 @@ In our `settings.py` we have a tuple called `ADDITIONAL_CONTENT_PLUGIN_TEMPLATES
 
 ```Python
 ADDITIONAL_CONTENT_PLUGIN_TEMPLATES = (
-    ('col-2-variation', '2 Columns (Footer)', 2, 'col-1-of-3'),
+    ('col-2-variation', '2 Columns (Footer)', 2, 'col-1-of-2'),
 )
 ```
 
@@ -52,7 +52,7 @@ ADDITIONAL_CONTENT_PLUGIN_TEMPLATES = (
 - <strong>col-2-variation</strong>: The class that will be added to the template.
 - <strong>2 Columns (Footer)</strong>: The human friendly label text for the template dropdown.
 - <strong>2</strong>: Amount of `Column Plugin`s that will automatically be created.
-- <strong>col-1-of-3</strong>: The thumbnail width alias that per default is used for any images that are placed into a column. Note: This setting is not ideally solved, as there is no way define the width per column. Check out [allink_image_tags](../templates/image.md) for more details on how to add custom thumbnail width aliases.
+- <strong>col-1-of-2</strong>: The thumbnail <strong>width alias</strong> that per default is used for any images that are placed into a column. Note: This setting is not ideally solved, as there is no way define an image width per column. Check out [allink_image_tags](../templates/image.md) for more details on how to add custom thumbnail width aliases.
 
 ### Adding styles
 
@@ -92,6 +92,6 @@ Please note: This is just an example. Make sure to only hide fields that are not
 
 ### How to figure out the name of the field
 
-1. Browse the `allink-core` version defined in your `requirements.in` on github, open the file `allink_core/core_apps/allink_content/models.py` and copy the desired model field names.
-2. Create a new `Content Plugin` or edit an existing one, and inspect the desired form element with a DevTool and copy the class name.
+1. Browse the `allink-core` version defined in your `requirements.in` on github, open the file `allink_core/core_apps/allink_content/models.py` and copy the desired model field names after `.field-`.
+2. Create a new `Content Plugin` or edit an existing one, and inspect the desired form element of the CMS modal with a DevTool and copy the class name.
 

@@ -12,12 +12,12 @@ This makes the web font available in the CMS [editor](../modules/editor.md), whi
 
 Head over to `static/scss/base/_variables.scss` and search for `=typo`, which will bring you to the typography section.
 
-Depending on a project the amount of font styles varies. But here's en example:
+Depending on a project the amount of font styles varies. But here's an example:
 
 ```SCSS
-$font-family-primary:                   'example-font', Helvetica Neue Regular, Arial, serif;
-$font-family-bold:                      'example-font-bold', Helvetica Neue Bold, Arial, serif;
-$font-family-italic:                    'example-font-italic', Helvetica Neue Italic, Arial, serif;
+$font-family-primary:        'example-font', Helvetica Neue Regular, Arial, serif;
+$font-family-bold:           'example-font-bold', Helvetica Neue Bold, Arial, serif;
+$font-family-italic:         'example-font-italic', Helvetica Neue Italic, Arial, serif;
 ```
 
 ## Font breakpoints
@@ -26,7 +26,7 @@ In our `$font-size-breakpoints` map we define available breakpoints at which a f
 
 ## Adjusting font settings
 
-Let's have a look at the `h1` settings:
+Let's have a look at the self-explaining `h1` settings:
 
 ```SCSS
 // h1

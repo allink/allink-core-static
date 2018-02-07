@@ -7,7 +7,7 @@ In general, we have two separate javascript files that are being uglified and mi
 
 ## jQuery vs. Vanilla JS
 
-Since these scripts and libraries are a collection of tools and existing scripts, we now have a bit of a mix of coding styles. We tried to unify the code as much as time allowed us to.
+Since these scripts and libraries are a collection of existing tools, we now have a bit of a mix of coding styles. We tried to unify the code as much as time allowed us to.
 
 Feel free to use what ever coding style you prefer.
 

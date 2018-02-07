@@ -5,7 +5,7 @@ We are currently using <strong>Webpack v1</strong>.
 There are two commands that we use to compile our files (more details in the files `webpack.config.js` and `webpack/lib.js`):
 
 1. Local development: `npm run dev`
-  Only used when working localy. Never commit these files (not minified nor uglified).
+  Only used when working locally. Never commit and deploy these files (as they are not mini- and uglified).
 2. Production: `npm run build`
   Run this command every time before you commit and deploy updates. This makes sure the assets are always as small as possible in terms of file size.
 
