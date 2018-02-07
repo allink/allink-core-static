@@ -2,7 +2,29 @@
 
 Standard forms are styled and work out of the box.
 
-## Form styles
+## Style variables
+
+In our `static/scss/base/_variables.scss` we have variables for all our form elements.
+
+Here's a list of search commands that bring you to the desired section:
+
+- Form (general): `=form`
+- Fieldset and legend: `=fieldset`, `=legend`
+- Text input: `=field`
+- Text input (inverted colors): `=fieldinv`
+- Checkbox: `=checkboxes`
+- Radio: `=radio`
+- Buttons: `=buttons`
+- Select: `=select`
+- Dropdown: `=dropdown`
+- File upload: `=file`
+- Datepicker: `=datepicker`
+
+Note: As you see, not all elements have inverted colors variables, as there was no requirement so far, but this can easily be added on a project basis.
+
+## Markup
+
+The markup is defined in our `allink-core`.
 
 ## Available form variations
 
