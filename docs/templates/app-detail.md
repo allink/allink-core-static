@@ -6,7 +6,4 @@ In both cases the exact same detail template is being used. The only difference 
 
 ## Global styles for all app detail templates
 
-TBD:
-
-variables
-=Detail
+We are currently in the process or redefining the default layout of app detail views.

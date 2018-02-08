@@ -4,7 +4,7 @@ Creating different templates to display entries from our core apps is straight f
 
 In this example we will create a custom template for our `work` app (which is mainly used for projects and references).
 
-## Quick overfiew: default templates
+## Quick overview: default templates
 
 The most common templates that have been used again and again are ready to be downloaded/copied from the [allink-core repository (work templates)](https://github.com/allink/allink-core/tree/v1.0.x/allink_core/core/templates/allink_core/work/plugins).
 
@@ -26,20 +26,28 @@ So let's assume we want a custom version of the `grid_static` template. Here's o
 
 1. Pull the latest version of the `allink-core`.
 2. Open the `allink-core` project and navigate to `/allink_core/core/templates/allink_core/` and copy/paste the entire `work` directory into your project's `/templates/` folder.
-3. In the freshly pasted folder `work/plugins/` delete all templates that will not be used. For example all directories apart from `grid_static`.
-4. This will leave you with `work_detail.html` and the `/plugins` folder that contains our `grid_static` and the two `no_results.html` templates.
+3. In the freshly pasted folder `work/plugins/` delete all template folders that will not be used. For example all folders apart from `grid_static`.
+
+This will leave you with the following file structure in `work/plugins/`:
+
+  - `work_detail.html`
+  - `/plugins` folder that contains
+    - `grid_static`
+    - two `no_results.html` templates
 
 ## Registering the template
 
-Next step we have to tell the work app plugin which templates are available:
+Next we have to tell the work app plugin which templates are available:
 
-1. Open `settings.py` and search for `WORK_PLUGIN_TEMPLATES`. In our case we have to adjust the tuple as followed:
-  ```Python
-  WORK_PLUGIN_TEMPLATES = (
-      ('grid_static', 'Grid (Static)'),
-  )
-  ```
-2. This is it. When placing a `work plugin` into a `column` the only option available will be our `grid_static`.
+Open `settings.py` and search for `WORK_PLUGIN_TEMPLATES`. In our case we have to adjust the tuple as followed:
+
+```Python
+WORK_PLUGIN_TEMPLATES = (
+    ('grid_static', 'Grid (Static)'),
+)
+```
+
+This is it. When placing a `work plugin` into a `column` the only option available will be our `grid_static`.
 
 ## Modifying the `grid_static` template
 

@@ -19,7 +19,7 @@ And then we can pass an image object and optional parameters to our template tag
 ### Optional parameters
 
 - `ratio`: Default value is `3-2`. This can be any ratio on the fly e.g. `5-3`, `16-9`
-- `width_alias`: Images placed into a `Column` and images added with any of the `App Plugin`s (e.g. when using the Grid (Static) template for the `Work` app) are sized automatically, for `render_image` knows in which context it is being used. But should you require a specific size or ratio, then you can add any of the default `THUMBNAIL_WIDTH_ALIASES` defined in `settings.py`, are add your own (described below).
+- `width_alias`: Images placed into a `Column` and images added with any of the `App Plugin`s (e.g. when using the Grid (Static) template for the `Work` app) are sized automatically, for `render_image` knows in which context it is being used. But should you require a specific size or ratio, then you can add any of the default `THUMBNAIL_WIDTH_ALIASES` defined in `settings.py`, or add your own (described below).
 - `icon_disabled`: Default is `false`. Disables the loading animation.
 - `bg_disabled`: Default is `false`. Disables the images background (useful with transparent PNGs).
 - `bg_color`: Default is `false`. Replaces the default background color with any of the colors defined in `PROJECT_COLORS` in your `settings.py`. Important: Only use the number e.g. `1`, `2`, NOT the entire value `project-color-1`. More details in the [color](../stylesheets/colors.md) section.

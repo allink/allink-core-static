@@ -20,11 +20,28 @@ Here's a list of search commands that bring you to the desired section:
 - File upload: `=file`
 - Datepicker: `=datepicker`
 
-Note: As you see, not all elements have inverted colors variables, as there was no requirement so far, but this can easily be added on a project basis.
+Note: As you see, not all elements have inverted color variables, as there was no requirement so far, but this can easily be added on a project basis.
+
+### Adding inverted colors
+
+This is fairly straight forward. Let's take a checkbox for example:
+
+```SCSS
+.checkbox {
+  // default styling
+  .inverted-colors & {
+    // inverted colors
+  }
+}
+```
+
+### Typography
+
+Setting the font for form elements is done in `static/scss/base/_variables.scss`. Searching for `=typo` and scroll down until you reach the variables for input/textarea and buttons.
 
 ## Markup
 
-The markup is defined in our `allink-core`.
+The markup is defined in `allink_core/core/templates/partials/forms/` as part of our `allink-core`.
 
 ## Available form variations
 
@@ -37,7 +54,7 @@ Per default our forms groups (made up from label and form element) are stacked v
 Should you want the label and form element displayed horizontally, then add the class `side-by-side` to the form:
 
 ```HTML
-<form action="#" class="form-default side-by-side">
+<form class="form-default side-by-side" ...>
   ...
 </form>
 ```
@@ -49,7 +66,7 @@ Now head over to `static/scss/base/_variables.scss` and search for `=side` to fi
 Should you want the label to be hidden and to use the placeholder attribute instead, add the class `placeholder-enabled` to the form:
 
 ```HTML
-<form action="#" class="form-default placeholder-enabled">
+<form class="form-default placeholder-enabled" ...>
   ...
 </form>
 ```

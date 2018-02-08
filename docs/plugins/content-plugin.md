@@ -35,6 +35,32 @@ In our `static/scss/content-sections/_content-section.scss` we can then add the 
 }
 ```
 
+### Extending markup when certain option selected
+
+Most of the time selecting one or more of the defined `CONTENT_CSS_CLASSES` only result in minor style changes. But sometimes additional markup is required.
+
+Here's an example of how to achieve this:
+
+Let's say you want to add markup when the option `example-class` has been selected.
+
+Create the file `templates/allink_content/default/content.html` with this basic markup:
+
+```HTML
+{% extends "allink_content/content_base.html" %}
+{% load staticfiles %}
+
+<!-- for example: extending the "content_section_inner_before"  -->
+{% block content_section_inner_before %}
+    {% if "example-class" in instance.css_classes %}
+        <!-- option specific markup  -->
+    {% endif %}
+{% endblock content_section_inner_before %}
+
+```
+
+Note: In this example we extended the block `content_section_inner_before`. Check out the [content_base.html](https://github.com/allink/allink-core/blob/v1.0.x/allink_core/core_apps/allink_content/templates/allink_content/content_base.html) template to see all available `{% block %}`s.
+
+
 ## Adding additional templates
 
 Many ways lead to Rome. Most of the time, an additional CSS class as described above will do the job. But sometimes, especially when unusual column widths are required, then it makes sense to add a new column template.
@@ -94,4 +120,3 @@ Please note: This is just an example. Make sure to only hide fields that are not
 
 1. Browse the `allink-core` version defined in your `requirements.in` on github, open the file `allink_core/core_apps/allink_content/models.py` and copy the desired model field names after `.field-`.
 2. Create a new `Content Plugin` or edit an existing one, and inspect the desired form element of the CMS modal with a DevTool and copy the class name.
-

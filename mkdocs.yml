@@ -20,6 +20,8 @@ pages:
     - Colors: 'stylesheets/colors.md'
     - Text Container: 'stylesheets/text-container.md'
     - Typography: 'stylesheets/typography.md'
+    - Form General: 'stylesheets/forms.md'
+    - Buttons: 'stylesheets/buttons.md'
     - z-index: 'stylesheets/z-index.md'
   - Plugins:
     - Content Plugin: 'plugins/content-plugin.md'
@@ -27,8 +29,8 @@ pages:
   - Modules:
     - Modals: 'modules/modals.md'
     - WYSYWIG Editor: 'modules/editor.md'
+    - OnScreen (Scroll Spy): 'modules/onscreen.md'
     - Lazyloading: 'modules/lazyloading.md'
-    - Forms: 'modules/forms.md'
   - Templates:
     - Base: 'templates/base.md'
     - Setting up page templates: 'templates/page-templates.md'
