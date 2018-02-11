@@ -10,7 +10,9 @@ This is pretty self-explaining.
 
 ## Usage
 
-IMPORTANT: Never use the default bootstrap classes. We define button styles in SCSS only. Why? Flexibility!
+IMPORTANT: Never use the default bootstrap classes.
+
+<strong>We define button styles in SCSS only.</strong> Why? Flexibility!
 
 Here's an example of a module that is used in a default section and in the `inverted-colors` context:
 
@@ -43,10 +45,10 @@ Here's an example of a module that is used in a default section and in the `inve
     // adds the global button styles
     @include button-base();
     // adds the variation styles
-    @include button-variation('default');
-    // when in inverted-colors context, change styles
+    @include button-variation('primary');
+    // when in inverted-colors context, change variation
     .inverted-colors & {
-      @include button-variation('primary');
+      @include button-variation('secondary');
     }
   }
 }

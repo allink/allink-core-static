@@ -1,6 +1,6 @@
 # `base.html`
 
-Starting from the `allink-boilerplate-1.0`, the only template we have at the beginning is `base.html`. It extends the `base_root.html` template (part of `allink-core`).
+Starting from the `allink-boilerplate`, the only template we have at the beginning is `base.html`. It extends the `base_root.html` template (part of `allink-core`).
 
 It should not be necessary to overwrite `base_root.html` on a project basis. Normally it is enough the work with the `{% block %}`s provided.
 
