@@ -48,8 +48,6 @@ In your custom module, you could do something like this:
     &::after {
       @include icomoon();
       content: '\e90b';
-      display: inline-block;
-      margin-left: 0.5em;
     }
   }
 }
