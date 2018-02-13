@@ -6,19 +6,18 @@ Our `allink-boilerplate` comes with a default icon set. Adding or updating is do
 
 When designing custom icons, make sure to:
 
-- Simplify the icon layers using e.g. the `Compound Path` tool in Illustrator
+- Simplify the icon paths and layers using e.g. the `Compound Path` tool in Illustrator
 - Outline all strokes
 
-## Workflow: How to update icon set
+## Workflow: How to update an icon set
 
-1. Browse to the file `static/icomoon/selection.json` in your file explorer.
-2. Open <a href="https://icomoon.io/app/" target="_blank">https://icomoon.io/app/</a>
-3. Drag and drop the file `selection.json` into the browser.
-4. Adjust the icons as required.
-5. Hit the `Generate Font` button on the bottom right and then click on `Download`.
-6. Extract the ZIP file in the download folder and <strong>copy</strong> only the folder `fonts` and the files `selection.json` and `style.css`.
-7. Browse to the folder `static/icomoon/`, delete its content and <strong>paste</strong> the new files.
-8. Open `style.css` in remove the the hashes to the font files. So e.g. `fonts/icomoon.woff?q6h7ay` becomes `fonts/icomoon.woff`.
+1. Open <a href="https://icomoon.io/app/" target="_blank">https://icomoon.io/app/</a> in a browser.
+2. Go to the folder `static/icomoon/` in your file explorer and drag and drop the file `selection.json` into the browser.
+3. Adjust the icons as required.
+4. Hit the `Generate Font` button on the bottom right and then click on `Download`.
+5. Extract the ZIP file in the download folder and <strong>copy</strong> only the folder `fonts` and the files `selection.json` and `style.css`.
+6. Browse to the folder `static/icomoon/`, delete its content and <strong>paste</strong> the new files.
+7. Open `style.css` in remove the the hashes to the font files. So e.g. `fonts/icomoon.woff?q6h7ay` becomes `fonts/icomoon.woff`.
 
 ## Usage
 
