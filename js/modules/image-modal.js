@@ -17,10 +17,14 @@ $(function(){
     var image_modal = new tingle.modal({
         cssClass: ['image-modal'],
         onClose: function() {
+            // init
+            var $modal = $('.tingle-modal.image-modal');
             // remove class from html
             document.querySelector('html').classList.remove('image-modal-visible');
             // trigger class
             $(window).trigger('image-modal:closed');
+            // remove any content (issue: video was still playing)
+            $modal.find('.tingle-modal-box__content').empty();
             // if the softpage is still open in the brackground, we have to keep the overlay, otherwise we can close it
             if ($('.tingle-modal.softpage').hasClass('tingle-modal--visible')) {
                 // tingle removes the class from the body, so let's re-add it

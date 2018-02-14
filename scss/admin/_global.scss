@@ -121,6 +121,7 @@ Visually separate blocks
         // 'disable_when_': hide options for certain
         &.hide_options {
             @include hide-options();
+            padding: 0 !important;
         }
         // 'only_when_': hide certain plugins options that are only useful with specific plugins
         &[class*="only_when"] {
