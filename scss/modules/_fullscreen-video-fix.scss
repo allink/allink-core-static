@@ -1,0 +1,15 @@
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+For some odd reason, the YouTube fullscreen video was below
+our content (to some extent only, really weird). This seems to fix the problem.
+
+*/
+
+.site-header,
+.site-content,
+.site-footer,
+.site-overlay {
+    :-webkit-full-screen-ancestor & {
+        opacity: 0;
+    }
+}

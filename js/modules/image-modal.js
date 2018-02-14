@@ -71,9 +71,10 @@ $(function(){
                         event.preventDefault();
                         var $trigger = $(this);
                         var href = $trigger.attr('href');
+                        var video_link_enabled = $trigger.attr('data-image-modal-video-link-enabled');
                         var window_width = $(window).width();
-                        // mobile, show in new tab instead
-                        if (window_width < 768) {
+                        // mobile, show in new tab instead, unless it's an embedded video link
+                        if (window_width < 768 && typeof video_link_enabled === 'undefined') {
                             window.open(href,'_blank');
                         }
                         // larger screens, show modal
