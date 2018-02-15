@@ -65,6 +65,7 @@ Form modal
     }
 
     // overlay close enabled?
+    cursor: default;
     &.tingle-modal--OverlayClose {
         cursor: pointer;
     }

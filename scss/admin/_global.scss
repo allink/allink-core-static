@@ -151,6 +151,10 @@ Visually separate blocks
             > h2 {
                 border: none;
             }
+            // button link plugin "display type" has inline styles which we have to forcefully overwrite
+            .form-row {
+                display: none !important;
+            }
         }
 
         // tweaking children

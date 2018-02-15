@@ -6,9 +6,9 @@ Example:
     href="#"
     data-trigger-default-modal
 
+    data-modal-button-close-method-enabled="true"
     data-modal-escape-close-method-enabled="true"
     data-modal-overlay-close-method-enabled="true"
-    data-default-modal-variation="location-detail-modal"
 
     data-default-modal-variation="special-modal"
     data-default-modal-content-container-id="example-container"
@@ -53,7 +53,7 @@ $(function(){
             // remove variation definition
             $modal.removeAttr('data-default-modal-variation');
             // remove closing method classes
-            var closing_method_attr_value = $modal.attr('data-default-modal-closing-methods');
+            var closing_method_attr_value = $modal.attr('data-modal-closing-methods');
             $modal.removeClass(closing_method_attr_value);
             // remove any content (issue: video was still playing)
             $modal.find('.tingle-modal-box__content').empty();
@@ -74,7 +74,7 @@ $(function(){
             $(window).trigger('default-modal:opened');
             $(window).trigger('initDefaultModalClose');
             // set closing method classes
-            var closing_method_attr_value = $modal.attr('data-default-modal-closing-methods');
+            var closing_method_attr_value = $modal.attr('data-modal-closing-methods');
             $modal.addClass(closing_method_attr_value);
             // overlay close enabled?
             if ($modal.hasClass(overlay_close_method_enabled_class)) {
@@ -178,7 +178,7 @@ $(function(){
                                closing_method_attr_value += button_close_method_enabled_class+' ';
                             }
                             if (closing_method_attr_value.length > 0) {
-                                $modal.attr('data-default-modal-closing-methods', closing_method_attr_value);
+                                $modal.attr('data-modal-closing-methods', closing_method_attr_value);
                             }
                             // optional: get modal variation string and set attribute
                             var modal_variation = $trigger.attr('data-default-modal-variation');

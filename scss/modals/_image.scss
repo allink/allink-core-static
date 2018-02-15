@@ -6,6 +6,7 @@ Image Modal
 
 .image-modal {
 
+    display: flex;
     overflow-x: hidden;
     z-index: z("image-modal");
     transition: $image-modal-transition;
@@ -16,6 +17,7 @@ Image Modal
     }
 
     .tingle-modal-box {
+        position: static;
         width: 100%;
         max-width: $image-modal-max-width;
         background-color: transparent;
@@ -26,6 +28,7 @@ Image Modal
     }
 
     .tingle-modal__close {
+        display: none;
         position: absolute;
         top: 0;
         right: 0;
@@ -46,20 +49,33 @@ Image Modal
             }
         }
 
-        width: $form-modal-close-btn-width-xs;
-        height: $form-modal-close-btn-height-xs;
+        width: $image-modal-close-btn-width-xs;
+        height: $image-modal-close-btn-height-xs;
 
         @media (min-width:$screen-md) {
-            width: $form-modal-close-btn-width-md;
-            height: $form-modal-close-btn-height-md;
+            width: $image-modal-close-btn-width-md;
+            height: $image-modal-close-btn-height-md;
         }
         @media (min-width:$screen-xl) {
-            width: $form-modal-close-btn-width-xl;
-            height: $form-modal-close-btn-height-xl;
+            width: $image-modal-close-btn-width-xl;
+            height: $image-modal-close-btn-height-xl;
         }
         @media (min-width:$screen-xxl) {
-            width: $form-modal-close-btn-width-xxl;
-            height: $form-modal-close-btn-height-xxl;
+            width: $image-modal-close-btn-width-xxl;
+            height: $image-modal-close-btn-height-xxl;
         }
     }
+    // close button enabled
+    &.tingle-modal--ButtonClose {
+        .tingle-modal__close {
+            display: block;
+        }
+    }
+
+    // overlay close enabled?
+    cursor: default;
+    &.tingle-modal--OverlayClose {
+        cursor: pointer;
+    }
+
 }
