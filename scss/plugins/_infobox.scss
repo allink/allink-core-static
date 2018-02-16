@@ -1,0 +1,41 @@
+.infobox-trigger {
+    @include sr-only();
+}
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+Modal variation
+
+*/
+
+[data-default-modal-variation~="infobox"] {
+    .tingle-modal-box {
+        max-width: 1200px;
+        &__content {
+            padding: 0;
+            padding-top: $default-modal-close-btn-height-xs;
+            @media (min-width:$screen-md) {
+                padding: 0;
+            }
+        }
+    }
+    .tingle-modal__close {
+        &:before {
+            color: $white;
+        }
+        @media (min-width:$screen-md) {
+            transform: translate(0,-100%);
+        }
+        @media (min-height:600px) and (max-height:850px) {
+            transform: none;
+            top: 50px !important;
+        }
+    }
+}
+
+// Background hidden plugin option
+[data-default-modal-variation~="infobox--background-hidden"] {
+    .tingle-modal-box {
+        background-color: transparent;
+    }
+}

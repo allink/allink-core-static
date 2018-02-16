@@ -35,5 +35,7 @@ Each release is divided into the following main categories:
   ```
 - Smooth Scroll: New offest `data` attributes available. Details in script header.
 - Swiper: New variable `options.transitionDurationBetweenSlides_mobile` available.
+- Infobox: Added new plugin
+- docCookies, Added module
 ### FIXES
 -
