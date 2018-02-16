@@ -223,6 +223,8 @@ Each release is divided into the following main categories:
 - Section Heading: Support for <strong>heading small</strong> added.
 - Admin Forms: select elements with class `selectpicker` are now converted to `bootstrap-select` inputs.
 - Swiper: Disable autoplay of gallery with `data-autoplay="false"` attribute on `.swiper-default` tag, updated autoplay option to work on single instance
+- Infobox: Added new plugin
+- docCookies, Added module
 
 ### FIXES
 
