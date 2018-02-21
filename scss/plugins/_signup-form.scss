@@ -54,6 +54,7 @@ Newsletter signup form
         @else {
             position: relative;
             display: block;
+            color: $signup-form-button-color;
             background-color: $signup-form-button-bg;
             border-top-color:  $signup-form-button-border-top-color;
             border-right-color:  $signup-form-button-border-right-color;
