@@ -28,7 +28,19 @@ Newsletter signup form
         display: block;
         width: auto;
         @if $signup-form-button-variation-enabled == false {
-            width: $signup-form-button-btn-width;
+            // fallback
+            @if $signup-form-button-btn-width {
+                width: $signup-form-button-btn-width;
+            }
+            @else {
+                width: $signup-form-button-btn-width-xs;
+                @media (min-width:$screen-md) {
+                    width: $signup-form-button-btn-width-md;
+                }
+                @media (min-width:$screen-xxl) {
+                    width: $signup-form-button-btn-width-xxl;
+                }
+            }
         }
     }
 
@@ -43,9 +55,25 @@ Newsletter signup form
             position: relative;
             display: block;
             background-color: $signup-form-button-bg;
-            width: $signup-form-button-btn-width;
+            border-top-color:  $signup-form-button-border-top-color;
+            border-right-color:  $signup-form-button-border-right-color;
+            border-bottom-color:  $signup-form-button-border-bottom-color;
+            border-left-color:  $signup-form-button-border-left-color;
             z-index: 5;
-            &:after {
+            // fallback
+            @if $signup-form-button-btn-width {
+                width: $signup-form-button-btn-width;
+            }
+            @else {
+                width: $signup-form-button-btn-width-xs;
+                @media (min-width:$screen-md) {
+                    width: $signup-form-button-btn-width-md;
+                }
+                @media (min-width:$screen-xxl) {
+                    width: $signup-form-button-btn-width-xxl;
+                }
+            }
+            &::after {
                 @include icomoon();
                 transition: all $btn-loader-transition-duration $btn-loader-transition-timing-function $btn-loader-transition-delay;
                 content: $signup-form-button-icon;
@@ -58,7 +86,15 @@ Newsletter signup form
             }
             &:hover,
             &:focus {
+                color: $signup-form-button-color-hover;
                 background-color: $signup-form-button-bg-hover;
+                border-top-color:  $signup-form-button-border-top-color-hover;
+                border-right-color:  $signup-form-button-border-right-color-hover;
+                border-bottom-color:  $signup-form-button-border-bottom-color-hover;
+                border-left-color:  $signup-form-button-border-left-color-hover;
+                &::after {
+                    color: $signup-form-button-icon-color-hover;
+                }
             }
         }
         // when loading

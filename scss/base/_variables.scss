@@ -1887,3 +1887,40 @@ $expandable-opacity-transition-enabled:     true;
 $languagechooser-text-color-default:        black;
 $languagechooser-text-color-hover:          black;
 $languagechooser-text-color-active:         black;
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+=signup form [=newsletter, =mailchimp]
+
+*/
+
+$signup-form-max-width:                              400px;
+// button (variation)
+$signup-form-button-variation-enabled:               false;
+$signup-form-button-variation:                       'default';
+// button custom
+$signup-form-button-bg:                              $white;
+$signup-form-button-bg-hover:                        $white;
+$signup-form-button-color:                           $black;
+$signup-form-button-color-hover:                     $black;
+$signup-form-button-border-top-color:                $white;
+$signup-form-button-border-top-color:                $white;
+$signup-form-button-border-right-color:              $white;
+$signup-form-button-border-bottom-color:             $white;
+$signup-form-button-border-left-color:               $white;
+$signup-form-button-border-top-color-hover:          $white;
+$signup-form-button-border-right-color-hover:        $white;
+$signup-form-button-border-bottom-color-hover:       $white;
+$signup-form-button-border-left-color-hover:         $white;
+// icon
+$signup-form-button-icon:                            '\e905';
+$signup-form-button-icon-size:                       0.8em;
+$signup-form-button-icon-color:                      $black;
+$signup-form-button-icon-color-hover:                $black;
+$signup-form-button-loader-icon-color:               $black;
+// input
+$signup-form-button-input-padding:                   0.3em;
+$signup-form-button-btn-width-xs:                    50px;
+$signup-form-button-btn-width-md:                    50px;
+$signup-form-button-btn-width-xxl:                   50px;
