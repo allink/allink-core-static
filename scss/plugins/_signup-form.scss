@@ -29,7 +29,7 @@ Newsletter signup form
         width: auto;
         @if $signup-form-button-variation-enabled == false {
             // fallback
-            @if $signup-form-button-btn-width {
+            @if variable-exists(signup-form-button-btn-width) {
                 width: $signup-form-button-btn-width;
             }
             @else {
@@ -61,7 +61,7 @@ Newsletter signup form
             border-left-color:  $signup-form-button-border-left-color;
             z-index: 5;
             // fallback
-            @if $signup-form-button-btn-width {
+            @if variable-exists(signup-form-button-btn-width) {
                 width: $signup-form-button-btn-width;
             }
             @else {
