@@ -23,6 +23,7 @@ Each release is divided into the following main categories:
   import 'allink-core-static/js/modules/expandable';
   ```
 ### NEW
+- Google Maps: `FullscreenControl` is now set to `false` per default. This can be overwriiten by setting the variable `fullscreen_enabled` to `true` on a project basis.
 - Lazyload loader icon is now removed from the DOM when image is loaded (with a delay to make the icon is hidden after the image animation has finished)
 - All modal instance variables are now assigned to the `window` object and are accessible anywhere:
   ```JS

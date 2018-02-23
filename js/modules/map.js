@@ -36,6 +36,9 @@ export const initMap = function (options) {
     if (!options.pin_height) {
         options.pin_height = 109;
     }
+    if (!options.fullscreen_enabled) {
+        options.fullscreen_enabled = false;
+    }
     if (!options.map_styles) {
         options.map_styles = [
             {
@@ -288,6 +291,7 @@ export const initMap = function (options) {
                 },
                 scaleControl: true,
                 streetViewControl: false,
+                fullscreenControl: options.fullscreen_enabled,
             };
 
             // map styles and settings
