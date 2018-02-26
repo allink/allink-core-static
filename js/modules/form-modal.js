@@ -31,6 +31,8 @@ $(function(){
     var overlay_close_method_enabled_class = 'tingle-modal--OverlayClose';
     var button_close_method_enabled_class = 'tingle-modal--ButtonClose';
 
+    var $modal = $('.tingle-modal.form-modal');
+
     // initialize modal
     window.form_modal = new tingle.modal({
         cssClass: ['form-modal'],
@@ -51,8 +53,6 @@ $(function(){
             }
         },
         onOpen: function(){
-            // init
-            var $modal = $('.tingle-modal.form-modal');
             // remove default overlay class.. we have our own
             $modal.removeClass('tingle-modal--noOverlayClose');
             // trigger custom events
