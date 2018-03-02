@@ -20,6 +20,13 @@ $(window).trigger('showSiteOverlay');
 // click close ENABLED
 $(window).trigger('showSiteOverlay', [true]);
 
+Custom Events:
+
+site-overlay:visible
+site-overlay:hiding
+site-overlay:hidden
+site-overlay:click-closed
+
 */
 
 export function showSiteOverlay(click_close_enabled) {
@@ -37,6 +44,8 @@ export function showSiteOverlay(click_close_enabled) {
     if (click_close_enabled) {
         $site_overlay.addClass('click-close-enabled');
     }
+    // trigger custom event
+    $(window).trigger('site-overlay:visible');
 }
 
 export function hideSiteOverlay() {
@@ -48,8 +57,13 @@ export function hideSiteOverlay() {
     // remove classes
     $site_overlay.removeClass('animating');
     $site_overlay.removeClass('click-close-enabled');
+    // trigger custom event
+    $(window).trigger('site-overlay:hiding');
+    // delayed event trigger
     setTimeout(function(){
         $site_overlay.removeClass('visible');
+        // trigger custom event
+        $(window).trigger('site-overlay:hidden');
     },300);
 }
 
@@ -73,6 +87,8 @@ $(function(){
     $('.site-overlay').on('click',function(){
         if ($(this).hasClass('click-close-enabled')) {
             hideSiteOverlay();
+            // trigger custom event
+            $(window).trigger('site-overlay:click-closed');
         }
     });
 
