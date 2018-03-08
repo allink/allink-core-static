@@ -12,6 +12,22 @@ Requires the API key variable in base_root.html:
     var GOOGLE_MAP_API_KEY = '{% settings_value "GOOGLE_MAP_API_KEY" %}';
 </script>
 
+Open marker from custom link: For example:
+
+<ul class="interactive-map-list">
+    {% for object in object_list %}
+        {# LAT and LNG are required #}
+        {% if object.lat or object.lng %}
+            {# {{forloop.counter}} #}
+            <li class="interactive-map-list__item">
+                <a href="#" class="interactive-map-list__link map-custom-marker-toggle" data-show-marker-info="{{instance.id}}-{{forloop.counter}}">
+                    {{object.title}}
+                </a>
+            </li>
+        {% endif %}
+    {% endfor %}
+<ul>
+
 */
 
 import { debounce, countObjectProperties } from './helper-functions';
@@ -38,6 +54,12 @@ export const initMap = function (options) {
     }
     if (!options.fullscreen_enabled) {
         options.fullscreen_enabled = false;
+    }
+    if (!options.custom_marker_toggle_default_class) {
+        options.custom_marker_toggle_default_class = 'map-custom-marker-toggle';
+    }
+    if (!options.custom_marker_toggle_active_class) {
+        options.custom_marker_toggle_active_class = 'map-custom-marker-toggle--active';
     }
     if (!options.map_styles) {
         options.map_styles = [
@@ -265,11 +287,12 @@ export const initMap = function (options) {
         for (var i = window.MAPS.length - 1; i >= 0; i--) {
 
             // init vars
-            var mapID = window.MAPS[i].id;
+            const markers = new Array();
+            const mapID = window.MAPS[i].id;
             var totalNumberOfLocations = 0;
-            var mapInstance = document.getElementById('map-' + mapID);
-            var zoomLevel = parseInt(mapInstance.getAttribute('data-zoom-level'));
-            var page_load_window_width = $(window).width();
+            const mapInstance = document.getElementById('map-' + mapID);
+            const zoomLevel = parseInt(mapInstance.getAttribute('data-zoom-level'));
+            const page_load_window_width = $(window).width();
 
             // fallback: determine total number of locations according to locations property
             if (typeof window.MAPS[i].totalNumberOfLocations === 'undefined') {
@@ -281,7 +304,7 @@ export const initMap = function (options) {
             }
 
             // define map options
-            var mapOptions = {
+            const mapOptions = {
                 mapTypeControl: false,
                 zoomControl: true,
                 scrollwheel: false,
@@ -295,10 +318,10 @@ export const initMap = function (options) {
             };
 
             // map styles and settings
-            var styledMap = new google.maps.StyledMapType(options.map_styles,{name: "Styled Map"});
-            var map = new google.maps.Map(mapInstance, mapOptions);
-            var bounds = new google.maps.LatLngBounds();
-            var infoWindow = new google.maps.InfoWindow({
+            const styledMap = new google.maps.StyledMapType(options.map_styles,{name: "Styled Map"});
+            const map = new google.maps.Map(mapInstance, mapOptions);
+            const bounds = new google.maps.LatLngBounds();
+            const infoWindow = new google.maps.InfoWindow({
                 content: 'Loading...',
               });
             map.mapTypes.set('map_style', styledMap);
@@ -333,6 +356,30 @@ export const initMap = function (options) {
                 marker.addListener('click', function() {
                     infoWindow.setContent( this.info );
                     infoWindow.open(map, this);
+                });
+
+                // add marker to array
+                markers.push(marker);
+
+                // open specific marker from an external link
+                const unique_counter = counter;
+                const marker_toggle_plugin_attribute = 'data-map-plugin-id="' + mapID + '"';
+                const marker_toggle_marker_attribute = 'data-map-marker-id="' + unique_counter + '"';
+                $('[' + marker_toggle_plugin_attribute + '][' + marker_toggle_marker_attribute + ']').on('click',function(event){
+                    // init
+                    let $toggle = $(this);
+                    event.preventDefault();
+                    // already active?
+                    if ($toggle.hasClass(options.custom_marker_toggle_active_class)) {
+                        // don't do anything
+                    }else {
+                        // select toggles of same plugin and set to default state
+                        $('.'+options.custom_marker_toggle_default_class+'[' + marker_toggle_plugin_attribute + ']').removeClass(options.custom_marker_toggle_active_class);
+                        // then set active state on toggle
+                        $toggle.addClass(options.custom_marker_toggle_active_class);
+                        // show marker
+                        google.maps.event.trigger(markers[unique_counter-1], 'click');
+                    }
                 });
 
             }
@@ -392,6 +439,3 @@ export const initMap = function (options) {
 
     }
 };
-
-
-

@@ -78,6 +78,12 @@ $(function() {
             var $plugin_container = $vid.parents('.content-plugin');
             var $video_controls = $plugin_container.find('.video-controls');
 
+            // if hidden, do not initialize video control trigger
+            // use case: when used in a default modal
+            if ($vid.is(":visible") === false) {
+                return true;
+            }
+
             // enable videos on iPads
             if (is_iPad) {
                 enableInlineVideo($vid.get(0), {
@@ -179,7 +185,7 @@ $(function() {
     });
 
     // when resizing the window
-    $(window).on( 'initInlineVideo viewportWidthHasChanged softpage:opened', function(){
+    $(window).on( 'initInlineVideo viewportWidthHasChanged softpage:opened default-modal:opened', function(){
         initInlineVideo();
     });
 

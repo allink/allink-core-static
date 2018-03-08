@@ -12,7 +12,7 @@
     will-change: opacity;
     &.visible {
         display: block;
-        &.click-close-disabled {
+        &.click-close-enabled {
             cursor: pointer;
         }
     }
