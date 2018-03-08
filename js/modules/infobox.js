@@ -2,19 +2,16 @@ import docCookies from './docCookies';
 
 $(function(){
     // init lang
-    const lang = $('html').attr('lang');
     const $infobox = $('.infobox-trigger');
     const counterDefault = $infobox.data('counter'); // plugin setting counter
     const counterCurrent = Number(docCookies.getItem('infobox-hidden')) || 0;
 
     // in case cookie is NOT set, show the modal
     if (docCookies.getItem('infobox-hidden') === null || counterDefault === 0 || counterCurrent < counterDefault ) {
-        if (lang === 'de') {
-            // trigger promo video delayed
-            setTimeout(function(){
-                $infobox.trigger('click');
-            },1500);
-        }
+        // trigger promo video delayed
+        setTimeout(function(){
+            $infobox.trigger('click');
+        },1500);
     }
 
     if (counterDefault === 0) {
