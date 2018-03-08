@@ -7,10 +7,11 @@ $(function(){
 
     // in case cookie is NOT set, show the modal
     if (docCookies.getItem('infobox-hidden') === null || counterDefault === 0 || counterCurrent < counterDefault ) {
-        // trigger promo video delayed
-        setTimeout(function(){
-            $infobox.trigger('click');
-        },1500);
+
+            // trigger promo video delayed
+            setTimeout(function(){
+                $infobox.trigger('click');
+            },1500);
     }
 
     if (counterDefault === 0) {
@@ -25,10 +26,6 @@ $(function(){
             const one_month_in_seconds = 2592000;
             // write cookie
             docCookies.setItem('infobox-hidden', counterCurrent + 1, one_month_in_seconds, '/');
-        });
-    }
-
-});      docCookies.setItem('infobox-hidden', counterCurrent + 1, one_month_in_seconds, '/');
         });
     }
 
