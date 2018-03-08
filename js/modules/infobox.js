@@ -1,7 +1,6 @@
 import docCookies from './docCookies';
 
 $(function(){
-    // init lang
     const $infobox = $('.infobox-trigger');
     const counterDefault = $infobox.data('counter'); // plugin setting counter
     const counterCurrent = Number(docCookies.getItem('infobox-hidden')) || 0;
