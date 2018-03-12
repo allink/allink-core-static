@@ -66,7 +66,6 @@ $(function(){
             // overlay close enabled?
             if ($modal.hasClass(overlay_close_method_enabled_class)) {
                 $modal.on('click',function(e){
-                    e.stopPropagation();
                     // only close modal if clicked on overlay, and not on modal itself
                     if ($(e.target).hasClass(overlay_close_method_enabled_class)) {
                         form_modal.close();
