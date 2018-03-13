@@ -346,11 +346,18 @@ export const initMap = function (options) {
                 var markerPos = new google.maps.LatLng(lat,lng);
                 var marker = createMarker(options, markerPos, infowindow_content, map);
 
-                // extend map boundaries
-                bounds.extend(markerPos);
-
-                // Automatically center the map fitting all markers on the screen
-                map.fitBounds(bounds);
+                // only 1 marker? Set center and zoom level
+                if (totalNumberOfLocations === 1) {
+                    map.setCenter(markerPos);
+                    map.setZoom(zoomLevel);
+                }
+                // More than 1 markers? Automatically center the map fitting all markers on the screen
+                else {
+                    // extend map boundaries
+                    bounds.extend(markerPos);
+                    // fit to boundaries
+                    map.fitBounds(bounds);
+                }
 
                 // fill info box with individual content
                 marker.addListener('click', function() {
@@ -388,11 +395,14 @@ export const initMap = function (options) {
             var reCenterMap = debounce(function() {
                 // init
                 var window_width = $(window).width();
-                // in any case, we want to fit all marker onto the map
-                map.fitBounds(bounds);
-                // set zoom level on larger screens
-                if (window_width >= 768) {
+                // only 1 marker? Set center and zoom level
+                if (totalNumberOfLocations === 1) {
                     map.setZoom(zoomLevel);
+                }
+                // More than 1 markers? Automatically center the map fitting all markers on the screen
+                else {
+                    // fit to boundaries
+                    map.fitBounds(bounds);
                 }
             }, 500);
             // only when viewport width has changed
@@ -402,9 +412,13 @@ export const initMap = function (options) {
 
             // handle zoom levels for different scenarios
             google.maps.event.addListenerOnce(map, 'bounds_changed', function(e) {
-                this.setZoom(zoomLevel);
-                // mobile: fit all marker onto the map
-                if (page_load_window_width < 768) {
+                // only 1 marker? Set center and zoom level
+                if (totalNumberOfLocations === 1) {
+                    this.setZoom(zoomLevel);
+                }
+                // More than 1 markers? Automatically center the map fitting all markers on the screen
+                else {
+                    // fit to boundaries
                     this.fitBounds(bounds);
                 }
             });
