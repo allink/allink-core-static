@@ -74,6 +74,7 @@ select.selectpicker {
             content: $dropdown-toggle-icon;
             position: absolute;
             top: 50%;
+            line-height: 0;
             width: auto; // TBD: If not set, icon jumps
             right: $dropdown-toggle-icon-spacing-right;
             left: $dropdown-toggle-icon-spacing-left;
@@ -144,11 +145,11 @@ select.selectpicker {
                 border-bottom-color: map-deep-get($btn-variations,$select-btn-variation,'border-bottom-color') !important;
                 border-left-color: map-deep-get($btn-variations,$select-btn-variation,'border-left-color') !important;
             }
+            // arrow
+            &:before {
+                transform: translateY(-50%) rotate(180deg);
+            }
         }
-        // > .dropdown-menu {
-        //     opacity: 1;
-        //     transform: translate(0,0);
-        // }
     }
 
 
