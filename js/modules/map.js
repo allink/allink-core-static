@@ -411,7 +411,7 @@ export const initMap = function (options) {
             });
 
             // handle zoom levels for different scenarios
-            google.maps.event.addListenerOnce(map, 'bounds_changed', function(e) {
+            google.maps.event.addListenerOnce(map, 'idle', function(e) {
                 // only 1 marker? Set center and zoom level
                 if (totalNumberOfLocations === 1) {
                     this.setZoom(zoomLevel);
