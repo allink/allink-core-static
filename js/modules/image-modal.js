@@ -187,12 +187,17 @@ $(function(){
     });
 
     function initImageModalClose() {
+        // init
+        var $modal_close_toggles = $('.close-image-modal,[data-close-image-modal]');
         // look for triggers
-        if (document.querySelector('.close-image-modal,[data-close-image-modal]')) {
-            var close_image_modal = document.querySelector('.close-image-modal,[data-close-image-modal]');
-            close_image_modal.addEventListener('click', function(event) {
-                event.preventDefault();
-                image_modal.close();
+        if ($modal_close_toggles.length > 0) {
+            $modal_close_toggles.each(function(){
+                // init
+                var $toggle = $(this);
+                $toggle.on('click', function(e) {
+                    e.preventDefault();
+                    image_modal.close();
+                });
             });
         }
     }

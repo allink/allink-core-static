@@ -186,14 +186,23 @@ $(function(){
     });
 
     function initFormModalClose() {
+        // init
+        var $modal_close_toggles = $('.close-form-modal,[data-close-form-modal]');
         // look for triggers
-        if (document.querySelector('.close-form-modal,[data-close-form-modal]')) {
-            var close_form_modal = document.querySelector('.close-form-modal,[data-close-form-modal]');
-            close_form_modal.addEventListener('click', function(event) {
-                event.preventDefault();
-                form_modal.close();
+        if ($modal_close_toggles.length > 0) {
+            $modal_close_toggles.each(function(){
+                // init
+                var $toggle = $(this);
+                $toggle.on('click', function(e) {
+                    e.preventDefault();
+                    form_modal.close();
+                });
             });
         }
+    }
+
+    function initDefaultModalClose() {
+
     }
 
     // custom event
