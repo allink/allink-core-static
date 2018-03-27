@@ -26,6 +26,12 @@ How to use:
     &:link,
     &:visited {
         color: map-deep-get($btn-variations,$variation,'color');
+        // in case there are icons defined with pseude elements, let's give them the same color
+        &::before,
+        &::after {
+            transition: $form-field-transition;
+            color: map-deep-get($btn-variations,$variation,'color');
+        }
     }
     &:hover,
     &:focus,
@@ -39,6 +45,11 @@ How to use:
         border-bottom-color: map-deep-get($btn-variations,$variation,'border-bottom-color-hover');
         border-left-color: map-deep-get($btn-variations,$variation,'border-left-color-hover');
         outline: none; // not very good because of accessibility reasons, but the default style looks too ugly.
+        // in case there are icons defined with pseude elements, let's give them the same color
+        &::before,
+        &::after {
+            color: map-deep-get($btn-variations,$variation,'color-hover');
+        }
     }
     &.disabled,
     &[disabled],
