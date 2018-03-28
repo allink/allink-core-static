@@ -29,7 +29,6 @@ How to use:
         // in case there are icons defined with pseude elements, let's give them the same color
         &::before,
         &::after {
-            transition: $form-field-transition;
             color: map-deep-get($btn-variations,$variation,'color');
         }
     }
