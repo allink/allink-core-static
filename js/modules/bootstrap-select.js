@@ -30,7 +30,7 @@ $(function(){
                 setTimeout(function(){
                     $select.parents('.bootstrap-select').find('.dropdown-toggle').each(function(){
                         this.innerHTML = this.innerHTML.replace(/&nbsp;/g,'');
-                        // $(this).find('.bs-caret').remove();
+                        $(this).find('.bs-caret').remove();
                         $(this).addClass('toggle-initialized');
                     });
                 },0);
