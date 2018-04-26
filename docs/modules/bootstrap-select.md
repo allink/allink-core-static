@@ -6,9 +6,9 @@ If this is not what you want, feel free to comment the import in `static/js/app.
 
 ```JS
 // no need for the core version...
-import 'allink-core-static/js/modules/bootstrap-select';
+// import 'allink-core-static/js/modules/bootstrap-select';
+
 // ...we have our own
-// no need for the core version
 import './modules/bootstrap-select';
 ```
 
