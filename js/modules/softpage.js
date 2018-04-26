@@ -111,6 +111,10 @@ $(function(){
             // init
             var $trigger = $(this);
             var initialized_attr = 'data-trigger-initialized';
+            // trigger not visible? Adios!
+            if($trigger.is(':visible') === false) {
+                return false;
+            }
             // check for initialized trigger
             var trigger_initialized = $trigger.attr(initialized_attr);
             // NOT initialized yet
@@ -171,7 +175,7 @@ $(function(){
     initSoftpageTrigger();
 
     // custom events
-    $(window).on('initSoftpageTrigger ajaxForm:success', function() {
+    $(window).on('initSoftpageTrigger ajaxForm:success default-modal:opened', function() {
         initSoftpageTrigger();
     });
     $(window).on('closeSoftpage', function() {

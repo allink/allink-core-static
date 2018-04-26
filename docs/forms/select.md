@@ -12,3 +12,8 @@ import 'allink-core-static/js/modules/bootstrap-select';
 import './modules/bootstrap-select';
 ```
 
+## `.selectpicker` and `.selectpicker-alt`
+
+In most cases the default `.selectpicker` works perfectly fine to render a select.
+
+But a problem we had is that the default selector also rendered content that was hidden (e.g. of the `default-modal`), which resultet in selects that look good but don't work at all. As a simple solution, we added an alternative selector `.selectpicker-alt` that does exactly the same thing as `.selectpicker`, but is left in peace by the library untill we call it.

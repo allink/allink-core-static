@@ -23,6 +23,7 @@ Each release is divided into the following main categories:
   import 'allink-core-static/js/modules/expandable';
   ```
 ### NEW
+- `bootstrap-select` now has an additional selector `.selectpicker-alt` besides the default `.selectpicker` for that prevent rendering in some cases (such as the `default-modal`)
 - Site Overlay: New custom events added. Details in comments of `js/modules/site-overlay.js`.
 - Google Maps: Markers can now be opened with custom link. Details in comments of `js/modules/map.js`.
 - Google Maps: `FullscreenControl` is now set to `false` per default. This can be overwriiten by setting the variable `fullscreen_enabled` to `true` on a project basis.
