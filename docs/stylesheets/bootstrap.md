@@ -17,7 +17,7 @@ Generally, we try to do everything with CSS, rather than setting classes in the 
 ### Features we use
 
 - The main feature we use on a regular basis is the [grid](grid.md).
-- We are using the `bootstrap-select` plugin, which is obviously based on bootstrap.
+- We are using the [bootstrap-select](../modules/bootstrap-select.md) library, which is obviously based on bootstrap.
 
 ### SEO: Making text invisible but still crawlable
 

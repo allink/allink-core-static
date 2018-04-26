@@ -1,4 +1,4 @@
-# Select
+# `bootstrap-select`
 
 For our selects, we use `bootstrap-select`. Which per default uses the `default` button style.
 
@@ -12,7 +12,11 @@ import 'allink-core-static/js/modules/bootstrap-select';
 import './modules/bootstrap-select';
 ```
 
-## `.selectpicker` and `.selectpicker-alt`
+## Styling button variations
+
+Setting the button styles is done in `static/scss/base/_variables.scss`. Search for `=bootstrap`.
+
+## The available selectors: `.selectpicker` and `.selectpicker-alt`
 
 In most cases the default `.selectpicker` works perfectly fine to render a select.
 

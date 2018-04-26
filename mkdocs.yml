@@ -34,6 +34,7 @@ pages:
     - Lazyloading: 'modules/lazyloading.md'
     - Site Overlay: 'modules/site-overlay.md'
     - (Scroll) To The Top: 'modules/ttt.md'
+    - Bootstrap Select: 'modules/bootstrap-select.md'
   - Templates:
     - base.html: 'templates/base.md'
     - Setting up page templates: 'templates/page-templates.md'
