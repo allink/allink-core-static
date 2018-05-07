@@ -23,7 +23,8 @@ Default Form Styles
     }
 
     // the default label
-    .control-label {
+    .control-label,
+    .radio-group__label {
         display: inline-block;
         max-width: 100%;
         margin: 0;
