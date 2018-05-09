@@ -58,7 +58,6 @@ $(function(){
             // remove default overlay class.. we have our own
             $modal.removeClass('tingle-modal--noOverlayClose');
             // trigger custom events
-            $(window).trigger('form-modal:opened');
             $(window).trigger('initFormModalClose');
             // set closing method classes
             var closing_method_attr_value = $modal.attr('data-modal-closing-methods');
@@ -173,6 +172,8 @@ $(function(){
                         // load softpage
                         event.preventDefault();
                         openFormModal(this,event);
+                        // trigger custom event
+                        $(window).trigger('form-modal:opened');
                     }
                 );
                 // mark as initialized
@@ -203,10 +204,6 @@ $(function(){
                 });
             });
         }
-    }
-
-    function initDefaultModalClose() {
-
     }
 
     // custom event

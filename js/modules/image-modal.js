@@ -60,7 +60,6 @@ $(function(){
             // remove default overlay class.. we have our own
             $modal.removeClass('tingle-modal--noOverlayClose');
             // trigger custom events
-            $(window).trigger('image-modal:opened');
             $(window).trigger('initImageModalClose');
             // set closing method classes
             var closing_method_attr_value = $modal.attr('data-modal-closing-methods');
@@ -171,6 +170,8 @@ $(function(){
                                 }
                                 // load softpage
                                 openImageModal(this,event,$image_modal_content);
+                                // trigger custom events
+                                $(window).trigger('image-modal:opened');
                             }
                         }
 

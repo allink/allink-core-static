@@ -71,7 +71,6 @@ $(function(){
             // remove default overlay class.. we have our own
             $modal.removeClass('tingle-modal--noOverlayClose');
             // trigger custom events
-            $(window).trigger('default-modal:opened');
             $(window).trigger('initDefaultModalClose');
             // set closing method classes
             var closing_method_attr_value = $modal.attr('data-modal-closing-methods');
@@ -187,6 +186,8 @@ $(function(){
                             // load softpage
                             event.preventDefault();
                             openDefaultModal(this,$content_container);
+                            // trigger custom event
+                            $(window).trigger('default-modal:opened');
                         }
                     }
                 );
