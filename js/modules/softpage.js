@@ -67,6 +67,7 @@ $(function(){
                     });
                 }
                 // trigger custom events
+                $(window).trigger('softpage:opened');
                 $(window).trigger('initSoftpageTrigger');
                 $(window).trigger('initOnScreen');
                 $(window).trigger('initiSwiperInstances');
@@ -155,8 +156,6 @@ $(function(){
                         // load softpage
                         event.preventDefault();
                         softpage.loadPage(href, true, softpage_content_id);
-                        // trigger custom events
-                        $(window).trigger('softpage:opened');
                         // fixes bug in firefox: softpage text was selected - let's remove any selection
                         document.getSelection().removeAllRanges();
                     }
