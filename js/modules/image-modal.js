@@ -212,4 +212,20 @@ $(function(){
         initImageModalClose();
     });
 
+
+    /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+    Custom event to close
+
+    */
+
+    function closeImageModal() {
+        image_modal.close();
+    }
+
+    // custom event
+    $(window).on('closeImageModal', function() {
+        closeImageModal();
+    });
+
 });

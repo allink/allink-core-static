@@ -211,4 +211,20 @@ $(function(){
         initFormModalClose();
     });
 
+
+    /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+    Custom event to close
+
+    */
+
+    function closeFormModal() {
+        form_modal.close();
+    }
+
+    // custom event
+    $(window).on('closeFormModal', function() {
+        closeFormModal();
+    });
+
 });

@@ -205,7 +205,15 @@ $(function(){
         initDefaultModalTrigger();
     });
 
+
+    /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+    Init close triggers
+
+    */
+
     function initDefaultModalClose() {
+
         // init
         var $modal_close_toggles = $('.close-default-modal,[data-close-default-modal]');
         // look for triggers
@@ -224,6 +232,22 @@ $(function(){
     // custom event
     $(window).on('initDefaultModalClose', function() {
         initDefaultModalClose();
+    });
+
+
+    /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+    Custom event to close
+
+    */
+
+    function closeDefaultModal() {
+        default_modal.close();
+    }
+
+    // custom event
+    $(window).on('closeDefaultModal', function() {
+        closeDefaultModal();
     });
 
 });
