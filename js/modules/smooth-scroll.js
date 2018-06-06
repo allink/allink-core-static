@@ -4,7 +4,11 @@ Simple Smooth Scroll
 
 Inspired by: https://codepen.io/pawelgrzybek/pen/ZeomJB
 
-Basic usage:
+*/
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+Basic usage: Link
 
 <a href="#id-of-target-element" data-smooth-scroll>Smooth Scroll Link</a>
 
@@ -30,6 +34,18 @@ The dynamic offset requires the following markup right after the `.site-header-b
 
 */
 
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+Basic Usage: On page load
+
+Should the header height be respected, add the following attribute to the smooth scroll header placeholder `base.html`:
+
+<div class="smooth-scroll-header-compact-mode-size" data-respect-compact-header-height></div>
+
+*/
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
 // Browser support:
 
 // Chrome >= 24
@@ -43,6 +59,8 @@ The dynamic offset requires the following markup right after the `.site-header-b
 // Opera Mobile >= 15
 // Safari iOS >= 9
 // Chrome for Android >= 35
+
+*/
 
 /**
  *
@@ -114,7 +132,6 @@ function scrollIt(destination, compact_header_offset, offset_xs, offset_md, dura
         offset = compact_header_offset;
     }
 
-
     // Store initial position of a window and time
     // If performance is not available in your browser
     // It will fallback to new Date().getTime() - thanks IE < 10
@@ -170,77 +187,114 @@ function scrollIt(destination, compact_header_offset, offset_xs, offset_md, dura
     scroll();
 }
 
+function handleSmoothScroll(url, $trigger) {
+    // clean hash
+    var hash = url.substring(url.indexOf('#'));
+    // target not found? adios!
+    var $target = $(hash);
+    if ($target.length === 0) {
+        console.warn('Smooth scroll target with selector "' + url + '"" could not be found in the DOM');
+        return false;
+    }
+    // defaults
+    var compact_header_offset = 0;
+    var offset_xs = 0;
+    var offset_md = 0;
+    var scroll_duration = 300;
+    var scroll_easing = 'easeInOutQuad';
+    // case 1: trigger
+    if (typeof $trigger !== 'undefined') {
+        // optional: offset (priority 1): use compact header height as offset (to make sure the scroll target is visible)
+        var respect_compact_header_height = $trigger.attr('data-respect-compact-header-height');
+        if (typeof respect_compact_header_height !== 'undefined') {
+            var $compact_header_sizer = $('.smooth-scroll-header-compact-mode-size');
+            if ($compact_header_sizer.length > 0) {
+                compact_header_offset = $compact_header_sizer.outerHeight();
+            }else {
+                console.warn('".smooth-scroll-header-compact-mode-size" element is missing in the DOM');
+            }
+        }
+        // optional: offset (priority 2): manually set offset for XS breakpoint
+        var offset_xs_from_attribute = $trigger.attr('data-offset-xs');
+        if (offset_xs_from_attribute) {
+            offset_xs = parseInt(offset_xs_from_attribute);
+        }
+        // optional: offset (priority 2): manually set offset for MD breakpoint
+        var offset_md_from_attribute = $trigger.attr('data-offset-md');
+        if (offset_md_from_attribute) {
+            offset_md = parseInt(offset_md_from_attribute);
+        }
+        // optional: individual scroll duration
+        var scroll_duration_from_attribute = $trigger.attr('data-scroll-duration');
+        if (scroll_duration_from_attribute) {
+            scroll_duration = parseInt(scroll_duration_from_attribute);
+        }
+        // optional: individual easing function
+        var scroll_easing_from_attribute = $trigger.attr('data-scroll-easing');
+        if (scroll_easing_from_attribute) {
+            scroll_easing = scroll_easing_from_attribute;
+        }
+    }
+    // case 2: on page load
+    else {
+        var $compact_header_sizer = $('.smooth-scroll-header-compact-mode-size');
+        if ($compact_header_sizer.length > 0) {
+            var respect_compact_header_height = $compact_header_sizer.attr('data-respect-compact-header-height');
+            if (typeof respect_compact_header_height !== 'undefined') {
+                compact_header_offset = $compact_header_sizer.outerHeight();
+            }else {
+                console.warn('".smooth-scroll-header-compact-mode-size" element is missing in the DOM')
+            }
+        }
+    }
+    // trigger custom event
+    $(window).trigger('smooth-scroll:before');
+    // scroll!
+    scrollIt(
+        $target.get(0),
+        compact_header_offset,
+        offset_xs,
+        offset_md,
+        scroll_duration,
+        scroll_easing,
+        function(){
+            $(window).trigger('smooth-scroll:after');
+        }
+    );
+}
+
 function initSmoothScroll() {
     // init
     var $scroll_links = $('[data-smooth-scroll]');
     if ($scroll_links.length > 0) {
         $scroll_links.each(function(){
+            // init
             var $trigger = $(this);
             var initialized_attr = 'data-trigger-initialized';
+            // only initialize visible elements
+            if ($trigger.is(":visible") === false) {
+                return true;
+            }
             // check for initialized trigger
             var trigger_initialized = $trigger.attr(initialized_attr);
             // NOT initialized yet
             if (typeof trigger_initialized === 'undefined') {
                 $trigger.on('click',function(e){
-                    // init target
-                    e.preventDefault();
+                    // init
                     var $trigger = $(this);
-                    var anchor = $trigger.attr('href');
-                    var $target = $(anchor);
-                    // target not found? adios!
-                    if ($target.length === 0) {
-                        console.warn('Smooth scroll target with selector "' + anchor + '"" could not be found in the DOM')
-                        return false;
+                    // anazlyse url
+                    let current_page_url = window.location.href;
+                    let trigger_href = $trigger.attr('href');
+                    let trigger_hash = trigger_href.substring(trigger_href.indexOf('#'));
+                    let trigger_page_url = trigger_href.replace(trigger_hash,'');
+                    // only continue if we're on the same page
+                    if (current_page_url.indexOf(trigger_page_url) > 0) {
+                        // init target
+                        e.preventDefault();
+                        var url = $trigger.attr('href');
+                        // let me handle that
+                        handleSmoothScroll(url, $trigger);
                     }
-                    // optional: offset (priority 1): use compact header height as offset (to make sure the scroll target is visible)
-                    var compact_header_offset = 0;
-                    var respect_compact_header_height = $trigger.attr('data-respect-compact-header-height');
-                    if (typeof respect_compact_header_height !== 'undefined') {
-                        var $compact_header_sizer = $('.smooth-scroll-header-compact-mode-size');
-                        if ($compact_header_sizer.length > 0) {
-                            compact_header_offset = $compact_header_sizer.outerHeight();
-                        }else {
-                            console.warn('".smooth-scroll-header-compact-mode-size" element is missing in the DOM')
-                        }
-                    }
-                    // optional: offset (priority 2): manually set offset for XS breakpoint
-                    var offset_xs = 0;
-                    var offset_xs_from_attribute = $trigger.attr('data-offset-xs');
-                    if (offset_xs_from_attribute) {
-                        offset_xs = parseInt(offset_xs_from_attribute);
-                    }
-                    // optional: offset (priority 2): manually set offset for MD breakpoint
-                    var offset_md = 0;
-                    var offset_md_from_attribute = $trigger.attr('data-offset-md');
-                    if (offset_md_from_attribute) {
-                        offset_md = parseInt(offset_md_from_attribute);
-                    }
-                    // optional: individual scroll duration
-                    var scroll_duration = 300;
-                    var scroll_duration_from_attribute = $trigger.attr('data-scroll-duration');
-                    if (scroll_duration_from_attribute) {
-                        scroll_duration = parseInt(scroll_duration_from_attribute);
-                    }
-                    // optional: individual easing function
-                    var scroll_easing = 'easeInOutQuad';
-                    var scroll_easing_from_attribute = $trigger.attr('data-scroll-easing');
-                    if (scroll_easing_from_attribute) {
-                        scroll_easing = scroll_easing_from_attribute;
-                    }
-                    // trigger custom event
-                    $(window).trigger('smooth-scroll:before');
-                    // scroll!
-                    scrollIt(
-                        $target.get(0),
-                        compact_header_offset,
-                        offset_xs,
-                        offset_md,
-                        scroll_duration,
-                        scroll_easing,
-                        function(){
-                            $(window).trigger('smooth-scroll:after');
-                        }
-                    );
                 });
                 // mark as initialized
                 $trigger.attr(initialized_attr,'');
@@ -249,11 +303,27 @@ function initSmoothScroll() {
     }
 }
 
+function smoothScrollOnPageLoad() {
+    let url = window.location.hash;
+    // no hash, no scroll
+    if (url.length > 0) {
+        setTimeout(function(){
+            handleSmoothScroll(url);
+        },1000);
+    }
+}
+
 $(function(){
     // on page load
     initSmoothScroll();
     // after certain events
-    $(window).on('initSmoothScroll',function(){
+    $(window).on('initSmoothScroll softpage:opened default-modal:opened',function(){
         initSmoothScroll();
+    });
+    // on page load
+    smoothScrollOnPageLoad();
+    // after certain events
+    $(window).on('smoothScrollOnPageLoad',function(){
+        smoothScrollOnPageLoad();
     });
 });
