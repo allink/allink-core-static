@@ -242,9 +242,9 @@ function handleSmoothScroll(url, $trigger) {
             var respect_compact_header_height = $compact_header_sizer.attr('data-respect-compact-header-height');
             if (typeof respect_compact_header_height !== 'undefined') {
                 compact_header_offset = $compact_header_sizer.outerHeight();
-            }else {
-                console.warn('".smooth-scroll-header-compact-mode-size" element is missing in the DOM')
             }
+        }else {
+            console.warn('".smooth-scroll-header-compact-mode-size" element is missing in the DOM')
         }
     }
     // trigger custom event
