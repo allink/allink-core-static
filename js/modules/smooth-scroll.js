@@ -288,7 +288,7 @@ function initSmoothScroll() {
                     let trigger_hash = trigger_href.substring(trigger_href.indexOf('#'));
                     let trigger_page_url = trigger_href.replace(trigger_hash,'');
                     // only continue if we're on the same page
-                    if (current_page_url.indexOf(trigger_page_url) > 0) {
+                    if (current_page_url.indexOf(trigger_page_url) >= 0) {
                         // init target
                         e.preventDefault();
                         var url = $trigger.attr('href');
