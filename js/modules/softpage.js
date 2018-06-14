@@ -67,10 +67,17 @@ $(function(){
                     });
                 }
                 // trigger custom events
-                $(window).trigger('softpage:opened');
                 $(window).trigger('initSoftpageTrigger');
                 $(window).trigger('initOnScreen');
                 $(window).trigger('initiSwiperInstances');
+                // clean content in case of CMS page
+                var $softpage = $('.tingle-modal.softpage');
+                var is_cms_page = $softpage.attr('data-cms-page');
+                if (typeof is_cms_page !== 'undefined' && is_cms_page !== false) {
+                    cleanupSoftpageMarkup($softpage);
+                }else {
+                    $(window).trigger('softpage:opened');
+                }
             },50);
         },
         onSoftpageClosed: function (obj) {
@@ -171,6 +178,17 @@ $(function(){
         softpage.closeSoftpage();
     }
 
+    function cleanupSoftpageMarkup($softpage) {
+        // init
+        var $softpage_content_container = $softpage.find('.tingle-modal-box__content');
+        // select/store the content we want to put inside the modal box content
+        var $ajax_page_container = $softpage.find('.site-content').children();
+        // empty the box content and append the just stored markup
+        $softpage_content_container.empty().append($ajax_page_container);
+        // trigger custom event
+        $(window).trigger('softpage:opened');
+    }
+
     // on page load
     initSoftpageTrigger();
 
@@ -180,21 +198,6 @@ $(function(){
     });
     $(window).on('closeSoftpage', function() {
         closeSoftpage();
-    });
-
-    // clean up content when a CMS page is about to be displayed within a softpage
-    $(window).on('softpage:opened',function(){
-        // init
-        var $softpage = $('.softpage');
-        // check if CMS page attribute is set
-        var $softpage_content_container = $softpage.find('.tingle-modal-box__content');
-        var is_cms_page = $softpage.attr('data-cms-page');
-        if (typeof is_cms_page !== 'undefined' && is_cms_page !== false) {
-            // select/store the content we want to put inside the modal box content
-            var $ajax_page_container = $softpage.find('.site-content').children();
-            // empty the box content and append the just stored markup
-            $softpage_content_container.empty().append($ajax_page_container);
-        }
     });
 
 });
