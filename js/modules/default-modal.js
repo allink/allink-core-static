@@ -132,6 +132,8 @@ $(function(){
         default_modal.open();
         // scroll to top everytime a modal is opened
         default_modal.modal.scrollTop = 0;
+        // trigger custom event
+        $(window).trigger('default-modal:opened');
 
     }
 
@@ -186,8 +188,6 @@ $(function(){
                             // load softpage
                             event.preventDefault();
                             openDefaultModal(this,$content_container);
-                            // trigger custom event
-                            $(window).trigger('default-modal:opened');
                         }
                     }
                 );

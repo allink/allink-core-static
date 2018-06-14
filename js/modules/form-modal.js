@@ -125,6 +125,8 @@ $(function(){
             form_modal.open();
             // scroll to top everytime a modal is opened
             form_modal.modal.scrollTop = 0;
+            // trigger custom event
+            $(window).trigger('form-modal:opened');
         });
     }
 
@@ -172,8 +174,6 @@ $(function(){
                         // load softpage
                         event.preventDefault();
                         openFormModal(this,event);
-                        // trigger custom event
-                        $(window).trigger('form-modal:opened');
                     }
                 );
                 // mark as initialized

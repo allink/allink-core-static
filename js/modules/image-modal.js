@@ -111,6 +111,9 @@ $(function(){
         // set content
         $(image_modal.modalBoxContent).html($image_modal_content);
         image_modal.open();
+
+        // trigger custom events
+        $(window).trigger('image-modal:opened');
     }
 
     function initImageModalTrigger(){
@@ -170,8 +173,6 @@ $(function(){
                                 }
                                 // load softpage
                                 openImageModal(this,event,$image_modal_content);
-                                // trigger custom events
-                                $(window).trigger('image-modal:opened');
                             }
                         }
 
