@@ -2,7 +2,7 @@
 
 Link with class '.toggle-image-modal' will trigger the image lightbox
 
-Example:
+Usage:
 
 <a
     href="#"
@@ -13,6 +13,9 @@ Example:
     data-modal-overlay-close-method-enabled="true"
     >
     ...
+    <span class="image-modal-content" style="display: none;">
+        {% render_image ... %}
+    </span>
 </a>
 
 Custom Events:
@@ -129,8 +132,10 @@ $(function(){
             }
             // check for initialized trigger
             var trigger_initialized = $trigger.attr(initialized_attr);
+            // check if we are in dublicated slider slide context. if so, we have to assign the event listener even though it is marked as initialized
+            var is_slider_context = ($trigger.parents('.swiper-slide-duplicate').length > 0) ? true : false;
             // NOT initialized yet
-            if (typeof trigger_initialized === 'undefined') {
+            if (typeof trigger_initialized === 'undefined' || is_slider_context) {
                 $trigger.
                     on('click',
                     function(event){
