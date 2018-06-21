@@ -23,6 +23,16 @@ Each release is divided into the following main categories:
   import 'allink-core-static/js/modules/expandable';
   ```
 ### NEW
+- Newsletter: Added new plugin with new variables. Make sure to add `@import "~bootstrap-sass/assets/stylesheets/bootstrap/component-animations";` in `static/scss/bootstrap/_bootstrap.scss`.
+```SCSS
+  // collapse and checkmark icons and checkmark icon color
+  $newsletter-icon-plus: '\e934';
+  $newsletter-icon-minus: '\e933';
+  $newsletter-icon-checkmark: '\e908';
+  $newsletter-icon-checkmark-color: $brand-blue;
+  $newsletter-form-modal-max-width-md:         500px;
+  $newsletter-form-modal-max-width-xxl:        550px;
+```
 - `bootstrap-select` now has an additional selector `.selectpicker-alt` besides the default `.selectpicker` for that prevent rendering in some cases (such as the `default-modal`)
 - Site Overlay: New custom events added. Details in comments of `js/modules/site-overlay.js`.
 - Google Maps: Markers can now be opened with custom link. Details in comments of `js/modules/map.js`.

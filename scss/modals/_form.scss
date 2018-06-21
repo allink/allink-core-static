@@ -79,4 +79,16 @@ Form modal
     &.tingle-modal--OverlayClose {
         cursor: pointer;
     }
+
+    // variations
+    &[data-form-modal-variation="newsletter-form"] {
+        .tingle-modal-box {
+            @media (min-width: $screen-sm) {
+                max-width: $newsletter-form-modal-max-width-md;
+            }
+            @media (min-width:$screen-xxl) {
+                max-width: $newsletter-form-modal-max-width-xxl;
+            }
+        }
+    }
 }

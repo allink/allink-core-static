@@ -41,6 +41,8 @@ $(function(){
             document.querySelector('html').classList.remove('form-modal-visible');
             // trigger class
             $(window).trigger('form-modal:closed');
+            // remove variation definition
+            $modal.removeAttr('data-form-modal-variation');
             // remove closing method classes
             var closing_method_attr_value = $modal.attr('data-modal-closing-methods');
             $modal.removeClass(closing_method_attr_value);
@@ -170,6 +172,11 @@ $(function(){
                         }
                         if (closing_method_attr_value.length > 0) {
                             $modal.attr('data-modal-closing-methods', closing_method_attr_value);
+                        }
+                        // optional: get modal variation string and set attribute
+                        var modal_variation = $trigger.attr('data-form-modal-variation');
+                        if (modal_variation) {
+                            $modal.attr('data-form-modal-variation', modal_variation);
                         }
                         // load softpage
                         event.preventDefault();
