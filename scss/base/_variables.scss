@@ -1927,3 +1927,19 @@ $signup-form-button-input-padding:                   0.3em;
 $signup-form-button-btn-width-xs:                    50px;
 $signup-form-button-btn-width-md:                    50px;
 $signup-form-button-btn-width-xxl:                   50px;
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+=newsletter plugin
+
+*/
+
+$newsletter-icon-plus: '\e903';
+$newsletter-icon-minus: '\e900';
+$newsletter-icon-checkmark: '\e206';
+$newsletter-icon-checkmark-color: $brand-blue;
+
+// max width settings
+$newsletter-form-modal-max-width-md:        500px;
+$newsletter-form-modal-max-width-xxl:       550px;

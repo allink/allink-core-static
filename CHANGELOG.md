@@ -6,23 +6,9 @@ Each release is divided into the following main categories:
 - NEW: New features or plugins
 - FIXES: General bugfixes
 
-## v1.0.0 (under development)
+## v1.0.x (under development)
 
 ### IMPORTANT
-- New settings for `signup-form` plugin available in `_variables.scss` in the `allink-core-static`. Look for `=signup` and copy&paste into your project.
-- New Javascript module `to-the-top` is now available:
-  ```JS
-  import 'allink-core-static/js/modules/to-the-top';
-  ```
-- New Javascript plugin `pagechooser` is now available:
-  ```JS
-  import 'allink-core-static/js/modules/pagechooser';
-  ```
-- New Javascript plugin `expandable` is now available:
-  ```JS
-  import 'allink-core-static/js/modules/expandable';
-  ```
-### NEW
 - Newsletter: Added new plugin with new variables. Make sure to add `@import "~bootstrap-sass/assets/stylesheets/bootstrap/component-animations";` in `static/scss/bootstrap/_bootstrap.scss`.
 ```SCSS
   // collapse and checkmark icons and checkmark icon color
@@ -33,6 +19,7 @@ Each release is divided into the following main categories:
   $newsletter-form-modal-max-width-md:         500px;
   $newsletter-form-modal-max-width-xxl:        550px;
 ```
+### NEW
 - `bootstrap-select` now has an additional selector `.selectpicker-alt` besides the default `.selectpicker` for that prevent rendering in some cases (such as the `default-modal`)
 - Site Overlay: New custom events added. Details in comments of `js/modules/site-overlay.js`.
 - Google Maps: Markers can now be opened with custom link. Details in comments of `js/modules/map.js`.
@@ -52,5 +39,18 @@ Each release is divided into the following main categories:
 - Swiper: New variable `options.transitionDurationBetweenSlides_mobile` available.
 - Infobox: Added new plugin
 - docCookies, Added module
+- New settings for `signup-form` plugin available in `_variables.scss` in the `allink-core-static`. Look for `=signup` and copy&paste into your project.
+- New Javascript module `to-the-top` is now available:
+  ```JS
+  import 'allink-core-static/js/modules/to-the-top';
+  ```
+- New Javascript plugin `pagechooser` is now available:
+  ```JS
+  import 'allink-core-static/js/modules/pagechooser';
+  ```
+- New Javascript plugin `expandable` is now available:
+  ```JS
+  import 'allink-core-static/js/modules/expandable';
+  ```
 ### FIXES
 - Site Overlay: In case `click-close-enabled` is active, the cursor is now correctly set to pointer.
