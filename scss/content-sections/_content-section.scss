@@ -51,7 +51,13 @@ Default Content Section Styles
     // first section
     &.first {
         margin-top: 0;
-        @include content-section-specific-spacing($property: 'padding-top');
+        @include content-section-first($property: 'padding-top');
+    }
+
+    // last
+    &:last-child {
+        margin-bottom: 0;
+        @include content-section-last($property: 'padding-bottom');
     }
 
     // special spacing: container has a background COLOR
