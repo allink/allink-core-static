@@ -27,7 +27,9 @@ $(function(){
     */
 
     const objectfit_supported = (getComputedStyle( $html[0], ':before' ).content == 'none') ? false : true;
-    if (objectfit_supported === true) {
+    // in case of EDGE browser, ignore the pseude-support
+    const isEdge = navigator.userAgent.indexOf('Edge/') >= 0;
+    if (objectfit_supported === true && isEdge === false) {
         $html.addClass('objectfit');
     }else {
         $html.addClass('no-objectfit');
