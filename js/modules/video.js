@@ -53,6 +53,7 @@ $(function() {
         var $videos = $( '.the-video' );
         var loaded_class = 'loaded';
         var on_pause_class = 'on-pause';
+        var playing_class = 'playing';
         var autoplay_class = 'autoplay-enabled';
         var disable_remote_playback_attribute = 'disableRemotePlayback';
         var controls_disabled_class = 'controls-disabled';
@@ -127,8 +128,9 @@ $(function() {
                             on('click',
                             function(){
                                 if( $plugin_container.hasClass( on_pause_class ) ) {
-                                    // remove class
+                                    // toggle classes
                                     $plugin_container.removeClass( on_pause_class );
+                                    $plugin_container.addClass( playing_class );
                                     // let's play
                                     $vid.get(0).play();
                                     // and mark the video as loaded (for possible transitions)
@@ -136,8 +138,9 @@ $(function() {
                                 }else {
                                     // pause the video and..
                                     $vid.get(0).pause();
-                                    // ..add class
+                                    // ..toggle classes
                                     $plugin_container.addClass( on_pause_class );
+                                    $plugin_container.removeClass( playing_class );
                                 }
                             }
                         );
