@@ -48,6 +48,8 @@ $(function(){
             var $modal = $('.tingle-modal.default-modal');
             // remove class from html
             document.querySelector('html').classList.remove('default-modal-visible');
+            // remove header
+            $modal.find('.tingle-modal-header').remove();
             // trigger class
             $(window).trigger('default-modal:closed');
             // remove variation definition
@@ -129,6 +131,14 @@ $(function(){
         // set content
         // set modal content and open
         default_modal.setContent($content_container.html());
+        // check if header markup exists and set
+        let $header_markup = $content_container.find('.modal-header-markup');
+        if ($header_markup.length > 0) {
+            let $header_markup_container = $('<div class="tingle-modal-header"></div>');
+            $(default_modal.modal).prepend($header_markup_container);
+            $header_markup_container.prepend($header_markup.html());
+        }
+        // modal-header-markup
         default_modal.open();
         // scroll to top everytime a modal is opened
         default_modal.modal.scrollTop = 0;
