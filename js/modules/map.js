@@ -360,10 +360,12 @@ export const initMap = function (options) {
                 }
 
                 // fill info box with individual content
-                marker.addListener('click', function() {
-                    infoWindow.setContent( this.info );
-                    infoWindow.open(map, this);
-                });
+                if (infowindow_content) {
+                    marker.addListener('click', function() {
+                        infoWindow.setContent( this.info );
+                        infoWindow.open(map, this);
+                    });
+                }
 
                 // add marker to array
                 markers.push(marker);

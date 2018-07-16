@@ -54,3 +54,4 @@ Each release is divided into the following main categories:
   ```
 ### FIXES
 - Site Overlay: In case `click-close-enabled` is active, the cursor is now correctly set to pointer.
+- Map: Only add click event listener to marker if infobox content is given.
