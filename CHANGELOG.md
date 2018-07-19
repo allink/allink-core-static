@@ -20,6 +20,7 @@ Each release is divided into the following main categories:
   $newsletter-form-modal-max-width-xxl:        550px;
 ```
 ### NEW
+- `softpage` and `default-modal` now support a `tingle-modal-header`. Details in both javascript files.
 - `bootstrap-select` now has an additional selector `.selectpicker-alt` besides the default `.selectpicker` for that prevent rendering in some cases (such as the `default-modal`)
 - Site Overlay: New custom events added. Details in comments of `js/modules/site-overlay.js`.
 - Google Maps: Markers can now be opened with custom link. Details in comments of `js/modules/map.js`.
