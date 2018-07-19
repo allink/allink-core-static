@@ -16,7 +16,17 @@ Example:
     ...
 </a>
 
-<div id="example-container">
+<div id="example-container" style="display: none;">
+    <div class="modal-header-markup" style="display: none;">
+        <h2 class="tingle-modal-header__heading">
+            {% trans "Example Heading" %}
+        </h2>
+        <a class="tingle-modal-header__link-close" href="#" data-close-default-modal>
+            <span class="sr-only">
+                {% trans "Close" %}
+            </span>
+        </a>
+    </div>
     ...
     This content will be loaded within modal.
     ...
@@ -195,7 +205,7 @@ $(function(){
                             if (modal_variation) {
                                 $modal.attr('data-default-modal-variation', modal_variation);
                             }
-                            // load softpage
+                            // load modal
                             event.preventDefault();
                             openDefaultModal(this,$content_container);
                         }
