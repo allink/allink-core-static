@@ -36,7 +36,7 @@ $(function(){
     lazysizesLoadListener();
 
     // custom event
-    $(window).on('initLazysizes swiper:initialized', function() {
+    $(window).on('initLazysizes default-modal:opened softpage:opened swiper:initialized', function() {
         initLazysizes();
         lazysizesLoadListener();
     });
