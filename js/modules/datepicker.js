@@ -78,6 +78,10 @@ function initDatepicker() {
             const $datepicker_container = $datepicker_element.parents('.datepicker-container');
             var has_value_class = 'has-value';
 
+            if ($datepicker_element.is(':hidden')) {
+                return true;
+            }
+
             // TIME only
             var noCalendar = $datepicker_element.attr('data-noCalendar');
             if (typeof noCalendar === 'undefined') {
@@ -112,6 +116,11 @@ function initDatepicker() {
             if (!minDate) {
                 minDate = 'today';
             }
+            // optional animation
+            var animationEnabled = $datepicker_element.attr('data-animationEnabled');
+            if (!animationEnabled) {
+                animationEnabled = true;
+            }
             // set options
             const options = {
                 locale: active_lang, // IMPORTANT: We're gonna select the language according to the "lang" attribute of the <html> element
@@ -128,16 +137,52 @@ function initDatepicker() {
                 wrap: false,
                 enableTime: enableTime,
                 noCalendar: noCalendar,
-                onValueUpdate: function(selectedDates, dateStr, instance){
+                onReady: function(selectedDates, dateStr, instance) {
+                    // trigger custom event and pass instance
+                    // if (animationEnabled === 'false') {
+                    //     $(instance.calendarContainer).removeClass('animate');
+                    // }
+                    // trigger custom event and pass instance
+                    $(window).trigger('datepicker:ready', [instance]);
+                },
+                onOpen: function(selectedDates, dateStr, instance) {
+                    // trigger custom event and pass instance
+                    $(window).trigger('datepicker:opened', [instance]);
+                },
+                onClose: function(selectedDates, dateStr, instance) {
+                    // trigger custom event and pass instance
+                    $(window).trigger('datepicker:closed', [instance]);
+                },
+                onValueUpdate: function(selectedDates, dateStr, instance) {
                     // get parent container
                     var $datepicker_container = $(instance.element).parents('.datepicker-container');
                     // add class, so we can show the clear button
                     $datepicker_container.addClass(has_value_class);
-                }
+                    // trigger custom event and pass instance
+                    $(window).trigger('datepicker:updated', [instance]);
+                },
+                onChange: function(selectedDates, dateStr, instance) {
+                    // trigger custom event and pass instance
+                    $(window).trigger('datepicker:change', [instance]);
+                },
+                onMonthChange: function(selectedDates, dateStr, instance) {
+                    // trigger custom event and pass instance
+                    $(window).trigger('datepicker:month-changed', [instance]);
+                },
+                onYearChange: function(selectedDates, dateStr, instance) {
+                    // trigger custom event and pass instance
+                    $(window).trigger('datepicker:year-changed', [instance]);
+                },
             };
 
             // init
             const flatpickr_instance = new Flatpickr(element,options);
+
+            // do stuff when the value changes
+            // console.log( $(flatpickr_instance.element) );
+            $(flatpickr_instance.element).on('change', function(){
+                $(window).trigger('datepicker:value-updated',[flatpickr_instance]);
+            });
 
             // clear value
             const $clear_btn = $(element).siblings('.clear-btn');
@@ -178,7 +223,7 @@ $(function(){
     initDatepicker();
 
     // custom event
-    $(window).on('initDatepicker softpage:opened form-modal:opened', function() {
+    $(window).on('initDatepicker default-modal:opened softpage:opened form-modal:opened', function() {
         initDatepicker();
     });
 
