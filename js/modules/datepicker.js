@@ -36,6 +36,9 @@ import Spanish from 'flatpickr/dist/l10n/es';
 
 function initDatepicker() {
 
+    // init
+    window.flatpickr_instances = [];
+
     // Extend the existing localization object with additional langugaes
 
     // German
@@ -116,11 +119,6 @@ function initDatepicker() {
             if (!minDate) {
                 minDate = 'today';
             }
-            // optional animation
-            var animationEnabled = $datepicker_element.attr('data-animationEnabled');
-            if (!animationEnabled) {
-                animationEnabled = true;
-            }
             // set options
             const options = {
                 locale: active_lang, // IMPORTANT: We're gonna select the language according to the "lang" attribute of the <html> element
@@ -138,10 +136,6 @@ function initDatepicker() {
                 enableTime: enableTime,
                 noCalendar: noCalendar,
                 onReady: function(selectedDates, dateStr, instance) {
-                    // trigger custom event and pass instance
-                    // if (animationEnabled === 'false') {
-                    //     $(instance.calendarContainer).removeClass('animate');
-                    // }
                     // trigger custom event and pass instance
                     $(window).trigger('datepicker:ready', [instance]);
                 },
@@ -212,6 +206,9 @@ function initDatepicker() {
                     flatpickr_instance.toggle();
                 },0);
             });
+
+            // assign instances to window
+            window.flatpickr_instances.push(flatpickr_instance);
         }
     }
 
