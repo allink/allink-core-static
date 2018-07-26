@@ -85,8 +85,8 @@ export function initiSwiperInstances(options) {
         // determine number of slides
         var number_of_slides = $swiper_instance.find('.swiper-slide').length;
 
-        var $btn_next = $swiper_instance.find('.swiper-button-next');
-        var $btn_prev = $swiper_instance.find('.swiper-button-prev');
+        var $btn_next = $swiper_instance.parent().find('.swiper-button-next');
+        var $btn_prev = $swiper_instance.parent().find('.swiper-button-prev');
 
         // no point in initializing swiper if there is only one slide
         if(number_of_slides < 2) {
