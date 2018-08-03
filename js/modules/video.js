@@ -127,7 +127,16 @@ $(function() {
                         $video_controls.
                             on('click',
                             function(){
+                                // init
+                                let $controls = $(this);
                                 if( $plugin_container.hasClass( on_pause_class ) ) {
+                                    // set src if it hasn't been done already
+                                    let $source = $vid.find('source');
+                                    if (typeof $source.attr('src') === 'undefined') {
+                                        let video_src = $source.data('src');
+                                        $source.attr('src', video_src);
+                                        $vid.get(0).load();
+                                    }
                                     // toggle classes
                                     $plugin_container.removeClass( on_pause_class );
                                     $plugin_container.addClass( playing_class );

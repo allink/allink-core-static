@@ -11,10 +11,18 @@
 
 .video-file-plugin {
     position: relative;
+    background: $lazyloader-bg-color;
     .the-video {
-        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
         width: 100%;
         height: auto;
+        opacity: 0;
+        transition: opacity $lazyloader-transition-duration ease-in-out;
+        &.lazyloaded {
+            opacity: 1;
+        }
     }
     .video-controls {
         position: absolute;
@@ -65,6 +73,10 @@
     }
     // autoplay enabled
     &.autoplay-enabled {
+        .the-video {
+            transition: none;
+            opacity: 1;
+        }
         @media (min-width:$screen-md) {
             .video-controls {
                 display: none;
