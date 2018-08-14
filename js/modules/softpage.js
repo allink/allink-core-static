@@ -27,13 +27,26 @@ Optional (loading content of a specific element):
     ...
 </div>
 
-Optional moda header markup (to be added in e.g. news_detail.html):
+App Detail: Optional modal header markup (to be added in e.g. news_detail.html):
 
 <div class="modal-header-markup" style="display: none;">
     <h2 class="tingle-modal-header__heading">
-        {% trans "Example Heading" %}
+        {{ object.title }}
     </h2>
     <a class="tingle-modal-header__link-close" href="#" data-close-softpage>
+        <span class="sr-only">
+            {% trans "Close" %}
+        </span>
+    </a>
+</div>
+
+CMS Page in Softpage: Modal Header Markup (which has to be an IMMEDIATE CHILD of the modal trigger) example:
+
+<div class="modal-header-markup" style="display: none;">
+    <h2 class="tingle-modal-header__heading">
+        {{ title }}
+    </h2>
+    <a class="tingle-modal-header__link-close" href="#" data-close-form-modal>
         <span class="sr-only">
             {% trans "Close" %}
         </span>
@@ -186,6 +199,13 @@ $(function(){
                         }
                         // instantly toggle site overlay (improves "felt performance")
                         $(window).trigger('showSiteOverlay');
+                        // check if header markup exists and set
+                        let $header_markup = $trigger.siblings('.modal-header-markup')
+                        if ($header_markup.length > 0) {
+                            let $header_markup_container = $('<div class="tingle-modal-header"></div>');
+                            $(softpage.modal.modal).prepend($header_markup_container);
+                            $header_markup_container.prepend($header_markup.html());
+                        }
                         // load softpage
                         event.preventDefault();
                         softpage.loadPage(href, true, softpage_content_id);

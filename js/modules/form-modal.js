@@ -15,6 +15,19 @@ Example:
     ...
 </a>
 
+Modal Header Markup (which has to be an IMMEDIATE CHILD of the modal trigger) example:
+
+<div class="modal-header-markup" style="display: none;">
+    <h2 class="tingle-modal-header__heading">
+        {{ title }}
+    </h2>
+    <a class="tingle-modal-header__link-close" href="#" data-close-form-modal>
+        <span class="sr-only">
+            {% trans "Close" %}
+        </span>
+    </a>
+</div>
+
 Custom Events:
 
 form-modal:opened
@@ -39,6 +52,8 @@ $(function(){
             var $modal = $('.tingle-modal.form-modal');
             // remove class from html
             document.querySelector('html').classList.remove('form-modal-visible');
+            // remove header
+            $modal.find('.tingle-modal-header').remove();
             // trigger class
             $(window).trigger('form-modal:closed');
             // remove variation definition
@@ -122,6 +137,15 @@ $(function(){
         var url = element.getAttribute('href');
 
         $.get(url, function(data) {
+
+            // check if header markup exists and set
+            let $header_markup = $(element).siblings('.modal-header-markup')
+            if ($header_markup.length > 0) {
+                let $header_markup_container = $('<div class="tingle-modal-header"></div>');
+                $(form_modal.modal).prepend($header_markup_container);
+                $header_markup_container.prepend($header_markup.html());
+            }
+
             // set modal content and open
             form_modal.setContent(data);
             form_modal.open();
