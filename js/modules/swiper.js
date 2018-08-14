@@ -91,6 +91,7 @@ export function initiSwiperInstances(options) {
         // no point in initializing swiper if there is only one slide
         if(number_of_slides < 2) {
             $swiper_instance.addClass('swiper-disabled');
+            $swiper_instance.parent().addClass('swiper-disabled');
             return true;
         }
         // swiper counter dom node
