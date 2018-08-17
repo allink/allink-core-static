@@ -20,7 +20,12 @@ Open marker from custom link: For example:
         {% if object.lat or object.lng %}
             {# {{forloop.counter}} #}
             <li class="interactive-map-list__item">
-                <a href="#" class="interactive-map-list__link map-custom-marker-toggle" data-show-marker-info="{{instance.id}}-{{forloop.counter}}">
+                <a
+                    href="#"
+                    class="interactive-map-list__link map-custom-marker-toggle"
+                    data-map-plugin-id="{{instance.id}}"
+                    data-map-marker-id="{{object.id}}"
+                    >
                     {{object.title}}
                 </a>
             </li>
@@ -252,7 +257,7 @@ export const initMap = function (options) {
         ];
     }
 
-    function createMarker(options, markerPos, infowindow_content, map) {
+    function createMarker(options, markerPos, infowindow_content, map, location_id) {
         var pin = {
             url: options.pin_url,
             size: new google.maps.Size(Math.floor(options.pin_width/2), Math.floor(options.pin_height/2)), // half the actual size (squeezed), otherwise the info window is not centered correctly
@@ -268,7 +273,18 @@ export const initMap = function (options) {
           info: infowindow_content,
         });
 
+        marker.set("id", location_id);
+
         return marker;
+    }
+
+    function triggerMarker(markers, location_id) {
+        for (var i=0; i<markers.length; i++) {
+            if (markers[i].id == location_id) {
+                google.maps.event.trigger(markers[i], 'click');
+                // i = markers.length;
+            }
+        }
     }
 
     /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
@@ -327,10 +343,10 @@ export const initMap = function (options) {
             map.mapTypes.set('map_style', styledMap);
             map.setMapTypeId('map_style');
 
-            for (var counter = 1; counter <= totalNumberOfLocations; counter++) {
+            for (var k in window.MAPS[i].locations) {
 
                 // init object
-                var marker_obj = window.MAPS[i].locations[counter];
+                var marker_obj = window.MAPS[i].locations[k];
 
                 // within a loop it can happen that a location doesn't contain coordinates, which skips some locations which creates a gap in the foorloop.counter (e.g. 1, 2, 3, 5, 6, 7). In this case we get an undefined variable and "continue" the journey.
                 if (typeof marker_obj === 'undefined') {
@@ -343,8 +359,9 @@ export const initMap = function (options) {
                 var infowindow_content = marker_obj.infowindow_content;
 
                 // define and set marker
+                const location_id = k;
                 var markerPos = new google.maps.LatLng(lat,lng);
-                var marker = createMarker(options, markerPos, infowindow_content, map);
+                var marker = createMarker(options, markerPos, infowindow_content, map, location_id);
 
                 // only 1 marker? Set center and zoom level
                 if (totalNumberOfLocations === 1) {
@@ -371,7 +388,7 @@ export const initMap = function (options) {
                 markers.push(marker);
 
                 // open specific marker from an external link
-                const unique_counter = counter;
+                const unique_counter = k;
                 const marker_toggle_plugin_attribute = 'data-map-plugin-id="' + mapID + '"';
                 const marker_toggle_marker_attribute = 'data-map-marker-id="' + unique_counter + '"';
                 $('[' + marker_toggle_plugin_attribute + '][' + marker_toggle_marker_attribute + ']').on('click',function(event){
@@ -387,7 +404,8 @@ export const initMap = function (options) {
                         // then set active state on toggle
                         $toggle.addClass(options.custom_marker_toggle_active_class);
                         // show marker
-                        google.maps.event.trigger(markers[unique_counter-1], 'click');
+                        // google.maps.event.trigger(triggerMarker(markers, location_id), 'click');
+                        triggerMarker(markers, location_id);
                     }
                 });
 
