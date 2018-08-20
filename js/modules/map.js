@@ -257,9 +257,15 @@ export const initMap = function (options) {
         ];
     }
 
-    function createMarker(options, markerPos, infowindow_content, map, location_id) {
+    function createMarker(options, markerPos, infowindow_content, map, location_id, pin_url) {
+        let final_pin_url = '';
+        if (pin_url) {
+            final_pin_url = pin_url;
+        }else {
+            final_pin_url = options.pin_url;
+        }
         var pin = {
-            url: options.pin_url,
+            url: final_pin_url,
             size: new google.maps.Size(Math.floor(options.pin_width/2), Math.floor(options.pin_height/2)), // half the actual size (squeezed), otherwise the info window is not centered correctly
             scaledSize: new google.maps.Size(Math.floor(options.pin_width/2), Math.floor(options.pin_height/2)),
             origin: new google.maps.Point(0, 0),
@@ -357,11 +363,15 @@ export const initMap = function (options) {
                 var lat = parseFloat(marker_obj.lat.replace(',', '.'));
                 var lng = parseFloat(marker_obj.lng.replace(',', '.'));
                 var infowindow_content = marker_obj.infowindow_content;
+                var pin_url = '';
+                if (marker_obj.pin_url) {
+                    pin_url = marker_obj.pin_url;
+                }
 
                 // define and set marker
                 const location_id = k;
                 var markerPos = new google.maps.LatLng(lat,lng);
-                var marker = createMarker(options, markerPos, infowindow_content, map, location_id);
+                var marker = createMarker(options, markerPos, infowindow_content, map, location_id, pin_url);
 
                 // only 1 marker? Set center and zoom level
                 if (totalNumberOfLocations === 1) {
