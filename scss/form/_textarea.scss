@@ -1,0 +1,5 @@
+textarea {
+    resize: vertical;
+    min-height: $textarea-min-height;
+    max-height: $textarea-max-height;
+}
