@@ -20,6 +20,12 @@ Note: Duration in miliseconds
 data-autoplay="false"
 Note: Not set (default) is "true"
 
+data-transition-duration-desktop="4000"
+Note: Duration in miliseconds
+
+data-transition-duration-mobile="500"
+Note: Duration in miliseconds
+
 ===
 
 To enable the fullscreen mode of Swiper
@@ -51,7 +57,7 @@ export function initiSwiperInstances(options) {
         options.transitionDurationBetweenSlides_mobile = 500;
     }
     if (!options.transitionDurationBetweenSlides) {
-        options.transitionDurationBetweenSlides = 500;
+        options.transitionDurationBetweenSlides = 800;
     }
     if (!options.durationPerSlide) {
         options.durationPerSlide = 4000;
@@ -81,12 +87,14 @@ export function initiSwiperInstances(options) {
 
         // init
         const $swiper_instance = $(this);
+        let instanceTransitionDurationBetweenSlides;
+        let finalTransitionDurationBetweenSlides;
 
         // determine number of slides
-        var number_of_slides = $swiper_instance.find('.swiper-slide').length;
+        let number_of_slides = $swiper_instance.find('.swiper-slide').length;
 
-        var $btn_next = $swiper_instance.parent().find('.swiper-button-next');
-        var $btn_prev = $swiper_instance.parent().find('.swiper-button-prev');
+        let $btn_next = $swiper_instance.parent().find('.swiper-button-next');
+        let $btn_prev = $swiper_instance.parent().find('.swiper-button-prev');
 
         // no point in initializing swiper if there is only one slide
         if(number_of_slides < 2) {
@@ -95,10 +103,16 @@ export function initiSwiperInstances(options) {
             return true;
         }
         // swiper counter dom node
-        var $counter = $swiper_instance.parent().find('.swiper-counter');
+        let $counter = $swiper_instance.parent().find('.swiper-counter');
         if ($counter) {
             $counter.addClass('swiper-counter--active');
         }
+
+        /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+        Instance settings
+
+        */
 
         // local variable for loop. options.loop is a global setting for all swiper instances
         let loop = options.loop;
@@ -107,14 +121,34 @@ export function initiSwiperInstances(options) {
             loop = false;
         }
 
-        // try to get value from instance container
-        var durationPerSlide = parseInt($swiper_instance.attr('data-duration-per-slide'));
+        // duration per slide
+        let durationPerSlide = parseInt($swiper_instance.attr('data-duration-per-slide'));
         // fallback: get option value
         if (isNaN(durationPerSlide)) {
             durationPerSlide = options.durationPerSlide;
         }
 
-        // create instance
+        // transition between slides: desktop
+        if (viewport_width > 1024) {
+            instanceTransitionDurationBetweenSlides = parseInt($swiper_instance.attr('data-transition-duration-desktop'));
+        }
+        // transition between slides: mobile
+        else {
+            instanceTransitionDurationBetweenSlides = parseInt($swiper_instance.attr('data-transition-duration-mobile'));
+        }
+        if (isNaN(instanceTransitionDurationBetweenSlides) === false) {
+            finalTransitionDurationBetweenSlides = instanceTransitionDurationBetweenSlides;
+        }else {
+            finalTransitionDurationBetweenSlides = transitionDurationBetweenSlides;
+        }
+
+
+        /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+        Create instance
+
+        */
+
         const mySwiper = new Swiper($swiper_instance, {
             // global settings
             onInit: function(swiper){
@@ -145,7 +179,7 @@ export function initiSwiperInstances(options) {
                 }
             },
             effect: effect,
-            speed: transitionDurationBetweenSlides, // Number: Duration of transition between slides (in ms)
+            speed: finalTransitionDurationBetweenSlides, // Number: Duration of transition between slides (in ms)
             autoplay: durationPerSlide, // Number: Delay between transitions (in ms). If this parameter is not specified, auto play will be disabled
             slidesPerView: options.slidesPerView,
             spaceBetween: 30,
