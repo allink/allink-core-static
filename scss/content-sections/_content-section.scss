@@ -744,9 +744,7 @@ Default Content Section Styles
 
     &__template__col-4 {
         // equalizes the margin bottom of the columns
-        @include content-plugin-col-mobile-flexbox();
-        @include content-plugin-col-mobile-flexbox-spacing-fix();
-        // @include content-plugin-stacked-col-container-negative-spacing();
+        @include content-plugin-stacked-col-container-negative-spacing();
         .content-section__col {
             // temporarily reset column ordering until
             order: 0;
