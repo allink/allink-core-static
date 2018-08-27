@@ -185,7 +185,7 @@ export function initiSwiperInstances(options) {
             spaceBetween: 30,
             direction: 'horizontal',
             loop: loop, // important: Set to 'false' when scrollbar is enabled
-            grabCursor: true,
+            grabCursor: false,
             initialSlide: options.initialSlide,
 
             // If we need pagination
