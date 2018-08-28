@@ -15,16 +15,28 @@ swiper:initialized
 Optional data-attributes for the .swiper-container:
 
 data-duration-per-slide="6000"
+
 Note: Duration in miliseconds
+
+---
 
 data-autoplay="false"
+
 Note: Not set (default) is "true"
 
+---
+
 data-transition-duration-desktop="4000"
+data-transition-duration-mobile="500"
+
 Note: Duration in miliseconds
 
-data-transition-duration-mobile="500"
-Note: Duration in miliseconds
+---
+
+data-transition-effect-mobile="fade"
+data-transition-effect-desktop="fade"
+
+Note: Only "fade" or "slide" are valid values. Anything else will break the slider.
 
 ===
 
@@ -74,11 +86,10 @@ export function initiSwiperInstances(options) {
     if (!options.fullscreen_active_class_delay) {
         options.fullscreen_active_class_delay = 300;
     }
-    // set effect depending on viewport width
-    var effect = 'slide';
+
+    // set default transition duration
     var transitionDurationBetweenSlides = options.transitionDurationBetweenSlides_mobile;
     if (viewport_width > 1024) {
-        effect = 'fade';
         transitionDurationBetweenSlides = options.transitionDurationBetweenSlides;
     }
 
@@ -87,8 +98,6 @@ export function initiSwiperInstances(options) {
 
         // init
         const $swiper_instance = $(this);
-        let instanceTransitionDurationBetweenSlides;
-        let finalTransitionDurationBetweenSlides;
 
         // determine number of slides
         let number_of_slides = $swiper_instance.find('.swiper-slide').length;
@@ -129,6 +138,8 @@ export function initiSwiperInstances(options) {
         }
 
         // transition between slides: desktop
+        let finalTransitionDurationBetweenSlides;
+        let instanceTransitionDurationBetweenSlides;
         if (viewport_width > 1024) {
             instanceTransitionDurationBetweenSlides = parseInt($swiper_instance.attr('data-transition-duration-desktop'));
         }
@@ -140,6 +151,21 @@ export function initiSwiperInstances(options) {
             finalTransitionDurationBetweenSlides = instanceTransitionDurationBetweenSlides;
         }else {
             finalTransitionDurationBetweenSlides = transitionDurationBetweenSlides;
+        }
+
+        // set effect: mobile
+        let finalEffect;
+        let effect = 'slide';
+        let instanceEffect = $swiper_instance.attr('data-transition-effect-mobile');
+        // set effect: desktop
+        if (viewport_width > 1024) {
+            effect = 'fade';
+            instanceEffect = $swiper_instance.attr('data-transition-effect-desktop');
+        }
+        if (instanceEffect.length > 0) {
+            finalEffect = instanceEffect;
+        }else {
+            finalEffect = effect;
         }
 
 
@@ -178,14 +204,14 @@ export function initiSwiperInstances(options) {
                     $counter.children('.swiper-counter__current').html(swiper.realIndex + 1);
                 }
             },
-            effect: effect,
+            effect: finalEffect,
             speed: finalTransitionDurationBetweenSlides, // Number: Duration of transition between slides (in ms)
             autoplay: durationPerSlide, // Number: Delay between transitions (in ms). If this parameter is not specified, auto play will be disabled
             slidesPerView: options.slidesPerView,
             spaceBetween: 30,
             direction: 'horizontal',
             loop: loop, // important: Set to 'false' when scrollbar is enabled
-            grabCursor: false,
+            grabCursor: true,
             initialSlide: options.initialSlide,
 
             // If we need pagination
