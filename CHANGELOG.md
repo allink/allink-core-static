@@ -31,7 +31,7 @@ Each release is divided into the following main categories:
 $textarea-min-height:                   5em;
 $textarea-max-height:                   60vh;
 ```
-- Swiper now supports instance specific transition durations between slides that can be set on the `swiper-container` via `data`-attributes.
+- `Swiper` now supports instance specific <strong>transition durations</strong> between slides and <strong>specific transition effects</strong> that can be set on the `swiper-container` via `data`-attributes.
 - Google Map now supports location specific pins by setting a `pin_url` (besides `lat`, `lng` and `infowindow_content`).
 - Video poster and source are now lazyloaded.
 - `softpage` and `default-modal` now support a `tingle-modal-header`. Details in both javascript files.
