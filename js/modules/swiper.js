@@ -125,10 +125,6 @@ export function initiSwiperInstances(options) {
 
         // local variable for loop. options.loop is a global setting for all swiper instances
         let loop = options.loop;
-        // disable loop when attribute data-autoplay on .swiper-default element is present
-        if ($swiper_instance.attr('data-autoplay') === "false") {
-            loop = false;
-        }
 
         // duration per slide
         let durationPerSlide = parseInt($swiper_instance.attr('data-duration-per-slide'));
@@ -162,7 +158,7 @@ export function initiSwiperInstances(options) {
             effect = 'fade';
             instanceEffect = $swiper_instance.attr('data-transition-effect-desktop');
         }
-        if (instanceEffect.length > 0) {
+        if (typeof instanceEffect !== 'undefined' && instanceEffect.length > 0) {
             finalEffect = instanceEffect;
         }else {
             finalEffect = effect;
