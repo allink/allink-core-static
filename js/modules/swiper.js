@@ -158,7 +158,7 @@ export function initiSwiperInstances(options) {
             effect = 'fade';
             instanceEffect = $swiper_instance.attr('data-transition-effect-desktop');
         }
-        if (typeof instanceEffect !== 'undefined' && instanceEffect.length > 0) {
+        if (typeof instanceEffect !== 'undefined') {
             finalEffect = instanceEffect;
         }else {
             finalEffect = effect;
