@@ -24,6 +24,7 @@
         display: block;
         position: absolute;
         @if $gradient-starts-from-bottom {
+            top: auto;
             bottom: 0;
         }else {
             top: 0;

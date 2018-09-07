@@ -4,6 +4,13 @@ Prevent the viewport dependent container height (e.g. 100vh)
 to be adjust when scrolling (resulting in smaller address bar)
 on some Android devices by setting the height inline
 
+Usage:
+
+Some websites have a fixed header with a background color, that is also taking up space.
+In such a case, we have to subtract the height of that header element:
+
+<div class="site-header-buffer" data-respect-my-height-to-calculate-full-height></div>
+
 */
 
 $(function(){
@@ -19,25 +26,26 @@ $(function(){
 
     function set_full_height() {
         // define the very minimum height of an element (very small screens or mobile devies in landscape)
-        var minimum_height = 450;
+        let minimum_height = 450;
+        let subtract_element_height = 0;
         // find elements
-        var elements = document.querySelectorAll('.full-height-enabled');
+        let elements = document.querySelectorAll('.full-height-enabled');
         if (elements.length > 0) {
+            let subtract_element = document.querySelector('[data-respect-my-height-to-calculate-full-height]');
+            if (subtract_element !== null) {
+                subtract_element_height = subtract_element.offsetHeight;
+            }
             // ..and looop through all items and set inline height
-            for (var element of elements) {
-                // NOT WORKING: get the calculated height of the element..
-                // Safari on iOS and Chrome on Android rendered 100vh to the height WITHOUT address bar
-                // https://stackoverflow.com/questions/37112218/css3-100vh-not-constant-in-mobile-browser
-                // var calculated_height_in_css = parseInt(getComputedStyle(element).minHeight);
+            for (let element of elements) {
                 // bullet-proof version: JS!
-                var calculated_height_in_css = $(window).height();
+                let calculated_height_in_css = $(window).height();
                 // in case of small screens in landscape mode, the height would be too small, so we apply a minimum height
                 if (calculated_height_in_css < 450) {
                     element.style.minHeight = minimum_height + 'px';
                 }
                 // oterhwise we set the calculated height
                 else {
-                    element.style.minHeight = calculated_height_in_css + 'px';
+                    element.style.minHeight = (calculated_height_in_css - subtract_element_height) + 'px';
                 }
             }
         }
