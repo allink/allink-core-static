@@ -101,6 +101,11 @@ Visually separate blocks
         }
     }
 
+    // fix input width of type "tel" size
+    form input[type="tel"] {
+        width: 100% !important;
+    }
+
     // inline fields padding fix
     .tabular table tbody td {
         padding-left: 2px !important;
