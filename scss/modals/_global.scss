@@ -67,6 +67,14 @@ body.tingle-enabled {
     &.tingle-modal--noOverlayClose {
         cursor: default;
     }
+    // reset positioning styles in print mode
+    @media print {
+        position: static;
+        display: block;
+        height: auto !important;
+        margin: 0 !important;
+        overflow: visible !important;
+    }
 }
 
 // fix for projects where the position property has been forgotten
