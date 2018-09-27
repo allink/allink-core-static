@@ -38,6 +38,12 @@ data-transition-effect-desktop="fade"
 
 Note: Only "fade" or "slide" are valid values. Anything else will break the slider.
 
+---
+
+data-randomize-slide-order
+
+Does exactly what it says..
+
 ===
 
 To enable the fullscreen mode of Swiper
@@ -129,8 +135,18 @@ export function initiSwiperInstances(options) {
         // duration per slide
         let durationPerSlide = parseInt($swiper_instance.attr('data-duration-per-slide'));
         // fallback: get option value
-        if (isNaN(durationPerSlide)) {
+        if (typeof instanceEffect !== 'undefined') {
             durationPerSlide = options.durationPerSlide;
+        }
+
+        // randomize slides?
+        let randomizeSlideOrder = parseInt($swiper_instance.attr('data-randomize-slide-order'));
+        if (typeof randomizeSlideOrder !== 'undefined') {
+            let $parent = $swiper_instance.find('.swiper-wrapper');
+            var $slides = $parent.children();
+            while ($slides.length) {
+                $parent.append($slides.splice(Math.floor(Math.random() * $slides.length), 1)[0]);
+            }
         }
 
         // transition between slides: desktop
