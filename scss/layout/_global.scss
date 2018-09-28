@@ -47,6 +47,23 @@ It has to be placed right after the `.site-header-buffer` in `base.html`
     visibility: hidden;
     width: 1px;
     @include set-site-header-compact-mode-height();
+    // we're gonna assign the content section spacing as width (so we don't need an extra element, which is fallback friendly), and use this value to add a scroll offset on elements that do not have a padding-top
+    width: $content-section-spacing-first-item-xs;
+    @media (min-width: $screen-sm) {
+        width: $content-section-spacing-first-item-sm;
+    }
+    @media (min-width: $screen-md) {
+        width: $content-section-spacing-first-item-md;
+    }
+    @media (min-width: $screen-lg) {
+        width: $content-section-spacing-first-item-lg;
+    }
+    @media (min-width: $screen-xl) {
+        width: $content-section-spacing-first-item-xl;
+    }
+    @media (min-width: $screen-xxl) {
+        width: $content-section-spacing-first-item-xxl;
+    }
 }
 
 

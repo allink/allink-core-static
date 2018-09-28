@@ -6,6 +6,20 @@ Inspired by: https://codepen.io/pawelgrzybek/pen/ZeomJB
 
 */
 
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+Requirements:
+
+The script requires the following markup right after the `.site-header-buffer` in `base.html`:
+
+<div class="smooth-scroll-header-compact-mode-size"></div>
+
+It is used to calculate the offset and the correct extra spacing.
+
+*/
+
+
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 
 Basic usage: Link
@@ -27,10 +41,6 @@ Specific offsets:
 Dynamic offset
 
 <a href="#id-of-target-element" data-smooth-scroll data-respect-compact-header-height>Smooth Scroll Link</a>
-
-The dynamic offset requires the following markup right after the `.site-header-buffer` in `base.html`:
-
-<div class="smooth-scroll-header-compact-mode-size"></div>
 
 */
 
@@ -70,7 +80,7 @@ Should the header height be respected, add the following attribute to the smooth
  * @param {function} callback - Optional callback invoked after animation
  */
 
-function scrollIt(destination, compact_header_offset, offset_xs, offset_md, duration , easing, callback) {
+function scrollIt(destination, compact_header_offset, content_section_spacing, offset_xs, offset_md, duration , easing, callback) {
 
     // Predefine list of available timing functions
     // If you need more, tween js is full of great examples
@@ -129,7 +139,16 @@ function scrollIt(destination, compact_header_offset, offset_xs, offset_md, dura
     }
     // dynamic offset is stronger than manual offset
     if( compact_header_offset > 0 ) {
-        offset = compact_header_offset;
+        // Respect site-header-buffer size when respecting compact header offset offset
+        const siteHeaderBufferHeight = $('.site-header-buffer').outerHeight();
+        offset = compact_header_offset - siteHeaderBufferHeight;
+    }
+
+    // in case the content sectino has a margin-top (which means it doesn't have a padding-top), subtract our content section spacing to leave some room
+    const destinationPadding = parseInt($(destination).css('padding-top'), 10);
+    // leave a little bit of room for destination without padding or margin
+    if (destinationPadding === 0) {
+        offset = offset - content_section_spacing;
     }
 
     // Store initial position of a window and time
@@ -145,6 +164,7 @@ function scrollIt(destination, compact_header_offset, offset_xs, offset_md, dura
     // Resolve destination type (node or number)
     const documentHeight = Math.max(document.body.scrollHeight, document.body.offsetHeight, document.documentElement.clientHeight, document.documentElement.scrollHeight, document.documentElement.offsetHeight);
     const windowHeight = window.innerHeight || document.documentElement.clientHeight || document.getElementsByTagName('body')[0].clientHeight;
+
     const destinationOffset = (typeof destination === 'number' ? destination : destination.offsetTop) - offset;
     const destinationOffsetToScroll = Math.round(documentHeight - destinationOffset < windowHeight ? documentHeight - windowHeight : destinationOffset);
 
@@ -193,7 +213,7 @@ function handleSmoothScroll(url, $trigger) {
     // target not found? adios!
     var $target = $(hash);
     if ($target.length === 0) {
-        console.warn('Smooth scroll target with selector "' + url + '"" could not be found in the DOM');
+        console.warn('allink-core-static: Smooth scroll target with selector "' + url + '"" could not be found in the DOM.');
         return false;
     }
     // defaults
@@ -202,18 +222,20 @@ function handleSmoothScroll(url, $trigger) {
     var offset_md = 0;
     var scroll_duration = 300;
     var scroll_easing = 'easeInOutQuad';
+
+    var $compact_header_sizer = $('.smooth-scroll-header-compact-mode-size');
+    if ($compact_header_sizer.length > 0) {
+        var respect_compact_header_height = $compact_header_sizer.attr('data-respect-compact-header-height');
+        if (typeof respect_compact_header_height !== 'undefined') {
+            compact_header_offset = $compact_header_sizer.outerHeight();
+        }
+        var content_section_spacing = $compact_header_sizer.width();
+    }else {
+        console.warn('allink-core-static: The ".smooth-scroll-header-compact-mode-size" element is missing in the DOM.');
+    }
+
     // case 1: trigger
     if (typeof $trigger !== 'undefined') {
-        // optional: offset (priority 1): use compact header height as offset (to make sure the scroll target is visible)
-        var respect_compact_header_height = $trigger.attr('data-respect-compact-header-height');
-        if (typeof respect_compact_header_height !== 'undefined') {
-            var $compact_header_sizer = $('.smooth-scroll-header-compact-mode-size');
-            if ($compact_header_sizer.length > 0) {
-                compact_header_offset = $compact_header_sizer.outerHeight();
-            }else {
-                console.warn('".smooth-scroll-header-compact-mode-size" element is missing in the DOM');
-            }
-        }
         // optional: offset (priority 2): manually set offset for XS breakpoint
         var offset_xs_from_attribute = $trigger.attr('data-offset-xs');
         if (offset_xs_from_attribute) {
@@ -235,24 +257,13 @@ function handleSmoothScroll(url, $trigger) {
             scroll_easing = scroll_easing_from_attribute;
         }
     }
-    // case 2: on page load
-    else {
-        var $compact_header_sizer = $('.smooth-scroll-header-compact-mode-size');
-        if ($compact_header_sizer.length > 0) {
-            var respect_compact_header_height = $compact_header_sizer.attr('data-respect-compact-header-height');
-            if (typeof respect_compact_header_height !== 'undefined') {
-                compact_header_offset = $compact_header_sizer.outerHeight();
-            }
-        }else {
-            console.warn('".smooth-scroll-header-compact-mode-size" element is missing in the DOM')
-        }
-    }
     // trigger custom event
     $(window).trigger('smooth-scroll:before');
     // scroll!
     scrollIt(
         $target.get(0),
         compact_header_offset,
+        content_section_spacing,
         offset_xs,
         offset_md,
         scroll_duration,
@@ -292,6 +303,12 @@ function initSmoothScroll() {
                         // init target
                         e.preventDefault();
                         var url = $trigger.attr('href');
+                        // in case the trigger is within a modal, close modal
+                        if ($trigger.parents('.tingle-modal')) {
+                            $(window).trigger('closeSoftpage');
+                            $(window).trigger('closeFormModal');
+                            $(window).trigger('closeDefaultModal');
+                        }
                         // let me handle that
                         handleSmoothScroll(url, $trigger);
                     }
