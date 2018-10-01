@@ -165,9 +165,8 @@ function scrollIt(destination, compact_header_offset, content_section_spacing, o
     const documentHeight = Math.max(document.body.scrollHeight, document.body.offsetHeight, document.documentElement.clientHeight, document.documentElement.scrollHeight, document.documentElement.offsetHeight);
     const windowHeight = window.innerHeight || document.documentElement.clientHeight || document.getElementsByTagName('body')[0].clientHeight;
 
-    const destinationOffset = (typeof destination === 'number' ? destination : destination.offsetTop) - offset;
+    const destinationOffset = (typeof destination === 'number' ? destination : Math.round(getOffsetTop(destination))) - offset;
     const destinationOffsetToScroll = Math.round(documentHeight - destinationOffset < windowHeight ? documentHeight - windowHeight : destinationOffset);
-
 
     // If requestAnimationFrame is not supported
     // Move window to destination position and trigger callback function
@@ -179,7 +178,6 @@ function scrollIt(destination, compact_header_offset, content_section_spacing, o
         return;
     }
 
-
     // function resolves position of a window and moves to exact amount of pixels
     // Resolved by calculating delta and timing function choosen by user
     function scroll() {
@@ -190,7 +188,7 @@ function scrollIt(destination, compact_header_offset, content_section_spacing, o
 
         // Stop requesting animation when window reached its destination
         // And run a callback function
-        if (window.pageYOffset === destinationOffsetToScroll) {
+        if (Math.round(window.pageYOffset) === destinationOffsetToScroll) {
             if (callback) {
                 callback();
             }
@@ -205,6 +203,13 @@ function scrollIt(destination, compact_header_offset, content_section_spacing, o
 
     // Invoke scroll and sequential requestAnimationFrame
     scroll();
+}
+
+function getOffsetTop(el) {
+    // inspiration: https://plainjs.com/javascript/styles/get-the-position-of-an-element-relative-to-the-document-24/
+    let rect = el.getBoundingClientRect(),
+    scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    return (rect.top + scrollTop);
 }
 
 function handleSmoothScroll(url, $trigger) {
