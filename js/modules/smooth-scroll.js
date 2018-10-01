@@ -139,16 +139,14 @@ function scrollIt(destination, compact_header_offset, content_section_spacing, o
     }
     // dynamic offset is stronger than manual offset
     if( compact_header_offset > 0 ) {
-        // Respect site-header-buffer size when respecting compact header offset offset
-        const siteHeaderBufferHeight = $('.site-header-buffer').outerHeight();
-        offset = compact_header_offset - siteHeaderBufferHeight;
+        offset = compact_header_offset;
     }
 
     // in case the content sectino has a margin-top (which means it doesn't have a padding-top), subtract our content section spacing to leave some room
     const destinationPadding = parseInt($(destination).css('padding-top'), 10);
     // leave a little bit of room for destination without padding or margin
     if (destinationPadding === 0) {
-        offset = offset - content_section_spacing;
+        offset = offset + content_section_spacing;
     }
 
     // Store initial position of a window and time
