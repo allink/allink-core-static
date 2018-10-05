@@ -47,6 +47,11 @@ p {
     }
 }
 
+// prevent phone link line breaks
+a[href^="tel"] {
+    white-space: nowrap;
+}
+
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 
