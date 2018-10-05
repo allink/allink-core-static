@@ -8,8 +8,8 @@ $(function(){
 
         */
 
-        // all input types including textarea and datepicker
-        let $form_element = $('.form-control, .radio-group input, .checkbox input');
+        // all input types including textarea
+        let $form_element = $('.form-control:not(.datepicker), .radio-group input, .checkbox input');
         let form_group_selector = '.form-group';
         let form_group_focus_class = 'form-group--has-focus';
         $form_element.focusin(function(){
@@ -28,6 +28,16 @@ $(function(){
         });
         $('.form-control').on('hidden.bs.select', function (e) {
             let $element = $(e.target);
+            $element.parents(form_group_selector).first().removeClass(form_group_focus_class);
+        });
+
+        // datepicker
+        $(window).on('datepicker:opened', function(e, instance){
+            let $element = $(instance.altInput);
+            $element.parents(form_group_selector).first().addClass(form_group_focus_class);
+        });
+        $(window).on('datepicker:closed', function(e, instance){
+            let $element = $(instance.altInput);
             $element.parents(form_group_selector).first().removeClass(form_group_focus_class);
         });
 
