@@ -184,7 +184,7 @@ $(function(){
     initFormModifications();
 
     // custom event
-    $(window).on('initFormModifications ajaxForm:success softpage:opened form-modal:opened', function() {
+    $(window).on('initFormModifications ajaxForm:success default-modal:opened softpage:opened form-modal:opened', function() {
         initFormModifications();
     });
 
