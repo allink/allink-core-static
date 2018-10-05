@@ -4,6 +4,36 @@ $(function(){
 
         /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 
+        Set focus-class on focused form-group in order to style labels
+
+        */
+
+        // all input types including textarea and datepicker
+        let $form_element = $('.form-control, .radio-group input, .checkbox input');
+        let form_group_selector = '.form-group';
+        let form_group_focus_class = 'form-group--has-focus';
+        $form_element.focusin(function(){
+            let $element = $(this);
+            $element.parents(form_group_selector).first().addClass(form_group_focus_class);
+        });
+        $form_element.focusout(function(){
+            let $element = $(this);
+            $element.parents(form_group_selector).first().removeClass(form_group_focus_class);
+        });
+
+        // bootstrap select
+        $('.form-control').on('shown.bs.select', function (e) {
+            let $element = $(e.target);
+            $element.parents(form_group_selector).first().addClass(form_group_focus_class);
+        });
+        $('.form-control').on('hidden.bs.select', function (e) {
+            let $element = $(e.target);
+            $element.parents(form_group_selector).first().removeClass(form_group_focus_class);
+        });
+
+
+        /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
         Submit form from trigger (that is not an input type 'submit')
 
         */

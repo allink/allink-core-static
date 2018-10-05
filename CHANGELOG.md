@@ -20,6 +20,7 @@ Each release is divided into the following main categories:
   $newsletter-form-modal-max-width-xxl:        550px;
 ```
 ### NEW
+- Form: `.form-group` now gets the modifier class `.form-group--has-focus` when the form field is focused. No default styles, they have to be added on a project basis.
 - `smooth-scroll`: Updated logic, now uses correct spacing.
 - `Swiper`: Now able to randomize slide order by setting `data-randomize-slide-order` on the `.slider-container`.
 - Textrea: New default styles and variables available:
