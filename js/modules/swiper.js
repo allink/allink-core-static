@@ -140,7 +140,7 @@ export function initiSwiperInstances(options) {
         }
 
         // randomize slides?
-        let randomizeSlideOrder = parseInt($swiper_instance.attr('data-randomize-slide-order'));
+        let randomizeSlideOrder = $swiper_instance.attr('data-randomize-slide-order');
         if (typeof randomizeSlideOrder !== 'undefined') {
             let $parent = $swiper_instance.find('.swiper-wrapper');
             var $slides = $parent.children();
