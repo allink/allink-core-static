@@ -20,6 +20,7 @@ Each release is divided into the following main categories:
   $newsletter-form-modal-max-width-xxl:        550px;
 ```
 ### NEW
+- `softpage`: Command, Ctrl and Shift key pressed down when clicking on softpage link now doesn't trigger the modal anymore.
 - Typo: Prevent phone link line breaks
 - Form: `.form-group` now gets the modifier class `.form-group--has-focus` when the form field is focused. No default styles, they have to be added on a project basis.
 - `smooth-scroll`: Updated logic, now uses correct spacing.
