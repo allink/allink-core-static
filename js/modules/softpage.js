@@ -51,7 +51,7 @@ $(function(){
             // do stuff slighty delayed, so we get all the information we need
             setTimeout(function(){
                 // init page meta
-                var modal_url = obj.modal.modal.baseURI;
+                var modal_url = location.pathname;
                 var modal_page_title_element = obj.modal.modalBoxContent.querySelector('#softpage-page-title');
                 var modal_page_title = '';
                 // Info for developer, that #softpage-page-title is missing on the detail page
