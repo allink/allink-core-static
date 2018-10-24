@@ -76,3 +76,4 @@ $textarea-max-height:                   60vh;
 - Site Overlay: In case `click-close-enabled` is active, the cursor is now correctly set to pointer.
 - Map: Only add click event listener to marker if infobox content is given.
 - Swiper: Fixed randomize slider bug (removed parseInt)
+- Softpage: Fixed Browser History when opening a softpage
