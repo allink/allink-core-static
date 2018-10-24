@@ -58,4 +58,14 @@ $(function(){
         });
     }
 
+
+    /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+    Open/trigger structure view when 'View structure' button (in admin edit view) has been clicked
+
+    */
+
+    if (location.search.indexOf('?structure') > -1) {
+        window.top.CMS.$('.cms-toolbar-item-cms-mode-switcher a').first().not('.cms-btn-active').trigger('click');
+    }
 });
