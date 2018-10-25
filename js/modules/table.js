@@ -23,6 +23,8 @@ export function initTableModifications() {
             var table_width = $table.outerWidth();
             if (table_width > container_width) {
                 $container.addClass('scrolling-enabled');
+            }else {
+                $container.removeClass('scrolling-enabled');
             }
         });
         var container_width = $container.outerWidth();
@@ -36,12 +38,7 @@ $(function(){
     initTableModifications();
 
     // custom event
-    $(window).on('initTableModifications', function() {
-        initTableModifications();
-    });
-
-    // when vietport width changes
-    $(window).on('viewportWidthHasChanged', function(){
+    $(window).on('initTableModifications viewportWidthHasChanged softpage:opened default-modal:opened form-modal:opened', function() {
         initTableModifications();
     });
 
