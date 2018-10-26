@@ -147,12 +147,12 @@ $(function(){
                         if (typeof softpage_already_toggled !== 'undefined' && softpage_already_toggled !== false) {
                             return true;
                         }
-                        // instantly toggle site overlay (improves "felt performance")
-                        $(window).trigger('showSiteOverlay');
                         // only trigger softpage when NONE of the following keys are pressed
                         if (event.ctrlKey || event.metaKey || event.shiftKey) {
                             // do default stuff
                         }else {
+                            // instantly toggle site overlay (improves "felt performance")
+                            $(window).trigger('showSiteOverlay');
                             // load softpage
                             event.preventDefault();
                             softpage.loadPage(href, true, softpage_content_id);
