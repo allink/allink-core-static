@@ -27,6 +27,32 @@ Optional (loading content of a specific element):
     ...
 </div>
 
+App Detail: Optional modal header markup (to be added in e.g. news_detail.html):
+
+<div class="modal-header-markup" style="display: none;">
+    <h2 class="tingle-modal-header__heading">
+        {{ object.title }}
+    </h2>
+    <a class="tingle-modal-header__link-close" href="#" data-close-softpage>
+        <span class="sr-only">
+            {% trans "Close" %}
+        </span>
+    </a>
+</div>
+
+CMS Page in Softpage: Modal Header Markup (which has to be an IMMEDIATE CHILD of the modal trigger) example:
+
+<div class="modal-header-markup" style="display: none;">
+    <h2 class="tingle-modal-header__heading">
+        {{ title }}
+    </h2>
+    <a class="tingle-modal-header__link-close" href="#" data-close-form-modal>
+        <span class="sr-only">
+            {% trans "Close" %}
+        </span>
+    </a>
+</div>
+
 Custom Events:
 
 softpage:opened
@@ -48,6 +74,15 @@ $(function(){
         onPageLoaded: function(obj) {
             // scroll to top everytime a softpage is opened
             obj.modal.modal.querySelector('.tingle-modal-box').scrollTop = 0;
+            // check if header markup exists and set
+            let $header_markup = $(obj.modal.modal).find('.modal-header-markup');
+            if ($header_markup.length > 0) {
+                let $header_markup_container = $('<div class="tingle-modal-header"></div>');
+                $(obj.modal.modal).prepend($header_markup_container);
+                $header_markup_container.prepend($header_markup.html());
+            }
+            // trigger custom events
+            $(window).trigger('initSoftpageCloseTrigger');
             // do stuff slighty delayed, so we get all the information we need
             setTimeout(function(){
                 // init page meta
@@ -67,22 +102,33 @@ $(function(){
                     });
                 }
                 // trigger custom events
-                $(window).trigger('softpage:opened');
                 $(window).trigger('initSoftpageTrigger');
                 $(window).trigger('initOnScreen');
                 $(window).trigger('initiSwiperInstances');
+                // clean content in case of CMS page
+                var $softpage = $('.tingle-modal.softpage');
+                var is_cms_page = $softpage.attr('data-cms-page');
+                if (typeof is_cms_page !== 'undefined' && is_cms_page !== false) {
+                    cleanupSoftpageMarkup($softpage);
+                }else {
+                    $(window).trigger('softpage:opened');
+                }
             },50);
         },
         onSoftpageClosed: function (obj) {
+            // init
+            let $modal = $(obj.modal.modal);
             // hide site overlay
             $(window).trigger('hideSiteOverlay');
             $(window).trigger('softpage:closed');
             // remove variation definition
-            $(obj.modal.modal).removeAttr('data-softpage-variation');
+            $modal.removeAttr('data-softpage-variation');
             // remove any content (issue: video was still playing)
-            $(obj.modal.modal).find('.tingle-modal-box__content').empty();
+            $modal.find('.tingle-modal-box__content').empty();
             // remove flag on html element
             $('html').removeClass('softpage-visible');
+            // remove header
+            $modal.find('.tingle-modal-header').remove();
         },
         onBeforeClose: function(){
             // prevent closing of the softpage as long as..
@@ -111,6 +157,10 @@ $(function(){
             // init
             var $trigger = $(this);
             var initialized_attr = 'data-trigger-initialized';
+            // trigger not visible? Adios!
+            if($trigger.is(':visible') === false) {
+                return true;
+            }
             // check for initialized trigger
             var trigger_initialized = $trigger.attr(initialized_attr);
             // NOT initialized yet
@@ -147,6 +197,13 @@ $(function(){
                         if (typeof softpage_already_toggled !== 'undefined' && softpage_already_toggled !== false) {
                             return true;
                         }
+                        // check if header markup exists and set
+                        let $header_markup = $trigger.siblings('.modal-header-markup')
+                        if ($header_markup.length > 0) {
+                            let $header_markup_container = $('<div class="tingle-modal-header"></div>');
+                            $(softpage.modal.modal).prepend($header_markup_container);
+                            $header_markup_container.prepend($header_markup.html());
+                        }
                         // only trigger softpage when NONE of the following keys are pressed
                         if (event.ctrlKey || event.metaKey || event.shiftKey) {
                             // do default stuff
@@ -157,6 +214,9 @@ $(function(){
                             event.preventDefault();
                             softpage.loadPage(href, true, softpage_content_id);
                         }
+                        // load softpage
+                        event.preventDefault();
+                        softpage.loadPage(href, true, softpage_content_id);
                         // fixes bug in firefox: softpage text was selected - let's remove any selection
                         document.getSelection().removeAllRanges();
                     }
@@ -172,30 +232,55 @@ $(function(){
         softpage.closeSoftpage();
     }
 
+    function cleanupSoftpageMarkup($softpage) {
+        // init
+        var $softpage_content_container = $softpage.find('.tingle-modal-box__content');
+        // select/store the content we want to put inside the modal box content
+        var $ajax_page_container = $softpage.find('.site-content').children();
+        // empty the box content and append the just stored markup
+        $softpage_content_container.empty().append($ajax_page_container);
+        // trigger custom event
+        $(window).trigger('softpage:opened');
+    }
+
     // on page load
     initSoftpageTrigger();
 
     // custom events
-    $(window).on('initSoftpageTrigger ajaxForm:success', function() {
+    $(window).on('initSoftpageTrigger ajaxForm:success default-modal:opened', function() {
         initSoftpageTrigger();
     });
     $(window).on('closeSoftpage', function() {
         closeSoftpage();
     });
 
-    // clean up content when a CMS page is about to be displayed within a softpage
-    $(window).on('softpage:opened',function(){
+
+    /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+    Init close triggers
+
+    */
+
+    function initSoftpageCloseTrigger() {
+
         // init
-        var $softpage = $('.softpage');
-        // check if CMS page attribute is set
-        var $softpage_content_container = $softpage.find('.tingle-modal-box__content');
-        var is_cms_page = $softpage.attr('data-cms-page');
-        if (typeof is_cms_page !== 'undefined' && is_cms_page !== false) {
-            // select/store the content we want to put inside the modal box content
-            var $ajax_page_container = $softpage.find('.site-content').children();
-            // empty the box content and append the just stored markup
-            $softpage_content_container.empty().append($ajax_page_container);
+        var $modal_close_toggles = $('.close-softpage,[data-close-softpage]');
+        // look for triggers
+        if ($modal_close_toggles.length > 0) {
+            $modal_close_toggles.each(function(){
+                // init
+                var $toggle = $(this);
+                $toggle.on('click', function(e) {
+                    e.preventDefault();
+                    softpage.closeSoftpage();
+                });
+            });
         }
+    }
+
+    // custom event
+    $(window).on('initSoftpageCloseTrigger', function() {
+        initSoftpageCloseTrigger();
     });
 
 });
