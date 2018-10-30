@@ -122,9 +122,9 @@ $(function(){
             $(window).trigger('hideSiteOverlay');
             $(window).trigger('softpage:closed');
             // remove variation definition
-            $modal.removeAttr('data-softpage-variation');
+            $(obj.modal.modal).removeAttr('data-softpage-variation');
             // remove any content (issue: video was still playing)
-            $modal.find('.tingle-modal-box__content').empty();
+            $(obj.modal.modal).find('.tingle-modal-box__content').empty();
             // remove flag on html element
             $('html').removeClass('softpage-visible');
             // remove header
@@ -214,9 +214,6 @@ $(function(){
                             event.preventDefault();
                             softpage.loadPage(href, true, softpage_content_id);
                         }
-                        // load softpage
-                        event.preventDefault();
-                        softpage.loadPage(href, true, softpage_content_id);
                         // fixes bug in firefox: softpage text was selected - let's remove any selection
                         document.getSelection().removeAllRanges();
                     }
