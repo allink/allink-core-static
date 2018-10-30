@@ -193,8 +193,8 @@ export function initiSwiperInstances(options) {
                 // leave a flag when an instance has been initialized in order to prevent re-initialization
                 $swiper_instance.addClass('swiper-initialized');
                 // trigger custom event
-                $(window).trigger('initSoftpageTrigger');
-                $(window).trigger('swiper:initialized');
+                $(window).trigger('initSoftpageTrigger', [swiper, $swiper_instance]);
+                $(window).trigger('swiper:initialized', [swiper, $swiper_instance]);
 
                 if ($counter) {
                     $counter.children('.swiper-counter__total').html(number_of_slides);
@@ -207,10 +207,10 @@ export function initiSwiperInstances(options) {
                 }
             },
             onSlideChangeStart: function(swiper) {
-                $(window).trigger('swiper:onSlideChangeStart');
+                $(window).trigger('swiper:onSlideChangeStart', [swiper, $swiper_instance]);
             },
             onSlideChangeEnd: function(swiper) {
-                $(window).trigger('swiper:onSlideChangeEnd');
+                $(window).trigger('swiper:onSlideChangeEnd', [swiper, $swiper_instance]);
                 // if counter dom node exists in template
                 if ($counter) {
                     $counter.children('.swiper-counter__current').html(swiper.realIndex + 1);
