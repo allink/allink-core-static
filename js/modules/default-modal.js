@@ -141,12 +141,16 @@ $(function(){
         // set content
         // set modal content and open
         default_modal.setContent($content_container.html());
-        // check if header markup exists and set
-        let $header_markup = $content_container.find('.modal-header-markup');
+        // check if header markup exists, but only get the first one
+        let $header_markup = $content_container.find('.modal-header-markup').first();
         if ($header_markup.length > 0) {
-            let $header_markup_container = $('<div class="tingle-modal-header"></div>');
-            $(default_modal.modal).prepend($header_markup_container);
-            $header_markup_container.prepend($header_markup.html());
+            // in case the first header markup element is preceeded by a button link plugin link, then ignore it since it does NOT what we want here
+            let belongs_to_button_link_plugin = $header_markup.prev().hasClass('button-link-plugin__link');
+            if (belongs_to_button_link_plugin === false) {
+                let $header_markup_container = $('<div class="tingle-modal-header"></div>');
+                $(default_modal.modal).prepend($header_markup_container);
+                $header_markup_container.prepend($header_markup.html());
+            }
         }
         // modal-header-markup
         default_modal.open();
