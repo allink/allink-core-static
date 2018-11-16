@@ -74,8 +74,9 @@ $(function(){
         onPageLoaded: function(obj) {
             // scroll to top everytime a softpage is opened
             obj.modal.modal.querySelector('.tingle-modal-box').scrollTop = 0;
-            // check if header markup exists and set
-            let $header_markup = $(obj.modal.modal).find('.modal-header-markup');
+            // app detail: check if header markup exists and set
+            // IMPORTANT: It needs to be an immediate child of .tingle-modal-box__content
+            let $header_markup = $(obj.modal.modal).find('.tingle-modal-box__content > .modal-header-markup');
             if ($header_markup.length > 0) {
                 let $header_markup_container = $('<div class="tingle-modal-header"></div>');
                 $(obj.modal.modal).prepend($header_markup_container);
@@ -201,8 +202,8 @@ $(function(){
                         let $header_markup = $trigger.siblings('.modal-header-markup')
                         if ($header_markup.length > 0) {
                             let $header_markup_container = $('<div class="tingle-modal-header"></div>');
-                            $(softpage.modal.modal).prepend($header_markup_container);
                             $header_markup_container.prepend($header_markup.html());
+                            $(softpage.modal.modal).prepend($header_markup_container);
                         }
                         // only trigger softpage when NONE of the following keys are pressed
                         if (event.ctrlKey || event.metaKey || event.shiftKey) {
