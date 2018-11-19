@@ -107,31 +107,55 @@ $(function(){
         */
 
         $( '.custom-file-upload' ).each( function() {
-            var $container = $(this),
+            const $container = $(this),
+
+                // init
                 $input = $container.find( 'input' ),
                 $label = $container.find( 'label' ),
+                $custom_text_container = $container.find( '.custom-file-upload__text' ),
+                labelSelectedText = $label.attr('data-label-file-selected'),
                 labelVal = $label.html();
 
-            $input.on( 'change', function( e ) {
-                var fileName = '';
+                // remove event listener (cloning of multi file upload caused an issue)
+                $input.off('change');
 
-                if( this.files && this.files.length > 1 )
-                    fileName = ( this.getAttribute( 'data-multiple-caption' ) || '' ).replace( '{count}', this.files.length );
-                else if( e.target.value )
-                    fileName = e.target.value.split( '\\' ).pop();
+                // add event listener
+                $input.on( 'change', function( e ) {
+                    var fileName = '';
 
-                if( fileName ) {
-                    $container.addClass('file-selected');
-                    $label.html( fileName );
-                } else {
-                    $label.html( labelVal );
-                }
-            });
+                    if( this.files && this.files.length > 1 )
+                        fileName = ( this.getAttribute( 'data-multiple-caption' ) || '' ).replace( '{count}', this.files.length );
+                    else if( e.target.value )
+                        fileName = e.target.value.split( '\\' ).pop();
 
-            // Firefox bug fix
-            $input
-            .on( 'focus', function(){ $input.addClass( 'has-focus' ); })
-            .on( 'blur', function(){ $input.removeClass( 'has-focus' ); });
+                    if( fileName ) {
+                        $container.addClass('file-selected');
+                        if ($custom_text_container.length > 0) {
+                            $custom_text_container.html( fileName );
+                        }else {
+                            $label.html( fileName );
+                        }
+                        // set custom text
+                        if (labelSelectedText) {
+                            $label.html( labelSelectedText );
+                        }
+                    } else {
+                        if ($custom_text_container.length > 0) {
+                            $custom_text_container.html( labelVal );
+                        }else {
+                            $label.html( labelVal );
+                        }
+                    }
+
+                    // trigger custom event
+                    $(window).trigger('custom-file-upload:success', [$container]);
+
+                });
+
+                // Firefox bug fix
+                $input
+                .on( 'focus', function(){ $input.addClass( 'has-focus' ); })
+                .on( 'blur', function(){ $input.removeClass( 'has-focus' ); });
         });
 
     }
