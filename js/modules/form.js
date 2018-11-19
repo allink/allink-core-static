@@ -112,8 +112,6 @@ $(function(){
                 // init
                 $input = $container.find( 'input' ),
                 $label = $container.find( 'label' ),
-                $custom_text_container = $container.find( '.custom-file-upload__text' ),
-                labelSelectedText = $label.attr('data-label-file-selected'),
                 labelVal = $label.html();
 
                 // remove event listener (cloning of multi file upload caused an issue)
@@ -130,25 +128,14 @@ $(function(){
 
                     if( fileName ) {
                         $container.addClass('file-selected');
-                        if ($custom_text_container.length > 0) {
-                            $custom_text_container.html( fileName );
-                        }else {
-                            $label.html( fileName );
-                        }
-                        // set custom text
-                        if (labelSelectedText) {
-                            $label.html( labelSelectedText );
-                        }
+                        $label.html( fileName );
                     } else {
-                        if ($custom_text_container.length > 0) {
-                            $custom_text_container.html( labelVal );
-                        }else {
-                            $label.html( labelVal );
-                        }
+                        $container.removeClass('file-selected');
+                        $label.html( labelVal );
                     }
 
                     // trigger custom event
-                    $(window).trigger('custom-file-upload:success', [$container]);
+                    $(window).trigger('custom-file-upload:file-selected', [$container]);
 
                 });
 

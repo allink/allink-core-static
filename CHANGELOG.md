@@ -20,7 +20,6 @@ Each release is divided into the following main categories:
   $newsletter-form-modal-max-width-xxl:        550px;
 ```
 ### NEW
-- Custom File Upload: Updated `form.js` to add support for multi file uploads (markup, scripts and styles developed in Schreiner48).
 - CMS Structure: Added trigger to open cms structure from admin edit view
 - `softpage`: Command, Ctrl and Shift key pressed down when clicking on softpage link now doesn't trigger the modal anymore.
 - Typo: Prevent phone link line breaks
