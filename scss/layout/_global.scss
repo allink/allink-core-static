@@ -24,6 +24,9 @@ html{
         overflow: hidden;
     }
 
+    // IE and Edge Scrollbar Fixes
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+
 }
 
 body {
