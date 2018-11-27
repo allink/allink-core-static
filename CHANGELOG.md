@@ -9,6 +9,7 @@ Each release is divided into the following main categories:
 ## v1.0.x (under development)
 
 ### IMPORTANT
+- Video Updates (conditional loading of video source): Requires latest core markup of `allink_core/core_apps/allink_content/templates/allink_content/content_base.html` and `allink_core/core_apps/allink_video/templates/allink_video/file/content.html`.
 - Newsletter: Added new plugin with new variables. Make sure to add `@import "~bootstrap-sass/assets/stylesheets/bootstrap/component-animations";` in `static/scss/bootstrap/_bootstrap.scss`.
 ```SCSS
   // collapse and checkmark icons and checkmark icon color

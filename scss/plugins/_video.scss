@@ -41,6 +41,11 @@
             transition-property: $video-controls-transition-property;
             transition-duration: $video-controls-transition-duration;
             transition-timing-function: $video-controls-transition-timing-function;
+            // on mobile, show controls in any case
+            @media (max-width:$screen-sm-max) {
+                visibility: visible;
+                opacity: 1;
+            }
         }
         @if $video-controls-image-path-play {
             span {
@@ -84,12 +89,21 @@
             }
         }
     }
-    // playing
+    // on pause
     &.on-pause {
         .video-controls {
             span {
                 visibility: visible;
                 opacity: 1;
+            }
+        }
+    }
+    // playing
+    &.playing {
+        .video-controls {
+            span {
+                visibility: hidden;
+                opacity: 0;
             }
         }
     }

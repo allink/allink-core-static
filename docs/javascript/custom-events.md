@@ -16,3 +16,14 @@ $(window).on('hideSiteOverlay', function() {
     hideSiteOverlay();
 });
 ```
+
+### Passing the instance of e.g. a datepicker as a paremeter
+
+```JS
+// trigger custom event and pass instance
+$(window).trigger('datepicker:ready', [instance]);
+// listen to event and get value
+$(window).on('datepicker:ready', function (event, instance) {
+    console.log(instance);
+}
+```
