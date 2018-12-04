@@ -212,7 +212,7 @@ function getOffsetTop(el) {
 
 function handleSmoothScroll(url, $trigger) {
     // clean hash
-    var hash = url.substring(url.indexOf('#'));
+    var hash = (url.indexOf('#') > -1 && url.indexOf('#/') === -1) ? url.substring(url.indexOf('#')) : ''; // workaround for hash-based routing (i.e. vue-router)
     // target not found? adios!
     var $target = $(hash);
     if ($target.length === 0) {

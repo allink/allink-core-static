@@ -80,3 +80,4 @@ $textarea-max-height:                   60vh;
 - Map: Only add click event listener to marker if infobox content is given.
 - Swiper: Fixed randomize slider bug (removed parseInt)
 - Softpage: Fixed Browser History when opening a softpage
+- Smooth Scroll: Added workaround for hash-based routing (i.e. vue-router)
