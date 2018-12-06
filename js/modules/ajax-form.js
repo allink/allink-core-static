@@ -26,6 +26,7 @@ Important:
 Obviously, the container ID ("example-form-container") has to be unique, not just to pass the HTML validator.
 
 */
+import docCookies from './docCookies';
 
 export function sendAjaxForm($form) {
 
@@ -36,7 +37,7 @@ export function sendAjaxForm($form) {
     var ajax_response_container_id = $form.attr('data-ajax-response-container-id');
     // we now support file uploads, too
     var formData = new FormData($form[0]);
-    $form.find('[type="file"]').each(function(){
+    $form.find('[type="file"]').each(function () {
         // init
         var $input = $(this);
         var id = $input.attr('id');
@@ -73,9 +74,9 @@ export function sendAjaxForm($form) {
         contentType: false,
         cache: false,
         timeout: 600000,
-        url : url,
-        data : formData,
-        success:function(data, textStatus, jqXHR) {
+        url: url,
+        data: formData,
+        success: function (data, textStatus, jqXHR) {
             // do we get a custom URL from view?
             if (data.success_url) {
                 window.location.href = data.success_url;
@@ -86,7 +87,7 @@ export function sendAjaxForm($form) {
                 // toggle class on plugin container if the response contains the string 'no-results-container'
                 if (data.no_results === true) {
                     $ajax_response_container.addClass('app-list__no-results');
-                }else {
+                } else {
                     $ajax_response_container.removeClass('app-list__no-results');
                 }
             }
@@ -118,9 +119,31 @@ export function sendAjaxForm($form) {
             // reveals next section in case there are no results when filtering
             $(window).trigger('initOnScreen');
         },
-        error: function(jqXHR, textStatus, errorThrown) {
+        error: function (jqXHR, textStatus, errorThrown) {
             // if something goes wrong
             $(window).trigger('ajaxForm:error');
+        }
+    });
+
+}
+
+export function setupAjax() {
+    /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+    ajaxSetup (csrftoken)
+
+    */
+    function csrfSafeMethod(method) {
+        // these HTTP methods do not require CSRF protection
+        return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+    }
+
+    var csrftoken = docCookies.getItem('csrftoken');
+    $.ajaxSetup({
+        beforeSend: function (xhr, settings) {
+            if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+                xhr.setRequestHeader("X-CSRFToken", csrftoken);
+            }
         }
     });
 
@@ -130,13 +153,13 @@ export function initAjaxForm() {
 
     // find .ajax-form elements and loop!
     let ajax_forms = document.querySelectorAll('.ajax-form');
-    if(ajax_forms.length > 0) {
+    if (ajax_forms.length > 0) {
         for (var i = 0; i < ajax_forms.length; i++) {
             // init
             var $form = $(ajax_forms[i]);
             // only listen for the submit event, if the form is not being validated
             if ($form.hasClass('validate-form') === false) {
-                $form.on('submit', function(event){
+                $form.on('submit', function (event) {
                     sendAjaxForm($form);
                     event.preventDefault();
                 });
@@ -162,7 +185,7 @@ Add the 'data-live-search' attribute to a text input and the script will listen 
 export function initLiveSearch() {
     // init
     let $live_search_inputs = $('[data-live-search]');
-    $live_search_inputs.each(function(){
+    $live_search_inputs.each(function () {
         // init
         let $input = $(this);
         let timeoutId = 0;
@@ -172,7 +195,7 @@ export function initLiveSearch() {
         // NOT initialized yet
         if (typeof trigger_initialized === 'undefined') {
             // listen for keyup event
-            $input.keyup(function(e) {
+            $input.keyup(function (e) {
                 // init
                 e.preventDefault();
                 let $form = $(this).parents('.ajax-form').first();
@@ -183,25 +206,27 @@ export function initLiveSearch() {
                 $ajax_container.addClass(loading_class);
                 // clear timeout
                 clearTimeout(timeoutId);
-                timeoutId = setTimeout(function(){
+                timeoutId = setTimeout(function () {
                     sendAjaxForm($form);
                 }, 800);
             });
             // mark as initialized
-            $input.attr(initialized_attr,'');
+            $input.attr(initialized_attr, '');
         }
 
     });
 }
 
-$(function(){
+$(function () {
 
     // on page load
+    setupAjax();
     initAjaxForm();
     initLiveSearch();
 
     // custom event
-    $(window).on('initAjaxForm', function() {
+    $(window).on('initAjaxForm', function () {
+        setupAjax();
         initAjaxForm();
         initLiveSearch();
     });

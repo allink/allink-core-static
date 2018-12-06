@@ -29,6 +29,7 @@ Each release is divided into the following main categories:
 - `smooth-scroll`: Updated logic, now uses correct spacing.
 - `Swiper`: Now able to randomize slide order by setting `data-randomize-slide-order` on the `.slider-container`.
 - Textrea: New default styles and variables available:
+- ajax-forms: all forms with class "ajax-form" now get sent with the appropriate csrftoken which will be fetched from the cookie. you don't need a {% csrf_token %} in the template anymore (this is why we can now cache CMSAllinkSignupFormPlugin and any other CMSPlugin displaying a form) -> if you decide to change cache=False to cache=True in the CMSPlugin configuration you must remove {% csrf_token %} from the template and clear the cache on production! otherwise you will end up with a 403!
 ```SCSS
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 
