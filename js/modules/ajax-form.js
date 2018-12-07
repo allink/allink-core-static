@@ -35,6 +35,8 @@ export function sendAjaxForm($form) {
     var custom_event = $form.attr('data-success-data-layer-event');
     var success_url = $form.attr('data-success-url');
     var ajax_response_container_id = $form.attr('data-ajax-response-container-id');
+    var $submit = $form.find('[type="submit"]');
+
     // we now support file uploads, too
     var formData = new FormData($form[0]);
     $form.find('[type="file"]').each(function () {
@@ -66,6 +68,9 @@ export function sendAjaxForm($form) {
     // trigger custom event to indicate that we sent the AJAX request
     $(window).trigger('ajaxForm:request-sent', [$form]);
 
+    // disable submit button
+    $submit.attr('disabled', true);
+
     // AJAX magic
     $.ajax({
         type: "POST",
@@ -77,6 +82,8 @@ export function sendAjaxForm($form) {
         url: url,
         data: formData,
         success: function (data, textStatus, jqXHR) {
+            // enable submit button (won't be shown in most cases, but anyways)
+            $submit.removeAttr('disabled');
             // do we get a custom URL from view?
             if (data.success_url) {
                 window.location.href = data.success_url;
