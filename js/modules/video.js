@@ -48,7 +48,7 @@ $(function () {
 
     */
 
-    function initInlineVideo() {
+    function initInlineVideo(e) {
 
         // init
         var $videos = $('.the-video');
@@ -208,13 +208,13 @@ $(function () {
     initInlineVideo();
 
     // when scrolling has stopped
-    $(window).videoScrollStopped(function () {
-        initInlineVideo();
+    $(window).videoScrollStopped(function (e) {
+        initInlineVideo(e);
     });
 
     // when resizing the window
-    $(window).on('initInlineVideo viewportWidthHasChanged softpage:opened default-modal:opened', function () {
-        initInlineVideo();
+    $(window).on('initInlineVideo viewportWidthHasChanged softpage:opened default-modal:opened', function (e) {
+        initInlineVideo(e);
     });
 
 });
