@@ -20,6 +20,7 @@ Each release is divided into the following main categories:
   $newsletter-form-modal-max-width-md:         500px;
   $newsletter-form-modal-max-width-xxl:        550px;
 ```
+- you must include "js/modules/ajax-load-plugins.js" in app.js otherwise plugin CMSAllinkLanguageChooserPlugin won't load
 ### NEW
 - IE and Edge: Scrollbars now do NOT take up space anymore thanks to the `-ms-overflow-style: -ms-autohiding-scrollbar;` property.
 - CMS Structure: Added trigger to open cms structure from admin edit view
