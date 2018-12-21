@@ -8,21 +8,24 @@ $(function () {
 
     */
 
-    function loadContentPlugin($content){
+    function loadContentPlugin($content) {
         let url = $content.data('rendered-plugin-url');
+        let current_page = $content.data('current-page');
+
         $.ajax({
             url: url,
             method: 'GET',
+            data: {'current_page': current_page},
             success: function (data) {
-                if (data){
-                   $content.replaceWith(data);
+                if (data) {
+                    $content.replaceWith(data);
                 }
             }
         });
     }
 
-    function initSkeletonPlugins(){
-        $('.plugin--tpl-skeleton[data-rendered-plugin-url]').each(function() {
+    function initSkeletonPlugins() {
+        $('.plugin--tpl-skeleton[data-rendered-plugin-url]').each(function () {
             let $this = $(this);
             loadContentPlugin($this);
         });
@@ -32,7 +35,7 @@ $(function () {
     initSkeletonPlugins();
 
     // custom event
-    $(window).on('softpage:opened default-modal:opened', function() {
+    $(window).on('softpage:opened default-modal:opened', function () {
         initFormValidation();
     });
 
