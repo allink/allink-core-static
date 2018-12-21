@@ -10,7 +10,7 @@ $(function () {
 
     function loadContentPlugin($content) {
         let url = $content.data('rendered-plugin-url');
-        let current_page = $content.data('current-page');
+        let current_page = $('#current-page-id').data('current-page');
 
         $.ajax({
             url: url,
