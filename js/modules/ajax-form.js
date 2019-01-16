@@ -82,8 +82,19 @@ export function sendAjaxForm($form) {
         url: url,
         data: formData,
         success: function (data, textStatus, jqXHR) {
+            // Google Tag Manager in use?
+            if (typeof dataLayer !== 'undefined') {
+                // Is there a custom event defined?
+                if (custom_event) {
+                    dataLayer.push({
+                        'event': custom_event,
+                    });
+                }
+            }
+
             // enable submit button (won't be shown in most cases, but anyways)
             $submit.removeAttr('disabled');
+
             // do we get a custom URL from view?
             if (data.success_url) {
                 window.location.href = data.success_url;
@@ -103,18 +114,8 @@ export function sendAjaxForm($form) {
             if (jqXHR.status === 206) {
                 // something wrong while sending the form
             }
-            // made it.. finally!
             else {
-                // Google Tag Manager in use?
-                if (typeof dataLayer !== 'undefined') {
-                    // Is there a custom event defined?
-                    if (custom_event) {
-                        // add values to array
-                        dataLayer.push({
-                            'event': custom_event,
-                        });
-                    }
-                }
+                // made it.. finally!
             }
 
             // trigger custom events
