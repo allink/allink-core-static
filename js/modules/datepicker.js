@@ -220,7 +220,7 @@ $(function(){
     initDatepicker();
 
     // custom event
-    $(window).on('initDatepicker default-modal:opened softpage:opened form-modal:opened', function() {
+    $(window).on('initDatepicker softpage:opened default-modal:opened form-modal:opened', function() {
         initDatepicker();
     });
 

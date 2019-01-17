@@ -233,7 +233,7 @@ $(function () {
     initLiveSearch();
 
     // custom event
-    $(window).on('initAjaxForm', function () {
+    $(window).on('initAjaxForm softpage:opened default-modal:opened form-modal:opened', function () {
         setupAjax();
         initAjaxForm();
         initLiveSearch();
