@@ -233,15 +233,18 @@ export function loadAjaxItems($trigger,options,masonry_grid,masonry_instance) {
                             // init
                             var $insert_before_element = $plugin_container.find('.'+insert_before_selector);
                             $(data.rendered_content).insertBefore($insert_before_element);
+                            $(window).trigger('ajaxLoadItems:appended');
                         }
                         // default ajax container
                         else {
                             $items_container.append(data.rendered_content);
+                            $(window).trigger('ajaxLoadItems:appended');
                         }
                     }
                     // exchange entire content
                     else {
                         $items_container.html(data.rendered_content);
+                        $(window).trigger('ajaxLoadItems:exchanged');
                     }
                 }
 
