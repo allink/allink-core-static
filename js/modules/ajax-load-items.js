@@ -238,13 +238,13 @@ export function loadAjaxItems($trigger,options,masonry_grid,masonry_instance) {
                         // default ajax container
                         else {
                             $items_container.append(data.rendered_content);
-                            $(window).trigger('ajaxLoadItems:appended');
+                            $(window).trigger('ajaxLoadItems:appended', [$trigger, $plugin_container]);
                         }
                     }
                     // exchange entire content
                     else {
                         $items_container.html(data.rendered_content);
-                        $(window).trigger('ajaxLoadItems:exchanged');
+                        $(window).trigger('ajaxLoadItems:exchanged', [$trigger, $plugin_container]);
                     }
                 }
 

@@ -172,7 +172,7 @@ $(function () {
                 // only continue if autoplay is enabled, and we are NOT on mobile
                 if ($plugin_container.hasClass(autoplay_class) && !is_mobile) {
                     // start video when element is on screen
-                    if ($vid.videoIsOnScreen() || e.type == 'softpage:opened' || e.type == 'default-modal:opened') {
+                    if ($vid.videoIsOnScreen() || e && (e.type == 'softpage:opened' || e.type == 'default-modal:opened')) {
                         // per default, a video is "on pause" - let's remove this and don't come back here when there is no on_pause_class, because that means the video is playing
                         if ($plugin_container.hasClass(on_pause_class)) {
                             setTimeout(function () {
