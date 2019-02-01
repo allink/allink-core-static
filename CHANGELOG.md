@@ -22,6 +22,30 @@ Each release is divided into the following main categories:
 ```
 - you must include "js/modules/ajax-load-plugins.js" in app.js otherwise plugin CMSAllinkLanguageChooserPlugin won't load
 ### NEW
+- Reorganized headings (H1-H6). H2 is no longer the default heading, added H5 and H6 to defaults. Add the following example code to your `_variables.scss`
+```SCSS
+// h5
+$font-h5-font-sizes: (
+    null: (2.4rem, 1.1em),
+    md: 2.8rem,
+);
+$font-h5-text-transform:                     none;
+$font-h5-letter-spacing:                     0;
+$font-h5-antialiased-enabled:                true;
+$font-h5-font-weight:                        700;
+$font-h5-font-family:                        $font-family-bold;
+
+// h6
+$font-h6-font-sizes: (
+    null: (2.2rem, 1.1em),
+    md: 2.4rem,
+);
+$font-h6-text-transform:                     none;
+$font-h6-letter-spacing:                     0;
+$font-h6-antialiased-enabled:                true;
+$font-h6-font-weight:                        700;
+$font-h6-font-family:                        $font-family-bold;
+```
 - IE and Edge: Scrollbars now do NOT take up space anymore thanks to the `-ms-overflow-style: -ms-autohiding-scrollbar;` property.
 - CMS Structure: Added trigger to open cms structure from admin edit view
 - `softpage`: Command, Ctrl and Shift key pressed down when clicking on softpage link now doesn't trigger the modal anymore.
@@ -79,6 +103,7 @@ $textarea-max-height:                   60vh;
   import 'allink-core-static/js/modules/expandable';
   ```
 ### FIXES
+- Upgraded node-sass to `4.11.0`
 - Site Overlay: In case `click-close-enabled` is active, the cursor is now correctly set to pointer.
 - Map: Only add click event listener to marker if infobox content is given.
 - Swiper: Fixed randomize slider bug (removed parseInt)

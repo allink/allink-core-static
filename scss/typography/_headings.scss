@@ -18,28 +18,40 @@ Set heading colours
 
 */
 
-h2 {
+h1 {
     color: $h1-color;
     .inverted-colors & {
         color: $h1-color-inverted;
     }
 }
-h3 {
+h2 {
     color: $h2-color;
     .inverted-colors & {
         color: $h2-color-inverted;
     }
 }
-h4 {
-    color: $h3-color;
+h3 {
+    color: $h4-color;
     .inverted-colors & {
         color: $h3-color-inverted;
     }
 }
-h5 {
+h4 {
     color: $h4-color;
     .inverted-colors & {
         color: $h4-color-inverted;
+    }
+}
+h5 {
+    color: $h5-color;
+    .inverted-colors & {
+        color: $h5-color-inverted;
+    }
+}
+h6 {
+    color: $h6-color;
+    .inverted-colors & {
+        color: $h6-color-inverted;
     }
 }
 .display-1 {

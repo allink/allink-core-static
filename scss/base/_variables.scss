@@ -129,6 +129,10 @@ $h3-color:                   $body-color;
 $h3-color-inverted:          $body-inverted-color;
 $h4-color:                   $body-color;
 $h4-color-inverted:          $body-inverted-color;
+$h5-color:                   $body-color;
+$h5-color-inverted:          $body-inverted-color;
+$h6-color:                   $body-color;
+$h6-color-inverted:          $body-inverted-color;
 $display-1-color:            $body-color;
 $display-1-color-inverted:   $body-inverted-color;
 
@@ -186,6 +190,22 @@ $text-container-h4-margin-md:               $grid-gutter-width*1.5 0 $grid-gutte
 $text-container-h4-margin-lg:               $grid-gutter-width*1.5 0 $grid-gutter-width/2 0;
 $text-container-h4-margin-xl:               $grid-gutter-width*1.5 0 $grid-gutter-width/2 0;
 $text-container-h4-margin-xxl:              $grid-gutter-width*1.5 0 $grid-gutter-width/2 0;
+
+// h5
+$text-container-h5-margin-xs:               $grid-gutter-width*1.5 0 $grid-gutter-width/2 0;
+$text-container-h5-margin-sm:               $grid-gutter-width*1.5 0 $grid-gutter-width/2 0;
+$text-container-h5-margin-md:               $grid-gutter-width*1.5 0 $grid-gutter-width/2 0;
+$text-container-h5-margin-lg:               $grid-gutter-width*1.5 0 $grid-gutter-width/2 0;
+$text-container-h5-margin-xl:               $grid-gutter-width*1.5 0 $grid-gutter-width/2 0;
+$text-container-h5-margin-xxl:              $grid-gutter-width*1.5 0 $grid-gutter-width/2 0;
+
+// h6
+$text-container-h6-margin-xs:               $grid-gutter-width*1.5 0 $grid-gutter-width/2 0;
+$text-container-h6-margin-sm:               $grid-gutter-width*1.5 0 $grid-gutter-width/2 0;
+$text-container-h6-margin-md:               $grid-gutter-width*1.5 0 $grid-gutter-width/2 0;
+$text-container-h6-margin-lg:               $grid-gutter-width*1.5 0 $grid-gutter-width/2 0;
+$text-container-h6-margin-xl:               $grid-gutter-width*1.5 0 $grid-gutter-width/2 0;
+$text-container-h6-margin-xxl:              $grid-gutter-width*1.5 0 $grid-gutter-width/2 0;
 
 // display-1
 $text-container-display-1-margin-xs:        $grid-gutter-width 0 $grid-gutter-width/2 0;

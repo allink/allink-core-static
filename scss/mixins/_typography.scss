@@ -154,6 +154,28 @@ Font mixins
     }
 }
 
+@mixin font-h5() {
+    letter-spacing: $font-h5-letter-spacing;
+    text-transform: $font-h5-text-transform;
+    font-family: $font-h5-font-family;
+    font-weight: $font-h5-font-weight;
+    @include font-size($font-h5-font-sizes);
+    @if $font-h5-antialiased-enabled == true {
+        @include antialiased();
+    }
+}
+
+@mixin font-h6() {
+    letter-spacing: $font-h6-letter-spacing;
+    text-transform: $font-h6-text-transform;
+    font-family: $font-h6-font-family;
+    font-weight: $font-h6-font-weight;
+    @include font-size($font-h6-font-sizes);
+    @if $font-h6-antialiased-enabled == true {
+        @include antialiased();
+    }
+}
+
 @mixin font-display-1() {
     letter-spacing: $font-display-1-letter-spacing;
     text-transform: $font-display-1-text-transform;
