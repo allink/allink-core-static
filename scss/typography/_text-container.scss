@@ -272,6 +272,7 @@
         @media (min-width:$screen-xxl) {
             margin: $text-container-h5-margin-xxl;
         }
+    }
     h6 {
         @include font-h6();
         // make sure that online styles are not stronger
@@ -295,7 +296,6 @@
         @media (min-width:$screen-xxl) {
             margin: $text-container-h6-margin-xxl;
         }
-
     }
 
     .display-1 {
