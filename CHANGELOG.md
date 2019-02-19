@@ -22,7 +22,12 @@ Each release is divided into the following main categories:
 ```
 - you must include "js/modules/ajax-load-plugins.js" in app.js otherwise plugin CMSAllinkLanguageChooserPlugin won't load
 ### NEW
-- Reorganized headings (H1-H6). H2 is no longer the default heading, added H5 and H6 to defaults. Add the following example code to your `_variables.scss`
+- Reorganized headings (H1-H6). H2 is no longer the default heading, added H5 and H6 to defaults. Add the following example code to your `_variables.scss` and to your `settings.py`
+- Added selection inverted colors:
+```SCSS
+$selection-inverted-bg-color:   $white;
+$selection-inverted-color:      get-black-or-white-contrast-color($white);
+```
 ```SCSS
 // h5
 $font-h5-font-sizes: (
@@ -45,6 +50,35 @@ $font-h6-letter-spacing:                     0;
 $font-h6-antialiased-enabled:                true;
 $font-h6-font-weight:                        700;
 $font-h6-font-family:                        $font-family-bold;
+```
+```python
+'stylesSet': [
+    {
+        'name': 'Überschrift 1',
+        'element': 'h1',
+    },
+    {
+        'name': 'Überschrift 2',
+        'element': 'h2',
+    },
+    {
+        'name': 'Überschrift 3',
+        'element': 'h3',
+    },
+    {
+        'name': 'Überschrift 4',
+        'element': 'h4',
+    },
+    {
+        'name': 'Überschrift 5',
+        'element': 'h5',
+    },
+    {
+        'name': 'Überschrift 6',
+        'element': 'h6',
+    },
+    ...
+]
 ```
 - IE and Edge: Scrollbars now do NOT take up space anymore thanks to the `-ms-overflow-style: -ms-autohiding-scrollbar;` property.
 - CMS Structure: Added trigger to open cms structure from admin edit view
@@ -103,6 +137,7 @@ $textarea-max-height:                   60vh;
   import 'allink-core-static/js/modules/expandable';
   ```
 ### FIXES
+- Fixed selection colors with rgba
 - Upgraded node-sass to `4.11.0`
 - Site Overlay: In case `click-close-enabled` is active, the cursor is now correctly set to pointer.
 - Map: Only add click event listener to marker if infobox content is given.

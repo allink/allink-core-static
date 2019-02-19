@@ -60,11 +60,21 @@ Selected Text
 */
 
 ::-moz-selection {
-    background: $selection-bg-color;
+    background: rgba($selection-bg-color, 0.99);
     color: $selection-color;
+
+    .inverted-colors & {
+        background: rgba($selection-inverted-bg-color, 0.99);
+        color: $selection-inverted-color;
+    }
 }
 
 ::selection {
-    background: $selection-bg-color;
+    background: rgba($selection-bg-color, 0.99);
     color: $selection-color;
+
+    .inverted-colors & {
+        background: rgba($selection-inverted-bg-color, 0.99);
+        color: $selection-inverted-color;
+    }
 }
