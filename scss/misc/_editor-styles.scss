@@ -28,8 +28,6 @@ $editor-font-family: 'Helvetica Neue', 'Arial', 'Tahoma', 'Verdana', 'Sans-Serif
     h5 { @include font-h5(); }
     h6 { @include font-h6(); }
 
-    .display-1 { @include font-display-1(); }
-
     > li {
         > a {
             text-decoration: none;

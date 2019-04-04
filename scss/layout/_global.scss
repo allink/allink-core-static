@@ -68,24 +68,3 @@ It has to be placed right after the `.site-header-buffer` in `base.html`
         width: $content-section-spacing-first-item-xxl;
     }
 }
-
-
-/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
-
-When the mobile navigation is visible, all elements defined
-in the sass-list will be hidden using a transition.
-
-*/
-
-@if variable-exists(nav-expanded-hide-container) {
-    @each $selector in $nav-expanded-hide-container {
-        #{$selector} {
-            transition: $nav-expanded-hide-container-transition;
-        }
-        .nav-expanded {
-            #{$selector} {
-                opacity: 0;
-            }
-        }
-    }
-}

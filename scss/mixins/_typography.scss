@@ -176,16 +176,6 @@ Font mixins
     }
 }
 
-@mixin font-display-1() {
-    letter-spacing: $font-display-1-letter-spacing;
-    text-transform: $font-display-1-text-transform;
-    font-family: $font-display-1-font-family;
-    font-weight: $font-display-1-font-weight;
-    @include font-size($font-display-1-font-sizes);
-    @if $font-display-1-antialiased-enabled == true {
-        @include antialiased();
-    }
-}
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 

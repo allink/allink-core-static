@@ -298,32 +298,6 @@
         }
     }
 
-    .display-1 {
-        @include font-display-1();
-        // make sure that online styles are not stronger
-        strong,
-        em {
-            @include font-display-1();
-        }
-        margin: $text-container-display-1-margin-xs;
-        @media (min-width:$screen-sm) {
-            margin: $text-container-display-1-margin-sm;
-        }
-        @media (min-width:$screen-md) {
-            margin: $text-container-display-1-margin-md;
-        }
-        @media (min-width:$screen-lg) {
-            margin: $text-container-display-1-margin-lg;
-        }
-        @media (min-width:$screen-xl) {
-            margin: $text-container-display-1-margin-xl;
-        }
-        @media (min-width:$screen-xxl) {
-            margin: $text-container-display-1-margin-xxl;
-        }
-
-    }
-
 
     /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 

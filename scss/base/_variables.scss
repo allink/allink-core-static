@@ -338,6 +338,18 @@ $link-inverted-border-color-hover:  $brand-secondary;
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 
+=selected Text
+
+*/
+
+$selection-bg-color:            $black;
+$selection-color:               get-black-or-white-contrast-color($black);
+$selection-inverted-bg-color:   $white;
+$selection-inverted-color:      get-black-or-white-contrast-color($white);
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
 =Content =Section '.content-section'
 
 VERTICAL spacings of plugin content within '.site-content'
