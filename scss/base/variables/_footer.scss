@@ -1,0 +1,16 @@
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+=Footer
+
+*/
+
+$site-footer-bg-color:                         $black;
+$site-footer-fixed-enabled:                    false; //boolean
+// the following settings only matter if $site-footer-fixed-enabled is set to 'true'
+$site-footer-fixed-height-xs:                  240px;
+$site-footer-fixed-height-md:                  230px;
+$site-footer-fixed-height-xl:                  230px;
+// gap between footer elements
+$site-footer-elements-spacing-xs:              $grid-gutter-width;
+$site-footer-elements-spacing-md:              $grid-gutter-width;
+$site-footer-elements-spacing-xl:              $grid-gutter-width*2;

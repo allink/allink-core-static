@@ -1,0 +1,25 @@
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+z-index defaults
+
+*/
+
+$z-layers: (
+    "site-header":              2000,
+    "site-content":                5,
+
+    "site-overlay":              900,
+    "site-overlay-form-modal":  2500,
+    "site-overlay-image-modal": 2500,
+
+    "form-modal":               3000,
+    "image-modal":              3000,
+    "modal":                    1000,
+    "to-the-top":                 30,
+
+    "below":                      -1,
+    "below-all":             -100000,
+    "default":                     1,
+    "above":                       2,
+    "above-all":          2147483647, // highest possible z-index
+);

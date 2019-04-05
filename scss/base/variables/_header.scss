@@ -1,0 +1,21 @@
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+=Header
+
+*/
+
+$site-header-bg-color:                         $white;
+$site-header-bg-color-opacity:                 1;
+$site-header-fixed-enabled:                    true; //boolean
+$site-header-fixed-use-buffer:                 true; //boolean
+$site-header-fixed-buffer-bg-color:            $white;
+$site-header-height-xs:                        60px;
+$site-header-height-md:                        120px;
+$site-header-height-xl:                        120px;
+$site-header-height-xxl:                       120px;
+$site-header-compact-mode-enabled:             true; //boolean
+$site-header-compact-mode-transition:          all 300ms ease-in-out;
+$site-header-compact-mode-height-xs:           60px;
+$site-header-compact-mode-height-md:           80px;
+$site-header-compact-mode-height-xl:           80px;
+$site-header-compact-mode-height-xxl:          80px;

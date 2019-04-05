@@ -1,0 +1,62 @@
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+=Color Definitions
+
+Note: If possible, only use these colors in this settings-file
+
+*/
+
+$black:                      #000;
+$gray-dark:                  #373a3c;
+$gray:                       #55595c;
+$gray-light:                 #818a91;
+$gray-lighter:               #eceeef;
+$gray-lightest:              #f7f7f9;
+$white:                      #fff;
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+Color variables names can be hard to remember.
+I find the following approach worth trying:
+https://davidwalsh.name/sass-color-variables-dont-suck
+
+It's simple: Give a variable a unique but memorable name.
+
+Examples:
+
+// Red Color Variables
+$blood:     #68121a;
+$brick:     #581207;
+$apple:     #fa041b;
+$coral:     #e47f88;
+
+// Blue Color Variables
+$midnight:  #2e3e5c;
+$blueberry: #0067ac;
+$dusk:      #5f6f8e;
+
+Looking for names? Simply type in the HEX-Code on the following site:
+http://chir.ag/projects/name-that-color/#C8E2F9
+
+*/
+
+$brand-primary:              #000;
+$brand-primary-light:        lighten($brand-primary,15%);
+$brand-primary-dark:         darken($brand-primary,15%);
+$brand-secondary:            #000;
+$brand-secondary-light:      lighten($brand-secondary,15%);
+$brand-secondary-dark:       darken($brand-secondary,15%);
+
+$brand-success:              #5cb85c;
+$brand-success-light:        lighten($brand-success,10%);
+$brand-success-dark:         darken($brand-success,20%);
+$brand-info:                 #5bc0de;
+$brand-info-light:           lighten($brand-info,10%);
+$brand-info-dark:            darken($brand-info,20%);
+$brand-warning:              #f0ad4e;
+$brand-warning-light:        lighten($brand-warning,10%);
+$brand-warning-dark:         darken($brand-warning,20%);
+$brand-danger:                #d9534f;
+$brand-danger-light:          lighten($brand-danger,10%);
+$brand-danger-dark:           darken($brand-danger,20%);

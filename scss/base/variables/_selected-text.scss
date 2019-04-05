@@ -1,0 +1,10 @@
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+=selected Text
+
+*/
+
+$selection-bg-color:            $black;
+$selection-color:               get-black-or-white-contrast-color($black);
+$selection-inverted-bg-color:   $white;
+$selection-inverted-color:      get-black-or-white-contrast-color($white);

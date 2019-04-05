@@ -1,0 +1,11 @@
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+'.manage-spacings' container
+
+VERTICAL spacing between standard components (such as image-container, text-container, btn-container, form-container, ...) within the '.manage-spacings' container
+
+*/
+
+$manage-spacings-container-xs: $grid-gutter-width/2;
+$manage-spacings-container-md: $grid-gutter-width/2;
+$manage-spacings-container-xl: $grid-gutter-width/2;

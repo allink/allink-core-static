@@ -1,0 +1,38 @@
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+=Social =Profile Icons
+
+*/
+
+$social-profile-icons: (
+    'facebook': '\e905',
+    'instagram': '\e901',
+    'pinterest': '\e907',
+    'twitter': '\e904',
+    'snapchat': '\e90a',
+    'spotify': '\e908',
+    'linkedin': '\e903',
+    'xing': '\e608',
+    'youtube': '\e900',
+    'vimeo': '\e909',
+    'googleplus': '\e900',
+    'tripadvisor': '\e902',
+    'kununu': '\e910',
+);
+
+$social-profile-icon-alignment:                 left; // horizontal values only: left, center, right
+$social-profile-icon-size-xs:                   40px;
+$social-profile-icon-size-md:                   50px;
+$social-profile-icon-size-xl:                   60px;
+$social-profile-icon-spacing:                   0.8em;
+$social-profile-icon-opacity:                   1;
+$social-profile-icon-opacity-hover:             1;
+$social-profile-icon-color:                     $black;
+$social-profile-icon-color-hover:               $black;
+$social-profile-icon-transition-property:            all; // per default we use $site-header-compact-mode-transition, because they are meant to be toggled at the same time
+$social-profile-icon-transition-duration:            $link-transition-duration;
+$social-profile-icon-transition-timing-function:     $link-transition-duration;
+
+// inverted colors
+$social-profile-icon-inverted-color:                 $white;
+$social-profile-icon-inverted-color-hover:           $white;

@@ -1,0 +1,16 @@
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+Site =Overlay '.site-overlay'
+
+Note: It is recommended to use a solid background color and to
+lower the opacity value, instead of using rgba().
+
+Why? Browsers can transition opacity cheaper, performance-wise.
+
+*/
+
+$site-overlay-z-index-map-key:                  'site-overlay';
+$site-overlay-bg:                               #000;
+$site-overlay-opacity-when-visible:             0.7;
+$site-overlay-transition-duration:              300ms;
+$site-overlay-transition-timing-function:       ease-in;

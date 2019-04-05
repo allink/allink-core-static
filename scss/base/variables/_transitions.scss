@@ -1,0 +1,15 @@
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+Default Transition
+
+This is an attempt of creating the same feel across the site by
+using the same transition duration.
+
+Note: In some cases it makes sense to define different transition settings
+
+*/
+
+$default-transition-property:           all;
+$default-transition-duration:           150ms;
+$default-transition-timing-function:    ease-in-out;
+$default-transition:                    $default-transition-property $default-transition-duration $default-transition-timing-function;

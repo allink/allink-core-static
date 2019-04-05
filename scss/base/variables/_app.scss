@@ -1,0 +1,185 @@
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+App - List View (this includes ALL plugin templates such as Grid (Static), Table, and co)
+
+*/
+
+// "read more" link: globally set the button style
+$app-list-btn-variation:            'link'; // only valid button variations keyboard e.g. 'default', 'primary', ...
+$app-list-btn-padding-enabled:      false; // set to 'false' if the default button padding should be removed (might be desired with varation 'link')
+
+// "load more/all" link: globally set the button style
+$app-list-load-more-btn-variation:          'default';
+$app-list-load-more-btn-padding-enabled:    true; // set to 'false' if the default button padding should be removed (might be desired with varation 'link')
+
+// vertical spacings of content of e.g. grid items
+$manage-spacings-container-xs:      $grid-gutter-width/2;
+$manage-spacings-container-sm:      $grid-gutter-width/2;
+$manage-spacings-container-md:      $grid-gutter-width/2;
+$manage-spacings-container-lg:      $grid-gutter-width/2;
+$manage-spacings-container-xl:      $grid-gutter-width/2;
+$manage-spacings-container-xxl:     $grid-gutter-width/2;
+
+// in case of an empty results, define a global min height
+$app-list-no-result-cotainer-min-height-xs:         100px;
+$app-list-no-result-cotainer-min-height-md:         200px;
+$app-list-no-result-cotainer-min-height-xxl:        300px;
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+App - List View (default templates)
+
+*/
+
+// slider
+$app-list-slider-overlay-gradient-height:           66%;
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+App - =detail View (within Softpage or as Deeplink)
+
+*/
+
+// stacked columns
+$app-detail-col-stack-spacing-xs-max:                 $grid-gutter-width;
+
+// deeplink: set max-width
+$app-detail-content-container-max-width-xs:           900px; // pixel value. set to 'false' if default container width should be used
+$app-detail-content-container-max-width-xxl:          1000px; // pixel value. set to 'false' if default container width should be used
+// within softpage: set max-width
+$app-detail-content-container-softpage-max-width-xs:  none; // pixel value. set to 'none' if the deeplink width should be used
+$app-detail-content-container-softpage-max-width-xxl: none; // pixel value. set to 'none' if the deeplink width should be used
+
+// within softpage, create some spacing around all sections
+// Note: Sets 'padding'-property
+$app-detail-softpage-spacing-xs:                      $grid-gutter-width 0 0 0;
+$app-detail-softpage-spacing-sm:                      $grid-gutter-width 0 0 0;
+$app-detail-softpage-spacing-md:                      $grid-gutter-width 0 0 0;
+$app-detail-softpage-spacing-lg:                      $grid-gutter-width 0 0 0;
+$app-detail-softpage-spacing-xl:                      $grid-gutter-width 0 0 0;
+$app-detail-softpage-spacing-xxl:                     $grid-gutter-width 0 0 0;
+
+// Header section (spacing between)
+$app-detail-header-section-spacing-property:          'margin'; // either 'margin' or 'padding'
+$app-detail-header-section-spacing-xs:                $content-section-spacing-xs 0 $content-section-spacing-xs 0;
+$app-detail-header-section-spacing-sm:                $content-section-spacing-sm 0 $content-section-spacing-sm 0;
+$app-detail-header-section-spacing-md:                $content-section-spacing-md 0 $content-section-spacing-md 0;
+$app-detail-header-section-spacing-lg:                $content-section-spacing-lg 0 $content-section-spacing-lg 0;
+$app-detail-header-section-spacing-xl:                $content-section-spacing-xl 0 $content-section-spacing-xl 0;
+$app-detail-header-section-spacing-xxl:               $content-section-spacing-xxl 0 $content-section-spacing-xxl 0;
+
+// Heading Container (spacing to next element)
+$app-detail-heading-container-spacing-bottom-xs:      $grid-gutter-width;
+$app-detail-heading-container-spacing-bottom-sm:      $grid-gutter-width;
+$app-detail-heading-container-spacing-bottom-md:      $grid-gutter-width;
+$app-detail-heading-container-spacing-bottom-lg:      $grid-gutter-width;
+$app-detail-heading-container-spacing-bottom-xl:      $grid-gutter-width;
+$app-detail-heading-container-spacing-bottom-xxl:     $grid-gutter-width;
+
+// Spacing between LEAD and CONTENT
+$app-detail-spacing-between-lead-and-content-xs:      $grid-gutter-width;
+$app-detail-spacing-between-lead-and-content-sm:      $grid-gutter-width;
+$app-detail-spacing-between-lead-and-content-md:      $grid-gutter-width;
+$app-detail-spacing-between-lead-and-content-lg:      $grid-gutter-width;
+$app-detail-spacing-between-lead-and-content-xl:      $grid-gutter-width;
+$app-detail-spacing-between-lead-and-content-xxl:     $grid-gutter-width;
+
+// Created (spacing top)
+$app-detail-created-spacing-top-xs:                   $grid-gutter-width/2;
+$app-detail-created-spacing-top-sm:                   $grid-gutter-width/2;
+$app-detail-created-spacing-top-md:                   $grid-gutter-width/2;
+$app-detail-created-spacing-top-lg:                   $grid-gutter-width/2;
+$app-detail-created-spacing-top-xl:                   $grid-gutter-width/2;
+$app-detail-created-spacing-top-xxl:                  $grid-gutter-width/2;
+
+// Content Section
+$app-detail-content-section-spacing-xs:               $grid-gutter-width;
+$app-detail-content-section-spacing-sm:               $grid-gutter-width;
+$app-detail-content-section-spacing-md:               $grid-gutter-width;
+$app-detail-content-section-spacing-lg:               $grid-gutter-width;
+$app-detail-content-section-spacing-xl:               $grid-gutter-width;
+$app-detail-content-section-spacing-xxl:              $grid-gutter-width;
+
+// manage spacings of containers in 1. column (margin-top between containers)
+$app-detail-col-1-manage-spacing-xs:                  $grid-gutter-width;
+$app-detail-col-1-manage-spacing-sm:                  $grid-gutter-width;
+$app-detail-col-1-manage-spacing-md:                  $grid-gutter-width;
+$app-detail-col-1-manage-spacing-lg:                  $grid-gutter-width;
+$app-detail-col-1-manage-spacing-xl:                  $grid-gutter-width;
+$app-detail-col-1-manage-spacing-xxl:                 $grid-gutter-width;
+
+// manage spacings of containers in 2. column (margin-top between containers)
+$app-detail-col-2-manage-spacing-xs:                  $grid-gutter-width;
+$app-detail-col-2-manage-spacing-sm:                  $grid-gutter-width;
+$app-detail-col-2-manage-spacing-md:                  $grid-gutter-width;
+$app-detail-col-2-manage-spacing-lg:                  $grid-gutter-width;
+$app-detail-col-2-manage-spacing-xl:                  $grid-gutter-width;
+$app-detail-col-2-manage-spacing-xxl:                 $grid-gutter-width;
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+App Content Plugin specifc spacings:
+
+VERTICAL spacing between list or grid items
+
+*/
+
+// LIST template
+$app-content-plugin-list-item-spacing-xs:               $grid-gutter-width;
+$app-content-plugin-list-item-spacing-md:               $grid-gutter-width;
+$app-content-plugin-list-item-spacing-xl:               $grid-gutter-width;
+
+// DYNAMIC grid template
+$app-content-plugin-dynamic-grid-item-spacing-xs:       $grid-gutter-width;
+$app-content-plugin-dynamic-grid-item-spacing-md:       $grid-gutter-width*2;
+$app-content-plugin-dynamic-grid-item-spacing-xl:       $grid-gutter-width*2;
+
+// STATIC grid template
+$app-content-plugin-static-grid-item-spacing-xs:        $grid-gutter-width;
+$app-content-plugin-static-grid-item-spacing-md:        $grid-gutter-width*2;
+$app-content-plugin-static-grid-item-spacing-xl:        $grid-gutter-width*2;
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+The AJAX container (where items are exchanged OR appended)
+
+*/
+
+// the transition settings for the AJAX container AND the 'load-more-container' when changing categories
+$load-more-swop-category-transition-property:           opacity;
+$load-more-swop-category-transition-duration:           100ms;
+$load-more-swop-category-transition-timing-function:    ease-in;
+$load-more-swop-category-loader-spacing-top-xs:         100px;
+$load-more-swop-category-loader-spacing-top-sm:         150px;
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+"=Load =More" container
+
+VERTICAL spacing
+
+*/
+
+$load-more-container-spacing-top-xs:                    $grid-gutter-width;
+$load-more-container-spacing-top-md:                    $grid-gutter-width*2;
+$load-more-container-spacing-top-xl:                    $grid-gutter-width*2;
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+App Content > Filter spacing
+
+*/
+
+// spacing to next element (grid, list, ...)
+$filter-container-spacing-bottom-xs:             $grid-gutter-width/2;
+$filter-container-spacing-bottom-md:             $grid-gutter-width;
+$filter-container-spacing-bottom-xl:             $grid-gutter-width;
+
+// spacing between selects
+$filter-container-spacing-between-select:        0.5em; // 'em' recommended

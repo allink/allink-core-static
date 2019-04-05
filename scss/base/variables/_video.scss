@@ -1,0 +1,28 @@
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+=Video Embed
+
+*/
+
+// default ratio when nothing is set via plugin
+$video-embed-default-ratio-width:               16;
+$video-embed-default-ratio-height:               9;
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+=Video File
+
+*/
+
+$video-controls-width:                      150px;
+$video-controls-height:                     150px;
+$video-controls-transition-property:        all;
+$video-controls-transition-duration:        150ms;
+$video-controls-transition-timing-function: ease-in;
+$video-controls-fallback-arrow-color:       $white;
+$video-controls-fallback-arrow-width:       25px;
+$video-controls-fallback-arrow-height:      25px;
+$video-controls-image-path-play:            false; // SVG recommended. Path to file e.g. '/static/images/video-controls/play.svg'
+$video-controls-image-width:                150px;
+$video-controls-image-height:               150px;

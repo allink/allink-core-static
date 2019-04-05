@@ -1,0 +1,31 @@
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+=loader
+
+*/
+
+// default styles
+$loader-size:                           30px;
+$loader-border-width:                   1px;
+$loader-animation-duration:             1200ms;
+$loader-animation-timing-function:      cubic-bezier(0.32, 0.46, 0.46, 1);
+$loader-border-top-color:               $black;
+$loader-border-bottom-color:            $black;
+
+// within button
+$btn-loader-size:                       1em;
+$btn-loader-border-top-color:           $white;
+$btn-loader-border-bottom-color:        $white;
+$btn-loader-transition-duration:        300ms;
+$btn-loader-transition-delay:           300ms; // note: this is important, because we only want to see the loader icon if it is taking longer than it should.
+$btn-loader-transition-timing-function: ease-in-out;
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+=lazy =loading
+
+*/
+
+$lazyloader-bg-color:               rgba(0,0,0,0.1);
+$lazyloader-transition-duration:    600ms;

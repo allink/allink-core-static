@@ -1,0 +1,52 @@
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+=Swiper (=Slider)
+
+*/
+
+// flags
+$swiper-default-pagination-hidden-sm-max:       true;
+
+// overlay
+$swiper-default-overlay-styles-enabled:         true;
+$swiper-default-overlay-gradient-height:        60%; // percent value recommended to keep it responsive
+
+// background
+$swiper-default-bg:                             $white;
+
+// pagination
+$swiper-default-pagination-position-top-xs:     $grid-gutter-width/4;
+$swiper-default-pagination-position-bottom-xs:  auto;
+$swiper-default-pagination-position-top-md:     auto;
+$swiper-default-pagination-position-bottom-md:  $grid-gutter-width/4;
+
+// bullets
+$swiper-default-bullet-size:                    15px;
+$swiper-default-bullet-border-width:            2px;
+$swiper-default-bullet-border-style:            solid;
+$swiper-default-bullet-border-color:            $brand-secondary;
+$swiper-default-bullet-border-color-active:     $brand-secondary;
+$swiper-default-bullet-bg:                      transparent;
+$swiper-default-bullet-bg-active:               $brand-secondary;
+
+// arrows
+$swiper-default-arrows-transition-property:            all;
+$swiper-default-arrows-transition-duration:            $link-transition-duration;
+$swiper-default-arrows-transition-timing-function:     $link-transition-duration;
+
+$swiper-default-arrows-icon-previous:           '\e906';
+$swiper-default-arrows-icon-next:               '\e904';
+$swiper-default-arrows-icon-size-xs:               0.5em;
+$swiper-default-arrows-icon-size-md:               1em;
+$swiper-default-arrows-icon-size-xl:               1em;
+$swiper-default-arrows-opacity:                 1;
+$swiper-default-arrows-opacity-hover:           0.8;
+$swiper-default-arrows-color:                   #fff;
+$swiper-default-arrows-color-hover:             #fff;
+$swiper-default-arrows-button-bg-xs:            transparent;
+$swiper-default-arrows-button-width-xs:         30px;
+$swiper-default-arrows-button-height-xs:        30px;
+$swiper-default-arrows-button-width-md:         40px;
+$swiper-default-arrows-button-height-md:        40px;
+$swiper-default-arrows-button-width-xl:         50px;
+$swiper-default-arrows-button-height-xl:        50px;

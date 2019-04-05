@@ -1,0 +1,24 @@
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+=Branding
+
+Important: The values are closely linked to the header height.
+
+*/
+
+$brand-logo-height-xs:                         30px;
+$brand-logo-height-md:                         60px;
+$brand-logo-height-xl:                         60px;
+$brand-logo-height-xxl:                        60px;
+
+
+// COMPACT MODE - Requires the following:
+// 1. The '.site-header' element needs an extra class '.compact-mode-enabled' to trigger the compact header using JavaScript
+// 2. '$site-header-compact-mode-enabled' has to be set to 'true'
+$brand-logo-compact-mode-height-xs:            30px;
+$brand-logo-compact-mode-height-md:            40px;
+$brand-logo-compact-mode-height-xl:            40px;
+$brand-logo-compact-mode-height-xxl:           40px;
+
+// it is recommended to be the same as $site-header-compact-mode-transition
+$brand-logo-compact-mode-transition:           $site-header-compact-mode-transition;

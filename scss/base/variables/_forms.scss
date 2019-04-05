@@ -1,0 +1,697 @@
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+=form Settings
+
+*/
+
+$form-default-max-width:                600px;
+
+// `.form-group` margin top (except :first-child)
+$form-group-spacing-xs:                $grid-gutter-width/2;
+$form-group-spacing-md:                $grid-gutter-width;
+$form-group-spacing-xl:                $grid-gutter-width;
+
+// `.label-control` margin bottom
+$form-label-spacing-xs:                $grid-gutter-width/4;
+$form-label-spacing-md:                $grid-gutter-width/2;
+$form-label-spacing-xl:                $grid-gutter-width/2;
+
+// optionally mark label as bold
+$form-label-bold-enabled:              true;
+
+// error label
+$form-label-error-color:               $black;
+
+// error message
+$form-field-error-spacing-xs:          $grid-gutter-width/4;
+$form-field-error-spacing-md:          $grid-gutter-width/4;
+$form-field-error-spacing-xl:          $grid-gutter-width/4;
+$form-field-error-color:               $brand-danger;
+
+$form-field-required-icomoon-enabled:  false; // only set to 'true' if an icomoon icon is set below
+$form-field-required-icon:             '*';
+$form-field-required-icon-color:       #ba1414;
+// styling of required symbol
+$form-field-required-icon-size:        1em;
+$form-field-required-icon-width:       20px;
+$form-field-required-icon-height:      1em;
+$form-field-required-icon-spacing:     0.2em;
+$form-field-required-icon-position-y:  0;
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+=Fieldset and =Legend
+
+*/
+
+// spacing between fieldsets
+$form-fieldset-spacing-xs:             $grid-gutter-width;
+$form-fieldset-spacing-md:             $grid-gutter-width*1.5;
+$form-fieldset-spacing-xl:             $grid-gutter-width*2;
+
+// legend heading size (h1, h2, h3 or h4)
+$form-legend-heading-size:             'h2';
+
+// form group container spacing to previous element (legend or .fieldset-text)
+$form-group-container-spacing-top-xs:  $grid-gutter-width;
+$form-group-container-spacing-top-md:  $grid-gutter-width;
+$form-group-container-spacing-top-xl:  $grid-gutter-width;
+
+// fieldset intro text spacing to legend
+$form-fieldset-text-spacing-top-xs:    $grid-gutter-width/2;
+$form-fieldset-text-spacing-top-md:    $grid-gutter-width/2;
+$form-fieldset-text-spacing-top-xl:    $grid-gutter-width/2;
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+=form =side by side
+
+*/
+
+$form-side-by-side-max-width:           800px;
+$form-side-by-side-label-width-md:      240px; // change according to longest label text
+$form-side-by-side-label-width-xxl:     300px; // change according to longest label text
+$form-side-by-side-label-gap:           $grid-gutter-width;
+$form-side-by-side-label-text-align:    left; // "text-align" values accepted
+
+// spacing between .form-group
+$form-side-by-side-group-spacing-top-xs:    $grid-gutter-width/4;
+$form-side-by-side-group-spacing-top-md:    $grid-gutter-width/4;
+$form-side-by-side-group-spacing-top-xl:    $grid-gutter-width/4;
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+=form =placeholder-enabled
+
+*/
+
+// spacing between .form-group
+$form-placeholder-enabled-group-spacing-top-xs:    $grid-gutter-width/4;
+$form-placeholder-enabled-group-spacing-top-md:    $grid-gutter-width/4;
+$form-placeholder-enabled-group-spacing-top-xl:    $grid-gutter-width/4;
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+=fieldset and =legend
+
+*/
+
+// spacing between fieldsets
+$form-fieldset-spacing-xs:             $grid-gutter-width;
+$form-fieldset-spacing-md:             $grid-gutter-width*1.5;
+$form-fieldset-spacing-xl:             $grid-gutter-width*2;
+
+// legend heading size (h1, h2, h3 or h4)
+$form-legend-heading-size:             'h2';
+
+// form group container spacing to previous element (legend or .fieldset-text)
+$form-group-container-spacing-top-xs:  $grid-gutter-width;
+$form-group-container-spacing-top-md:  $grid-gutter-width;
+$form-group-container-spacing-top-xl:  $grid-gutter-width;
+
+// fieldset intro text spacing to legend
+$form-fieldset-text-spacing-top-xs:    $grid-gutter-width/2;
+$form-fieldset-text-spacing-top-md:    $grid-gutter-width/2;
+$form-fieldset-text-spacing-top-xl:    $grid-gutter-width/2;
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+General Form =field Settings (.form-control)
+
+These settings apply to:
+
+<input>'s
+<textarea>'s
+
+*/
+
+$form-field-transition:                background-color $default-transition-duration $default-transition-timing-function, color $default-transition-duration $default-transition-timing-function, border $default-transition-duration $default-transition-timing-function;
+$form-field-border-radius-default:     0;
+$form-field-border-width:              1px;
+$form-field-border-style:              solid;
+$form-field-border-color:              transparent;
+
+// background color
+$input-bg:                             #fff;
+// background color
+$input-bg-focus:                       #fff;
+// background color of disabled form field (e.g. type="text")
+$input-bg-disabled:                    $gray-lightest;
+
+// Text color for `<input>`s
+$input-color:                          $black;
+
+// horizontal padding settings for form fields and textarea
+$input-padding-left:                   0.5em;
+$input-padding-right:                  0.5em;
+
+// border color
+$input-border-top-color:               $black;
+$input-border-right-color:             $black;
+$input-border-bottom-color:            $black;
+$input-border-left-color:              $black;
+
+// border color :focus
+$input-border-top-color-focus:         $black;
+$input-border-right-color-focus:       $black;
+$input-border-bottom-color-focus:      $black;
+$input-border-left-color-focus:        $black;
+
+// ERROR styles
+$input-error-border-top-color:         $form-field-required-icon-color;
+$input-error-border-right-color:       $form-field-required-icon-color;
+$input-error-border-bottom-color:      $form-field-required-icon-color;
+$input-error-border-left-color:        $form-field-required-icon-color;
+$input-error-bg:                       #fff;
+
+// Placeholder text color
+$input-color-placeholder:              $black;
+
+// legend settings (IMPORTANT: currently not used and optizmied)
+$legend-color:                         $gray-dark;
+$legend-border-color:                  #e5e5e5;
+
+// textual input addons (IMPORTANT: currently not used and optizmied)
+// Background color
+$input-group-addon-bg:                 $gray-lighter;
+// Border color
+$input-group-addon-border-color:       $form-field-border-width;
+
+// Disabled cursor for form controls and buttons.
+$cursor-disabled:                      not-allowed;
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+INVERTED colors for form =fields (.form-control)
+
+How to use it: Simply add a class `inverted-colors` to one of the parents of a form.
+
+Example:
+
+<div class="site-footer inverted-colors">
+    <form>
+        <input class="form-control" type="text" name="me-has-inverted-form-styles">
+    </form>
+</div>
+
+*/
+
+$form-field-inverted-transition:                $form-field-transition;
+$form-field-inverted-border-radius-default:     $form-field-border-radius-default;
+$form-field-inverted-border-width:              $form-field-border-width;
+$form-field-inverted-border-style:              $form-field-border-style;
+$form-field-inverted-border-color:              $form-field-border-color;
+
+// background color
+$input-inverted-bg:                             $input-bg;
+// background color of disabled form field (e.g. type="text")
+$input-inverted-bg-disabled:                    $input-bg-disabled;
+// background color :focus
+$input-inverted-bg-focus:                       $input-bg-focus;
+
+// Text color for `<input>`s
+$input-inverted-color:                          $input-color;
+
+// horizontal padding settings for form fields and textarea
+$input-inverted-padding-left:                   $input-padding-left;
+$input-inverted-padding-right:                  $input-padding-right;
+
+// border color
+$input-inverted-border-top-color:               $input-border-top-color;
+$input-inverted-border-right-color:             $input-border-right-color;
+$input-inverted-border-bottom-color:            $input-border-bottom-color;
+$input-inverted-border-left-color:              $input-border-left-color;
+
+// border color :focus
+$input-inverted-border-top-color-focus:         $input-border-top-color-focus;
+$input-inverted-border-right-color-focus:       $input-border-right-color-focus;
+$input-inverted-border-bottom-color-focus:      $input-border-bottom-color-focus;
+$input-inverted-border-left-color-focus:        $input-border-left-color-focus;
+
+// ERROR styles
+$input-inverted-error-border-top-color:         $input-error-border-top-color;
+$input-inverted-error-border-right-color:       $input-error-border-right-color;
+$input-inverted-error-border-bottom-color:      $input-error-border-bottom-color;
+$input-inverted-error-border-left-color:        $input-error-border-left-color;
+$input-inverted-error-bg:                       $input-error-bg;
+
+// Placeholder text color
+$input-inverted-color-placeholder:              $input-color;
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+=checkboxes
+
+*/
+
+$checkbox-label-spacing:                1.5em;
+$checkbox-siblings-spacing-top:         0.3em;
+$checkbox-spacing-left:                 0.2em;
+$checkbox-bg-color:                     $input-bg;
+$checkbox-bg-color-focus:               $input-bg;
+$checkbox-bg-color-checked:             $input-bg;
+$checkbox-border-width:                 $form-field-border-width;
+$checkbox-border-color:                 $gray-light;
+$checkbox-border-color-focus:           $brand-primary;
+$checkbox-border-color-checked:         $brand-primary;
+$checkbox-size:                         0.8em;
+$checkbox-border-radius:                $form-field-border-radius-default;
+$checkbox-icon-color:                   $brand-primary;
+$checkbox-icon-color-focus:             green;
+$checkbox-transition:                   $form-field-transition;
+
+// optional: icon font settings
+$checkbox-font-icon-enabled:            true; // boolean, if set false, a default css check icon is used as a fallback
+$checkbox-font-icon-code:               '\e206'; // string, e.g. '\e906'
+$checkbox-font-icon-size:               0.8em;
+
+// default: CSS check icon
+$checkbox-css-icon-size:                14px; // the calculations are made automatically according to this value
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+=radio
+
+Important: Per default, the radio boxes inherit most of the checkbox styles, for they
+usually SHOULD look similar in terms of size and spacings
+
+*/
+
+$radio-label-spacing:                   $checkbox-label-spacing;
+$radio-siblings-spacing-top:            $checkbox-siblings-spacing-top;
+$radio-spacing-left:                    $checkbox-spacing-left;
+$radio-bg-color:                        $checkbox-bg-color;
+$radio-bg-color-focus:                  $checkbox-bg-color-focus;
+$radio-bg-color-checked:                $checkbox-bg-color-checked;
+$radio-border-width:                    $checkbox-border-width;
+$radio-border-color:                    $checkbox-border-color;
+$radio-border-color-focus:              $checkbox-border-color-focus;
+$radio-border-color-checked:            $checkbox-border-color-checked;
+$radio-size:                            $checkbox-size;
+$radio-transition:                      $checkbox-transition;
+
+// inner circle
+$radio-inner-circle-size:               $radio-size/2;
+$radio-inner-circle-bg:                 $brand-primary;
+$radio-inner-circle-transition:         $checkbox-transition;
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+=buttons
+
+Usage: In rare cases, you might need a specific value of a
+specific button variant. This is how to acces map values:
+
+color: map-deep-get($btn-variations,'default','bg');
+
+*/
+
+// define, which button are available in the Button Link Plugin
+$available-btn-variations: (
+    'default',
+);
+
+$btn-transition-duration:                150ms;
+$btn-transition-timing-function:       ease-in;
+$btn-transition:         color $btn-transition-duration $btn-transition-timing-function,
+                                background-color $btn-transition-duration $btn-transition-timing-function, border-color $btn-transition-duration $btn-transition-timing-function;
+
+// Global Button and Input Paddings
+// (important: TOP and BOTTOM will be applied to .form-control, too, because we sometimes combine inputs and button, so they need to be the exact same height)
+$btn-padding-top:                       0.7em; // important: has to be in em's
+$btn-padding-bottom:                    0.6em; // important: has to be in em's
+$btn-padding-right:                     1em; // important: has to be in em's
+$btn-padding-left:                      1em; // important: has to be in em's
+$btn-line-height:                       1.25;
+
+// disabled button
+$btn-link-disabled-color:               $gray-light;
+
+// Allows for customizing button radius independently from global border radius
+$btn-border-radius-base:                $form-field-border-radius-default;
+$btn-border-radius-large:               $form-field-border-radius-default;
+$btn-border-radius-small:               $form-field-border-radius-default;
+
+// .btn-container (spacing between buttons)
+$btn-container-btn-spacing-xs:                      0.5em;
+$btn-container-btn-spacing-md:                      0.5em;
+$btn-container-btn-spacing-xl:                      0.5em;
+
+// button variation config
+$btn-disabled-lighten: 20%;
+
+$btn-variations: (
+    'default': (
+        'color':                         $white,
+        'bg':                            $brand-secondary,
+        // default
+        'border-top-color':              $brand-secondary,
+        'border-right-color':            $brand-secondary,
+        'border-bottom-color':           $brand-secondary,
+        'border-left-color':             $brand-secondary,
+        // hover
+        'bg-hover':                      $brand-secondary-light,
+        'color-hover':                   $white,
+        'border-top-color-hover':        $brand-secondary-light,
+        'border-right-color-hover':      $brand-secondary-light,
+        'border-bottom-color-hover':     $brand-secondary-light,
+        'border-left-color-hover':       $brand-secondary-light,
+        // disabled
+        'color-disabled':                $white,
+        'bg-disabled':                   lighten($brand-secondary,$btn-disabled-lighten),
+        'border-top-color-disabled':     lighten($brand-secondary,$btn-disabled-lighten),
+        'border-right-color-disabled':   lighten($brand-secondary,$btn-disabled-lighten),
+        'border-bottom-color-disabled':  lighten($brand-secondary,$btn-disabled-lighten),
+        'border-left-color-disabled':    lighten($brand-secondary,$btn-disabled-lighten),
+    ),
+    'primary': (
+        'color':                         $brand-secondary,
+        'bg':                            $brand-primary,
+        // default
+        'border-top-color':              $brand-primary,
+        'border-right-color':            $brand-primary,
+        'border-bottom-color':           $brand-primary,
+        'border-left-color':             $brand-primary,
+        // hover
+        'bg-hover':                      $brand-primary-dark,
+        'color-hover':                   $brand-secondary,
+        'border-top-color-hover':        $brand-primary-dark,
+        'border-right-color-hover':      $brand-primary-dark,
+        'border-bottom-color-hover':     $brand-primary-dark,
+        'border-left-color-hover':       $brand-primary-dark,
+        // disabled
+        'color-disabled':                $brand-secondary,
+        'bg-disabled':                   lighten($brand-primary-light,$btn-disabled-lighten),
+        'border-top-color-disabled':     lighten($brand-primary-light,$btn-disabled-lighten),
+        'border-right-color-disabled':   lighten($brand-primary-light,$btn-disabled-lighten),
+        'border-bottom-color-disabled':  lighten($brand-primary-light,$btn-disabled-lighten),
+        'border-left-color-disabled':    lighten($brand-primary-light,$btn-disabled-lighten),
+    ),
+    'success': (
+        'color':                         #fff,
+        'bg':                            $brand-success,
+        // default
+        'border-top-color':              $brand-success,
+        'border-right-color':            $brand-success,
+        'border-bottom-color':           $brand-success,
+        'border-left-color':             $brand-success,
+        // hover
+        'bg-hover':                      $brand-success-dark,
+        'color-hover':                   #fff,
+        'border-top-color-hover':        $brand-success-dark,
+        'border-right-color-hover':      $brand-success-dark,
+        'border-bottom-color-hover':     $brand-success-dark,
+        'border-left-color-hover':       $brand-success-dark,
+        // disabled
+        'color-disabled':                #fff,
+        'bg-disabled':                   lighten($brand-success-dark,$btn-disabled-lighten),
+        'border-top-color-disabled':     lighten($brand-success-dark,$btn-disabled-lighten),
+        'border-right-color-disabled':   lighten($brand-success-dark,$btn-disabled-lighten),
+        'border-bottom-color-disabled':  lighten($brand-success-dark,$btn-disabled-lighten),
+        'border-left-color-disabled':    lighten($brand-success-dark,$btn-disabled-lighten),
+    ),
+    'info': (
+        'color':                         #fff,
+        'bg':                            $brand-info,
+        // default
+        'border-top-color':              $brand-info,
+        'border-right-color':            $brand-info,
+        'border-bottom-color':           $brand-info,
+        'border-left-color':             $brand-info,
+        // hover
+        'bg-hover':                      $brand-info-dark,
+        'color-hover':                   #fff,
+        'border-top-color-hover':        $brand-info-dark,
+        'border-right-color-hover':      $brand-info-dark,
+        'border-bottom-color-hover':     $brand-info-dark,
+        'border-left-color-hover':       $brand-info-dark,
+        // disabled
+        'color-disabled':                #fff,
+        'bg-disabled':                   lighten($brand-info-dark,$btn-disabled-lighten),
+        'border-top-color-disabled':     lighten($brand-info-dark,$btn-disabled-lighten),
+        'border-right-color-disabled':   lighten($brand-info-dark,$btn-disabled-lighten),
+        'border-bottom-color-disabled':  lighten($brand-info-dark,$btn-disabled-lighten),
+        'border-left-color-disabled':    lighten($brand-info-dark,$btn-disabled-lighten),
+    ),
+    'warning': (
+        'color':                         #fff,
+        'bg':                            $brand-warning,
+        // default
+        'border-top-color':              $brand-warning,
+        'border-right-color':            $brand-warning,
+        'border-bottom-color':           $brand-warning,
+        'border-left-color':             $brand-warning,
+        // hover
+        'bg-hover':                      $brand-warning-dark,
+        'color-hover':                   #fff,
+        'border-top-color-hover':        $brand-warning-dark,
+        'border-right-color-hover':      $brand-warning-dark,
+        'border-bottom-color-hover':     $brand-warning-dark,
+        'border-left-color-hover':       $brand-warning-dark,
+        // disabled
+        'color-disabled':                #fff,
+        'bg-disabled':                   lighten($brand-warning-dark,$btn-disabled-lighten),
+        'border-top-color-disabled':     lighten($brand-warning-dark,$btn-disabled-lighten),
+        'border-right-color-disabled':   lighten($brand-warning-dark,$btn-disabled-lighten),
+        'border-bottom-color-disabled':  lighten($brand-warning-dark,$btn-disabled-lighten),
+        'border-left-color-disabled':    lighten($brand-warning-dark,$btn-disabled-lighten),
+    ),
+    'danger': (
+        'color':                         #fff,
+        'bg':                            $brand-danger,
+        // default
+        'border-top-color':              $brand-danger,
+        'border-right-color':            $brand-danger,
+        'border-bottom-color':           $brand-danger,
+        'border-left-color':             $brand-danger,
+        // hover
+        'bg-hover':                      $brand-danger-dark,
+        'color-hover':                   #fff,
+        'border-top-color-hover':        $brand-danger-dark,
+        'border-right-color-hover':      $brand-danger-dark,
+        'border-bottom-color-hover':     $brand-danger-dark,
+        'border-left-color-hover':       $brand-danger-dark,
+        // disabled
+        'color-disabled':                #fff,
+        'bg-disabled':                   lighten($brand-danger-dark,$btn-disabled-lighten),
+        'border-top-color-disabled':     lighten($brand-danger-dark,$btn-disabled-lighten),
+        'border-right-color-disabled':   lighten($brand-danger-dark,$btn-disabled-lighten),
+        'border-bottom-color-disabled':  lighten($brand-danger-dark,$btn-disabled-lighten),
+        'border-left-color-disabled':    lighten($brand-danger-dark,$btn-disabled-lighten),
+    ),
+    'link': (
+        'color':                         $brand-secondary,
+        'bg':                            transparent,
+        // default
+        'border-top-color':              transparent,
+        'border-right-color':            transparent,
+        'border-bottom-color':           transparent,
+        'border-left-color':             transparent,
+        // hover
+        'bg-hover':                      transparent,
+        'color-hover':                   $brand-secondary-light,
+        'border-top-color-hover':        transparent,
+        'border-right-color-hover':      transparent,
+        'border-bottom-color-hover':     transparent,
+        'border-left-color-hover':       transparent,
+        // disabled
+        'color-disabled':                $brand-secondary-light,
+        'bg-disabled':                   transparent,
+        'border-top-color-disabled':     transparent,
+        'border-right-color-disabled':   transparent,
+        'border-bottom-color-disabled':  transparent,
+        'border-left-color-disabled':    transparent,
+    ),
+);
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+=bootstrap =select
+
+*/
+
+$select-btn-variation:                  'default'; // needs to be one of the variations defined in $btn-variations
+
+// this is a quick and dirty solution to fight the bootstrap-select loading jumping bloody effect
+// Important: Get height of rendered bootstrap-select at each breakpoint AFTER the typography has been approved.
+$select-placeholder-height-xs:          41px;
+$select-placeholder-height-md:          41px;
+$select-placeholder-height-xxl:         51px;
+
+// dropdown animation settings
+$select-dropdown-animation-enabled:             true;
+$select-dropdown-animation-duration:            300ms;
+$select-dropdown-animation-timing-function:     ease-in-out;
+$select-dropdown-animation-initial-translate-y: -15px;
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+=File Upload Styles
+
+*/
+
+$file-upload-btn-variation:             'default'; // needs to be one of the variations defined in $btn-variations
+$file-upload-icon:                      '\e90c';
+$file-upload-icon-size:                 0.8em;
+$file-upload-icon-spacing-right:        0.3em;
+$file-upload-padding-left:              0.5em;
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+=datepicker
+
+*/
+
+// default button: calendar
+$datepicker-default-width:                  100%;
+$datepicker-default-min-width:              320px;
+$datepicker-default-max-width:              320px;
+$datepicker-default-input-bg:               $input-bg;
+$datepicker-default-btn-width:              30px;
+$datepicker-default-btn-icon:               '\e60e';
+$datepicker-default-btn-icon-size:          0.8em;
+$datepicker-default-btn-icon-color:         $black;
+$datepicker-default-btn-icon-color-hover:   $black;
+// time button
+$datepicker-time-btn-icon:                  '\e60e';
+// clear button
+$datepicker-clear-btn-icon:                 '\e209';
+$datepicker-clear-btn-icon-size:            1em;
+$datepicker-clear-btn-icon-color:           $black;
+$datepicker-clear-btn-icon-color-hover:     $black;
+$datepicker-clear-btn-position-right:       $datepicker-default-btn-width;
+$datepicker-clear-btn-transition:           all 150ms cubic-bezier(0.7, 0.91, 0.41, 1.64);
+// selected day
+$datepicker-selected-day-color:             $white;
+$datepicker-selected-day-bg:                $brand-primary;
+$datepicker-selected-day-border-color:      $brand-primary;
+$datepicker-selected-day-border-width:      1;
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+=dropdown
+
+*/
+
+$dropdown-min-width:                    280px;
+$dropdown-border-width:                 1px;
+$dropdown-border-style:                 solid;
+$dropdown-border-color:                 $black;
+$dropdown-border-radius:                0;
+$dropdown-border-top:                   false; // boolean
+
+// toggle
+$dropdown-toggle-icon:                  '\e905';
+$dropdown-toggle-icon-spacing-right:    1em;
+$dropdown-toggle-icon-spacing-left:     auto;
+$dropdown-toggle-padding-right:         3em;
+$dropdown-toggle-padding-left:          0.5em;
+
+// dropdown
+$dropdown-bg:                           $white;
+
+// link: default
+$dropdown-link-padding:                 0.5em 0.5em;
+$dropdown-link-color:                   $black;
+$dropdown-link-hover-color:             $black;
+$dropdown-link-hover-bg:                transparent;
+
+// link: active
+$dropdown-link-active-color:            $black;
+$dropdown-link-active-bg:               $white;
+$dropdown-link-disabled-color:          $gray-light;
+
+// not used in default dropdowns
+$dropdown-divider-bg:                   transparent;
+$dropdown-header-color:                 $gray-light;
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+=textarea =area
+
+*/
+
+$textarea-min-height:                   5em;
+$textarea-max-height:                   60vh;
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+=tabs
+
+*/
+
+// container
+$custom-tabs-border-bottom-width:               0;
+$custom-tabs-border-bottom-style:               solid;
+$custom-tabs-border-bottom-color:               #000;
+$custom-tabs-register-look-activated:           true; // creates a negative margin according to the $custom-tabs-border-bottom-width in order to achieve a 'register look'
+
+// default: uses the same distance like we have between section title and the categories
+$custom-tabs-spacing-bottom-xs:                 $content-section-heading-spacing-xs;
+$custom-tabs-spacing-bottom-md:                 $content-section-heading-spacing-md;
+$custom-tabs-spacing-bottom-xl:                 $content-section-heading-spacing-xl;
+
+// item
+$custom-tabs-item-transition:                   $default-transition;
+$custom-tabs-item-border-width:                 $custom-tabs-border-bottom-width;
+$custom-tabs-item-border-style:                 $custom-tabs-border-bottom-style;
+$custom-tabs-item-border-color:                 $custom-tabs-border-bottom-color;
+$custom-tabs-item-padding-xs:                   0.6em 0.8em;
+$custom-tabs-item-padding-md:                   0.6em 0.8em;
+$custom-tabs-item-bg-default:                   #fff;
+$custom-tabs-item-bg-default-hover:             #fff;
+$custom-tabs-item-color-default:                $brand-secondary;
+$custom-tabs-item-bg-active:                    $brand-primary;
+$custom-tabs-item-bg-active-hover:              $brand-primary;
+$custom-tabs-item-color-active:                 $brand-secondary;
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+=signup form [=newsletter, =mailchimp]
+
+*/
+
+$signup-form-max-width:                              400px;
+// button (variation)
+$signup-form-button-variation-enabled:               false;
+$signup-form-button-variation:                       'default';
+// button custom
+$signup-form-button-bg:                              $white;
+$signup-form-button-bg-hover:                        $white;
+$signup-form-button-color:                           $black;
+$signup-form-button-color-hover:                     $black;
+$signup-form-button-border-top-color:                $white;
+$signup-form-button-border-top-color:                $white;
+$signup-form-button-border-right-color:              $white;
+$signup-form-button-border-bottom-color:             $white;
+$signup-form-button-border-left-color:               $white;
+$signup-form-button-border-top-color-hover:          $white;
+$signup-form-button-border-right-color-hover:        $white;
+$signup-form-button-border-bottom-color-hover:       $white;
+$signup-form-button-border-left-color-hover:         $white;
+// icon
+$signup-form-button-icon:                            '\e905';
+$signup-form-button-icon-size:                       0.8em;
+$signup-form-button-icon-color:                      $black;
+$signup-form-button-icon-color-hover:                $black;
+$signup-form-button-loader-icon-color:               $black;
+// input
+$signup-form-button-input-padding:                   0.3em;
+$signup-form-button-btn-width-xs:                    50px;
+$signup-form-button-btn-width-md:                    50px;
+$signup-form-button-btn-width-xxl:                   50px;

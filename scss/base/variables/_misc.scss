@@ -1,0 +1,23 @@
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+=expandable container
+
+*/
+
+$expandable-transition-duration:            300ms;
+$expandable-transition-property:            height, opacity;
+$expandable-transition-timing-function:     ease-in-out;
+
+// flags
+$expandable-opacity-transition-enabled:     true;
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+=language=chooser
+
+*/
+
+$languagechooser-text-color-default:        black;
+$languagechooser-text-color-hover:          black;
+$languagechooser-text-color-active:         black;

@@ -1,0 +1,165 @@
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+=Content =Section '.content-section'
+
+VERTICAL spacings of plugin content within '.site-content'
+
+*/
+
+// global spacing between the .content-section
+$content-section-spacing-xs:   30px;
+$content-section-spacing-sm:   45px;
+$content-section-spacing-md:   45px;
+$content-section-spacing-lg:   60px;
+$content-section-spacing-xl:   60px;
+$content-section-spacing-xxl:   60px;
+
+// first item
+$content-section-spacing-first-item-xs:     $content-section-spacing-xs;
+$content-section-spacing-first-item-sm:     $content-section-spacing-sm;
+$content-section-spacing-first-item-md:     $content-section-spacing-md;
+$content-section-spacing-first-item-lg:     $content-section-spacing-lg;
+$content-section-spacing-first-item-xl:     $content-section-spacing-xl;
+$content-section-spacing-first-item-xxl:    $content-section-spacing-xxl;
+
+// last item
+$content-section-spacing-last-item-xs:      $content-section-spacing-xs;
+$content-section-spacing-last-item-sm:      $content-section-spacing-sm;
+$content-section-spacing-last-item-md:      $content-section-spacing-md;
+$content-section-spacing-last-item-lg:      $content-section-spacing-lg;
+$content-section-spacing-last-item-xl:      $content-section-spacing-xl;
+$content-section-spacing-last-item-xxl:     $content-section-spacing-xxl;
+
+// Content Plugin > spacing between STACKED COLUMNS (smaller screens)
+$content-section-col-stack-spacing-xs-max:  $grid-gutter-width/2;
+$content-section-col-stack-spacing-sm-max:  $grid-gutter-width/2;
+
+// Content Plugin > For template above >=3 colums
+// We have to define the spacing when stacked
+$content-plugin-stacked-col-spacing-xs:     $grid-gutter-width/2;
+$content-plugin-stacked-col-spacing-md:     $grid-gutter-width;
+$content-plugin-stacked-col-spacing-xl:     $grid-gutter-width;
+
+// Content Plugin > spacing between SECTION HEADING and the columns
+$content-section-heading-spacing-xs:        $grid-gutter-width/2;
+$content-section-heading-spacing-md:        $grid-gutter-width;
+$content-section-heading-spacing-xl:        $grid-gutter-width;
+
+// bg image INNER - overlay gradient (percentage values recommended)
+$content-section-bg-image-inner-overlay-gradient-height-xs:   0; // text is not overlapping image
+$content-section-bg-image-inner-overlay-gradient-height-sm:   0; // text is not overlapping image
+$content-section-bg-image-inner-overlay-gradient-height-md:   66%;
+$content-section-bg-image-inner-overlay-gradient-height-lg:   66%;
+$content-section-bg-image-inner-overlay-gradient-height-xl:   66%;
+$content-section-bg-image-inner-overlay-gradient-height-xxl:  66%;
+
+// bg image OUTER - overlay gradient (percentage values recommended)
+$content-section-outer-overlay-gradient-height-xs:   66%;
+$content-section-outer-overlay-gradient-height-sm:   66%;
+$content-section-outer-overlay-gradient-height-md:   66%;
+$content-section-outer-overlay-gradient-height-lg:   66%;
+$content-section-outer-overlay-gradient-height-xl:   66%;
+$content-section-outer-overlay-gradient-height-xxl:  66%;
+
+// spacings between plugins within a columns
+$content-section-column-manage-spacings-container-xs:       $grid-gutter-width;
+$content-section-column-manage-spacings-container-sm:       $grid-gutter-width;
+$content-section-column-manage-spacings-container-md:       $grid-gutter-width;
+$content-section-column-manage-spacings-container-lg:       $grid-gutter-width;
+$content-section-column-manage-spacings-container-xl:       $grid-gutter-width;
+$content-section-column-manage-spacings-container-xxl:      $grid-gutter-width;
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+=Parallax
+
+===
+
+Important: The following ratios are closely linked to the THUMBNAIL_WIDTH_ALIASES in settings.py.
+
+How it works:
+
+1. SCSS variables: Define the visible area with a ratio
+2. settings.py: Define AT LEAST the same ratio as in CSS (which results in NO parallax effect).
+   The more the HEIGHT differs, the stronger the parallax effect will be.
+
+*/
+
+$parallax-full-height-mobile-height:                 120%; // The higher the number, the stronger the parallax effect. 100% = no effect
+
+$parallax-aspect-ratio-width-xs:                     4;
+$parallax-aspect-ratio-height-xs:                    3;
+
+$parallax-aspect-ratio-width-sm:                     4;
+$parallax-aspect-ratio-height-sm:                    3;
+
+$parallax-aspect-ratio-width-md:                     16;
+$parallax-aspect-ratio-height-md:                    6;
+
+$parallax-aspect-ratio-width-lg:                     16;
+$parallax-aspect-ratio-height-lg:                    6;
+
+$parallax-aspect-ratio-width-xl:                     16;
+$parallax-aspect-ratio-height-xl:                    6;
+
+$parallax-aspect-ratio-width-xxl:                    16;
+$parallax-aspect-ratio-height-xxl:                   6;
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+Section bg image (=outer)
+
+===
+
+Important: The following ratios are closely linked to the THUMBNAIL_WIDTH_ALIASES in settings.py.
+
+*/
+
+$content-section-bg-image-outer-width-xs:                     4;
+$content-section-bg-image-outer-height-xs:                    3;
+
+$content-section-bg-image-outer-width-sm:                     4;
+$content-section-bg-image-outer-height-sm:                    3;
+
+$content-section-bg-image-outer-width-md:                     16;
+$content-section-bg-image-outer-height-md:                    6;
+
+$content-section-bg-image-outer-width-lg:                     16;
+$content-section-bg-image-outer-height-lg:                    6;
+
+$content-section-bg-image-outer-width-xl:                     16;
+$content-section-bg-image-outer-height-xl:                    6;
+
+$content-section-bg-image-outer-width-xxl:                    16;
+$content-section-bg-image-outer-height-xxl:                   6;
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+=Overlay =Gradient Settings (the background of text above an image)
+
+*/
+
+// Overlay text is POSITIONED absolute.
+// So 'spacing' in this context relates to the 'top, right, bottom and left' properties.
+$overlay-spacing-xs:                       $content-section-spacing-xs;
+$overlay-spacing-sm:                       $content-section-spacing-sm;
+$overlay-spacing-md:                       $content-section-spacing-md;
+$overlay-spacing-lg:                       $content-section-spacing-lg;
+$overlay-spacing-xl:                       $content-section-spacing-xl;
+
+// overlay heading and text colors
+$overlay-heading-color:                    $white;
+$overlay-text-color:                       $white;
+
+// global overlay gradient definition
+$overlay-gradient-start-color:             #000;
+$overlay-gradient-start-opacity:           0;
+$overlay-gradient-end-color:               #000;
+$overlay-gradient-end-opacity:             0.5;
+
+// on mobile, show a background color instead of a gradient to improve readibility
+$overlay-background-color-sm-max:          #000;
+$overlay-background-opacity-sm-max:        0.5;

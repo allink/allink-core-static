@@ -1,0 +1,13 @@
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+=hamburger =toggle
+
+*/
+
+$navbar-toggle-spacing-top:                10px;
+$navbar-toggle-spacing-right:              $grid-gutter-width/2;
+$navbar-toggle-bar-bg-collapsed:           $body-color;
+$navbar-toggle-bar-bg-collapsed-hover:     $black;
+$navbar-toggle-bar-bg-expanded:            $body-color;
+$navbar-toggle-bar-bg-expanded-hover:      $black;
+$navbar-toggle-bar-transition:             all 200ms ease-in;

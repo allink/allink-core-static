@@ -1,0 +1,28 @@
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+=Links (default)
+
+*/
+
+$link-transition-property:           color, border-color;
+$link-transition-duration:           $default-transition-duration;
+$link-transition-timing-function:    $default-transition-timing-function;
+$link-color:                         $brand-secondary;
+$link-decoration:                    underline;
+$link-color-hover:                   $brand-secondary-light;
+$link-decoration-hover:              underline;
+
+// border enabled?
+$link-border-enabled:       false;
+$link-border-width:         1px;
+$link-border-style:         solid;
+$link-border-color:         $brand-secondary;
+$link-border-color-hover:   $brand-primary;
+$link-border:               $link-border-width $link-border-style $link-border-color-hover;
+$link-border-hover:         $link-border-width $link-border-style $link-border-color-hover;
+
+// inverted text on dark background
+$link-inverted-color:               $white;
+$link-inverted-color-hover:         $white;
+$link-inverted-border-color:        $brand-secondary;
+$link-inverted-border-color-hover:  $brand-secondary;
