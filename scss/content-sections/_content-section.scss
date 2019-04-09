@@ -744,8 +744,8 @@ Default Content Section Styles
         @include content-plugin-col-mobile-flexbox-spacing-fix($flex-bp: $screen-sm-max);
         .content-section__col {
             @include make-xs-column(24);
-            @include make-sm-column(12);
-            @include make-md-column(8);
+            @include make-lg-column(8);
+
             position: static;
             @include make-spacing-top-sm-max($content-section-col-stack-spacing-sm-max);
         }

@@ -1,0 +1,182 @@
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+Hamburger Toggle
+
+*/
+
+.hamburger {
+    display: inline-block;
+    cursor: pointer;
+    border-radius: 0;
+
+    transition-property: opacity, filter;
+    transition-duration: $hamburger-hover-transition-duration;
+    transition-timing-function: $hamburger-hover-transition-timing-function;
+
+    // Normalize (<button>)
+    font: inherit;
+    font-size: 1rem !important;
+    font-weight: normal !important;
+    line-height: 1 !important;
+    color: inherit;
+    text-transform: none;
+    background-color: $hamburger-background-color;
+    border: 0;
+    margin: 0;
+    overflow: visible;
+    -webkit-appearance: none !important;
+
+    // padding
+    padding: $hamburger-padding-y-xs $hamburger-padding-x-xs;
+    @media (min-width:$screen-xxl) {
+        padding: $hamburger-padding-y-xxl $hamburger-padding-x-xxl;
+    }
+
+    // when nav is expanded, reset background color
+    .nav-expanded & {
+        background: $hamburger-nav-expanend-background-color;
+    }
+
+    &:hover {
+        @if $hamburger-hover-use-filter == true {
+            filter: $hamburger-hover-filter;
+        }
+        @else {
+            opacity: $hamburger-hover-opacity;
+        }
+    }
+}
+
+.hamburger-box {
+    width: $hamburger-layer-width;
+    height: $hamburger-layer-height * 3 + $hamburger-layer-spacing * 2;
+    display: inline-block;
+    position: relative;
+    bottom: $hamburger-box-position-bottom;
+}
+
+.hamburger-inner {
+    display: block;
+    top: 50%;
+    margin-top: $hamburger-layer-height / -2;
+
+    &,
+    &::before,
+    &::after {
+        line-height: 1 !important;
+        font-size: 1rem !important;
+        font-weight: normal !important;
+        width: $hamburger-layer-width;
+        height: $hamburger-layer-height;
+        background-color: $hamburger-layer-color;
+        border-radius: $hamburger-layer-border-radius;
+        position: absolute;
+        transition-property: transform;
+        transition-duration: 0.15s;
+        transition-timing-function: ease;
+    }
+
+    // overwrite for middle bar
+    & {
+        background-color: transparent;
+    }
+
+    &::before,
+    &::after {
+        content: "";
+        display: block;
+    }
+
+    &::before {
+        top: ($hamburger-layer-spacing + $hamburger-layer-height) * -1;
+    }
+
+    &::after {
+        bottom: ($hamburger-layer-spacing + $hamburger-layer-height) * -1;
+    }
+}
+
+.hamburger-text {
+    @include sr-only();
+}
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+Squeeze Variation
+
+*/
+
+.hamburger-inner {
+    // transition-duration: 0.075s;
+    &::before {
+        transition: top 0.075s 0.12s ease,
+                    transform 0.075s ease;
+        transition-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+    }
+
+    &::after {
+        transition: bottom 0.075s 0.12s ease,
+                    transform 0.075s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+    }
+}
+
+.hamburger {
+    &.is-active {
+        .hamburger-inner {
+            transform: rotate(45deg);
+            transition-delay: 0.12s;
+            transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+
+            &::before {
+                top: 0;
+                // opacity: 0;
+                transition: top 0.075s ease,
+                            opacity 0.075s 0.12s ease;
+            }
+
+            &::after {
+                bottom: 0;
+                transform: rotate(-90deg);
+                transition: bottom 0.075s ease,
+                            transform 0.075s 0.12s cubic-bezier(0.215, 0.61, 0.355, 1);
+            }
+        }
+    }
+}
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+Mobile Menu Toggle
+
+*/
+
+.navbar-toggle {
+    display: block;
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translate(0,-50%);
+    @media (min-width:$grid-float-breakpoint) {
+        display: none;
+    }
+}
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+Overlay Menu Toggle
+
+*/
+
+.overlay-menu-toggle {
+    display: block;
+    position: absolute;
+    top: 50%;
+    right: 30px;
+    transform: translate(0,-50%);
+    z-index: 5;
+    @media (min-width:$screen-md) {
+        right: 30px;
+    }
+}

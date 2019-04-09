@@ -4,6 +4,7 @@
 
 */
 
+$modal-global-bg:                              #fff;
 $modal-global-overlay-transition:              all 400ms ease-out;
 $modal-global-content-bg:                      #fff;
 
@@ -32,6 +33,9 @@ $modal-global-close-btn-height-xxl:            70px;
 // content padding
 $modal-global-spacing-xs:                      60px $grid-gutter-width/2 $grid-gutter-width/2;
 $modal-global-spacing-md:                      $grid-gutter-width;
+
+// header
+$modal-header-bg-color:                        $gray;
 
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *

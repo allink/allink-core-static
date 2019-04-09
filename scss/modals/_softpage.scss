@@ -17,24 +17,23 @@ Softpage
     .tingle-modal-box {
         position: absolute;
         top: 0;
-        right: 0;
+        right: auto;
         bottom: 0;
         left: auto;
         margin: 0;
-        min-height: 0 !important; // this one is set on a project basis, so we gotta force it
+        min-height: 0; // this one is set on a project basis, so we gotta force it
         overflow-y: scroll; // has to be scroll, not auto
         overflow-x: hidden;
         -webkit-overflow-scrolling: touch;
-    }
-
-    .tingle-modal-box {
-        margin-right: 0;
-        top: 0 !important;
-        min-height: 100%;
         opacity: 0;
-        transform: translate($softpage-content-box-offset,0);
+        transform: translate(0, $softpage-content-box-offset);
         transition: $softpage-content-box-transition;
         width: 100%;
+
+        @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+            left: 0;
+            right: 0;
+        }
         @media (min-width: $screen-sm) {
             max-width: $softpage-max-width-sm;
         }
@@ -43,12 +42,14 @@ Softpage
         }
         @media (min-width:$screen-xxl) {
             max-width: $softpage-max-width-xxl;
+            @if $max-width-xxl {
+                max-width: $max-width-xxl;
+            }
         }
 
-        // default
-        top: 0 !important;
         // keep site header visible when opened
         @if $softpage-site-header-visible-when-opened {
+            top: $softpage-offset-top-xs !important;
             @media (min-width:$screen-md) {
                 top: $softpage-offset-top-md !important;
             }
@@ -79,13 +80,26 @@ Softpage
             }
         }
 
-    }
-
-    .tingle-modal-box__content {
-        padding: 0;
+        &__content {
+            max-width: none;
+            @include make-lg-column(16);
+            @include make-lg-column-offset(4);
+            padding-left: 0 !important;
+            padding-right: 0 !important;
+            padding-top: $grid-gutter-width/2;
+            > .content-section {
+                &:first-child {
+                    padding-top: 0;
+                }
+            }
+            @include print() {
+                padding-top: 0 !important;
+            }
+        }
     }
 
     .tingle-modal__close {
+        display: none;
         position: fixed;
         line-height: 1;
         top: 0;
@@ -162,7 +176,11 @@ Softpage
         }
     }
 
-    // variations
+    /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+    Variations
+
+    */
     &[data-softpage-variation="small"] {
         .tingle-modal-box {
             @media (min-width: $screen-sm) {
@@ -171,6 +189,12 @@ Softpage
             @media (min-width:$screen-xxl) {
                 max-width: $softpage-small-xxl-max-width;
             }
+        }
+    }
+
+    .tingle-modal-header {
+        @include print() {
+            display: none;
         }
     }
 

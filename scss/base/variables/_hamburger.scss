@@ -4,10 +4,24 @@
 
 */
 
-$navbar-toggle-spacing-top:                10px;
-$navbar-toggle-spacing-right:              $grid-gutter-width/2;
-$navbar-toggle-bar-bg-collapsed:           $body-color;
-$navbar-toggle-bar-bg-collapsed-hover:     $black;
-$navbar-toggle-bar-bg-expanded:            $body-color;
-$navbar-toggle-bar-bg-expanded-hover:      $black;
-$navbar-toggle-bar-transition:             all 200ms ease-in;
+$hamburger-padding-x-xs                    : 0;
+$hamburger-padding-y-xs                    : 8px;
+$hamburger-padding-x-xxl                   : 0;
+$hamburger-padding-y-xxl                   : 10px;
+$hamburger-layer-width                     : 26px;
+$hamburger-layer-height                    : 2px;
+$hamburger-layer-spacing                   : 3px;
+$hamburger-layer-color                     : $white;
+$hamburger-layer-border-radius             : 0;
+$hamburger-box-position-bottom             : -2px;
+$hamburger-background-color                : transparent;
+$hamburger-nav-expanend-background-color   : transparent;
+$hamburger-hover-opacity                   : 0.9;
+$hamburger-hover-transition-duration       : 0.15s;
+$hamburger-hover-transition-timing-function: linear;
+
+// To use CSS filters as the hover effect instead of opacity,
+// set $hamburger-hover-use-filter as true and
+// change the value of $hamburger-hover-filter accordingly.
+$hamburger-hover-use-filter: false;
+$hamburger-hover-filter    : opacity(50%);
