@@ -135,7 +135,7 @@ export function initiSwiperInstances(options) {
         // duration per slide
         let durationPerSlide = parseInt($swiper_instance.attr('data-duration-per-slide'));
         // fallback: get option value
-        if (typeof instanceEffect !== 'undefined') {
+        if (typeof durationPerSlide !== 'undefined') {
             durationPerSlide = options.durationPerSlide;
         }
 
