@@ -1,3 +1,9 @@
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+Infobox CMS Module
+
+*/
+
 import docCookies from './docCookies';
 
 $(function(){
