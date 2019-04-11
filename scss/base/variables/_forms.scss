@@ -4,6 +4,37 @@
 
 */
 
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+=defaults
+
+*/
+
+//** `<input>` border color
+$input-border:                   #ccc !default;
+
+// TODO: Rename `$input-border-radius` to `$input-border-radius-base` in v4
+//** Default `.form-control` border radius
+// This has no effect on `<select>`s in some browsers, due to the limited stylability of `<select>`s in CSS.
+$input-border-radius:            $border-radius-base !default;
+//** Large `.form-control` border radius
+$input-border-radius-large:      $border-radius-large !default;
+//** Small `.form-control` border radius
+$input-border-radius-small:      $border-radius-small !default;
+
+//** Border color for inputs on focus
+$input-border-focus:             #66afe9 !default;
+
+//** Default `.form-control` height
+$input-height-base:              ($line-height-computed + ($padding-base-vertical * 2) + 2) !default;
+//** Large `.form-control` height
+$input-height-large:             (ceil($font-size-large * $line-height-large) + ($padding-large-vertical * 2) + 2) !default;
+//** Small `.form-control` height
+$input-height-small:             (floor($font-size-small * $line-height-small) + ($padding-small-vertical * 2) + 2) !default;
+
+//** `.form-group` margin
+$form-group-margin-bottom:       15px !default;
+
 $form-default-max-width:                600px;
 
 // `.form-group` margin top (except :first-child)
@@ -145,6 +176,13 @@ $input-bg-disabled:                    $gray-lightest;
 
 // Text color for `<input>`s
 $input-color:                          $black;
+
+//** Default `.form-control` height
+$input-height-base:              ($line-height-computed + ($padding-base-vertical * 2) + 2) !default;
+//** Large `.form-control` height
+$input-height-large:             (ceil($font-size-large * $line-height-large) + ($padding-large-vertical * 2) + 2) !default;
+//** Small `.form-control` height
+$input-height-small:             (floor($font-size-small * $line-height-small) + ($padding-small-vertical * 2) + 2) !default;
 
 // horizontal padding settings for form fields and textarea
 $input-padding-left:                   0.5em;
@@ -584,7 +622,6 @@ $datepicker-selected-day-border-width:      1;
 =dropdown
 
 */
-
 $dropdown-min-width:                    280px;
 $dropdown-border-width:                 1px;
 $dropdown-border-style:                 solid;
@@ -601,6 +638,7 @@ $dropdown-toggle-padding-left:          0.5em;
 
 // dropdown
 $dropdown-bg:                           $white;
+$zindex-dropdown:                       1000 !default;
 
 // link: default
 $dropdown-link-padding:                 0.5em 0.5em;
@@ -616,6 +654,10 @@ $dropdown-link-disabled-color:          $gray-light;
 // not used in default dropdowns
 $dropdown-divider-bg:                   transparent;
 $dropdown-header-color:                 $gray-light;
+$dropdown-border:                       rgba(0,0,0,.15) !default;
+$dropdown-fallback-border:              #ccc !default;
+$dropdown-divider-bg:                   #e5e5e5 !default;
+$dropdown-caret-color:                  #000 !default;
 
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *

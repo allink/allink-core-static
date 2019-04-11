@@ -12,6 +12,9 @@ conflicts with Bootstrap) and can easily be overwritten.
 
 @import 'variables/colors';
 @import 'variables/body';
+@import 'variables/typography';
+@import 'variables/components';
+@import 'variables/buttons';
 @import 'variables/heading-colors';
 @import 'variables/django-cms';
 @import 'variables/transitions';
@@ -38,4 +41,5 @@ conflicts with Bootstrap) and can easily be overwritten.
 @import 'variables/video';
 @import 'variables/404';
 @import 'variables/misc';
+@import 'variables/code';
 @import 'variables/newsletter';

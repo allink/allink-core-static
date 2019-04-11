@@ -1,63 +1,10 @@
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 
-Bootstrap Core variables
-
-*/
-
-@import "~bootstrap-sass/assets/stylesheets/bootstrap/variables";
-
-/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
-
 Our variables
 
 */
 
 @import "base/variables";
-
-
-/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
-
-Mixins
-
-*/
-
-@import "~bootstrap-sass/assets/stylesheets/bootstrap/mixins";
-
-
-/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
-
-Core CSS
-
-*/
-
-// @import "~bootstrap-sass/assets/stylesheets/bootstrap/scaffolding";
-// @import "~bootstrap-sass/assets/stylesheets/bootstrap/type";
-// @import "~bootstrap-sass/assets/stylesheets/bootstrap/code";
-// @import "~bootstrap-sass/assets/stylesheets/bootstrap/grid";
-// @import "~bootstrap-sass/assets/stylesheets/bootstrap/tables";
-// @import "~bootstrap-sass/assets/stylesheets/bootstrap/forms";
-@import "~bootstrap-sass/assets/stylesheets/bootstrap/buttons";
-
-
-/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
-
-Components
-
-*/
-
-@import "~bootstrap-sass/assets/stylesheets/bootstrap/dropdowns"; // required, when using bootstrap-select
-@import "~bootstrap-sass/assets/stylesheets/bootstrap/button-groups";
-@import "~bootstrap-sass/assets/stylesheets/bootstrap/input-groups";
-
-
-/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
-
-Utility classes
-
-*/
-
-@import "~bootstrap-sass/assets/stylesheets/bootstrap/utilities";
-@import "~bootstrap-sass/assets/stylesheets/bootstrap/responsive-utilities";
 
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
