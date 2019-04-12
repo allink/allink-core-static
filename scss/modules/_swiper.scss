@@ -4,18 +4,37 @@ Global Swiper Custom Styles
 
 */
 
-.swiper-container-inner {
-    position: relative;
+.swiper-container {
+    opacity: 0;
+    transition: opacity 300ms ease-in-out;
+    &.swiper-initialized,
+    &.swiper-disabled {
+        opacity: 1;
+    }
+    &.swiper-disabled {
+        + .swiper-optional-container {
+            display: none;
+        }
+    }
 }
 
 // Buttons (arrows)
 .swiper-button {
     background: none;
-    width: 50%;
-    height: 100%;
-    top: 50%;
+    top: auto;
+    bottom: 0;
+    transform: translate(0,0);
     margin: 0;
-    transform: translate(0,-50%);
+    width: $swiper-default-arrows-button-width-xs;
+    height: $swiper-default-arrows-button-height-xs;
+    @media (min-width:$screen-md) {
+        width: $swiper-default-arrows-button-width-md;
+        height: $swiper-default-arrows-button-height-md;
+    }
+    @media (min-width:$screen-xl) {
+        width: $swiper-default-arrows-button-width-xl;
+        height: $swiper-default-arrows-button-height-xl;
+    }
     &:link,
     &:visited {
         color: $swiper-default-arrows-color;
@@ -77,7 +96,13 @@ Global Swiper Custom Styles
 }
 
 .swiper-button-prev {
-    left: 0;
+    left: -$swiper-default-arrows-button-width-xs/3;
+    @media (min-width:$screen-md) {
+        left: -$swiper-default-arrows-button-width-md/3;
+    }
+    @media (min-width:$screen-xl) {
+        left: -$swiper-default-arrows-button-width-xl/3;
+    }
     &__inner {
         left: 0;
         &:before {
@@ -88,7 +113,13 @@ Global Swiper Custom Styles
 }
 
 .swiper-button-next {
-    right: -1px; // fixes subpixel issue
+    right: -$swiper-default-arrows-button-width-xs/3;
+    @media (min-width:$screen-md) {
+        right: -$swiper-default-arrows-button-width-md/3;
+    }
+    @media (min-width:$screen-xl) {
+        right: -$swiper-default-arrows-button-width-xl/3;
+    }
     &__inner {
         right: 0;
         &:before {
@@ -97,116 +128,70 @@ Global Swiper Custom Styles
     }
 }
 
-
-// Pagination
-.swiper-pagination {
-    // making sure the bullets are above the buttons
-    z-index: 15;
-}
-
-.swiper-container-horizontal {
-    // no point in displaying controls if there is only 1 slide
+.swiper-optional-container {
+    @include clearfix();
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 0;
+    height: $swiper-default-arrows-button-height-xs;
+    clear: both;
+    @media (min-width:$screen-md) {
+        height: $swiper-default-arrows-button-height-md;
+    }
+    @media (min-width:$screen-xl) {
+        height: $swiper-default-arrows-button-height-xl;
+    }
     .swiper-disabled & {
         display: none;
     }
-    & > .swiper-pagination-bullets,
-    & > .swiper-pagination-custom,
-    & > .swiper-pagination-fraction {
-        top: $swiper-default-pagination-position-top-xs;
-        bottom: $swiper-default-pagination-position-bottom-xs;
-        @media (min-width:$screen-md) {
-            top: $swiper-default-pagination-position-top-md;
-            bottom: $swiper-default-pagination-position-bottom-md;
+    border-bottom: 1px solid $gray-lighter;
+    .testimonials-plugin & {
+        border-top: 1px solid $brand-primary !important;
+        border-bottom: none;
+    }
+}
+
+.swiper-content-container {
+    margin-top: $grid-gutter-width/4;
+    .swiper-content {
+        color: $gray-light;
+        display: none;
+        &--visible {
+            display: block;
         }
-        // optionally hide the pagination on sm-max breakpoint
-        @if $swiper-default-pagination-hidden-sm-max == true {
-            @media (max-width:$screen-sm-max) {
-               display: none;
+    }
+}
+
+.swiper-slide-details-container {
+    @include max-width();
+    @include column-padding-sm-max();
+    margin: $grid-gutter-width auto 0;
+    @media (min-width: $screen-md) {
+        max-width: 900px;
+    }
+    .swiper-content {
+        text-align: center;
+        &__title {
+            @include font-h3();
+            margin-bottom: $grid-gutter-width/2;
+        }
+        &__logo__list {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: $grid-gutter-width/2 0 $grid-gutter-width;
+        }
+        &__logo {
+            max-height: $grid-gutter-width * 4;
+            @media (min-width: $screen-md) {
+                max-height: $grid-gutter-width * 5;
             }
         }
     }
 }
 
-.swiper-pagination-bullet {
-    position: relative;
-    width: 30px;
-    height: 30px;
-    background-color: transparent;
-    margin: 0 !important;
-    opacity: 1;
-    &:before {
-        content: '';
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        margin-top: -($swiper-default-bullet-size/2);
-        margin-left: -($swiper-default-bullet-size/2);
-        width: $swiper-default-bullet-size;
-        height: $swiper-default-bullet-size;
-        border-radius: 50%;
-        border-width: $swiper-default-bullet-border-width;
-        border-style: $swiper-default-bullet-border-style;
-        border-color: $swiper-default-bullet-border-color;
-        background-color: $swiper-default-bullet-bg;
-        transform: scale(1);
-        transition: all 150ms ease-in-out;
-    }
-}
-
-.swiper-pagination-bullet-active {
-    &:before {
-        background-color: $swiper-default-bullet-bg-active;
-        border-color: $swiper-default-bullet-border-color-active;
-    }
-}
-
-.swiper-optional-container {
-    position: relative;
-    margin-top: $grid-gutter-width/4;
-    @include clearfix();
-}
-
-/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
-
-Overlay
-
-*/
-
-@if $swiper-default-overlay-styles-enabled == true {
-    .swiper-content__overlay {
-        // modifier class for a swiper instance (set on container)
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        z-index: 5;
-        @include gradient-overlay($swiper-default-overlay-gradient-height);
-        @media (max-width:$screen-sm-max) {
-            background-color: $overlay-background-color-sm-max;
-            opacity: $overlay-background-opacity-sm-max;
-        }
-    }
-    .swiper-content__heading {
-        color: $overlay-heading-color;
-    }
-    .swiper-content__text-container {
-        > * {
-            color: $overlay-text-color;
-        }
-    }
-}
-
-/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
-
-Image
-
-*/
-
-.swiper-content__image {
-    position: relative;
-    z-index: 1;
-}
 
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
@@ -238,45 +223,3 @@ Counter
 .swiper-counter--active {
     display: block;
 }
-
-/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
-
-Basic slider content styling
-
-*/
-
-.swiper-content__content-container {
-    position: absolute;
-    @include content-section-spacing-position(bottom);
-    @include content-section-spacing-position(left);
-    @include content-section-spacing-position(right);
-    z-index: 10;
-    @media (min-width:$screen-lg) {
-        max-width: 66.66%;
-    }
-}
-
-.swiper-content__heading {
-    @include font-h2();
-}
-
-
-/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
-
-Toggle opacity of active/inactive slides
-
-Fixes issue where slide WITHOUT background color/image causes text of different slides to stack
-
-*/
-
-.swiper-container-fade {
-    .swiper-slide {
-        opacity: 0 !important;
-        transition: opacity 600ms ease-in-out;
-        &.swiper-slide-active,
-        &.swiper-slide-duplicate-active {
-            opacity: 1 !important;
-        }
-    }
-}
-

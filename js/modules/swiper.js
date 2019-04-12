@@ -123,6 +123,9 @@ export function initiSwiperInstances(options) {
             $counter.addClass('swiper-counter--active');
         }
 
+        // swiper content container dom node
+        const $swiperContentsContainer = $swiper_instance.parent().siblings('.swiper-content-container');
+
         /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 
         Instance settings
@@ -208,13 +211,16 @@ export function initiSwiperInstances(options) {
             },
             onSlideChangeStart: function(swiper) {
                 $(window).trigger('swiper:onSlideChangeStart', [swiper, $swiper_instance]);
-            },
-            onSlideChangeEnd: function(swiper) {
-                $(window).trigger('swiper:onSlideChangeEnd', [swiper, $swiper_instance]);
                 // if counter dom node exists in template
                 if ($counter) {
                     $counter.children('.swiper-counter__current').html(swiper.realIndex + 1);
                 }
+                if ($swiperContentsContainer) {
+                    updateSwiperContentsContainer(swiper, $swiperContentsContainer);
+                }
+            },
+            onSlideChangeEnd: function(swiper) {
+                $(window).trigger('swiper:onSlideChangeEnd', [swiper, $swiper_instance]);
             },
             effect: finalEffect,
             speed: finalTransitionDurationBetweenSlides, // Number: Duration of transition between slides (in ms)
@@ -403,6 +409,14 @@ function closeSwiperFullscreen() {
         // enable scrolling again
         $('html').removeClass('scrolling-disabled');
     },10);
+}
+
+function updateSwiperContentsContainer(swiper, $swiperContentsContainer) {
+    const activeIndex = swiper.realIndex + 1; // django loop index starts at 1
+    const $sliderContents = $swiperContentsContainer.children('.swiper-content');
+    const $activeContent = $swiperContentsContainer.children(`.swiper-content-${activeIndex}`);
+    $sliderContents.removeClass('swiper-content--visible');
+    $activeContent.addClass('swiper-content--visible');
 }
 
 $(window).on('viewportWidthHasChanged',function(){
