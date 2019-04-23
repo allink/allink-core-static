@@ -6,6 +6,39 @@ Our variables
 
 @import "base/variables";
 
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+Mixins
+
+*/
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+Core CSS
+
+*/
+@import "../form/buttons";
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+Components
+
+*/
+
+@import "../form/dropdown";
+@import "../form/button-groups";
+@import "../form/input-groups";
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+Utility classes
+
+*/
+@import "../misc/utilities";
+
+
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 

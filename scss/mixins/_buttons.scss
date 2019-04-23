@@ -113,6 +113,14 @@ How to use:
         &::after {
             color: map-deep-get($btn-variations,$variation,'color-hover');
         }
+
+        @if $btn-mask-transition-enabled {
+            background-color: map-deep-get($btn-variations,$variation,'bg');
+            .button-link-plugin__text--mask,
+            .button-link-plugin__text--mask span {
+                transform: translate(0%, 0%);
+            }
+        }
     }
     &.disabled,
     &[disabled],
@@ -125,6 +133,77 @@ How to use:
         border-bottom-color: map-deep-get($btn-variations,$variation,'border-bottom-color-disabled');
         border-left-color: map-deep-get($btn-variations,$variation,'border-left-color-disabled');
     }
+
+    /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+    Mask Style
+
+    */
+
+    @if $btn-mask-transition-enabled {
+        position: relative;
+        overflow: hidden;
+        .button-link-plugin__text {
+            transition: none;
+            &--mask {
+                position: absolute;
+                top: auto;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                height: 100%;
+                overflow: hidden;
+                transform: translateY(100%);
+                transition: transform $btn-mask-transition-duration $btn-mask-transition-timing-function;
+                background-color: map-deep-get($btn-variations,$variation,'bg-hover');
+
+                @if $btn-mask-transition-direction-starting-point == 'bottom' {
+                    transform: translateY(100%);
+                }
+                @if $btn-mask-transition-direction-starting-point == 'right' {
+                    transform: translateX(100%);
+                }
+                @if $btn-mask-transition-direction-starting-point == 'top' {
+                    transform: translateY(-100%);
+                }
+                @if $btn-mask-transition-direction-starting-point == 'left' {
+                    transform: translateX(-100%);
+                }
+
+                > span {
+                    position: absolute;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                    z-index: 100;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    height: 100%;
+                    transition: inherit;
+
+                    @if $btn-mask-transition-direction-starting-point == 'bottom' {
+                        transform: translateY(-100%);
+                    }
+                    @if $btn-mask-transition-direction-starting-point == 'right' {
+                        transform: translateX(-100%);
+                    }
+                    @if $btn-mask-transition-direction-starting-point == 'top' {
+                        transform: translateY(100%);
+                    }
+                    @if $btn-mask-transition-direction-starting-point == 'left' {
+                        transform: translateX(100%);
+                    }
+                }
+            }
+        }
+    } @else {
+        .button-link-plugin__text--mask {
+            display: none !important;
+            overflow: hidden !important;
+        }
+    }
+
 }
 
 
@@ -135,9 +214,50 @@ Get the base styles for a button
 */
 
 @mixin button-base() {
-
     border-radius: $btn-border-radius-base;
+    display: inline-block;
+    margin-bottom: 0; // For input.btn
+    font-weight: $btn-font-weight;
+    text-align: center;
+    vertical-align: middle;
+    touch-action: manipulation;
     cursor: pointer;
+    background-image: none; // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
+    border: 1px solid transparent;
+    white-space: nowrap;
+    @include button-size($padding-base-vertical, $padding-base-horizontal, $font-size-base, $line-height-base, $btn-border-radius-base);
+    @include user-select(none);
+
+    &,
+    &:active,
+    &.active {
+        &:focus,
+        &.focus {
+            @include tab-focus;
+        }
+    }
+
+    &:hover,
+    &:focus,
+    &.focus {
+        color: $btn-default-color;
+        text-decoration: none;
+    }
+
+    &:active,
+    &.active {
+        outline: 0;
+        background-image: none;
+        @include box-shadow(inset 0 3px 5px rgba(0,0,0,.125));
+    }
+
+    &.disabled,
+    &[disabled],
+    fieldset[disabled] & {
+        cursor: $cursor-disabled;
+        @include opacity(.65);
+        @include box-shadow(none);
+    }
 
     &,
     &:link,
@@ -179,4 +299,94 @@ Get the base styles for a button
     padding-bottom: $btn-padding-bottom;
     padding-left: $btn-padding-left;
     line-height: $btn-line-height;
+}
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+Add arrows/plus icon after/before the button text
+
+*/
+
+@mixin button-icon($icon:'arrow', $spacing:'default') {
+    // init
+    $icon-padding: 3.5em;
+    $icon-position: 1.5em;
+    $transition-duration: $link-transition-duration;
+    $link-text-translate: ($icon-padding - 1.5); // move link text further
+    @if $spacing == 'small' {
+        $icon-padding: 1.2em;
+        $icon-position: 0;
+        $link-text-translate: $icon-padding;
+    }
+    // styles
+    overflow: hidden;
+    position: relative;
+    padding-right: $icon-padding;
+    &:after {
+        @include icomoon();
+        position: absolute;
+        top: 50%;
+        right: $icon-position;
+        transform: translate(0,-50%);
+        transition: transform $transition-duration ease-in-out, left $transition-duration ease-in-out;
+    }
+    @if $icon == 'plus' {
+        padding-right: $btn-padding-right;
+        padding-left: 2.8em;
+
+        @if $btn-mask-transition-enabled {
+            &.btn {
+                .button-link-plugin__text--mask {
+                    > span {
+                        padding-left: 1.6em;
+                    }
+                }
+            }
+        }
+
+        &:after {
+            content: $btn-icon-plus;
+            font-size: 1.3em;
+            right: auto;
+            left: 0.7em;
+        }
+
+        &:hover,
+        &:focus {
+            &:after {
+                transform: translate(0,-50%) rotate(90deg);
+            }
+        }
+    }
+    @if $icon == 'arrow' {
+        padding-right: 2.2em;
+        &.text {
+            padding-right: 1.1em;
+        }
+        @if $btn-mask-transition-enabled {
+            &.btn {
+                .button-link-plugin__text--mask {
+                    > span {
+                        padding-left: $btn-padding-left;
+                        padding-right: 2.2em;
+                    }
+                }
+            }
+        }
+        &:after {
+            content: $btn-icon-arrow;
+            font-size: 0.5em;
+            transform: translate(0,-50%) rotate(-45deg);
+            .inverted-colors & {
+                color: $body-inverted-color;
+            }
+        }
+        &:hover,
+        &:focus {
+            &:after {
+                transform: translate(0,-50%) rotate(0deg);
+            }
+        }
+    }
 }

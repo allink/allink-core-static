@@ -79,3 +79,19 @@
         padding-left: $padding;
     }
 }
+
+@mixin link-icon-external-text() {
+    @include icon-right-outside($padding: 1em, $icon: '\e90a', $icon-size: 0.5em);
+    margin-right: 1.2em;
+    &:hover,
+    &:focus {
+        &::before {
+            top: 50%;
+        }
+    }
+    &::before {
+        right: -1.5em;
+        transform: rotate(-45deg);
+    }
+}
+

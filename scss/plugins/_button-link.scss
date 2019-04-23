@@ -30,4 +30,12 @@
         }
     }
 
+    &__link {
+        &.text {
+            .button-link-plugin__text--mask {
+                display: none !important;
+                overflow: hidden !important;
+            }
+        }
+    }
 }
