@@ -143,6 +143,16 @@ How to use:
     @if $btn-mask-transition-enabled {
         position: relative;
         overflow: hidden;
+
+        &[target="_blank"] {
+            .button-link-plugin__text--mask {
+                > span {
+                    justify-content: left;
+                    left: 1.2em;
+                }
+            }
+        }
+
         .button-link-plugin__text {
             transition: none;
             &--mask {
@@ -320,73 +330,54 @@ Add arrows/plus icon after/before the button text
         $link-text-translate: $icon-padding;
     }
     // styles
-    overflow: hidden;
-    position: relative;
-    padding-right: $icon-padding;
-    &:after {
-        @include icomoon();
-        position: absolute;
-        top: 50%;
-        right: $icon-position;
-        transform: translate(0,-50%);
-        transition: transform $transition-duration ease-in-out, left $transition-duration ease-in-out;
-    }
-    @if $icon == 'plus' {
-        padding-right: $btn-padding-right;
-        padding-left: 2.8em;
-
-        @if $btn-mask-transition-enabled {
-            &.btn {
-                .button-link-plugin__text--mask {
-                    > span {
-                        padding-left: 1.6em;
-                    }
-                }
-            }
-        }
-
-        &:after {
-            content: $btn-icon-plus;
-            font-size: 1.3em;
-            right: auto;
-            left: 0.7em;
-        }
-
-        &:hover,
-        &:focus {
-            &:after {
-                transform: translate(0,-50%) rotate(90deg);
-            }
-        }
-    }
     @if $icon == 'arrow' {
-        padding-right: 2.2em;
         &.text {
-            padding-right: 1.1em;
-        }
-        @if $btn-mask-transition-enabled {
-            &.btn {
-                .button-link-plugin__text--mask {
-                    > span {
-                        padding-left: $btn-padding-left;
-                        padding-right: 2.2em;
-                    }
-                }
+            margin-right: 1.1em;
+            text-decoration: none;
+            &:after {
+                left: 1.8em;
+                margin-left: -1.45em;
+                margin-right: -0.2em;
+            }
+            &:hover,
+            &:focus {
+                box-shadow: inset 0 -1.5em 0 #ccc;
+                margin-right: -.15em;
+                padding-right: 1.25em;
+            }
+            span {
+                display: inline-block;
             }
         }
+
+        &.btn {
+            padding-right: 1.6em;
+            &:after {
+                left: 0.5em;
+            }
+        }
+
         &:after {
+            @include icomoon();
             content: $btn-icon-arrow;
+            display: inline-block;
             font-size: 0.5em;
-            transform: translate(0,-50%) rotate(-45deg);
-            .inverted-colors & {
-                color: $body-inverted-color;
-            }
+            position: relative;
+
+            line-height: 0;
+
+            top: 0;
+            transition: all 300ms ease-in-out;
+            vertical-align: middle;
         }
+
         &:hover,
         &:focus {
             &:after {
-                transform: translate(0,-50%) rotate(0deg);
+                top: -0.1em;
+                transform: rotate(45deg);
             }
         }
+
     }
 }
