@@ -45,14 +45,6 @@ $content-section-heading-spacing-xs:        $grid-gutter-width/2;
 $content-section-heading-spacing-md:        $grid-gutter-width;
 $content-section-heading-spacing-xl:        $grid-gutter-width;
 
-// bg image INNER - overlay gradient (percentage values recommended)
-$content-section-bg-image-inner-overlay-gradient-height-xs:   0; // text is not overlapping image
-$content-section-bg-image-inner-overlay-gradient-height-sm:   0; // text is not overlapping image
-$content-section-bg-image-inner-overlay-gradient-height-md:   66%;
-$content-section-bg-image-inner-overlay-gradient-height-lg:   66%;
-$content-section-bg-image-inner-overlay-gradient-height-xl:   66%;
-$content-section-bg-image-inner-overlay-gradient-height-xxl:  66%;
-
 // bg image OUTER - overlay gradient (percentage values recommended)
 $content-section-outer-overlay-gradient-height-xs:   66%;
 $content-section-outer-overlay-gradient-height-sm:   66%;
@@ -68,43 +60,6 @@ $content-section-column-manage-spacings-container-md:       $grid-gutter-width;
 $content-section-column-manage-spacings-container-lg:       $grid-gutter-width;
 $content-section-column-manage-spacings-container-xl:       $grid-gutter-width;
 $content-section-column-manage-spacings-container-xxl:      $grid-gutter-width;
-
-
-/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
-
-=Parallax
-
-===
-
-Important: The following ratios are closely linked to the THUMBNAIL_WIDTH_ALIASES in settings.py.
-
-How it works:
-
-1. SCSS variables: Define the visible area with a ratio
-2. settings.py: Define AT LEAST the same ratio as in CSS (which results in NO parallax effect).
-   The more the HEIGHT differs, the stronger the parallax effect will be.
-
-*/
-
-$parallax-full-height-mobile-height:                 120%; // The higher the number, the stronger the parallax effect. 100% = no effect
-
-$parallax-aspect-ratio-width-xs:                     4;
-$parallax-aspect-ratio-height-xs:                    3;
-
-$parallax-aspect-ratio-width-sm:                     4;
-$parallax-aspect-ratio-height-sm:                    3;
-
-$parallax-aspect-ratio-width-md:                     16;
-$parallax-aspect-ratio-height-md:                    6;
-
-$parallax-aspect-ratio-width-lg:                     16;
-$parallax-aspect-ratio-height-lg:                    6;
-
-$parallax-aspect-ratio-width-xl:                     16;
-$parallax-aspect-ratio-height-xl:                    6;
-
-$parallax-aspect-ratio-width-xxl:                    16;
-$parallax-aspect-ratio-height-xxl:                   6;
 
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *

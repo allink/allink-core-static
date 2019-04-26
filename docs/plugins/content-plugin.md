@@ -108,7 +108,6 @@ Currently, the only way to hide form fields is by using CSS. Open the file `stat
 ```SCSS
 // hide unused fields
 .field-overlay_enabled,
-.field-full_height_enabled,
 .field-ignore_in_pdf {
     display: none;
 }
