@@ -4,7 +4,7 @@ Main Container Mixins
 
 */
 
-@mixin container-fixed($gutter: $grid-gutter-width) {
+@mixin make-container($gutter: $grid-gutter-width) {
     margin-right: auto;
     margin-left: auto;
     padding-left: floor($gutter/2);

@@ -1,7 +1,6 @@
 .grid-static-container {
 
     .the-grid {
-        @include clearfix();
         @include make-row();
         // on XS we have a smaller column padding
         @include make-row-sm-max();
@@ -23,76 +22,33 @@
 
     // column settings
     .grid-item {
+        @include make-col-ready();
         .items-per-row-1 & {
             @include make-xs-column(24);
         }
         .items-per-row-2 & {
             @include make-xs-column(24);
             @include make-sm-column(12);
-            @media (min-width:$screen-sm) {
-                &:nth-child(2n+1) { clear: left; }
-            }
         }
         .items-per-row-3 & {
             @include make-xs-column(24);
             @include make-sm-column(12);
-            @media (min-width:$screen-sm) {
-                &:nth-child(2n+1) { clear: left; }
-            }
             @include make-lg-column(8);
-            @media (min-width:$screen-lg) {
-                &:nth-child(2n+1) { clear: none; }
-                &:nth-child(3n+1) { clear: left; }
-            }
         }
         .items-per-row-4 & {
             @include make-xs-column(24);
             @include make-sm-column(12);
-            @media (min-width:$screen-sm) {
-                &:nth-child(2n+1) { clear: left; }
-            }
             @include make-md-column(6);
-            @media (min-width:$screen-md) {
-                &:nth-child(2n+1) { clear: none; }
-                &:nth-child(4n+1) { clear: left; }
-            }
         }
         .items-per-row-5 & {
             @include make-xs-column(12);
-            @media (min-width:$screen-xs) {
-                &:nth-child(2n+1) { clear: left; }
-            }
             @include make-sm-column(8);
-            @media (min-width:$screen-sm) {
-                &:nth-child(2n+1) { clear: none; }
-                &:nth-child(3n+1) { clear: left; }
-            }
             @include make-md-column(6);
-            @media (min-width:$screen-md) {
-                &:nth-child(3n+1) { clear: none; }
-                &:nth-child(4n+1) { clear: left; }
-            }
-            @media (min-width:$screen-lg) {
-                width: 20%;
-                &:nth-child(4n+1) { clear: none; }
-                &:nth-child(5n+1) { clear: left; }
-            }
         }
         .items-per-row-6 & {
             @include make-xs-column(12);
-            @media (min-width:$screen-xs) {
-                &:nth-child(2n+1) { clear: left; }
-            }
             @include make-sm-column(8);
-            @media (min-width:$screen-sm) {
-                &:nth-child(2n+1) { clear: none; }
-                &:nth-child(3n+1) { clear: left; }
-            }
             @include make-md-column(4);
-            @media (min-width:$screen-md) {
-                &:nth-child(3n+1) { clear: none; }
-                &:nth-child(6n+1) { clear: left; }
-            }
         }
     }
 

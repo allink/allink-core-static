@@ -183,10 +183,11 @@ Default Content Section Styles
     // global container settings
     &.container-enabled {
         .content-section__container {
-            @include container-fixed();
+            @include make-container();
             @include max-width();
         }
     }
+
 
     /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 
@@ -196,7 +197,8 @@ Default Content Section Styles
 
     &.container-enabled {
         .content-section__inner {
-            @include make-row();
+            margin-right: -$grid-gutter-width / 2;
+            margin-left: -$grid-gutter-width / 2;
             // on XS we have a smaller column padding
             @include make-row-sm-max();
         }
@@ -548,24 +550,9 @@ Default Content Section Styles
             // add margin bottom to all columns
             @include content-plugin-stacked-col-spacing();
             @include make-xs-column(12);
-            @media (min-width:$screen-xs) {
-                &:nth-child(2n+1) { clear: left; }
-            }
             @include make-sm-column(8);
-            @media (min-width:$screen-sm) {
-                &:nth-child(2n+1) { clear: none; }
-                &:nth-child(3n+1) { clear: left; }
-            }
             @include make-md-column(4);
-            @media (min-width:$screen-md) {
-                &:nth-child(3n+1) { clear: none; }
-                &:nth-child(6n+1) { clear: left; }
-            }
             @include make-lg-column(4);
-            @media (min-width:$screen-lg) {
-                &:nth-child(3n+1) { clear: none; }
-                &:nth-child(6n+1) { clear: left; }
-            }
             position: static;
         }
     }
@@ -574,6 +561,7 @@ Default Content Section Styles
     &__main-col-container {
         .content-section__col-container {
             .content-section__col {
+                @include make-col-ready();
                 @include column-padding-sm-max();
             }
         }

@@ -1,6 +1,6 @@
 .styleguide-section {
     .content-section__container {
-        @include container-fixed();
+        @include make-container();
         @include max-width();
         @media (min-width:$screen-lg) {
             max-width: 60%;
