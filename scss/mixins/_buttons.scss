@@ -143,6 +143,42 @@ How to use:
     @if $btn-mask-transition-enabled {
         position: relative;
         overflow: hidden;
+
+        &[target="_blank"] {
+            .button-link-plugin__text--mask {
+                > span {
+                    @if $btn-mask-transition-direction-starting-point == 'top' or $btn-mask-transition-direction-starting-point == 'bottom' {
+                        justify-content: left;
+                        left: 1.2em;
+                        right: auto;
+                    }
+                    @if $btn-mask-transition-direction-starting-point == 'right' or $btn-mask-transition-direction-starting-point == 'left' {
+                        justify-content: center;
+                        padding-right: 0.9em;
+                        left: 0;
+                        right: 0;
+                    }
+                }
+            }
+        }
+        &[data-softpage-variation] {
+            .button-link-plugin__text--mask {
+                > span {
+                    @if $btn-mask-transition-direction-starting-point == 'top' or $btn-mask-transition-direction-starting-point == 'bottom' {
+                        justify-content: right;
+                        right: 1.2em;
+                        left: auto;
+                    }
+                    @if $btn-mask-transition-direction-starting-point == 'right' or $btn-mask-transition-direction-starting-point == 'left' {
+                        justify-content: center;
+                        padding-left: 1.1em;
+                        left: 0;
+                        right: 0;
+                    }
+                }
+            }
+        }
+
         .button-link-plugin__text {
             transition: none;
             &--mask {
@@ -310,82 +346,94 @@ Add arrows/plus icon after/before the button text
 
 @mixin button-icon($icon:'arrow', $spacing:'default') {
     // init
-    $icon-padding: 3.5em;
-    $icon-position: 1.5em;
-    $transition-duration: $link-transition-duration;
-    $link-text-translate: ($icon-padding - 1.5); // move link text further
-    @if $spacing == 'small' {
-        $icon-padding: 1.2em;
-        $icon-position: 0;
-        $link-text-translate: $icon-padding;
-    }
-    // styles
-    overflow: hidden;
-    position: relative;
-    padding-right: $icon-padding;
+    &:before,
     &:after {
         @include icomoon();
-        position: absolute;
-        top: 50%;
-        right: $icon-position;
-        transform: translate(0,-50%);
-        transition: transform $transition-duration ease-in-out, left $transition-duration ease-in-out;
+        display: inline-block;
+        font-size: 0.8em;
+        position: relative;
+        line-height: 0;
+        top: 0;
+        transition: $btn-icon-transition;
+        vertical-align: middle;
+        z-index: 1;
     }
-    @if $icon == 'plus' {
-        padding-right: $btn-padding-right;
-        padding-left: 2.8em;
-
-        @if $btn-mask-transition-enabled {
-            &.btn {
-                .button-link-plugin__text--mask {
-                    > span {
-                        padding-left: 1.6em;
-                    }
-                }
+    &.text {
+        @if $link-background-enabled {
+            text-decoration: none;
+            &:hover,
+            &:focus {
+                box-shadow: inset 0 -1.5em 0 $link-background-color;
             }
         }
-
-        &:after {
-            content: $btn-icon-plus;
-            font-size: 1.3em;
-            right: auto;
-            left: 0.7em;
-        }
-
+    }
+    // styles
+    @if $icon == 'arrow' {
         &:hover,
         &:focus {
             &:after {
-                transform: translate(0,-50%) rotate(90deg);
-            }
-        }
-    }
-    @if $icon == 'arrow' {
-        padding-right: 2.2em;
-        &.text {
-            padding-right: 1.1em;
-        }
-        @if $btn-mask-transition-enabled {
-            &.btn {
-                .button-link-plugin__text--mask {
-                    > span {
-                        padding-left: $btn-padding-left;
-                        padding-right: 2.2em;
-                    }
-                }
+                top: -0.1em;
+                transform: rotate(45deg);
             }
         }
         &:after {
             content: $btn-icon-arrow;
             font-size: 0.5em;
-            transform: translate(0,-50%) rotate(-45deg);
-            .inverted-colors & {
-                color: $body-inverted-color;
+        }
+        &.text {
+            margin-right: 1.1em;
+            &:after {
+                left: 1.8em;
+                margin-left: -1.45em;
+                margin-right: -0.2em;
+            }
+            &:hover,
+            &:focus {
+                margin-right: -.15em;
+                padding-right: 1.25em;
+            }
+            span {
+                @if $link-background-enabled {
+                    display: inline-block;
+                }
             }
         }
+
+        &.btn {
+            padding-right: 1.6em;
+            &:after {
+                left: 0.5em;
+            }
+        }
+    }
+
+    @if $icon == 'plus' {
         &:hover,
         &:focus {
-            &:after {
-                transform: translate(0,-50%) rotate(0deg);
+            &:before {
+                transform: rotate(90deg);
+            }
+        }
+        &:before {
+            content: $btn-icon-plus;
+            top: -0.05em;
+        }
+        &.btn {
+            padding-left: 1.5em;
+            &:before {
+                right: 0.4em;
+            }
+        }
+        &.text {
+            margin-left: 1.1em;
+            &:before {
+                right: 1.35em;
+                margin-right: -1em;
+            }
+            &:hover,
+            &:focus {
+                margin-left: -.15em;
+                padding-left: 1.25em;
             }
         }
     }
