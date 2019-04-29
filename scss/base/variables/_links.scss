@@ -21,6 +21,11 @@ $link-border-color-hover:   $brand-primary;
 $link-border:               $link-border-width $link-border-style $link-border-color-hover;
 $link-border-hover:         $link-border-width $link-border-style $link-border-color-hover;
 
+// background enabled?
+$link-background-enabled:       true;
+$link-border-color:             #999;
+$link-background-color:         #ccc;
+
 // inverted text on dark background
 $link-inverted-color:               $white;
 $link-inverted-color-hover:         $white;
