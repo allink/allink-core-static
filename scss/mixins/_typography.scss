@@ -184,9 +184,40 @@ Responsive Font Size mixin
 */
 
 @mixin font-size($fs-map, $fs-breakpoints: $font-size-breakpoints) {
+    // scale font-sizes fluidly
+    // https://codepen.io/depone/pen/pEbOVm
+    $smallest-breakpoint-name: nth(nth($fs-map, 1), 1);
+    $smallest-breakpoint: nth(map-get($fs-breakpoints, nth(nth($fs-breakpoints, 1), 1)), 1);
+    $smallest-font-size: nth(map-get($fs-map, $smallest-breakpoint-name), 1);
+    $largest-breakpoint-name: nth(nth($fs-map, -1), 1);
+    $largest-breakpoint: nth(map-get($fs-breakpoints, nth(nth($fs-breakpoints, -1), 1)), 1);
+    $largest-font-size: nth(map-get($fs-map, $largest-breakpoint-name), 1);
+    $difference: strip-unit($largest-font-size - $smallest-font-size);
+
+    font-size: $smallest-font-size;
+    @media (min-width: $smallest-breakpoint) {
+        font-size: calc(#{$smallest-font-size} + #{$difference} * (100vw - #{$smallest-breakpoint}) / 100);
+    }
+    @media (min-width: $largest-breakpoint) {
+        font-size: $largest-font-size;
+    }
+    @include line-height($fs-map, $fs-breakpoints);
+}
+
+// utility function to strip the unit from a property value (10px -> 10)
+// https://css-tricks.com/snippets/sass/strip-unit-function/
+@function strip-unit($number) {
+    @if type-of($number) == 'number' and not unitless($number) {
+        @return $number / ($number * 0 + 1);
+    }
+
+    @return $number;
+}
+
+@mixin line-height($fs-map, $fs-breakpoints: $font-size-breakpoints) {
     @each $fs-breakpoint, $fs-font-size in $fs-map {
         @if $fs-breakpoint == null {
-            @include make-font-size($fs-font-size);
+            @include make-line-height($fs-font-size);
         }
         @else {
             // If $fs-font-size is a key that exists in
@@ -195,24 +226,19 @@ Responsive Font Size mixin
                 $fs-breakpoint: map-get($fs-breakpoints, $fs-breakpoint);
             }
             @media screen and (min-width: $fs-breakpoint) {
-                @include make-font-size($fs-font-size);
+                @include make-line-height($fs-font-size);
             }
         }
     }
 }
 
-// Utility function for mixin font-size
-@mixin make-font-size($fs-font-size) {
-    // If $fs-font-size is a list, include
-    // both font-size and line-height
+// Utility function for mixin font-size-fluid
+@mixin make-line-height($fs-font-size) {
+    // If $fs-font-size is a list, include line-height
     @if type-of($fs-font-size) == "list" {
-        font-size: nth($fs-font-size, 1);
         @if (length($fs-font-size) > 1) {
             line-height: nth($fs-font-size, 2);
         }
-    }
-    @else {
-        font-size: $fs-font-size;
     }
 }
 
@@ -232,4 +258,3 @@ Antiialiasing
     -webkit-font-smoothing: auto;
     -moz-osx-font-smoothing: auto;
 }
-
