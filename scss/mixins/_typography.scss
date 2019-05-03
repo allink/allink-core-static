@@ -28,6 +28,7 @@ Font mixins
     font-family: $font-default-font-family;
     font-weight: $font-default-font-weight;
     @include font-size($font-default-font-sizes);
+    @include hyphens();
     @if $font-default-antialiased-enabled == true {
         @include antialiased();
     }
@@ -39,6 +40,7 @@ Font mixins
     font-family: $font-small-font-family;
     font-weight: $font-small-font-weight;
     @include font-size($font-small-font-sizes);
+    @include hyphens();
     @if $font-small-antialiased-enabled == true {
         @include antialiased();
     }
@@ -50,6 +52,7 @@ Font mixins
     font-family: $font-lead-font-family;
     font-weight: $font-lead-font-weight;
     @include font-size($font-lead-font-sizes);
+    @include hyphens();
     @if $font-lead-antialiased-enabled == true {
         @include antialiased();
     }
@@ -61,6 +64,7 @@ Font mixins
     font-family: $font-btn-default-font-family;
     font-weight: $font-btn-default-font-weight;
     @include font-size($font-btn-default-font-sizes);
+    @include hyphens();
     @if $font-btn-default-antialiased-enabled == true {
         @include antialiased();
     }
@@ -72,6 +76,7 @@ Font mixins
     font-family: $font-btn-small-font-family;
     font-weight: $font-btn-small-font-weight;
     @include font-size($font-btn-small-font-sizes);
+    @include hyphens();
     @if $font-btn-small-antialiased-enabled == true {
         @include antialiased();
     }
@@ -83,6 +88,7 @@ Font mixins
     font-family: $font-btn-large-font-family;
     font-weight: $font-btn-large-font-weight;
     @include font-size($font-btn-large-font-sizes);
+    @include hyphens();
     @if $font-btn-large-antialiased-enabled == true {
         @include antialiased();
     }
@@ -94,6 +100,7 @@ Font mixins
     font-family: $font-input-font-family;
     font-weight: $font-input-font-weight;
     @include font-size($font-input-font-sizes);
+    @include hyphens();
     @if $font-input-antialiased-enabled == true {
         @include antialiased();
     }
@@ -105,6 +112,7 @@ Font mixins
     font-family: $font-nav-primary-font-family;
     font-weight: $font-nav-primary-font-weight;
     @include font-size($font-nav-primary-font-sizes);
+    @include hyphens();
     @if $font-nav-primary-antialiased-enabled == true {
         @include antialiased();
     }
@@ -116,6 +124,7 @@ Font mixins
     font-family: $font-h1-font-family;
     font-weight: $font-h1-font-weight;
     @include font-size($font-h1-font-sizes);
+    @include hyphens();
     @if $font-h1-antialiased-enabled == true {
         @include antialiased();
     }
@@ -127,6 +136,7 @@ Font mixins
     font-family: $font-h2-font-family;
     font-weight: $font-h2-font-weight;
     @include font-size($font-h2-font-sizes);
+    @include hyphens();
     @if $font-h2-antialiased-enabled == true {
         @include antialiased();
     }
@@ -138,6 +148,7 @@ Font mixins
     font-family: $font-h3-font-family;
     font-weight: $font-h3-font-weight;
     @include font-size($font-h3-font-sizes);
+    @include hyphens();
     @if $font-h3-antialiased-enabled == true {
         @include antialiased();
     }
@@ -149,6 +160,7 @@ Font mixins
     font-family: $font-h4-font-family;
     font-weight: $font-h4-font-weight;
     @include font-size($font-h4-font-sizes);
+    @include hyphens();
     @if $font-h4-antialiased-enabled == true {
         @include antialiased();
     }
@@ -160,6 +172,7 @@ Font mixins
     font-family: $font-h5-font-family;
     font-weight: $font-h5-font-weight;
     @include font-size($font-h5-font-sizes);
+    @include hyphens();
     @if $font-h5-antialiased-enabled == true {
         @include antialiased();
     }
@@ -171,6 +184,7 @@ Font mixins
     font-family: $font-h6-font-family;
     font-weight: $font-h6-font-weight;
     @include font-size($font-h6-font-sizes);
+    @include hyphens();
     @if $font-h6-antialiased-enabled == true {
         @include antialiased();
     }
@@ -257,4 +271,20 @@ Antiialiasing
 @mixin no-antialiased() {
     -webkit-font-smoothing: auto;
     -moz-osx-font-smoothing: auto;
+}
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+Hyphenation
+
+*/
+
+@mixin hyphens($mode: auto) {
+    -webkit-hyphens: $mode;
+    -moz-hyphens: $mode;
+    -ms-hyphens: $mode; // IE10+
+    -o-hyphens: $mode;
+    hyphens: $mode;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
 }
