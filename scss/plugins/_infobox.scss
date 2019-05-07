@@ -10,7 +10,7 @@ Modal variation
 
 [data-default-modal-variation~="infobox"] {
     .tingle-modal-box {
-        max-width: 1200px;
+        max-width: $screen-xl;
         &__content {
             padding: 0;
             padding-top: $default-modal-close-btn-height-xs;
