@@ -37,6 +37,8 @@ Default Content Section Styles
 */
 
 .content-section {
+    // generate custom spacings for content-section ($spacings-sizes)
+    @include generate-spacings();
 
     // in case a background image is set
     background-repeat: no-repeat;

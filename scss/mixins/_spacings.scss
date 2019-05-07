@@ -258,26 +258,20 @@ Spacings of content blocks within the .site-content
 
 @mixin content-section-spacing-margin() {
     margin-top: $content-section-spacing-xs;
-    margin-bottom: $content-section-spacing-xs;
     @media (min-width:$screen-sm) {
         margin-top: $content-section-spacing-sm;
-        margin-bottom: $content-section-spacing-sm;
     }
     @media (min-width:$screen-md) {
         margin-top: $content-section-spacing-md;
-        margin-bottom: $content-section-spacing-md;
     }
     @media (min-width:$screen-lg) {
         margin-top: $content-section-spacing-lg;
-        margin-bottom: $content-section-spacing-lg;
     }
     @media (min-width:$screen-xl) {
         margin-top: $content-section-spacing-xl;
-        margin-bottom: $content-section-spacing-xl;
     }
     @media (min-width:$screen-xxl) {
         margin-top: $content-section-spacing-xxl;
-        margin-bottom: $content-section-spacing-xxl;
     }
 }
 
@@ -567,3 +561,91 @@ Position of absolutely positioned elements (e.g. a text within a parallax)
     }
 }
 
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+Overall spacings rules (new approach)
+
+*/
+
+@mixin spacings-size($spacings-size, $property: null, $spacings-map: $spacings-sizes, $spacings-breakpoint: $spacings-breakpoints, $negative: false) {
+    @each $spacings-breakpoint, $spacings-size in map-get($spacings-map, $spacings-size) {
+        @if $spacings-breakpoint == null {
+            @include make-spacing-size($spacings-size, $property, $negative);
+        }
+        @else {
+            // If $spacings-size is a key that exists in
+            // $spacings-breakpoints, use the value
+            @if map-has-key($spacings-breakpoints, $spacings-breakpoint) {
+                $spacings-breakpoint: map-get($spacings-breakpoints, $spacings-breakpoint);
+            }
+            @media screen and (min-width: $spacings-breakpoint) {
+                @include make-spacing-size($spacings-size, $property, $negative);
+            }
+        }
+    }
+}
+
+// Utility function for mixin spacings-size
+@mixin make-spacing-size($spacings-size, $property: 'margin', $negative: false) {
+    // If $spacings-size is a list, include
+    @if str-index($property, '-') == null {
+        @if $negative == false {
+            #{$property}-top: $spacings-size;
+            #{$property}-bottom: $spacings-size;
+        }
+        @else {
+            #{$property}-top: -$spacings-size;
+            #{$property}-bottom: -$spacings-size;
+        }
+        &:last-child {
+            @if str-index($property, 'padding') == null {
+                padding-bottom: 0;
+            }
+        }
+    }
+    @else {
+        @if $negative == false {
+            #{$property}: $spacings-size;
+        }
+        @else {
+            #{$property}: -$spacings-size;
+        }
+        &:last-child {
+            @if str-index($property, 'padding') == null {
+                padding-bottom: 0;
+            }
+        }
+    }
+}
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+Generate spacing classes for content-section plugin
+
+Example:
+.content-section.spacing-section-1 {
+    ...
+}
+.content-section.spacing-section-1-top {
+    ...
+}
+.content-section.spacing-section-1-bottom {
+    ...
+}
+
+*/
+@mixin generate-spacings() {
+    @each $spacing-name, $spacings-breakpoint in $spacings-sizes {
+        &.#{$spacing-name} {
+            @include spacings-size($spacing-name, margin);
+        }
+        &.#{$spacing-name}-top {
+            @include spacings-size($spacing-name, margin-top);
+        }
+        &.#{$spacing-name}-bottom {
+            @include spacings-size($spacing-name, margin-bottom);
+        }
+    }
+}
