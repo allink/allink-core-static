@@ -379,135 +379,47 @@ App Detail
     // reset first
     padding: 0;
     margin: 0;
-    // add spacing
-    #{$property}: $app-detail-header-section-spacing-xs;
-    @media (min-width: $screen-sm) {
-        #{$property}: $app-detail-header-section-spacing-sm;
+    @if $app-detail-header-section-spacing-top {
+        @include spacings-size($app-detail-header-section-spacing-top, #{$property}-top);
     }
-    @media (min-width: $screen-md) {
-        #{$property}: $app-detail-header-section-spacing-md;
-    }
-    @media (min-width: $screen-lg) {
-        #{$property}: $app-detail-header-section-spacing-lg;
-    }
-    @media (min-width: $screen-xl) {
-        #{$property}: $app-detail-header-section-spacing-xl;
-    }
-    @media (min-width: $screen-xxl) {
-        #{$property}: $app-detail-header-section-spacing-xxl;
+    @if $app-detail-header-section-spacing-bottom {
+        @include spacings-size($app-detail-header-section-spacing-bottom, #{$property}-bottom);
     }
 }
 
 // heading container
 @mixin app-detail-heading-container-spacing-bottom() {
     // add spacing
-    margin-bottom: $app-detail-heading-container-spacing-bottom-xs;
-    @media (min-width: $screen-sm) {
-        margin-bottom: $app-detail-heading-container-spacing-bottom-sm;
-    }
-    @media (min-width: $screen-md) {
-        margin-bottom: $app-detail-heading-container-spacing-bottom-md;
-    }
-    @media (min-width: $screen-lg) {
-        margin-bottom: $app-detail-heading-container-spacing-bottom-lg;
-    }
-    @media (min-width: $screen-xl) {
-        margin-bottom: $app-detail-heading-container-spacing-bottom-xl;
-    }
-    @media (min-width: $screen-xxl) {
-        margin-bottom: $app-detail-heading-container-spacing-bottom-xxl;
+    @if $app-detail-heading-container-spacing-bottom {
+        @include spacings-size($app-detail-heading-container-spacing-bottom, margin-bottom);
     }
 }
 
 // lead (spacing to next element)
 @mixin app-detail-spacing-between-lead-and-content() {
     // add spacing
-    margin-top: $app-detail-spacing-between-lead-and-content-xs;
-    @media (min-width: $screen-sm) {
-        margin-top: $app-detail-spacing-between-lead-and-content-sm;
-    }
-    @media (min-width: $screen-md) {
-        margin-top: $app-detail-spacing-between-lead-and-content-md;
-    }
-    @media (min-width: $screen-lg) {
-        margin-top: $app-detail-spacing-between-lead-and-content-lg;
-    }
-    @media (min-width: $screen-xl) {
-        margin-top: $app-detail-spacing-between-lead-and-content-xl;
-    }
-    @media (min-width: $screen-xxl) {
-        margin-top: $app-detail-spacing-between-lead-and-content-xxl;
+    @if $app-detail-spacing-between-lead-and-content {
+        @include spacings-size($app-detail-spacing-between-lead-and-content, margin-top);
     }
 }
 
 // created
 @mixin app-detail-created-spacing-top() {
     // add spacing
-    margin-top: $app-detail-created-spacing-top-xs;
-    @media (min-width: $screen-sm) {
-        margin-top: $app-detail-created-spacing-top-sm;
-    }
-    @media (min-width: $screen-md) {
-        margin-top: $app-detail-created-spacing-top-md;
-    }
-    @media (min-width: $screen-lg) {
-        margin-top: $app-detail-created-spacing-top-lg;
-    }
-    @media (min-width: $screen-xl) {
-        margin-top: $app-detail-created-spacing-top-xl;
-    }
-    @media (min-width: $screen-xxl) {
-        margin-top: $app-detail-created-spacing-top-xxl;
+    @if $app-detail-created-spacing-top {
+        @include spacings-size($app-detail-created-spacing-top, margin-top);
     }
 }
 
 @mixin app-detail-content-section-spacing-padding() {
-    padding-top: $app-detail-content-section-spacing-xs;
-    padding-bottom: $app-detail-content-section-spacing-xs;
-    @media (min-width:$screen-sm) {
-        padding-top: $app-detail-content-section-spacing-sm;
-        padding-bottom: $app-detail-content-section-spacing-sm;
-    }
-    @media (min-width:$screen-md) {
-        padding-top: $app-detail-content-section-spacing-md;
-        padding-bottom: $app-detail-content-section-spacing-md;
-    }
-    @media (min-width:$screen-lg) {
-        padding-top: $app-detail-content-section-spacing-lg;
-        padding-bottom: $app-detail-content-section-spacing-lg;
-    }
-    @media (min-width:$screen-xl) {
-        padding-top: $app-detail-content-section-spacing-xl;
-        padding-bottom: $app-detail-content-section-spacing-xl;
-    }
-    @media (min-width:$screen-xxl) {
-        padding-top: $app-detail-content-section-spacing-xxl;
-        padding-bottom: $app-detail-content-section-spacing-xxl;
+    @if $app-detail-content-section-spacing {
+        @include spacings-size($app-detail-content-section-spacing, padding);
     }
 }
 
 @mixin app-detail-content-section-spacing-margin() {
-    margin-top: $app-detail-content-section-spacing-xs;
-    margin-bottom: $app-detail-content-section-spacing-xs;
-    @media (min-width:$screen-sm) {
-        margin-top: $app-detail-content-section-spacing-sm;
-        margin-bottom: $app-detail-content-section-spacing-sm;
-    }
-    @media (min-width:$screen-md) {
-        margin-top: $app-detail-content-section-spacing-md;
-        margin-bottom: $app-detail-content-section-spacing-md;
-    }
-    @media (min-width:$screen-lg) {
-        margin-top: $app-detail-content-section-spacing-lg;
-        margin-bottom: $app-detail-content-section-spacing-lg;
-    }
-    @media (min-width:$screen-xl) {
-        margin-top: $app-detail-content-section-spacing-xl;
-        margin-bottom: $app-detail-content-section-spacing-xl;
-    }
-    @media (min-width:$screen-xxl) {
-        margin-top: $app-detail-content-section-spacing-xxl;
-        margin-bottom: $app-detail-content-section-spacing-xxl;
+    @if $app-detail-content-section-spacing {
+        @include spacings-size($app-detail-content-section-spacing, margin);
     }
 }
 
@@ -569,20 +481,27 @@ Overall spacings rules (new approach)
 */
 
 @mixin spacings-size($spacings-size, $property: null, $spacings-map: $spacings-sizes, $spacings-breakpoint: $spacings-breakpoints, $negative: false) {
-    @each $spacings-breakpoint, $spacings-size in map-get($spacings-map, $spacings-size) {
-        @if $spacings-breakpoint == null {
-            @include make-spacing-size($spacings-size, $property, $negative);
-        }
-        @else {
-            // If $spacings-size is a key that exists in
-            // $spacings-breakpoints, use the value
-            @if map-has-key($spacings-breakpoints, $spacings-breakpoint) {
-                $spacings-breakpoint: map-get($spacings-breakpoints, $spacings-breakpoint);
-            }
-            @media screen and (min-width: $spacings-breakpoint) {
+    // Check if spacings-size is a string (i.e. 'spacing-section-1')
+    @if type-of($spacings-size) == string {
+        @each $spacings-breakpoint, $spacings-size in map-get($spacings-map, $spacings-size) {
+            @if $spacings-breakpoint == null {
                 @include make-spacing-size($spacings-size, $property, $negative);
             }
+            @else {
+                // If $spacings-size is a key that exists in
+                // $spacings-breakpoints, use the value
+                @if map-has-key($spacings-breakpoints, $spacings-breakpoint) {
+                    $spacings-breakpoint: map-get($spacings-breakpoints, $spacings-breakpoint);
+                }
+                @media screen and (min-width: $spacings-breakpoint) {
+                    @include make-spacing-size($spacings-size, $property, $negative);
+                }
+            }
         }
+    }
+    // Alternatively use fixed value (i.e. pixel value)
+    @else {
+        @include make-spacing-size($spacings-size, $property, $negative);
     }
 }
 
@@ -598,8 +517,9 @@ Overall spacings rules (new approach)
             #{$property}-top: -$spacings-size;
             #{$property}-bottom: -$spacings-size;
         }
-        &:last-child {
-            @if str-index($property, 'padding') == null {
+        // Set last child padding to 0, otherwise there's too much spacing
+        @if str-index($property, 'padding') == null {
+            &:last-child {
                 padding-bottom: 0;
             }
         }
@@ -611,8 +531,9 @@ Overall spacings rules (new approach)
         @else {
             #{$property}: -$spacings-size;
         }
-        &:last-child {
-            @if str-index($property, 'padding') == null {
+        // Set last child padding to 0, otherwise there's too much spacing
+        @if str-index($property, 'padding') == null {
+            &:last-child {
                 padding-bottom: 0;
             }
         }

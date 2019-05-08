@@ -4,13 +4,9 @@
         @include make-row();
         // on XS we have a smaller column padding
         @include make-row-sm-max();
-        // Negativ margin to peacefully fight the item's margin
-        margin-bottom: -$app-content-plugin-static-grid-item-spacing-xs;
-        @media (min-width:$screen-md) {
-            margin-bottom: -$app-content-plugin-static-grid-item-spacing-md;
-        }
-        @media (min-width:$screen-md) {
-            margin-bottom: -$app-content-plugin-static-grid-item-spacing-xl;
+        @if $app-content-plugin-static-grid-item-spacing {
+            // Negativ margin to peacefully fight the item's margin
+            @include spacings-size($app-content-plugin-static-grid-item-spacing, margin-bottom, $negative: true);
         }
         // remove negative margins in case there are no results
         &.app-list__no-results {
@@ -54,12 +50,8 @@
 
     // spacing between items
     .grid-item {
-        margin-bottom: $app-content-plugin-static-grid-item-spacing-xs;
-        @media (min-width:$screen-md) {
-            margin-bottom: $app-content-plugin-static-grid-item-spacing-md;
-        }
-        @media (min-width:$screen-md) {
-            margin-bottom: $app-content-plugin-static-grid-item-spacing-xl;
+        @if $app-content-plugin-static-grid-item-spacing {
+            @include spacings-size($app-content-plugin-static-grid-item-spacing, margin-bottom);
         }
         &.appended {
             // TBD

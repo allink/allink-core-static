@@ -128,7 +128,6 @@ Detail View
     }
 
     &__col-container {
-        @include make-row();
     }
 
     &__template__col-1 {
@@ -162,35 +161,6 @@ Detail View
         }
     }
 
-    // spacing between items in the 1. column (if not content sections)
-    &__col-1-manage-spacings {
-        > * {
-            + * {
-                @include make-spacing-top-xs($app-detail-col-1-manage-spacing-xs);
-                @include make-spacing-top-sm($app-detail-col-1-manage-spacing-sm);
-                @include make-spacing-top-md($app-detail-col-1-manage-spacing-md);
-                @include make-spacing-top-lg($app-detail-col-1-manage-spacing-lg);
-                @include make-spacing-top-xl($app-detail-col-1-manage-spacing-xl);
-                @include make-spacing-top-xxl($app-detail-col-1-manage-spacing-xxl);
-            }
-        }
-    }
-
-    // spacing between items in the 2. column
-    &__col-2-manage-spacings {
-        > * {
-            + * {
-                @include make-spacing-top-xs($app-detail-col-2-manage-spacing-xs);
-                @include make-spacing-top-sm($app-detail-col-2-manage-spacing-sm);
-                @include make-spacing-top-md($app-detail-col-2-manage-spacing-md);
-                @include make-spacing-top-lg($app-detail-col-2-manage-spacing-lg);
-                @include make-spacing-top-xl($app-detail-col-2-manage-spacing-xl);
-                @include make-spacing-top-xxl($app-detail-col-2-manage-spacing-xxl);
-            }
-        }
-    }
-
-
     /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 
     Heading
@@ -198,7 +168,6 @@ Detail View
     */
 
     &__heading-container {
-        @include make-row();
         @include app-detail-heading-container-spacing-bottom();
     }
 
@@ -286,9 +255,7 @@ The 'load more' container and button
     &.loading {
         opacity: 0;
     }
-    @include make-spacing-top-xs($load-more-container-spacing-top-xs);
-    @include make-spacing-top-md($load-more-container-spacing-top-md);
-    @include make-spacing-top-xl($load-more-container-spacing-top-xl);
+    @include spacings-size($load-more-container-spacing-top, margin-top);
 }
 
 
@@ -300,9 +267,7 @@ Filter Container
 
 .filter-container {
     & + * {
-        @include make-spacing-top-xs($filter-container-spacing-bottom-xs);
-        @include make-spacing-top-md($filter-container-spacing-bottom-md);
-        @include make-spacing-top-xl($filter-container-spacing-bottom-xl);
+        @include spacings-size($filter-container-spacing-bottom, margin-top);
     }
 }
 

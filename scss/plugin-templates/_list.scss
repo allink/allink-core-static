@@ -1,23 +1,19 @@
 .list-container {
-    @include make-row();
-    // on XS we have a smaller column padding
-    @include make-row-sm-max();
+
 }
 
 .list-item {
-
-    // FLEXBOX time!
-    display: flex;
-
-    @include clearfix();
+    @include make-row();
 
     & + .list-item {
-        @include make-spacing-top-xs($app-content-plugin-list-item-spacing-xs);
-        @include make-spacing-top-md($app-content-plugin-list-item-spacing-md);
-        @include make-spacing-top-xl($app-content-plugin-list-item-spacing-xl);
+        @if $app-content-plugin-list-item-spacing {
+            @include spacings-size($app-content-plugin-list-item-spacing, margin-top);
+        }
+
     }
 
     .col {
+        @include make-col-ready();
         &:nth-child(1) {
             @include make-xs-column(24);
             @include make-sm-column(12);
