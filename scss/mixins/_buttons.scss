@@ -116,8 +116,8 @@ How to use:
 
         @if $btn-mask-transition-enabled {
             background-color: map-deep-get($btn-variations,$variation,'bg');
-            .button-link-plugin__text--mask,
-            .button-link-plugin__text--mask span {
+            .btn__text--mask,
+            .btn__text--mask span {
                 transform: translate(0%, 0%);
             }
         }
@@ -145,7 +145,7 @@ How to use:
         overflow: hidden;
 
         &[target="_blank"] {
-            .button-link-plugin__text--mask {
+            .btn__text--mask {
                 > span {
                     @if $btn-mask-transition-direction-starting-point == 'top' or $btn-mask-transition-direction-starting-point == 'bottom' {
                         justify-content: left;
@@ -162,7 +162,7 @@ How to use:
             }
         }
         &[data-softpage-variation] {
-            .button-link-plugin__text--mask {
+            .btn__text--mask {
                 > span {
                     @if $btn-mask-transition-direction-starting-point == 'top' or $btn-mask-transition-direction-starting-point == 'bottom' {
                         justify-content: right;
@@ -179,7 +179,7 @@ How to use:
             }
         }
 
-        .button-link-plugin__text {
+        .btn__text {
             transition: none;
             &--mask {
                 position: absolute;
@@ -234,7 +234,7 @@ How to use:
             }
         }
     } @else {
-        .button-link-plugin__text--mask {
+        .btn__text--mask {
             display: none !important;
             overflow: hidden !important;
         }
@@ -416,7 +416,7 @@ Add arrows/plus icon after/before the button text
         }
         &:before {
             content: $btn-icon-plus;
-            top: -0.05em;
+            top: -0.10em;
         }
         &.btn {
             padding-left: 1.5em;

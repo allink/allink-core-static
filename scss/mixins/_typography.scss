@@ -288,3 +288,26 @@ Hyphenation
     overflow-wrap: break-word;
     word-wrap: break-word;
 }
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+Font Cropping
+
+*/
+
+@mixin font-crop($crop-top: -0.2em, $crop-bottom: -0.2em) {
+    &:before,
+    &:after {
+        content: '';
+        display: block;
+        height: 0;
+        width: 0;
+    }
+    &:before {
+        margin-top: $crop-top;
+    }
+    &:after {
+        margin-bottom: $crop-bottom;
+    }
+}

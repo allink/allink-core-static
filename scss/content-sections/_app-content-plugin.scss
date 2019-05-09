@@ -20,6 +20,10 @@ List View (this includes ALL plugin templates such as Grid (Static), Table, and 
         @if $app-list-btn-padding-enabled == false {
             padding: 0;
         }
+        // Button Softpage
+        &[data-softpage-variation] {
+            @include button-icon($icon:'plus');
+        }
     }
 
     &__load-more-link {
