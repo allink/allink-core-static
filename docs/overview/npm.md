@@ -1,6 +1,6 @@
 # NPM
 
-The `allink-core-static` requires NPM.
+The `allink-core-static` requires Node >= 10.15.1 (LTS) and NPM >= 6.4.1.
 
 ## `dependencies`
 
@@ -10,6 +10,6 @@ Project specific dependencies can be added as required.
 
 ## `devDependencies`
 
-Our `allink-boilerplate-v1.0` comes with all the necessary devDependencies.
+Our `allink-boilerplate-v2.0` comes with all the necessary devDependencies.
 
 Project specific devDependencies can be added as required.

@@ -4,7 +4,7 @@ We copied bootstrap's concept, but tailored it to our needs.
 
 ## Styling button variations
 
-Setting the button styles is done in `static/scss/base/_variables.scss`. Search for `=button`.
+Setting the button styles is done in `static/scss/base/variables/_forms.scss`. Search for `=button`.
 
 This is pretty self-explaining.
 
@@ -60,7 +60,7 @@ When adding a link via our ButtonLinkPlugin, you can choose between button varia
 
 Usually a project has only 1 or 2 variations, so we don't want to make inactive button styles available.
 
-To achieve this, we have a `$available-btn-variations` map defined in `static/scss/base/_variables.scss`, in which the keywords of the available button variations are defined.
+To achieve this, we have a `$available-btn-variations` map defined in `sstatic/scss/base/variables/_forms.scss`, in which the keywords of the available button variations are defined.
 
 For example: If our project only uses the `default` button variation:
 

@@ -58,7 +58,7 @@ Create the file `templates/allink_content/default/content.html` with this basic 
 
 ```
 
-Note: In this example we extended the block `content_section_inner_before`. Check out the [content_base.html](https://github.com/allink/allink-core/blob/v1.0.x/allink_core/core_apps/allink_content/templates/allink_content/content_base.html) template to see all available `{% block %}`s.
+Note: In this example we extended the block `content_section_inner_before`. Check out the [content_base.html](https://github.com/allink/allink-core/blob/v2.0.x/allink_core/core_apps/allink_content/templates/allink_content/content_base.html) template to see all available `{% block %}`s.
 
 
 ## Adding additional templates
@@ -95,7 +95,7 @@ It might help to check out the default column styles in `node_modules/allink-cor
 
 ## Global spacings between content sections
 
-Should you want to adjust the spacings of content sections, open `static/scss/base/_variables.scss`, search for `=section` to jump to the section and update the spacings for each breakpoint as desired.
+Should you want to adjust the spacings of content sections, open `static/scss/base/variables/_content-section.scss`, search for `=section` to jump to the section and update the spacings for each breakpoint as desired.
 
 The rest is already being taken care of in the `allink-core-static` repository.
 
@@ -119,3 +119,29 @@ Please note: This is just an example. Make sure to only hide fields that are not
 
 1. Browse the `allink-core` version defined in your `requirements.in` on github, open the file `allink_core/core_apps/allink_content/models.py` and copy the desired model field names after `.field-`.
 2. Create a new `Content Plugin` or edit an existing one, and inspect the desired form element of the CMS modal with a DevTool and copy the class name.
+
+## Spacings
+
+In our `settings.py`, we have a tuple called `CONTENT_SPACINGS`. As soon as it contains values, a new section called `Spacings` will appear in the `Content Plugin`.
+These are default spacings that can be used on a `Content Plugin` to control the spacings between the plugins.
+
+```Python
+CONTENT_SPACINGS = (
+    ('spacing-section-1', 'Spacing Section 1'),
+    ('spacing-section-2-1', 'Spacing Section 2.1'),
+    ('spacing-section-2-2', 'Spacing Section 2.2'),
+    ('spacing-scale-4', 'Spacing Scale 4'),
+)
+```
+
+They can be set for `margin-top` and `margin-bottom` or both. All available spacings can be found in: `static/scss/base/variables/_spacings.scss`.
+
+When selecting this option, our (simplified) markup will be extended:
+
+```HTML
+<div class="content-section spacing-section-1-top">
+  ...
+</div>
+```
+
+You can find further information about spacings [here](../stylesheets/spacings.md).

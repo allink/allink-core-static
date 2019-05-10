@@ -10,14 +10,14 @@ This makes the web font available in the CMS [editor](../modules/editor.md), whi
 
 ## Making the fonts available
 
-Head over to `static/scss/base/_variables.scss` and search for `=typo`, which will bring you to the typography section.
+Head over to `static/scss/base/variables/_typography.scss` and search for `=typo`, which will bring you to the typography section.
 
 Depending on a project the amount of font styles varies. But here's an example:
 
 ```SCSS
-$font-family-primary:        'example-font', Helvetica Neue Regular, Arial, serif;
-$font-family-bold:           'example-font-bold', Helvetica Neue Bold, Arial, serif;
-$font-family-italic:         'example-font-italic', Helvetica Neue Italic, Arial, serif;
+$font-family-primary:        'example-font', Helvetica Neue Regular, Arial, sans-serif;
+$font-family-bold:           'example-font-bold', Helvetica Neue Bold, Arial, sans-serif;
+$font-family-italic:         'example-font-italic', Helvetica Neue Italic, Arial, sans-serif;
 ```
 
 ## Font breakpoints
@@ -26,14 +26,17 @@ In our `$font-size-breakpoints` map we define available breakpoints at which a f
 
 ## Adjusting font settings
 
+The **root** font-size is `16px`.<br> This means that we have to divide the font-sizes from the design spec by `16`:<br><br>
+**Size design spec**:    `20px`<br>
+**Size rem**:            `1.25rem // 20/16`<br>
+
 Let's have a look at the self-explaining `h1` settings:
 
 ```SCSS
 // h1
 $font-h1-font-sizes: (
-    null: (4.5rem, 1),
-    md: 5.5rem,
-    xxl: 5.7rem,
+    null: (2.25rem, 1.1em),
+    lg: 3.75rem,
 );
 $font-h1-text-transform:                     none;
 $font-h1-letter-spacing:                     0;
@@ -41,6 +44,25 @@ $font-h1-antialiased-enabled:                true;
 $font-h1-font-weight:                        normal;
 $font-h1-font-family:                        $font-family-secondary;
 ```
+
+## Fluid font scaling
+
+All font-sizes scale **fluidly** according to the following formula:
+
+```SCSS
+h1 {
+    font-size: 2.25rem; // smallest font-size
+    @media (min-width: 20rem) { // smallest breakpoint
+        // font-size: calc(#{$smallest-font-size} + #{$biggest-font-size - $smallest-font-size} * (100vw - #{$smallest-breakpoint}) / 100);
+        font-size: calc(2.25rem + (3.75rem - 2.25rem) * (100vw - 20rem / 100);
+    }
+    @media (min-width: 100rem) { // largest breakpoint
+        font-size: 3.75rem;
+    }
+}
+```
+
+[Codepen Example](https://codepen.io/depone/pen/pEbOVm)
 
 ## Using the font settings using <strong>mixins</strong>
 

@@ -28,16 +28,14 @@ A basic example of how to create a two column grid would look like this:
 ```SCSS
 .example-module {
   &__col-container {
-    // clearing due to float
-    @include clearfix();
     // adds negative margin to the container
     @include make-row();
     // on XS and SM we have a smaller column padding
     @include make-row-sm-max();
   }
   &__col {
-    // add smaller column padding on XS and SM
-    @include column-padding-sm-max();
+    // Make the element grid-ready (applying everything but the width)
+    @include make-col-ready();
   }
   &__col-1 {
     @include make-xs-column(24);

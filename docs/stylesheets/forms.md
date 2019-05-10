@@ -4,7 +4,7 @@ Standard forms are styled and work out of the box.
 
 ## Style variables
 
-In our `static/scss/base/_variables.scss` we have variables for all our form elements.
+In our `static/scss/base/variables/_forms.scss` we have variables for all our form elements.
 
 Here's a list of search commands that bring you to the desired section:
 
@@ -37,7 +37,7 @@ This is fairly straight forward. Let's take a checkbox for example:
 
 ### Typography
 
-Setting the font for form elements is done in `static/scss/base/_variables.scss`. Searching for `=typo` and scroll down until you reach the variables for input/textarea and buttons.
+Setting the font for form elements is done in `static/scss/base/variables/_typography.scss`. Searching for `=typo` and scroll down until you reach the variables for input/textarea and buttons.
 
 ## Markup
 
@@ -59,7 +59,7 @@ Should you want the label and form element displayed horizontally, then add the 
 </form>
 ```
 
-Now head over to `static/scss/base/_variables.scss` and search for `=side` to find the section with available variables.
+Now head over to `static/scss/base/variables/_forms.scss` and search for `=side` to find the section with available variables.
 
 ### `placeholder-enabled`
 
@@ -71,4 +71,4 @@ Should you want the label to be hidden and to use the placeholder attribute inst
 </form>
 ```
 
-Now head over to `static/scss/base/_variables.scss` and search for `=placeholder` to find the section with available variables.
+Now head over to `static/scss/base/variables/_forms.scss` and search for `=placeholder` to find the section with available variables.

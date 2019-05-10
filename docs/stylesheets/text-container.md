@@ -25,4 +25,4 @@ Simply add the class `text-container` to a container and add structured content 
 
 ## Defining spacings
 
-Should you want to adjust the spacings of structure elements, open `static/scss/base/_variables.scss` and search for `=text` to jump to the section.
+Should you want to adjust the spacings of structure elements, open `static/scss/base/variables/text-container.scss` and search for `=text` to jump to the section.

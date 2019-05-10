@@ -2,13 +2,7 @@
 
 When we first started with the `allink-core-static`, we didn't start entirely from scratch, but re-used some tools and logics from the old setup.
 
-This is why we still use some features of `bootstrap v3`.
-
-## Used features
-
-When opening the file `static/scss/bootstrap/_bootstrap.scss` you will see which features we use and which we don't.
-
-It is recommended to leave this file the way it is, if possible.
+This is why we still use some features of `bootstrap v3` & `bootstrap v4 (Grid)` and copied all necessary styles and mixins directly into `allink-core-static`.
 
 ## How to use these features
 

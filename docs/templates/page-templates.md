@@ -1,6 +1,6 @@
 # Setting up page templates
 
-In our `settings.py` we can define page templates. Per default, we have the `default.html` template that we can copy from the [allink-core template folder](https://github.com/allink/allink-core/tree/v1.0.x/templates/).
+In our `settings.py` we can define page templates. Per default, we have the `default.html` template that we can copy from the [allink-core template folder](https://github.com/allink/allink-core/tree/v2.0.x/templates/).
 
 ## Adding a template
 

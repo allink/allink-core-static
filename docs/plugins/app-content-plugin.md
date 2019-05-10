@@ -29,10 +29,11 @@ When e.g. `Grid (Static)` is used to list app entries, all the meta data (previe
 </div>
 ```
 
-These spacings, among others, can be defined in `static/scss/base/_variables.scss`. Search for `=list` and look for e.g. `$manage-spacings-container-xs`.
+These spacings, among others, can be defined in `static/scss/base/variables/_app-content-plugin.scss`. Search for `=list` and look for e.g. `$manage-spacings-container`.
 
 ### App Plugin (Detail View)
 
-Currently, we are still in the process of defining a standard for the detail template of app content. Most project require custom adjustments, which makes it pretty much impossible to predict them all and providing variables for every solution.
+As default we use a `col-1` layout which can be customised.
+Most projects require custom adjustments, which makes it pretty much impossible to predict them all and providing variables for every solution.
 
-So if default structure is used, then you can make use of the available variables in `static/scss/base/_variables.scss`. Search for `=detail`.
+So if default structure is used, then you can make use of the available variables in `static/scss/base/variables/_app-content-plugin.scss`. Search for `=detail`.

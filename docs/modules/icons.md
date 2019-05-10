@@ -29,12 +29,16 @@ To get the codes, you can either load the `selection.json` in <a href="https://i
 
 ### Core Modules
 
-Some core modules such e.g. [To The Top](../modules/ttt.md) have settings in `static/scss/base/_variables.scss`.
+Some core modules such e.g. Social icons have settings in `static/scss/base/variables/_social-icons.scss`.
 
 For example:
 
 ```SCSS
-$ttt-icon:           '\e90b';
+$social-profile-icons: (
+    'facebook': '\e905',
+    'instagram': '\e901',
+    ...
+);
 ```
 
 ### Custom Modules

@@ -66,20 +66,20 @@ $app-detail-softpage-spacing-xxl:                     40px 0 0 0;
 
 // Header section (spacing between)
 $app-detail-header-section-spacing-property:          'margin'; // either 'margin' or 'padding'
-$app-detail-header-section-spacing-top:               'spacing-scale-2'; // spacing value. set to 'false' if no spacing should be used
-$app-detail-header-section-spacing-bottom:            'spacing-scale-4'; // spacing value. set to 'false' if no spacing should be used
+$app-detail-header-section-spacing-top:               'spacing-scale-2'; // pixel-value or spacing value. set to 'false' if no spacing should be used
+$app-detail-header-section-spacing-bottom:            'spacing-scale-4'; // pixel-value or spacing value. set to 'false' if no spacing should be used
 
 // Heading Container (spacing to next element)
-$app-detail-heading-container-spacing-bottom:         'spacing-scale-6'; // spacing value. set to 'false' if no spacing should be used
+$app-detail-heading-container-spacing-bottom:         'spacing-scale-6'; // pixel-value or spacing value. set to 'false' if no spacing should be used
 
 // Spacing between LEAD and CONTENT
-$app-detail-spacing-between-lead-and-content:         'spacing-scale-2'; // spacing value. set to 'false' if no spacing should be used
+$app-detail-spacing-between-lead-and-content:         'spacing-scale-2'; // pixel-value or spacing value. set to 'false' if no spacing should be used
 
 // Created (spacing top)
-$app-detail-created-spacing-top:                      'spacing-scale-6'; // spacing value. set to 'false' if no spacing should be used
+$app-detail-created-spacing-top:                      'spacing-scale-6'; // pixel-value or spacing value. set to 'false' if no spacing should be used
 
 // Content Section
-$app-detail-content-section-spacing:                  'spacing-scale-2'; // spacing value. set to 'false' if no spacing should be used
+$app-detail-content-section-spacing:                  'spacing-scale-2'; // pixel-value or spacing value. set to 'false' if no spacing should be used
 
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
@@ -104,7 +104,7 @@ VERTICAL spacing
 
 */
 
-$load-more-container-spacing-top:                    'spacing-scale-1';
+$load-more-container-spacing-top:                    'spacing-scale-1'; // pixel-value or spacing value. set to 'false' if no spacing should be used
 
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
@@ -114,7 +114,7 @@ App =filter spacing
 */
 
 // spacing to next element (grid, list, ...)
-$filter-container-spacing-bottom:                'spacing-scale-5';
+$filter-container-spacing-bottom:                'spacing-scale-5'; // pixel-value or spacing value. set to 'false' if no spacing should be used
 
 // spacing between selects
 $filter-container-spacing-between-select:        0.5em; // 'em' recommended

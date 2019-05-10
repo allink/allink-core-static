@@ -17,6 +17,7 @@ pages:
     - Variables: 'stylesheets/variables.md'
     - Grid: 'stylesheets/grid.md'
     - Breakpoints: 'stylesheets/breakpoints.md'
+    - Spacings: 'stylesheets/spacings.md'
     - Colors: 'stylesheets/colors.md'
     - Text Container: 'stylesheets/text-container.md'
     - Typography: 'stylesheets/typography.md'
@@ -33,7 +34,6 @@ pages:
     - OnScreen (Scroll Spy): 'modules/onscreen.md'
     - Lazyloading: 'modules/lazyloading.md'
     - Site Overlay: 'modules/site-overlay.md'
-    - (Scroll) To The Top: 'modules/ttt.md'
     - Bootstrap Select: 'modules/bootstrap-select.md'
   - Templates:
     - base.html: 'templates/base.md'

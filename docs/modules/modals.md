@@ -4,7 +4,7 @@ Below find a list of modals that are currently available. We use the lightweight
 
 ## Styles
 
-To adjust the appearance of each of those modal types, open `static/scss/base/_variables.scss` and search for `=modal`.
+To adjust the appearance of each of those modal types, open `static/scss/base/variables/modals_.scss` and search for `=modal`.
 
 ## Variations
 
