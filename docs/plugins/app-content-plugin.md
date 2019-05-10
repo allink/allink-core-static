@@ -33,7 +33,7 @@ These spacings, among others, can be defined in `static/scss/base/variables/_app
 
 ### App Plugin (Detail View)
 
-As default we use a `col-1` layout which can be customised.
+As default we use a `col-1` base layout which can be customized and overriden.
 Most projects require custom adjustments, which makes it pretty much impossible to predict them all and providing variables for every solution.
 
 So if default structure is used, then you can make use of the available variables in `static/scss/base/variables/_app-content-plugin.scss`. Search for `=detail`.

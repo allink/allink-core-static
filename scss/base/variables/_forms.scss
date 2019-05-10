@@ -383,6 +383,17 @@ $btn-container-btn-spacing-xs:                      0.5em;
 $btn-container-btn-spacing-md:                      0.5em;
 $btn-container-btn-spacing-xl:                      0.5em;
 
+// button icons (arrow, plus)
+$btn-icon-transition:                   all 300ms ease-in-out;
+$btn-icon-arrow:                        '\e90e';
+$btn-icon-plus:                         '\e908';
+
+// mask animation
+$btn-mask-transition-enabled:                       true;
+$btn-mask-transition-duration:                      ease;
+$btn-mask-transition-timing-function:               300ms;
+$btn-mask-transition-direction-starting-point:      'bottom'; // top, right, bottom or left
+
 // button variation config
 $btn-disabled-lighten: 20%;
 

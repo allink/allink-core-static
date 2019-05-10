@@ -12,7 +12,7 @@ So this is why there is only variables for the most common settings (usually col
 
 ## How to find your way around
 
-Since the `_variables.scss` became bigger and bigger, we divided it into modules (shapes, modals, colors, headers, etc.) to make finding what your're looking for easier.
+Since the `_variables.scss` became bigger and bigger, we divided it into modules (grid, modals, colors, headers, etc.) to make finding what your're looking for easier.
 We also implemented a typo logic working with the "=" character. That makes it easy-ish to navigate through the file using the find command (`Cmd + F`).
 
 Let's say we want to tweak our <strong>button</strong> styles: Simply search for `=button` (`=bu` is actually enough alrady).
