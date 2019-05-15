@@ -1,9 +1,9 @@
 .list-container {
-
+    @include make-row();
 }
 
 .list-item {
-    @include make-row();
+    @include make-col-ready();
 
     & + .list-item {
         @if $app-content-plugin-list-item-spacing {
