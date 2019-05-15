@@ -1,0 +1,52 @@
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+SEO Accordion plugin styles
+
+*/
+.seo-accordion {
+    &__list {
+        // no styles necessary
+    }
+    &__item {
+        position: relative;
+        & + & {
+            margin-top: -$seo-accordion-border-width;
+        }
+    }
+    &__title {
+        @include font-lead();
+        @include spacings-size($seo-accordion-content-spacing, padding);
+        @include icon-right($padding: 0, $icon: '\e90f', $icon-size: $seo-accordion-icon-size);
+        border-bottom: $seo-accordion-border-width solid $seo-accordion-border-color;
+        border-top: $seo-accordion-border-width solid $seo-accordion-border-color;
+        color: $body-color;
+        display: block;
+        padding-right: $seo-accordion-icon-size * 2;
+        text-decoration: none;
+        &:before {
+            color: $seo-accordion-border-color;
+            transition: transform $btn-transition-duration $btn-transition-timing-function;
+        }
+        .seo-accordion__item--open & {
+            &:before {
+                color: $seo-accordion-border-color;
+                transform: translate(0, -50%) rotate(45deg);
+            }
+        }
+    }
+    &__content {
+        display: none;
+        overflow: auto;
+        &:before,
+        &:after {
+            content: '';
+            display: block;
+        }
+        &:before {
+            @include spacings-size($seo-accordion-content-spacing, padding-top);
+        }
+        &:after {
+            @include spacings-size($seo-accordion-content-spacing, padding-bottom);
+        }
+    }
+}
