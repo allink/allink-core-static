@@ -15,12 +15,16 @@ export function setupOnScreen(options) {
     // Do something when an element enters the viewport
     os.on('enter', '[data-scroll-spy]', (element) => {
         // init
-        let effect_prefix = 'on-screen-';
-        let effect_type = element.getAttribute('data-scroll-spy');
-        // set class if effect type is set
-        if (effect_type != '') {
-            let effect_class = effect_prefix + effect_type;
-            element.classList.add(effect_class);
-        }
+        addEffectClass(element);
     });
+}
+
+export function addEffectClass(element) {
+    let effect_prefix = 'on-screen-';
+    let effect_type = element.getAttribute('data-scroll-spy');
+    // set class if effect type is set
+    if (effect_type != '') {
+        let effect_class = effect_prefix + effect_type;
+        element.classList.add(effect_class);
+    }
 }
