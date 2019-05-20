@@ -34,6 +34,10 @@ Form modifications
         border: 1px solid #ddd;
         display: inline-block;
         width: 100%;
+
+        .btn {
+            margin: 0;
+        }
     }
 
     // hide all, and display only enabled variations later on
@@ -49,6 +53,18 @@ Form modifications
     .field-btn_size {
         .btn-item {
             display: block;
+        }
+    }
+
+    .field-type {
+        ul,
+        li {
+            border: none !important;
+            padding: 0 !important;
+            margin: 0 !important;
+        }
+        li {
+            padding: 10px 0 0 0 !important;
         }
     }
 
