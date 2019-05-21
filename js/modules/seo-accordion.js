@@ -4,9 +4,10 @@ SEO Accordion
 
 */
 
-$(function () {
+export default function initSEOAccordion(options) {
     const $seoAccordionItems = $('.seo-accordion__item');
-    const animationDuration = 400;
+    const animationDuration = options.duration || 400;
+
     $seoAccordionItems.each(function () {
         const $item = $(this);
         const $seoAccordionTitle = $item.children('.seo-accordion__title');
@@ -28,4 +29,4 @@ $(function () {
             });
         });
     });
-});
+}
