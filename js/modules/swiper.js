@@ -142,6 +142,13 @@ export function initiSwiperInstances(options) {
             durationPerSlide = options.durationPerSlide;
         }
 
+        // autoplay disabled?
+        if ($swiper_instance.data('autoplay') === false) {
+            options.autoplay = false;
+        } else {
+            options.autoplay = options.durationPerSlide;
+        }
+
         // randomize slides?
         let randomizeSlideOrder = $swiper_instance.attr('data-randomize-slide-order');
         if (typeof randomizeSlideOrder !== 'undefined') {
@@ -224,7 +231,7 @@ export function initiSwiperInstances(options) {
             },
             effect: finalEffect,
             speed: finalTransitionDurationBetweenSlides, // Number: Duration of transition between slides (in ms)
-            autoplay: durationPerSlide, // Number: Delay between transitions (in ms). If this parameter is not specified, auto play will be disabled
+            autoplay: options.autoplay, // Boolean or Number: Delay between transitions (in ms). If this parameter is not specified, auto play will be disabled
             slidesPerView: options.slidesPerView,
             spaceBetween: 30,
             direction: 'horizontal',
