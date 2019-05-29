@@ -239,6 +239,15 @@ Visually separate blocks
             }
         }
     }
+    // m2m selectors
+    .selector {
+        display: block;
+        max-width: none;
+        .selector-available,
+        .selector-chosen {
+            width: calc(47.5% - 5px);
+        }
+    }
 }
 
 
