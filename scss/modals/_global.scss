@@ -56,8 +56,7 @@ body.tingle-enabled {
     @media (max-width: $screen-sm-max) {
         .site-header,
         .site-content,
-        .site-footer,
-        .to-the-top {
+        .site-footer {
             opacity: 0;
             visibility: hidden;
         }
