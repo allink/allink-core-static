@@ -35,8 +35,6 @@ export function sendAjaxForm($form) {
     var custom_event = $form.attr('data-success-data-layer-event');
     var success_url = $form.attr('data-success-url');
     var ajax_response_container_id = $form.attr('data-ajax-response-container-id');
-    var $submit = $form.find('[type="submit"]');
-
     // we now support file uploads, too
     var formData = new FormData($form[0]);
     $form.find('[type="file"]').each(function () {
@@ -68,9 +66,6 @@ export function sendAjaxForm($form) {
     // trigger custom event to indicate that we sent the AJAX request
     $(window).trigger('ajaxForm:request-sent', [$form]);
 
-    // disable submit button
-    $submit.attr('disabled', true);
-
     // AJAX magic
     $.ajax({
         type: "POST",
@@ -82,19 +77,6 @@ export function sendAjaxForm($form) {
         url: url,
         data: formData,
         success: function (data, textStatus, jqXHR) {
-            // Google Tag Manager in use?
-            if (typeof dataLayer !== 'undefined') {
-                // Is there a custom event defined?
-                if (custom_event) {
-                    dataLayer.push({
-                        'event': custom_event,
-                    });
-                }
-            }
-
-            // enable submit button (won't be shown in most cases, but anyways)
-            $submit.removeAttr('disabled');
-
             // do we get a custom URL from view?
             if (data.success_url) {
                 window.location.href = data.success_url;
@@ -114,8 +96,18 @@ export function sendAjaxForm($form) {
             if (jqXHR.status === 206) {
                 // something wrong while sending the form
             }
+            // made it.. finally!
             else {
-                // made it.. finally!
+                // Google Tag Manager in use?
+                if (typeof dataLayer !== 'undefined') {
+                    // Is there a custom event defined?
+                    if (custom_event) {
+                        // add values to array
+                        dataLayer.push({
+                            'event': custom_event,
+                        });
+                    }
+                }
             }
 
             // trigger custom events
@@ -147,6 +139,7 @@ export function setupAjax() {
     }
 
     var csrftoken = docCookies.getItem('csrftoken');
+
     $.ajaxSetup({
         beforeSend: function (xhr, settings) {
             if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
@@ -233,7 +226,7 @@ $(function () {
     initLiveSearch();
 
     // custom event
-    $(window).on('initAjaxForm softpage:opened default-modal:opened form-modal:opened', function () {
+    $(window).on('initAjaxForm', function () {
         setupAjax();
         initAjaxForm();
         initLiveSearch();
