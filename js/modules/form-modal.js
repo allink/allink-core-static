@@ -44,64 +44,66 @@ $(function(){
     var overlay_close_method_enabled_class = 'tingle-modal--OverlayClose';
     var button_close_method_enabled_class = 'tingle-modal--ButtonClose';
 
-    // initialize modal
-    window.form_modal = new tingle.modal({
-        cssClass: ['form-modal'],
-        onClose: function() {
-            // init
-            var $modal = $('.tingle-modal.form-modal');
-            // remove class from html
-            document.querySelector('html').classList.remove('form-modal-visible');
-            // remove header
-            $modal.find('.tingle-modal-header').remove();
-            // trigger class
-            $(window).trigger('form-modal:closed');
-            // remove variation definition
-            $modal.removeAttr('data-form-modal-variation');
-            // remove closing method classes
-            var closing_method_attr_value = $modal.attr('data-modal-closing-methods');
-            $modal.removeClass(closing_method_attr_value);
-            // if the softpage is still open in the brackground, we have to keep the overlay, otherwise we can close it
-            if ($('.tingle-modal.softpage').hasClass('tingle-modal--visible')) {
-                // tingle removes the class from the body, so let's re-add it
-                document.querySelector('body').classList.add('tingle-enabled');
-            }else {
-                $(window).trigger('hideSiteOverlay');
-            }
-        },
-        onOpen: function(){
-            // init
-            var $modal = $('.tingle-modal.form-modal');
-            // remove default overlay class.. we have our own
-            $modal.removeClass('tingle-modal--noOverlayClose');
-            // trigger custom events
-            $(window).trigger('initFormModalClose');
-            // set closing method classes
-            var closing_method_attr_value = $modal.attr('data-modal-closing-methods');
-            $modal.addClass(closing_method_attr_value);
-            // overlay close enabled?
-            if ($modal.hasClass(overlay_close_method_enabled_class)) {
-                $modal.on('click',function(e){
-                    // only close modal if clicked on overlay, and not on modal itself
-                    if ($(e.target).hasClass(overlay_close_method_enabled_class)) {
-                        form_modal.close();
-                    }
-                });
-            }
-        },
-        // per default, only ['button'] has to be set (otherwise the button will be removed from the DOM)
-        // The closing options have to specificly be defined by setting data attributes on the modal trigger element
-        closeMethods: ['button']
-    });
+    function initFormModal() {
+        // initialize modal
+        window.form_modal = new tingle.modal({
+            cssClass: ['form-modal'],
+            onClose: function() {
+                // init
+                var $modal = $('.tingle-modal.form-modal');
+                // remove class from html
+                document.querySelector('html').classList.remove('form-modal-visible');
+                // remove header
+                $modal.find('.tingle-modal-header').remove();
+                // trigger class
+                $(window).trigger('form-modal:closed');
+                // remove variation definition
+                $modal.removeAttr('data-form-modal-variation');
+                // remove closing method classes
+                var closing_method_attr_value = $modal.attr('data-modal-closing-methods');
+                $modal.removeClass(closing_method_attr_value);
+                // if the softpage is still open in the brackground, we have to keep the overlay, otherwise we can close it
+                if ($('.tingle-modal.softpage').hasClass('tingle-modal--visible')) {
+                    // tingle removes the class from the body, so let's re-add it
+                    document.querySelector('body').classList.add('tingle-enabled');
+                }else {
+                    $(window).trigger('hideSiteOverlay');
+                }
+            },
+            onOpen: function(){
+                // init
+                var $modal = $('.tingle-modal.form-modal');
+                // remove default overlay class.. we have our own
+                $modal.removeClass('tingle-modal--noOverlayClose');
+                // trigger custom events
+                $(window).trigger('initFormModalClose');
+                // set closing method classes
+                var closing_method_attr_value = $modal.attr('data-modal-closing-methods');
+                $modal.addClass(closing_method_attr_value);
+                // overlay close enabled?
+                if ($modal.hasClass(overlay_close_method_enabled_class)) {
+                    $modal.on('click',function(e){
+                        // only close modal if clicked on overlay, and not on modal itself
+                        if ($(e.target).hasClass(overlay_close_method_enabled_class)) {
+                            form_modal.close();
+                        }
+                    });
+                }
+            },
+            // per default, only ['button'] has to be set (otherwise the button will be removed from the DOM)
+            // The closing options have to specificly be defined by setting data attributes on the modal trigger element
+            closeMethods: ['button']
+        });
 
-    // modify tingle markup on page load (while the modal is hidden)
-    setTimeout(function(){
-        // relocate close button
-        var $form_modal = $('.tingle-modal.form-modal');
-        var close_btn = $form_modal.find('.tingle-modal__close').get(0);
-        var modal_content = $form_modal.find('.tingle-modal-box').get(0);
-        modal_content.appendChild(close_btn);
-    },500);
+        // modify tingle markup on page load (while the modal is hidden)
+        setTimeout(function(){
+            // relocate close button
+            var $form_modal = $('.tingle-modal.form-modal');
+            var close_btn = $form_modal.find('.tingle-modal__close').get(0);
+            var modal_content = $form_modal.find('.tingle-modal-box').get(0);
+            modal_content.appendChild(close_btn);
+        },500);
+    }
 
     // close modal when hitting ESC
     $(document).keydown(function(evt) {
@@ -214,6 +216,7 @@ $(function(){
     }
 
     // on page load
+    initFormModal();
     initFormModalTrigger();
 
     // custom event
@@ -241,6 +244,14 @@ $(function(){
     $(window).on('initFormModalClose', function() {
         initFormModalClose();
     });
+
+    // re-init after cms page refresh
+    if (window.CMS) {
+        CMS.$(window).on('cms-content-refresh', () => {
+            initFormModal();
+            initFormModalTrigger();
+        });
+    }
 
 
     /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *

@@ -66,88 +66,88 @@ closeSoftpage
 */
 
 import SoftPage from 'softpage';
-import { nodeListToArray } from './helper-functions';
 
 $(function(){
 
-    window.softpage = new SoftPage({
-        onPageLoaded: function(obj) {
-            // scroll to top everytime a softpage is opened
-            obj.modal.modal.querySelector('.tingle-modal-box').scrollTop = 0;
-            // app detail: check if header markup exists and set
-            // IMPORTANT: It needs to be an immediate child of .tingle-modal-box__content
-            let $header_markup = $(obj.modal.modal).find('.tingle-modal-box__content > .modal-header-markup');
-            if ($header_markup.length > 0) {
-                let $header_markup_container = $('<div class="tingle-modal-header"></div>');
-                $(obj.modal.modal).prepend($header_markup_container);
-                $header_markup_container.prepend($header_markup.html());
-            }
-            // trigger custom events
-            $(window).trigger('initSoftpageCloseTrigger');
-            // do stuff slighty delayed, so we get all the information we need
-            setTimeout(function(){
-                // init page meta
-                var modal_url = location.pathname;
-                var modal_page_title_element = obj.modal.modalBoxContent.querySelector('#softpage-page-title');
-                var modal_page_title = '';
-                // Info for developer, that #softpage-page-title is missing on the detail page
-                if (modal_page_title_element != null) {
-                    var modal_page_title = modal_page_title_element.textContent;
-                }
-                // Google Tag Manager
-                if (typeof dataLayer !== 'undefined') {
-                    dataLayer.push({
-                        'event': 'VirtualPageview',
-                        'virtualPageURL': modal_url,
-                        'virtualPageTitle': modal_page_title,
-                    });
+    function initSoftpage() {
+        window.softpage = new SoftPage({
+            onPageLoaded: function(obj) {
+                // scroll to top everytime a softpage is opened
+                obj.modal.modal.querySelector('.tingle-modal-box').scrollTop = 0;
+                // app detail: check if header markup exists and set
+                // IMPORTANT: It needs to be an immediate child of .tingle-modal-box__content
+                let $header_markup = $(obj.modal.modal).find('.tingle-modal-box__content > .modal-header-markup');
+                if ($header_markup.length > 0) {
+                    let $header_markup_container = $('<div class="tingle-modal-header"></div>');
+                    $(obj.modal.modal).prepend($header_markup_container);
+                    $header_markup_container.prepend($header_markup.html());
                 }
                 // trigger custom events
-                $(window).trigger('initSoftpageTrigger');
-                $(window).trigger('initOnScreen');
-                $(window).trigger('initiSwiperInstances');
-                // clean content in case of CMS page
-                var $softpage = $('.tingle-modal.softpage');
-                var is_cms_page = $softpage.attr('data-cms-page');
-                if (typeof is_cms_page !== 'undefined' && is_cms_page !== false) {
-                    cleanupSoftpageMarkup($softpage);
-                }else {
-                    $(window).trigger('softpage:opened');
+                $(window).trigger('initSoftpageCloseTrigger');
+                // do stuff slighty delayed, so we get all the information we need
+                setTimeout(function(){
+                    // init page meta
+                    var modal_url = location.pathname;
+                    var modal_page_title_element = obj.modal.modalBoxContent.querySelector('#softpage-page-title');
+                    var modal_page_title = '';
+                    // Info for developer, that #softpage-page-title is missing on the detail page
+                    if (modal_page_title_element != null) {
+                        var modal_page_title = modal_page_title_element.textContent;
+                    }
+                    // Google Tag Manager
+                    if (typeof dataLayer !== 'undefined') {
+                        dataLayer.push({
+                            'event': 'VirtualPageview',
+                            'virtualPageURL': modal_url,
+                            'virtualPageTitle': modal_page_title,
+                        });
+                    }
+                    // trigger custom events
+                    $(window).trigger('initSoftpageTrigger');
+                    $(window).trigger('initOnScreen');
+                    $(window).trigger('initiSwiperInstances');
+                    // clean content in case of CMS page
+                    var $softpage = $('.tingle-modal.softpage');
+                    var is_cms_page = $softpage.attr('data-cms-page');
+                    if (typeof is_cms_page !== 'undefined' && is_cms_page !== false) {
+                        cleanupSoftpageMarkup($softpage);
+                    }else {
+                        $(window).trigger('softpage:opened');
+                    }
+                },50);
+            },
+            onSoftpageClosed: function (obj) {
+                // init
+                let $modal = $(obj.modal.modal);
+                // hide site overlay
+                $(window).trigger('hideSiteOverlay');
+                $(window).trigger('softpage:closed');
+                // remove variation definition
+                $(obj.modal.modal).removeAttr('data-softpage-variation');
+                // remove any content (issue: video was still playing)
+                $(obj.modal.modal).find('.tingle-modal-box__content').empty();
+                // remove flag on html element
+                $('html').removeClass('softpage-visible');
+                // remove header
+                $modal.find('.tingle-modal-header').remove();
+            },
+            onBeforeClose: function(){
+                // prevent closing of the softpage as long as..
+                // 1. the form modal is opened
+                if ($('.tingle-modal.form-modal').hasClass('tingle-modal--visible')) {
+                    return false;
                 }
-            },50);
-        },
-        onSoftpageClosed: function (obj) {
-            // init
-            let $modal = $(obj.modal.modal);
-            // hide site overlay
-            $(window).trigger('hideSiteOverlay');
-            $(window).trigger('softpage:closed');
-            // remove variation definition
-            $(obj.modal.modal).removeAttr('data-softpage-variation');
-            // remove any content (issue: video was still playing)
-            $(obj.modal.modal).find('.tingle-modal-box__content').empty();
-            // remove flag on html element
-            $('html').removeClass('softpage-visible');
-            // remove header
-            $modal.find('.tingle-modal-header').remove();
-        },
-        onBeforeClose: function(){
-            // prevent closing of the softpage as long as..
-            // 1. the form modal is opened
-            if ($('.tingle-modal.form-modal').hasClass('tingle-modal--visible')) {
-                return false;
+                // 2. the swiper fullscreen gallery is visible
+                else if($('html').hasClass('swiper-fullscreen-visible')) {
+                    return false;
+                }
+                // default
+                else {
+                    return true;
+                }
             }
-            // 2. the swiper fullscreen gallery is visible
-            else if($('html').hasClass('swiper-fullscreen-visible')) {
-                return false;
-            }
-            // default
-            else {
-                return true;
-            }
-        }
-    });
-
+        });
+    }
 
     function initSoftpageTrigger() {
         // init all softpage trigger links and loop
@@ -242,12 +242,21 @@ $(function(){
     }
 
     // on page load
+    initSoftpage();
     initSoftpageTrigger();
 
     // custom events
     $(window).on('initSoftpageTrigger ajaxForm:success default-modal:opened', function() {
         initSoftpageTrigger();
     });
+
+    // re-init after cms page refresh
+    if (window.CMS) {
+        CMS.$(window).on('cms-content-refresh', () => {
+            initSoftpage();
+            initSoftpageTrigger();
+        });
+    }
     $(window).on('closeSoftpage', function() {
         closeSoftpage();
     });
