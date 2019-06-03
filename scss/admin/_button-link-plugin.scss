@@ -77,6 +77,17 @@ Form modifications
         margin: 0;
     }
 
+    .aligned {
+        .form-row {
+            > div {
+                @media (max-width: $screen-md-max) {
+                    display: block;
+                    width: 100%;
+                }
+            }
+        }
+    }
+
     // loop through button variations
     @each $key, $value in $btn-variations {
         .btn-#{$key} {
