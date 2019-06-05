@@ -5,7 +5,7 @@
         // on XS we have a smaller column padding
         @include make-row-sm-max();
         @if $app-content-plugin-static-grid-item-spacing {
-            // Negativ margin to peacefully fight the item's margin
+            // Negative margin to peacefully fight the item's margin
             @include spacings-size($app-content-plugin-static-grid-item-spacing, margin-bottom, $negative: true);
         }
         // remove negative margins in case there are no results
@@ -35,16 +35,6 @@
             @include make-xs-column(24);
             @include make-sm-column(12);
             @include make-md-column(6);
-        }
-        .items-per-row-5 & {
-            @include make-xs-column(12);
-            @include make-sm-column(8);
-            @include make-md-column(6);
-        }
-        .items-per-row-6 & {
-            @include make-xs-column(12);
-            @include make-sm-column(8);
-            @include make-md-column(4);
         }
     }
 

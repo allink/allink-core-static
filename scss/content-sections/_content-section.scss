@@ -416,14 +416,12 @@ Default Content Section Styles
     }
 
     .content-section__col-container {
-        @include clearfix();
     }
 
     &__template__col-1 {
         // overflow: hidden; // The negativ margin of the make-row() mixin causes the content to overflow. Let's hide it.
         .content-section__col {
             @include make-xs-column(24);
-            position: static;
         }
     }
 
@@ -434,7 +432,6 @@ Default Content Section Styles
             @include make-spacing-top-sm-max($content-section-col-stack-spacing-sm-max);
             @include make-xs-column(24);
             @include make-md-column(12);
-            position: static;
         }
     }
 
@@ -448,13 +445,11 @@ Default Content Section Styles
             @include make-xs-column(24);
             @include make-md-column(12);
             @include make-lg-column(16);
-            position: static;
         }
         .content-section__col-2 {
             @include make-xs-column(24);
             @include make-md-column(12);
             @include make-lg-column(8);
-            position: static;
         }
     }
 
@@ -468,13 +463,11 @@ Default Content Section Styles
             @include make-xs-column(24);
             @include make-md-column(12);
             @include make-lg-column(8);
-            position: static;
         }
         .content-section__col-2 {
             @include make-xs-column(24);
             @include make-md-column(12);
             @include make-lg-column(16);
-            position: static;
         }
     }
 
@@ -483,9 +476,7 @@ Default Content Section Styles
         @include content-plugin-col-mobile-flexbox-spacing-fix($flex-bp: $screen-sm-max);
         .content-section__col {
             @include make-xs-column(24);
-            @include make-lg-column(8);
-
-            position: static;
+            @include make-md-column(8);
             @include make-spacing-top-sm-max($content-section-col-stack-spacing-sm-max);
         }
     }
@@ -494,68 +485,11 @@ Default Content Section Styles
         // equalizes the margin bottom of the columns
         @include content-plugin-stacked-col-container-negative-spacing();
         .content-section__col {
-            // temporarily reset column ordering until
-            order: 0;
             // add margin bottom to all columns
             @include content-plugin-stacked-col-spacing();
             @include make-xs-column(24);
             @include make-sm-column(12);
-            @media (min-width:$screen-sm) {
-                &:nth-child(2n+1) { clear: left; }
-            }
             @include make-md-column(6);
-            @media (min-width:$screen-md) {
-                &:nth-child(2n+1) { clear: none; }
-                &:nth-child(4n+1) { clear: left; }
-            }
-            position: static;
-        }
-    }
-
-    &__template__col-5 {
-        // equalizes the margin bottom of the columns
-        @include content-plugin-stacked-col-container-negative-spacing();
-        .content-section__col {
-            // temporarily reset column ordering until
-            order: 0;
-            // add margin bottom to all columns
-            @include content-plugin-stacked-col-spacing();
-            @include make-xs-column(12);
-            @media (min-width:$screen-xs) {
-                &:nth-child(2n+1) { clear: left; }
-            }
-            @include make-sm-column(8);
-            @media (min-width:$screen-sm) {
-                &:nth-child(2n+1) { clear: none; }
-                &:nth-child(3n+1) { clear: left; }
-            }
-            @include make-md-column(6);
-            @media (min-width:$screen-md) {
-                &:nth-child(3n+1) { clear: none; }
-                &:nth-child(4n+1) { clear: left; }
-            }
-            @media (min-width:$screen-lg) {
-                width: 20%;
-                &:nth-child(4n+1) { clear: none; }
-                &:nth-child(5n+1) { clear: left; }
-            }
-            position: static;
-        }
-    }
-
-    &__template__col-6 {
-        // equalizes the margin bottom of the columns
-        @include content-plugin-stacked-col-container-negative-spacing();
-        .content-section__col {
-            // temporarily reset column ordering until
-            order: 0;
-            // add margin bottom to all columns
-            @include content-plugin-stacked-col-spacing();
-            @include make-xs-column(12);
-            @include make-sm-column(8);
-            @include make-md-column(4);
-            @include make-lg-column(4);
-            position: static;
         }
     }
 
