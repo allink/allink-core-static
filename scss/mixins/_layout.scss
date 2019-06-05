@@ -19,11 +19,6 @@ Main Container Mixins
 @mixin max-width() {
     width: auto;
     position: relative;
-    @if $max-width-xl {
-        @media (min-width:$screen-xl) {
-            max-width: $max-width-xl;
-        }
-    }
     @if $max-width-xxl {
         @media (min-width:$screen-xxl) {
             max-width: $max-width-xxl;

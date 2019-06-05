@@ -142,9 +142,6 @@ Used to be on project basis
     @media (min-width:$screen-md) {
         width: 90%;
     }
-    @media (min-width:$screen-xl) {
-        max-width: $max-width-xl;
-    }
     @media (min-width:$screen-xxl) {
         max-width: $max-width-xxl;
     }

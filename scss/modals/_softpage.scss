@@ -37,9 +37,6 @@ Softpage
         @media (min-width: $screen-sm) {
             max-width: $softpage-max-width-sm;
         }
-        @media (min-width: $screen-xl) {
-            max-width: $softpage-max-width-xl;
-        }
         @media (min-width:$screen-xxl) {
             max-width: $softpage-max-width-xxl;
             @if $max-width-xxl {
