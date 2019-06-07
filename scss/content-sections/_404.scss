@@ -8,16 +8,16 @@
     .site-content {
         .content-section {
             min-height: $template-404-min-height-xs;
-            @media (min-width:$screen-sm) {
+            @include media-breakpoint-up(sm) {
                 min-height: $template-404-min-height-sm;
             }
-            @media (min-width:$screen-md) {
+            @include media-breakpoint-up(md) {
                 min-height: $template-404-min-height-md;
             }
-            @media (min-width:$screen-xl) {
+            @include media-breakpoint-up(xl) {
                 min-height: $template-404-min-height-xl;
             }
-            @media (min-width:$screen-xxl) {
+            @include media-breakpoint-up(xxl) {
                 min-height: $template-404-min-height-xxl;
             }
         }

@@ -13,21 +13,29 @@
         @include font-h2();
     }
     &__col-1 {
-        @include make-xs-column(24);
-        @include make-md-column(12);
+        @include media-breakpoint-up(xs) {
+            @include make-col(24);
+        }
+        @include media-breakpoint-up(md) {
+            @include make-col(12);
+        }
     }
     &__col-2 {
-        @include make-xs-column(24);
-        @include make-md-column(12);
+        @include media-breakpoint-up(xs) {
+            @include make-col(24);
+        }
+        @include media-breakpoint-up(md) {
+            @include make-col(12);
+        }
         @include make-spacing-top-sm-max($grid-gutter-width);
     }
     &__map-container {
         // mobile ratios
-        @media (max-width:$screen-sm-max) {
+        @include media-breakpoint-down(sm) {
             @include aspect-ratio(3,2,'locations-map');
         }
         // desktop ratios
-        @media (min-width:$screen-md) {
+        @include media-breakpoint-up(md) {
             @include aspect-ratio(3,2,'locations-map');
         }
     }

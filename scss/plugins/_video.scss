@@ -42,7 +42,7 @@
             transition-duration: $video-controls-transition-duration;
             transition-timing-function: $video-controls-transition-timing-function;
             // on mobile, show controls in any case
-            @media (max-width:$screen-sm-max) {
+            @include media-breakpoint-down(sm) {
                 visibility: visible;
                 opacity: 1;
             }
@@ -54,11 +54,11 @@
                 background-image: url($video-controls-image-path-play);
                 width: $video-controls-image-width-xs;
                 height: $video-controls-image-height-xs;
-                @media (min-width:$screen-md) {
+                @include media-breakpoint-up(md) {
                     width: $video-controls-image-width-md;
                     height: $video-controls-image-height-md;
                 }
-                @media (min-width:$screen-xl) {
+                @include media-breakpoint-up(xl) {
                     width: $video-controls-image-width-xl;
                     height: $video-controls-image-height-xl;
                 }
@@ -82,7 +82,7 @@
             transition: none;
             opacity: 1;
         }
-        @media (min-width:$screen-md) {
+        @include media-breakpoint-up(md) {
             .video-controls {
                 display: none;
                 cursor: default;

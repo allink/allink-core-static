@@ -13,10 +13,10 @@ Default Form Styles
         margin: 0;
         & + .form-group {
             margin-top: $form-group-spacing-xs;
-            @media (min-width:$screen-md) {
+            @include media-breakpoint-up(md) {
                 margin-top: $form-group-spacing-md;
             }
-            @media (min-width:$screen-xl) {
+            @include media-breakpoint-up(xl) {
                 margin-top: $form-group-spacing-xl;
             }
         }
@@ -29,10 +29,10 @@ Default Form Styles
         max-width: 100%;
         margin: 0;
         margin-bottom: $form-label-spacing-xs;
-        @media (min-width:$screen-md) {
+        @include media-breakpoint-up(md) {
             margin-bottom: $form-label-spacing-md;
         }
-        @media (min-width:$screen-xl) {
+        @include media-breakpoint-up(xl) {
             margin-bottom: $form-label-spacing-xl;
         }
         @if $form-label-bold-enabled == true {
@@ -58,10 +58,10 @@ Default Form Styles
     // error messages
     .errorlist {
         margin-top: $form-field-error-spacing-xs;
-        @media (min-width:$screen-md) {
+        @include media-breakpoint-up(md) {
             margin-top: $form-field-error-spacing-md;
         }
-        @media (min-width:$screen-xl) {
+        @include media-breakpoint-up(xl) {
             margin-top: $form-field-error-spacing-xl;
         }
         > li {
@@ -97,10 +97,10 @@ Default Form Styles
     fieldset {
         + fieldset {
             margin-top: $form-fieldset-spacing-xs;
-            @media (min-width:$screen-md) {
+            @include media-breakpoint-up(md) {
                 margin-top: $form-fieldset-spacing-md;
             }
-            @media (min-width:$screen-xl) {
+            @include media-breakpoint-up(xl) {
                 margin-top: $form-fieldset-spacing-xl;
             }
         }
@@ -146,10 +146,10 @@ Default Form Styles
 
     .form-group-container {
         margin-top: $form-group-container-spacing-top-xs;
-        @media (min-width:$screen-md) {
+        @include media-breakpoint-up(md) {
             margin-top: $form-group-container-spacing-top-md;
         }
-        @media (min-width:$screen-xl) {
+        @include media-breakpoint-up(xl) {
             margin-top: $form-group-container-spacing-top-xl;
         }
     }
@@ -157,10 +157,10 @@ Default Form Styles
     // intro text within fieldset
     .fieldset-text {
         margin-top: $form-fieldset-text-spacing-top-xs;
-        @media (min-width:$screen-md) {
+        @include media-breakpoint-up(md) {
             margin-top: $form-fieldset-text-spacing-top-md;
         }
-        @media (min-width:$screen-xl) {
+        @include media-breakpoint-up(xl) {
             margin-top: $form-fieldset-text-spacing-top-xl;
         }
     }
@@ -185,22 +185,22 @@ Default Form Styles
         .form-group {
             display: flex;
             flex-direction: column;
-            @media (min-width:$screen-md) {
+            @include media-breakpoint-up(md) {
                 align-items: flex-start;
                 flex-direction: row;
             }
             + .form-group {
                 margin-top: $form-side-by-side-group-spacing-top-xs;
-                @media (min-width:$screen-md) {
+                @include media-breakpoint-up(md) {
                     margin-top: $form-side-by-side-group-spacing-top-md;
                 }
-                @media (min-width:$screen-xl) {
+                @include media-breakpoint-up(xl) {
                     margin-top: $form-side-by-side-group-spacing-top-xl;
                 }
             }
         }
         .control-label {
-            @media (min-width:$screen-md) {
+            @include media-breakpoint-up(md) {
                 min-width: $form-side-by-side-label-width-md;
                 max-width: $form-side-by-side-label-width-md;
                 flex-grow: 1;
@@ -210,13 +210,13 @@ Default Form Styles
                 text-align: $form-side-by-side-label-text-align;
                 margin-bottom: 0;
             }
-            @media (min-width:$screen-xxl) {
+            @include media-breakpoint-up(xxl) {
                 min-width: $form-side-by-side-label-width-xxl;
                 max-width: $form-side-by-side-label-width-xxl;
             }
         }
         .form-field-container {
-            @media (min-width:$screen-md) {
+            @include media-breakpoint-up(md) {
                 flex-grow: 1;
             }
         }
@@ -242,10 +242,10 @@ Default Form Styles
         .form-group {
             + .form-group {
                 margin-top: $form-placeholder-enabled-group-spacing-top-xs;
-                @media (min-width:$screen-md) {
+                @include media-breakpoint-up(md) {
                     margin-top: $form-placeholder-enabled-group-spacing-top-md;
                 }
-                @media (min-width:$screen-xl) {
+                @include media-breakpoint-up(xl) {
                     margin-top: $form-placeholder-enabled-group-spacing-top-xl;
                 }
             }
@@ -299,18 +299,22 @@ Default Form Styles
 
     .col-1-1 {
         .col {
-            @include make-xs-column(24);
-            @include make-sm-column(12);
+            @include media-breakpoint-up(xs) {
+                @include make-col(24);
+            }
+            @include media-breakpoint-up(sm) {
+                @include make-col(12);
+            }
             @include make-spacing-top-xs-max($form-label-spacing-xs);
         }
-        @media (min-width:$screen-sm) {
+        @include media-breakpoint-up(sm) {
             .col-1 { padding-right: $grid-gutter-width/4; }
             .col-2 { padding-left: $grid-gutter-width/4; }
         }
     }
 
     &.side-by-side {
-        @media (min-width:$screen-sm) {
+        @include media-breakpoint-up(sm) {
             .col-1 { padding-right: $grid-gutter-width/2; }
             .col-2 { padding-left: $grid-gutter-width/2; }
         }

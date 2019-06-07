@@ -34,10 +34,10 @@ Newsletter signup form
             }
             @else {
                 width: $signup-form-button-btn-width-xs;
-                @media (min-width:$screen-md) {
+                @include media-breakpoint-up(md) {
                     width: $signup-form-button-btn-width-md;
                 }
-                @media (min-width:$screen-xxl) {
+                @include media-breakpoint-up(xxl) {
                     width: $signup-form-button-btn-width-xxl;
                 }
             }
@@ -67,10 +67,10 @@ Newsletter signup form
             }
             @else {
                 width: $signup-form-button-btn-width-xs;
-                @media (min-width:$screen-md) {
+                @include media-breakpoint-up(md) {
                     width: $signup-form-button-btn-width-md;
                 }
-                @media (min-width:$screen-xxl) {
+                @include media-breakpoint-up(xxl) {
                     width: $signup-form-button-btn-width-xxl;
                 }
             }

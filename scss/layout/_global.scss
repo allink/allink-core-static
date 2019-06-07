@@ -52,19 +52,19 @@ It has to be placed right after the `.site-header-buffer` in `base.html`
     @include set-site-header-compact-mode-height();
     // we're gonna assign the content section spacing as width (so we don't need an extra element, which is fallback friendly), and use this value to add a scroll offset on elements that do not have a padding-top
     width: $content-section-spacing-first-item-xs;
-    @media (min-width: $screen-sm) {
+    @include media-breakpoint-up(sm) {
         width: $content-section-spacing-first-item-sm;
     }
-    @media (min-width: $screen-md) {
+    @include media-breakpoint-up(md) {
         width: $content-section-spacing-first-item-md;
     }
-    @media (min-width: $screen-lg) {
+    @include media-breakpoint-up(lg) {
         width: $content-section-spacing-first-item-lg;
     }
-    @media (min-width: $screen-xl) {
+    @include media-breakpoint-up(xl) {
         width: $content-section-spacing-first-item-xl;
     }
-    @media (min-width: $screen-xxl) {
+    @include media-breakpoint-up(xxl) {
         width: $content-section-spacing-first-item-xxl;
     }
 }

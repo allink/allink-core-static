@@ -121,11 +121,11 @@ Button Container
         float: left; // removes spacing between inline elements
         margin-top: $btn-container-btn-spacing-xs;
         margin-right: $btn-container-btn-spacing-xs;
-        @media (min-width:$screen-md) {
+        @include media-breakpoint-up(md) {
             margin-top: $btn-container-btn-spacing-md;
             margin-right: $btn-container-btn-spacing-md;
         }
-        @media (min-width:$screen-xl) {
+        @include media-breakpoint-up(xl) {
             margin-top: $btn-container-btn-spacing-xl;
             margin-right: $btn-container-btn-spacing-xl;
         }

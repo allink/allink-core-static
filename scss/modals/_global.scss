@@ -10,7 +10,7 @@ html.cms-ready {
     // collapsed
     .tingle-modal {
         top: $cms-toolbar-height-collapsed;
-        @media (min-width:$screen-sm) {
+        @include media-breakpoint-up(sm) {
             .tingle-modal__close {
                 top: $cms-toolbar-height-collapsed;
             }
@@ -21,7 +21,7 @@ html.cms-ready {
         .tingle-modal {
             top: $cms-toolbar-height-expanded;
         }
-        @media (min-width:$screen-sm) {
+        @include media-breakpoint-up(sm) {
             .tingle-modal__close {
                 top: $cms-toolbar-height-expanded;
             }
@@ -53,7 +53,7 @@ body.tingle-enabled {
         }
     }
 
-    @media (max-width: $screen-sm-max) {
+    @include media-breakpoint-down(sm) {
         .site-header,
         .site-content,
         .site-footer {
@@ -73,7 +73,7 @@ body.tingle-enabled {
         -webkit-overflow-scrolling: touch;
     }
     // positioning fix on mobile
-    @media (max-width:$screen-xs-max) {
+    @include media-breakpoint-down(xs) {
         top: 0;
     }
     // add correct pointer
@@ -139,10 +139,10 @@ Used to be on project basis
     transition: none;
     border-radius: 0;
     background-color: $modal-global-content-bg;
-    @media (min-width:$screen-md) {
+    @include media-breakpoint-up(md) {
         width: 90%;
     }
-    @media (min-width:$screen-xxl) {
+    @include media-breakpoint-up(xxl) {
         max-width: $max-width-xxl;
     }
 }
@@ -178,7 +178,7 @@ Used to be on project basis
         text-indent: -9999px;
         display: inline-block;
     }
-    @media (max-width: $screen-xs-max) {
+    @include media-breakpoint-down(xs) {
         transform: translate3d(0,0,10px);
         position: absolute !important;
     }
@@ -202,14 +202,18 @@ Modal Header
     width: 100%;
     text-align: center;
     &__container {
-        @include make-xs-column(24);
-        @include make-lg-column(16);
+        @include media-breakpoint-up(xs) {
+            @include make-col(24);
+        }
+        @include media-breakpoint-up(lg) {
+            @include make-col(16);
+        }
         margin: 0 auto;
         padding: $grid-gutter-width/3 $grid-gutter-width;
         left: 50% !important;
         right: auto !important;
         transform: translate(-50%,0);
-        @media (max-width:$screen-sm-max) {
+        @include media-breakpoint-down(sm) {
             padding-left: $grid-gutter-width/2 !important;
             padding-right: $grid-gutter-width/2 !important;
         }

@@ -35,10 +35,10 @@ List View (this includes ALL plugin templates such as Grid (Static), Table, and 
     }
     &__no-results {
         min-height: $app-list-no-result-cotainer-min-height-xs;
-        @media (min-width:$screen-md) {
+        @include media-breakpoint-up(md) {
             min-height: $app-list-no-result-cotainer-min-height-md;
         }
-        @media (min-width:$screen-xxl) {
+        @include media-breakpoint-up(xxl) {
             min-height: $app-list-no-result-cotainer-min-height-xxl;
         }
     }
@@ -60,7 +60,7 @@ Detail View
             max-width: $app-detail-content-container-max-width-xs !important;
         }
         @if $app-detail-content-container-max-width-xxl {
-            @media (min-width:$screen-xxl) {
+            @include media-breakpoint-up(xxl) {
                 max-width: $app-detail-content-container-max-width-xxl !important;
             }
         }
@@ -71,7 +71,7 @@ Detail View
         }
         @if $app-detail-content-container-softpage-max-width-xxl {
             .softpage & {
-                @media (min-width:$screen-xxl) {
+                @include media-breakpoint-up(xxl) {
                     max-width: $app-detail-content-container-softpage-max-width-xxl !important;
                 }
             }
@@ -108,7 +108,9 @@ Detail View
     }
 
     &__header-col {
-        @include make-xs-column(24);
+        @include media-breakpoint-up(xs) {
+            @include make-col(24);
+        }
     }
 
     &__section-heading-col {
@@ -136,7 +138,9 @@ Detail View
 
     &__template__col-1 {
         .app-detail__col-1 {
-            @include make-xs-column(24);
+            @include media-breakpoint-up(xs) {
+                @include make-col(24);
+            }
         }
     }
 
@@ -177,11 +181,15 @@ Detail View
 
     &__heading {
         @include font-h2();
-        @include make-xs-column(24);
+        @include media-breakpoint-up(xs) {
+            @include make-col(24);
+        }
     }
 
     &__created {
-        @include make-xs-column(24);
+        @include media-breakpoint-up(xs) {
+            @include make-col(24);
+        }
         @include app-detail-created-spacing-top();
     }
 
@@ -217,7 +225,7 @@ Items loaded with AJAX
         margin-top: 0;
         transition: $load-more-swop-category-transition-property $load-more-swop-category-transition-duration $load-more-swop-category-transition-timing-function;
         top: $load-more-swop-category-loader-spacing-top-xs;
-        @media (min-width:$screen-sm) {
+        @include media-breakpoint-up(sm) {
             top: $load-more-swop-category-loader-spacing-top-sm;
         }
     }

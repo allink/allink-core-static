@@ -2,7 +2,7 @@
     .content-section__container {
         @include make-container();
         @include max-width();
-        @media (min-width:$screen-lg) {
+        @include media-breakpoint-up(lg) {
             max-width: 60%;
         }
     }

@@ -27,11 +27,11 @@ Global Swiper Custom Styles
     margin: 0;
     width: $swiper-default-arrows-button-width-xs;
     height: $swiper-default-arrows-button-height-xs;
-    @media (min-width:$screen-md) {
+    @include media-breakpoint-up(md) {
         width: $swiper-default-arrows-button-width-md;
         height: $swiper-default-arrows-button-height-md;
     }
-    @media (min-width:$screen-xl) {
+    @include media-breakpoint-up(xl) {
         width: $swiper-default-arrows-button-width-xl;
         height: $swiper-default-arrows-button-height-xl;
     }
@@ -65,11 +65,11 @@ Global Swiper Custom Styles
         width: $swiper-default-arrows-button-width-xs;
         height: $swiper-default-arrows-button-height-xs;
         background-color: $swiper-default-arrows-button-bg-xs;
-        @media (min-width:$screen-md) {
+        @include media-breakpoint-up(md) {
             width: $swiper-default-arrows-button-width-md;
             height: $swiper-default-arrows-button-height-md;
         }
-        @media (min-width:$screen-xl) {
+        @include media-breakpoint-up(xl) {
             width: $swiper-default-arrows-button-width-xl;
             height: $swiper-default-arrows-button-height-xl;
         }
@@ -80,10 +80,10 @@ Global Swiper Custom Styles
             transform: translate(-50%,-50%);
             color: $swiper-default-arrows-color;
             font-size: $swiper-default-arrows-icon-size-xs;
-            @media (min-width:$screen-md) {
+            @include media-breakpoint-up(md) {
                 font-size: $swiper-default-arrows-icon-size-md;
             }
-            @media (min-width:$screen-xl) {
+            @include media-breakpoint-up(xl) {
                 font-size: $swiper-default-arrows-icon-size-xl;
             }
             @include icomoon();
@@ -97,10 +97,10 @@ Global Swiper Custom Styles
 
 .swiper-button-prev {
     left: -$swiper-default-arrows-button-width-xs/3;
-    @media (min-width:$screen-md) {
+    @include media-breakpoint-up(md) {
         left: -$swiper-default-arrows-button-width-md/3;
     }
-    @media (min-width:$screen-xl) {
+    @include media-breakpoint-up(xl) {
         left: -$swiper-default-arrows-button-width-xl/3;
     }
     &__inner {
@@ -114,10 +114,10 @@ Global Swiper Custom Styles
 
 .swiper-button-next {
     right: -$swiper-default-arrows-button-width-xs/3;
-    @media (min-width:$screen-md) {
+    @include media-breakpoint-up(md) {
         right: -$swiper-default-arrows-button-width-md/3;
     }
-    @media (min-width:$screen-xl) {
+    @include media-breakpoint-up(xl) {
         right: -$swiper-default-arrows-button-width-xl/3;
     }
     &__inner {
@@ -137,10 +137,10 @@ Global Swiper Custom Styles
     margin-top: 0;
     height: $swiper-default-arrows-button-height-xs;
     clear: both;
-    @media (min-width:$screen-md) {
+    @include media-breakpoint-up(md) {
         height: $swiper-default-arrows-button-height-md;
     }
-    @media (min-width:$screen-xl) {
+    @include media-breakpoint-up(xl) {
         height: $swiper-default-arrows-button-height-xl;
     }
     .swiper-disabled & {
@@ -168,7 +168,7 @@ Global Swiper Custom Styles
     @include max-width();
     @include column-padding-sm-max();
     margin: $grid-gutter-width auto 0;
-    @media (min-width: $screen-md) {
+    @include media-breakpoint-up(md) {
         max-width: 900px;
     }
     .swiper-content {
@@ -185,7 +185,7 @@ Global Swiper Custom Styles
         }
         &__logo {
             max-height: $grid-gutter-width * 4;
-            @media (min-width: $screen-md) {
+            @include media-breakpoint-up(md) {
                 max-height: $grid-gutter-width * 5;
             }
         }

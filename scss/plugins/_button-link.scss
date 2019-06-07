@@ -5,10 +5,10 @@
         margin: 0;
         list-style: none;
         margin-top: -$button-link-container-item-spacing-xs;
-        @media (min-width:$screen-md) {
+        @include media-breakpoint-up(md) {
             margin-top: -$button-link-container-item-spacing-md;
         }
-        @media (min-width:$screen-xl) {
+        @include media-breakpoint-up(xl) {
             margin-top: -$button-link-container-item-spacing-xl;
         }
     }
@@ -17,11 +17,11 @@
         display: inline-block;
         margin-top: $button-link-container-item-spacing-xs;
         margin-right: $button-link-container-item-spacing-xs;
-        @media (min-width:$screen-md) {
+        @include media-breakpoint-up(md) {
             margin-top: $button-link-container-item-spacing-md;
             margin-right: $button-link-container-item-spacing-md;
         }
-        @media (min-width:$screen-xl) {
+        @include media-breakpoint-up(xl) {
             margin-top: $button-link-container-item-spacing-xl;
             margin-right: $button-link-container-item-spacing-xl;
         }

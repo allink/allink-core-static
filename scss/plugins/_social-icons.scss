@@ -52,10 +52,10 @@
             transition-duration: $social-profile-icon-transition-duration;
             transition-timing-function: $social-profile-icon-transition-timing-function;
             font-size: $social-profile-icon-size-xs;
-            @media (min-width:$screen-md) {
+            @include media-breakpoint-up(md) {
                 font-size: $social-profile-icon-size-md;
             }
-            @media (min-width:$screen-xl) {
+            @include media-breakpoint-up(xl) {
                 font-size: $social-profile-icon-size-xl;
             }
             // inverted colors

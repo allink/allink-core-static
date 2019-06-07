@@ -26,7 +26,7 @@ Gallery Plugin
         @include content-section-spacing-position(left);
         @include content-section-spacing-position(right);
         z-index: 10;
-        @media (min-width:$screen-lg) {
+        @include media-breakpoint-up(lg) {
             max-width: 66.66%;
         }
     }

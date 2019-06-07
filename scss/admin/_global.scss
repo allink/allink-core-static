@@ -93,7 +93,7 @@ Visually separate blocks
 #content {
 
     form {
-        @media (max-width:$screen-sm-max) {
+        @include media-breakpoint-down(sm) {
             padding: 10px;
             .app-djangocms_button_link & {
                 padding: 0;

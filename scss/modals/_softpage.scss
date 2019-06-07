@@ -34,10 +34,10 @@ Softpage
             left: 0;
             right: 0;
         }
-        @media (min-width: $screen-sm) {
+        @include media-breakpoint-up(sm) {
             max-width: $softpage-max-width-sm;
         }
-        @media (min-width:$screen-xxl) {
+        @include media-breakpoint-up(xxl) {
             max-width: $softpage-max-width-xxl;
             @if $max-width-xxl {
                 max-width: $max-width-xxl;
@@ -47,13 +47,13 @@ Softpage
         // keep site header visible when opened
         @if $softpage-site-header-visible-when-opened {
             top: $softpage-offset-top-xs !important;
-            @media (min-width:$screen-md) {
+            @include media-breakpoint-up(md) {
                 top: $softpage-offset-top-md !important;
             }
-            @media (min-width:$screen-xl) {
+            @include media-breakpoint-up(xl) {
                 top: $softpage-offset-top-xl !important;
             }
-            @media (min-width:$screen-xxl) {
+            @include media-breakpoint-up(xxl) {
                 top: $softpage-offset-top-xxl !important;
             }
         }
@@ -64,13 +64,13 @@ Softpage
                 top: 0 !important;
                 // keep site header visible when opened
                 @if $softpage-site-header-visible-when-opened {
-                    @media (min-width:$screen-md) {
+                    @include media-breakpoint-up(md) {
                         top: $softpage-offset-top-compact-mode-md !important;
                     }
-                    @media (min-width:$screen-xl) {
+                    @include media-breakpoint-up(xl) {
                         top: $softpage-offset-top-compact-mode-xl !important;
                     }
-                    @media (min-width:$screen-xxl) {
+                    @include media-breakpoint-up(xxl) {
                         top: $softpage-offset-top-compact-mode-xxl !important;
                     }
                 }
@@ -79,8 +79,10 @@ Softpage
 
         &__content {
             max-width: none;
-            @include make-lg-column(16);
-            @include make-lg-column-offset(4);
+            @include media-breakpoint-up(lg) {
+                @include make-col(16);
+                @include make-col-offset(4);
+            }
             padding-left: 0 !important;
             padding-right: 0 !important;
             padding-top: $grid-gutter-width/2;
@@ -110,13 +112,13 @@ Softpage
         top: 0 !important;
         // keep site header visible when opened
         @if $softpage-site-header-visible-when-opened {
-            @media (min-width:$screen-md) {
+            @include media-breakpoint-up(md) {
                 top: $softpage-offset-top-md !important;
             }
-            @media (min-width:$screen-xl) {
+            @include media-breakpoint-up(xl) {
                 top: $softpage-offset-top-xl !important;
             }
-            @media (min-width:$screen-xxl) {
+            @include media-breakpoint-up(xxl) {
                 top: $softpage-offset-top-xxl !important;
             }
         }
@@ -127,13 +129,13 @@ Softpage
                 top: 0 !important;
                 // keep site header visible when opened
                 @if $softpage-site-header-visible-when-opened {
-                    @media (min-width:$screen-md) {
+                    @include media-breakpoint-up(md) {
                         top: $softpage-offset-top-compact-mode-md !important;
                     }
-                    @media (min-width:$screen-xl) {
+                    @include media-breakpoint-up(xl) {
                         top: $softpage-offset-top-compact-mode-xl !important;
                     }
-                    @media (min-width:$screen-xxl) {
+                    @include media-breakpoint-up(xxl) {
                         top: $softpage-offset-top-compact-mode-xxl !important;
                     }
                 }
@@ -144,22 +146,20 @@ Softpage
         width: $softpage-close-btn-width-xs;
         height: $softpage-close-btn-height-xs;
 
-        @media (min-width: $screen-md) {
+        @include media-breakpoint-up(md) {
             transform: translate(0,0);
             background: transparent;
             border-radius: 0;
-        }
-        @media (min-width:$screen-md) {
             right: $softpage-close-btn-position-right-md;
             width: $softpage-close-btn-width-md;
             height: $softpage-close-btn-height-md;
         }
-        @media (min-width:$screen-xl) {
+        @include media-breakpoint-up(xl) {
             right: $softpage-close-btn-position-right-xl;
             width: $softpage-close-btn-width-xl;
             height: $softpage-close-btn-height-xl;
         }
-        @media (min-width:$screen-xxl) {
+        @include media-breakpoint-up(xxl) {
             right: $softpage-close-btn-position-right-xxl;
             width: $softpage-close-btn-width-xxl;
             height: $softpage-close-btn-height-xxl;
@@ -180,10 +180,10 @@ Softpage
     */
     &[data-softpage-variation="small"] {
         .tingle-modal-box {
-            @media (min-width: $screen-sm) {
+            @include media-breakpoint-up(sm) {
                 max-width: $softpage-small-sm-max-width;
             }
-            @media (min-width:$screen-xxl) {
+            @include media-breakpoint-up(xxl) {
                 max-width: $softpage-small-xxl-max-width;
             }
         }

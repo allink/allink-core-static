@@ -9,11 +9,11 @@ the ratio can be overwritten by copying this markup into the projects static fol
 .locations-plugin {
 
     &.map-template {
-        @media (max-width:$screen-sm-max) {
+        @include media-breakpoint-down(sm) {
             @include aspect-ratio(3,2,'locations-map');
         }
         // desktop ratios
-        @media (min-width:$screen-md) {
+        @include media-breakpoint-up(md) {
             @include aspect-ratio(3,2,'locations-map');
         }
     }

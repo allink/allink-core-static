@@ -101,7 +101,7 @@ $image-modal-close-btn-width-xxl:             $modal-global-close-btn-width-xxl;
 $image-modal-close-btn-height-xxl:            $modal-global-close-btn-height-xxl;
 
 // max width setting
-$image-modal-max-width:                       $screen-xl;
+$image-modal-max-width:                       map-get($grid-breakpoints, xl);
 
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *

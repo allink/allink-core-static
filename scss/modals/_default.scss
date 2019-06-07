@@ -14,17 +14,17 @@ Form modal
         align-self: center;
         top: 0;
         width: 100%;
-        @media (min-width:$screen-md) {
+        @include media-breakpoint-up(md) {
             max-width: $defaul-modal-max-width-md;
         }
-        @media (min-width:$screen-xxl) {
+        @include media-breakpoint-up(xxl) {
             max-width: $defaul-modal-max-width-xxl;
         }
     }
 
     .tingle-modal-box__content {
         padding: $default-modal-spacing-xs;
-        @media (min-width:$screen-md) {
+        @include media-breakpoint-up(md) {
             padding: $default-modal-spacing-md;
         }
     }
@@ -44,15 +44,15 @@ Form modal
         width: $default-modal-close-btn-width-xs;
         height: $default-modal-close-btn-height-xs;
 
-        @media (min-width:$screen-md) {
+        @include media-breakpoint-up(md) {
             width: $default-modal-close-btn-width-md;
             height: $default-modal-close-btn-height-md;
         }
-        @media (min-width:$screen-xl) {
+        @include media-breakpoint-up(xl) {
             width: $default-modal-close-btn-width-xl;
             height: $default-modal-close-btn-height-xl;
         }
-        @media (min-width:$screen-xxl) {
+        @include media-breakpoint-up(xxl) {
             width: $default-modal-close-btn-width-xxl;
             height: $default-modal-close-btn-height-xxl;
         }

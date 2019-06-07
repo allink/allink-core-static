@@ -9,7 +9,7 @@ Main Container Mixins
     margin-left: auto;
     padding-left: floor($gutter/2);
     padding-right: ceil($gutter/2);
-    @media (min-width:$screen-md) {
+    @include media-breakpoint-up(md) {
         padding-left: floor($gutter);
         padding-right: ceil($gutter);
     }
@@ -20,7 +20,7 @@ Main Container Mixins
     width: auto;
     position: relative;
     @if $max-width-xxl {
-        @media (min-width:$screen-xxl) {
+        @include media-breakpoint-up(xxl) {
             max-width: $max-width-xxl;
         }
     }
@@ -81,26 +81,26 @@ Header
 
 @mixin set-site-header-height() {
     height: $site-header-height-xs;
-    @media (min-width:$screen-md) {
+    @include media-breakpoint-up(md) {
        height: $site-header-height-md;
     }
-    @media (min-width:$screen-xl) {
+    @include media-breakpoint-up(xl) {
        height: $site-header-height-xl;
     }
-    @media (min-width:$screen-xxl) {
+    @include media-breakpoint-up(xxl) {
        height: $site-header-height-xxl;
     }
 }
 
 @mixin set-site-header-compact-mode-height() {
     height: $site-header-compact-mode-height-xs;
-    @media (min-width:$screen-md) {
+    @include media-breakpoint-up(md) {
        height: $site-header-compact-mode-height-md;
     }
-    @media (min-width:$screen-xl) {
+    @include media-breakpoint-up(xl) {
        height: $site-header-compact-mode-height-xl;
     }
-    @media (min-width:$screen-xxl) {
+    @include media-breakpoint-up(xxl) {
        height: $site-header-compact-mode-height-xxl;
     }
 }
@@ -114,20 +114,20 @@ Footer
 
 @mixin set-site-footer-height() {
     height: $site-footer-fixed-height-xs;
-    @media (min-width:$screen-md) {
+    @include media-breakpoint-up(md) {
         height: $site-footer-fixed-height-md;
     }
-    @media (min-width:$screen-xl) {
+    @include media-breakpoint-up(xl) {
         height: $site-footer-fixed-height-xl;
     }
 }
 
 @mixin set-site-footer-body-margin() {
     margin-bottom: $site-footer-fixed-height-xs;
-    @media (min-width:$screen-md) {
+    @include media-breakpoint-up(md) {
         margin-bottom: $site-footer-fixed-height-md;
     }
-    @media (min-width:$screen-xl) {
+    @include media-breakpoint-up(xl) {
         margin-bottom: $site-footer-fixed-height-xl;
     }
 }
@@ -149,7 +149,7 @@ CSS tables
 }
 
 @mixin css-table-xs-reset() {
-    @media (max-width: $screen-xs-max) {
+    @include media-breakpoint-down(xs) {
         display: block;
 
         > * {

@@ -80,7 +80,7 @@ Form modifications
     .aligned {
         .form-row {
             > div {
-                @media (max-width: $screen-md-max) {
+                @include media-breakpoint-down(md) {
                     display: block;
                     width: 100%;
                 }

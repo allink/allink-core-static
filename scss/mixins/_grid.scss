@@ -197,14 +197,14 @@ Column Padding Tweaks
 }
 
 @mixin make-row-sm-max($gutter: $grid-gutter-width) {
-    @media (max-width:$screen-sm-max) {
+    @include media-breakpoint-down(sm) {
         margin-left: -($gutter/4);
         margin-right: -($gutter/4);
     }
 }
 
 @mixin column-padding-sm-max($gutter: $grid-gutter-width) {
-    @media (max-width:$screen-sm-max) {
+    @include media-breakpoint-down(sm) {
         padding-left: $gutter/4 !important;
         padding-right: $gutter/4 !important;
     }
@@ -217,7 +217,7 @@ Content Plugin > Simple flexbox mixins to add support for ordering on mobile dev
 
 */
 
-@mixin content-plugin-col-mobile-flexbox($flex-bp: $screen-sm-max) {
+@mixin content-plugin-col-mobile-flexbox($flex-bp: breakpoint-max(sm)) {
     @media (max-width:$flex-bp) {
         .content-section__col-container-inner {
             flex-direction: column;
@@ -225,7 +225,7 @@ Content Plugin > Simple flexbox mixins to add support for ordering on mobile dev
     }
 }
 
-@mixin content-plugin-col-mobile-flexbox-spacing-fix($flex-bp: $screen-sm-max) {
+@mixin content-plugin-col-mobile-flexbox-spacing-fix($flex-bp: breakpoint-max(sm)) {
     @media (max-width:$flex-bp) {
         .content-section__col-container-inner {
             margin-top: -$content-plugin-stacked-col-spacing-xs;

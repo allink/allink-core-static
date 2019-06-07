@@ -13,7 +13,7 @@ Plugins that use these classes:
 
 // mobile
 
-@media (max-width:$screen-sm-max) {
+@include media-breakpoint-down(sm) {
     .align-h-mobile-left {
         text-align: left;
     }
@@ -27,7 +27,7 @@ Plugins that use these classes:
 
 // desktop
 
-@media (min-width:$screen-md) {
+@include media-breakpoint-up(md) {
     .align-h-desktop-left {
         text-align: left;
     }

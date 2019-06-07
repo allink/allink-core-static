@@ -15,12 +15,20 @@
     .col {
         @include make-col-ready();
         &:nth-child(1) {
-            @include make-xs-column(24);
-            @include make-sm-column(12);
+            @include media-breakpoint-up(xs) {
+                @include make-col(24);
+            }
+            @include media-breakpoint-up(sm) {
+                @include make-col(12);
+            }
         }
         &:nth-child(2) {
-            @include make-xs-column(24);
-            @include make-sm-column(12);
+            @include media-breakpoint-up(xs) {
+                @include make-col(24);
+            }
+            @include media-breakpoint-up(sm) {
+                @include make-col(12);
+            }
             @include make-spacing-top-xs-max($content-section-col-stack-spacing-xs-max);
         }
     }

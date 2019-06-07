@@ -24,10 +24,10 @@ select.selectpicker {
     height: $select-placeholder-height-xs !important;
     opacity: 0 !important;
     visibility: hidden !important;
-    @media (min-width:$screen-md) {
+    @include media-breakpoint-up(md) {
         height: $select-placeholder-height-md !important;
     }
-    @media (min-width:$screen-xxl) {
+    @include media-breakpoint-up(xxl) {
         height: $select-placeholder-height-xxl !important;
     }
     // when rendered, we're in the .bootstrap-select container, hide!
@@ -53,7 +53,7 @@ select.selectpicker {
         box-shadow: none !important;
         z-index: 10;
         // on mobile devices, remove min width
-        @media (max-width:320px) {
+        @include media-breakpoint-down(1) {
             min-width: 0;
         }
         &:focus {

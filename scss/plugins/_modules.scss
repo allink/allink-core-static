@@ -34,7 +34,7 @@ django CMS Modules
     .cms-modules-page-module {
         margin-left: -$grid-gutter-width/2;
         margin-right: -$grid-gutter-width/2;
-        @media (min-width: $screen-lg) {
+        @include media-breakpoint-up(lg) {
             margin-left: -$grid-gutter-width;
             margin-right: -$grid-gutter-width;
         }

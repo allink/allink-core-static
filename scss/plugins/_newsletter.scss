@@ -32,7 +32,7 @@ Basic styles for the newsletter signu plugin modal
         .success {
             text-align: center;
             margin: $grid-gutter-width 0;
-            @media (min-width: $screen-md) {
+            @include media-breakpoint-up(md) {
                 margin-top: $grid-gutter-width*2;
             }
             &__icon {

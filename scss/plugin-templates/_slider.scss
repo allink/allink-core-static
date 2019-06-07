@@ -13,7 +13,7 @@ Slider Template
         left: 0;
         z-index: 5;
         @include gradient-overlay($app-list-slider-overlay-gradient-height);
-        @media (max-width:$screen-sm-max) {
+        @include media-breakpoint-down(sm) {
             background-color: $overlay-background-color-sm-max;
             opacity: $overlay-background-opacity-sm-max;
         }
@@ -33,7 +33,7 @@ Slider Template
         @include content-section-spacing-position(left);
         @include content-section-spacing-position(right);
         z-index: 10;
-        @media (min-width:$screen-lg) {
+        @include media-breakpoint-up(lg) {
             max-width: 66.66%;
         }
     }

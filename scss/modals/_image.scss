@@ -52,15 +52,15 @@ Image Modal
         width: $image-modal-close-btn-width-xs;
         height: $image-modal-close-btn-height-xs;
 
-        @media (min-width:$screen-md) {
+        @include media-breakpoint-up(md) {
             width: $image-modal-close-btn-width-md;
             height: $image-modal-close-btn-height-md;
         }
-        @media (min-width:$screen-xl) {
+        @include media-breakpoint-up(xl) {
             width: $image-modal-close-btn-width-xl;
             height: $image-modal-close-btn-height-xl;
         }
-        @media (min-width:$screen-xxl) {
+        @include media-breakpoint-up(xxl) {
             width: $image-modal-close-btn-width-xxl;
             height: $image-modal-close-btn-height-xxl;
         }

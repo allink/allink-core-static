@@ -25,19 +25,19 @@
     table,
     figure {
         margin: $text-container-element-default-margin-xs;
-        @media (min-width:$screen-sm) {
+        @include media-breakpoint-up(sm) {
             margin: $text-container-element-default-margin-sm;
         }
-        @media (min-width:$screen-md) {
+        @include media-breakpoint-up(md) {
             margin: $text-container-element-default-margin-md;
         }
-        @media (min-width:$screen-lg) {
+        @include media-breakpoint-up(lg) {
             margin: $text-container-element-default-margin-lg;
         }
-        @media (min-width:$screen-xl) {
+        @include media-breakpoint-up(xl) {
             margin: $text-container-element-default-margin-xl;
         }
-        @media (min-width:$screen-xxl) {
+        @include media-breakpoint-up(xxl) {
             margin: $text-container-element-default-margin-xxl;
         }
 
@@ -54,19 +54,19 @@
         &.lead {
             @include font-lead();
             margin: $p-lead-margin-xs;
-            @media (min-width:$screen-sm) {
+            @include media-breakpoint-up(sm) {
                 margin: $p-lead-margin-sm;
             }
-            @media (min-width:$screen-md) {
+            @include media-breakpoint-up(md) {
                 margin: $p-lead-margin-md;
             }
-            @media (min-width:$screen-lg) {
+            @include media-breakpoint-up(lg) {
                 margin: $p-lead-margin-lg;
             }
-            @media (min-width:$screen-xl) {
+            @include media-breakpoint-up(xl) {
                 margin: $p-lead-margin-xl;
             }
-            @media (min-width:$screen-xxl) {
+            @include media-breakpoint-up(xxl) {
                 margin: $p-lead-margin-xxl;
             }
 
@@ -90,7 +90,7 @@
             position: relative;
             list-style: none;
             padding-left: $list-padding-xs;
-            @media (min-width:$screen-md) {
+            @include media-breakpoint-up(md) {
                 padding-left: $list-padding-md;
             }
             &:before {
@@ -110,7 +110,7 @@
                 top: $unordered-list-item-icon-spacing-top-xs;
                 transform: translate(0,-50%);
                 @include icomoon();
-                @media (min-width:$screen-md) {
+                @include media-breakpoint-up(md) {
                     left: $unordered-list-item-icon-spacing-left-md;
                     top: $unordered-list-item-icon-spacing-top-md;
                 }
@@ -125,7 +125,7 @@
                 content: counter(custom-counter)'.';
                 counter-increment: custom-counter;
                 left: $ordered-list-item-icon-spacing-left-xs;
-                @media (min-width:$screen-md) {
+                @include media-breakpoint-up(md) {
                     left: $ordered-list-item-icon-spacing-left-md;
                 }
             }
@@ -147,19 +147,19 @@
             @include font-h1();
         }
         margin: $text-container-h1-margin-xs;
-        @media (min-width:$screen-sm) {
+        @include media-breakpoint-up(sm) {
             margin: $text-container-h1-margin-sm;
         }
-        @media (min-width:$screen-md) {
+        @include media-breakpoint-up(md) {
             margin: $text-container-h1-margin-md;
         }
-        @media (min-width:$screen-lg) {
+        @include media-breakpoint-up(lg) {
             margin: $text-container-h1-margin-lg;
         }
-        @media (min-width:$screen-xl) {
+        @include media-breakpoint-up(xl) {
             margin: $text-container-h1-margin-xl;
         }
-        @media (min-width:$screen-xxl) {
+        @include media-breakpoint-up(xxl) {
             margin: $text-container-h1-margin-xxl;
         }
 
@@ -177,19 +177,19 @@
             @include font-h2();
         }
         margin: $text-container-h2-margin-xs;
-        @media (min-width:$screen-sm) {
+        @include media-breakpoint-up(sm) {
             margin: $text-container-h2-margin-sm;
         }
-        @media (min-width:$screen-md) {
+        @include media-breakpoint-up(md) {
             margin: $text-container-h2-margin-md;
         }
-        @media (min-width:$screen-lg) {
+        @include media-breakpoint-up(lg) {
             margin: $text-container-h2-margin-lg;
         }
-        @media (min-width:$screen-xl) {
+        @include media-breakpoint-up(xl) {
             margin: $text-container-h2-margin-xl;
         }
-        @media (min-width:$screen-xxl) {
+        @include media-breakpoint-up(xxl) {
             margin: $text-container-h2-margin-xxl;
         }
 
@@ -207,19 +207,19 @@
             @include font-h3();
         }
         margin: $text-container-h3-margin-xs;
-        @media (min-width:$screen-sm) {
+        @include media-breakpoint-up(sm) {
             margin: $text-container-h3-margin-sm;
         }
-        @media (min-width:$screen-md) {
+        @include media-breakpoint-up(md) {
             margin: $text-container-h3-margin-md;
         }
-        @media (min-width:$screen-lg) {
+        @include media-breakpoint-up(lg) {
             margin: $text-container-h3-margin-lg;
         }
-        @media (min-width:$screen-xl) {
+        @include media-breakpoint-up(xl) {
             margin: $text-container-h3-margin-xl;
         }
-        @media (min-width:$screen-xxl) {
+        @include media-breakpoint-up(xxl) {
             margin: $text-container-h3-margin-xxl;
         }
 
@@ -232,19 +232,19 @@
             @include font-h4();
         }
         margin: $text-container-h4-margin-xs;
-        @media (min-width:$screen-sm) {
+        @include media-breakpoint-up(sm) {
             margin: $text-container-h4-margin-sm;
         }
-        @media (min-width:$screen-md) {
+        @include media-breakpoint-up(md) {
             margin: $text-container-h4-margin-md;
         }
-        @media (min-width:$screen-lg) {
+        @include media-breakpoint-up(lg) {
             margin: $text-container-h4-margin-lg;
         }
-        @media (min-width:$screen-xl) {
+        @include media-breakpoint-up(xl) {
             margin: $text-container-h4-margin-xl;
         }
-        @media (min-width:$screen-xxl) {
+        @include media-breakpoint-up(xxl) {
             margin: $text-container-h4-margin-xxl;
         }
 
@@ -257,19 +257,19 @@
             @include font-h5();
         }
         margin: $text-container-h5-margin-xs;
-        @media (min-width:$screen-sm) {
+        @include media-breakpoint-up(sm) {
             margin: $text-container-h5-margin-sm;
         }
-        @media (min-width:$screen-md) {
+        @include media-breakpoint-up(md) {
             margin: $text-container-h5-margin-md;
         }
-        @media (min-width:$screen-lg) {
+        @include media-breakpoint-up(lg) {
             margin: $text-container-h5-margin-lg;
         }
-        @media (min-width:$screen-xl) {
+        @include media-breakpoint-up(xl) {
             margin: $text-container-h5-margin-xl;
         }
-        @media (min-width:$screen-xxl) {
+        @include media-breakpoint-up(xxl) {
             margin: $text-container-h5-margin-xxl;
         }
     }
@@ -281,19 +281,19 @@
             @include font-h6();
         }
         margin: $text-container-h6-margin-xs;
-        @media (min-width:$screen-sm) {
+        @include media-breakpoint-up(sm) {
             margin: $text-container-h6-margin-sm;
         }
-        @media (min-width:$screen-md) {
+        @include media-breakpoint-up(md) {
             margin: $text-container-h6-margin-md;
         }
-        @media (min-width:$screen-lg) {
+        @include media-breakpoint-up(lg) {
             margin: $text-container-h6-margin-lg;
         }
-        @media (min-width:$screen-xl) {
+        @include media-breakpoint-up(xl) {
             margin: $text-container-h6-margin-xl;
         }
-        @media (min-width:$screen-xxl) {
+        @include media-breakpoint-up(xxl) {
             margin: $text-container-h6-margin-xxl;
         }
     }

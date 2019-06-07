@@ -20,21 +20,39 @@
     .grid-item {
         @include make-col-ready();
         .items-per-row-1 & {
-            @include make-xs-column(24);
+            @include media-breakpoint-up(xs) {
+                @include make-col(24);
+            }
         }
         .items-per-row-2 & {
-            @include make-xs-column(24);
-            @include make-sm-column(12);
+            @include media-breakpoint-up(xs) {
+                @include make-col(24);
+            }
+            @include media-breakpoint-up(sm) {
+                @include make-col(12);
+            }
         }
         .items-per-row-3 & {
-            @include make-xs-column(24);
-            @include make-sm-column(12);
-            @include make-lg-column(8);
+            @include media-breakpoint-up(xs) {
+                @include make-col(24);
+            }
+            @include media-breakpoint-up(sm) {
+                @include make-col(12);
+            }
+            @include media-breakpoint-up(md) {
+                @include make-col(8);
+            }
         }
         .items-per-row-4 & {
-            @include make-xs-column(24);
-            @include make-sm-column(12);
-            @include make-md-column(6);
+            @include media-breakpoint-up(xs) {
+                @include make-col(24);
+            }
+            @include media-breakpoint-up(sm) {
+                @include make-col(12);
+            }
+            @include media-breakpoint-up(md) {
+                @include make-col(6);
+            }
         }
     }
 
