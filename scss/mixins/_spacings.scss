@@ -470,47 +470,53 @@ Position of absolutely positioned elements (e.g. a text within a parallax)
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 
-Overall spacings rules (new approach)
+Overall spacings rules
+
+Each spacing must have a min (below 320px) and a max size (above 1760px). In-between in gets calculated fluidly
 
 */
 
-@mixin spacings-size($spacings-size, $property: null, $spacings-map: $spacings-sizes, $spacings-breakpoint: $spacings-breakpoints, $negative: false) {
+@mixin spacings-size($spacings-size, $property: null, $spacings-map: $spacings-sizes, $spacings-breakpoints: $spacings-breakpoints, $negative: false) {
+    // non-negative default value
+    $multiplicand: 1;
+    @if $negative == true {
+        $multiplicand: -1;
+    }
+
     // Check if spacings-size is a string (i.e. 'spacing-section-1')
     @if type-of($spacings-size) == string {
-        @each $spacings-breakpoint, $spacings-size in map-get($spacings-map, $spacings-size) {
-            @if $spacings-breakpoint == null {
-                @include make-spacing-size($spacings-size, $property, $negative);
+        // get the map of current spacing from $spacings-sizes
+        $spacing: map-get($spacings-map, $spacings-size);
+        $min-spacing: map-get($spacing, 'min');
+
+        @include make-spacing-size($min-spacing, $property);
+
+        // if no max font-size exists, use min font-size (i.e. font-default)
+        @if map-get($spacing, 'max') {
+            $max-spacing: map-get($spacing, 'max');
+            $difference: strip-unit($max-spacing - $min-spacing);
+            $min-breakpoint: map-get($spacings-breakpoints, 'min');
+            $max-breakpoint: map-get($spacings-breakpoints, 'max');
+
+            @media (min-width: $min-breakpoint) {
+                @include make-spacing-size(calc((#{$min-spacing} + #{$difference} * (100vw - #{$min-breakpoint}) / 100) * #{$multiplicand}), $property);
             }
-            @else {
-                // If $spacings-size is a key that exists in
-                // $spacings-breakpoints, use the value
-                @if map-has-key($spacings-breakpoints, $spacings-breakpoint) {
-                    $spacings-breakpoint: map-get($spacings-breakpoints, $spacings-breakpoint);
-                }
-                @media screen and (min-width: $spacings-breakpoint) {
-                    @include make-spacing-size($spacings-size, $property, $negative);
-                }
+            @media (min-width: $max-breakpoint) {
+                @include make-spacing-size(($max-spacing * $multiplicand), $property);
             }
         }
     }
     // Alternatively use fixed value (i.e. pixel value)
     @else {
-        @include make-spacing-size($spacings-size, $property, $negative);
+        @include make-spacing-size(($spacings-size * $multiplicand), $property);
     }
 }
 
 // Utility function for mixin spacings-size
-@mixin make-spacing-size($spacings-size, $property: 'margin', $negative: false) {
-    // If $spacings-size is a list, include
+@mixin make-spacing-size($spacings-size, $property: 'margin') {
     @if str-index($property, '-') == null {
-        @if $negative == false {
-            #{$property}-top: $spacings-size;
-            #{$property}-bottom: $spacings-size;
-        }
-        @else {
-            #{$property}-top: -$spacings-size;
-            #{$property}-bottom: -$spacings-size;
-        }
+        #{$property}-top: $spacings-size;
+        #{$property}-bottom: $spacings-size;
         // Set last child padding to 0, otherwise there's too much spacing
         @if str-index($property, 'padding') == null {
             &:last-child {
@@ -519,12 +525,7 @@ Overall spacings rules (new approach)
         }
     }
     @else {
-        @if $negative == false {
-            #{$property}: $spacings-size;
-        }
-        @else {
-            #{$property}: -$spacings-size;
-        }
+        #{$property}: $spacings-size;
         // Set last child padding to 0, otherwise there's too much spacing
         @if str-index($property, 'padding') == null {
             &:last-child {

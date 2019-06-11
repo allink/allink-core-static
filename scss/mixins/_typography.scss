@@ -200,22 +200,25 @@ Responsive Font Size mixin
 @mixin font-size($fs-map, $fs-breakpoints: $font-size-breakpoints) {
     // scale font-sizes fluidly
     // https://codepen.io/depone/pen/pEbOVm
-    $smallest-breakpoint-name: nth(nth($fs-map, 1), 1);
-    $smallest-breakpoint: nth(map-get($fs-breakpoints, nth(nth($fs-breakpoints, 1), 1)), 1);
-    $smallest-font-size: nth(map-get($fs-map, $smallest-breakpoint-name), 1);
-    $largest-breakpoint-name: nth(nth($fs-map, -1), 1);
-    $largest-breakpoint: nth(map-get($fs-breakpoints, nth(nth($fs-breakpoints, -1), 1)), 1);
-    $largest-font-size: nth(map-get($fs-map, $largest-breakpoint-name), 1);
-    $difference: strip-unit($largest-font-size - $smallest-font-size);
+    $min-font-size: nth(map-get($fs-map, 'min'), 1);
 
-    font-size: $smallest-font-size;
-    @media (min-width: $smallest-breakpoint) {
-        font-size: calc(#{$smallest-font-size} + #{$difference} * (100vw - #{$smallest-breakpoint}) / 100);
-    }
-    @media (min-width: $largest-breakpoint) {
-        font-size: $largest-font-size;
-    }
+    font-size: $min-font-size;
     @include line-height($fs-map, $fs-breakpoints);
+
+    // if no max font-size exists, use min font-size (i.e. font-default)
+    @if map-get($fs-map, 'max') {
+        $max-font-size: nth(map-get($fs-map, 'max'), 1);
+        $difference: strip-unit($max-font-size - $min-font-size);
+        $min-breakpoint: map-get($fs-breakpoints, 'min');
+        $max-breakpoint: map-get($fs-breakpoints, 'max');
+
+        @media (min-width: $min-breakpoint) {
+            font-size: calc(#{$min-font-size} + #{$difference} * (100vw - #{$min-breakpoint}) / 100);
+        }
+        @media (min-width: $max-breakpoint) {
+            font-size: $max-font-size;
+        }
+    }
 }
 
 // utility function to strip the unit from a property value (10px -> 10)
