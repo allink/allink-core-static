@@ -1,60 +1,10 @@
 {
-  "_args": [
-    [
-      {
-        "raw": "allink-core-static@git://github.com/allink/allink-core-static.git#283ba8fd8f4e024458c3f035766acb8906494e74",
-        "scope": null,
-        "escapedName": "allink-core-static",
-        "name": "allink-core-static",
-        "rawSpec": "git://github.com/allink/allink-core-static.git#283ba8fd8f4e024458c3f035766acb8906494e74",
-        "spec": "git://github.com/allink/allink-core-static.git#283ba8fd8f4e024458c3f035766acb8906494e74",
-        "type": "hosted",
-        "hosted": {
-          "type": "github",
-          "ssh": "git@github.com:allink/allink-core-static.git#283ba8fd8f4e024458c3f035766acb8906494e74",
-          "sshUrl": "git+ssh://git@github.com/allink/allink-core-static.git#283ba8fd8f4e024458c3f035766acb8906494e74",
-          "httpsUrl": "git+https://github.com/allink/allink-core-static.git#283ba8fd8f4e024458c3f035766acb8906494e74",
-          "gitUrl": "git://github.com/allink/allink-core-static.git#283ba8fd8f4e024458c3f035766acb8906494e74",
-          "shortcut": "github:allink/allink-core-static#283ba8fd8f4e024458c3f035766acb8906494e74",
-          "directUrl": "https://raw.githubusercontent.com/allink/allink-core-static/283ba8fd8f4e024458c3f035766acb8906494e74/package.json"
-        }
-      },
-      "/Users/ekesto/divio/boilerplate-10-allink"
-    ]
-  ],
-  "_from": "git://github.com/allink/allink-core-static.git#283ba8fd8f4e024458c3f035766acb8906494e74",
-  "_id": "allink-core-static@1.0.0",
-  "_inCache": true,
-  "_location": "/allink-core-static",
-  "_phantomChildren": {},
-  "_requested": {
-    "raw": "allink-core-static@git://github.com/allink/allink-core-static.git#283ba8fd8f4e024458c3f035766acb8906494e74",
-    "scope": null,
-    "escapedName": "allink-core-static",
-    "name": "allink-core-static",
-    "rawSpec": "git://github.com/allink/allink-core-static.git#283ba8fd8f4e024458c3f035766acb8906494e74",
-    "spec": "git://github.com/allink/allink-core-static.git#283ba8fd8f4e024458c3f035766acb8906494e74",
-    "type": "hosted",
-    "hosted": {
-      "type": "github",
-      "ssh": "git@github.com:allink/allink-core-static.git#283ba8fd8f4e024458c3f035766acb8906494e74",
-      "sshUrl": "git+ssh://git@github.com/allink/allink-core-static.git#283ba8fd8f4e024458c3f035766acb8906494e74",
-      "httpsUrl": "git+https://github.com/allink/allink-core-static.git#283ba8fd8f4e024458c3f035766acb8906494e74",
-      "gitUrl": "git://github.com/allink/allink-core-static.git#283ba8fd8f4e024458c3f035766acb8906494e74",
-      "shortcut": "github:allink/allink-core-static#283ba8fd8f4e024458c3f035766acb8906494e74",
-      "directUrl": "https://raw.githubusercontent.com/allink/allink-core-static/283ba8fd8f4e024458c3f035766acb8906494e74/package.json"
-    }
-  },
-  "_requiredBy": [
-    "/"
-  ],
-  "_resolved": "git://github.com/allink/allink-core-static.git#283ba8fd8f4e024458c3f035766acb8906494e74",
-  "_shasum": "a9d1fbd391a357cabfc9363beda4f02862a43999",
-  "_shrinkwrap": null,
-  "_spec": "allink-core-static@git://github.com/allink/allink-core-static.git#283ba8fd8f4e024458c3f035766acb8906494e74",
-  "_where": "/Users/ekesto/divio/boilerplate-10-allink",
-  "author": {
-    "name": "Beat Schenkel - allink AG"
+  "name": "allink-core-static",
+  "version": "2.0.0",
+  "description": "The allink core styles/scripts for our Django CMS setup.",
+  "main": "allink-core-static",
+  "directories": {
+    "doc": "docs"
   },
   "dependencies": {
     "bootstrap": "3.3.6",
@@ -76,13 +26,23 @@
     "swiper": "3.4.2",
     "tingle.js": "0.11.0"
   },
-  "description": "The allink core styles/scripts for our Django CMS setup.",
-  "devDependencies": {},
-  "gitHead": "283ba8fd8f4e024458c3f035766acb8906494e74",
-  "main": "allink-core-static",
-  "name": "allink-core-static",
-  "optionalDependencies": {},
-  "readme": "# allink-core-static repository\n\nNote: We moved the [changelog](CHANGELOG.md) to a separate file.\n",
-  "readmeFilename": "README.md",
-  "version": "2.0.0"
+  "devDependencies": {
+    "eslint": "^5.16.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.17.3",
+    "eslint-plugin-vue": "^5.2.2"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/allink/allink-core-static.git"
+  },
+  "keywords": [],
+  "author": "allink AG",
+  "bugs": {
+    "url": "https://github.com/allink/allink-core-static/issues"
+  },
+  "homepage": "https://github.com/allink/allink-core-static#readme"
 }
