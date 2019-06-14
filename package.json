@@ -7,12 +7,12 @@
     "doc": "docs"
   },
   "dependencies": {
-    "bootstrap": "3.3.6",
+    "bootstrap": "^3.4.1",
     "bootstrap-select": "1.12.3",
     "flatpickr": "3.0.6",
     "form-serialize": "0.7.2",
     "iphone-inline-video": "2.2.2",
-    "jquery": "3.2.1",
+    "jquery": "^3.4.0",
     "jquery-validation": "1.16.0",
     "lazysizes": "4.0.0-rc3",
     "masonry-layout": "4.2.0",
