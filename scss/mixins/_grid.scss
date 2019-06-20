@@ -21,6 +21,10 @@ https://getbootstrap.com/docs/4.3/layout/grid/#sass-mixins
     padding-left: $gutter / 2;
     margin-right: auto;
     margin-left: auto;
+    @include media-breakpoint-up(md) {
+        padding-left: $gutter;
+        padding-right: $gutter;
+    }
 }
 
 @mixin make-col-ready($gutter: $grid-gutter-width) {

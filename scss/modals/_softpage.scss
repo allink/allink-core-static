@@ -50,9 +50,6 @@ Softpage
             @include media-breakpoint-up(md) {
                 top: $softpage-offset-top-md !important;
             }
-            @include media-breakpoint-up(xl) {
-                top: $softpage-offset-top-xl !important;
-            }
             @include media-breakpoint-up(xxl) {
                 top: $softpage-offset-top-xxl !important;
             }
@@ -114,9 +111,6 @@ Softpage
         @if $softpage-site-header-visible-when-opened {
             @include media-breakpoint-up(md) {
                 top: $softpage-offset-top-md !important;
-            }
-            @include media-breakpoint-up(xl) {
-                top: $softpage-offset-top-xl !important;
             }
             @include media-breakpoint-up(xxl) {
                 top: $softpage-offset-top-xxl !important;
