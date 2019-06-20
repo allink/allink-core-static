@@ -1,0 +1,17 @@
+// inspiration: https://codepen.io/devatrox/pen/wztlx
+
+html {
+    height: 100%;
+}
+
+body {
+    min-height: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.site-content {
+  /* flex: 1; would be enough but IE has different defaults (surprise!) */
+  flex: 1 0 auto;
+}
