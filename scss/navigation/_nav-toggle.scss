@@ -1,0 +1,65 @@
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+Nav Toggle
+
+*/
+
+.nav-toggle {
+    width: $nav-toggle-width;
+    height: $nav-toggle-height;
+    right: 0;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: z('site-content');
+
+    @include media-breakpoint-up(md) {
+        right: $nav-toggle-width / 4;
+    }
+
+    &.is-active {
+        .nav-toggle__line {
+            &:first-child {
+                transform: translateY(0.3rem) rotateZ(-45deg);
+            }
+            &:last-child {
+                transform: translateY(-0.3rem) rotateZ(45deg);
+            }
+        }
+    }
+
+    &__container {
+        @include make-container();
+        @include max-width();
+        @include set-site-header-height();
+        left: 0;
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+
+    &__box {
+        transform: translate(-50%, -50%);
+        transform-origin: 50% 50%;
+        top: 50%;
+        left: 50%;
+        position: absolute;
+    }
+
+    &__line {
+        background-color: $nav-toggle-line-color;
+        height: $nav-toggle-line-height;
+        width: $nav-toggle-line-width;
+        transform-origin: 50% 50%;
+        transform-style: preserve-3d;
+        transition: $nav-toggle-transition;
+
+        .overlay-menu & {
+            background-color: $nav-toggle-line-overlay-color;
+        }
+
+        &:last-child {
+            margin-top: .5rem;
+        }
+    }
+}
