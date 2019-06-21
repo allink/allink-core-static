@@ -27,14 +27,17 @@ pages:
   - Plugins:
     - Content Plugin: 'plugins/content-plugin.md'
     - App Content Plugin: 'plugins/app-content-plugin.md'
+    - Teaser Plugin: 'plugins/teaser-plugin.md'
   - Modules:
     - WYSYWIG Editor: 'modules/editor.md'
     - Modals: 'modules/modals.md'
+    - Navigation: 'modules/navigation.md'
     - Icon Font: 'modules/icons.md'
     - OnScreen (Scroll Spy): 'modules/onscreen.md'
     - Lazyloading: 'modules/lazyloading.md'
     - Site Overlay: 'modules/site-overlay.md'
     - Bootstrap Select: 'modules/bootstrap-select.md'
+    - DjangoCMS Modules: 'modules/djangocms-modules.md'
   - Templates:
     - base.html: 'templates/base.md'
     - Setting up page templates: 'templates/page-templates.md'
