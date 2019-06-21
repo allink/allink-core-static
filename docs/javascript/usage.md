@@ -32,3 +32,10 @@ import './modules/pagechooser';
 ```
 
 <strong>But remember:</strong> Before you add a project specifc version, ask yourself: Might this feature be reused and does it make more sense to update the `allink-core-static` instead? If in doubt or do you have a feature request, get in touch with the responsible person at allink.
+
+# Linting with ESLint
+
+To have a consistent code style we use [ESLint](https://eslint.org). It is strongly recommended to install an ESLint extension in your editor of choice.
+However ESLint will clean all local .js files in a pre-commit hook.
+
+You can make adjustments to the ESLint configuration, which can be found in the project root directory as `.eslintrc.js`.

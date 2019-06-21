@@ -27,25 +27,37 @@ A basic example of how to create a two column grid would look like this:
 
 ```SCSS
 .example-module {
-  &__col-container {
-    // adds negative margin to the container
-    @include make-row();
-    // on XS and SM we have a smaller column padding
-    @include make-row-sm-max();
+    &__col-container {
+      // adds negative margin to the container
+      @include make-row();
+      // on XS and SM we have a smaller column padding
+      @include make-row-sm-max();
   }
   &__col {
-    // Make the element grid-ready (applying everything but the width)
-    @include make-col-ready();
+      // Make the element grid-ready (applying everything but the width)
+      @include make-col-ready();
   }
   &__col-1 {
-    @include make-xs-column(24);
-    @include make-sm-column(12);
-    @include make-lg-column(8);
+      @include media-breakpoint-up(xs) {
+          @include make-col(24);
+      }
+      @include media-breakpoint-up(sm) {
+          @include make-col(12);
+      }
+      @include media-breakpoint-up(lg) {
+          @include make-col(8);
+      }
   }
   &__col-2 {
-    @include make-xs-column(24);
-    @include make-sm-column(12);
-    @include make-lg-column(16);
+      @include media-breakpoint-up(xs) {
+          @include make-col(24);
+      }
+      @include media-breakpoint-up(sm) {
+          @include make-col(12);
+      }
+      @include media-breakpoint-up(lg) {
+          @include make-col(16);
+      }
   }
 }
 ```
@@ -65,10 +77,14 @@ Should you require a `5` column layout (which is tricky with `24`), simply do th
   ...
   &__col {
     ...
-    @include make-xs-column(24);
-    @include make-sm-column(12);
-    @media (min-width:$screen-lg) {
-      width: 20%
+    @include media-breakpoint-up(xs) {
+          @include make-col(24);
+    }
+    @include media-breakpoint-up(sm) {
+        @include make-col(12);
+    }
+    @include media-breakpoint-up(lg) {
+        width: 20%;
     }
   }
 }

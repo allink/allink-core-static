@@ -81,6 +81,10 @@ $app-detail-header-section-spacing-top:               'spacing-scale-2'; // pixe
 $app-detail-header-section-spacing-bottom:            'spacing-scale-4'; // pixel-value or spacing value. set to 'false' if no spacing should be used
 ```
 
+## Fluid spacing scaling
+
+All spacings scale **fluidly** according to the same formula as the [font-sizes](./typography.md):
+
 ### Important to note
 
 This is still under development and maybe change in the future as we learn further how to best use spacings.

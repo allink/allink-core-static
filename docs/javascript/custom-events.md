@@ -27,3 +27,17 @@ $(window).on('datepicker:ready', function (event, instance) {
     console.log(instance);
 }
 ```
+
+## Re-init on DjangoCMS structure mode save
+
+When you save any plugin in the CMS structure mode, the page contents get re-rendered dynamically which resets the DOM state.
+Therefore we have to re-init some events/scripts (i.e. gallery, modal triggers, forms, etc.):
+
+```JS
+// on cms content refresh
+if (window.CMS) {
+    CMS.$(window).on('cms-content-refresh', () => {
+        initiSwiperInstances(...);
+    });
+}
+```
