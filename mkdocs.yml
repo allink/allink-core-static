@@ -12,8 +12,8 @@ pages:
     - Libraries: 'javascript/libraries.md'
   - Stylesheets:
     - General Usage: 'stylesheets/usage.md'
+    - Styleguide: 'stylesheets/styleguide.md'
     - Bootstrap: 'stylesheets/bootstrap.md'
-    - BEM methodology: 'stylesheets/bem.md'
     - Variables: 'stylesheets/variables.md'
     - Grid: 'stylesheets/grid.md'
     - Breakpoints: 'stylesheets/breakpoints.md'

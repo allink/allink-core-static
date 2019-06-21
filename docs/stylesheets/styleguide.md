@@ -1,3 +1,12 @@
+# Properties order
+
+We encourage the following order how the CSS should be organized inside a file / selector.
+
+1. Mixins
+2. Alphabetical CSS properties order
+3. Pseudo classes
+4. Media-Queries from small to big / down to up
+
 # BEM methodology
 
 There are many methodologies out there that help making SCSS files more maintainable and performant.
