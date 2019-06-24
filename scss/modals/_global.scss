@@ -191,67 +191,61 @@ Modal Header
 */
 
 .tingle-modal-header {
+    @include make-container();
+    @include max-width();
+    height: $modal-header-height-xs;
     position: absolute;
-    width: auto;
     top: 0;
-    z-index: 2;
-    left: 50% !important;
-    right: auto !important;
-    transform: translate(-50%,0);
-    max-width: $max-width-xxl;
     width: 100%;
-    text-align: center;
+
+    @include media-breakpoint-up(md) {
+        height: $modal-header-height-md;
+    }
+    @include media-breakpoint-up(xxl) {
+        height: $modal-header-height-xxl;
+    }
+
     &__container {
-        @include media-breakpoint-up(xs) {
-            @include make-col(24);
-        }
-        @include media-breakpoint-up(lg) {
-            @include make-col(16);
-        }
-        margin: 0 auto;
-        padding: $grid-gutter-width/3 $grid-gutter-width;
-        left: 50% !important;
-        right: auto !important;
-        transform: translate(-50%,0);
-        @include media-breakpoint-down(sm) {
-            padding-left: $grid-gutter-width/2 !important;
-            padding-right: $grid-gutter-width/2 !important;
-        }
+        @include make-row();
+        // on XS and SM we have a smaller column padding
+        @include make-row-sm-max();
+        position: relative;
+        transform: translateY(-50%);
+        top: 50%;
     }
     &__inner {
-        position: relative;
-        display: block;
+        @include make-col-ready();
+        @include make-col(24);
+
         &::after {
             content: '';
-            position: absolute;
-            bottom: -$grid-gutter-width/3;
-            display: block;
             background: $modal-header-bg-color;
+            bottom: -0.9rem;
+            display: block;
+            height: 0.0625rem;
+            position: relative;
             width: 100%;
-            height: 1px;
         }
     }
     &__heading {
-        text-align: left;
         cursor: text;
         display: block;
+        overflow: hidden;
+        text-align: left;
         text-overflow: ellipsis;
-        overflow-x: hidden;
-        overflow-y: hidden;
         white-space: nowrap;
-        padding-right: 60px;
     }
     &__link-close {
-        position: absolute;
-        width: 50px;
-        height: 50px;
-        top: 50%;
-        left: 100%;
-        transform: translate(-70%,-50%);
-        transition: none;
         background: transparent;
-        text-decoration: none;
         border: none;
+        height: 50px;
+        position: absolute;
+        right: 0;
+        transform: translateY(-50%);
+        transition: none;
+        text-decoration: none;
+        top: 50%;
+        width: 50px;
         &:hover,
         &:focus,
         &:active {
@@ -260,17 +254,17 @@ Modal Header
             }
         }
         &::before {
-            position: absolute;
-            content: $modal-global-close-icon;
+            @include icomoon();
             color: $modal-global-close-icon-color;
+            content: $modal-global-close-icon;
             font-size: $modal-global-close-icon-size;
-            top: 50%;
             left: 50%;
+            position: absolute;
+            top: 50%;
             transform: translate(-50%,-50%);
             transition-property: $modal-global-close-icon-transition-property;
             transition-duration: $modal-global-close-icon-transition-duration;
             transition-timing-function: $modal-global-close-icon-transition-timing-function;
-            @include icomoon();
         }
     }
 }
