@@ -156,8 +156,8 @@ $newsletter-form-modal-max-width-xxl:        550px;
 // whether to enabled scroll-spy or not
 $softpage-content-transition-enabled:           false;
 
-$softpage-content-box-transition:               $modal-global-overlay-transition;
-$softpage-content-box-offset:                   3%; // y coordinates, any unit is fine
+$softpage-content-transition:               $modal-global-overlay-transition;
+$softpage-content-offset:                   3%; // y coordinates, any unit is fine
 $softpage-max-width-sm:                         850px;
 $softpage-max-width-xxl:                        1100px;
 

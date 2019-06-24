@@ -72,8 +72,6 @@ $(function(){
     function initSoftpage() {
         window.softpage = new SoftPage({
             onPageLoaded: function(obj) {
-                // scroll to top everytime a softpage is opened
-                obj.modal.modal.querySelector('.tingle-modal-box').scrollTop = 0;
                 // app detail: check if header markup exists and set
                 // IMPORTANT: It needs to be an immediate child of .tingle-modal-box__content
                 let $header_markup = $(obj.modal.modal).find('.tingle-modal-box__content > .modal-header-markup');
@@ -111,16 +109,14 @@ $(function(){
                     var is_cms_page = $softpage.attr('data-cms-page');
                     if (typeof is_cms_page !== 'undefined' && is_cms_page !== false) {
                         cleanupSoftpageMarkup($softpage);
-                    }else {
+                    } else {
                         $(window).trigger('softpage:opened');
                     }
-                },50);
+                }, 50);
             },
             onSoftpageClosed: function (obj) {
                 // init
                 let $modal = $(obj.modal.modal);
-                // hide site overlay
-                $(window).trigger('hideSiteOverlay');
                 $(window).trigger('softpage:closed');
                 // remove variation definition
                 $(obj.modal.modal).removeAttr('data-softpage-variation');
@@ -208,9 +204,7 @@ $(function(){
                         // only trigger softpage when NONE of the following keys are pressed
                         if (event.ctrlKey || event.metaKey || event.shiftKey) {
                             // do default stuff
-                        }else {
-                            // instantly toggle site overlay (improves "felt performance")
-                            $(window).trigger('showSiteOverlay');
+                        } else {
                             // load softpage
                             event.preventDefault();
                             softpage.loadPage(href, true, softpage_content_id);

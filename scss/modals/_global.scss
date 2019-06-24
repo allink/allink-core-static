@@ -36,6 +36,7 @@ Global modal definitions
 */
 
 body.tingle-enabled {
+    height: auto;
     /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 
     Print Settings for modal
@@ -53,14 +54,18 @@ body.tingle-enabled {
         }
     }
 
-    @include media-breakpoint-down(sm) {
-        .site-header,
-        .site-content,
-        .site-footer {
-            opacity: 0;
-            visibility: hidden;
+    // except when softpage is visible
+    :not(.softpage-visible) {
+        @include media-breakpoint-down(sm) {
+            .site-header,
+            .site-content,
+            .site-footer {
+                opacity: 0;
+                visibility: hidden;
+            }
         }
     }
+
 }
 
 .tingle-modal {
@@ -212,6 +217,10 @@ Modal Header
         position: relative;
         transform: translateY(-50%);
         top: 50%;
+        @include media-breakpoint-only(xs) {
+            margin-left: -$grid-gutter-width / 2;
+            margin-right: -$grid-gutter-width / 2;
+        }
     }
     &__inner {
         @include make-col-ready();

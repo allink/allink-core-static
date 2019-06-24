@@ -5,14 +5,14 @@ Softpage
 */
 
 .softpage {
-
     // in case of the softpage, we want our .tingle-modal-box to handle to overflow scrolling
     overflow: hidden;
 
-    .form-modal-visible &,
-    .image-modal-visible & {
-        opacity: 0;
-    }
+    opacity: 1;
+    visibility: visible;
+    transform: translate(0, $softpage-content-offset);
+    transition: $softpage-content-transition;
+
 
     .tingle-modal-box {
         position: absolute;
@@ -25,9 +25,6 @@ Softpage
         overflow-y: scroll; // has to be scroll, not auto
         overflow-x: hidden;
         -webkit-overflow-scrolling: touch;
-        opacity: 0;
-        transform: translate(0, $softpage-content-box-offset);
-        transition: $softpage-content-box-transition;
         width: 100%;
 
         @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
@@ -161,10 +158,7 @@ Softpage
     }
 
     &.tingle-modal--visible {
-        .tingle-modal-box {
-            transform: translate(0,0);
-            opacity: 1;
-        }
+        transform: translateY(0);
     }
 
     /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
