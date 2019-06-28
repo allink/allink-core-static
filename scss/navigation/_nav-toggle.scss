@@ -14,7 +14,7 @@ Nav Toggle
     z-index: z('site-content');
 
     @include media-breakpoint-up(md) {
-        right: $nav-toggle-width / 4;
+        right: $grid-gutter-width / 2;
     }
 
     &.is-active {

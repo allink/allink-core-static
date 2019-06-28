@@ -517,21 +517,21 @@ Each spacing must have a min (below 320px) and a max size (above 1760px). In-bet
     @if str-index($property, '-') == null {
         #{$property}-top: $spacings-size;
         #{$property}-bottom: $spacings-size;
-        // Set last child padding to 0, otherwise there's too much spacing
-        @if str-index($property, 'padding') == null {
-            &:last-child {
-                padding-bottom: 0;
-            }
-        }
+        // // Set last child padding to 0, otherwise there's too much spacing
+        // @if str-index($property, 'padding') == null {
+        //     &:last-child {
+        //         padding-bottom: 0;
+        //     }
+        // }
     }
     @else {
         #{$property}: $spacings-size;
-        // Set last child padding to 0, otherwise there's too much spacing
-        @if str-index($property, 'padding') == null {
-            &:last-child {
-                padding-bottom: 0;
-            }
-        }
+        // // Set last child padding to 0, otherwise there's too much spacing
+        // @if str-index($property, 'padding') == null {
+        //     &:last-child {
+        //         padding-bottom: 0;
+        //     }
+        // }
     }
 }
 

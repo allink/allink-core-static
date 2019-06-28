@@ -537,8 +537,10 @@ Default Content Section Styles
     &__main-col-container {
         .content-section__col-container {
             .content-section__col {
-                @include make-col-ready();
-                @include column-padding-sm-max();
+                .container-enabled & {
+                    @include make-col-ready();
+                    @include column-padding-sm-max();
+                }
             }
         }
     }
