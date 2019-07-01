@@ -146,7 +146,7 @@ How to use:
 
         &[target="_blank"] {
             .btn__text--mask {
-                > span {
+                &__inner {
                     @if $btn-mask-transition-direction-starting-point == 'top' or $btn-mask-transition-direction-starting-point == 'bottom' {
                         justify-content: left;
                         left: 1.2em;
@@ -163,7 +163,7 @@ How to use:
         }
         &[data-softpage-variation] {
             .btn__text--mask {
-                > span {
+                &__inner {
                     @if $btn-mask-transition-direction-starting-point == 'top' or $btn-mask-transition-direction-starting-point == 'bottom' {
                         justify-content: right;
                         right: 1.2em;
@@ -206,7 +206,7 @@ How to use:
                     transform: translateX(-100%);
                 }
 
-                > span {
+                &__inner {
                     position: absolute;
                     left: 0;
                     right: 0;
