@@ -7,6 +7,11 @@ We encourage the following order how the CSS should be organized inside a file /
 3. Pseudo classes
 4. Media-Queries from small to big / down to up
 
+# Units
+
+Use rems over pixels for everything regarding sizes (i.e. font-size, margin, padding, height, width, etc.).
+Rems are based of [16px (root size)](../stylesheets/typography.md#adjusting-font-settings).
+
 # BEM methodology
 
 There are many methodologies out there that help making SCSS files more maintainable and performant.

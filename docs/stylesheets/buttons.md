@@ -54,6 +54,49 @@ Here's an example of a module that is used in a default section and in the `inve
 }
 ```
 
+## Features
+
+### Masking Effect
+
+Via the variables `static/scss/base/variables/_forms.scss` you can enable and adjust an effect which animates the background color like a mask:
+
+#### SCSS
+
+```SCSS
+$btn-mask-transition-enabled:                       true;
+$btn-mask-transition-duration:                      ease;
+$btn-mask-transition-timing-function:               300ms;
+$btn-mask-transition-direction-starting-point:      'bottom'; // top, right, bottom or left
+```
+
+#### Markup
+
+For the masking effect to work you need to add the `.btn__text--mask` markup to your button:
+
+```HTML
+<a href="" class="button-link-plugin__link">
+    <span class="button-link-plugin__text">
+        Read more
+    </span>
+    <span class="btn__text--mask">
+        <span class="btn__text--mask__inner">
+            Read more
+        </span>
+    </span>
+</a>
+```
+
+
+### Default Icons
+
+There are 2 default icons pre-defined for buttons:
+
+- Plus for softpage links
+- Arrow for external links
+
+These icons can be changed in `static/scss/base/variables/_forms.scss`.
+Additional icons must be added on a project basis in `static/scss/form/_buttons.scss`.
+
 ## ButtonLinkPlugin: Make only styled buttons available
 
 When adding a link via our ButtonLinkPlugin, you can choose between button variations.
