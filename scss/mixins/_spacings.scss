@@ -226,47 +226,11 @@ Spacings of content blocks within the .site-content
 // in default 'content' placeholder
 
 @mixin content-section-spacing-padding() {
-    padding-top: $content-section-spacing-xs;
-    padding-bottom: $content-section-spacing-xs;
-    @include media-breakpoint-up(sm) {
-        padding-top: $content-section-spacing-sm;
-        padding-bottom: $content-section-spacing-sm;
-    }
-    @include media-breakpoint-up(md) {
-        padding-top: $content-section-spacing-md;
-        padding-bottom: $content-section-spacing-md;
-    }
-    @include media-breakpoint-up(lg) {
-        padding-top: $content-section-spacing-lg;
-        padding-bottom: $content-section-spacing-lg;
-    }
-    @include media-breakpoint-up(xl) {
-        padding-top: $content-section-spacing-xl;
-        padding-bottom: $content-section-spacing-xl;
-    }
-    @include media-breakpoint-up(xxl) {
-        padding-top: $content-section-spacing-xxl;
-        padding-bottom: $content-section-spacing-xxl;
-    }
+    @include spacings-size($content-section-spacing, padding);
 }
 
 @mixin content-section-spacing-margin() {
-    margin-top: $content-section-spacing-xs;
-    @include media-breakpoint-up(sm) {
-        margin-top: $content-section-spacing-sm;
-    }
-    @include media-breakpoint-up(md) {
-        margin-top: $content-section-spacing-md;
-    }
-    @include media-breakpoint-up(lg) {
-        margin-top: $content-section-spacing-lg;
-    }
-    @include media-breakpoint-up(xl) {
-        margin-top: $content-section-spacing-xl;
-    }
-    @include media-breakpoint-up(xxl) {
-        margin-top: $content-section-spacing-xxl;
-    }
+    @include spacings-size($content-section-spacing, margin-top);
 }
 
 // per default, we use the 'spacing-factor' 1.. but sometimes we want to proportionally increase the spacing without adding new variables.
@@ -452,19 +416,7 @@ Position of absolutely positioned elements (e.g. a text within a parallax)
 */
 
 @mixin content-section-spacing-position($position: bottom) {
-    #{$position}: $overlay-spacing-xs;
-    @include media-breakpoint-up(sm) {
-        #{$position}: $overlay-spacing-sm;
-    }
-    @include media-breakpoint-up(md) {
-        #{$position}: $overlay-spacing-md;
-    }
-    @include media-breakpoint-up(lg) {
-        #{$position}: $overlay-spacing-lg;
-    }
-    @include media-breakpoint-up(xl) {
-        #{$position}: $overlay-spacing-xl;
-    }
+    @include spacings-size($overlay-spacing, $position);
 }
 
 

@@ -7,28 +7,7 @@ VERTICAL spacings of plugin content within '.site-content'
 */
 
 // global spacing between the .content-section
-$content-section-spacing-xs:   30px;
-$content-section-spacing-sm:   45px;
-$content-section-spacing-md:   45px;
-$content-section-spacing-lg:   60px;
-$content-section-spacing-xl:   60px;
-$content-section-spacing-xxl:   60px;
-
-// first item
-$content-section-spacing-first-item-xs:     $content-section-spacing-xs;
-$content-section-spacing-first-item-sm:     $content-section-spacing-sm;
-$content-section-spacing-first-item-md:     $content-section-spacing-md;
-$content-section-spacing-first-item-lg:     $content-section-spacing-lg;
-$content-section-spacing-first-item-xl:     $content-section-spacing-xl;
-$content-section-spacing-first-item-xxl:    $content-section-spacing-xxl;
-
-// last item
-$content-section-spacing-last-item-xs:      $content-section-spacing-xs;
-$content-section-spacing-last-item-sm:      $content-section-spacing-sm;
-$content-section-spacing-last-item-md:      $content-section-spacing-md;
-$content-section-spacing-last-item-lg:      $content-section-spacing-lg;
-$content-section-spacing-last-item-xl:      $content-section-spacing-xl;
-$content-section-spacing-last-item-xxl:     $content-section-spacing-xxl;
+$content-section-spacing:      'spacing-scale-2'; // spacings-size or fixed value
 
 // Content Plugin > spacing between STACKED COLUMNS (smaller screens)
 $content-section-col-stack-spacing-xs-max:  $grid-gutter-width/2;
@@ -99,12 +78,7 @@ $content-section-bg-image-outer-height-xxl:                   6;
 
 // Overlay text is POSITIONED absolute.
 // So 'spacing' in this context relates to the 'top, right, bottom and left' properties.
-$overlay-spacing-xs:                       $content-section-spacing-xs;
-$overlay-spacing-sm:                       $content-section-spacing-sm;
-$overlay-spacing-md:                       $content-section-spacing-md;
-$overlay-spacing-lg:                       $content-section-spacing-lg;
-$overlay-spacing-xl:                       $content-section-spacing-xl;
-
+$overlay-spacing:                          $content-section-spacing;
 // overlay heading and text colors
 $overlay-heading-color:                    $white;
 $overlay-text-color:                       $white;

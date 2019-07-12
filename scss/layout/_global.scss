@@ -51,20 +51,5 @@ It has to be placed right after the `.site-header-buffer` in `base.html`
     width: 1px;
     @include set-site-header-compact-mode-height();
     // we're gonna assign the content section spacing as width (so we don't need an extra element, which is fallback friendly), and use this value to add a scroll offset on elements that do not have a padding-top
-    width: $content-section-spacing-first-item-xs;
-    @include media-breakpoint-up(sm) {
-        width: $content-section-spacing-first-item-sm;
-    }
-    @include media-breakpoint-up(md) {
-        width: $content-section-spacing-first-item-md;
-    }
-    @include media-breakpoint-up(lg) {
-        width: $content-section-spacing-first-item-lg;
-    }
-    @include media-breakpoint-up(xl) {
-        width: $content-section-spacing-first-item-xl;
-    }
-    @include media-breakpoint-up(xxl) {
-        width: $content-section-spacing-first-item-xxl;
-    }
+    @include spacings-size($content-section-spacing, width);
 }
