@@ -15,10 +15,10 @@ https://getbootstrap.com/docs/4.3/layout/grid/#sass-mixins
     margin-left: -$gutter / 2;
 }
 
-@mixin make-container($gutter: $grid-gutter-width) {
+@mixin make-container($gutter: $page-padding-width, $gutter-xs: $page-padding-width-xs) {
     width: 100%;
-    padding-right: $gutter / 2;
-    padding-left: $gutter / 2;
+    padding-right: $gutter-xs;
+    padding-left: $gutter-xs;
     margin-right: auto;
     margin-left: auto;
     @include media-breakpoint-up(md) {
@@ -200,17 +200,17 @@ Column Padding Tweaks
     padding-right: ($grid-gutter-width / 2);
 }
 
-@mixin make-row-sm-max($gutter: $grid-gutter-width) {
+@mixin make-row-sm-max($gutter: $grid-gutter-width-xs) {
     @include media-breakpoint-down(sm) {
-        margin-left: -($gutter/4);
-        margin-right: -($gutter/4);
+        margin-left: -($gutter/2);
+        margin-right: -($gutter/2);
     }
 }
 
-@mixin column-padding-sm-max($gutter: $grid-gutter-width) {
+@mixin column-padding-sm-max($gutter: $grid-gutter-width-xs) {
     @include media-breakpoint-down(sm) {
-        padding-left: $gutter/4 !important;
-        padding-right: $gutter/4 !important;
+        padding-left: $gutter/2 !important;
+        padding-right: $gutter/2 !important;
     }
 }
 
