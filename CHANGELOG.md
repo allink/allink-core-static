@@ -6,7 +6,17 @@ Each release is divided into the following main categories:
 - NEW: New features or plugins
 - FIXES: General bugfixes
 
-## v1.0.x (under development)
+## v2.0.x (under development)
+### NEW
+@mixin button-variation border-colors depend on new settings in $btn-variation map.
+Set to true if borders should be displayed:
+
+'border':               true,
+'border-hover':         true, 
+'border-disabled':      true,
+
+
+## v1.0.x
 
 ### IMPORTANT
 - Video Updates (conditional loading of video source): Requires latest core markup of `allink_core/core_apps/allink_content/templates/allink_content/content_base.html` and `allink_core/core_apps/allink_video/templates/allink_video/file/content.html`.
