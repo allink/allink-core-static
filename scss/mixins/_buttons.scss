@@ -159,7 +159,7 @@ How to use:
 
         &[target="_blank"] {
             .btn__text--mask {
-                > span {
+                &__inner {
                     @if $btn-mask-transition-direction-starting-point == 'top' or $btn-mask-transition-direction-starting-point == 'bottom' {
                         justify-content: left;
                         left: 1.2em;
@@ -176,7 +176,7 @@ How to use:
         }
         &[data-softpage-variation] {
             .btn__text--mask {
-                > span {
+                &__inner {
                     @if $btn-mask-transition-direction-starting-point == 'top' or $btn-mask-transition-direction-starting-point == 'bottom' {
                         justify-content: right;
                         right: 1.2em;
@@ -219,7 +219,7 @@ How to use:
                     transform: translateX(-100%);
                 }
 
-                > span {
+                &__inner {
                     position: absolute;
                     left: 0;
                     right: 0;
@@ -359,12 +359,6 @@ Add arrows/plus icon after/before the button text
 
 @mixin button-icon($icon:'arrow', $spacing:'default') {
     // init
-
-    .btn &:before,
-    .btn &:after{
-        font-size: 1.25em;
-    }
-
     &:before,
     &:after {
         @include icomoon();
@@ -403,7 +397,7 @@ Add arrows/plus icon after/before the button text
             margin-right: 1.1em;
             &:after {
                 left: 1.8em;
-                margin-left: -0.8em;
+                margin-left: -1.45em;
                 margin-right: -0.2em;
             }
             &:hover,

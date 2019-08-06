@@ -11,9 +11,11 @@ Each release is divided into the following main categories:
 @mixin button-variation border-colors depend on new settings in $btn-variation map.
 Set to true if borders should be displayed:
 
-'border':               true,
-'border-hover':         true, 
-'border-disabled':      true,
+`'border':               true,`     
+`'border-hover':         true,`  
+`'border-disabled':      true,`
+
+file in project: `./static/scss/base/variables/_forms.scss`
 
 
 ## v1.0.x
