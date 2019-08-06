@@ -82,10 +82,15 @@ How to use:
     display: inline-block;
     // variation styles
     background-color: map-deep-get($btn-variations,$variation,'bg');
-    border-top-color: map-deep-get($btn-variations,$variation,'border-top-color');
-    border-right-color: map-deep-get($btn-variations,$variation,'border-right-color');
-    border-bottom-color: map-deep-get($btn-variations,$variation,'border-bottom-color');
-    border-left-color: map-deep-get($btn-variations,$variation,'border-left-color');
+    @if map-deep-get($btn-variations,$variation,'border') {
+        border-top-color: map-deep-get($btn-variations,$variation,'border-top-color');
+        border-right-color: map-deep-get($btn-variations,$variation,'border-right-color');
+        border-bottom-color: map-deep-get($btn-variations,$variation,'border-bottom-color');
+        border-left-color: map-deep-get($btn-variations,$variation,'border-left-color');
+    } @else {
+        border: none;
+    }
+
     &,
     &:link,
     &:visited {
@@ -103,10 +108,14 @@ How to use:
     &:active:hover {
         background-color: map-deep-get($btn-variations,$variation,'bg-hover');
         color: map-deep-get($btn-variations,$variation,'color-hover');
-        border-top-color: map-deep-get($btn-variations,$variation,'border-top-color-hover');
-        border-right-color: map-deep-get($btn-variations,$variation,'border-right-color-hover');
-        border-bottom-color: map-deep-get($btn-variations,$variation,'border-bottom-color-hover');
-        border-left-color: map-deep-get($btn-variations,$variation,'border-left-color-hover');
+        @if map-deep-get($btn-variations,$variation,'border-hover') {
+            border-top-color: map-deep-get($btn-variations, $variation, 'border-top-color-hover');
+            border-right-color: map-deep-get($btn-variations, $variation, 'border-right-color-hover');
+            border-bottom-color: map-deep-get($btn-variations, $variation, 'border-bottom-color-hover');
+            border-left-color: map-deep-get($btn-variations, $variation, 'border-left-color-hover');
+        } @else {
+            border: none;
+        }
         outline: none; // not very good because of accessibility reasons, but the default style looks too ugly.
         // in case there are icons defined with pseude elements, let's give them the same color
         &::before,
@@ -128,10 +137,14 @@ How to use:
         opacity: 1;
         background-color: map-deep-get($btn-variations,$variation,'bg-disabled');
         color: map-deep-get($btn-variations,$variation,'color-disabled');
-        border-top-color: map-deep-get($btn-variations,$variation,'border-top-color-disabled');
-        border-right-color: map-deep-get($btn-variations,$variation,'border-right-color-disabled');
-        border-bottom-color: map-deep-get($btn-variations,$variation,'border-bottom-color-disabled');
-        border-left-color: map-deep-get($btn-variations,$variation,'border-left-color-disabled');
+        @if map-deep-get($btn-variations,$variation,'border-disabled') {
+            border-top-color: map-deep-get($btn-variations, $variation, 'border-top-color-disabled');
+            border-right-color: map-deep-get($btn-variations, $variation, 'border-right-color-disabled');
+            border-bottom-color: map-deep-get($btn-variations, $variation, 'border-bottom-color-disabled');
+            border-left-color: map-deep-get($btn-variations, $variation, 'border-left-color-disabled');
+        } @else {
+            border: none;
+        }
     }
 
     /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
