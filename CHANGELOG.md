@@ -8,6 +8,13 @@ Each release is divided into the following main categories:
 
 ## v2.0.x (under development)
 ### NEW
+- Added generic `fluid-size` mixin. You can now add a size-map directly
+    Example:
+
+    ```SCSS
+    @include fluid-size((min: 7.8125rem, max: 14.0625rem), width);
+    ```
+
 - @mixin button-variation border-colors depend on new settings in $btn-variation map.
     Set to true if borders should be displayed:
 

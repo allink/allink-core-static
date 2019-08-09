@@ -123,3 +123,59 @@ Print: Add print styles on the spot. Easier than to navigate back and forth
 @mixin text-hide() {
     @include hide-text;
 }
+
+
+// Fluid sizes mixin for spacings, font-sizes, widths, heights, etc.
+// Each spacing must have a min (below 320px) and a max size (above 1760px). In-between in gets calculated fluidly
+@mixin fluid-size($size, $property: null, $spacings-map: $spacings-sizes, $spacings-breakpoints: $spacings-breakpoints, $negative: false) {
+    $min-breakpoint: map-get($spacings-breakpoints, 'min');
+    $max-breakpoint: map-get($spacings-breakpoints, 'max');
+
+    // non-negative default value
+    $multiplicand: 1;
+    @if $negative == true {
+        $multiplicand: -1;
+    }
+
+    // Check if spacings-size is a string (i.e. 'spacing-section-1')
+    @if type-of($size) == string or type-of($size) == map {
+        // if a string get the map of current spacing from $spacings-sizes
+        $spacing: map-get($spacings-map, $size);
+
+        // if spacing is already map we don't need to look it up by the spacings-size name and use it directly
+        @if type-of($size) == map {
+            $spacing: $size;
+        }
+
+        $min-spacing: map-get($spacing, 'min');
+        @include make-fluid-size($min-spacing, $property);
+
+        // if no max size exists, use min size
+        @if map-get($spacing, 'max') {
+            $max-spacing: map-get($spacing, 'max');
+            $difference: strip-unit($max-spacing - $min-spacing);
+
+            @media (min-width: $min-breakpoint) {
+                @include make-fluid-size(calc((#{$min-spacing} + #{$difference} * (100vw - #{$min-breakpoint}) / 100) * #{$multiplicand}), $property);
+            }
+            @media (min-width: $max-breakpoint) {
+                @include make-fluid-size(($max-spacing * $multiplicand), $property);
+            }
+        }
+    }
+    // Alternatively use fixed value (i.e. pixel value)
+    @else {
+        @include make-fluid-size(($size * $multiplicand), $property);
+    }
+}
+
+// Utility function for mixin spacings-size
+@mixin make-fluid-size($spacings-size, $property: 'margin') {
+    @if str-index($property, '-') == null and (str-index($property, 'margin') or str-index($property, 'padding')) {
+        #{$property}-top: $spacings-size;
+        #{$property}-bottom: $spacings-size;
+    }
+    @else {
+        #{$property}: $spacings-size;
+    }
+}
