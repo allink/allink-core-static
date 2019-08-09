@@ -466,7 +466,7 @@ Each spacing must have a min (below 320px) and a max size (above 1760px). In-bet
 
 // Utility function for mixin spacings-size
 @mixin make-spacing-size($spacings-size, $property: 'margin') {
-    @if str-index($property, '-') == null {
+    @if str-index($property, '-') == null and (str-index($property, 'margin') or str-index($property, 'padding')) {
         #{$property}-top: $spacings-size;
         #{$property}-bottom: $spacings-size;
         // // Set last child padding to 0, otherwise there's too much spacing

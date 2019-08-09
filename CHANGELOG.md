@@ -8,14 +8,17 @@ Each release is divided into the following main categories:
 
 ## v2.0.x (under development)
 ### NEW
-@mixin button-variation border-colors depend on new settings in $btn-variation map.
-Set to true if borders should be displayed:
+- @mixin button-variation border-colors depend on new settings in $btn-variation map.
+    Set to true if borders should be displayed:
 
-`'border':               true,`     
-`'border-hover':         true,`  
-`'border-disabled':      true,`
+    `'border':               true,`
+    `'border-hover':         true,`
+    `'border-disabled':      true,`
 
-file in project: `./static/scss/base/variables/_forms.scss`
+    file in project: `./static/scss/base/variables/_forms.scss`
+
+### FIXES
+- Made `spacings-size` mixin more generic for more properties (i.e. height), only provide property shorthand for margin and padding.
 
 
 ## v1.0.x
