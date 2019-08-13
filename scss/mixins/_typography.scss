@@ -29,6 +29,7 @@ Font mixins
     font-weight: $font-default-font-weight;
     @include font-size($font-default-font-sizes);
     @include hyphens();
+    @include text-crop($font-default-crop-top, $font-default-crop-bottom);
     @if $font-default-antialiased-enabled == true {
         @include antialiased();
     }
@@ -41,6 +42,7 @@ Font mixins
     font-weight: $font-small-font-weight;
     @include font-size($font-small-font-sizes);
     @include hyphens();
+    @include text-crop($font-small-crop-top, $font-small-crop-bottom);
     @if $font-small-antialiased-enabled == true {
         @include antialiased();
     }
@@ -53,6 +55,7 @@ Font mixins
     font-weight: $font-lead-font-weight;
     @include font-size($font-lead-font-sizes);
     @include hyphens();
+    @include text-crop($font-lead-crop-top, $font-lead-crop-bottom);
     @if $font-lead-antialiased-enabled == true {
         @include antialiased();
     }
@@ -65,6 +68,7 @@ Font mixins
     font-weight: $font-btn-default-font-weight;
     @include font-size($font-btn-default-font-sizes);
     @include hyphens();
+    @include text-crop($font-btn-default-crop-top, $font-btn-default-crop-bottom);
     @if $font-btn-default-antialiased-enabled == true {
         @include antialiased();
     }
@@ -77,6 +81,7 @@ Font mixins
     font-weight: $font-btn-small-font-weight;
     @include font-size($font-btn-small-font-sizes);
     @include hyphens();
+    @include text-crop($font-btn-small-crop-top, $font-btn-small-crop-bottom);
     @if $font-btn-small-antialiased-enabled == true {
         @include antialiased();
     }
@@ -89,6 +94,7 @@ Font mixins
     font-weight: $font-btn-large-font-weight;
     @include font-size($font-btn-large-font-sizes);
     @include hyphens();
+    @include text-crop($font-btn-large-crop-top, $font-btn-large-crop-bottom);
     @if $font-btn-large-antialiased-enabled == true {
         @include antialiased();
     }
@@ -101,19 +107,8 @@ Font mixins
     font-weight: $font-input-font-weight;
     @include font-size($font-input-font-sizes);
     @include hyphens();
+    @include text-crop($font-input-crop-top, $font-input-crop-bottom);
     @if $font-input-antialiased-enabled == true {
-        @include antialiased();
-    }
-}
-
-@mixin font-nav-primary() {
-    letter-spacing: $font-nav-primary-letter-spacing;
-    text-transform: $font-nav-primary-text-transform;
-    font-family: $font-nav-primary-font-family;
-    font-weight: $font-nav-primary-font-weight;
-    @include font-size($font-nav-primary-font-sizes);
-    @include hyphens();
-    @if $font-nav-primary-antialiased-enabled == true {
         @include antialiased();
     }
 }
@@ -125,6 +120,7 @@ Font mixins
     font-weight: $font-h1-font-weight;
     @include font-size($font-h1-font-sizes);
     @include hyphens();
+    @include text-crop($font-h1-crop-top, $font-h1-crop-bottom);
     @if $font-h1-antialiased-enabled == true {
         @include antialiased();
     }
@@ -137,6 +133,7 @@ Font mixins
     font-weight: $font-h2-font-weight;
     @include font-size($font-h2-font-sizes);
     @include hyphens();
+    @include text-crop($font-h2-crop-top, $font-h2-crop-bottom);
     @if $font-h2-antialiased-enabled == true {
         @include antialiased();
     }
@@ -149,6 +146,7 @@ Font mixins
     font-weight: $font-h3-font-weight;
     @include font-size($font-h3-font-sizes);
     @include hyphens();
+    @include text-crop($font-h3-crop-top, $font-h3-crop-bottom);
     @if $font-h3-antialiased-enabled == true {
         @include antialiased();
     }
@@ -161,6 +159,7 @@ Font mixins
     font-weight: $font-h4-font-weight;
     @include font-size($font-h4-font-sizes);
     @include hyphens();
+    @include text-crop($font-h4-crop-top, $font-h4-crop-bottom);
     @if $font-h4-antialiased-enabled == true {
         @include antialiased();
     }
@@ -173,6 +172,7 @@ Font mixins
     font-weight: $font-h5-font-weight;
     @include font-size($font-h5-font-sizes);
     @include hyphens();
+    @include text-crop($font-h5-crop-top, $font-h5-crop-bottom);
     @if $font-h5-antialiased-enabled == true {
         @include antialiased();
     }
@@ -185,6 +185,7 @@ Font mixins
     font-weight: $font-h6-font-weight;
     @include font-size($font-h6-font-sizes);
     @include hyphens();
+    @include text-crop($font-h6-crop-top, $font-h6-crop-bottom);
     @if $font-h6-antialiased-enabled == true {
         @include antialiased();
     }
@@ -295,11 +296,11 @@ Hyphenation
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 
-Font Cropping
+Text Cropping
 
 */
 
-@mixin font-crop($crop-top: -0.2em, $crop-bottom: -0.2em) {
+@mixin text-crop($crop-top: 0em, $crop-bottom: 0em) {
     &:before,
     &:after {
         content: '';
@@ -308,9 +309,9 @@ Font Cropping
         width: 0;
     }
     &:before {
-        margin-top: $crop-top;
+        margin-top: -$crop-top;
     }
     &:after {
-        margin-bottom: $crop-bottom;
+        margin-bottom: -$crop-bottom;
     }
 }

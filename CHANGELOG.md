@@ -8,6 +8,16 @@ Each release is divided into the following main categories:
 
 ## v2.0.x (under development)
 ### NEW
+- Added font-cropping mixin
+    Example:
+    ```SCSS
+    // Variables:
+    $font-h1-crop-top:                           0.1em;
+    $font-h1-crop-bottom:                        0.3em;
+
+    // Mixin (add to i.e. font-h1()):
+    @include text-crop($font-h1-crop-top, $font-h1-crop-bottom);
+    ```
 - Added generic `fluid-size` mixin. You can now add a size-map directly
     Example:
 
