@@ -29,7 +29,6 @@ Font mixins
     font-weight: $font-default-font-weight;
     @include font-size($font-default-font-sizes);
     @include hyphens();
-    @include text-crop($font-default-crop-top, $font-default-crop-bottom);
     @if $font-default-antialiased-enabled == true {
         @include antialiased();
     }
@@ -42,7 +41,6 @@ Font mixins
     font-weight: $font-small-font-weight;
     @include font-size($font-small-font-sizes);
     @include hyphens();
-    @include text-crop($font-small-crop-top, $font-small-crop-bottom);
     @if $font-small-antialiased-enabled == true {
         @include antialiased();
     }
@@ -55,7 +53,6 @@ Font mixins
     font-weight: $font-lead-font-weight;
     @include font-size($font-lead-font-sizes);
     @include hyphens();
-    @include text-crop($font-lead-crop-top, $font-lead-crop-bottom);
     @if $font-lead-antialiased-enabled == true {
         @include antialiased();
     }
@@ -116,7 +113,6 @@ Font mixins
     font-weight: $font-h1-font-weight;
     @include font-size($font-h1-font-sizes);
     @include hyphens();
-    @include text-crop($font-h1-crop-top, $font-h1-crop-bottom);
     @if $font-h1-antialiased-enabled == true {
         @include antialiased();
     }
@@ -129,7 +125,6 @@ Font mixins
     font-weight: $font-h2-font-weight;
     @include font-size($font-h2-font-sizes);
     @include hyphens();
-    @include text-crop($font-h2-crop-top, $font-h2-crop-bottom);
     @if $font-h2-antialiased-enabled == true {
         @include antialiased();
     }
@@ -142,7 +137,6 @@ Font mixins
     font-weight: $font-h3-font-weight;
     @include font-size($font-h3-font-sizes);
     @include hyphens();
-    @include text-crop($font-h3-crop-top, $font-h3-crop-bottom);
     @if $font-h3-antialiased-enabled == true {
         @include antialiased();
     }
@@ -155,7 +149,6 @@ Font mixins
     font-weight: $font-h4-font-weight;
     @include font-size($font-h4-font-sizes);
     @include hyphens();
-    @include text-crop($font-h4-crop-top, $font-h4-crop-bottom);
     @if $font-h4-antialiased-enabled == true {
         @include antialiased();
     }
@@ -168,7 +161,6 @@ Font mixins
     font-weight: $font-h5-font-weight;
     @include font-size($font-h5-font-sizes);
     @include hyphens();
-    @include text-crop($font-h5-crop-top, $font-h5-crop-bottom);
     @if $font-h5-antialiased-enabled == true {
         @include antialiased();
     }
@@ -181,7 +173,6 @@ Font mixins
     font-weight: $font-h6-font-weight;
     @include font-size($font-h6-font-sizes);
     @include hyphens();
-    @include text-crop($font-h6-crop-top, $font-h6-crop-bottom);
     @if $font-h6-antialiased-enabled == true {
         @include antialiased();
     }
