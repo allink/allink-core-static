@@ -68,7 +68,6 @@ Font mixins
     font-weight: $font-btn-default-font-weight;
     @include font-size($font-btn-default-font-sizes);
     @include hyphens();
-    @include text-crop($font-btn-default-crop-top, $font-btn-default-crop-bottom);
     @if $font-btn-default-antialiased-enabled == true {
         @include antialiased();
     }
@@ -81,7 +80,6 @@ Font mixins
     font-weight: $font-btn-small-font-weight;
     @include font-size($font-btn-small-font-sizes);
     @include hyphens();
-    @include text-crop($font-btn-small-crop-top, $font-btn-small-crop-bottom);
     @if $font-btn-small-antialiased-enabled == true {
         @include antialiased();
     }
@@ -94,7 +92,6 @@ Font mixins
     font-weight: $font-btn-large-font-weight;
     @include font-size($font-btn-large-font-sizes);
     @include hyphens();
-    @include text-crop($font-btn-large-crop-top, $font-btn-large-crop-bottom);
     @if $font-btn-large-antialiased-enabled == true {
         @include antialiased();
     }
@@ -107,7 +104,6 @@ Font mixins
     font-weight: $font-input-font-weight;
     @include font-size($font-input-font-sizes);
     @include hyphens();
-    @include text-crop($font-input-crop-top, $font-input-crop-bottom);
     @if $font-input-antialiased-enabled == true {
         @include antialiased();
     }
