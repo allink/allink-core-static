@@ -9,6 +9,7 @@
   "dependencies": {
     "bootstrap": "^3.4.1",
     "bootstrap-select": "1.12.3",
+    "bowser": "^2.5.3",
     "flatpickr": "3.0.6",
     "form-serialize": "0.7.2",
     "iphone-inline-video": "2.2.2",

@@ -1,0 +1,34 @@
+.browser-suggestion {
+    @include make-container();
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 10;
+    background-color: white;
+
+    &__container {
+        @include make-col(12);
+        padding-top: 40vh;
+        margin: 0 auto;
+
+        .lead {
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            color: $gray-light;
+        }
+
+        .heading {
+            margin-top: 5px;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+
+        .text {
+            display: inline-block;
+            margin-bottom: 50px !important;
+            margin-top: 0;
+        }
+    }
+}
