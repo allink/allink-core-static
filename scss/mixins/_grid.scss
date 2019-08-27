@@ -17,14 +17,10 @@ https://getbootstrap.com/docs/4.3/layout/grid/#sass-mixins
 
 @mixin make-container($gutter: $page-padding-width, $gutter-xs: $page-padding-width-xs) {
     width: 100%;
-    padding-right: $gutter-xs;
-    padding-left: $gutter-xs;
     margin-right: auto;
     margin-left: auto;
-    @include media-breakpoint-up(md) {
-        padding-left: $gutter;
-        padding-right: $gutter;
-    }
+    @include fluid-size((min: $gutter-xs, max: $gutter), 'padding-left');
+    @include fluid-size((min: $gutter-xs, max: $gutter), 'padding-right');
 }
 
 @mixin make-col-ready($gutter: $grid-gutter-width) {
