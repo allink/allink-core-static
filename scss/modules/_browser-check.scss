@@ -6,6 +6,7 @@
     width: 100vw;
     height: 100vh;
     z-index: 10;
+    overflow-y: scroll;
     background-color: white;
 
     &__container {
@@ -14,21 +15,35 @@
         margin: 0 auto;
 
         .lead {
-            margin-bottom: 5px;
+            margin-bottom: 0.3125rem;
             text-transform: uppercase;
             color: $gray-light;
         }
 
         .heading {
-            margin-top: 5px;
-            margin-bottom: 15px;
+            margin-top: 0.3125rem;
+            margin-bottom: 0.9375rem;
             text-transform: uppercase;
         }
 
         .text {
             display: inline-block;
-            margin-bottom: 50px !important;
+            margin-bottom: 3.125rem !important;
             margin-top: 0;
+        }
+
+        .btn {
+            margin: 1.25rem 0;
+        }
+
+        @include media-breakpoint-down(xs) {
+            @include make-col(24);
+            padding-top: 7.1875rem;
+
+            .btn {
+                display: block;
+                margin: 1.25rem 0;
+            }
         }
     }
 }
