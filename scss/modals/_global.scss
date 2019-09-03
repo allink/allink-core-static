@@ -231,7 +231,7 @@ Modal Header
             background: $modal-header-bg-color;
             bottom: -0.9rem;
             display: block;
-            height: 0.0625rem;
+            height: 0.03125rem;
             position: relative;
             width: 100%;
         }
@@ -249,7 +249,7 @@ Modal Header
         border: none;
         height: 50px;
         position: absolute;
-        right: 0;
+        right: $nav-toggle-line-width / 2;
         transform: translateY(-50%);
         transition: none;
         text-decoration: none;

@@ -5,17 +5,13 @@ Nav Toggle
 */
 
 .nav-toggle {
+    @include fluid-size((min: $page-padding-width-xs - ($nav-toggle-line-width / 2), max: $page-padding-width - ($nav-toggle-line-width / 2)), 'right');
     width: $nav-toggle-width;
     height: $nav-toggle-height;
-    right: 0;
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
     z-index: z('site-content');
-
-    @include media-breakpoint-up(md) {
-        right: $grid-gutter-width / 2;
-    }
 
     &.is-active {
         .nav-toggle__line {
