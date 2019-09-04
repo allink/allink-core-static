@@ -210,31 +210,24 @@ Modal Header
         height: $modal-header-height-xxl;
     }
 
+    &::after {
+        content: '';
+        background: $modal-header-bg-color;
+        bottom: -4px;
+        display: inline-block;
+        height: 1px; // avoid rendering issues with rem
+        position: relative;
+        width: 100%;
+    }
+
     &__container {
-        @include make-row();
-        // on XS and SM we have a smaller column padding
-        @include make-row-sm-max();
+        display: flex;
         position: relative;
         transform: translateY(-50%);
         top: 50%;
-        @include media-breakpoint-only(xs) {
-            margin-left: -$grid-gutter-width / 2;
-            margin-right: -$grid-gutter-width / 2;
-        }
     }
     &__inner {
-        @include make-col-ready();
-        @include make-col(24);
-
-        &::after {
-            content: '';
-            background: $modal-header-bg-color;
-            bottom: -0.9rem;
-            display: block;
-            height: 0.03125rem;
-            position: relative;
-            width: 100%;
-        }
+        width: 100%;
     }
     &__heading {
         cursor: text;
@@ -249,7 +242,7 @@ Modal Header
         border: none;
         height: 50px;
         position: absolute;
-        right: $nav-toggle-line-width / 2;
+        right: -$modal-global-close-icon-size;
         transform: translateY(-50%);
         transition: none;
         text-decoration: none;

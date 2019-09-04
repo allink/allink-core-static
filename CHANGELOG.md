@@ -40,6 +40,7 @@ include `'includes/browser-check.html'` to your base_root template
     file in project: `./static/scss/base/variables/_forms.scss`
 
 ### FIXES
+- Layout fixes in .tingle-modal-header
 - Made nav-toggle and modal header close button use fluid-size and correct positioning
 - Made `spacings-size` mixin more generic for more properties (i.e. height), only provide property shorthand for margin and padding.
 
