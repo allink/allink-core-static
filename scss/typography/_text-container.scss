@@ -24,23 +24,8 @@
     ol,
     table,
     figure {
-        margin: $text-container-element-default-margin-xs;
-        @include media-breakpoint-up(sm) {
-            margin: $text-container-element-default-margin-sm;
-        }
-        @include media-breakpoint-up(md) {
-            margin: $text-container-element-default-margin-md;
-        }
-        @include media-breakpoint-up(lg) {
-            margin: $text-container-element-default-margin-lg;
-        }
-        @include media-breakpoint-up(xl) {
-            margin: $text-container-element-default-margin-xl;
-        }
-        @include media-breakpoint-up(xxl) {
-            margin: $text-container-element-default-margin-xxl;
-        }
-
+        @include fluid-size((min: $text-container-element-default-margin-bottom-min, max: $text-container-element-default-margin-bottom-max), margin-bottom);
+        @include fluid-size((min: $text-container-element-default-margin-top-min, max: $text-container-element-default-margin-top-max), margin-top);
     }
 
 
@@ -53,23 +38,8 @@
     p {
         &.lead {
             @include font-lead();
-            margin: $p-lead-margin-xs;
-            @include media-breakpoint-up(sm) {
-                margin: $p-lead-margin-sm;
-            }
-            @include media-breakpoint-up(md) {
-                margin: $p-lead-margin-md;
-            }
-            @include media-breakpoint-up(lg) {
-                margin: $p-lead-margin-lg;
-            }
-            @include media-breakpoint-up(xl) {
-                margin: $p-lead-margin-xl;
-            }
-            @include media-breakpoint-up(xxl) {
-                margin: $p-lead-margin-xxl;
-            }
-
+            @include fluid-size((min: $p-lead-margin-bottom-min, max: $p-lead-margin-bottom-max), margin-bottom);
+            @include fluid-size((min: $p-lead-margin-top-min, max: $p-lead-margin-top-max), margin-top);
         }
         &.small {
             @include font-small();
@@ -146,22 +116,8 @@
         em {
             @include font-h1();
         }
-        margin: $text-container-h1-margin-xs;
-        @include media-breakpoint-up(sm) {
-            margin: $text-container-h1-margin-sm;
-        }
-        @include media-breakpoint-up(md) {
-            margin: $text-container-h1-margin-md;
-        }
-        @include media-breakpoint-up(lg) {
-            margin: $text-container-h1-margin-lg;
-        }
-        @include media-breakpoint-up(xl) {
-            margin: $text-container-h1-margin-xl;
-        }
-        @include media-breakpoint-up(xxl) {
-            margin: $text-container-h1-margin-xxl;
-        }
+        @include fluid-size((min: $text-container-h1-margin-bottom-min, max: $text-container-h1-margin-bottom-max), margin-bottom);
+        @include fluid-size((min: $text-container-h1-margin-top-min, max: $text-container-h1-margin-top-max), margin-top);
 
         a {
             &.text {
@@ -176,22 +132,8 @@
         em {
             @include font-h2();
         }
-        margin: $text-container-h2-margin-xs;
-        @include media-breakpoint-up(sm) {
-            margin: $text-container-h2-margin-sm;
-        }
-        @include media-breakpoint-up(md) {
-            margin: $text-container-h2-margin-md;
-        }
-        @include media-breakpoint-up(lg) {
-            margin: $text-container-h2-margin-lg;
-        }
-        @include media-breakpoint-up(xl) {
-            margin: $text-container-h2-margin-xl;
-        }
-        @include media-breakpoint-up(xxl) {
-            margin: $text-container-h2-margin-xxl;
-        }
+        @include fluid-size((min: $text-container-h2-margin-bottom-min, max: $text-container-h2-margin-bottom-max), margin-bottom);
+        @include fluid-size((min: $text-container-h2-margin-top-min, max: $text-container-h2-margin-top-max), margin-top);
 
         a {
             &.text {
@@ -206,22 +148,8 @@
         em {
             @include font-h3();
         }
-        margin: $text-container-h3-margin-xs;
-        @include media-breakpoint-up(sm) {
-            margin: $text-container-h3-margin-sm;
-        }
-        @include media-breakpoint-up(md) {
-            margin: $text-container-h3-margin-md;
-        }
-        @include media-breakpoint-up(lg) {
-            margin: $text-container-h3-margin-lg;
-        }
-        @include media-breakpoint-up(xl) {
-            margin: $text-container-h3-margin-xl;
-        }
-        @include media-breakpoint-up(xxl) {
-            margin: $text-container-h3-margin-xxl;
-        }
+        @include fluid-size((min: $text-container-h3-margin-bottom-min, max: $text-container-h3-margin-bottom-max), margin-bottom);
+        @include fluid-size((min: $text-container-h3-margin-top-min, max: $text-container-h3-margin-top-max), margin-top);
 
     }
     h4 {
@@ -231,22 +159,8 @@
         em {
             @include font-h4();
         }
-        margin: $text-container-h4-margin-xs;
-        @include media-breakpoint-up(sm) {
-            margin: $text-container-h4-margin-sm;
-        }
-        @include media-breakpoint-up(md) {
-            margin: $text-container-h4-margin-md;
-        }
-        @include media-breakpoint-up(lg) {
-            margin: $text-container-h4-margin-lg;
-        }
-        @include media-breakpoint-up(xl) {
-            margin: $text-container-h4-margin-xl;
-        }
-        @include media-breakpoint-up(xxl) {
-            margin: $text-container-h4-margin-xxl;
-        }
+        @include fluid-size((min: $text-container-h4-margin-bottom-min, max: $text-container-h4-margin-bottom-max), margin-bottom);
+        @include fluid-size((min: $text-container-h4-margin-top-min, max: $text-container-h4-margin-top-max), margin-top);
 
     }
     h5 {
@@ -256,22 +170,8 @@
         em {
             @include font-h5();
         }
-        margin: $text-container-h5-margin-xs;
-        @include media-breakpoint-up(sm) {
-            margin: $text-container-h5-margin-sm;
-        }
-        @include media-breakpoint-up(md) {
-            margin: $text-container-h5-margin-md;
-        }
-        @include media-breakpoint-up(lg) {
-            margin: $text-container-h5-margin-lg;
-        }
-        @include media-breakpoint-up(xl) {
-            margin: $text-container-h5-margin-xl;
-        }
-        @include media-breakpoint-up(xxl) {
-            margin: $text-container-h5-margin-xxl;
-        }
+        @include fluid-size((min: $text-container-h5-margin-bottom-min, max: $text-container-h5-margin-bottom-max), margin-bottom);
+        @include fluid-size((min: $text-container-h5-margin-top-min, max: $text-container-h5-margin-top-max), margin-top);
     }
     h6 {
         @include font-h6();
@@ -280,22 +180,8 @@
         em {
             @include font-h6();
         }
-        margin: $text-container-h6-margin-xs;
-        @include media-breakpoint-up(sm) {
-            margin: $text-container-h6-margin-sm;
-        }
-        @include media-breakpoint-up(md) {
-            margin: $text-container-h6-margin-md;
-        }
-        @include media-breakpoint-up(lg) {
-            margin: $text-container-h6-margin-lg;
-        }
-        @include media-breakpoint-up(xl) {
-            margin: $text-container-h6-margin-xl;
-        }
-        @include media-breakpoint-up(xxl) {
-            margin: $text-container-h6-margin-xxl;
-        }
+        @include fluid-size((min: $text-container-h6-margin-bottom-min, max: $text-container-h6-margin-bottom-max), margin-bottom);
+        @include fluid-size((min: $text-container-h6-margin-top-min, max: $text-container-h6-margin-top-max), margin-top);
     }
 
 

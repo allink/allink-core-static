@@ -1,19 +1,19 @@
-/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+// /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 
-manage-spacings: The default container for managing global spacings
+// manage-spacings: The default container for managing global spacings
 
-This class doesn't do anything else than defining spacings between its
-immediate children.
+// This class doesn't do anything else than defining spacings between its
+// immediate children.
 
-*/
+// */
 
-.manage-spacings {
-    & > * {
-        @if $manage-spacings-container {
-            @include spacings-size($manage-spacings-container, margin-top);
-            &:first-child {
-                margin-top: 0;
-            }
-        }
-    }
-}
+// .manage-spacings {
+//     & > * {
+//         @if $manage-spacings-container {
+//             @include spacings-size($manage-spacings-container, margin-top);
+//             &:first-child {
+//                 margin-top: 0;
+//             }
+//         }
+//     }
+// }

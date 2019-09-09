@@ -34,13 +34,7 @@ List View (this includes ALL plugin templates such as Grid (Static), Table, and 
         }
     }
     &__no-results {
-        min-height: $app-list-no-result-cotainer-min-height-xs;
-        @include media-breakpoint-up(md) {
-            min-height: $app-list-no-result-cotainer-min-height-md;
-        }
-        @include media-breakpoint-up(xxl) {
-            min-height: $app-list-no-result-cotainer-min-height-xxl;
-        }
+        @include fluid-size((min: $app-list-no-result-cotainer-min-height-min, max: $app-list-no-result-cotainer-min-height-max), 'min-height');
     }
 }
 

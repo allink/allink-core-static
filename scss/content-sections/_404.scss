@@ -7,19 +7,7 @@
 .tpl-error {
     .site-content {
         .content-section {
-            min-height: $template-404-min-height-xs;
-            @include media-breakpoint-up(sm) {
-                min-height: $template-404-min-height-sm;
-            }
-            @include media-breakpoint-up(md) {
-                min-height: $template-404-min-height-md;
-            }
-            @include media-breakpoint-up(xl) {
-                min-height: $template-404-min-height-xl;
-            }
-            @include media-breakpoint-up(xxl) {
-                min-height: $template-404-min-height-xxl;
-            }
+            @include fluid-size((min: $template-404-min-height-min, max: $template-404-min-height-max), 'min-height');
         }
     }
 }

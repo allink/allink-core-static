@@ -126,10 +126,10 @@ Print: Add print styles on the spot. Easier than to navigate back and forth
 
 
 // Fluid sizes mixin for spacings, font-sizes, widths, heights, etc.
-// Each spacing must have a min (below 320px) and a max size (above 1760px). In-between in gets calculated fluidly
-@mixin fluid-size($size, $property: null, $spacings-map: $spacings-sizes, $spacings-breakpoints: $spacings-breakpoints, $negative: false) {
-    $min-breakpoint: map-get($spacings-breakpoints, 'min');
-    $max-breakpoint: map-get($spacings-breakpoints, 'max');
+// It can either have a name (i.e. 'spacing-section-1') or a map (i.e. (min: 1rem, max: 5rem) given. In-between in gets calculated fluidly.
+@mixin fluid-size($size, $property: null, $sizings-map: (), $fluid-breakpoints: $fluid-breakpoints, $negative: false) {
+    $min-breakpoint: map-get($fluid-breakpoints, 'min');
+    $max-breakpoint: map-get($fluid-breakpoints, 'max');
 
     // non-negative default value
     $multiplicand: 1;
@@ -140,26 +140,26 @@ Print: Add print styles on the spot. Easier than to navigate back and forth
     // Check if spacings-size is a string (i.e. 'spacing-section-1')
     @if type-of($size) == string or type-of($size) == map {
         // if a string get the map of current spacing from $spacings-sizes
-        $spacing: map-get($spacings-map, $size);
+        $sizing: map-get($sizings-map, $size);
 
         // if spacing is already map we don't need to look it up by the spacings-size name and use it directly
         @if type-of($size) == map {
-            $spacing: $size;
+            $sizing: $size;
         }
 
-        $min-spacing: map-get($spacing, 'min');
-        @include make-fluid-size($min-spacing, $property);
+        $min-size: map-get($sizing, 'min');
+        @include make-fluid-size($min-size, $property);
 
         // if no max size exists, use min size
-        @if map-get($spacing, 'max') {
-            $max-spacing: map-get($spacing, 'max');
-            $difference: strip-unit($max-spacing - $min-spacing);
+        @if map-get($sizing, 'max') {
+            $max-size: map-get($sizing, 'max');
+            $difference: strip-unit($max-size - $min-size);
 
             @media (min-width: $min-breakpoint) {
-                @include make-fluid-size(calc((#{$min-spacing} + #{$difference} * (100vw - #{$min-breakpoint}) / 100) * #{$multiplicand}), $property);
+                @include make-fluid-size(calc((#{$min-size} + #{$difference} * (100vw - #{$min-breakpoint}) / 100) * #{$multiplicand}), $property);
             }
             @media (min-width: $max-breakpoint) {
-                @include make-fluid-size(($max-spacing * $multiplicand), $property);
+                @include make-fluid-size(($max-size * $multiplicand), $property);
             }
         }
     }

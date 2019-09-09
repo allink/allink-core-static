@@ -23,13 +23,15 @@
             }
         }
         &:nth-child(2) {
+            @include media-breakpoint-down(xs) {
+                @include spacings-size($content-section-col-stack-spacing, margin-top);
+            }
             @include media-breakpoint-up(xs) {
                 @include make-col(24);
             }
             @include media-breakpoint-up(sm) {
                 @include make-col(12);
             }
-            @include make-spacing-top-xs-max($content-section-col-stack-spacing-xs-max);
         }
     }
     .heading {

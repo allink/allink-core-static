@@ -15,7 +15,9 @@
     .btn-section {
         .btn-group {
             & + .btn-group {
-                @include make-spacing-top-xs($grid-gutter-width);
+                @include media-breakpoint-down(xs) {
+                    margin-top: $grid-gutter-width;
+                }
             }
             .btn {
                 margin-right: $grid-gutter-width/4;

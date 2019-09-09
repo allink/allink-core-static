@@ -10,25 +10,26 @@ They scale in the same way as the [fonts](../stylesheets/typography.md)
 
 Head over to `static/scss/base/variables/_spacings.scss` where you will find a default set of spacings.
 
-## Font breakpoints
+## Fluid sizings
 
-In our `$spacings-breakpoints` map we define available breakpoints at which a spacing can change. They are identical to our grid breakpoints, but custom breakpoints can be added when desired.
+In our `$spacings-sizes` map we define a minimum and a maximum size for each spacing for the smallest and biggest breakpoint respectively (defined in `scss/base/_grid.scss`).
+In between those two breakpoints the spacings are being calculated fluidly.
 
 Depending on a project the amount of spacings sizes vary. But here's an example:
 
 ```SCSS
 $spacings-sizes: (
     spacing-section-1: (
-        null:   6.25rem, // 100px
-        lg:     11.25rem, // 180px
+        min:   6.25rem, // 100px
+        max:   11.25rem, // 180px
     ),
     spacing-section-2-1: (
-        null:   5rem, // 80px
-        lg:     6.25rem, // 100px
+        min:   5rem, // 80px
+        max:   6.25rem, // 100px
     ),
     spacing-scale-2: (
-        null:   2.5rem, // 40px
-        lg:     3.75rem, // 60px
+        min:   2.5rem, // 40px
+        max:   3.75rem, // 60px
     ),
     ...
 );
@@ -66,7 +67,7 @@ And now let's define how this spacing between the `heading` and the `image` shou
 
 The `spacings-size` mixin provides the following arguments:
 
-- `spacing-name` The string from `$spacings-sizes` or a pixel value
+- `spacing-name` The string from `$spacings-sizes` a custom map (i.e. (min: 1rem, max: 5rem)) or a pixel value
 - `property-name` can be `property-top`, `property-bottom` or `property` for top and bottom. Best to use are `margin` and `padding`
 - `$negative`: Default: `false`. If `true` given spacing property will be **negative**<br>(e.g. `@include spacings-size('spacing-scale-2', margin-top, $negative: true);`)
 
@@ -83,7 +84,7 @@ $app-detail-header-section-spacing-bottom:            'spacing-scale-4'; // pixe
 
 ## Fluid spacing scaling
 
-All spacings scale **fluidly** according to the same formula as the [font-sizes](./typography.md):
+All spacings scale **fluidly** according to a similar formula as the [font-sizes](./typography.md):
 
 ### Important to note
 

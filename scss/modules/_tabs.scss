@@ -20,9 +20,7 @@ Tabs
 
     // define spacing to next element
     & + * {
-        @include make-spacing-top-xs($custom-tabs-spacing-bottom-xs);
-        @include make-spacing-top-md($custom-tabs-spacing-bottom-md);
-        @include make-spacing-top-xl($custom-tabs-spacing-bottom-xl);
+        @include spacings-size($custom-tabs-spacing-bottom, margin-top);
     }
 
     &__item {

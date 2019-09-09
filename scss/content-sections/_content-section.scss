@@ -419,7 +419,9 @@ Default Content Section Styles
         @include content-plugin-col-mobile-flexbox();
         @include content-plugin-col-mobile-flexbox-spacing-fix();
         .content-section__col {
-            @include make-spacing-top-sm-max($content-section-col-stack-spacing-sm-max);
+            @include media-breakpoint-down(sm) {
+                @include spacings-size($content-section-col-stack-spacing, margin-top);
+            }
             @include media-breakpoint-up(xs) {
                @include make-col(24);
             }
@@ -433,7 +435,9 @@ Default Content Section Styles
         @include content-plugin-col-mobile-flexbox();
         @include content-plugin-col-mobile-flexbox-spacing-fix();
         .content-section__col {
-            @include make-spacing-top-sm-max($content-section-col-stack-spacing-sm-max);
+            @include media-breakpoint-down(sm) {
+                @include spacings-size($content-section-col-stack-spacing, margin-top);
+            }
         }
         .content-section__col-1 {
             @include media-breakpoint-up(xs) {
@@ -463,7 +467,9 @@ Default Content Section Styles
         @include content-plugin-col-mobile-flexbox();
         @include content-plugin-col-mobile-flexbox-spacing-fix();
         .content-section__col {
-            @include make-spacing-top-sm-max($content-section-col-stack-spacing-sm-max);
+            @include media-breakpoint-down(sm) {
+                @include spacings-size($content-section-col-stack-spacing, margin-top);
+            }
         }
         .content-section__col-1 {
             @include media-breakpoint-up(xs) {
@@ -493,13 +499,15 @@ Default Content Section Styles
         @include content-plugin-col-mobile-flexbox($flex-bp: breakpoint-max(xs));
         @include content-plugin-col-mobile-flexbox-spacing-fix($flex-bp: breakpoint-max(sm));
         .content-section__col {
+            @include media-breakpoint-down(sm) {
+                @include spacings-size($content-section-col-stack-spacing, margin-top);
+            }
             @include media-breakpoint-up(xs) {
                @include make-col(24);
             }
             @include media-breakpoint-up(md) {
                 @include make-col(8);
             }
-            @include make-spacing-top-sm-max($content-section-col-stack-spacing-sm-max);
         }
     }
 
@@ -536,12 +544,7 @@ Default Content Section Styles
     // spacings between plugins within a columns
     &__column-manage-spacings {
         & > * {
-            @include make-spacing-top-xs($content-section-column-manage-spacings-container-xs);
-            @include make-spacing-top-sm($content-section-column-manage-spacings-container-sm);
-            @include make-spacing-top-md($content-section-column-manage-spacings-container-md);
-            @include make-spacing-top-lg($content-section-column-manage-spacings-container-lg);
-            @include make-spacing-top-xl($content-section-column-manage-spacings-container-xl);
-            @include make-spacing-top-xxl($content-section-column-manage-spacings-container-xxl);
+            @include spacings-size($content-section-column-manage-spacings-container, margin-top);
             &:first-child {
                 margin-top: 0;
             }
@@ -561,9 +564,7 @@ Section Headings
     @include clearfix();
     // spacing to next element
     & + * {
-        @include make-spacing-top-xs($content-section-heading-spacing-xs);
-        @include make-spacing-top-md($content-section-heading-spacing-md);
-        @include make-spacing-top-xl($content-section-heading-spacing-xl);
+        @include spacings-size($content-section-heading-spacing, margin-top);
     }
 }
 

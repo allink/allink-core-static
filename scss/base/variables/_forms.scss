@@ -38,14 +38,10 @@ $form-group-margin-bottom:       15px !default;
 $form-default-max-width:                600px;
 
 // `.form-group` margin top (except :first-child)
-$form-group-spacing-xs:                $grid-gutter-width/2;
-$form-group-spacing-md:                $grid-gutter-width;
-$form-group-spacing-xl:                $grid-gutter-width;
+$form-group-spacing:                   'spacings-gutter-width';
 
 // `.label-control` margin bottom
-$form-label-spacing-xs:                $grid-gutter-width/4;
-$form-label-spacing-md:                $grid-gutter-width/2;
-$form-label-spacing-xl:                $grid-gutter-width/2;
+$form-label-spacing:                   'spacings-gutter-width';
 
 // optionally mark label as bold
 $form-label-bold-enabled:              true;
@@ -694,9 +690,7 @@ $custom-tabs-border-bottom-color:               #000;
 $custom-tabs-register-look-activated:           true; // creates a negative margin according to the $custom-tabs-border-bottom-width in order to achieve a 'register look'
 
 // default: uses the same distance like we have between section title and the categories
-$custom-tabs-spacing-bottom-xs:                 $content-section-heading-spacing-xs;
-$custom-tabs-spacing-bottom-md:                 $content-section-heading-spacing-md;
-$custom-tabs-spacing-bottom-xl:                 $content-section-heading-spacing-xl;
+$custom-tabs-spacing-bottom:                    $content-section-heading-spacing;
 
 // item
 $custom-tabs-item-transition:                   $default-transition;

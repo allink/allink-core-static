@@ -1,6 +1,6 @@
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 
-=Content =Section '.content-section'
+content =section '.content-section'
 
 VERTICAL spacings of plugin content within '.site-content'
 
@@ -10,35 +10,17 @@ VERTICAL spacings of plugin content within '.site-content'
 $content-section-spacing:      'spacing-scale-2'; // spacings-size or fixed value
 
 // Content Plugin > spacing between STACKED COLUMNS (smaller screens)
-$content-section-col-stack-spacing-xs-max:  $grid-gutter-width/2;
-$content-section-col-stack-spacing-sm-max:  $grid-gutter-width/2;
+$content-section-col-stack-spacing:         'spacing-gutter-width';  // spacings-size or fixed value
 
 // Content Plugin > For template above >=3 colums
 // We have to define the spacing when stacked
-$content-plugin-stacked-col-spacing-xs:     $grid-gutter-width/2;
-$content-plugin-stacked-col-spacing-md:     $grid-gutter-width;
-$content-plugin-stacked-col-spacing-xl:     $grid-gutter-width;
+$content-plugin-stacked-col-spacing:        'spacing-gutter-width';  // spacings-size or fixed value
 
 // Content Plugin > spacing between SECTION HEADING and the columns
-$content-section-heading-spacing-xs:        $grid-gutter-width/2;
-$content-section-heading-spacing-md:        $grid-gutter-width;
-$content-section-heading-spacing-xl:        $grid-gutter-width;
+$content-section-heading-spacing:           'spacing-gutter-width';  // spacings-size or fixed value
 
-// bg image OUTER - overlay gradient (percentage values recommended)
-$content-section-outer-overlay-gradient-height-xs:   66%;
-$content-section-outer-overlay-gradient-height-sm:   66%;
-$content-section-outer-overlay-gradient-height-md:   66%;
-$content-section-outer-overlay-gradient-height-lg:   66%;
-$content-section-outer-overlay-gradient-height-xl:   66%;
-$content-section-outer-overlay-gradient-height-xxl:  66%;
-
-// spacings between plugins within a columns
-$content-section-column-manage-spacings-container-xs:       $grid-gutter-width;
-$content-section-column-manage-spacings-container-sm:       $grid-gutter-width;
-$content-section-column-manage-spacings-container-md:       $grid-gutter-width;
-$content-section-column-manage-spacings-container-lg:       $grid-gutter-width;
-$content-section-column-manage-spacings-container-xl:       $grid-gutter-width;
-$content-section-column-manage-spacings-container-xxl:      $grid-gutter-width;
+// Spacings between plugins within a columns
+$content-section-column-manage-spacings-container:          'spacing-scale-5'; // spacings-size or fixed value
 
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
@@ -51,11 +33,11 @@ Important: The following ratios are closely linked to the THUMBNAIL_WIDTH_ALIASE
 
 */
 
-$content-section-bg-image-outer-width-xs:                     4;
-$content-section-bg-image-outer-height-xs:                    3;
+$content-section-bg-image-outer-width-xs:                     1;
+$content-section-bg-image-outer-height-xs:                    1;
 
-$content-section-bg-image-outer-width-sm:                     4;
-$content-section-bg-image-outer-height-sm:                    3;
+$content-section-bg-image-outer-width-sm:                     1;
+$content-section-bg-image-outer-height-sm:                    1;
 
 $content-section-bg-image-outer-width-md:                     16;
 $content-section-bg-image-outer-height-md:                    6;
@@ -69,19 +51,28 @@ $content-section-bg-image-outer-height-xl:                    6;
 $content-section-bg-image-outer-width-xxl:                    16;
 $content-section-bg-image-outer-height-xxl:                   6;
 
+// bg image OUTER - overlay gradient (percentage values recommended)
+$content-section-outer-overlay-gradient-height-xs:            66%;
+$content-section-outer-overlay-gradient-height-sm:            66%;
+$content-section-outer-overlay-gradient-height-md:            66%;
+$content-section-outer-overlay-gradient-height-lg:            66%;
+$content-section-outer-overlay-gradient-height-xl:            66%;
+$content-section-outer-overlay-gradient-height-xxl:           66%;
+
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 
-=Overlay =Gradient Settings (the background of text above an image)
+Overlay =gradient Settings (the background of text above an image)
 
 */
 
 // Overlay text is POSITIONED absolute.
 // So 'spacing' in this context relates to the 'top, right, bottom and left' properties.
 $overlay-spacing:                          $content-section-spacing;
+
 // overlay heading and text colors
-$overlay-heading-color:                    $white;
-$overlay-text-color:                       $white;
+$overlay-heading-color:                    $h1-color-inverted;
+$overlay-text-color:                       $body-inverted-color;
 
 // global overlay gradient definition
 $overlay-gradient-start-color:             #000;
