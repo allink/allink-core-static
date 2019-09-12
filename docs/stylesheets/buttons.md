@@ -95,7 +95,22 @@ There are 2 default icons pre-defined for buttons:
 - Arrow for external links
 
 These icons can be changed in `static/scss/base/variables/_forms.scss`.
-Additional icons must be added on a project basis in `static/scss/form/_buttons.scss`.
+Additional icons must be added on a project basis in `static/scss/form/_buttons.scss`:
+
+```SCSS
+button {
+    @include button-base();
+    @include button-variation('default');
+    // Button Softpage
+    &[data-softpage-variation] {
+        @include button-icon($icon:'plus');
+
+    }
+    &[target=_blank] {
+        @include button-icon($icon:'arrow');
+    }
+}
+```
 
 ## ButtonLinkPlugin: Make only styled buttons available
 
