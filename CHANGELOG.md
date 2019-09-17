@@ -133,6 +133,7 @@ include `'includes/browser-check.html'` to your base_root template
 - Added text link background animation (`scss/base/variables/_links.scss`).
 - Added flex-based grid mixins (`scss/mixins/_grid.scss`)
 ### FIXES
+- Typofix `spacing-gutter-width` spacing
 - Improved softpage transition
 - Fixed modal-header layout
 - Fixed various vulnerabilities
