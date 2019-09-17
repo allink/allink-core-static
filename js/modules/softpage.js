@@ -27,6 +27,11 @@ Optional (loading content of a specific element):
     ...
 </div>
 
+CMS Page in Softpage:
+
+<a href="/link-to-page" data-trigger-softpage data-cms-page>I will trigger a softpage</a>
+{% include "modals/modal-header-markup.html" with title="Page Title" modal_type="softpage" %}
+
 App Detail: Optional modal header markup (to be added in e.g. news_detail.html):
 
 <div class="modal-header-markup" style="display: none;">
