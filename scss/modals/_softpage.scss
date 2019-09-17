@@ -161,22 +161,6 @@ Softpage
         transform: translateY(0);
     }
 
-    /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
-
-    Variations
-
-    */
-    &[data-softpage-variation="small"] {
-        .tingle-modal-box {
-            @include media-breakpoint-up(sm) {
-                max-width: $softpage-small-sm-max-width;
-            }
-            @include media-breakpoint-up(xxl) {
-                max-width: $softpage-small-xxl-max-width;
-            }
-        }
-    }
-
     .tingle-modal-header {
         @include print() {
             display: none;

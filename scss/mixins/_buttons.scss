@@ -174,7 +174,7 @@ How to use:
                 }
             }
         }
-        &[data-softpage-variation] {
+        &[data-softpage] {
             .btn__text--mask {
                 &__inner {
                     @if $btn-mask-transition-direction-starting-point == 'top' or $btn-mask-transition-direction-starting-point == 'bottom' {

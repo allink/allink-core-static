@@ -21,7 +21,7 @@ List View (this includes ALL plugin templates such as Grid (Static), Table, and 
             padding: 0;
         }
         // Button Softpage
-        &[data-softpage-variation] {
+        &[data-softpage] {
             @include button-icon($icon:'plus');
         }
     }

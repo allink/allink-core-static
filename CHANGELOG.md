@@ -8,7 +8,7 @@ Each release is divided into the following main categories:
 
 ## v2.0.0 (under development)
 ### IMPORTANT
--
+- Removed `softpage-variation`. There is only one type of softpage now.
 - Removed the following modules:
     - to-the-top
     - masonry

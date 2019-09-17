@@ -119,7 +119,7 @@ $(function(){
                 let $modal = $(obj.modal.modal);
                 $(window).trigger('softpage:closed');
                 // remove variation definition
-                $(obj.modal.modal).removeAttr('data-softpage-variation');
+                $(obj.modal.modal).removeAttr('data-softpage');
                 // remove any content (issue: video was still playing)
                 $(obj.modal.modal).find('.tingle-modal-box__content').empty();
                 // remove flag on html element
@@ -175,11 +175,6 @@ $(function(){
                         $('html').addClass('softpage-visible');
                         // optional: use a node's content instead of href-attribute
                         var softpage_content_id = $trigger.attr('data-softpage-content-id');
-                        // optional: get softpage variation string and set attribute
-                        var softpage_variation = $trigger.attr('data-softpage-variation');
-                        if (softpage_variation) {
-                            $softpage.attr('data-softpage-variation', softpage_variation);
-                        }
                         // optional: we are about to display a CMS page within the softpage
                         var softpage_cms_page = $trigger.attr('data-cms-page');
                         if (typeof softpage_cms_page !== 'undefined' && softpage_cms_page !== false) {

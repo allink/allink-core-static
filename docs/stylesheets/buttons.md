@@ -102,7 +102,7 @@ button {
     @include button-base();
     @include button-variation('default');
     // Button Softpage
-    &[data-softpage-variation] {
+    &[data-softpage] {
         @include button-icon($icon:'plus');
 
     }
