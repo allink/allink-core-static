@@ -1,17 +1,18 @@
 .browser-suggestion {
     @include make-container();
+    display: flex;
+    align-items: center;
     position: fixed;
     top: 0;
     left: 0;
     width: 100vw;
     height: 100vh;
-    z-index: 10;
+    z-index: 3000;
     overflow-y: scroll;
     background-color: white;
 
     &__container {
         @include make-col(12);
-        padding-top: 40vh;
         margin: 0 auto;
 
         .lead {

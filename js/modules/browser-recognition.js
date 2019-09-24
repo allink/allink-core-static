@@ -25,6 +25,7 @@ export function initBrowserCheck(options={}) {
         firefox: ">66",
         safari: ">11",
         chrome: ">74",
+        edge: ">16",
     };
 
     // browser names and the link to their download site, categorised by OS
