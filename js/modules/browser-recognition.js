@@ -31,18 +31,15 @@ export function initBrowserCheck(options={}) {
     // browser names and the link to their download site, categorised by OS
     let browserSuggestionList = options.browserSuggestionList || {
         'windows': {
-            'Firefox': 'http://www.mozilla.org/firefox/new/',
             'Chrome': 'https://www.google.com/chrome/'
         },
         'macos': {
-            'Safari': 'http://www.apple.com/osx/',
             'Chrome': 'https://www.google.com/chrome/'
         },
         'linux': {
-            'Firefox': 'http://www.mozilla.org/firefox/new/',
             'Chrome': 'https://www.google.com/chrome/'
         }
-    }
+    };
 
     const forceOverlay = location.search.match(/outdated/);
     const browser = Bowser.getParser(window.navigator.userAgent);
@@ -99,7 +96,7 @@ export function initBrowserCheck(options={}) {
         for (let browser in suggestions) {
             if (suggestions.hasOwnProperty(browser)) {
                 html += `
-                    <a href="${ suggestions[browser] }" class="button-link-plugin__link  btn btn-default btn-lg" target="_blank" rel="noopener" role="button">
+                    <a href="${ suggestions[browser] }" class="button-link-plugin__link  btn btn-default btn-md" target="_blank" rel="noopener" role="button">
                         <span class="button-link-plugin__text">
                             ${ browser }
                         </span>
