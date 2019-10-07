@@ -1,0 +1,37 @@
+.quote {
+    @include spacings-size('spacing-scale-4', padding);
+    @include spacings-size('spacing-scale-2', margin-top);
+    border-top: solid $brand-primary 0.0625rem;
+    border-bottom: solid $brand-primary 0.0625rem;
+
+    &__text {
+        @include font-h4();
+        @include spacings-size('spacing-scale-4', margin-bottom);
+
+        &::before {
+            content: '«';
+            margin-left: -0.6em;
+        }
+
+        &::after {
+            content: '»';
+        }
+
+        @include media-breakpoint-down(xs) {
+            &::before,
+            &::after {
+                display: block;
+                margin: 0;
+            }
+        }
+    }
+
+    &__author {
+        @include font-h5();
+        margin-bottom: 0.25rem;
+    }
+
+    &__author-description {
+        @include font-lead();
+    }
+}
