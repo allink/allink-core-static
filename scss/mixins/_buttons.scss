@@ -1,59 +1,3 @@
-// Easily pump out default styles, as well as :hover, :focus, :active,
-// and disabled options for all buttons
-
-@mixin button-variant($color, $background, $border) {
-    color: $color;
-    background-color: $background;
-    border-color: $border;
-
-    &:focus,
-    &.focus {
-        color: $color;
-        background-color: darken($background, 10%);
-        border-color: darken($border, 25%);
-    }
-    &:hover {
-        color: $color;
-        background-color: darken($background, 10%);
-        border-color: darken($border, 12%);
-    }
-    &:active,
-    &.active,
-    .open > &.dropdown-toggle {
-        color: $color;
-        background-color: darken($background, 10%);
-        border-color: darken($border, 12%);
-
-        &:hover,
-        &:focus,
-        &.focus {
-            color: $color;
-            background-color: darken($background, 17%);
-            border-color: darken($border, 25%);
-        }
-    }
-    &:active,
-    &.active,
-    .open > &.dropdown-toggle {
-        background-image: none;
-    }
-    &.disabled,
-    &[disabled],
-    fieldset[disabled] & {
-        &:hover,
-        &:focus,
-        &.focus {
-            background-color: $background;
-            border-color: $border;
-        }
-    }
-
-    .badge {
-        color: $background;
-        background-color: $color;
-    }
-}
-
 // Button sizes
 @mixin button-size($padding-vertical, $padding-horizontal, $font-size, $line-height, $border-radius) {
     padding: $padding-vertical $padding-horizontal;
@@ -77,18 +21,17 @@ How to use:
 */
 
 @mixin button-variation($variation: 'default') {
-    // base styles
-    transition: $form-field-transition;
-    display: inline-block;
-    // variation styles
-    background-color: map-deep-get($btn-variations,$variation,'bg');
-    @if map-deep-get($btn-variations,$variation,'border') {
-        border-top-color: map-deep-get($btn-variations,$variation,'border-top-color');
-        border-right-color: map-deep-get($btn-variations,$variation,'border-right-color');
-        border-bottom-color: map-deep-get($btn-variations,$variation,'border-bottom-color');
-        border-left-color: map-deep-get($btn-variations,$variation,'border-left-color');
-    } @else {
-        border: none;
+    & {
+        background-color: map-deep-get($btn-variations,$variation,'bg');
+        color: map-deep-get($btn-variations,$variation,'color');
+        @if map-deep-get($btn-variations,$variation,'border') {
+            border-top-color: map-deep-get($btn-variations,$variation,'border-top-color');
+            border-right-color: map-deep-get($btn-variations,$variation,'border-right-color');
+            border-bottom-color: map-deep-get($btn-variations,$variation,'border-bottom-color');
+            border-left-color: map-deep-get($btn-variations,$variation,'border-left-color');
+        } @else {
+            border: none;
+        }
     }
 
     &,
@@ -105,9 +48,11 @@ How to use:
     &:focus,
     &:focus:active,
     &:active,
-    &:active:hover {
+    &:active:hover,
+    .open > &.dropdown-toggle {
         background-color: map-deep-get($btn-variations,$variation,'bg-hover');
         color: map-deep-get($btn-variations,$variation,'color-hover');
+        outline: none; // not very good because of accessibility reasons, but the default style looks too ugly.
         @if map-deep-get($btn-variations,$variation,'border-hover') {
             border-top-color: map-deep-get($btn-variations, $variation, 'border-top-color-hover');
             border-right-color: map-deep-get($btn-variations, $variation, 'border-right-color-hover');
@@ -116,19 +61,21 @@ How to use:
         } @else {
             border: none;
         }
-        outline: none; // not very good because of accessibility reasons, but the default style looks too ugly.
+
+        // overwrite default styles for masking effect
+        &.btn-mask {
+            background-color: map-deep-get($btn-variations,$variation,'bg');
+            color: map-deep-get($btn-variations,$variation,'color');
+            .link-text-mask,
+            .link-text-mask__inner {
+                transform: translate(0%, 0%);
+            }
+        }
+
         // in case there are icons defined with pseude elements, let's give them the same color
         &::before,
         &::after {
             color: map-deep-get($btn-variations,$variation,'color-hover');
-        }
-
-        @if $btn-mask-transition-enabled {
-            background-color: map-deep-get($btn-variations,$variation,'bg');
-            .btn__text--mask,
-            .btn__text--mask span {
-                transform: translate(0%, 0%);
-            }
         }
     }
     &.disabled,
@@ -149,133 +96,138 @@ How to use:
 
     /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 
-    Mask Style
+    Button Mask
 
     */
 
-    @if $btn-mask-transition-enabled {
-        position: relative;
+    .link-text-mask {
+        display: none;
+    }
+
+    &.btn-mask {
         overflow: hidden;
+        position: relative;
 
-        &[target="_blank"] {
-            .btn__text--mask {
-                &__inner {
-                    @if $btn-mask-transition-direction-starting-point == 'top' or $btn-mask-transition-direction-starting-point == 'bottom' {
-                        justify-content: left;
-                        left: 1.2em;
-                        right: auto;
-                    }
-                    @if $btn-mask-transition-direction-starting-point == 'right' or $btn-mask-transition-direction-starting-point == 'left' {
-                        justify-content: center;
-                        padding-right: 0.9em;
-                        left: 0;
-                        right: 0;
-                    }
-                }
-            }
-        }
-        &[data-softpage] {
-            .btn__text--mask {
-                &__inner {
-                    @if $btn-mask-transition-direction-starting-point == 'top' or $btn-mask-transition-direction-starting-point == 'bottom' {
-                        justify-content: right;
-                        right: 1.2em;
-                        left: auto;
-                    }
-                    @if $btn-mask-transition-direction-starting-point == 'right' or $btn-mask-transition-direction-starting-point == 'left' {
-                        justify-content: center;
-                        padding-left: 1.1em;
-                        left: 0;
-                        right: 0;
-                    }
-                }
-            }
-        }
+        .link-text-mask {
+            background-color: map-deep-get($btn-variations,$variation,'bg-hover');
+            bottom: 0;
+            color: map-deep-get($btn-variations,$variation,'color-hover');
+            display: block;
+            height: 100%;
+            left: 0;
+            overflow: hidden;
+            position: absolute;
+            right: 0;
+            top: auto;
+            transform: translateY(100%);
+            transition: transform $btn-mask-transition-duration $btn-mask-transition-timing-function;
 
-        .btn__text {
-            transition: none;
-            &--mask {
-                position: absolute;
-                top: auto;
-                left: 0;
-                right: 0;
-                bottom: 0;
-                height: 100%;
-                overflow: hidden;
+            @if $btn-mask-transition-direction-starting-point == 'bottom' {
                 transform: translateY(100%);
-                transition: transform $btn-mask-transition-duration $btn-mask-transition-timing-function;
-                background-color: map-deep-get($btn-variations,$variation,'bg-hover');
+            }
+            @if $btn-mask-transition-direction-starting-point == 'right' {
+                transform: translateX(100%);
+            }
+            @if $btn-mask-transition-direction-starting-point == 'top' {
+                transform: translateY(-100%);
+            }
+            @if $btn-mask-transition-direction-starting-point == 'left' {
+                transform: translateX(-100%);
+            }
+
+            &__inner {
+                align-items: center;
+                bottom: 0;
+                display: flex;
+                height: 100%;
+                justify-content: center;
+                left: 0;
+                position: absolute;
+                right: 0;
+                transition: inherit;
+                z-index: 100;
 
                 @if $btn-mask-transition-direction-starting-point == 'bottom' {
-                    transform: translateY(100%);
-                }
-                @if $btn-mask-transition-direction-starting-point == 'right' {
-                    transform: translateX(100%);
-                }
-                @if $btn-mask-transition-direction-starting-point == 'top' {
                     transform: translateY(-100%);
                 }
-                @if $btn-mask-transition-direction-starting-point == 'left' {
+                @if $btn-mask-transition-direction-starting-point == 'right' {
                     transform: translateX(-100%);
                 }
-
-                &__inner {
-                    position: absolute;
-                    left: 0;
-                    right: 0;
-                    bottom: 0;
-                    z-index: 100;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    height: 100%;
-                    transition: inherit;
-
-                    @if $btn-mask-transition-direction-starting-point == 'bottom' {
-                        transform: translateY(-100%);
-                    }
-                    @if $btn-mask-transition-direction-starting-point == 'right' {
-                        transform: translateX(-100%);
-                    }
-                    @if $btn-mask-transition-direction-starting-point == 'top' {
-                        transform: translateY(100%);
-                    }
-                    @if $btn-mask-transition-direction-starting-point == 'left' {
-                        transform: translateX(100%);
-                    }
+                @if $btn-mask-transition-direction-starting-point == 'top' {
+                    transform: translateY(100%);
+                }
+                @if $btn-mask-transition-direction-starting-point == 'left' {
+                    transform: translateX(100%);
                 }
             }
         }
-    } @else {
-        .btn__text--mask {
-            display: none !important;
-            overflow: hidden !important;
+    }
+
+
+    // TODO: move this somewhere else
+    /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+    Link text
+
+    */
+
+    .link-text {
+        display: flex;
+        align-items: center;
+    }
+
+    /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+    Link icon
+
+    */
+    .link-icon {
+        $icon-size: 1em;
+        margin-left: $icon-size / 4;
+        display: flex;
+
+        svg {
+            height: $icon-size;
+            width: $icon-size;
+            fill: currentColor;
         }
     }
+
 
 }
 
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 
-Get the base styles for a button
+Base Styles
 
 */
 
 @mixin button-base() {
-    border-radius: $btn-border-radius-base;
-    display: inline-block;
-    margin-bottom: 0; // For input.btn
-    font-weight: $btn-font-weight;
-    text-align: center;
-    vertical-align: middle;
-    touch-action: manipulation;
-    cursor: pointer;
-    background-image: none; // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
-    border: 1px solid transparent;
-    white-space: nowrap;
     @include button-size($padding-base-vertical, $padding-base-horizontal, $font-size-base, $line-height-base, $btn-border-radius-base);
     @include user-select(none);
+    @include font-btn-default();
+
+    background-image: none; // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
+    // IMPORTANT: Has to be set AFTER the font definition, for we ignore the line-height defined in the font settings of buttons
+    border-color: $button-border-color;
+    border-style: $button-border-style;
+    border-radius: $btn-border-radius-base;
+    border-width: $button-border-width;
+    line-height: $btn-line-height;
+    color: $btn-default-color;
+    cursor: pointer;
+    display: inline-block;
+    margin-bottom: 0; // For input.btn
+    padding-top: $btn-padding-top;
+    padding-right: $btn-padding-right;
+    padding-bottom: $btn-padding-bottom;
+    padding-left: $btn-padding-left;
+    text-align: center;
+    touch-action: manipulation;
+    transition: $form-field-transition;
+    vertical-align: middle;
+    white-space: nowrap;
 
     &,
     &:active,
@@ -288,16 +240,12 @@ Get the base styles for a button
 
     &:hover,
     &:focus,
-    &.focus {
-        color: $btn-default-color;
-        text-decoration: none;
-    }
-
+    &.focus,
     &:active,
     &.active {
-        outline: 0;
-        background-image: none;
-        @include box-shadow(inset 0 3px 5px rgba(0,0,0,.125));
+        text-decoration: none;
+        box-shadow: none;
+        outline: none;
     }
 
     &.disabled,
@@ -315,139 +263,13 @@ Get the base styles for a button
         box-shadow: none;
         transition: $btn-transition;
     }
-    &:hover,
-    &:focus,
-    &:active {
-        text-decoration: none;
-        box-shadow: none;
-        outline: none;
-    }
-    // font sizes
-    @include font-btn-default();
+
     &.btn-sm {
         @include font-btn-small();
-        // make sure our button has the correct lineheight
-        line-height: $btn-line-height;
         border-radius: $btn-border-radius-small;
     }
     &.btn-lg {
         @include font-btn-large();
-        // make sure our button has the correct lineheight
-        line-height: $btn-line-height;
         border-radius: $btn-border-radius-large;
-    }
-
-    // IMPORTANT: Has to be set AFTER the font definition, for we ignore the line-height defined in the font settings of buttons
-    border-style: $form-field-border-style;
-    border-width: $form-field-border-width;
-    border-color: $form-field-border-color;
-
-    // set paddings
-    padding-top: $btn-padding-top;
-    padding-right: $btn-padding-right;
-    padding-bottom: $btn-padding-bottom;
-    padding-left: $btn-padding-left;
-    line-height: $btn-line-height;
-}
-
-
-/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
-
-Add arrows/plus icon after/before the button text
-
-*/
-
-@mixin button-icon($icon:'arrow', $spacing:'default') {
-    // init
-    &:before,
-    &:after {
-        @include icomoon();
-        display: inline-block;
-        font-size: 0.8em;
-        position: relative;
-        line-height: 0;
-        top: 0;
-        transition: $btn-icon-transition;
-        vertical-align: middle;
-        z-index: 1;
-    }
-    &.text {
-        @if $link-background-enabled {
-            text-decoration: none;
-            &:hover,
-            &:focus {
-                box-shadow: inset 0 -1.5em 0 $link-background-color;
-            }
-        }
-    }
-    // styles
-    @if $icon == 'arrow' {
-        &:hover,
-        &:focus {
-            &:after {
-                top: -0.1em;
-                transform: rotate(45deg);
-            }
-        }
-        &:after {
-            content: $btn-icon-arrow;
-            font-size: 0.5em;
-        }
-        &.text {
-            margin-right: 1.1em;
-            &:after {
-                left: 1.8em;
-                margin-left: -1.45em;
-                margin-right: -0.2em;
-            }
-            &:hover,
-            &:focus {
-                margin-right: -.15em;
-                padding-right: 1.25em;
-            }
-            span {
-                @if $link-background-enabled {
-                    display: inline-block;
-                }
-            }
-        }
-
-        &.btn {
-            padding-right: 1.6em;
-            &:after {
-                left: 0.5em;
-            }
-        }
-    }
-
-    @if $icon == 'plus' {
-        &:hover,
-        &:focus {
-            &:before {
-                transform: rotate(90deg);
-            }
-        }
-        &:before {
-            content: $btn-icon-plus;
-            top: -0.10em;
-        }
-        &.btn {
-            padding-left: 1.5em;
-            &:before {
-                right: 0.4em;
-            }
-        }
-        &.text {
-            margin-left: 1.1em;
-            &:before {
-                right: 1.35em;
-                margin-right: -1em;
-            }
-            &:hover,
-            &:focus {
-                margin-left: -.15em;
-                padding-left: 1.25em;
-            }
-        }
     }
 }
