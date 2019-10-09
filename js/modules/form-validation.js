@@ -63,8 +63,7 @@ export function initFormValidation() {
             unhighlight: function(element) {
                 // form element itself
                 $(element).removeClass('error');
-
-                $(element).parents(form_group_selector).first().focusin();
+                $(element).parents('form').first()[0].querySelector('.has-error button, .error').focus();
 
                 // form group, or error state handler (in case of multi column forms)
                 var $error_state_handler = $(element).parents('.error-state-handler');
