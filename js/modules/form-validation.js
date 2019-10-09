@@ -27,6 +27,9 @@ import validate from 'jquery-validation';
 import { sendAjaxForm } from './ajax-form';
 
 export function initFormValidation() {
+
+    let form_group_selector = '.form-group';
+
     $('form.validate-form').each(function(){
         // init
         var $form = $(this);
@@ -60,6 +63,9 @@ export function initFormValidation() {
             unhighlight: function(element) {
                 // form element itself
                 $(element).removeClass('error');
+
+                $(element).parents(form_group_selector).first().focusin();
+
                 // form group, or error state handler (in case of multi column forms)
                 var $error_state_handler = $(element).parents('.error-state-handler');
                 if ($error_state_handler.length > 0) {
