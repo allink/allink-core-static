@@ -6,196 +6,6 @@
     border-radius: $border-radius;
 }
 
-/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
-
-Get a specific button variation on the spot
-
-===
-
-How to use:
-
-.some-link {
-    @include button-variation('primary');
-}
-
-*/
-
-@mixin button-variation($variation: 'default') {
-    & {
-        background-color: map-deep-get($btn-variations,$variation,'bg');
-        color: map-deep-get($btn-variations,$variation,'color');
-        @if map-deep-get($btn-variations,$variation,'border') {
-            border-top-color: map-deep-get($btn-variations,$variation,'border-top-color');
-            border-right-color: map-deep-get($btn-variations,$variation,'border-right-color');
-            border-bottom-color: map-deep-get($btn-variations,$variation,'border-bottom-color');
-            border-left-color: map-deep-get($btn-variations,$variation,'border-left-color');
-        } @else {
-            border: none;
-        }
-    }
-
-    &,
-    &:link,
-    &:visited {
-        color: map-deep-get($btn-variations,$variation,'color');
-        // in case there are icons defined with pseude elements, let's give them the same color
-        &::before,
-        &::after {
-            color: map-deep-get($btn-variations,$variation,'color');
-        }
-    }
-    &:hover,
-    &:focus,
-    &:focus:active,
-    &:active,
-    &:active:hover,
-    .open > &.dropdown-toggle {
-        background-color: map-deep-get($btn-variations,$variation,'bg-hover');
-        color: map-deep-get($btn-variations,$variation,'color-hover');
-        outline: none; // not very good because of accessibility reasons, but the default style looks too ugly.
-        @if map-deep-get($btn-variations,$variation,'border-hover') {
-            border-top-color: map-deep-get($btn-variations, $variation, 'border-top-color-hover');
-            border-right-color: map-deep-get($btn-variations, $variation, 'border-right-color-hover');
-            border-bottom-color: map-deep-get($btn-variations, $variation, 'border-bottom-color-hover');
-            border-left-color: map-deep-get($btn-variations, $variation, 'border-left-color-hover');
-        } @else {
-            border: none;
-        }
-
-        // overwrite default styles for masking effect
-        &.btn-mask {
-            background-color: map-deep-get($btn-variations,$variation,'bg');
-            color: map-deep-get($btn-variations,$variation,'color');
-            .link-text-mask,
-            .link-text-mask__inner {
-                transform: translate(0%, 0%);
-            }
-        }
-
-        // in case there are icons defined with pseude elements, let's give them the same color
-        &::before,
-        &::after {
-            color: map-deep-get($btn-variations,$variation,'color-hover');
-        }
-    }
-    &.disabled,
-    &[disabled],
-    fieldset[disabled] & {
-        opacity: 1;
-        background-color: map-deep-get($btn-variations,$variation,'bg-disabled');
-        color: map-deep-get($btn-variations,$variation,'color-disabled');
-        @if map-deep-get($btn-variations,$variation,'border-disabled') {
-            border-top-color: map-deep-get($btn-variations, $variation, 'border-top-color-disabled');
-            border-right-color: map-deep-get($btn-variations, $variation, 'border-right-color-disabled');
-            border-bottom-color: map-deep-get($btn-variations, $variation, 'border-bottom-color-disabled');
-            border-left-color: map-deep-get($btn-variations, $variation, 'border-left-color-disabled');
-        } @else {
-            border: none;
-        }
-    }
-
-    /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
-
-    Button Mask
-
-    */
-
-    .link-text-mask {
-        display: none;
-    }
-
-    &.btn-mask {
-        overflow: hidden;
-        position: relative;
-
-        .link-text-mask {
-            background-color: map-deep-get($btn-variations,$variation,'bg-hover');
-            bottom: 0;
-            color: map-deep-get($btn-variations,$variation,'color-hover');
-            display: block;
-            height: 100%;
-            left: 0;
-            overflow: hidden;
-            position: absolute;
-            right: 0;
-            top: auto;
-            transform: translateY(100%);
-            transition: transform $btn-mask-transition-duration $btn-mask-transition-timing-function;
-
-            @if $btn-mask-transition-direction-starting-point == 'bottom' {
-                transform: translateY(100%);
-            }
-            @if $btn-mask-transition-direction-starting-point == 'right' {
-                transform: translateX(100%);
-            }
-            @if $btn-mask-transition-direction-starting-point == 'top' {
-                transform: translateY(-100%);
-            }
-            @if $btn-mask-transition-direction-starting-point == 'left' {
-                transform: translateX(-100%);
-            }
-
-            &__inner {
-                align-items: center;
-                bottom: 0;
-                display: flex;
-                height: 100%;
-                justify-content: center;
-                left: 0;
-                position: absolute;
-                right: 0;
-                transition: inherit;
-                z-index: 100;
-
-                @if $btn-mask-transition-direction-starting-point == 'bottom' {
-                    transform: translateY(-100%);
-                }
-                @if $btn-mask-transition-direction-starting-point == 'right' {
-                    transform: translateX(-100%);
-                }
-                @if $btn-mask-transition-direction-starting-point == 'top' {
-                    transform: translateY(100%);
-                }
-                @if $btn-mask-transition-direction-starting-point == 'left' {
-                    transform: translateX(100%);
-                }
-            }
-        }
-    }
-
-
-    // TODO: move this somewhere else
-    /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
-
-    Link text
-
-    */
-
-    .link-text {
-        display: flex;
-        align-items: center;
-    }
-
-    /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
-
-    Link icon
-
-    */
-    .link-icon {
-        $icon-size: 1em;
-        margin-left: $icon-size / 4;
-        display: flex;
-
-        svg {
-            height: $icon-size;
-            width: $icon-size;
-            fill: currentColor;
-        }
-    }
-
-
-}
-
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 
@@ -271,5 +81,222 @@ Base Styles
     &.btn-lg {
         @include font-btn-large();
         border-radius: $btn-border-radius-large;
+    }
+}
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+Get a specific button variation on the spot
+
+===
+
+How to use:
+
+.some-link {
+    @include button-variation('primary');
+}
+
+*/
+
+@mixin button-variation($variation: 'default') {
+    & {
+        background-color: map-deep-get($btn-variations,$variation,'bg');
+        color: map-deep-get($btn-variations,$variation,'color');
+        @if map-deep-get($btn-variations,$variation,'border') {
+            border-top-color: map-deep-get($btn-variations,$variation,'border-top-color');
+            border-right-color: map-deep-get($btn-variations,$variation,'border-right-color');
+            border-bottom-color: map-deep-get($btn-variations,$variation,'border-bottom-color');
+            border-left-color: map-deep-get($btn-variations,$variation,'border-left-color');
+        } @else {
+            border: none;
+        }
+    }
+
+    &,
+    &:link,
+    &:visited {
+        color: map-deep-get($btn-variations,$variation,'color');
+        // in case there are icons defined with pseude elements, let's give them the same color
+        &::before,
+        &::after {
+            color: map-deep-get($btn-variations,$variation,'color');
+        }
+    }
+    &:hover,
+    &:focus,
+    &:focus:active,
+    &:active,
+    &:active:hover,
+    .open > &.dropdown-toggle {
+        background-color: map-deep-get($btn-variations,$variation,'bg-hover');
+        color: map-deep-get($btn-variations,$variation,'color-hover');
+        outline: none; // not very good because of accessibility reasons, but the default style looks too ugly.
+        @if map-deep-get($btn-variations,$variation,'border-hover') {
+            border-top-color: map-deep-get($btn-variations, $variation, 'border-top-color-hover');
+            border-right-color: map-deep-get($btn-variations, $variation, 'border-right-color-hover');
+            border-bottom-color: map-deep-get($btn-variations, $variation, 'border-bottom-color-hover');
+            border-left-color: map-deep-get($btn-variations, $variation, 'border-left-color-hover');
+        } @else {
+            border: none;
+        }
+
+        // in case there are icons defined with pseude elements, let's give them the same color
+        &::before,
+        &::after {
+            color: map-deep-get($btn-variations,$variation,'color-hover');
+        }
+    }
+    &.disabled,
+    &[disabled],
+    fieldset[disabled] & {
+        opacity: 1;
+        background-color: map-deep-get($btn-variations,$variation,'bg-disabled');
+        color: map-deep-get($btn-variations,$variation,'color-disabled');
+        @if map-deep-get($btn-variations,$variation,'border-disabled') {
+            border-top-color: map-deep-get($btn-variations, $variation, 'border-top-color-disabled');
+            border-right-color: map-deep-get($btn-variations, $variation, 'border-right-color-disabled');
+            border-bottom-color: map-deep-get($btn-variations, $variation, 'border-bottom-color-disabled');
+            border-left-color: map-deep-get($btn-variations, $variation, 'border-left-color-disabled');
+        } @else {
+            border: none;
+        }
+    }
+
+    // Hide Button Mask per default
+    .link-text-mask {
+        display: none;
+    }
+}
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+Button Mask
+
+*/
+
+@mixin button-mask-effect($variation: 'default') {
+    overflow: hidden;
+    position: relative;
+
+    &:hover,
+    &:focus,
+    &:focus:active,
+    &:active,
+    &:active:hover,
+    .open > &.dropdown-toggle {
+        // overwrite default styles for masking effect
+        background-color: map-deep-get($btn-variations,$variation,'bg');
+        color: map-deep-get($btn-variations,$variation,'color');
+        .link-text-mask,
+        .link-text-mask__inner {
+            transform: translate(0%, 0%);
+        }
+    }
+
+    .link-text-mask {
+        background-color: map-deep-get($btn-variations,$variation,'bg-hover');
+        bottom: 0;
+        color: map-deep-get($btn-variations,$variation,'color-hover');
+        display: block;
+        height: 100%;
+        left: 0;
+        overflow: hidden;
+        position: absolute;
+        right: 0;
+        top: auto;
+        transform: translateY(100%);
+        transition: transform $btn-mask-transition-duration $btn-mask-transition-timing-function;
+
+        @if $btn-mask-transition-direction-starting-point == 'bottom' {
+            transform: translateY(100%);
+        }
+        @if $btn-mask-transition-direction-starting-point == 'right' {
+            transform: translateX(100%);
+        }
+        @if $btn-mask-transition-direction-starting-point == 'top' {
+            transform: translateY(-100%);
+        }
+        @if $btn-mask-transition-direction-starting-point == 'left' {
+            transform: translateX(-100%);
+        }
+
+        &__inner {
+            align-items: center;
+            bottom: 0;
+            display: flex;
+            height: 100%;
+            justify-content: center;
+            left: 0;
+            position: absolute;
+            right: 0;
+            transition: inherit;
+            z-index: 100;
+
+            @if $btn-mask-transition-direction-starting-point == 'bottom' {
+                transform: translateY(-100%);
+            }
+            @if $btn-mask-transition-direction-starting-point == 'right' {
+                transform: translateX(-100%);
+            }
+            @if $btn-mask-transition-direction-starting-point == 'top' {
+                transform: translateY(100%);
+            }
+            @if $btn-mask-transition-direction-starting-point == 'left' {
+                transform: translateX(100%);
+            }
+        }
+    }
+}
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+Default icon styles & animations
+
+- Softpage
+- External links
+
+Usage example:
+
+&[data-softpage] {
+    @include icon-softpage();
+}
+
+The actual icon is a svg file stored in /static/icons/.
+You need to pass it in the link.html as an inline svg file
+
+*/
+
+@mixin icon-softpage() {
+    &:hover,
+    &:focus {
+        .link-icon {
+            transform: rotate(90deg);
+            transition-property: transform;
+        }
+    }
+    .link-icon {
+        height: 1em;
+        width: 1em;
+        &--left {
+            display: inline-flex;
+        }
+    }
+}
+
+@mixin icon-external-link() {
+    &:hover,
+    &:focus {
+        .link-icon {
+            transform: rotate(45deg);
+            transition-property: transform;
+        }
+    }
+    .link-icon {
+        &--right {
+            display: inline-flex;
+        }
     }
 }

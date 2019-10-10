@@ -51,6 +51,7 @@ Basic Button Variations
 @each $key, $value in $btn-variations {
     .btn-#{$key} {
         @include button-variation($key);
+        @include button-mask-effect($key);
     }
 }
 

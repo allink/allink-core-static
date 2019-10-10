@@ -17,18 +17,20 @@ List View (this includes ALL plugin templates such as Grid (Static), Table, and 
     &__detail-link {
         @include button-base();
         @include button-variation($app-list-btn-variation);
+        @include button-mask-effect($app-list-btn-variation);
         @if $app-list-btn-padding-enabled == false {
             padding: 0;
         }
         // Button Softpage
         &[data-softpage] {
-            @include button-icon($icon:'plus');
+            @include icon-softpage();
         }
     }
 
     &__load-more-link {
         @include button-base();
         @include button-variation($app-list-load-more-btn-variation);
+        @include button-mask-effect($app-list-load-more-btn-variation);
         @if $app-list-load-more-btn-padding-enabled == false {
             padding: 0;
         }

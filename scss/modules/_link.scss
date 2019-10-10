@@ -1,0 +1,40 @@
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+Link text
+
+*/
+
+.link-text {
+    display: inline-flex;
+    align-items: center;
+}
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+Link icon
+
+*/
+.link-icon {
+    display: flex;
+    height: $btn-icon-size;
+    transition-duration: $btn-icon-transition-duration;
+    transition-timing-function: $btn-icon-transition-timing-function;
+    width: $btn-icon-size;
+
+    &.link-icon--right,
+    &.link-icon--left {
+        display: none;
+    }
+    &.link-icon--left {
+        margin-right: $btn-icon-spacing;
+    }
+    &.link-icon--right {
+        margin-left: $btn-icon-spacing;
+    }
+
+    svg {
+        fill: currentColor;
+        height: auto;
+        width: 100%;
+    }
+}
