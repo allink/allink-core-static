@@ -177,6 +177,7 @@ Button Mask
 */
 
 @mixin button-mask-effect($variation: 'default') {
+    display: inline-flex;
     overflow: hidden;
     position: relative;
 
