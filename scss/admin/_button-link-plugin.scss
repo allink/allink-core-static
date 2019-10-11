@@ -42,7 +42,6 @@ Form modifications
 
     // hide all, and display only enabled variations later on
     .btn-item {
-        display: none;
         float: left;
         padding: 10px;
         background-color: white;
@@ -127,13 +126,6 @@ Form modifications
                 left: -9999px;
                 opacity: 0;
             }
-        }
-    }
-
-    // Only display available button variations
-    @each $btn-variation in $available-btn-variations {
-        .btn-#{$btn-variation}-container {
-            display: block;
         }
     }
 

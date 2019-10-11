@@ -33,3 +33,138 @@ $btn-link-disabled-color:        $gray-light !default;
 $btn-border-radius-base:         $border-radius-base !default;
 $btn-border-radius-large:        $border-radius-large !default;
 $btn-border-radius-small:        $border-radius-small !default;
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+=buttons
+
+Usage: In rare cases, you might need a specific value of a
+specific button variant. This is how to acces map values:
+
+color: map-deep-get($btn-variations,'default','bg');
+
+*/
+
+$btn-transition-duration:               150ms;
+$btn-transition-timing-function:        ease-in;
+$btn-transition:                        color $btn-transition-duration $btn-transition-timing-function,
+                                        background-color $btn-transition-duration $btn-transition-timing-function,
+                                        border-color $btn-transition-duration $btn-transition-timing-function;
+
+// Global Button and Input Paddings
+// (important: TOP and BOTTOM will be applied to .form-control, too, because we sometimes combine inputs and button, so they need to be the exact same height)
+$btn-padding-top:                       0.35em; // important: has to be in em's
+$btn-padding-bottom:                    0.35em; // important: has to be in em's
+$btn-padding-right:                     1.20em; // important: has to be in em's
+$btn-padding-left:                      1.20em; // important: has to be in em's
+$btn-line-height:                       1.25;
+
+// Global Button and Input Borders
+$button-border-style:                    $form-field-border-style;
+$button-border-width:                    3px;
+$button-border-color:                    $form-field-border-color;
+
+// disabled button
+$btn-link-disabled-color:               $gray-light;
+
+// Allows for customizing button radius independently from global border radius
+$btn-border-radius-base:                $form-field-border-radius-default;
+$btn-border-radius-large:               $form-field-border-radius-default;
+$btn-border-radius-small:               $form-field-border-radius-default;
+
+// .btn-container (spacing between buttons)
+$btn-container-btn-spacing-xs:          0.5em;
+$btn-container-btn-spacing-md:          0.5em;
+$btn-container-btn-spacing-xl:          0.5em;
+
+// button icons (arrow, plus)
+$btn-icon-size:                         0.8em;
+$btn-icon-spacing:                      0.4em;
+$btn-icon-transition-duration:          300ms;
+$btn-icon-transition-timing-function:   ease-in-out;
+
+// mask animation
+$btn-mask-transition-duration:                      ease;
+$btn-mask-transition-timing-function:               400ms;
+$btn-mask-transition-direction-starting-point:      'bottom'; // top, right, bottom or left
+
+// button variation config
+$btn-disabled-lighten: 20%;
+
+$btn-variations: (
+    'default': (
+        // default
+        'color':                         $white,
+        'bg':                            $black,
+        'border':                        true,
+        'border-top-color':              $black,
+        'border-right-color':            $black,
+        'border-bottom-color':           $black,
+        'border-left-color':             $black,
+        // hover
+        'bg-hover':                      $white,
+        'color-hover':                   $black,
+        'border-hover':                  true,
+        'border-top-color-hover':        $black,
+        'border-right-color-hover':      $black,
+        'border-bottom-color-hover':     $black,
+        'border-left-color-hover':       $black,
+        // disabled
+        'color-disabled':                $white,
+        'bg-disabled':                   lighten($black,$btn-disabled-lighten),
+        'border-disabled':               false,
+        'border-top-color-disabled':     lighten($black,$btn-disabled-lighten),
+        'border-right-color-disabled':   lighten($black,$btn-disabled-lighten),
+        'border-bottom-color-disabled':  lighten($black,$btn-disabled-lighten),
+        'border-left-color-disabled':    lighten($black,$btn-disabled-lighten),
+    ),
+    'primary': (
+        // default
+        'color':                         $black,
+        'bg':                            transparent,
+        'border':                        true,
+        'border-top-color':              $black,
+        'border-right-color':            $black,
+        'border-bottom-color':           $black,
+        'border-left-color':             $black,
+        // hover
+        'bg-hover':                      $black,
+        'color-hover':                   $white,
+        'border-hover':                  true,
+        'border-top-color-hover':        $black,
+        'border-right-color-hover':      $black,
+        'border-bottom-color-hover':     $black,
+        'border-left-color-hover':       $black,
+        // disabled
+        'color-disabled':                $black,
+        'bg-disabled':                   transparent,
+        'border-disabled':               true,
+        'border-top-color-disabled':     transparent,
+        'border-right-color-disabled':   transparent,
+        'border-bottom-color-disabled':  transparent,
+        'border-left-color-disabled':    transparent,
+    ),
+    'link': (
+        'color':                         $black,
+        'bg':                            transparent,
+        // default
+        'border-top-color':              transparent,
+        'border-right-color':            transparent,
+        'border-bottom-color':           transparent,
+        'border-left-color':             transparent,
+        // hover
+        'bg-hover':                      transparent,
+        'color-hover':                   $black,
+        'border-top-color-hover':        transparent,
+        'border-right-color-hover':      transparent,
+        'border-bottom-color-hover':     transparent,
+        'border-left-color-hover':       transparent,
+        // disabled
+        'color-disabled':                $black,
+        'bg-disabled':                   transparent,
+        'border-top-color-disabled':     transparent,
+        'border-right-color-disabled':   transparent,
+        'border-bottom-color-disabled':  transparent,
+        'border-left-color-disabled':    transparent,
+    ),
+);

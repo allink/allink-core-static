@@ -35,7 +35,8 @@ Inpspired by: http://tympanus.net/codrops/2015/09/15/styling-customizing-file-in
     > label {
         // we simply extend the predifend .btn class and desired button variation defined in variables.scss
         @include button-base();
-        @include button-variation($file-upload-btn-variation)
+        @include button-variation($file-upload-btn-variation);
+        @include button-mask-effect($file-upload-btn-variation);
         padding-left: $file-upload-padding-left;
         cursor: pointer;
         @if $file-upload-icon {

@@ -50,6 +50,7 @@ Newsletter signup form
         @include button-base();
         @if $signup-form-button-variation-enabled {
             @include button-variation($signup-form-button-variation);
+            @include button-mask-effect($signup-form-button-variation);
         }
         @else {
             position: relative;

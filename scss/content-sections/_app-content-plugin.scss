@@ -14,25 +14,6 @@ List View (this includes ALL plugin templates such as Grid (Static), Table, and 
         z-index: 2;
     }
 
-    &__detail-link {
-        @include button-base();
-        @include button-variation($app-list-btn-variation);
-        @if $app-list-btn-padding-enabled == false {
-            padding: 0;
-        }
-        // Button Softpage
-        &[data-softpage] {
-            @include button-icon($icon:'plus');
-        }
-    }
-
-    &__load-more-link {
-        @include button-base();
-        @include button-variation($app-list-load-more-btn-variation);
-        @if $app-list-load-more-btn-padding-enabled == false {
-            padding: 0;
-        }
-    }
     &__no-results {
         @include fluid-size((min: $app-list-no-result-cotainer-min-height-min, max: $app-list-no-result-cotainer-min-height-max), 'min-height');
     }
