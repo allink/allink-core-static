@@ -8,6 +8,21 @@ Each release is divided into the following main categories:
 
 ## v2.0.0 (under development)
 ### IMPORTANT
+- Refactored button styles:
+    - Moved button variables into separate file `scss/base/variables/_buttons.scss`
+    - Added new mixins to style your buttons with animations (available on project basis)
+        - Text links:
+            ```SCSS
+            @include link-style();
+            @include link-background-effect();
+            ```
+        - Buttons:
+            ```SCSS
+            @include button-base();
+            @include button-variation('default');
+            @include button-mask-effect('default');
+            ```
+    - Removed unused button styles
 - Removed `softpage-variation`. There is only one type of softpage now.
 - Removed the following modules:
     - to-the-top
