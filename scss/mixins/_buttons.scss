@@ -206,7 +206,7 @@ Button Mask
         overflow: hidden;
         position: absolute;
         right: 0;
-        top: auto;
+        top: 0;
         transform: translateY(100%);
         transition: transform $btn-mask-transition-duration $btn-mask-transition-timing-function;
 
