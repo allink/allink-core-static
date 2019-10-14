@@ -60,6 +60,7 @@ export function initFormValidation() {
             unhighlight: function(element) {
                 // form element itself
                 $(element).removeClass('error');
+
                 // form group, or error state handler (in case of multi column forms)
                 var $error_state_handler = $(element).parents('.error-state-handler');
                 if ($error_state_handler.length > 0) {
@@ -71,6 +72,8 @@ export function initFormValidation() {
             highlight: function(element) {
                 // form element itself
                 $(element).addClass('error');
+                $($(element).parents('form').first()[0]).find('.has-error button, .error').focus();
+
                 // form group, or error state handler (in case of multi column forms)
                 var $error_state_handler = $(element).parents('.error-state-handler');
                 if ($error_state_handler.length > 0) {
