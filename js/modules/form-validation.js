@@ -27,9 +27,6 @@ import validate from 'jquery-validation';
 import { sendAjaxForm } from './ajax-form';
 
 export function initFormValidation() {
-
-    let form_group_selector = '.form-group';
-
     $('form.validate-form').each(function(){
         // init
         var $form = $(this);
