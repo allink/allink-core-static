@@ -96,12 +96,12 @@ export function initBrowserCheck(options={}) {
         for (let browser in suggestions) {
             if (suggestions.hasOwnProperty(browser)) {
                 html += `
-                    <a href="${ suggestions[browser] }" class="button-link-plugin__link  btn btn-default btn-md" target="_blank" rel="noopener" role="button">
-                        <span class="button-link-plugin__text">
+                    <a href="${ suggestions[browser] }" class="btn btn-default btn-md" target="_blank" rel="noopener" role="button">
+                        <span class="link-text">
                             ${ browser }
                         </span>
-                        <span class="btn__text--mask">
-                            <span class="btn__text--mask__inner">
+                        <span class="link-text-mask">
+                            <span class="link-text-mask__inner">
                                 ${ browser }
                             </span>
                         </span>
