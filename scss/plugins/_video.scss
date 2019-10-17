@@ -77,7 +77,8 @@
         }
     }
     // autoplay enabled
-    &.autoplay-enabled {
+    &.autoplay-enabled,
+    &.autoplay-mobile-enabled {
         .the-video {
             transition: none;
             opacity: 1;
@@ -108,11 +109,11 @@
         }
     }
     // on mobile, only show poster
-    &.poster-only-on-mobile {
-        &.controls-disabled {
-            .video-controls {
-                display: none;
-            }
+    &.poster-only-on-mobile,
+    &.controls-disabled,
+    &.autoplay-mobile-enabled {
+        .video-controls {
+            display: none;
         }
     }
 }

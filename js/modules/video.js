@@ -56,6 +56,7 @@ $(function () {
         var on_pause_class = 'on-pause';
         var playing_class = 'playing';
         var autoplay_class = 'autoplay-enabled';
+        var autoplay_mobile_class = 'autoplay-mobile-enabled';
         var disable_remote_playback_attribute = 'disableRemotePlayback';
         var controls_disabled_class = 'controls-disabled';
         var initialized_attr = 'data-controls-initialized';
@@ -100,6 +101,10 @@ $(function () {
                 $plugin_container.addClass(ipad_class);
             }
 
+            if ($plugin_container.hasClass(autoplay_mobile_class)) {
+                is_mobile = false;
+            }
+
             // on mobile: set pause indicator
             if (is_mobile) {
                 $plugin_container.addClass(on_pause_class);
@@ -126,8 +131,8 @@ $(function () {
 
             // after checking for mobile devices, continue slightly delayed
             setTimeout(function () {
-                // add event listener to video controls, but only continue if autplay is DISABLED, or when we're on mobile
-                if ($plugin_container.hasClass(autoplay_class) === false || is_mobile) {
+                // add event listener to video controls, but only continue if autoplay is DISABLED, or when we're on mobile
+                if ($plugin_container.hasClass(autoplay_class) === false || $plugin_container.hasClass(autoplay_mobile_class) === false || is_mobile) {
                     var controls_initialized = $video_controls.attr(initialized_attr);
                     // NOT initialized yet
                     if (typeof controls_initialized === 'undefined') {
@@ -170,7 +175,7 @@ $(function () {
                 }
 
                 // only continue if autoplay is enabled, and we are NOT on mobile
-                if ($plugin_container.hasClass(autoplay_class) && !is_mobile) {
+                if ($plugin_container.hasClass(autoplay_class) || $plugin_container.hasClass(autoplay_mobile_class) && !is_mobile) {
                     // start video when element is on screen
                     if ($vid.videoIsOnScreen() || e && (e.type == 'softpage:opened' || e.type == 'default-modal:opened')) {
                         // per default, a video is "on pause" - let's remove this and don't come back here when there is no on_pause_class, because that means the video is playing
@@ -216,5 +221,12 @@ $(function () {
     $(window).on('initInlineVideo viewportWidthHasChanged softpage:opened default-modal:opened', function (e) {
         initInlineVideo(e);
     });
+
+    // re-init after cms page refresh
+    if (window.CMS) {
+        CMS.$(window).on('cms-content-refresh', (e) => {
+            initInlineVideo(e);
+        });
+    }
 
 });
