@@ -8,37 +8,31 @@ Video functionality for our "Content Plugin"
 // https://github.com/bfred-it/iphone-inline-video
 import enableInlineVideo from 'iphone-inline-video';
 
-$(function () {
-
+$(() => {
     /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 
     Helper Functions and Events
 
     */
 
-    $.fn.videoIsOnScreen = function () {
-
-        var element = this.get(0);
-        var bounds = element.getBoundingClientRect();
+    $.fn.videoIsOnScreen = function videoIsOnScreen() {
+        const element = this.get(0);
+        const bounds = element.getBoundingClientRect();
 
         return bounds.top < window.innerHeight && bounds.bottom > 0;
-
     };
 
-    $.fn.videoScrollStopped = function (callback) {
-
+    $.fn.videoScrollStopped = function videoScrollStopped(callback) {
         // init
-        var timeout = 50;
+        const timeout = 50;
 
         // fire delayed scroll
-        $(this).scroll(function () {
-            var self = this, $this = $(self);
-            if ($this.data('scrollTimeout')) {
-                clearTimeout($this.data('scrollTimeout'));
+        $(this).scroll(() => {
+            if ($(this).data('scrollTimeout')) {
+                clearTimeout($(this).data('scrollTimeout'));
             }
-            $this.data('scrollTimeout', setTimeout(callback, timeout, self));
+            $(this).data('scrollTimeout', setTimeout(callback, timeout, this));
         });
-
     };
 
 
@@ -49,176 +43,162 @@ $(function () {
     */
 
     function initInlineVideo(e) {
-
         // init
-        var $videos = $('.the-video');
-        var loaded_class = 'loaded';
-        var on_pause_class = 'on-pause';
-        var playing_class = 'playing';
-        var autoplay_class = 'autoplay-enabled';
-        var autoplay_mobile_class = 'autoplay-mobile-enabled';
-        var disable_remote_playback_attribute = 'disableRemotePlayback';
-        var controls_disabled_class = 'controls-disabled';
-        var initialized_attr = 'data-controls-initialized';
-        var window_width = $(window).width();
-        var mobile_max_width = 1023;
-        var mobile_class = 'is-mobile';
-        var ipad_class = 'is-ipad';
-        var is_iPad = navigator.userAgent.indexOf("iPad") != -1;
+        const $videos = $('.the-video');
+        const loadedClass = 'loaded';
+        const onPauseClass = 'on-pause';
+        const playingClass = 'playing';
+        const autoplayClass = 'autoplay-enabled';
+        const autoplayMobileClass = 'autoplay-mobile-enabled';
+        const disableRemotePlaybackAttribute = 'disableRemotePlayback';
+        const controlsDisabledClass = 'controls-disabled';
+        const initializedAttr = 'data-controls-initialized';
+        const windowWidth = $(window).width();
+        const mobileMaxWidth = 1023;
+        const ipadClass = 'is-ipad';
+        const isiPad = navigator.userAgent.indexOf('iPad') !== -1;
 
         // general mobile check
-        var is_mobile = false;
+        let isMobile = false;
         // this includes tablet, EXPLUDING iPad
-        if (window_width <= mobile_max_width && is_iPad === false) {
-            is_mobile = true;
+        if (windowWidth <= mobileMaxWidth && isiPad === false) {
+            isMobile = true;
         }
 
         // loop through video sections
-        $videos.each(function () {
+        $videos.each((_, element) => {
             // init
-            var $vid = $(this);
-            var $plugin_container = $vid.parents('.content-plugin');
-            if ($plugin_container.length === 0) {
-                $plugin_container = $vid.parents('.content-section__video-container');
+            const $vid = $(element);
+
+            let $pluginContainer = $vid.parents('.content-plugin');
+            if ($pluginContainer.length === 0) {
+                $pluginContainer = $vid.parents('.content-section__video-container');
             }
-            var $video_controls = $plugin_container.find('.video-controls');
+            const $videoControls = $pluginContainer.find('.video-controls');
 
             // if hidden, do not initialize video control trigger
             // use case: when used in a default modal
-            if ($vid.is(":visible") === false) {
+            if ($vid.is(':visible') === false) {
                 return true;
             }
 
             // enable videos on iPads
-            if (is_iPad) {
+            if (isiPad) {
                 enableInlineVideo($vid.get(0), {
-                    iPad: true
+                    iPad: true,
                 });
             }
 
             // add class to indicate we're on an iPad
-            if (is_iPad) {
-                $plugin_container.addClass(ipad_class);
+            if (isiPad) {
+                $pluginContainer.addClass(ipadClass);
             }
 
-            if ($plugin_container.hasClass(autoplay_mobile_class)) {
-                is_mobile = false;
+            if ($pluginContainer.hasClass(autoplayMobileClass)) {
+                isMobile = false;
             }
 
             // on mobile: set pause indicator
-            if (is_mobile) {
-                $plugin_container.addClass(on_pause_class);
+            if (isMobile) {
+                $pluginContainer.addClass(onPauseClass);
             }
 
             // set src if it hasn't been done already
-            let $source = $vid.find('source');
-            if (typeof $source.attr('src') === 'undefined' && !is_mobile) {
-                let video_src = $source.data('src');
-                $source.attr('src', video_src);
+            const $source = $vid.find('source');
+            if (typeof $source.attr('src') === 'undefined' && !isMobile) {
+                const videoSrc = $source.data('src');
+                $source.attr('src', videoSrc);
             }
 
             // set poster in any case
             if (typeof $vid.attr('poster') === 'undefined') {
-                let poster_src = $vid.data('poster');
-                $vid.attr('poster', poster_src);
+                const posterSrc = $vid.data('poster');
+                $vid.attr('poster', posterSrc);
             }
 
             // in case of iPad but not mobile, hide the controls
-            if (!is_mobile && is_iPad) {
-                $plugin_container.removeClass(controls_disabled_class);
-                $vid.removeAttr(disable_remote_playback_attribute);
+            if (!isMobile && isiPad) {
+                $pluginContainer.removeClass(controlsDisabledClass);
+                $vid.removeAttr(disableRemotePlaybackAttribute);
             }
 
             // after checking for mobile devices, continue slightly delayed
-            setTimeout(function () {
+            setTimeout(() => {
                 // add event listener to video controls, but only continue if autoplay is DISABLED, or when we're on mobile
-                if ($plugin_container.hasClass(autoplay_class) === false || $plugin_container.hasClass(autoplay_mobile_class) === false || is_mobile) {
-                    var controls_initialized = $video_controls.attr(initialized_attr);
+                if ($pluginContainer.hasClass(autoplayClass) === false || $pluginContainer.hasClass(autoplayMobileClass) === false || isMobile) {
+                    const controlsInitialized = $videoControls.attr(initializedAttr);
                     // NOT initialized yet
-                    if (typeof controls_initialized === 'undefined') {
-                        $video_controls.on('click',
-                            function () {
+                    if (typeof controlsInitialized === 'undefined') {
+                        $videoControls.on('click',
+                            () => {
                                 // init
-                                let $controls = $(this);
-                                if ($plugin_container.hasClass(on_pause_class)) {
-                                    // mobile: set src if it hasn't been done already
-                                    if (is_mobile) {
-                                        let $source = $vid.find('source');
-                                        if (typeof $source.attr('src') === 'undefined') {
-                                            let video_src = $source.data('src');
-                                            $source.attr('src', video_src);
-                                        }
-                                    }
+                                if ($pluginContainer.hasClass(onPauseClass)) {
                                     // after SRC has been set, load it
-                                    if ($plugin_container.hasClass(loaded_class) === false) {
+                                    if ($pluginContainer.hasClass(loadedClass) === false) {
                                         $vid.get(0).load();
                                     }
                                     // toggle classes
-                                    $plugin_container.removeClass(on_pause_class);
-                                    $plugin_container.addClass(playing_class);
+                                    $pluginContainer.removeClass(onPauseClass);
+                                    $pluginContainer.addClass(playingClass);
                                     // let's play
                                     $vid.get(0).play();
                                     // and mark the video as loaded (for possible transitions)
-                                    $plugin_container.addClass(loaded_class);
+                                    $pluginContainer.addClass(loadedClass);
                                 } else {
                                     // pause the video and..
                                     $vid.get(0).pause();
                                     // ..toggle classes
-                                    $plugin_container.addClass(on_pause_class);
-                                    $plugin_container.removeClass(playing_class);
+                                    $pluginContainer.addClass(onPauseClass);
+                                    $pluginContainer.removeClass(playingClass);
                                 }
-                            }
-                        );
+                            });
                         // mark as initialized
-                        $video_controls.attr(initialized_attr, '');
+                        $videoControls.attr(initializedAttr, '');
                     }
                 }
 
                 // only continue if autoplay is enabled, and we are NOT on mobile
-                if ($plugin_container.hasClass(autoplay_class) || $plugin_container.hasClass(autoplay_mobile_class) && !is_mobile) {
+                if ($pluginContainer.hasClass(autoplayClass) || ($pluginContainer.hasClass(autoplayMobileClass) && !isMobile)) {
                     // start video when element is on screen
-                    if ($vid.videoIsOnScreen() || e && (e.type == 'softpage:opened' || e.type == 'default-modal:opened')) {
+                    if ($vid.videoIsOnScreen() || (e && (e.type === 'softpage:opened' || e.type === 'default-modal:opened'))) {
                         // per default, a video is "on pause" - let's remove this and don't come back here when there is no on_pause_class, because that means the video is playing
-                        if ($plugin_container.hasClass(on_pause_class)) {
-                            setTimeout(function () {
+                        if ($pluginContainer.hasClass(onPauseClass)) {
+                            setTimeout(() => {
                                 // has video been loaded?
-                                if ($plugin_container.hasClass(loaded_class) === false) {
+                                if ($pluginContainer.hasClass(loadedClass) === false) {
                                     $vid.get(0).load();
                                 }
                                 // remove class
-                                $plugin_container.removeClass(on_pause_class);
+                                $pluginContainer.removeClass(onPauseClass);
                                 // let's play
                                 $vid.get(0).play();
                                 // and mark the video as loaded (for possible transitions)
-                                $plugin_container.addClass(loaded_class);
+                                $pluginContainer.addClass(loadedClass);
                             }, 100);
                         }
-                    }
-                    // not on screen? pause it
-                    else {
+                    } else { // not on screen? pause it
                         // pause the video and..
                         $vid.get(0).pause();
                         // ..add class
-                        $plugin_container.addClass(on_pause_class);
+                        $pluginContainer.addClass(onPauseClass);
                     }
                 }
-
             }, 100);
 
+            return true;
         });
-
     }
 
     // on page load
     initInlineVideo();
 
     // when scrolling has stopped
-    $(window).videoScrollStopped(function (e) {
+    $(window).videoScrollStopped((e) => {
         initInlineVideo(e);
     });
 
     // when resizing the window
-    $(window).on('initInlineVideo viewportWidthHasChanged softpage:opened default-modal:opened', function (e) {
+    $(window).on('initInlineVideo viewportWidthHasChanged softpage:opened default-modal:opened', (e) => {
         initInlineVideo(e);
     });
 
@@ -228,5 +208,4 @@ $(function () {
             initInlineVideo(e);
         });
     }
-
 });

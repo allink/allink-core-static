@@ -109,8 +109,15 @@
         }
     }
     // on mobile, only show poster
-    &.poster-only-on-mobile,
-    &.controls-disabled,
+    &.poster-only-on-mobile {
+        &.controls-disabled {
+            .video-controls {
+                display: none;
+            }
+        }
+    }
+
+    // hide controls when autoplay is enabled on mobile
     &.autoplay-mobile-enabled {
         .video-controls {
             display: none;
