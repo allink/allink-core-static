@@ -31,10 +31,14 @@
     "eslint": "^5.16.0",
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-plugin-import": "^2.17.3",
-    "eslint-plugin-vue": "^5.2.2"
+    "eslint-plugin-vue": "^5.2.2",
+    "np": "^5.1.1"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "patch": "np patch --no-publish --any-branch --no-tests",
+    "minor": "np minor --no-publish --any-branch --no-tests",
+    "publish": "np publish"
   },
   "repository": {
     "type": "git",
