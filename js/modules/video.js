@@ -131,6 +131,13 @@ $(() => {
                     if (typeof controlsInitialized === 'undefined') {
                         $videoControls.on('click',
                             () => {
+                                // mobile: set src if it hasn't been done already
+                                if (isMobile) {
+                                    if (typeof $source.attr('src') === 'undefined') {
+                                        const videoSrc = $source.data('src');
+                                        $source.attr('src', videoSrc);
+                                    }
+                                }
                                 // init
                                 if ($pluginContainer.hasClass(onPauseClass)) {
                                     // after SRC has been set, load it
