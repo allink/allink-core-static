@@ -6,8 +6,9 @@ Each release is divided into the following main categories:
 - NEW: New features or plugins
 - FIXES: General bugfixes
 
-## v2.0.0 (under development)
+## v2.1.0
 ### IMPORTANT
+- UPDATE REQUIRED: allink-core v2.1.0
 - Refactored button styles:
     - Moved button variables into separate file `scss/base/variables/_buttons.scss`
     - Added new mixins to style your buttons with animations (available on project basis)
@@ -23,6 +24,14 @@ Each release is divided into the following main categories:
             @include button-mask-effect('default');
             ```
     - Removed unused button styles
+### NEW
+- Added allink_quote plugin
+### FIXES
+- Fixed invalid form field focus
+- Updated button markup and styles
+
+## v2.0.0
+### IMPORTANT
 - Removed `softpage-variation`. There is only one type of softpage now.
 - Removed the following modules:
     - to-the-top
@@ -87,8 +96,8 @@ Each release is divided into the following main categories:
 ### NEW
 - The mixin make-container now uses fluid paddings.
 - Added script for browser recognition/suggestions:
-import `'./modules/browser-recognition';` to app.js
-include `'includes/browser-check.html'` to your base_root template
+    import `'./modules/browser-recognition';` to app.js
+    include `'includes/browser-check.html'` to your base_root template
 
 - Added font-cropping mixin
     Example:
