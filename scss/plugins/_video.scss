@@ -77,7 +77,8 @@
         }
     }
     // autoplay enabled
-    &.autoplay-enabled {
+    &.autoplay-enabled,
+    &.autoplay-mobile-enabled {
         .the-video {
             transition: none;
             opacity: 1;
@@ -113,6 +114,13 @@
             .video-controls {
                 display: none;
             }
+        }
+    }
+
+    // hide controls when autoplay is enabled on mobile
+    &.autoplay-mobile-enabled {
+        .video-controls {
+            display: none;
         }
     }
 }

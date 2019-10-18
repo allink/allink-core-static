@@ -94,6 +94,9 @@ Each release is divided into the following main categories:
     ```
 - Added eslint with default config.
 ### NEW
+- Video-Plugin:
+    - Added autoplay option for mobile devices
+    - Linting file video.js
 - The mixin make-container now uses fluid paddings.
 - Added script for browser recognition/suggestions:
     import `'./modules/browser-recognition';` to app.js
