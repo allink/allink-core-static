@@ -6,6 +6,14 @@ Each release is divided into the following main categories:
 - NEW: New features or plugins
 - FIXES: General bugfixes
 
+## v2.2.0
+### IMPORTANT
+- UPDATE REQUIRED: allink-core v2.2.0
+## NEW
+- Video-Plugin:
+    - Added autoplay option for mobile devices
+    - Linting file video.js
+
 ## v2.1.0
 ### IMPORTANT
 - UPDATE REQUIRED: allink-core v2.1.0
@@ -94,9 +102,6 @@ Each release is divided into the following main categories:
     ```
 - Added eslint with default config.
 ### NEW
-- Video-Plugin:
-    - Added autoplay option for mobile devices
-    - Linting file video.js
 - The mixin make-container now uses fluid paddings.
 - Added script for browser recognition/suggestions:
     import `'./modules/browser-recognition';` to app.js
