@@ -90,8 +90,8 @@ Each release is divided into the following main categories:
     - Linting file video.js
 - The mixin make-container now uses fluid paddings.
 - Added script for browser recognition/suggestions:
-import `'./modules/browser-recognition';` to app.js
-include `'includes/browser-check.html'` to your base_root template
+    import `'./modules/browser-recognition';` to app.js
+    include `'includes/browser-check.html'` to your base_root template
 
 - Added font-cropping mixin
     Example:
