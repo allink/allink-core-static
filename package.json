@@ -1,6 +1,6 @@
 {
   "name": "allink-core-static",
-  "version": "2.2.0",
+  "version": "2.2.1",
   "description": "The allink core styles/scripts for our Django CMS setup.",
   "main": "allink-core-static",
   "directories": {
