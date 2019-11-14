@@ -6,6 +6,11 @@ Each release is divided into the following main categories:
 - NEW: New features or plugins
 - FIXES: General bugfixes
 
+## v2.2.1
+### FIXES
+- Fixed button masking effect jiggle when mask has borders, updated base button variables
+    - Note: some subpixel rendering issues may occur on certain screens (i.e. non-retina) when hover state has a border: https://www.chenhuijing.com/blog/about-subpxiel-rendering-in-browsers
+
 ## v2.2.0
 ### IMPORTANT
 - UPDATE REQUIRED: allink-core v2.2.0
