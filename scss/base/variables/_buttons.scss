@@ -61,7 +61,7 @@ $btn-line-height:                       1.25;
 
 // Global Button and Input Borders
 $button-border-style:                    $form-field-border-style;
-$button-border-width:                    3px;
+$button-border-width:                    0.0625rem;
 $button-border-color:                    $form-field-border-color;
 
 // disabled button
@@ -84,8 +84,8 @@ $btn-icon-transition-duration:          300ms;
 $btn-icon-transition-timing-function:   ease-in-out;
 
 // mask animation
-$btn-mask-transition-duration:                      ease;
-$btn-mask-transition-timing-function:               400ms;
+$btn-mask-transition-duration:                      400ms;
+$btn-mask-transition-timing-function:               ease;
 $btn-mask-transition-direction-starting-point:      'bottom'; // top, right, bottom or left
 
 // button variation config
