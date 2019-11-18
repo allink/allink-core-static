@@ -6,7 +6,13 @@ Each release is divided into the following main categories:
 - NEW: New features or plugins
 - FIXES: General bugfixes
 
-## v1.0.x (under development)
+
+## v0.1.1 (next version)
+
+## v0.0.3 - v0.1.0
+The tag v0.1.0 matches the version v0.1.0 in allink-core.
+
+## v0.0.3
 
 ### IMPORTANT
 - Video Updates (conditional loading of video source): Requires latest core markup of `allink_core/core_apps/allink_content/templates/allink_content/content_base.html` and `allink_core/core_apps/allink_video/templates/allink_video/file/content.html`.
