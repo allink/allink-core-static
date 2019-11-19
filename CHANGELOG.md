@@ -6,6 +6,10 @@ Each release is divided into the following main categories:
 - NEW: New features or plugins
 - FIXES: General bugfixes
 
+## v2.2.2
+### FIXES
+- Updated npm scripts: Don't automatically create a new release on Github
+
 ## v2.2.1
 ### FIXES
 - Fixed button masking effect jiggle when mask has borders, updated base button variables
