@@ -1,37 +1,43 @@
-.quote {
+.quote-plugin {
     @include spacings-size('spacing-scale-4', padding);
     @include spacings-size('spacing-scale-2', margin-top);
     border-top: solid $brand-primary 0.0625rem;
     border-bottom: solid $brand-primary 0.0625rem;
+    margin: 0;
 
-    &__text {
-        @include font-h4();
-        @include spacings-size('spacing-scale-4', margin-bottom);
-
-        &::before {
-            content: '«';
-            margin-left: -0.6em;
+    .quote {
+        &__text {
+            @include font-h4();
+            @include spacings-size('spacing-scale-4', margin-bottom);
         }
 
-        &::after {
-            content: '»';
-        }
+        &__quotation-mark {
+            // not pseudo-element because text-cropping conflict
+            display: block;
 
-        @include media-breakpoint-down(xs) {
-            &::before,
-            &::after {
-                display: block;
-                margin: 0;
+            &:first-child {
+                padding-right: 0.1em;
+            }
+            &:last-child {
+                padding-left: 0.1em;
+            }
+
+            @include media-breakpoint-up(md) {
+                display: inline;
+
+                &:first-child {
+                    margin-left: -0.6em;
+                }
             }
         }
-    }
 
-    &__author {
-        @include font-h5();
-        margin-bottom: 0.25rem;
-    }
+        &__author {
+            @include font-h5();
+            margin-bottom: 0.25rem;
+        }
 
-    &__author-description {
-        @include font-lead();
+        &__author-description {
+            @include font-lead();
+        }
     }
 }

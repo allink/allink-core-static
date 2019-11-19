@@ -36,8 +36,8 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "patch": "np patch --no-publish --any-branch --no-tests",
-    "minor": "np minor --no-publish --any-branch --no-tests",
+    "patch": "np patch --no-publish --any-branch --no-tests --no-release-draft",
+    "minor": "np minor --no-publish --any-branch --no-tests --no-release-draft",
     "publish": "np publish"
   },
   "repository": {
