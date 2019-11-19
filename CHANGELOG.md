@@ -6,6 +6,12 @@ Each release is divided into the following main categories:
 - NEW: New features or plugins
 - FIXES: General bugfixes
 
+## v2.2.2
+
+### IMPORTANT
+- Added font-cropping to default font mixins
+    - Update font-cropping values in local variables file: `scss/base/variables/_typography.scss`
+
 ## v2.2.1
 ### FIXES
 - Fixed button masking effect jiggle when mask has borders, updated base button variables
