@@ -6,6 +6,10 @@ Each release is divided into the following main categories:
 - NEW: New features or plugins
 - FIXES: General bugfixes
 
+## v2.2.2
+### FIXES
+- Updated quote-plugin styles
+
 ## v2.2.1
 ### FIXES
 - Fixed button masking effect jiggle when mask has borders, updated base button variables
