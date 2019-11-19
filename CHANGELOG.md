@@ -9,6 +9,7 @@ Each release is divided into the following main categories:
 ## v2.2.2
 ### FIXES
 - Updated quote-plugin styles
+- Updated npm scripts: Don't automatically create a new release on Github
 
 ## v2.2.1
 ### FIXES
