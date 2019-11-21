@@ -16,15 +16,19 @@
         margin: 0 auto;
 
         .lead {
-            margin-bottom: 0.3125rem;
             text-transform: uppercase;
             color: $gray-light;
+            margin: 0;
         }
 
         .heading {
-            margin-top: 0.3125rem;
-            margin-bottom: 0.9375rem;
+            @include spacings-size(spacing-equal-4, margin-top);
+            @include spacings-size(spacing-equal-3, margin-bottom);
             text-transform: uppercase;
+        }
+
+        .text-container {
+            @include spacings-size(spacing-scale-2, margin-bottom);
         }
 
         .text {
@@ -33,18 +37,24 @@
             margin-top: 0;
         }
 
-        .btn {
-            margin: 1.25rem 0;
-        }
-
         @include media-breakpoint-down(xs) {
             @include make-col(24);
             padding-top: 7.1875rem;
 
-            .btn {
+            .browser-download-btn {
                 display: block;
                 margin: 1.25rem 0;
             }
+        }
+    }
+
+    &__list {
+        display: flex;
+        flex-wrap: wrap;
+
+        .btn {
+            @include spacings-size(spacing-equal-5, margin-bottom);
+            @include spacings-size(spacing-equal-3, margin-right);
         }
     }
 }
