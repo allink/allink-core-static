@@ -70,6 +70,14 @@ Each release is divided into the following main categories:
     ```
 - Added eslint with default config.
 ### NEW
+- Added hrefLang to Sitemap
+ - activate feature for CMS Pages
+    import `from allink_core.core.sitemap import CMSHrefLangSitemap` to urls.py
+    register `sitemaps = {'cms': CMSHrefLangSitemap}` in urls.py
+ - activate feature for App Pages
+    import `from allink_core.core.sitemap import HrefLangSitemap` to sitemaps.py in used apps
+    register `class AppName(HrefLangSitemap):` in sitemaps.py in used apps
+
 - The mixin make-container now uses fluid paddings.
 - Added script for browser recognition/suggestions:
 import `'./modules/browser-recognition';` to app.js
