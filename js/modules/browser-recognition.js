@@ -29,17 +29,22 @@ export function initBrowserCheck(options={}) {
     };
 
     // browser names and the link to their download site, categorised by OS
-    let browserSuggestionList = options.browserSuggestionList || {
-        'windows': {
-            'Chrome': 'https://www.google.com/chrome/'
-        },
-        'macos': {
-            'Chrome': 'https://www.google.com/chrome/'
-        },
-        'linux': {
-            'Chrome': 'https://www.google.com/chrome/'
-        }
+    const chrome = {
+        label: gettext('Download Chrome'),
+        url: 'https://www.google.com/chrome/',
     };
+    let browserSuggestionList = options.browserSuggestionList || {
+        windows: {
+            [chrome.label]: chrome.url,
+        },
+        macos: {
+            [chrome.label]: chrome.url,
+        },
+        linux: {
+            [chrome.label]: chrome.url,
+        },
+    };
+
 
     const forceOverlay = location.search.match(/outdated/);
     const browser = Bowser.getParser(window.navigator.userAgent);
@@ -96,7 +101,7 @@ export function initBrowserCheck(options={}) {
         for (let browser in suggestions) {
             if (suggestions.hasOwnProperty(browser)) {
                 html += `
-                    <a href="${ suggestions[browser] }" class="btn btn-default btn-md" target="_blank" rel="noopener" role="button">
+                    <a href="${ suggestions[browser] }" class="btn btn-md browser-suggestion__btn-download" target="_blank" rel="noopener" role="button">
                         <span class="link-text">
                             ${ browser }
                         </span>
@@ -108,7 +113,7 @@ export function initBrowserCheck(options={}) {
                     </a>`
             }
         }
-        browserList.innerHTML = html;
+        browserList.innerHTML += html;
     }
 
     if (forceOverlay || !isValidBrowser && !hasChosenLegacyBrowser && browserSuggestionList.hasOwnProperty(userOS)) {
