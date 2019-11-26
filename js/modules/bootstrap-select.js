@@ -19,7 +19,7 @@ $(function(){
             const $select = $(this);
             if ($select.is(':visible') && $select.hasClass(initialized_class) === false) {
                 $select.selectpicker({
-                    style: 'btn-default bs-placeholder',
+                    style: 'bs-placeholder',
                     size: 'auto',
                     dropupAuto: true, // per default, let bootstrap select choose where to dislpay the dropdown (above or below). Should you want to force to display the form below, add the `data-dropup-auto="false"` attribute to the desired <select> element.
                     windowPadding: [bs_select_offset_top,0,0,0],

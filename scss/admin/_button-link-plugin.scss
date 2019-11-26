@@ -143,6 +143,35 @@ Form modifications
         }
     }
 
+    // loop through link variations
+    @each $key, $value in $link-variations {
+        .link-#{$key} {
+            border-bottom: 0;
+            box-shadow: inset 0 -0.1em 0 map-deep-get($value, 'border-color');
+            color: map-deep-get($value, 'color');
+            display: inline-flex;
+            padding-bottom: 0;
+            text-decoration: none;
+            transition: all 300ms ease;
+
+            &:hover,
+            &:focus,
+            &:active {
+                box-shadow: inset 0 -1.7em 0 map-deep-get($value, 'border-color-hover');
+                color: map-deep-get($value, 'color-hover');
+                margin-left: -0.25em;
+                margin-right: -0.25em;
+                padding-left: 0.25em;
+                padding-right: 0.25em;
+                text-decoration: none;
+            }
+
+            .link-text-mask {
+                display: none;
+            }
+        }
+    }
+
 }
 
 

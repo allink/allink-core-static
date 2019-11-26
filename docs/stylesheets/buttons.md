@@ -14,7 +14,7 @@ There are several options available to customize a link when including the templ
 
   - URL: `link_url="https://allink.ch"`
   - Label: `link_label="Button"`
-  - CSS classes: `link_classes="btn btn-default"`
+  - CSS classes: `link_classes="my-button"`
   - HTML attributes: `link_attributes="data-softpage data-trigger-softpage"`
   - SVG Icon: `icon="softpage"`
   - ID: `link_id="test-1"`

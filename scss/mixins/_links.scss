@@ -1,0 +1,31 @@
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+Link Variation with box-shadow effect
+
+*/
+
+@mixin link-variation($variation: 'default') {
+    border-bottom: 0;
+    box-shadow: inset 0 -0.1em 0 map-deep-get($link-variations, $variation, 'border-color');
+    color: map-deep-get($link-variations, $variation, 'color');
+    display: inline-flex;
+    padding-bottom: 0;
+    text-decoration: none;
+    transition: all 300ms ease;
+
+    &:hover,
+    &:focus,
+    &:active {
+        box-shadow: inset 0 -1.7em 0 map-deep-get($link-variations, $variation, 'border-color-hover');
+        color: map-deep-get($link-variations, $variation, 'color-hover');
+        margin-left: -0.25em;
+        margin-right: -0.25em;
+        padding-left: 0.25em;
+        padding-right: 0.25em;
+        text-decoration: none;
+    }
+
+    .link-text-mask {
+        display: none;
+    }
+}

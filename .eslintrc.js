@@ -23,6 +23,7 @@ module.exports = {
     rules: {
         "indent": ["error", 4],
         "max-len": 0,
+        "func-names": 0,
         "vue/html-indent": ["error", 4],
         "vue/max-attributes-per-line": 0,
     },

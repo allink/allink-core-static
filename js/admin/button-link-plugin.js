@@ -1,14 +1,24 @@
 function toggleButtonOptions(type) {
     // init
-    var type = type || $('.button-link-plugin .field-type input:checked').val();
-    var $btn_variations = $('.field-btn_context');
-    var $btn_sizes = $('.field-btn_size');
-    if (type == 'btn') {
-        $btn_variations.show();
-        $btn_sizes.show();
-    }else {
-        $btn_variations.hide();
-        $btn_sizes.hide();
+    const btnType = type || $('.button-link-plugin .field-type input:checked').val();
+    const $btnVariations = $('.field-btn_context');
+    const $btnSizes = $('.field-btn_size');
+    const $textLinkVariations = $('.field-txt_context');
+
+    if (btnType === 'btn') {
+        $btnVariations.show();
+        $btnSizes.show();
+        $textLinkVariations.hide();
+    }
+    else if (btnType === 'lnk') {
+        $textLinkVariations.show();
+        $btnVariations.hide();
+        $btnSizes.hide();
+    }
+    else {
+        $textLinkVariations.hide();
+        $btnVariations.hide();
+        $btnSizes.hide();
     }
 }
 
@@ -19,17 +29,16 @@ function setActiveStateButtonOptions($trigger) {
     $trigger.addClass('active');
 }
 
-$(function(){
-
+$(() => {
     /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 
     Watch out for changes on the link type
 
     */
 
-    $('.button-link-plugin .field-type input').on('change',function(){
+    $('.button-link-plugin .field-type input').on('change', function () {
         // init
-        var type = $(this).val();
+        const type = $(this).val();
         // toggle!
         toggleButtonOptions(type);
     });
@@ -40,13 +49,12 @@ $(function(){
 
     */
 
-    $('.button-link-plugin [data-toggle-active-state]').on('click',function(){
+    $('.button-link-plugin [data-toggle-active-state]').on('click', function () {
         // init
-        var $trigger = $(this);
+        const $trigger = $(this);
         setActiveStateButtonOptions($trigger);
     });
 
     // on page load
     toggleButtonOptions();
-
 });

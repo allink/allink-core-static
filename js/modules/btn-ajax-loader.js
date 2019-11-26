@@ -12,7 +12,7 @@ the buton goes back to normal.
 
 Required markup (button style can vary, of course:
 
-<a href="#" class="btn btn-default" data-btn-ajax-loader>
+<a href="#" class="btn data-btn-ajax-loader>
     <span class="btn-text"></span>
 </a>
 
