@@ -11,7 +11,7 @@ html {
 // default text color
 body {
     color: $body-color;
-    @include font-default($font-cropping-disable: true);
+    @include font-default($font-cropping-disabled: true);
     @include print() {
         color: $body-color-print;
     }
