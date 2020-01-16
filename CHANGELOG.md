@@ -27,6 +27,10 @@ The tag v1.1.0 matches the version v1.1.0 in allink-core.
   $newsletter-form-modal-max-width-xxl:        550px;
 ```
 - you must include "js/modules/ajax-load-plugins.js" in app.js otherwise plugin CMSAllinkLanguageChooserPlugin won't load
+```
+import 'allink-core-static/js/modules/ajax-load-plugins';
+```
+
 ### NEW
 - IE and Edge: Scrollbars now do NOT take up space anymore thanks to the `-ms-overflow-style: -ms-autohiding-scrollbar;` property.
 - CMS Structure: Added trigger to open cms structure from admin edit view
