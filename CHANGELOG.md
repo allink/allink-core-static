@@ -45,6 +45,7 @@ Each release is divided into the following main categories:
 - Updated quote-plugin styles
 - Updated npm scripts: Don't automatically create a new release on Github
 - Updated browser-check styles, code cleanup, added js translations
+- Fixed browser recognition
 
 
 ## v2.2.1
