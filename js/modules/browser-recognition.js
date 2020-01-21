@@ -54,8 +54,8 @@ export function initBrowserCheck(options={}) {
     const COOKIE_NAME = 'legacybrowser';
     const COOKIE_LIFETIME_IN_DAYS = 30;
 
-    const overlayWindowList = document.querySelectorAll('.browser-suggestion');
-    const btnListVisitAnyways = document.querySelectorAll('.js-use-legacy-browser');
+    const overlayWindowList = document.getElementsByClassName('browser-suggestion');
+    const btnListVisitAnyways = document.getElementsByClassName('js-use-legacy-browser');
     const browserList = document.querySelector('.browser-suggestion__list');
 
     const hasChosenLegacyBrowser = getCookieIsLegacyBrowser();
@@ -122,6 +122,7 @@ export function initBrowserCheck(options={}) {
     }
 
     btnListVisitAnyways.forEach(btn => {
+        console.log('btn', btn);
         btn.addEventListener('click', visitPageAnyways);
     });
 };
