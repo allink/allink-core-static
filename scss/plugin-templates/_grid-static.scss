@@ -18,6 +18,11 @@
 
     // column settings
     .grid-item {
+        display: flex;
+        // any direct child of grid item should get 100% width
+        > * {
+            width: 100%;
+        }
         @include make-col-ready();
         .items-per-row-1 & {
             @include media-breakpoint-up(xs) {
