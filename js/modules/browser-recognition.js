@@ -122,7 +122,6 @@ export function initBrowserCheck(options={}) {
     }
 
     btnListVisitAnyways.forEach(btn => {
-        console.log('btn', btn);
         btn.addEventListener('click', visitPageAnyways);
     });
 };
