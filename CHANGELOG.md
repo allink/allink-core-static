@@ -46,6 +46,7 @@ Each release is divided into the following main categories:
 - Updated npm scripts: Don't automatically create a new release on Github
 - Updated browser-check styles, code cleanup, added js translations
 - Fixed browser recognition
+- Set grid-items to same height within row
 
 
 ## v2.2.1
