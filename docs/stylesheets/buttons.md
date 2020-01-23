@@ -15,7 +15,7 @@ There are several options available to customize a link when including the templ
   - URL: `link_url="https://allink.ch"`
   - Label: `link_label="Button"`
   - CSS classes: `link_classes="btn btn-default"`
-  - HTML attributes: `link_attributes="data-softpage data-trigger-softpage"`
+  - HTML attributes: `link_attributes="data-trigger-softpage"`
   - SVG Icon: `icon="softpage"`
   - ID: `link_id="test-1"`
   - Modal header title: `modal_header_title="Latest news"` (Default: `link_label`)
@@ -62,7 +62,7 @@ Here's an example of a module that is used in a default section and in the `inve
 
 ### Softpage links
 
-If you need to create a softpage link directly in the markup add `link_attributes="data-softpage data-trigger-softpage"` as a argument to the include tag. To change `modal-header-markup` from the default link_label add the `modal_header_title="Title"` argument.
+If you need to create a softpage link directly in the markup add `link_attributes="data-trigger-softpage"` as a argument to the include tag. To change `modal-header-markup` from the default link_label add the `modal_header_title="Title"` argument.
 
 ### Masking Effect
 
@@ -101,9 +101,15 @@ There are 2 default icons pre-defined for buttons:
 These icons can be changed in `static/scss/base/variables/_buttons.scss`.
 Additional icons must be added on a project basis in `static/scss/form/_buttons.scss` and the corresponding SVG file must exist in `static/icons`.
 
-To activate an icon on a button you need to the icon property on the `link` partial include:
+To activate an icon on a button you need to the icon property on the `link` partial include (this will set an attribute on the <a> tag. `data-icon-softpage`):
 ```HTML
-{% include "partials/buttons/link.html" with ... icon='softpage' %}
+{% include "partials/buttons/link.html" with ... icon="softpage" %}
+```
+If you need to add an icon directly to a <button> you can also add the `data-icon-softpage` attribute directly:
+```HTML
+<button class="btn btn-default" data-icon-softpage>
+    {% include "partials/buttons/link_text.html" with link_label="Hello" icon="softpage" %}
+</button>
 ```
 
 ```SCSS
@@ -111,7 +117,7 @@ button {
     @include button-base();
     @include button-variation('default');
     // Button Softpage
-    &[data-softpage] {
+    &[data-icon-softpage] {
         @include icon-softpage();
 
     }
