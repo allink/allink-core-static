@@ -123,8 +123,6 @@ $(function(){
                 // init
                 let $modal = $(obj.modal.modal);
                 $(window).trigger('softpage:closed');
-                // remove variation definition
-                $(obj.modal.modal).removeAttr('data-softpage');
                 // remove any content (issue: video was still playing)
                 $(obj.modal.modal).find('.tingle-modal-box__content').empty();
                 // remove flag on html element
