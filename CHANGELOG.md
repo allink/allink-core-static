@@ -6,6 +6,33 @@ Each release is divided into the following main categories:
 - NEW: New features or plugins
 - FIXES: General bugfixes
 
+## v2.3.1
+### FIXES
+- Added font-cropping-disable option. In some places (e.g. body) where the `font-default` mixin is used, font-cropping doesn't make sense. Only on the text tags directly.<br>
+    - Locally the typography mixins should be updated like this:<br>
+        ```SCSS
+                @mixin font-default($font-cropping-disabled: false) {
+                letter-spacing: $font-default-letter-spacing;
+                text-transform: $font-default-text-transform;
+                font-family: $font-default-font-family;
+                font-weight: $font-default-font-weight;
+                @include font-size($font-default-font-sizes);
+                @include hyphens();
+                @if $font-cropping-disabled == false {
+                    @include text-crop($font-default-crop-top, $font-default-crop-bottom);
+                }
+                @if $font-default-antialiased-enabled == true {
+                    @include antialiased();
+                }
+            }
+        ```
+
+        Usage:
+
+        ```SCSS
+        @include font-default($font-cropping-disabled: true);
+        ```
+
 ## v2.3.0
 
 ### IMPORTANT
