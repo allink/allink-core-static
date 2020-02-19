@@ -9,7 +9,7 @@ Each release is divided into the following main categories:
 ## v2.4.0 (next version)
 ### IMPORTANT
 - we removed contact app from allink-core
-- we removed newsletter app from allink-core 
+- we removed newsletter app from allink-core
 
 ## v2.3.1
 ### FIXES
