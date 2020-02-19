@@ -4,7 +4,7 @@ Global solution for simple AJAX forms
 
 Usage:
 
-    <form class="ajax-form" data-ajax-response-container-id="example-form-container" data-success-data-layer-event="newsletter.sent" action="/example-url/">
+    <form class="ajax-form" data-ajax-response-container-id="example-form-container" data-success-data-layer-event="someform.sent" action="/example-url/">
         <div
             data-layer-variable="example-variable-1"
             data-layer-value="example-value-1"
@@ -19,7 +19,7 @@ Usage:
 
 Google Tag Manager GTM note:
 
-Send a custom event to GTM by adding the 'data-success-data-layer-event' attribute to the <form> and pass a value e.g. 'newsletter.sent' that matched your GTM settings.
+Send a custom event to GTM by adding the 'data-success-data-layer-event' attribute to the <form> and pass a value e.g. 'someform.sent' that matched your GTM settings.
 
 Important:
 

@@ -81,14 +81,4 @@ Form modal
     }
 
     // variations
-    &[data-form-modal-variation="newsletter-form"] {
-        .tingle-modal-box {
-            @include media-breakpoint-up(sm) {
-                max-width: $newsletter-form-modal-max-width-md;
-            }
-            @include media-breakpoint-up(xxl) {
-                max-width: $newsletter-form-modal-max-width-xxl;
-            }
-        }
-    }
 }
