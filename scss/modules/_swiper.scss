@@ -147,10 +147,6 @@ Global Swiper Custom Styles
         display: none;
     }
     border-bottom: 1px solid $gray-lighter;
-    .testimonials-plugin & {
-        border-top: 1px solid $brand-primary !important;
-        border-bottom: none;
-    }
 }
 
 .swiper-content-container {
