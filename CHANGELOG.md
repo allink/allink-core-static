@@ -6,9 +6,10 @@ Each release is divided into the following main categories:
 - NEW: New features or plugins
 - FIXES: General bugfixes
 
-## v2.3.2 (next version)
+## v2.4.0 (next version)
 ### IMPORTANT
-- we removed contact app from allink-core 
+- we removed contact app from allink-core
+- we removed newsletter app from allink-core 
 
 ## v2.3.1
 ### FIXES
