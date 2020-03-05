@@ -105,7 +105,7 @@ To activate an icon on a button you need to the icon property on the `link` part
 ```HTML
 {% include "partials/buttons/link.html" with ... icon="softpage" %}
 ```
-If you need to add an icon directly to a <button> you can also add the `data-icon-softpage` attribute directly:
+If you need to add an icon directly to a `<button>` you can also add the `data-icon-softpage` attribute directly:
 ```HTML
 <button class="btn btn-default" data-icon-softpage>
     {% include "partials/buttons/link_text.html" with link_label="Hello" icon="softpage" %}
