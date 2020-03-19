@@ -33,7 +33,7 @@
             @include media-breakpoint-up(xs) {
                 @include make-col(24);
             }
-            @include media-breakpoint-up(sm) {
+            @include media-breakpoint-up(md) {
                 @include make-col(12);
             }
         }
@@ -41,10 +41,10 @@
             @include media-breakpoint-up(xs) {
                 @include make-col(24);
             }
-            @include media-breakpoint-up(sm) {
+            @include media-breakpoint-up(md) {
                 @include make-col(12);
             }
-            @include media-breakpoint-up(md) {
+            @include media-breakpoint-up(lg) {
                 @include make-col(8);
             }
         }
@@ -52,10 +52,10 @@
             @include media-breakpoint-up(xs) {
                 @include make-col(24);
             }
-            @include media-breakpoint-up(sm) {
+            @include media-breakpoint-up(md) {
                 @include make-col(12);
             }
-            @include media-breakpoint-up(md) {
+            @include media-breakpoint-up(lg) {
                 @include make-col(6);
             }
         }
