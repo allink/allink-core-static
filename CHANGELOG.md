@@ -12,7 +12,8 @@ Each release is divided into the following main categories:
 - Updated grid breakpoints for two, three and four items per row. Check layout in existing projects and overwrite styles where needed.
 
 ### FIXES
-- Fixed `button` tag in docs
+- Fixed `button` tag in docs [#23](https://github.com/allink/allink-core-static/pull/23)
+- Allow text in buttons to wrap [#25](https://github.com/allink/allink-core-static/pull/25)
 
 ## v2.4.1 (next version)
 
