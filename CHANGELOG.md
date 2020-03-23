@@ -6,6 +6,11 @@ Each release is divided into the following main categories:
 - NEW: New features or plugins
 - FIXES: General bugfixes
 
+## v2.5.0
+
+### FIXES
+- Fixed `button` tag in docs
+
 ## v2.4.1 (next version)
 
 ## v2.4.0
