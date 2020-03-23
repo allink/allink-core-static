@@ -6,6 +6,12 @@ Each release is divided into the following main categories:
 - NEW: New features or plugins
 - FIXES: General bugfixes
 
+## v2.5.0
+### IMPORTANT
+- Added viewport-height dependent Background Image (full width) as default
+    - $content-section-bg-image-outer-height-min has to exist in project variables
+    - $content-section-bg-image-outer-height-max has to exist in project variables
+
 ## v2.4.1 (next version)
 
 ## v2.4.0
