@@ -7,8 +7,10 @@ Each release is divided into the following main categories:
 - FIXES: General bugfixes
 
 ## v2.5.0
-
 ### IMPORTANT
+- Added viewport-height dependent Background Image (full width) as default
+    - $content-section-bg-image-outer-height-min has to exist in project variables
+    - $content-section-bg-image-outer-height-max has to exist in project variables    
 - Updated grid breakpoints for two, three and four items per row. Check layout in existing projects and overwrite styles where needed. [#24](https://github.com/allink/allink-core-static/pull/24)
 
 ### FIXES
