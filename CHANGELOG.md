@@ -6,6 +6,14 @@ Each release is divided into the following main categories:
 - NEW: New features or plugins
 - FIXES: General bugfixes
 
+## v2.5.0
+
+### IMPORTANT
+- Updated grid breakpoints for two, three and four items per row. Check layout in existing projects and overwrite styles where needed.
+
+### FIXES
+- Fixed `button` tag in docs
+
 ## v2.4.1 (next version)
 
 ## v2.4.0
