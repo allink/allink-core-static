@@ -16,10 +16,11 @@ Link icon
 */
 .link-icon {
     display: flex;
+    width: $btn-icon-size;
     height: $btn-icon-size;
+    flex: 0 0 auto;
     transition-duration: $btn-icon-transition-duration;
     transition-timing-function: $btn-icon-transition-timing-function;
-    width: $btn-icon-size;
 
     &.link-icon--right,
     &.link-icon--left {
