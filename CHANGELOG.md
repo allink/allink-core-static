@@ -10,8 +10,9 @@ Each release is divided into the following main categories:
 ### IMPORTANT
 - Added viewport-height dependent Background Image (full width) as default
     - $content-section-bg-image-outer-height-min has to exist in project variables
-    - $content-section-bg-image-outer-height-max has to exist in project variables    
+    - $content-section-bg-image-outer-height-max has to exist in project variables
 - Updated grid breakpoints for two, three and four items per row. Check layout in existing projects and overwrite styles where needed. [#24](https://github.com/allink/allink-core-static/pull/24)
+- Removed onscreen effect [#27](https://github.com/allink/allink-core/pull/27)
 
 ### FIXES
 - Fixed `button` tag in docs [#23](https://github.com/allink/allink-core-static/pull/23)
