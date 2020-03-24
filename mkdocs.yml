@@ -33,7 +33,6 @@ pages:
     - Modals: 'modules/modals.md'
     - Navigation: 'modules/navigation.md'
     - Icon Font: 'modules/icons.md'
-    - OnScreen (Scroll Spy): 'modules/onscreen.md'
     - Lazyloading: 'modules/lazyloading.md'
     - Site Overlay: 'modules/site-overlay.md'
     - Bootstrap Select: 'modules/bootstrap-select.md'

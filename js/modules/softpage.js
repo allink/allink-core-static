@@ -107,7 +107,6 @@ $(function(){
                     }
                     // trigger custom events
                     $(window).trigger('initSoftpageTrigger');
-                    $(window).trigger('initOnScreen');
                     $(window).trigger('initiSwiperInstances');
                     // clean content in case of CMS page
                     var $softpage = $('.tingle-modal.softpage');
