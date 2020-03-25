@@ -6,17 +6,14 @@ Infobox CMS Module
 
 import docCookies from './docCookies';
 
-$(function(){
+$(function() {
     const $infobox = $('.infobox-trigger');
     const counterDefault = $infobox.data('counter'); // plugin setting counter
     const counterCurrent = Number(docCookies.getItem('infobox-hidden')) || 0;
 
     // in case cookie is NOT set, show the modal
-    if (docCookies.getItem('infobox-hidden') === null || counterDefault === 0 || counterCurrent < counterDefault ) {
-        // trigger promo video delayed
-        setTimeout(function(){
-            $infobox.trigger('click');
-        },1500);
+    if (docCookies.getItem('infobox-hidden') === null || counterDefault === 0 || counterCurrent < counterDefault) {
+        $infobox.trigger('click');
     }
 
     if (counterDefault === 0) {
@@ -26,7 +23,7 @@ $(function(){
     // 0 = always visible, so no cookie
     if (counterDefault > 0) {
         // when closing the default modal, set cookie
-        $(window).on('default-modal:closed',function(){
+        $(window).on('default-modal:closed', function() {
             // init
             const one_month_in_seconds = 2592000;
             // write cookie
