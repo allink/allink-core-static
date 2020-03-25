@@ -13,10 +13,7 @@ $(function(){
 
     // in case cookie is NOT set, show the modal
     if (docCookies.getItem('infobox-hidden') === null || counterDefault === 0 || counterCurrent < counterDefault ) {
-        // trigger promo video delayed
-        setTimeout(function(){
-            $infobox.trigger('click');
-        },1500);
+        $infobox.trigger('click');
     }
 
     if (counterDefault === 0) {

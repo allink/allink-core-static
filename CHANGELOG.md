@@ -17,6 +17,7 @@ Each release is divided into the following main categories:
 ### FIXES
 - Fixed `button` tag in docs [#23](https://github.com/allink/allink-core-static/pull/23)
 - Allow text in buttons to wrap and prevent link / button icon from scaling down [#25](https://github.com/allink/allink-core-static/pull/25)
+- Removed infobox open delay [#29](https://github.com/allink/allink-core-static/pull/29)
 
 ## v2.4.1 (next version)
 
