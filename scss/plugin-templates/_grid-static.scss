@@ -1,9 +1,16 @@
 .grid-static-container {
 
     .the-grid {
-        @include make-row();
-        // on XS we have a smaller column padding
-        @include make-row-sm-max();
+        @include spacings-size(spacing-gutter-width-small,  padding-left, $spacings-sizes, $fluid-breakpoints-the-grid, false);
+        @include spacings-size(spacing-gutter-width-small, padding-right, $spacings-sizes, $fluid-breakpoints-the-grid, false);
+        @include spacings-size(spacing-gutter-width,  margin-left, $spacings-sizes, $fluid-breakpoints-the-grid, true);
+        @include spacings-size(spacing-gutter-width, margin-right, $spacings-sizes, $fluid-breakpoints-the-grid, true);
+        display: flex;
+        flex-wrap: wrap;
+        @include media-breakpoint-down(map-get($fluid-breakpoints-the-grid, 'min')) {
+            margin-left: -$page-padding-width-xs;
+            margin-right: -$page-padding-width-xs;
+        }
         @if $app-content-plugin-static-grid-item-spacing {
             // Negative margin to peacefully fight the item's margin
             @include spacings-size($app-content-plugin-static-grid-item-spacing, margin-bottom, $negative: true);
@@ -23,7 +30,10 @@
         > * {
             width: 100%;
         }
-        @include make-col-ready();
+        position: relative;
+        width: 100%;
+        @include spacings-size(spacing-gutter-width-small,  padding-left, $spacings-sizes, $fluid-breakpoints-the-grid, false);
+        @include spacings-size(spacing-gutter-width-small, padding-right, $spacings-sizes, $fluid-breakpoints-the-grid, false);
         .items-per-row-1 & {
             @include media-breakpoint-up(xs) {
                 @include make-col(24);
@@ -84,5 +94,4 @@
             @include font-h2();
         }
     }
-
 }
