@@ -32,10 +32,7 @@
         left: 0;
         width: 100%;
         height: $height;
-        background: -moz-linear-gradient(top,  rgba($start-color,$start-opacity) 0%, rgba($end-color,$end-opacity) 100%);
-        background: -webkit-linear-gradient(top,  rgba($start-color,$start-opacity) 0%,rgba($end-color,$end-opacity) 100%);
         background: linear-gradient(to bottom,  rgba($start-color,$start-opacity) 0%,rgba($end-color,$end-opacity) 100%);
-        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#{ie-hex-str($start-color)}', endColorstr='#{ie-hex-str($end-color)}',GradientType=0 );
     }
 
 }

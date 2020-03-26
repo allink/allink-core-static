@@ -15,7 +15,6 @@ Base Styles
 
 @mixin button-base() {
     @include button-size($padding-base-vertical, $padding-base-horizontal, $font-size-base, $line-height-base, $btn-border-radius-base);
-    @include user-select(none);
     @include font-btn-default();
 
     background-image: none; // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
@@ -36,6 +35,7 @@ Base Styles
     text-align: center;
     touch-action: manipulation;
     transition: $form-field-transition;
+    user-select: none;
     vertical-align: middle;
 
     &,
@@ -61,8 +61,8 @@ Base Styles
     &[disabled],
     fieldset[disabled] & {
         cursor: $cursor-disabled;
-        @include opacity(.65);
-        @include box-shadow(none);
+        opacity: 0.65;
+        box-shadow: none;
     }
 
     &,

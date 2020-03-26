@@ -13,6 +13,7 @@ Each release is divided into the following main categories:
     - $content-section-bg-image-outer-height-max has to exist in project variables
 - Updated grid breakpoints for two, three and four items per row. Check layout in existing projects and overwrite styles where needed. [#24](https://github.com/allink/allink-core-static/pull/24)
 - Removed onscreen effect [#27](https://github.com/allink/allink-core/pull/27)
+- Removed manual vendor prefixing and the following related mixins: opacity, user-select, box-shadow, reset-filter, box-sizing [#31](https://github.com/allink/allink-core/pull/31)
 
 ### NEW
 - Added new variables and styles for video controls [#30](https://github.com/allink/allink-core/pull/30)
