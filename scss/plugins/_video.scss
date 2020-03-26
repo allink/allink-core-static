@@ -37,7 +37,7 @@
             position: absolute;
             top: 50%;
             left: 50%;
-            transform: translate(-50%,-50%);
+            transform: translate(-50%, -50%);
             transition-property: $video-controls-transition-property;
             transition-duration: $video-controls-transition-duration;
             transition-timing-function: $video-controls-transition-timing-function;
@@ -66,13 +66,29 @@
         }
         @else {
             span {
-                transform: translate(-50%,-50%);
-                width: 0;
-                height: 0;
-                border-style: solid;
-                border-width: $video-controls-fallback-arrow-height 0 $video-controls-fallback-arrow-height $video-controls-fallback-arrow-width;
-                border-color: transparent transparent transparent $video-controls-fallback-arrow-color;
+                width: $video-controls-fallback-width;
+                height: $video-controls-fallback-width;
+                border-radius: 50%;
+                background-color: transparentize($video-controls-fallback-bg, 0.3);
 
+                &::before {
+                    content: '';
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    margin-left: $video-controls-fallback-arrow-offset;
+                    border-style: solid;
+                    border-width: ($video-controls-fallback-arrow-height / 2) 0 ($video-controls-fallback-arrow-height / 2) $video-controls-fallback-arrow-width;
+                    border-color: transparent transparent transparent $video-controls-fallback-arrow-color;
+                }
+            }
+
+            &:hover,
+            &:focus {
+                span {
+                    background-color: $video-controls-fallback-bg;
+                }
             }
         }
     }

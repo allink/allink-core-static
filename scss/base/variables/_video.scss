@@ -20,9 +20,13 @@ $video-controls-height:                     150px;
 $video-controls-transition-property:        all;
 $video-controls-transition-duration:        150ms;
 $video-controls-transition-timing-function: ease-in;
+$video-controls-fallback-width:             3.625rem; // 58px
+$video-controls-fallback-height:            3.625rem; // 58px
+$video-controls-fallback-bg:                $black;
 $video-controls-fallback-arrow-color:       $white;
-$video-controls-fallback-arrow-width:       25px;
-$video-controls-fallback-arrow-height:      25px;
+$video-controls-fallback-arrow-width:       1rem;
+$video-controls-fallback-arrow-height:      1.125rem; // 18px
+$video-controls-fallback-arrow-offset:      0.188rem; // 3px
 $video-controls-image-path-play:            false; // SVG recommended. Path to file e.g. '/static/images/video-controls/play.svg'
 $video-controls-image-width:                150px;
 $video-controls-image-height:               150px;
