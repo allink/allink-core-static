@@ -14,6 +14,9 @@ Each release is divided into the following main categories:
 - Updated grid breakpoints for two, three and four items per row. Check layout in existing projects and overwrite styles where needed. [#24](https://github.com/allink/allink-core-static/pull/24)
 - Removed onscreen effect [#27](https://github.com/allink/allink-core/pull/27)
 
+### NEW
+- Added new variables and styles for video controls [#30](https://github.com/allink/allink-core/pull/30)
+
 ### FIXES
 - Fixed `button` tag in docs [#23](https://github.com/allink/allink-core-static/pull/23)
 - Allow text in buttons to wrap and prevent link / button icon from scaling down [#25](https://github.com/allink/allink-core-static/pull/25)
