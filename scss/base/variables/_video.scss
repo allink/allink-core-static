@@ -18,11 +18,11 @@ $video-embed-default-ratio-height:               9;
 $video-controls-width:                      150px;
 $video-controls-height:                     150px;
 $video-controls-transition-property:        all;
-$video-controls-transition-duration:        150ms;
+$video-controls-transition-duration:        250ms;
 $video-controls-transition-timing-function: ease-in;
 $video-controls-fallback-width:             3.625rem; // 58px
 $video-controls-fallback-height:            3.625rem; // 58px
-$video-controls-fallback-bg:                $black;
+$video-controls-fallback-bg:                rgba($black, 0.7);
 $video-controls-fallback-arrow-color:       $white;
 $video-controls-fallback-arrow-width:       1rem;
 $video-controls-fallback-arrow-height:      1.125rem; // 18px

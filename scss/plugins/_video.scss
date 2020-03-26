@@ -69,7 +69,7 @@
                 width: $video-controls-fallback-width;
                 height: $video-controls-fallback-width;
                 border-radius: 50%;
-                background-color: transparentize($video-controls-fallback-bg, 0.3);
+                background-color: $video-controls-fallback-bg;
 
                 &::before {
                     content: '';
@@ -87,7 +87,7 @@
             &:hover,
             &:focus {
                 span {
-                    background-color: $video-controls-fallback-bg;
+                    transform: translate(-50%, -50%) scale(1.1);
                 }
             }
         }
