@@ -260,6 +260,10 @@ when hover state has a border: https://www.chenhuijing.com/blog/about-subpxiel-r
             border-right-color: map-deep-get($btn-variations, $variation, 'border-right-color-hover');
             border-style: $button-border-style;
             border-width: $button-border-width;
+            padding-bottom: $btn-padding-bottom;
+            padding-left: $btn-padding-left;
+            padding-right: $btn-padding-right;
+            padding-top: $btn-padding-top;
 
             @if $btn-mask-transition-direction-starting-point == 'bottom' {
                 transform: translateY(calc(-100% - #{$button-border-width}));
