@@ -197,38 +197,33 @@ Modal Header
 
 .tingle-modal-header {
     @include make-container();
-    @include max-width();
-    height: $modal-header-height-xs;
-    position: absolute;
-    top: 0;
-    width: 100%;
-
-    @include media-breakpoint-up(md) {
-        height: $modal-header-height-md;
-    }
-    @include media-breakpoint-up(xxl) {
-        height: $modal-header-height-xxl;
-    }
-
-    &::after {
-        content: '';
-        background: $modal-header-bg-color;
-        bottom: -4px;
-        display: inline-block;
-        height: 1px; // avoid rendering issues with rem
-        position: relative;
-        width: 100%;
-    }
 
     &__container {
-        display: flex;
         position: relative;
-        transform: translateY(-50%);
-        top: 50%;
+        display: block;
+
+        &::after {
+            content: '';
+            display: block;
+            position: relative;
+            z-index: 1;
+            border-bottom: 1px solid $modal-header-bg-color;
+        }
     }
+
     &__inner {
-        width: 100%;
+        display: flex;
+        align-items: center;
+        height: $modal-header-height-xs;
+
+        @include media-breakpoint-up(md) {
+            height: $modal-header-height-md;
+        }
+        @include media-breakpoint-up(xxl) {
+            height: $modal-header-height-xxl;
+        }
     }
+
     &__heading {
         cursor: text;
         display: block;
@@ -236,7 +231,9 @@ Modal Header
         text-align: left;
         text-overflow: ellipsis;
         white-space: nowrap;
+        padding-right: 25px;
     }
+
     &__link-close {
         background: transparent;
         border: none;
@@ -248,6 +245,7 @@ Modal Header
         text-decoration: none;
         top: 50%;
         width: 50px;
+
         &:hover,
         &:focus,
         &:active {
@@ -255,6 +253,7 @@ Modal Header
                 color: $modal-global-close-icon-color-hover;
             }
         }
+
         &::before {
             @include icomoon();
             color: $modal-global-close-icon-color;
