@@ -8,9 +8,10 @@ Each release is divided into the following main categories:
 
 ## v2.5.0
 ### IMPORTANT
-- Added viewport-height dependent Background Image (full width) as default
+- Added viewport-height dependent Background Image (full width) as default [#26](https://github.com/allink/allink-core-static/pull/26)
     - $content-section-bg-image-outer-height-min has to exist in project variables
     - $content-section-bg-image-outer-height-max has to exist in project variables
+- Added fluid grid spacings [#28](https://github.com/allink/allink-core-static/pull/28)
 - Updated grid breakpoints for two, three and four items per row. Check layout in existing projects and overwrite styles where needed. [#24](https://github.com/allink/allink-core-static/pull/24)
 - Removed onscreen effect [#27](https://github.com/allink/allink-core/pull/27)
 - Removed manual vendor prefixing and the following related mixins: opacity, user-select, box-shadow, reset-filter, box-sizing [#31](https://github.com/allink/allink-core/pull/31)
