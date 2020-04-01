@@ -18,11 +18,15 @@ $video-embed-default-ratio-height:               9;
 $video-controls-width:                      150px;
 $video-controls-height:                     150px;
 $video-controls-transition-property:        all;
-$video-controls-transition-duration:        150ms;
+$video-controls-transition-duration:        250ms;
 $video-controls-transition-timing-function: ease-in;
+$video-controls-fallback-width:             3.75rem; // 60px
+$video-controls-fallback-height:            3.75rem; // 60px
+$video-controls-fallback-bg:                rgba($black, 0.7);
 $video-controls-fallback-arrow-color:       $white;
-$video-controls-fallback-arrow-width:       25px;
-$video-controls-fallback-arrow-height:      25px;
+$video-controls-fallback-arrow-width:       1rem;
+$video-controls-fallback-arrow-height:      1.125rem; // 18px
+$video-controls-fallback-arrow-offset:      0.188rem; // 3px
 $video-controls-image-path-play:            false; // SVG recommended. Path to file e.g. '/static/images/video-controls/play.svg'
 $video-controls-image-width:                150px;
 $video-controls-image-height:               150px;

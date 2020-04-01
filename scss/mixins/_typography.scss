@@ -306,10 +306,6 @@ Hyphenation
 */
 
 @mixin hyphens($mode: auto) {
-    -webkit-hyphens: $mode;
-    -moz-hyphens: $mode;
-    -ms-hyphens: $mode; // IE10+
-    -o-hyphens: $mode;
     hyphens: $mode;
     overflow-wrap: break-word;
     word-wrap: break-word;

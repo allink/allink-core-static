@@ -89,6 +89,32 @@ Default Content Section Styles
             @include media-breakpoint-up(xxl) {
                 @include aspect-ratio($content-section-bg-image-outer-width-xxl,$content-section-bg-image-outer-height-xxl,$content-section-bg-image-outer-ratio-container);
             }
+            // disable padding-bottom hack
+            &:before {
+                display: none;
+            }
+            .content-section__bg-image-ratio {
+                position: static;
+                height: 100%;
+                min-height: $content-section-bg-image-outer-height-min;
+                max-height: 100vh;
+
+                @include media-breakpoint-up(md) {
+                    min-height: $content-section-bg-image-outer-height-max;
+                }
+                picture {
+                    position: static;
+                    transform: none;
+                    padding-bottom: 0 !important;
+                    height: 100%;
+                    width: 100%;
+
+                    img {
+                        object-fit: cover;
+                        position: static;
+                    }
+                }
+            }
         }
         .content-section__main-col-container {
             z-index: 10;

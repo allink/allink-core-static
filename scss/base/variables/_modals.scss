@@ -36,7 +36,7 @@ $modal-global-spacing-md:                      $grid-gutter-width;
 
 // header
 $modal-header-bg-color:                        $gray;
-$modal-header-height-xs:                       60px;
+$modal-header-height-xs:                       50px;
 $modal-header-height-md:                       60px;
 $modal-header-height-xxl:                      60px;
 $modal-header-width:                           $max-width-xxl;
@@ -148,9 +148,6 @@ $form-modal-max-width-xxl:                   950px;
 =softpage
 
 */
-
-// whether to enabled scroll-spy or not
-$softpage-content-transition-enabled:           false;
 
 $softpage-content-transition:               $modal-global-overlay-transition;
 $softpage-content-offset:                   3%; // y coordinates, any unit is fine

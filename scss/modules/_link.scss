@@ -1,40 +1,37 @@
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 
-Link text
-
-*/
-
-.link-text {
-    display: inline-flex;
-    align-items: center;
-}
-
-/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
-
 Link icon
 
 */
+
 .link-icon {
-    display: flex;
+    position: relative;
+    display: inline-flex;
+    vertical-align: middle;
+    width: $btn-icon-size;
     height: $btn-icon-size;
+    flex: 0 0 auto;
     transition-duration: $btn-icon-transition-duration;
     transition-timing-function: $btn-icon-transition-timing-function;
-    width: $btn-icon-size;
 
     &.link-icon--right,
     &.link-icon--left {
         display: none;
     }
+
     &.link-icon--left {
         margin-right: $btn-icon-spacing;
     }
+
     &.link-icon--right {
         margin-left: $btn-icon-spacing;
     }
 
     svg {
-        fill: currentColor;
-        height: auto;
+        display: inline-block;
+        vertical-align: middle;
         width: 100%;
+        height: auto;
+        fill: currentColor;
     }
 }
