@@ -26,6 +26,7 @@ Each release is divided into the following main categories:
 - Removed infobox open delay [#29](https://github.com/allink/allink-core-static/pull/29)
 - Fixed underline on multiline links [#32](https://github.com/allink/allink-core-static/pull/32)
 - Fixed button mask padding [#34](https://github.com/allink/allink-core-static/pull/34)
+- Fixed button mask border radius [#36](https://github.com/allink/allink-core-static/pull/36)
 
 ## v2.4.1 (next version)
 
