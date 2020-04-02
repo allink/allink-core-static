@@ -193,6 +193,7 @@ when hover state has a border: https://www.chenhuijing.com/blog/about-subpxiel-r
         border-top-color: map-deep-get($btn-variations, $variation, 'border-top-color');
         border-right-color: map-deep-get($btn-variations, $variation, 'border-right-color');
         border-style: $button-border-style;
+        border-radius: $btn-border-radius-base;
         border-width: $button-border-width;
         padding-bottom: $btn-padding-bottom;
         padding-left: $btn-padding-left;
@@ -259,6 +260,7 @@ when hover state has a border: https://www.chenhuijing.com/blog/about-subpxiel-r
             border-top-color: map-deep-get($btn-variations, $variation, 'border-top-color-hover');
             border-right-color: map-deep-get($btn-variations, $variation, 'border-right-color-hover');
             border-style: $button-border-style;
+            border-radius: $btn-border-radius-base;
             border-width: $button-border-width;
             padding-bottom: $btn-padding-bottom;
             padding-left: $btn-padding-left;
