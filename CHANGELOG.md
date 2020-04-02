@@ -19,6 +19,7 @@ Each release is divided into the following main categories:
 ### NEW
 - Added new variables and styles for video controls [#30](https://github.com/allink/allink-core/pull/30)
 - Updated modal header [#35](https://github.com/allink/allink-core-static/pull/35)
+- Updated browser check styles [#37](https://github.com/allink/allink-core-static/pull/37)
 
 ### FIXES
 - Fixed `button` tag in docs [#23](https://github.com/allink/allink-core-static/pull/23)

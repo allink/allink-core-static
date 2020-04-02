@@ -83,12 +83,16 @@ export function initBrowserCheck(options={}) {
     }
 
     function hideOverlays() {
+        document.body.classList.remove('tingle-enabled');
+
         overlayWindowList.forEach(overlay => {
             overlay.classList.add('hidden');
         });
     }
 
     function showOverlays() {
+        document.body.classList.add('tingle-enabled');
+
         overlayWindowList.forEach(overlay => {
             overlay.classList.remove('hidden');
         });
@@ -101,7 +105,7 @@ export function initBrowserCheck(options={}) {
         for (let browser in suggestions) {
             if (suggestions.hasOwnProperty(browser)) {
                 html += `
-                    <a href="${ suggestions[browser] }" class="btn btn-md browser-suggestion__btn-download" target="_blank" rel="noopener" role="button">
+                    <a href="${ suggestions[browser] }" class="btn btn-default browser-suggestion__btn-download" target="_blank" rel="noopener" role="button">
                         <span class="link-text">
                             ${ browser }
                         </span>
@@ -113,6 +117,7 @@ export function initBrowserCheck(options={}) {
                     </a>`
             }
         }
+
         browserList.innerHTML += html;
     }
 
