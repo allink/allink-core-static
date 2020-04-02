@@ -10,6 +10,7 @@ Text Fields
     background-color: $input-bg;
     height: auto;
     width: 100%;
+    border-style: $form-field-border-style;
     border-width: $form-field-border-width;
     border-top-color: $input-border-top-color;
     border-right-color: $input-border-right-color;
@@ -18,11 +19,11 @@ Text Fields
     border-radius: $form-field-border-radius-default;
     padding-left: $input-padding-left;
     padding-right: $input-padding-right;
-    box-shadow: none;
-    transition: $form-field-transition;
     // applying button padding (top/bottom) to make them equally high in case of input-groups
     padding-top: $btn-padding-top;
     padding-bottom: $btn-padding-bottom;
+    box-shadow: none;
+    transition: $form-field-transition;
     // iPad improvements
     -webkit-appearance: none;
     &:focus {
@@ -32,6 +33,7 @@ Text Fields
         border-bottom-color: $input-border-bottom-color-focus;
         border-left-color: $input-border-left-color-focus;
         box-shadow: none;
+        outline: 0;
     }
 
     // error styles
@@ -44,6 +46,7 @@ Text Fields
             border-bottom-color: $input-error-border-bottom-color;
             border-left-color: $input-error-border-left-color;
             background-color: $input-error-bg;
+            color: $input-error-color;
             box-shadow: none;
         }
     }
@@ -51,6 +54,7 @@ Text Fields
     .inverted-colors & {
         color: $input-inverted-color;
         background-color: $input-inverted-bg;
+        border-style: $form-field-inverted-border-style;
         border-width: $form-field-inverted-border-width;
         border-top-color: $input-inverted-border-top-color;
         border-right-color: $input-inverted-border-right-color;
@@ -74,6 +78,7 @@ Text Fields
             border-bottom-color: $input-inverted-error-border-bottom-color;
             border-left-color: $input-inverted-error-border-left-color;
             background-color: $input-inverted-error-bg;
+            color: $input-inverted-error-color;
         }
     }
 

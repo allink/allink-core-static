@@ -21,6 +21,7 @@ Each release is divided into the following main categories:
 - Updated modal header [#35](https://github.com/allink/allink-core-static/pull/35)
 - Updated browser check styles [#37](https://github.com/allink/allink-core-static/pull/37)
 - Updated normalize to v8.0.1 [#38](https://github.com/allink/allink-core-static/pull/38)
+- Updated form control styles [#39](https://github.com/allink/allink-core-static/pull/39)
 
 ### FIXES
 - Fixed `button` tag in docs [#23](https://github.com/allink/allink-core-static/pull/23)
