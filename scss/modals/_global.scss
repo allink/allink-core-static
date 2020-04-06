@@ -8,7 +8,8 @@ Position when logged in. This prevents overlapping with the CMS toolbar.
 
 html.cms-ready {
     // collapsed
-    .tingle-modal {
+    .tingle-modal,
+    .browser-suggestion {
         top: $cms-toolbar-height-collapsed;
         @include media-breakpoint-up(sm) {
             .tingle-modal__close {
@@ -18,7 +19,8 @@ html.cms-ready {
     }
     // toolbar expanded
     &.cms-toolbar-expanded {
-        .tingle-modal {
+        .tingle-modal,
+        .browser-suggestion {
             top: $cms-toolbar-height-expanded;
         }
         @include media-breakpoint-up(sm) {
