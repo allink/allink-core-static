@@ -67,8 +67,8 @@ $default-modal-close-btn-width-xxl:             $modal-global-close-btn-width-xx
 $default-modal-close-btn-height-xxl:            $modal-global-close-btn-height-xxl;
 
 // max width setting
-$defaul-modal-max-width-md:                     500px;
-$defaul-modal-max-width-xxl:                    700px;
+$default-modal-max-width-md:                    none;
+$default-modal-max-width-xxl:                   map-get($grid-breakpoints, lg);
 
 // content padding
 $default-modal-spacing-xs:                      60px $grid-gutter-width/2 $grid-gutter-width/2;
