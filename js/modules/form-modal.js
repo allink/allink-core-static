@@ -96,13 +96,11 @@ $(function(){
         });
 
         // modify tingle markup on page load (while the modal is hidden)
-        setTimeout(function(){
-            // relocate close button
-            var $form_modal = $('.tingle-modal.form-modal');
-            var close_btn = $form_modal.find('.tingle-modal__close').get(0);
-            var modal_content = $form_modal.find('.tingle-modal-box').get(0);
-            modal_content.appendChild(close_btn);
-        },500);
+        // relocate close button
+        var $form_modal = $('.tingle-modal.form-modal');
+        var close_btn = $form_modal.find('.tingle-modal__close').get(0);
+        var modal_content = $form_modal.find('.tingle-modal-box').get(0);
+        modal_content.appendChild(close_btn);
     }
 
     // close modal when hitting ESC

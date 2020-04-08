@@ -116,8 +116,6 @@ export function sendAjaxForm($form) {
             $(window).trigger('initDatepicker');
             $(window).trigger('initFormModalClose');
             $(window).trigger('initFormValidation');
-            // reveals next section in case there are no results when filtering
-            $(window).trigger('initOnScreen');
         },
         error: function (jqXHR, textStatus, errorThrown) {
             // if something goes wrong

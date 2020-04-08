@@ -6,6 +6,34 @@ Each release is divided into the following main categories:
 - NEW: New features or plugins
 - FIXES: General bugfixes
 
+## v2.5.0
+### IMPORTANT
+- Added viewport-height dependent Background Image (full width) as default [#26](https://github.com/allink/allink-core-static/pull/26)
+    - $content-section-bg-image-outer-height-min has to exist in project variables
+    - $content-section-bg-image-outer-height-max has to exist in project variables
+- Added fluid grid spacings [#28](https://github.com/allink/allink-core-static/pull/28)
+- Updated grid breakpoints for two, three and four items per row.
+    - Check layout in existing projects and overwrite styles where needed. [#24](https://github.com/allink/allink-core-static/pull/24)
+- Removed onscreen effect [#27](https://github.com/allink/allink-core/pull/27)
+    - Remove the file static/js/modules/onscreen.js in project
+    - Remove the line `import './modules/onscreen';` in app.js
+- Removed manual vendor prefixing and the following related mixins: opacity, user-select, box-shadow, reset-filter, box-sizing [#31](https://github.com/allink/allink-core/pull/31)
+
+### NEW
+- Added new variables and styles for video controls [#30](https://github.com/allink/allink-core/pull/30)
+- Updated modal header [#35](https://github.com/allink/allink-core-static/pull/35)
+- Updated browser check styles [#37](https://github.com/allink/allink-core-static/pull/37)
+- Updated normalize to v8.0.1 [#38](https://github.com/allink/allink-core-static/pull/38)
+- Updated form control styles [#39](https://github.com/allink/allink-core-static/pull/39)
+
+### FIXES
+- Fixed `button` tag in docs [#23](https://github.com/allink/allink-core-static/pull/23)
+- Allow text in buttons to wrap and prevent link / button icon from scaling down [#25](https://github.com/allink/allink-core-static/pull/25)
+- Removed infobox open delay [#29](https://github.com/allink/allink-core-static/pull/29)
+- Fixed underline on multiline links [#32](https://github.com/allink/allink-core-static/pull/32)
+- Fixed button mask padding [#34](https://github.com/allink/allink-core-static/pull/34)
+- Fixed button mask border radius [#36](https://github.com/allink/allink-core-static/pull/36)
+
 ## v2.4.1 (next version)
 
 ## v2.4.0

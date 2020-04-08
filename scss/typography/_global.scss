@@ -24,7 +24,6 @@ body {
 .form-control,
 .dropdown-menu {
     @include font-input-default();
-    line-height: $btn-line-height;
 }
 
 strong {
@@ -58,16 +57,6 @@ a[href^="tel"] {
 Selected Text
 
 */
-
-::-moz-selection {
-    background: rgba($selection-bg-color, 0.99);
-    color: $selection-color;
-
-    .inverted-colors & {
-        background: rgba($selection-inverted-bg-color, 0.99);
-        color: $selection-inverted-color;
-    }
-}
 
 ::selection {
     background: rgba($selection-bg-color, 0.99);

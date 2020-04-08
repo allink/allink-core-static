@@ -265,8 +265,6 @@ export function loadAjaxItems($trigger,options,masonry_grid,masonry_instance) {
                 $(window).trigger('initImageModalTrigger');
                 $(window).trigger('initDefaultModalTrigger');
                 $(window).trigger('btnAjaxLoaderDone');
-                // reveals next section in case there are no results when filtering
-                $(window).trigger('initOnScreen');
 
                 // remove loading class
                 $items_container.removeClass(loading_class);

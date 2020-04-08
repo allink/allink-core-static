@@ -202,6 +202,7 @@ $input-error-border-right-color:       $form-field-required-icon-color;
 $input-error-border-bottom-color:      $form-field-required-icon-color;
 $input-error-border-left-color:        $form-field-required-icon-color;
 $input-error-bg:                       #fff;
+$input-error-color:                    $form-field-required-icon-color;
 
 // Placeholder text color
 $input-color-placeholder:              $black;
@@ -274,6 +275,7 @@ $input-inverted-error-border-right-color:       $input-error-border-right-color;
 $input-inverted-error-border-bottom-color:      $input-error-border-bottom-color;
 $input-inverted-error-border-left-color:        $input-error-border-left-color;
 $input-inverted-error-bg:                       $input-error-bg;
+$input-inverted-error-color:                    $input-error-color;
 
 // Placeholder text color
 $input-inverted-color-placeholder:              $input-color;

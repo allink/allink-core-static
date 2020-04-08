@@ -8,29 +8,32 @@ https://getbootstrap.com/docs/4.3/layout/grid/#sass-mixins
 
 */
 
-@mixin make-row($gutter: $grid-gutter-width) {
-    display: flex;
-    flex-wrap: wrap;
-    margin-right: -$gutter / 2;
-    margin-left: -$gutter / 2;
-}
-
 @mixin make-container($gutter: $page-padding-width, $gutter-xs: $page-padding-width-xs) {
+    @include fluid-size((min: $gutter-xs, max: $gutter), 'padding-left');
+    @include fluid-size((min: $gutter-xs, max: $gutter), 'padding-right');
+
     width: 100%;
     margin-right: auto;
     margin-left: auto;
-    @include fluid-size((min: $gutter-xs, max: $gutter), 'padding-left');
-    @include fluid-size((min: $gutter-xs, max: $gutter), 'padding-right');
 }
 
-@mixin make-col-ready($gutter: $grid-gutter-width) {
+@mixin make-row($gutter: $grid-gutter-width, $gutter-xs: $grid-gutter-width-xs) {
+    @include fluid-size((min: $gutter-xs / 2, max: $gutter / 2), 'margin-left', $negative: true);
+    @include fluid-size((min: $gutter-xs / 2, max: $gutter / 2), 'margin-right', $negative: true);
+
+    display: flex;
+    flex-wrap: wrap;
+}
+
+@mixin make-col-ready($gutter: $grid-gutter-width, $gutter-xs: $grid-gutter-width-xs) {
+    @include fluid-size((min: $gutter-xs / 2, max: $gutter / 2), 'padding-left');
+    @include fluid-size((min: $gutter-xs / 2, max: $gutter / 2), 'padding-right');
+
     position: relative;
     // Prevent columns from becoming too narrow when at smaller grid tiers by
     // always setting `width: 100%;`. This works because we use `flex` values
     // later on to override this initial width.
     width: 100%;
-    padding-right: $gutter / 2;
-    padding-left: $gutter / 2;
 }
 
 @mixin make-col($size, $columns: $grid-columns) {
@@ -49,14 +52,9 @@ https://getbootstrap.com/docs/4.3/layout/grid/#sass-mixins
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 
-Column Padding Tweaks
+Column Tweaks
 
 */
-
-@mixin column-paddings($grid-gutter-width: $grid-gutter-width) {
-    padding-left: ($grid-gutter-width / 2);
-    padding-right: ($grid-gutter-width / 2);
-}
 
 @mixin make-row-sm-max($gutter: $grid-gutter-width-xs) {
     @include media-breakpoint-down(sm) {

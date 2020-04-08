@@ -15,7 +15,6 @@ Base Styles
 
 @mixin button-base() {
     @include button-size($padding-base-vertical, $padding-base-horizontal, $font-size-base, $line-height-base, $btn-border-radius-base);
-    @include user-select(none);
     @include font-btn-default();
 
     background-image: none; // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
@@ -36,8 +35,8 @@ Base Styles
     text-align: center;
     touch-action: manipulation;
     transition: $form-field-transition;
+    user-select: none;
     vertical-align: middle;
-    white-space: nowrap;
 
     &,
     &:active,
@@ -62,8 +61,8 @@ Base Styles
     &[disabled],
     fieldset[disabled] & {
         cursor: $cursor-disabled;
-        @include opacity(.65);
-        @include box-shadow(none);
+        opacity: 0.65;
+        box-shadow: none;
     }
 
     &,
@@ -187,11 +186,14 @@ when hover state has a border: https://www.chenhuijing.com/blog/about-subpxiel-r
     padding: 0;
 
     .link-text {
+        display: inline-flex;
+        align-items: center;
         border-bottom-color: map-deep-get($btn-variations, $variation, 'border-bottom-color');
         border-left-color: map-deep-get($btn-variations, $variation, 'border-left-color');
         border-top-color: map-deep-get($btn-variations, $variation, 'border-top-color');
         border-right-color: map-deep-get($btn-variations, $variation, 'border-right-color');
         border-style: $button-border-style;
+        border-radius: $btn-border-radius-base;
         border-width: $button-border-width;
         padding-bottom: $btn-padding-bottom;
         padding-left: $btn-padding-left;
@@ -258,7 +260,12 @@ when hover state has a border: https://www.chenhuijing.com/blog/about-subpxiel-r
             border-top-color: map-deep-get($btn-variations, $variation, 'border-top-color-hover');
             border-right-color: map-deep-get($btn-variations, $variation, 'border-right-color-hover');
             border-style: $button-border-style;
+            border-radius: $btn-border-radius-base;
             border-width: $button-border-width;
+            padding-bottom: $btn-padding-bottom;
+            padding-left: $btn-padding-left;
+            padding-right: $btn-padding-right;
+            padding-top: $btn-padding-top;
 
             @if $btn-mask-transition-direction-starting-point == 'bottom' {
                 transform: translateY(calc(-100% - #{$button-border-width}));
