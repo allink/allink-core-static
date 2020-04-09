@@ -64,7 +64,8 @@ export function initBrowserCheck(options={}) {
         return browserSuggestionList[userOS];
     }
 
-    function visitPageAnyways() {
+    function visitPageAnyways(e) {
+        e.preventDefault();
         setCookieIsLegacyBrowser();
         hideOverlays();
     }
