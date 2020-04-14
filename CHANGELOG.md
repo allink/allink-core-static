@@ -6,6 +6,11 @@ Each release is divided into the following main categories:
 - NEW: New features or plugins
 - FIXES: General bugfixes
 
+## v2.6.0
+
+### NEW
+- Added basic link styles from variables [#45](https://github.com/allink/allink-core-static/pull/45)
+
 ## v2.5.0
 ### IMPORTANT
 - Added viewport-height dependent Background Image (full width) as default [#26](https://github.com/allink/allink-core-static/pull/26)
