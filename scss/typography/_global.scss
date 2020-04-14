@@ -46,6 +46,17 @@ p {
     }
 }
 
+a {
+    color: $link-color;
+    text-decoration: $link-decoration;
+
+    &:hover,
+    &:focus {
+        color: $link-color-hover;
+        text-decoration: $link-decoration-hover;
+    }
+}
+
 // prevent phone link line breaks
 a[href^="tel"] {
     white-space: nowrap;
