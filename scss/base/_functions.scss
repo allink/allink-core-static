@@ -63,3 +63,30 @@ on a defined background
 
     @return $number;
 }
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+Converts pixel or em values into matching rem values.
+
+Usage:
+
+font-size: to-rem(20px);
+
+*/
+
+@function to-rem($value, $base: 16px) {
+    @if (unit($value) == 'em') {
+        $value: strip-unit($value) * 1rem;
+    }
+
+    @if (unit($value) != 'rem') {
+        $value: strip-unit($value) / strip-unit($base) * 1rem;
+    }
+
+    @if (strip-unit($value) == 0) {
+        $value: 0;
+    }
+
+    @return $value;
+}
