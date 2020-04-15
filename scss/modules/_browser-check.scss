@@ -1,5 +1,5 @@
 .browser-suggestion {
-    @include spacings-size((min: $brand-logo-height-min, max: $brand-logo-height-max), padding-top);
+    @include spacings-size(spacing-scale-5, padding-top);
     @include spacings-size(spacing-scale-5, padding-bottom);
 
     display: flex;
@@ -12,36 +12,16 @@
     overflow-y: scroll;
     background-color: $white;
 
-    &__header-container,
-    &__container {
-        max-width: 65.375rem; // 1046px
-    }
-
-    &__header {
-        @include spacings-size(spacing-scale-5, padding-top);
-        @include spacings-size(spacing-scale-5, padding-bottom);
-
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        width: auto;
-    }
-
-    &__header-container {
-        @include make-container();
-
-        margin: 0 auto;
-    }
-
     &__logo {
+        @include spacings-size(spacing-scale-5, margin-bottom);
+
         display: inline-block;
     }
 
     &__container {
         @include make-container();
-        @include spacings-size(spacing-scale-2, padding-top);
 
+        max-width: 65.375rem; // 1046px
         margin: auto;
 
         .lead {
