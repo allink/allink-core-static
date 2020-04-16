@@ -6,6 +6,11 @@ Each release is divided into the following main categories:
 - NEW: New features or plugins
 - FIXES: General bugfixes
 
+## v2.5.1
+### FIXES
+- Fixed cms toolbar height [#43](https://github.com/allink/allink-core-static/pull/43)
+- Fixed visit anyway button [#44](https://github.com/allink/allink-core-static/pull/44)
+
 ## v2.5.0
 ### IMPORTANT
 - Added viewport-height dependent Background Image (full width) as default [#26](https://github.com/allink/allink-core-static/pull/26)
