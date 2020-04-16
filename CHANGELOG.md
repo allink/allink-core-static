@@ -6,6 +6,10 @@ Each release is divided into the following main categories:
 - NEW: New features or plugins
 - FIXES: General bugfixes
 
+## v2.5.2
+### FIXES
+- Fixed modal header container [#48](https://github.com/allink/allink-core-static/pull/48)
+
 ## v2.5.1
 ### FIXES
 - Fixed cms toolbar height [#43](https://github.com/allink/allink-core-static/pull/43)
