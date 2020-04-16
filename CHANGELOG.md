@@ -6,11 +6,20 @@ Each release is divided into the following main categories:
 - NEW: New features or plugins
 - FIXES: General bugfixes
 
-## v2.6.0
 
+## v2.6.0
 ### NEW
 - Added basic link styles from variables [#45](https://github.com/allink/allink-core-static/pull/45)
 - Updated browser check logo styles [#46](https://github.com/allink/allink-core-static/pull/46)
+
+## v2.5.2
+### FIXES
+- Fixed modal header container [#48](https://github.com/allink/allink-core-static/pull/48)
+
+## v2.5.1
+### FIXES
+- Fixed cms toolbar height [#43](https://github.com/allink/allink-core-static/pull/43)
+- Fixed visit anyway button [#44](https://github.com/allink/allink-core-static/pull/44)
 
 ## v2.5.0
 ### IMPORTANT

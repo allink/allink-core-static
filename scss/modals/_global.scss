@@ -199,6 +199,9 @@ Modal Header
 
 .tingle-modal-header {
     @include make-container();
+    @include max-width();
+
+    width: 100%;
 
     &__container {
         position: relative;
