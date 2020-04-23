@@ -12,6 +12,10 @@ Each release is divided into the following main categories:
 - Added basic link styles from variables [#45](https://github.com/allink/allink-core-static/pull/45)
 - Updated browser check logo styles [#46](https://github.com/allink/allink-core-static/pull/46)
 
+## v2.5.3
+### FIXES
+- Fixed modal header border [#49](https://github.com/allink/allink-core-static/pull/49)
+
 ## v2.5.2
 ### FIXES
 - Fixed modal header container [#48](https://github.com/allink/allink-core-static/pull/48)

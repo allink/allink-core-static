@@ -213,6 +213,7 @@ Modal Header
             position: relative;
             z-index: 1;
             border-bottom: 1px solid $modal-header-bg-color;
+            margin-top: -1px;
         }
     }
 
