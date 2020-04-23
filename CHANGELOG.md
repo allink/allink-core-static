@@ -8,6 +8,9 @@ Each release is divided into the following main categories:
 
 
 ## v2.6.0
+### FIXES
+- Updated bootstrap-select to v1.13.15 [#50](https://github.com/allink/allink-core-static/pull/50)
+
 ### NEW
 - Added basic link styles from variables [#45](https://github.com/allink/allink-core-static/pull/45)
 - Updated browser check logo styles [#46](https://github.com/allink/allink-core-static/pull/46)
