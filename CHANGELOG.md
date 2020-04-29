@@ -15,6 +15,7 @@ Each release is divided into the following main categories:
 - Added basic link styles from variables [#45](https://github.com/allink/allink-core-static/pull/45)
 - Updated browser check logo styles [#46](https://github.com/allink/allink-core-static/pull/46)
 - Added to-rem function [#47](https://github.com/allink/allink-core-static/pull/47)
+- Added responsive media styles [#51](https://github.com/allink/allink-core-static/pull/51)
 
 ## v2.5.3
 ### FIXES
