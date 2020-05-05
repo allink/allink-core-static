@@ -101,7 +101,7 @@ There are 2 default icons pre-defined for buttons:
 These icons can be changed in `static/scss/base/variables/_buttons.scss`.
 Additional icons must be added on a project basis in `static/scss/form/_buttons.scss` and the corresponding SVG file must exist in `static/icons`.
 
-To activate an icon on a button you need to the icon property on the `link` partial include (this will set an attribute on the <a> tag. `data-icon-softpage`):
+To activate an icon on a button you need to the icon property on the `link` partial include (this will set an attribute on the `<a>` tag. `data-icon-softpage`):
 ```HTML
 {% include "partials/buttons/link.html" with ... icon="softpage" %}
 ```
