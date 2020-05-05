@@ -188,6 +188,8 @@ when hover state has a border: https://www.chenhuijing.com/blog/about-subpxiel-r
     .link-text {
         display: inline-flex;
         align-items: center;
+        justify-content: center;
+        flex: 1 1 auto;
         border-bottom-color: map-deep-get($btn-variations, $variation, 'border-bottom-color');
         border-left-color: map-deep-get($btn-variations, $variation, 'border-left-color');
         border-top-color: map-deep-get($btn-variations, $variation, 'border-top-color');
