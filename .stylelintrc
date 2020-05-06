@@ -10,6 +10,7 @@
             "ignore": [ "consecutive-duplicates-with-different-values" ]
         }],
         "no-descending-specificity": null,
+        "value-keyword-case": null,
         "at-rule-no-unknown": null,
         "rule-empty-line-before": [
             "always-multi-line", {
