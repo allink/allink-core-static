@@ -11,6 +11,7 @@ Each release is divided into the following main categories:
 ### FIXES
 - Updated bootstrap-select to v1.13.15 [#50](https://github.com/allink/allink-core-static/pull/50)
 - Centered button text [#54](https://github.com/allink/allink-core-static/pull/54)
+- Fixed line height output [#55](https://github.com/allink/allink-core-static/pull/55)
 
 ### NEW
 - Added basic link styles from variables [#45](https://github.com/allink/allink-core-static/pull/45)
