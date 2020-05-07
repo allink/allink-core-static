@@ -19,6 +19,9 @@ Each release is divided into the following main categories:
 - Added to-rem function [#47](https://github.com/allink/allink-core-static/pull/47)
 - Added responsive media styles [#51](https://github.com/allink/allink-core-static/pull/51)
 
+### Docs
+- Added docs for text cropping [#57](https://github.com/allink/allink-core-static/pull/57)
+
 ## v2.5.3
 ### FIXES
 - Fixed modal header border [#49](https://github.com/allink/allink-core-static/pull/49)
