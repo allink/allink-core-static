@@ -12,6 +12,7 @@ Get z'index value of SASS map
     @if not map-has-key($z-layers, $layer) {
         @warn "No layer found for `#{$layer}` in $z-layers map. Property omitted.";
     }
+
     @return map-get($z-layers, $layer);
 }
 
@@ -30,6 +31,7 @@ color: map-deep-get($btn-variations,'default','color');
     @each $key in $keys {
         $map: map-get($map, $key);
     }
+
     @return $map;
 }
 

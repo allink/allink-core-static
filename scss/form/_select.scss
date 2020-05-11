@@ -7,12 +7,12 @@ On the spot animations
 @keyframes bsSelectDropdownAnimation {
     0% {
         opacity: 0;
-        transform: translate(0,$select-dropdown-animation-initial-translate-y);
-
+        transform: translate(0, $select-dropdown-animation-initial-translate-y);
     }
+
     100% {
         opacity: 1;
-        transform: translate(0,0);
+        transform: translate(0, 0);
     }
 }
 
@@ -24,9 +24,11 @@ select.selectpicker {
     height: $select-placeholder-height-xs !important;
     opacity: 0 !important;
     visibility: hidden !important;
+
     @include media-breakpoint-up(md) {
         height: $select-placeholder-height-md !important;
     }
+
     @include media-breakpoint-up(xxl) {
         height: $select-placeholder-height-xxl !important;
     }
@@ -43,34 +45,39 @@ select.selectpicker {
     .bs-caret {
         display: none;
     }
+
     > .dropdown-toggle {
         width: auto;
         min-width: $dropdown-min-width;
         padding-right: $dropdown-toggle-padding-right;
         padding-left: $dropdown-toggle-padding-left;
-        color: map-deep-get($btn-variations,$select-btn-variation,'color') !important;
-        background-color: map-deep-get($btn-variations,$select-btn-variation,'bg') !important;
+        color: map-deep-get($btn-variations, $select-btn-variation, 'color') !important;
+        background-color: map-deep-get($btn-variations, $select-btn-variation, 'bg') !important;
         box-shadow: none !important;
         z-index: 10;
         // on mobile devices, remove min width
         @include media-breakpoint-down(1) {
             min-width: 0;
         }
+
         &:focus {
             outline: none !important; // I appologise, dear accessibility
         }
+
         &:hover,
         &:focus,
         &:active {
-            color: map-deep-get($btn-variations,$select-btn-variation,'color-hover') !important;
-            background-color: map-deep-get($btn-variations,$select-btn-variation,'bg-hover') !important;
-            border-top-color: map-deep-get($btn-variations,$select-btn-variation,'border-top-color-hover') !important;
-            border-right-color: map-deep-get($btn-variations,$select-btn-variation,'border-right-color-hover') !important;
-            border-bottom-color: map-deep-get($btn-variations,$select-btn-variation,'border-bottom-color-hover') !important;
-            border-left-color: map-deep-get($btn-variations,$select-btn-variation,'border-left-color-hover') !important;
+            color: map-deep-get($btn-variations, $select-btn-variation, 'color-hover') !important;
+            background-color: map-deep-get($btn-variations, $select-btn-variation, 'bg-hover') !important;
+            border-top-color: map-deep-get($btn-variations, $select-btn-variation, 'border-top-color-hover') !important;
+            border-right-color: map-deep-get($btn-variations, $select-btn-variation, 'border-right-color-hover') !important;
+            border-bottom-color: map-deep-get($btn-variations, $select-btn-variation, 'border-bottom-color-hover') !important;
+            border-left-color: map-deep-get($btn-variations, $select-btn-variation, 'border-left-color-hover') !important;
         }
-        &:before {
+
+        &::before {
             @include icomoon();
+
             content: $dropdown-toggle-icon;
             position: absolute;
             top: 50%;
@@ -81,6 +88,7 @@ select.selectpicker {
             transition: transform $select-dropdown-animation-duration $select-dropdown-animation-timing-function;
             transform: translateY(-50%) rotate(0deg);
         }
+
         &.toggle-initialized {
             white-space: normal;
         }
@@ -103,9 +111,11 @@ select.selectpicker {
         border-radius: $dropdown-border-radius;
         // when dropdown opens below, there's an ugly gap
         margin-bottom: 0;
+
         @if $dropdown-border-top == false {
             border-top: none;
         }
+
         a {
             outline: none;
             padding: $dropdown-link-padding;
@@ -115,8 +125,10 @@ select.selectpicker {
             a {
                 background-color: $dropdown-link-active-bg;
             }
+
             .text {
                 color: $dropdown-link-active-color;
+
                 @if $dropdown-link-active-underline-enabled {
                     text-decoration: underline;
                 }
@@ -138,15 +150,15 @@ select.selectpicker {
             &:hover,
             &:focus,
             &:active {
-                color: map-deep-get($btn-variations,$select-btn-variation,'color') !important;
-                background-color: map-deep-get($btn-variations,$select-btn-variation,'bg') !important;
-                border-top-color: map-deep-get($btn-variations,$select-btn-variation,'border-top-color') !important;
-                border-right-color: map-deep-get($btn-variations,$select-btn-variation,'border-right-color') !important;
-                border-bottom-color: map-deep-get($btn-variations,$select-btn-variation,'border-bottom-color') !important;
-                border-left-color: map-deep-get($btn-variations,$select-btn-variation,'border-left-color') !important;
+                color: map-deep-get($btn-variations, $select-btn-variation, 'color') !important;
+                background-color: map-deep-get($btn-variations, $select-btn-variation, 'bg') !important;
+                border-top-color: map-deep-get($btn-variations, $select-btn-variation, 'border-top-color') !important;
+                border-right-color: map-deep-get($btn-variations, $select-btn-variation, 'border-right-color') !important;
+                border-bottom-color: map-deep-get($btn-variations, $select-btn-variation, 'border-bottom-color') !important;
+                border-left-color: map-deep-get($btn-variations, $select-btn-variation, 'border-left-color') !important;
             }
             // arrow
-            &:before {
+            &::before {
                 transform: translateY(-50%) rotate(180deg);
             }
         }
@@ -164,6 +176,7 @@ select.selectpicker {
     > .dropdown-menu {
         @if $select-dropdown-animation-enabled {
             opacity: 0;
+
             &.animate {
                 animation-name: bsSelectDropdownAnimation;
                 animation-duration: $select-dropdown-animation-duration;
@@ -172,5 +185,4 @@ select.selectpicker {
             }
         }
     }
-
 }

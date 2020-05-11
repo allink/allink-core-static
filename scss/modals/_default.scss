@@ -5,7 +5,6 @@ Form modal
 */
 
 .default-modal {
-
     overflow-x: hidden;
     z-index: z("default-modal");
     transition: $default-modal-transition;
@@ -14,9 +13,11 @@ Form modal
         align-self: center;
         top: 0;
         width: 100%;
+
         @include media-breakpoint-up(md) {
             max-width: $defaul-modal-max-width-md;
         }
+
         @include media-breakpoint-up(xxl) {
             max-width: $defaul-modal-max-width-xxl;
         }
@@ -24,6 +25,7 @@ Form modal
 
     .tingle-modal-box__content {
         padding: $default-modal-spacing-xs;
+
         @include media-breakpoint-up(md) {
             padding: $default-modal-spacing-md;
         }
@@ -38,9 +40,11 @@ Form modal
         left: auto;
         line-height: 1;
         top: 0 !important;
+
         &:focus {
             outline: none;
         }
+
         width: $default-modal-close-btn-width-xs;
         height: $default-modal-close-btn-height-xs;
 
@@ -48,10 +52,12 @@ Form modal
             width: $default-modal-close-btn-width-md;
             height: $default-modal-close-btn-height-md;
         }
+
         @include media-breakpoint-up(xl) {
             width: $default-modal-close-btn-width-xl;
             height: $default-modal-close-btn-height-xl;
         }
+
         @include media-breakpoint-up(xxl) {
             width: $default-modal-close-btn-width-xxl;
             height: $default-modal-close-btn-height-xxl;
@@ -66,6 +72,7 @@ Form modal
 
     // overlay close enabled?
     cursor: default;
+
     &.tingle-modal--OverlayClose {
         cursor: pointer;
     }

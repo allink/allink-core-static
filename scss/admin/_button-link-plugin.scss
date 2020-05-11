@@ -8,9 +8,11 @@ body.app-allink_button_link {
     #container {
         background-color: $container-bg;
     }
+
     fieldset.module {
         padding: $fieldset-spacing !important;
     }
+
     &.popup {
         #content {
             form {
@@ -27,7 +29,6 @@ Form modifications
 */
 
 .button-link-plugin {
-
     .btn-container {
         padding: 15px;
         background-color: #fff;
@@ -62,6 +63,7 @@ Form modifications
             padding: 0 !important;
             margin: 0 !important;
         }
+
         li {
             padding: 10px 0 0 0 !important;
         }
@@ -91,36 +93,40 @@ Form modifications
     @each $key, $value in $btn-variations {
         .btn-#{$key} {
             position: relative;
-            background-color: map-deep-get($value,'bg') !important;
-            border-top-color: map-deep-get($value,'border-top-color') !important;
-            border-right-color: map-deep-get($value,'border-right-color') !important;
-            border-bottom-color: map-deep-get($value,'border-bottom-color') !important;
-            border-left-color: map-deep-get($value,'border-left-color') !important;
+            background-color: map-deep-get($value, 'bg') !important;
+            border-top-color: map-deep-get($value, 'border-top-color') !important;
+            border-right-color: map-deep-get($value, 'border-right-color') !important;
+            border-bottom-color: map-deep-get($value, 'border-bottom-color') !important;
+            border-left-color: map-deep-get($value, 'border-left-color') !important;
             // add our padding
             padding: 0.4em 1em !important;
             margin: 0;
             line-height: 1.25 !important;
+
             &,
             &:link,
             &:visited {
-                color: map-deep-get($value,'color') !important;
+                color: map-deep-get($value, 'color') !important;
             }
+
             &:hover,
             &:focus,
             &:focus:active,
             &:active,
             &:active:hover {
-                background-color: map-deep-get($value,'bg-hover') !important;
-                color: map-deep-get($value,'color-hover') !important;
-                border-top-color: map-deep-get($value,'border-top-color-hover') !important;
-                border-right-color: map-deep-get($value,'border-right-color-hover') !important;
-                border-bottom-color: map-deep-get($value,'border-bottom-color-hover') !important;
-                border-left-color: map-deep-get($value,'border-left-color-hover') !important;
+                background-color: map-deep-get($value, 'bg-hover') !important;
+                color: map-deep-get($value, 'color-hover') !important;
+                border-top-color: map-deep-get($value, 'border-top-color-hover') !important;
+                border-right-color: map-deep-get($value, 'border-right-color-hover') !important;
+                border-bottom-color: map-deep-get($value, 'border-bottom-color-hover') !important;
+                border-left-color: map-deep-get($value, 'border-left-color-hover') !important;
                 outline: none; // not very good because of accessibility reasons, but the default style looks too ugly.
             }
+
             > label {
-                color: map-deep-get($value,'color') !important;
+                color: map-deep-get($value, 'color') !important;
             }
+
             input {
                 position: absolute;
                 left: -9999px;
@@ -136,13 +142,13 @@ Form modifications
             line-height: 1.25 !important;
         }
     }
+
     .btn-lg {
         > label {
             font-size: 22px;
             line-height: 1.25 !important;
         }
     }
-
 }
 
 
@@ -150,6 +156,7 @@ Form modifications
     .messagelist {
         display: none;
     }
+
     &.popup ul.messagelist {
         + #content {
             margin-top: 20px !important;

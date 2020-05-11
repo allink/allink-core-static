@@ -1,6 +1,7 @@
 .quote-plugin {
     @include spacings-size('spacing-scale-4', padding);
     @include spacings-size('spacing-scale-2', margin-top);
+
     border-top: solid $brand-primary 0.0625rem;
     border-bottom: solid $brand-primary 0.0625rem;
     margin: 0;
@@ -18,6 +19,7 @@
             &:first-child {
                 padding-right: 0.1em;
             }
+
             &:last-child {
                 padding-left: 0.1em;
             }
@@ -33,6 +35,7 @@
 
         &__author {
             @include font-h5();
+
             margin-bottom: 0.25rem;
         }
 

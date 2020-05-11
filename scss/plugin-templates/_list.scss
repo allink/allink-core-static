@@ -9,31 +9,36 @@
         @if $app-content-plugin-list-item-spacing {
             @include spacings-size($app-content-plugin-list-item-spacing, margin-top);
         }
-
     }
 
     .col {
         @include make-col-ready();
+
         &:nth-child(1) {
             @include media-breakpoint-up(xs) {
                 @include make-col(24);
             }
+
             @include media-breakpoint-up(sm) {
                 @include make-col(12);
             }
         }
+
         &:nth-child(2) {
             @include media-breakpoint-down(xs) {
                 @include spacings-size($content-section-col-stack-spacing, margin-top);
             }
+
             @include media-breakpoint-up(xs) {
                 @include make-col(24);
             }
+
             @include media-breakpoint-up(sm) {
                 @include make-col(12);
             }
         }
     }
+
     .heading {
         @include font-h2();
     }

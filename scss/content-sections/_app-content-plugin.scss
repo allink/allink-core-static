@@ -9,6 +9,7 @@ List View (this includes ALL plugin templates such as Grid (Static), Table, and 
     // fixes overlap issue with negativ margins (e.g. grid static followd by a button link container)
     position: relative;
     z-index: 1;
+
     + .content-plugin {
         position: relative;
         z-index: 2;
@@ -34,16 +35,19 @@ Detail View
         @if $app-detail-content-container-max-width-xs {
             max-width: $app-detail-content-container-max-width-xs !important;
         }
+
         @if $app-detail-content-container-max-width-xxl {
             @include media-breakpoint-up(xxl) {
                 max-width: $app-detail-content-container-max-width-xxl !important;
             }
         }
+
         @if $app-detail-content-container-softpage-max-width-xs {
             .softpage & {
                 max-width: $app-detail-content-container-softpage-max-width-xs !important;
             }
         }
+
         @if $app-detail-content-container-softpage-max-width-xxl {
             .softpage & {
                 @include media-breakpoint-up(xxl) {
@@ -134,10 +138,12 @@ Detail View
         .content-section {
             &.first {
                 margin-top: 0;
+
                 &:not(.has-bg-image):not(.has-bg-video):not(.has-bg-color) {
                     padding-top: 0;
                 }
             }
+
             &:last-child {
                 margin-bottom: 0;
             }
@@ -156,6 +162,7 @@ Detail View
 
     &__heading {
         @include font-h2();
+
         @include media-breakpoint-up(xs) {
             @include make-col(24);
         }
@@ -165,6 +172,7 @@ Detail View
         @include media-breakpoint-up(xs) {
             @include make-col(24);
         }
+
         @include app-detail-created-spacing-top();
     }
 
@@ -176,11 +184,11 @@ Detail View
 
     &__lead {
         @include font-lead();
+
         + .app-detail__content-container {
             @include app-detail-spacing-between-lead-and-content();
         }
     }
-
 }
 
 
@@ -195,15 +203,18 @@ Items loaded with AJAX
 
     // prepare immediate children of the container for the transition
     @include the-loader();
-    &:before {
+
+    &::before {
         opacity: 0;
         margin-top: 0;
         transition: $load-more-swop-category-transition-property $load-more-swop-category-transition-duration $load-more-swop-category-transition-timing-function;
         top: $load-more-swop-category-loader-spacing-top-xs;
+
         @include media-breakpoint-up(sm) {
             top: $load-more-swop-category-loader-spacing-top-sm;
         }
     }
+
     > * {
         opacity: 1;
         transition: $load-more-swop-category-transition-property $load-more-swop-category-transition-duration $load-more-swop-category-transition-timing-function;
@@ -211,7 +222,7 @@ Items loaded with AJAX
     // loading effect when switching category
     &.loading {
         // loader
-        &:before {
+        &::before {
             transition-delay: 0ms;
             opacity: 1;
         }
@@ -242,6 +253,7 @@ The 'load more' container and button
     &.loading {
         opacity: 0;
     }
+
     @include spacings-size($load-more-container-spacing-top, margin-top);
 }
 

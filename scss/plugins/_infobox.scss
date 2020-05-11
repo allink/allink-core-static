@@ -11,22 +11,27 @@ Modal variation
 [data-default-modal-variation~="infobox"] {
     .tingle-modal-box {
         max-width: map-get($grid-breakpoints, xl);
+
         &__content {
             padding: 0;
             padding-top: $default-modal-close-btn-height-xs;
+
             @include media-breakpoint-up(md) {
                 padding: 0;
             }
         }
     }
+
     .tingle-modal__close {
-        &:before {
+        &::before {
             color: $white;
         }
+
         @include media-breakpoint-up(md) {
-            transform: translate(0,-100%);
+            transform: translate(0, -100%);
         }
-        @media (min-height:600px) and (max-height:850px) {
+
+        @media (min-height: 600px) and (max-height: 850px) {
             transform: none;
             top: 50px !important;
         }

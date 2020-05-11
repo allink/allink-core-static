@@ -27,11 +27,14 @@ Font mixins
     text-transform: $font-default-text-transform;
     font-family: $font-default-font-family;
     font-weight: $font-default-font-weight;
+
     @include font-size($font-default-font-sizes);
     @include hyphens();
+
     @if $font-cropping-disabled == false {
         @include text-crop($font-default-crop-top, $font-default-crop-bottom);
     }
+
     @if $font-default-antialiased-enabled == true {
         @include antialiased();
     }
@@ -42,11 +45,14 @@ Font mixins
     text-transform: $font-small-text-transform;
     font-family: $font-small-font-family;
     font-weight: $font-small-font-weight;
+
     @include font-size($font-small-font-sizes);
     @include hyphens();
+
     @if $font-cropping-disabled == false {
         @include text-crop($font-small-crop-top, $font-small-crop-bottom);
     }
+
     @if $font-small-antialiased-enabled == true {
         @include antialiased();
     }
@@ -57,11 +63,14 @@ Font mixins
     text-transform: $font-lead-text-transform;
     font-family: $font-lead-font-family;
     font-weight: $font-lead-font-weight;
+
     @include font-size($font-lead-font-sizes);
     @include hyphens();
+
     @if $font-cropping-disabled == false {
         @include text-crop($font-lead-crop-top, $font-lead-crop-bottom);
     }
+
     @if $font-lead-antialiased-enabled == true {
         @include antialiased();
     }
@@ -72,11 +81,14 @@ Font mixins
     text-transform: $font-btn-default-text-transform;
     font-family: $font-btn-default-font-family;
     font-weight: $font-btn-default-font-weight;
+
     @include font-size($font-btn-default-font-sizes);
     @include hyphens();
+
     @if $font-cropping-disabled == false {
         @if $font-btn-default-antialiased-enabled == true {
-    }
+        }
+
         @include antialiased();
     }
 }
@@ -86,11 +98,14 @@ Font mixins
     text-transform: $font-btn-small-text-transform;
     font-family: $font-btn-small-font-family;
     font-weight: $font-btn-small-font-weight;
+
     @include font-size($font-btn-small-font-sizes);
     @include hyphens();
+
     @if $font-cropping-disabled == false {
         @if $font-btn-small-antialiased-enabled == true {
-    }
+        }
+
         @include antialiased();
     }
 }
@@ -100,11 +115,14 @@ Font mixins
     text-transform: $font-btn-large-text-transform;
     font-family: $font-btn-large-font-family;
     font-weight: $font-btn-large-font-weight;
+
     @include font-size($font-btn-large-font-sizes);
     @include hyphens();
+
     @if $font-cropping-disabled == false {
         @if $font-btn-large-antialiased-enabled == true {
-    }
+        }
+
         @include antialiased();
     }
 }
@@ -114,11 +132,14 @@ Font mixins
     text-transform: $font-input-text-transform;
     font-family: $font-input-font-family;
     font-weight: $font-input-font-weight;
+
     @include font-size($font-input-font-sizes);
     @include hyphens();
+
     @if $font-cropping-disabled == false {
         @if $font-input-antialiased-enabled == true {
-    }
+        }
+
         @include antialiased();
     }
 }
@@ -128,11 +149,14 @@ Font mixins
     text-transform: $font-h1-text-transform;
     font-family: $font-h1-font-family;
     font-weight: $font-h1-font-weight;
+
     @include font-size($font-h1-font-sizes);
     @include hyphens();
+
     @if $font-cropping-disabled == false {
         @include text-crop($font-h1-crop-top, $font-h1-crop-bottom);
     }
+
     @if $font-h1-antialiased-enabled == true {
         @include antialiased();
     }
@@ -143,11 +167,14 @@ Font mixins
     text-transform: $font-h2-text-transform;
     font-family: $font-h2-font-family;
     font-weight: $font-h2-font-weight;
+
     @include font-size($font-h2-font-sizes);
     @include hyphens();
+
     @if $font-cropping-disabled == false {
         @include text-crop($font-h2-crop-top, $font-h2-crop-bottom);
     }
+
     @if $font-h2-antialiased-enabled == true {
         @include antialiased();
     }
@@ -158,11 +185,14 @@ Font mixins
     text-transform: $font-h3-text-transform;
     font-family: $font-h3-font-family;
     font-weight: $font-h3-font-weight;
+
     @include font-size($font-h3-font-sizes);
     @include hyphens();
+
     @if $font-cropping-disabled == false {
         @include text-crop($font-h3-crop-top, $font-h3-crop-bottom);
     }
+
     @if $font-h3-antialiased-enabled == true {
         @include antialiased();
     }
@@ -173,11 +203,14 @@ Font mixins
     text-transform: $font-h4-text-transform;
     font-family: $font-h4-font-family;
     font-weight: $font-h4-font-weight;
+
     @include font-size($font-h4-font-sizes);
     @include hyphens();
+
     @if $font-cropping-disabled == false {
         @include text-crop($font-h4-crop-top, $font-h4-crop-bottom);
     }
+
     @if $font-h4-antialiased-enabled == true {
         @include antialiased();
     }
@@ -188,11 +221,14 @@ Font mixins
     text-transform: $font-h5-text-transform;
     font-family: $font-h5-font-family;
     font-weight: $font-h5-font-weight;
+
     @include font-size($font-h5-font-sizes);
     @include hyphens();
+
     @if $font-cropping-disabled == false {
         @include text-crop($font-h5-crop-top, $font-h5-crop-bottom);
     }
+
     @if $font-h5-antialiased-enabled == true {
         @include antialiased();
     }
@@ -203,11 +239,14 @@ Font mixins
     text-transform: $font-h6-text-transform;
     font-family: $font-h6-font-family;
     font-weight: $font-h6-font-weight;
+
     @include font-size($font-h6-font-sizes);
     @include hyphens();
+
     @if $font-cropping-disabled == false {
         @include text-crop($font-h6-crop-top, $font-h6-crop-bottom);
     }
+
     @if $font-h6-antialiased-enabled == true {
         @include antialiased();
     }
@@ -226,6 +265,7 @@ Responsive Font Size mixin
     $min-font-size: nth(map-get($fs-map, 'min'), 1);
 
     font-size: $min-font-size;
+
     @include line-height($fs-map, $fs-breakpoints);
 
     // if no max font-size exists, use min font-size (i.e. font-default)
@@ -238,6 +278,7 @@ Responsive Font Size mixin
         @media (min-width: $min-breakpoint) {
             font-size: calc(#{$min-font-size} + #{$difference} * (100vw - #{$min-breakpoint}) / 100);
         }
+
         @media (min-width: $max-breakpoint) {
             font-size: $max-font-size;
         }
@@ -248,13 +289,13 @@ Responsive Font Size mixin
     @each $fs-breakpoint, $fs-font-size in $fs-map {
         @if $fs-breakpoint == null {
             @include make-line-height($fs-font-size);
-        }
-        @else {
+        } @else {
             // If $fs-font-size is a key that exists in
             // $fs-breakpoints, use the value
             @if map-has-key($fs-breakpoints, $fs-breakpoint) {
                 $fs-breakpoint: map-get($fs-breakpoints, $fs-breakpoint);
             }
+
             @media screen and (min-width: $fs-breakpoint) {
                 @include make-line-height($fs-font-size);
             }
@@ -311,17 +352,19 @@ http://text-crop.eightshapes.com
 */
 
 @mixin text-crop($crop-top: 0em, $crop-bottom: 0em) {
-    &:before,
-    &:after {
+    &::before,
+    &::after {
         content: '';
         display: block;
         height: 0;
         width: 0;
     }
-    &:before {
+
+    &::before {
         margin-top: -$crop-top;
     }
-    &:after {
+
+    &::after {
         margin-bottom: -$crop-bottom;
     }
 }

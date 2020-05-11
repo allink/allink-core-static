@@ -1,19 +1,19 @@
 .language-list {
-
     list-style: none;
     margin: 0;
     padding: 0;
 
     &__item {
         float: left;
+
         &--active {
             .language-list__link {
                 cursor: default;
+
                 &:link,
                 &:visited {
                     color: $languagechooser-text-color-active;
                 }
-
             }
         }
     }
@@ -22,14 +22,18 @@
         display: block;
         text-transform: uppercase;
         padding: 0.3em 0.5em;
+
         @include font-small();
+
         text-transform: uppercase;
         // ulgy leftover from bootstrap
         line-height: 20px;
+
         &:link,
         &:visited {
             color: $languagechooser-text-color-default;
         }
+
         &:hover,
         &:focus {
             color: $languagechooser-text-color-hover;

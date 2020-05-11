@@ -23,18 +23,23 @@ App Detail
 // main container within softpage
 @mixin app-detail-softpage-spacing() {
     padding: $app-detail-softpage-spacing-xs;
+
     @include media-breakpoint-up(sm) {
         padding: $app-detail-softpage-spacing-sm;
     }
+
     @include media-breakpoint-up(md) {
         padding: $app-detail-softpage-spacing-md;
     }
+
     @include media-breakpoint-up(lg) {
         padding: $app-detail-softpage-spacing-lg;
     }
+
     @include media-breakpoint-up(xl) {
         padding: $app-detail-softpage-spacing-xl;
     }
+
     @include media-breakpoint-up(xxl) {
         padding: $app-detail-softpage-spacing-xxl;
     }
@@ -45,9 +50,11 @@ App Detail
     // reset first
     padding: 0;
     margin: 0;
+
     @if $app-detail-header-section-spacing-top {
         @include spacings-size($app-detail-header-section-spacing-top, #{$property}-top);
     }
+
     @if $app-detail-header-section-spacing-bottom {
         @include spacings-size($app-detail-header-section-spacing-bottom, #{$property}-bottom);
     }

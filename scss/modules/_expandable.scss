@@ -4,14 +4,17 @@
     transition-timing-function: $expandable-transition-timing-function;
     height: 0;
     overflow: hidden;
+
     @if $expandable-opacity-transition-enabled {
         opacity: 0;
     }
+
     &--expanded {
         @if $expandable-opacity-transition-enabled {
             opacity: 1;
         }
     }
+
     &__content {
         // these styles have to be defined in a specific context
     }

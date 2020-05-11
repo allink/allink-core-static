@@ -47,7 +47,8 @@ color: map-deep-get($btn-variations,'default','bg');
 
 $btn-transition-duration:               150ms;
 $btn-transition-timing-function:        ease-in;
-$btn-transition:                        color $btn-transition-duration $btn-transition-timing-function,
+$btn-transition:
+                                        color $btn-transition-duration $btn-transition-timing-function,
                                         background-color $btn-transition-duration $btn-transition-timing-function,
                                         border-color $btn-transition-duration $btn-transition-timing-function;
 
@@ -55,8 +56,8 @@ $btn-transition:                        color $btn-transition-duration $btn-tran
 // (important: TOP and BOTTOM will be applied to .form-control, too, because we sometimes combine inputs and button, so they need to be the exact same height)
 $btn-padding-top:                       0.35em; // important: has to be in em's
 $btn-padding-bottom:                    0.35em; // important: has to be in em's
-$btn-padding-right:                     1.20em; // important: has to be in em's
-$btn-padding-left:                      1.20em; // important: has to be in em's
+$btn-padding-right:                     1.2em; // important: has to be in em's
+$btn-padding-left:                      1.2em; // important: has to be in em's
 $btn-line-height:                       1.25;
 
 // Global Button and Input Borders

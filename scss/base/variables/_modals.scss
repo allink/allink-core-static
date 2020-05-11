@@ -48,31 +48,32 @@ $modal-header-width:                           $max-width-xxl;
 
 */
 
-$default-modal-transition-duration:                150ms;
-$default-modal-transition-timing-function:       ease-in;
-$default-modal-transition:         visibility $default-modal-transition-duration $default-modal-transition-timing-function,
-                                opacity $default-modal-transition-duration $default-modal-transition-timing-function;
+$default-modal-transition-duration:            150ms;
+$default-modal-transition-timing-function:     ease-in;
+$default-modal-transition:
+                                               visibility $default-modal-transition-duration $default-modal-transition-timing-function,
+                                               opacity $default-modal-transition-duration $default-modal-transition-timing-function;
 
 // close button size
-$default-modal-close-btn-width-xs:              $modal-global-close-btn-width-xs;
-$default-modal-close-btn-height-xs:             $modal-global-close-btn-height-xs;
+$default-modal-close-btn-width-xs:             $modal-global-close-btn-width-xs;
+$default-modal-close-btn-height-xs:            $modal-global-close-btn-height-xs;
 
-$default-modal-close-btn-width-md:              $modal-global-close-btn-width-md;
-$default-modal-close-btn-height-md:             $modal-global-close-btn-height-md;
+$default-modal-close-btn-width-md:             $modal-global-close-btn-width-md;
+$default-modal-close-btn-height-md:            $modal-global-close-btn-height-md;
 
-$default-modal-close-btn-width-xl:              $modal-global-close-btn-width-xl;
-$default-modal-close-btn-height-xl:             $modal-global-close-btn-height-xl;
+$default-modal-close-btn-width-xl:             $modal-global-close-btn-width-xl;
+$default-modal-close-btn-height-xl:            $modal-global-close-btn-height-xl;
 
-$default-modal-close-btn-width-xxl:             $modal-global-close-btn-width-xxl;
-$default-modal-close-btn-height-xxl:            $modal-global-close-btn-height-xxl;
+$default-modal-close-btn-width-xxl:            $modal-global-close-btn-width-xxl;
+$default-modal-close-btn-height-xxl:           $modal-global-close-btn-height-xxl;
 
 // max width setting
-$defaul-modal-max-width-md:                     500px;
-$defaul-modal-max-width-xxl:                    700px;
+$defaul-modal-max-width-md:                    500px;
+$defaul-modal-max-width-xxl:                   700px;
 
 // content padding
-$default-modal-spacing-xs:                      60px $grid-gutter-width/2 $grid-gutter-width/2;
-$default-modal-spacing-md:                      $grid-gutter-width;
+$default-modal-spacing-xs:                     60px $grid-gutter-width/2 $grid-gutter-width/2;
+$default-modal-spacing-md:                     $grid-gutter-width;
 
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
@@ -82,30 +83,31 @@ $default-modal-spacing-md:                      $grid-gutter-width;
 */
 
 // transition
-$image-modal-transition-duration:                150ms;
+$image-modal-transition-duration:              150ms;
 $image-modal-transition-timing-function:       ease-in;
-$image-modal-transition:         visibility $image-modal-transition-duration $image-modal-transition-timing-function,
-                                opacity $image-modal-transition-duration $image-modal-transition-timing-function;
+$image-modal-transition:
+                                               visibility $image-modal-transition-duration $image-modal-transition-timing-function,
+                                               opacity $image-modal-transition-duration $image-modal-transition-timing-function;
 
 // close button style
-$image-modal-close-icon-color:                #fff;
-$image-modal-close-icon-color-hover:          #eee;
+$image-modal-close-icon-color:                 #fff;
+$image-modal-close-icon-color-hover:           #eee;
 
 // close button size
-$image-modal-close-btn-width-xs:              $modal-global-close-btn-width-xs;
-$image-modal-close-btn-height-xs:             $modal-global-close-btn-height-xs;
+$image-modal-close-btn-width-xs:               $modal-global-close-btn-width-xs;
+$image-modal-close-btn-height-xs:              $modal-global-close-btn-height-xs;
 
-$image-modal-close-btn-width-md:              $modal-global-close-btn-width-md;
-$image-modal-close-btn-height-md:             $modal-global-close-btn-height-md;
+$image-modal-close-btn-width-md:               $modal-global-close-btn-width-md;
+$image-modal-close-btn-height-md:              $modal-global-close-btn-height-md;
 
-$image-modal-close-btn-width-xl:              $modal-global-close-btn-width-xl;
-$image-modal-close-btn-height-xl:             $modal-global-close-btn-height-xl;
+$image-modal-close-btn-width-xl:               $modal-global-close-btn-width-xl;
+$image-modal-close-btn-height-xl:              $modal-global-close-btn-height-xl;
 
-$image-modal-close-btn-width-xxl:             $modal-global-close-btn-width-xxl;
-$image-modal-close-btn-height-xxl:            $modal-global-close-btn-height-xxl;
+$image-modal-close-btn-width-xxl:              $modal-global-close-btn-width-xxl;
+$image-modal-close-btn-height-xxl:             $modal-global-close-btn-height-xxl;
 
 // max width setting
-$image-modal-max-width:                       map-get($grid-breakpoints, xl);
+$image-modal-max-width:                        map-get($grid-breakpoints, xl);
 
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
@@ -114,34 +116,35 @@ $image-modal-max-width:                       map-get($grid-breakpoints, xl);
 
 */
 
-$form-modal-transition-duration:                150ms;
-$form-modal-transition-timing-function:       ease-in;
-$form-modal-transition:         visibility $form-modal-transition-duration $form-modal-transition-timing-function,
-                                opacity $form-modal-transition-duration $form-modal-transition-timing-function;
+$form-modal-transition-duration:               150ms;
+$form-modal-transition-timing-function:        ease-in;
+$form-modal-transition:
+                                               visibility $form-modal-transition-duration $form-modal-transition-timing-function,
+                                               opacity $form-modal-transition-duration $form-modal-transition-timing-function;
 
 // close button size
-$form-modal-close-btn-width-xs:              $modal-global-close-btn-width-xs;
-$form-modal-close-btn-height-xs:             $modal-global-close-btn-height-xs;
+$form-modal-close-btn-width-xs:                $modal-global-close-btn-width-xs;
+$form-modal-close-btn-height-xs:               $modal-global-close-btn-height-xs;
 
-$form-modal-close-btn-width-md:              $modal-global-close-btn-width-md;
-$form-modal-close-btn-height-md:             $modal-global-close-btn-height-md;
+$form-modal-close-btn-width-md:                $modal-global-close-btn-width-md;
+$form-modal-close-btn-height-md:               $modal-global-close-btn-height-md;
 
-$form-modal-close-btn-width-xl:              $modal-global-close-btn-width-xl;
-$form-modal-close-btn-height-xl:             $modal-global-close-btn-height-xl;
+$form-modal-close-btn-width-xl:                $modal-global-close-btn-width-xl;
+$form-modal-close-btn-height-xl:               $modal-global-close-btn-height-xl;
 
-$form-modal-close-btn-width-xxl:             $modal-global-close-btn-width-xxl;
-$form-modal-close-btn-height-xxl:            $modal-global-close-btn-height-xxl;
+$form-modal-close-btn-width-xxl:               $modal-global-close-btn-width-xxl;
+$form-modal-close-btn-height-xxl:              $modal-global-close-btn-height-xxl;
 
 // fade in duration
-$form-modal-fade-in-duration:                500ms;
+$form-modal-fade-in-duration:                  500ms;
 
 // content padding
-$form-modal-spacing-xs:                      60px $grid-gutter-width/2 $grid-gutter-width/2;
-$form-modal-spacing-md:                      $grid-gutter-width;
+$form-modal-spacing-xs:                        60px $grid-gutter-width/2 $grid-gutter-width/2;
+$form-modal-spacing-md:                        $grid-gutter-width;
 
 // max width settings
-$form-modal-max-width-md:                    850px;
-$form-modal-max-width-xxl:                   950px;
+$form-modal-max-width-md:                      850px;
+$form-modal-max-width-xxl:                     950px;
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 
@@ -149,32 +152,32 @@ $form-modal-max-width-xxl:                   950px;
 
 */
 
-$softpage-content-transition:               $modal-global-overlay-transition;
-$softpage-content-offset:                   3%; // y coordinates, any unit is fine
-$softpage-max-width-sm:                         850px;
-$softpage-max-width-xxl:                        1100px;
+$softpage-content-transition:                  $modal-global-overlay-transition;
+$softpage-content-offset:                      3%; // y coordinates, any unit is fine
+$softpage-max-width-sm:                        850px;
+$softpage-max-width-xxl:                       1100px;
 
 // softpage positioning
-$softpage-site-header-visible-when-opened:      true;
-$softpage-offset-top-md:                        $site-header-height-md;
-$softpage-offset-top-xxl:                       $site-header-height-xxl;
-$softpage-offset-top-compact-mode-md:           $site-header-compact-mode-height-md;
-$softpage-offset-top-compact-mode-xl:           $site-header-compact-mode-height-xl;
-$softpage-offset-top-compact-mode-xxl:          $site-header-compact-mode-height-xxl;
+$softpage-site-header-visible-when-opened:     true;
+$softpage-offset-top-md:                       $site-header-height-md;
+$softpage-offset-top-xxl:                      $site-header-height-xxl;
+$softpage-offset-top-compact-mode-md:          $site-header-compact-mode-height-md;
+$softpage-offset-top-compact-mode-xl:          $site-header-compact-mode-height-xl;
+$softpage-offset-top-compact-mode-xxl:         $site-header-compact-mode-height-xxl;
 
 // close button
-$softpage-close-btn-width-xs:                   60px;
-$softpage-close-btn-height-xs:                  60px;
-$softpage-close-btn-position-right-xs:          0;
+$softpage-close-btn-width-xs:                  60px;
+$softpage-close-btn-height-xs:                 60px;
+$softpage-close-btn-position-right-xs:         0;
 
-$softpage-close-btn-width-md:                   80px;
-$softpage-close-btn-height-md:                  85px;
-$softpage-close-btn-position-right-md:          0;
+$softpage-close-btn-width-md:                  80px;
+$softpage-close-btn-height-md:                 85px;
+$softpage-close-btn-position-right-md:         0;
 
-$softpage-close-btn-width-xl:                   80px;
-$softpage-close-btn-height-xl:                  85px;
-$softpage-close-btn-position-right-xl:          0;
+$softpage-close-btn-width-xl:                  80px;
+$softpage-close-btn-height-xl:                 85px;
+$softpage-close-btn-position-right-xl:         0;
 
-$softpage-close-btn-width-xxl:                  80px;
-$softpage-close-btn-height-xxl:                 85px;
-$softpage-close-btn-position-right-xxl:         0;
+$softpage-close-btn-width-xxl:                 80px;
+$softpage-close-btn-height-xxl:                85px;
+$softpage-close-btn-position-right-xxl:        0;

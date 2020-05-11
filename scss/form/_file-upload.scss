@@ -22,12 +22,12 @@ Inpspired by: http://tympanus.net/codrops/2015/09/15/styling-customizing-file-in
             // optional: when focused, style the LABEL differently
             &.has-focus + label,
             &:focus + label {
-                color: map-deep-get($btn-variations,$file-upload-btn-variation,'color-hover');
-                background-color: map-deep-get($btn-variations,$file-upload-btn-variation,'bg-hover');
-                border-top-color: map-deep-get($btn-variations,$file-upload-btn-variation,'border-top-color-hover');
-                border-right-color: map-deep-get($btn-variations,$file-upload-btn-variation,'border-right-color-hover');
-                border-bottom-color: map-deep-get($btn-variations,$file-upload-btn-variation,'border-bottom-color-hover');
-                border-left-color: map-deep-get($btn-variations,$file-upload-btn-variation,'border-left-color-hover');
+                color: map-deep-get($btn-variations, $file-upload-btn-variation, 'color-hover');
+                background-color: map-deep-get($btn-variations, $file-upload-btn-variation, 'bg-hover');
+                border-top-color: map-deep-get($btn-variations, $file-upload-btn-variation, 'border-top-color-hover');
+                border-right-color: map-deep-get($btn-variations, $file-upload-btn-variation, 'border-right-color-hover');
+                border-bottom-color: map-deep-get($btn-variations, $file-upload-btn-variation, 'border-bottom-color-hover');
+                border-left-color: map-deep-get($btn-variations, $file-upload-btn-variation, 'border-left-color-hover');
             }
         }
     }
@@ -37,14 +37,17 @@ Inpspired by: http://tympanus.net/codrops/2015/09/15/styling-customizing-file-in
         @include button-base();
         @include button-variation($file-upload-btn-variation);
         @include button-mask-effect($file-upload-btn-variation);
+
         padding-left: $file-upload-padding-left;
         cursor: pointer;
+
         @if $file-upload-icon {
-            &:before {
+            &::before {
                 content: $file-upload-icon;
                 display: inline-block;
                 font-size: $file-upload-icon-size;
                 margin-right: $file-upload-icon-spacing-right;
+
                 @include icomoon();
             }
         }
@@ -59,5 +62,4 @@ Inpspired by: http://tympanus.net/codrops/2015/09/15/styling-customizing-file-in
             text-transform: none;
         }
     }
-
 }

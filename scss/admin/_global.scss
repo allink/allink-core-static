@@ -53,6 +53,7 @@ Tweaking Django CMS
     opacity: 0;
     padding-bottom: 30px;
     transition: all 300ms ease-in-out;
+
     &.visible {
         opacity: 1;
     }
@@ -75,6 +76,7 @@ Form tweaks
 form {
     select[multiple] {
         padding: 6px;
+
         option {
             padding: 6px;
         }
@@ -91,10 +93,10 @@ Visually separate blocks
 */
 
 #content {
-
     form {
         @include media-breakpoint-down(sm) {
             padding: 10px;
+
             .app-djangocms_button_link & {
                 padding: 0;
             }
@@ -109,6 +111,7 @@ Visually separate blocks
     // inline fields padding fix
     .tabular table tbody td {
         padding-left: 2px !important;
+
         &.delete {
             padding-left: 10px !important;
         }
@@ -121,11 +124,10 @@ Visually separate blocks
 
     // general module style
     fieldset.module {
-
         border-radius: 2px !important;
         padding: $fieldset-spacing; // NO important here
         border: 1px solid #dedede !important;
-        box-shadow: 5px 5px 20px rgba(0,0,0,0.05) !important;
+        box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.05) !important;
         background-color: #fff !important;
         width: 100%;
         max-width: 1000px;
@@ -133,11 +135,13 @@ Visually separate blocks
         // 'disable_when_': hide options for certain
         &.hide_options {
             @include hide-options();
+
             padding: 0 !important;
         }
         // 'only_when_': hide certain plugins options that are only useful with specific plugins
         &[class*="only_when"] {
             @include hide-options();
+
             &.show_options {
                 @include show-options();
             }
@@ -147,6 +151,7 @@ Visually separate blocks
         > h2 {
             margin-bottom: 0;
             border-bottom: 1px solid #ddd;
+
             & + * {
                 margin-top: $fieldset-spacing;
             }
@@ -167,6 +172,7 @@ Visually separate blocks
             margin-top: 0 !important;
             padding-top: 10px !important;
             font-size: 12px !important;
+
             strong,
             em {
                 font-size: 12px !important;
@@ -176,16 +182,18 @@ Visually separate blocks
         div.form-row {
             padding: 0;
             min-height: 25px; // fixes the bug when a checkbox
+
             & + .form-row {
                 margin-top: $form-row-spacing;
             }
 
             .field-box,
             .fieldBox {
-                    width: 50%;
-                    box-sizing: border-box;
-                    margin: 0!important;
-                    padding-right: 10px;
+                width: 50%;
+                box-sizing: border-box;
+                margin: 0 !important;
+                padding-right: 10px;
+
                 &:nth-of-type(2) {
                     padding-right: 0;
                 }
@@ -193,12 +201,13 @@ Visually separate blocks
         }
 
         margin-bottom: 0 !important;
+
         & + .module {
             margin-top: $fieldset-spacing;
         }
 
         .checkbox-row {
-            &:after {
+            &::after {
                 content: '';
                 clear: both;
             }
@@ -220,11 +229,14 @@ Visually separate blocks
                     padding-bottom: 30px;
                 }
             }
+
             tr.ui-sortable-helper {
                 opacity: 0.8;
             }
+
             tr.ui-sortable-placeholder {
                 visibility: visible !important;
+
                 & > td {
                     background-color: #ddd !important;
                     height: 157px !important;
@@ -233,22 +245,27 @@ Visually separate blocks
             td:nth-child(1) { width: 0; }
             td:nth-child(2) { width: 90%; padding-left: 0 !important; }
             td:nth-child(3) { width: 10%; text-align: center; }
+
             td.original {
                 & > p {
                     left: 10px;
                 }
             }
         }
+
         .add-row {
             a {
                 color: #0bf;
-                &:before {
+
+                &::before {
                     color: #0bf;
                 }
+
                 &:hover,
                 &:focus {
                     color: #0bf !important;
-                    &:before {
+
+                    &::before {
                         color: #0bf;
                     }
                 }
@@ -259,6 +276,7 @@ Visually separate blocks
     .selector {
         display: block;
         max-width: none;
+
         .selector-available,
         .selector-chosen {
             width: calc(47.5% - 5px);
@@ -306,23 +324,27 @@ Manual Order Package
         li.sortedm2m-item {
             padding-top: 0.2em !important;
             padding-bottom: 0.2em !important;
+
             &.ui-sortable-placeholder {
                 background-color: #eee;
                 visibility: visible !important;
                 height: 21px;
             }
+
             > label {
                 position: relative;
                 padding-left: 1.5em !important;
+
                 > input {
                     position: absolute;
                     top: 50%;
                     left: 0.3em;
-                    transform: translate(0,-50%);
+                    transform: translate(0, -50%);
                     margin-left: 0;
                     margin-right: 0.3em;
                 }
             }
+
             > a {
                 display: inline-block;
                 margin-left: 0.5em;
@@ -345,8 +367,9 @@ Filer field
         // already selected when form is loaded
         .filerFile {
             top: 50% !important;
-            transform: translate(0,-50%);
+            transform: translate(0, -50%);
             text-align: left !important;
+
             > a {
                 img {
                     width: 55px !important;
@@ -358,6 +381,7 @@ Filer field
         .dz-thumbnail {
             width: 55px !important;
             height: 55px !important;
+
             img {
                 width: 100% !important;
                 height: 100% !important;
@@ -387,10 +411,12 @@ CSS CLASSES checkboxes
     padding: 0;
     margin: 0;
     border: none;
+
     li {
         border: none;
         padding: 5px 0;
     }
+
     label {
         text-transform: none;
     }

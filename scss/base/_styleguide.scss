@@ -2,10 +2,12 @@
     .content-section__container {
         @include make-container();
         @include max-width();
+
         @include media-breakpoint-up(lg) {
             max-width: 60%;
         }
     }
+
     .content-section__section-heading {
         padding: 0;
     }
@@ -19,15 +21,18 @@
                     margin-top: $grid-gutter-width;
                 }
             }
+
             .btn {
                 margin-right: $grid-gutter-width/4;
                 margin-bottom: $grid-gutter-width/4;
+
                 &:last-child {
                     margin-right: 0;
                 }
             }
         }
     }
+
     .heading-container {
         .heading {
             @include font-h2();

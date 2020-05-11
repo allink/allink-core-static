@@ -2,9 +2,9 @@
     &.IIV {
         &::-webkit-media-controls-play-button,
         &::-webkit-media-controls-start-playback-button {
-             opacity: 0;
-             pointer-events: none;
-             width: 5px;
+            opacity: 0;
+            pointer-events: none;
+            width: 5px;
         }
     }
 }
@@ -12,6 +12,7 @@
 .video-file-plugin {
     position: relative;
     background: $lazyloader-bg-color;
+
     .the-video {
         position: absolute;
         top: 0;
@@ -20,10 +21,12 @@
         height: auto;
         opacity: 0;
         transition: opacity $lazyloader-transition-duration ease-in-out;
+
         &.lazyloaded {
             opacity: 1;
         }
     }
+
     .video-controls {
         position: absolute;
         top: 0;
@@ -31,6 +34,7 @@
         bottom: 0;
         left: 0;
         cursor: pointer;
+
         span {
             visibility: hidden;
             opacity: 0;
@@ -47,6 +51,7 @@
                 opacity: 1;
             }
         }
+
         @if $video-controls-image-path-play {
             span {
                 background-repeat: no-repeat;
@@ -54,17 +59,18 @@
                 background-image: url($video-controls-image-path-play);
                 width: $video-controls-image-width-xs;
                 height: $video-controls-image-height-xs;
+
                 @include media-breakpoint-up(md) {
                     width: $video-controls-image-width-md;
                     height: $video-controls-image-height-md;
                 }
+
                 @include media-breakpoint-up(xl) {
                     width: $video-controls-image-width-xl;
                     height: $video-controls-image-height-xl;
                 }
             }
-        }
-        @else {
+        } @else {
             span {
                 width: $video-controls-fallback-width;
                 height: $video-controls-fallback-width;
@@ -99,6 +105,7 @@
             transition: none;
             opacity: 1;
         }
+
         @include media-breakpoint-up(md) {
             .video-controls {
                 display: none;

@@ -10,12 +10,15 @@
     z-index: z($site-overlay-z-index-map-key);
     transition: opacity $site-overlay-transition-duration $site-overlay-transition-timing-function;
     will-change: opacity;
+
     &.visible {
         display: block;
+
         &.click-close-enabled {
             cursor: pointer;
         }
     }
+
     &.animating {
         opacity: $site-overlay-opacity-when-visible;
     }
@@ -31,9 +34,11 @@
     .image-modal-visible & {
         z-index: z("site-overlay-above-all");
     }
+
     .swiper-fullscreen-visible & {
         z-index: z("site-overlay-above-all");
     }
+
     @include print() {
         display: none !important;
     }

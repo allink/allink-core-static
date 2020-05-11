@@ -7,10 +7,12 @@ Global Swiper Custom Styles
 .swiper-container {
     opacity: 0;
     transition: opacity 300ms ease-in-out;
+
     &.swiper-initialized,
     &.swiper-disabled {
         opacity: 1;
     }
+
     &.swiper-disabled {
         + .swiper-optional-container {
             display: none;
@@ -23,31 +25,37 @@ Global Swiper Custom Styles
     background: none;
     top: auto;
     bottom: 0;
-    transform: translate(0,0);
+    transform: translate(0, 0);
     margin: 0;
     width: $swiper-default-arrows-button-width-xs;
     height: $swiper-default-arrows-button-height-xs;
+
     @include media-breakpoint-up(md) {
         width: $swiper-default-arrows-button-width-md;
         height: $swiper-default-arrows-button-height-md;
     }
+
     @include media-breakpoint-up(xl) {
         width: $swiper-default-arrows-button-width-xl;
         height: $swiper-default-arrows-button-height-xl;
     }
+
     &:link,
     &:visited {
         color: $swiper-default-arrows-color;
         border: none;
         text-decoration: none;
     }
+
     &:hover,
     &:focus {
         border: none;
         text-decoration: none;
+
         > i {
             color: $swiper-default-arrows-color-hover;
         }
+
         .swiper-button__inner {
             opacity: $swiper-default-arrows-opacity-hover;
         }
@@ -57,7 +65,7 @@ Global Swiper Custom Styles
         display: block;
         position: absolute;
         top: 50%;
-        transform: translate(0,-50%);
+        transform: translate(0, -50%);
         opacity: $swiper-default-arrows-opacity;
         transition-property: $swiper-default-arrows-transition-property;
         transition-duration: $swiper-default-arrows-transition-duration;
@@ -65,27 +73,33 @@ Global Swiper Custom Styles
         width: $swiper-default-arrows-button-width-xs;
         height: $swiper-default-arrows-button-height-xs;
         background-color: $swiper-default-arrows-button-bg-xs;
+
         @include media-breakpoint-up(md) {
             width: $swiper-default-arrows-button-width-md;
             height: $swiper-default-arrows-button-height-md;
         }
+
         @include media-breakpoint-up(xl) {
             width: $swiper-default-arrows-button-width-xl;
             height: $swiper-default-arrows-button-height-xl;
         }
-        &:before {
+
+        &::before {
             position: absolute;
             top: 50%;
             left: 50%;
-            transform: translate(-50%,-50%);
+            transform: translate(-50%, -50%);
             color: $swiper-default-arrows-color;
             font-size: $swiper-default-arrows-icon-size-xs;
+
             @include media-breakpoint-up(md) {
                 font-size: $swiper-default-arrows-icon-size-md;
             }
+
             @include media-breakpoint-up(xl) {
                 font-size: $swiper-default-arrows-icon-size-xl;
             }
+
             @include icomoon();
         }
     }
@@ -97,32 +111,39 @@ Global Swiper Custom Styles
 
 .swiper-button-prev {
     left: -$swiper-default-arrows-button-width-xs/3;
+
     @include media-breakpoint-up(md) {
         left: -$swiper-default-arrows-button-width-md/3;
     }
+
     @include media-breakpoint-up(xl) {
         left: -$swiper-default-arrows-button-width-xl/3;
     }
+
     &__inner {
         left: 0;
-        &:before {
-            content: $swiper-default-arrows-icon-previous;
 
+        &::before {
+            content: $swiper-default-arrows-icon-previous;
         }
     }
 }
 
 .swiper-button-next {
     right: -$swiper-default-arrows-button-width-xs/3;
+
     @include media-breakpoint-up(md) {
         right: -$swiper-default-arrows-button-width-md/3;
     }
+
     @include media-breakpoint-up(xl) {
         right: -$swiper-default-arrows-button-width-xl/3;
     }
+
     &__inner {
         right: 0;
-        &:before {
+
+        &::before {
             content: $swiper-default-arrows-icon-next;
         }
     }
@@ -130,6 +151,7 @@ Global Swiper Custom Styles
 
 .swiper-optional-container {
     @include clearfix();
+
     position: relative;
     display: flex;
     justify-content: center;
@@ -137,23 +159,29 @@ Global Swiper Custom Styles
     margin-top: 0;
     height: $swiper-default-arrows-button-height-xs;
     clear: both;
+
     @include media-breakpoint-up(md) {
         height: $swiper-default-arrows-button-height-md;
     }
+
     @include media-breakpoint-up(xl) {
         height: $swiper-default-arrows-button-height-xl;
     }
+
     .swiper-disabled & {
         display: none;
     }
+
     border-bottom: 1px solid $gray-lighter;
 }
 
 .swiper-content-container {
     margin-top: $grid-gutter-width/4;
+
     .swiper-content {
         color: $gray-light;
         display: none;
+
         &--visible {
             display: block;
         }
@@ -163,24 +191,32 @@ Global Swiper Custom Styles
 .swiper-slide-details-container {
     @include max-width();
     @include column-padding-sm-max();
+
     margin: $grid-gutter-width auto 0;
+
     @include media-breakpoint-up(md) {
         max-width: 900px;
     }
+
     .swiper-content {
         text-align: center;
+
         &__title {
             @include font-h3();
+
             margin-bottom: $grid-gutter-width/2;
         }
+
         &__logo__list {
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
             margin: $grid-gutter-width/2 0 $grid-gutter-width;
         }
+
         &__logo {
             max-height: $grid-gutter-width * 4;
+
             @include media-breakpoint-up(md) {
                 max-height: $grid-gutter-width * 5;
             }
@@ -197,7 +233,6 @@ Counter
 */
 
 .swiper-counter {
-
     display: none;
     float: right;
 
@@ -205,7 +240,7 @@ Counter
     }
 
     &__separator {
-        &:before {
+        &::before {
             content: '/';
         }
     }
