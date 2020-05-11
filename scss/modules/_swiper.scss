@@ -236,17 +236,10 @@ Counter
     display: none;
     float: right;
 
-    &__current {
-    }
-
     &__separator {
         &::before {
             content: '/';
         }
-    }
-
-    &__total {
-
     }
 }
 

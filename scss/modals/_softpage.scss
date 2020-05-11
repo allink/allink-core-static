@@ -105,15 +105,13 @@ Softpage
         display: none;
         position: fixed;
         line-height: 1;
-        top: 0;
+        top: 0 !important;
         left: auto;
 
         &:focus {
             outline: none;
         }
 
-        // default
-        top: 0 !important;
         // keep site header visible when opened
         @if $softpage-site-header-visible-when-opened {
             @include media-breakpoint-up(md) {

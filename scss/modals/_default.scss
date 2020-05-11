@@ -35,11 +35,10 @@ Form modal
     .tingle-modal__close {
         display: none;
         position: absolute;
-        top: 0;
+        top: 0 !important;
         right: 0;
         left: auto;
         line-height: 1;
-        top: 0 !important;
 
         &:focus {
             outline: none;

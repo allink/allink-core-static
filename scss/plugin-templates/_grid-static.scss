@@ -67,21 +67,13 @@
                 @include make-col(6);
             }
         }
-    }
 
-    // spacing between items
-    .grid-item {
+        // spacing between items
         @if $app-content-plugin-static-grid-item-spacing {
             @include spacings-size($app-content-plugin-static-grid-item-spacing, margin-bottom);
         }
 
-        &.appended {
-            // TBD
-        }
-    }
-
-    // default heading
-    .grid-item {
+        // default heading
         .heading {
             @include font-h2();
         }

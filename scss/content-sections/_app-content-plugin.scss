@@ -92,10 +92,6 @@ Detail View
         }
     }
 
-    &__section-heading-col {
-
-    }
-
 
     /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 
@@ -112,18 +108,12 @@ Detail View
         }
     }
 
-    &__col-container {
-    }
-
     &__template__col-1 {
         .app-detail__col-1 {
             @include media-breakpoint-up(xs) {
                 @include make-col(24);
             }
         }
-    }
-
-    &__col {
     }
 
     // the actual container that holds the plugins
