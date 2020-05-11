@@ -6,6 +6,7 @@
     "rules": {
         "indentation": 4,
         "max-empty-lines": 2,
+        "length-zero-no-unit": null,
         "declaration-block-no-duplicate-properties": [true, {
             "ignore": [ "consecutive-duplicates-with-different-values" ]
         }],
