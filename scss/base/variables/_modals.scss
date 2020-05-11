@@ -51,8 +51,8 @@ $modal-header-width:                           $max-width-xxl;
 $default-modal-transition-duration:            150ms;
 $default-modal-transition-timing-function:     ease-in;
 $default-modal-transition:
-                                               visibility $default-modal-transition-duration $default-modal-transition-timing-function,
-                                               opacity $default-modal-transition-duration $default-modal-transition-timing-function;
+    visibility $default-modal-transition-duration $default-modal-transition-timing-function,
+    opacity $default-modal-transition-duration $default-modal-transition-timing-function;
 
 // close button size
 $default-modal-close-btn-width-xs:             $modal-global-close-btn-width-xs;
@@ -86,8 +86,8 @@ $default-modal-spacing-md:                     $grid-gutter-width;
 $image-modal-transition-duration:              150ms;
 $image-modal-transition-timing-function:       ease-in;
 $image-modal-transition:
-                                               visibility $image-modal-transition-duration $image-modal-transition-timing-function,
-                                               opacity $image-modal-transition-duration $image-modal-transition-timing-function;
+    visibility $image-modal-transition-duration $image-modal-transition-timing-function,
+    opacity $image-modal-transition-duration $image-modal-transition-timing-function;
 
 // close button style
 $image-modal-close-icon-color:                 #fff;
@@ -119,8 +119,8 @@ $image-modal-max-width:                        map-get($grid-breakpoints, xl);
 $form-modal-transition-duration:               150ms;
 $form-modal-transition-timing-function:        ease-in;
 $form-modal-transition:
-                                               visibility $form-modal-transition-duration $form-modal-transition-timing-function,
-                                               opacity $form-modal-transition-duration $form-modal-transition-timing-function;
+    visibility $form-modal-transition-duration $form-modal-transition-timing-function,
+    opacity $form-modal-transition-duration $form-modal-transition-timing-function;
 
 // close button size
 $form-modal-close-btn-width-xs:                $modal-global-close-btn-width-xs;
