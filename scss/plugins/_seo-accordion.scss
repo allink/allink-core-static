@@ -30,6 +30,8 @@ SEO Accordion plugin styles
         text-decoration: none;
 
         &::before {
+            width: $seo-accordion-icon-size;
+            height: $seo-accordion-icon-size;
             color: $seo-accordion-border-color;
             transition: transform $btn-transition-duration $btn-transition-timing-function;
         }

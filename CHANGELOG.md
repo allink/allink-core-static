@@ -10,7 +10,11 @@ Each release is divided into the following main categories:
 ## v2.6.0
 ### FIXES
 - Updated bootstrap-select to v1.13.15 [#50](https://github.com/allink/allink-core-static/pull/50)
+- Fixed link tag in docs [#52](https://github.com/allink/allink-core-static/pull/52)
+- Fixed accordion icon [#53](https://github.com/allink/allink-core-static/pull/53)
 - Centered button text [#54](https://github.com/allink/allink-core-static/pull/54)
+- Fixed line height output [#55](https://github.com/allink/allink-core-static/pull/55)
+- Optimized link icon transition [#58](https://github.com/allink/allink-core-static/pull/58)
 
 ### NEW
 - Added basic link styles from variables [#45](https://github.com/allink/allink-core-static/pull/45)
@@ -18,6 +22,9 @@ Each release is divided into the following main categories:
 - Added to-rem function [#47](https://github.com/allink/allink-core-static/pull/47)
 - Added responsive media styles [#51](https://github.com/allink/allink-core-static/pull/51)
 - Added stylelint [#56](https://github.com/allink/allink-core-static/pull/56)
+
+### Docs
+- Added docs for text cropping [#57](https://github.com/allink/allink-core-static/pull/57)
 
 ## v2.5.3
 ### FIXES

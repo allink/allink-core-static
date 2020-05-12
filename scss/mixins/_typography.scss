@@ -275,7 +275,7 @@ Responsive Font Size mixin
 
 @mixin line-height($fs-map, $fs-breakpoints: $font-size-breakpoints) {
     @each $fs-breakpoint, $fs-font-size in $fs-map {
-        @if $fs-breakpoint == null {
+        @if $fs-breakpoint == 'min' {
             @include make-line-height($fs-font-size);
         } @else {
             // If $fs-font-size is a key that exists in
