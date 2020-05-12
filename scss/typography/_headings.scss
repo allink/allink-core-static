@@ -4,11 +4,16 @@ Reset Headings first
 
 */
 
-h1, h2, h3, h4, h5, h6 {
-  font-weight: normal;
-  font-size: inherit;
-  margin: 0;
-  padding: 0;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: normal;
+    font-size: inherit;
+    margin: 0;
+    padding: 0;
 }
 
 
@@ -20,42 +25,55 @@ Set heading colours
 
 h1 {
     color: $h1-color;
+
     .inverted-colors & {
         color: $h1-color-inverted;
     }
 }
+
 h2 {
     color: $h2-color;
+
     .inverted-colors & {
         color: $h2-color-inverted;
     }
 }
+
 h3 {
     color: $h4-color;
+
     .inverted-colors & {
         color: $h3-color-inverted;
     }
 }
+
 h4 {
     color: $h4-color;
+
     .inverted-colors & {
         color: $h4-color-inverted;
     }
 }
+
 h5 {
     color: $h5-color;
+
     .inverted-colors & {
         color: $h5-color-inverted;
     }
 }
+
 h6 {
     color: $h6-color;
+
     .inverted-colors & {
         color: $h6-color-inverted;
     }
 }
+
 .display-1 {
     color: $display-1-color;
+
     .inverted-colors & {
         color: $display-1-color-inverted;
     }

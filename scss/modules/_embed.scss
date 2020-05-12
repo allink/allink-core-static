@@ -6,7 +6,6 @@ Makes embeded element responsive by using a wrapper with the class .embed-contai
 
 .embed-container {
     position: relative;
-    height: 0;
     overflow: hidden;
     width: 100%;
     height: auto;
@@ -18,6 +17,7 @@ Makes embeded element responsive by using a wrapper with the class .embed-contai
     &.ratio-4-3 { @include aspect-ratio(4,3); }
     &.ratio-1-1 { @include aspect-ratio(1,1); }
     &.ratio-16-9 { @include aspect-ratio(16,9); }
+
     > iframe {
         position: absolute;
         top: 0;

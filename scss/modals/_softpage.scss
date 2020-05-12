@@ -7,7 +7,6 @@ Softpage
 .softpage {
     // in case of the softpage, we want our .tingle-modal-box to handle to overflow scrolling
     overflow: hidden;
-
     opacity: 1;
     visibility: visible;
     transform: translate(0, $softpage-content-offset);
@@ -31,11 +30,14 @@ Softpage
             left: 0;
             right: 0;
         }
+
         @include media-breakpoint-up(sm) {
             max-width: $softpage-max-width-sm;
         }
+
         @include media-breakpoint-up(xxl) {
             max-width: $softpage-max-width-xxl;
+
             @if $max-width-xxl {
                 max-width: $max-width-xxl;
             }
@@ -44,9 +46,11 @@ Softpage
         // keep site header visible when opened
         @if $softpage-site-header-visible-when-opened {
             top: $softpage-offset-top-xs !important;
+
             @include media-breakpoint-up(md) {
                 top: $softpage-offset-top-md !important;
             }
+
             @include media-breakpoint-up(xxl) {
                 top: $softpage-offset-top-xxl !important;
             }
@@ -61,9 +65,11 @@ Softpage
                     @include media-breakpoint-up(md) {
                         top: $softpage-offset-top-compact-mode-md !important;
                     }
+
                     @include media-breakpoint-up(xl) {
                         top: $softpage-offset-top-compact-mode-xl !important;
                     }
+
                     @include media-breakpoint-up(xxl) {
                         top: $softpage-offset-top-compact-mode-xxl !important;
                     }
@@ -73,18 +79,22 @@ Softpage
 
         &__content {
             max-width: none;
+
             @include media-breakpoint-up(lg) {
                 @include make-col(16);
                 @include make-col-offset(4);
             }
+
             padding-left: 0 !important;
             padding-right: 0 !important;
             padding-top: $grid-gutter-width/2;
+
             > .content-section {
                 &:first-child {
                     padding-top: 0;
                 }
             }
+
             @include print() {
                 padding-top: 0 !important;
             }
@@ -95,20 +105,19 @@ Softpage
         display: none;
         position: fixed;
         line-height: 1;
-        top: 0;
+        top: 0 !important;
         left: auto;
 
         &:focus {
             outline: none;
         }
 
-        // default
-        top: 0 !important;
         // keep site header visible when opened
         @if $softpage-site-header-visible-when-opened {
             @include media-breakpoint-up(md) {
                 top: $softpage-offset-top-md !important;
             }
+
             @include media-breakpoint-up(xxl) {
                 top: $softpage-offset-top-xxl !important;
             }
@@ -123,9 +132,11 @@ Softpage
                     @include media-breakpoint-up(md) {
                         top: $softpage-offset-top-compact-mode-md !important;
                     }
+
                     @include media-breakpoint-up(xl) {
                         top: $softpage-offset-top-compact-mode-xl !important;
                     }
+
                     @include media-breakpoint-up(xxl) {
                         top: $softpage-offset-top-compact-mode-xxl !important;
                     }
@@ -138,18 +149,20 @@ Softpage
         height: $softpage-close-btn-height-xs;
 
         @include media-breakpoint-up(md) {
-            transform: translate(0,0);
+            transform: translate(0, 0);
             background: transparent;
             border-radius: 0;
             right: $softpage-close-btn-position-right-md;
             width: $softpage-close-btn-width-md;
             height: $softpage-close-btn-height-md;
         }
+
         @include media-breakpoint-up(xl) {
             right: $softpage-close-btn-position-right-xl;
             width: $softpage-close-btn-width-xl;
             height: $softpage-close-btn-height-xl;
         }
+
         @include media-breakpoint-up(xxl) {
             right: $softpage-close-btn-position-right-xxl;
             width: $softpage-close-btn-width-xxl;
@@ -166,5 +179,4 @@ Softpage
             display: none;
         }
     }
-
 }

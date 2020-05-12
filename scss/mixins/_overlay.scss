@@ -23,16 +23,17 @@
         content: '';
         display: block;
         position: absolute;
+
         @if $gradient-starts-from-bottom {
             top: auto;
             bottom: 0;
-        }else {
+        } @else {
             top: 0;
         }
+
         left: 0;
         width: 100%;
         height: $height;
-        background: linear-gradient(to bottom,  rgba($start-color,$start-opacity) 0%,rgba($end-color,$end-opacity) 100%);
+        background: linear-gradient(to bottom, rgba($start-color, $start-opacity) 0%, rgba($end-color, $end-opacity) 100%);
     }
-
 }

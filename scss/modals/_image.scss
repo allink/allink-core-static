@@ -5,14 +5,13 @@ Image Modal
 */
 
 .image-modal {
-
     display: flex;
     overflow-x: hidden;
     z-index: z("image-modal");
     transition: $image-modal-transition;
 
     &.tingle-modal--visible {
-        transform: translate(0,0);
+        transform: translate(0, 0);
         opacity: 1;
     }
 
@@ -30,21 +29,22 @@ Image Modal
     .tingle-modal__close {
         display: none;
         position: absolute;
-        top: 0;
+        top: 0 !important;
         right: 0;
         left: auto;
         line-height: 1;
-        top: 0 !important;
+
         &:focus {
             outline: none;
         }
-        &:before {
+
+        &::before {
             color: $image-modal-close-icon-color;
         }
 
         &:hover,
         &:focus {
-            &:before {
+            &::before {
                 color: $image-modal-close-icon-color-hover;
             }
         }
@@ -56,10 +56,12 @@ Image Modal
             width: $image-modal-close-btn-width-md;
             height: $image-modal-close-btn-height-md;
         }
+
         @include media-breakpoint-up(xl) {
             width: $image-modal-close-btn-width-xl;
             height: $image-modal-close-btn-height-xl;
         }
+
         @include media-breakpoint-up(xxl) {
             width: $image-modal-close-btn-width-xxl;
             height: $image-modal-close-btn-height-xxl;
@@ -74,8 +76,8 @@ Image Modal
 
     // overlay close enabled?
     cursor: default;
+
     &.tingle-modal--OverlayClose {
         cursor: pointer;
     }
-
 }

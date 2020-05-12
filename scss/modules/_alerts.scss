@@ -8,6 +8,7 @@ ul.errorlist {
     list-style: none;
     padding: 0;
     margin: 0;
+
     > li {
         padding: 0;
         margin: 0;
@@ -38,16 +39,18 @@ Alert variations
 
 @each $key, $value in $alert-variations {
     .alert-#{$key} {
-        background-color: map-deep-get($value,'bg');
-        border-color: map-deep-get($value,'border-color');
-        color: map-deep-get($value,'color');
-        &:before {
-            content: map-deep-get($value,'icon');
-            color: map-deep-get($value,'icon-color');
+        background-color: map-deep-get($value, 'bg');
+        border-color: map-deep-get($value, 'border-color');
+        color: map-deep-get($value, 'color');
+
+        &::before {
+            content: map-deep-get($value, 'icon');
+            color: map-deep-get($value, 'icon-color');
             position: absolute;
             top: 50%;
             left: $alert-icon-position-left;
-            transform: translate(0,-50%);
+            transform: translate(0, -50%);
+
             @include icomoon();
         }
     }

@@ -1,18 +1,21 @@
 $editor-font-family: 'Helvetica Neue', 'Arial', 'Tahoma', 'Verdana', 'Sans-Serif';
 
 .editor-body {
-
     box-sizing: border-box;
     max-width: 900px;
     margin: 0;
-
     padding: 15px;
 
-    p, h1, h2, h3, h4, h5, h6 {
+    p,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
         padding: 15px 7px 7px 7px !important;
         margin: 15px 0 !important;
     }
-
 }
 
 .cke_panel_grouptitle {
@@ -38,5 +41,4 @@ $editor-font-family: 'Helvetica Neue', 'Arial', 'Tahoma', 'Verdana', 'Sans-Serif
     [role="cmsplugins"] & {
         font-family: $editor-font-family !important;
     }
-
 }

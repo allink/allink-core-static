@@ -27,13 +27,16 @@ Basic taeble template
 
 .table-default {
     width: 100%;
+
     th,
     td {
         vertical-align: top;
         padding: 0.5em 0;
     }
+
     th {
         @include font-h3();
+
         text-align: left;
     }
 }

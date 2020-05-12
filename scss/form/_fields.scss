@@ -26,6 +26,7 @@ Text Fields
     transition: $form-field-transition;
     // iPad improvements
     -webkit-appearance: none;
+
     &:focus {
         background-color: $input-bg-focus;
         border-top-color: $input-border-top-color-focus;
@@ -64,6 +65,7 @@ Text Fields
         padding-left: $input-inverted-padding-left;
         padding-right: $input-inverted-padding-right;
         transition: $form-field-inverted-transition;
+
         &:focus {
             background-color: $input-inverted-bg-focus;
             border-top-color: $input-inverted-border-top-color-focus;

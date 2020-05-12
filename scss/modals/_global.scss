@@ -11,6 +11,7 @@ html.cms-ready {
     .tingle-modal,
     .browser-suggestion {
         top: $cms-toolbar-height-collapsed;
+
         @include media-breakpoint-up(sm) {
             .tingle-modal__close {
                 top: $cms-toolbar-height-collapsed;
@@ -23,6 +24,7 @@ html.cms-ready {
         .browser-suggestion {
             top: $cms-toolbar-height-expanded;
         }
+
         @include media-breakpoint-up(sm) {
             .tingle-modal__close {
                 top: $cms-toolbar-height-expanded;
@@ -39,6 +41,7 @@ Global modal definitions
 
 body.tingle-enabled {
     height: auto;
+
     /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 
     Print Settings for modal
@@ -48,6 +51,7 @@ body.tingle-enabled {
         height: auto !important;
         margin: 0 !important;
         overflow: visible !important;
+
         #cms-top,
         .site-header,
         .site-content,
@@ -67,7 +71,6 @@ body.tingle-enabled {
             }
         }
     }
-
 }
 
 .tingle-modal {
@@ -85,6 +88,7 @@ body.tingle-enabled {
     }
     // add correct pointer
     cursor: pointer;
+
     &.tingle-modal--noOverlayClose {
         cursor: default;
     }
@@ -109,9 +113,11 @@ body.tingle-enabled {
     -moz-user-select: text;
     // trans
     transform: none;
+
     .tingle-modal--visible & {
         transform: none;
     }
+
     @include print() {
         position: static !important;
     }
@@ -137,6 +143,7 @@ Used to be on project basis
     cursor: pointer;
     transition: $modal-global-overlay-transition;
     z-index: z("modal");
+
     h1 {
         font-size: inherit;
     }
@@ -146,9 +153,11 @@ Used to be on project basis
     transition: none;
     border-radius: 0;
     background-color: $modal-global-content-bg;
+
     @include media-breakpoint-up(md) {
         width: 90%;
     }
+
     @include media-breakpoint-up(xxl) {
         max-width: $max-width-xxl;
     }
@@ -158,35 +167,41 @@ Used to be on project basis
     transition: none;
     background: transparent;
     border-radius: 0;
+
     @include print() {
         display: none !important;
     }
+
     &:hover,
     &:focus,
     &:active {
-        &:before {
+        &::before {
             color: $modal-global-close-icon-color-hover;
         }
     }
-    &:before {
+
+    &::before {
         content: $modal-global-close-icon;
         position: absolute;
         color: $modal-global-close-icon-color;
         font-size: $modal-global-close-icon-size;
         top: 50%;
         left: 50%;
-        transform: translate(-50%,-50%);
+        transform: translate(-50%, -50%);
         transition-property: $modal-global-close-icon-transition-property;
         transition-duration: $modal-global-close-icon-transition-duration;
         transition-timing-function: $modal-global-close-icon-transition-timing-function;
+
         @include icomoon();
     }
+
     > span {
         text-indent: -9999px;
         display: inline-block;
     }
+
     @include media-breakpoint-down(xs) {
-        transform: translate3d(0,0,10px);
+        transform: translate3d(0, 0, 10px);
         position: absolute !important;
     }
 }
@@ -225,6 +240,7 @@ Modal Header
         @include media-breakpoint-up(md) {
             height: $modal-header-height-md;
         }
+
         @include media-breakpoint-up(xxl) {
             height: $modal-header-height-xxl;
         }
@@ -262,13 +278,14 @@ Modal Header
 
         &::before {
             @include icomoon();
+
             color: $modal-global-close-icon-color;
             content: $modal-global-close-icon;
             font-size: $modal-global-close-icon-size;
             left: 50%;
             position: absolute;
             top: 50%;
-            transform: translate(-50%,-50%);
+            transform: translate(-50%, -50%);
             transition-property: $modal-global-close-icon-transition-property;
             transition-duration: $modal-global-close-icon-transition-duration;
             transition-timing-function: $modal-global-close-icon-transition-timing-function;

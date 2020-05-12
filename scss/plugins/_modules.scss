@@ -13,32 +13,39 @@ django CMS Modules
             display: none;
         }
     }
+
     .cms-modules-page-h1 {
         @include font-h3();
         @include spacings-size('spacing-scale-1', margin-bottom);
         @include spacings-size('spacing-scale-4', margin-top);
     }
+
     .cms-modules-page-heading {
-        &:before {
+        &::before {
             display: none;
         }
     }
+
     h2.cms-modules-page-heading {
         @include font-h5();
         @include spacings-size('spacing-scale-4', margin-bottom);
     }
+
     h3.cms-modules-page-heading {
         @include font-h6();
         @include spacings-size('spacing-scale-4', margin-top);
     }
+
     .cms-modules-page-module {
         margin-left: -$grid-gutter-width/2;
         margin-right: -$grid-gutter-width/2;
+
         @include media-breakpoint-up(lg) {
             margin-left: -$grid-gutter-width;
             margin-right: -$grid-gutter-width;
         }
     }
+
     a {
         text-decoration: none;
         color: $body-color;

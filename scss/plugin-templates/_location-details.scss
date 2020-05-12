@@ -6,31 +6,39 @@
 
 .details-container {
     @include make-row();
+
     + .details-and-map-container {
         margin-top: $grid-gutter-width*2;
     }
+
     &__heading {
         @include font-h2();
     }
+
     &__col-1 {
         @include media-breakpoint-up(xs) {
             @include make-col(24);
         }
+
         @include media-breakpoint-up(md) {
             @include make-col(12);
         }
     }
+
     &__col-2 {
         @include media-breakpoint-down(sm) {
             @include spacings-size('spacing-gutter-width', margin-top);
         }
+
         @include media-breakpoint-up(xs) {
             @include make-col(24);
         }
+
         @include media-breakpoint-up(md) {
             @include make-col(12);
         }
     }
+
     &__map-container {
         // mobile ratios
         @include media-breakpoint-down(sm) {
@@ -41,12 +49,15 @@
             @include aspect-ratio(3,2,'locations-map');
         }
     }
+
     &__text-line {
         display: block;
+
         + .details-and-map-container__text-line {
             margin-top: 0;
         }
     }
+
     &__link {
         display: block;
         margin-top: $grid-gutter-width/2;

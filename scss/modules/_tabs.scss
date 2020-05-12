@@ -5,9 +5,7 @@ Tabs
 */
 
 .custom-nav-tabs {
-
     padding: 0;
-
     border-bottom-width: $custom-tabs-border-bottom-width;
     border-bottom-style: $custom-tabs-border-bottom-style;
     border-bottom-color: $custom-tabs-border-bottom-color;
@@ -31,10 +29,12 @@ Tabs
         @include media-breakpoint-down(xs) {
             margin-left: 0;
             margin-right: $grid-gutter-width/4;
+
             &:last-child {
                 margin-right: 0;
             }
         }
+
         @if $custom-tabs-register-look-activated == true {
             margin-bottom: -$custom-tabs-item-border-width;
             // mobile optimizations
@@ -42,6 +42,7 @@ Tabs
                 margin-bottom: $grid-gutter-width/4;
             }
         }
+
         &:first-child {
             margin-left: 0;
         }
@@ -56,17 +57,18 @@ Tabs
                     color: $custom-tabs-item-color-active;
                     background-color: $custom-tabs-item-bg-active;
                 }
+
                 &:hover,
                 &:active,
                 &:focus {
                     background-color: $custom-tabs-item-bg-active-hover;
+
                     span {
                         border: none;
                     }
                 }
             }
         }
-
     }
 
     &__link {
@@ -97,14 +99,15 @@ Tabs
             color: $custom-tabs-item-color-default;
             background-color: $custom-tabs-item-bg-default;
         }
+
         &:hover,
         &:active,
         &:focus {
             background-color: $custom-tabs-item-bg-default-hover;
+
             span {
                 border-bottom: 1px solid $brand-secondary;
             }
         }
     }
-
 }

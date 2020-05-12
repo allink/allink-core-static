@@ -27,14 +27,17 @@ Button Container
 
 .btn-container {
     @include clearfix();
+
     .btn {
         float: left; // removes spacing between inline elements
         margin-top: $btn-container-btn-spacing-xs;
         margin-right: $btn-container-btn-spacing-xs;
+
         @include media-breakpoint-up(md) {
             margin-top: $btn-container-btn-spacing-md;
             margin-right: $btn-container-btn-spacing-md;
         }
+
         @include media-breakpoint-up(xl) {
             margin-top: $btn-container-btn-spacing-xl;
             margin-right: $btn-container-btn-spacing-xl;
@@ -75,18 +78,21 @@ BUT with the button's padding
     fieldset[disabled] & {
         background-color: transparent;
     }
+
     &,
     &:hover,
     &:focus,
     &:active {
         border-color: transparent;
     }
+
     &:hover,
     &:focus {
         color: $link-color-hover;
         text-decoration: $link-decoration-hover;
         background-color: transparent;
     }
+
     &[disabled],
     fieldset[disabled] & {
         &:hover,

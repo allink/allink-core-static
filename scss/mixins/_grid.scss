@@ -46,6 +46,7 @@ https://getbootstrap.com/docs/4.3/layout/grid/#sass-mixins
 
 @mixin make-col-offset($size, $columns: $grid-columns) {
     $num: $size / $columns;
+
     margin-left: if($num == 0, 0, percentage($num));
 }
 
@@ -78,7 +79,7 @@ Content Plugin > Simple flexbox mixins to add support for ordering on mobile dev
 */
 
 @mixin content-plugin-col-mobile-flexbox($flex-bp: breakpoint-max(sm)) {
-    @media (max-width:$flex-bp) {
+    @media (max-width: $flex-bp) {
         .content-section__col-container-inner {
             flex-direction: column;
         }
@@ -86,7 +87,7 @@ Content Plugin > Simple flexbox mixins to add support for ordering on mobile dev
 }
 
 @mixin content-plugin-col-mobile-flexbox-spacing-fix($flex-bp: breakpoint-max(sm)) {
-    @media (max-width:$flex-bp) {
+    @media (max-width: $flex-bp) {
         .content-section__col-container-inner {
             @include spacings-size($content-plugin-stacked-col-spacing, margin-top, $negative: true);
         }

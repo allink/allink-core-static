@@ -5,6 +5,7 @@
     position: absolute;
     left: 0;
     right: 0;
+
     @include content-section-spacing-position('bottom');
     @include content-section-spacing-position('top');
 
@@ -13,21 +14,23 @@
             display: flex;
             flex-grow: 1;
         }
+
         &__inner {
             display: flex;
             flex-grow: 1;
         }
+
         &__col-container {
             display: flex;
             flex-grow: 1;
         }
+
         &__col-container-inner {
             display: flex;
             flex-grow: 1;
             align-items: flex-end;
         }
     }
-
 }
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
@@ -47,6 +50,7 @@ Default Content Section Styles
 
     // default: using margin
     @include content-section-spacing-margin();
+
     .app-detail__content-container & {
         @include app-detail-content-section-spacing-margin();
     }
@@ -55,6 +59,7 @@ Default Content Section Styles
     &.has-bg-color {
         margin-top: 0;
         margin-bottom: 0;
+
         @include content-section-spacing-padding();
         // within App Detail
         .app-detail__content-container & {
@@ -73,26 +78,33 @@ Default Content Section Styles
         // default image ratio
         &:not(.full-height-enabled):not(.dynamic-height-enabled) {
             $content-section-bg-image-outer-ratio-container: 'content-section__bg-image-ratio';
+
             @include aspect-ratio($content-section-bg-image-outer-width-xs,$content-section-bg-image-outer-height-xs,$content-section-bg-image-outer-ratio-container);
+
             @include media-breakpoint-up(sm) {
                 @include aspect-ratio($content-section-bg-image-outer-width-sm,$content-section-bg-image-outer-height-sm,$content-section-bg-image-outer-ratio-container);
             }
+
             @include media-breakpoint-up(md) {
                 @include aspect-ratio($content-section-bg-image-outer-width-md,$content-section-bg-image-outer-height-md,$content-section-bg-image-outer-ratio-container);
             }
+
             @include media-breakpoint-up(lg) {
                 @include aspect-ratio($content-section-bg-image-outer-width-lg,$content-section-bg-image-outer-height-lg,$content-section-bg-image-outer-ratio-container);
             }
+
             @include media-breakpoint-up(xl) {
                 @include aspect-ratio($content-section-bg-image-outer-width-xl,$content-section-bg-image-outer-height-xl,$content-section-bg-image-outer-ratio-container);
             }
+
             @include media-breakpoint-up(xxl) {
                 @include aspect-ratio($content-section-bg-image-outer-width-xxl,$content-section-bg-image-outer-height-xxl,$content-section-bg-image-outer-ratio-container);
             }
             // disable padding-bottom hack
-            &:before {
+            &::before {
                 display: none;
             }
+
             .content-section__bg-image-ratio {
                 position: static;
                 height: 100%;
@@ -102,6 +114,7 @@ Default Content Section Styles
                 @include media-breakpoint-up(md) {
                     min-height: $content-section-bg-image-outer-height-max;
                 }
+
                 picture {
                     position: static;
                     transform: none;
@@ -116,8 +129,10 @@ Default Content Section Styles
                 }
             }
         }
+
         .content-section__main-col-container {
             z-index: 10;
+
             @include main-col-container-positioning();
         }
         // in case the dynamic height options is enabled:
@@ -129,7 +144,7 @@ Default Content Section Styles
                 @include app-detail-content-section-spacing-padding();
             }
             // hide the ratio
-            &:before {
+            &::before {
                 display: none;
             }
             // get the text in the flow
@@ -140,6 +155,7 @@ Default Content Section Styles
                 bottom: auto;
                 left: auto;
             }
+
             picture {
                 display: block;
                 position: absolute;
@@ -149,7 +165,7 @@ Default Content Section Styles
                 min-height: 100%;
                 width: auto !important;
                 height: auto !important;
-                transform: translate(-50%,-50%);
+                transform: translate(-50%, -50%);
             }
         }
     }
@@ -162,6 +178,7 @@ Default Content Section Styles
         left: 0;
         top: 0;
         z-index: 1;
+
         > picture.lazyloader {
             position: absolute;
             top: 50%;
@@ -174,10 +191,12 @@ Default Content Section Styles
     &.has-bg-video {
         margin: 0;
         padding: 0;
+
         &:first-child,
         &:last-child {
             padding: 0;
         }
+
         .content-section__main-col-container {
             @include main-col-container-positioning();
         }
@@ -192,7 +211,6 @@ Default Content Section Styles
                     padding-top: 0;
                 }
             }
-
         }
     }
 
@@ -266,19 +284,25 @@ Default Content Section Styles
         bottom: 0;
         left: 0;
         z-index: 5;
+
         @include gradient-overlay($content-section-outer-overlay-gradient-height-xs);
+
         @include media-breakpoint-up(sm) {
             @include gradient-overlay($content-section-outer-overlay-gradient-height-sm);
         }
+
         @include media-breakpoint-up(md) {
             @include gradient-overlay($content-section-outer-overlay-gradient-height-md);
         }
+
         @include media-breakpoint-up(lg) {
             @include gradient-overlay($content-section-outer-overlay-gradient-height-lg);
         }
+
         @include media-breakpoint-up(xl) {
             @include gradient-overlay($content-section-outer-overlay-gradient-height-xl);
         }
+
         @include media-breakpoint-up(xxl) {
             @include gradient-overlay($content-section-outer-overlay-gradient-height-xxl);
         }
@@ -298,6 +322,7 @@ Default Content Section Styles
         .content-section__video-container {
             .the-video {
                 display: none;
+
                 @include media-breakpoint-up(md) {
                     display: block;
                     width: 100%;
@@ -308,12 +333,14 @@ Default Content Section Styles
 
         .content-section__main-col-container {
             @include main-col-container-positioning();
+
             z-index: 10;
         }
 
         // mobile fallback
         .content-section__video-mobile-image {
             overflow: hidden;
+
             @include media-breakpoint-up(md) {
                 display: none;
             }
@@ -323,6 +350,7 @@ Default Content Section Styles
         &.full-height-enabled {
             position: relative;
             width: 100%;
+
             .content-section__video-container {
                 position: absolute;
                 top: 0;
@@ -330,6 +358,7 @@ Default Content Section Styles
                 bottom: 0;
                 left: 0;
                 overflow: hidden;
+
                 .the-video {
                     @include media-breakpoint-up(md) {
                         .objectfit & {
@@ -348,11 +377,12 @@ Default Content Section Styles
                             min-height: 100%;
                             width: auto;
                             height: auto;
-                            transform: translate(-50%,-50%);
+                            transform: translate(-50%, -50%);
                         }
                     }
                 }
             }
+
             .content-section__video-mobile-image {
                 position: absolute;
                 top: 0;
@@ -361,7 +391,6 @@ Default Content Section Styles
                 left: 0;
             }
         }
-
     }
 
 
@@ -397,9 +426,9 @@ Default Content Section Styles
 
     // vertical alignment
     @include media-breakpoint-up(md) {
-        .align-v-desktop-top {  align-self: flex-start; }
-        .align-v-desktop-middle {  align-self: center; }
-        .align-v-desktop-bottom {  align-self: flex-end; }
+        .align-v-desktop-top { align-self: flex-start; }
+        .align-v-desktop-middle { align-self: center; }
+        .align-v-desktop-bottom { align-self: flex-end; }
     }
 
 
@@ -419,7 +448,7 @@ Default Content Section Styles
     &__template__col-1 {
         .content-section__col {
             @include media-breakpoint-up(xs) {
-               @include make-col(24);
+                @include make-col(24);
             }
         }
     }
@@ -427,13 +456,16 @@ Default Content Section Styles
     &__template__col-1-1 {
         @include content-plugin-col-mobile-flexbox();
         @include content-plugin-col-mobile-flexbox-spacing-fix();
+
         .content-section__col {
             @include media-breakpoint-down(sm) {
                 @include spacings-size($content-section-col-stack-spacing, margin-top);
             }
+
             @include media-breakpoint-up(xs) {
-               @include make-col(24);
+                @include make-col(24);
             }
+
             @include media-breakpoint-up(md) {
                 @include make-col(12);
             }
@@ -443,29 +475,36 @@ Default Content Section Styles
     &__template__col-2-1 {
         @include content-plugin-col-mobile-flexbox();
         @include content-plugin-col-mobile-flexbox-spacing-fix();
+
         .content-section__col {
             @include media-breakpoint-down(sm) {
                 @include spacings-size($content-section-col-stack-spacing, margin-top);
             }
         }
+
         .content-section__col-1 {
             @include media-breakpoint-up(xs) {
-               @include make-col(24);
+                @include make-col(24);
             }
+
             @include media-breakpoint-up(md) {
                 @include make-col(12);
             }
+
             @include media-breakpoint-up(lg) {
                 @include make-col(16);
             }
         }
+
         .content-section__col-2 {
             @include media-breakpoint-up(xs) {
-               @include make-col(24);
+                @include make-col(24);
             }
+
             @include media-breakpoint-up(md) {
                 @include make-col(12);
             }
+
             @include media-breakpoint-up(lg) {
                 @include make-col(8);
             }
@@ -475,29 +514,36 @@ Default Content Section Styles
     &__template__col-1-2 {
         @include content-plugin-col-mobile-flexbox();
         @include content-plugin-col-mobile-flexbox-spacing-fix();
+
         .content-section__col {
             @include media-breakpoint-down(sm) {
                 @include spacings-size($content-section-col-stack-spacing, margin-top);
             }
         }
+
         .content-section__col-1 {
             @include media-breakpoint-up(xs) {
-               @include make-col(24);
+                @include make-col(24);
             }
+
             @include media-breakpoint-up(md) {
                 @include make-col(12);
             }
+
             @include media-breakpoint-up(lg) {
                 @include make-col(8);
             }
         }
+
         .content-section__col-2 {
             @include media-breakpoint-up(xs) {
-               @include make-col(24);
+                @include make-col(24);
             }
+
             @include media-breakpoint-up(md) {
                 @include make-col(12);
             }
+
             @include media-breakpoint-up(lg) {
                 @include make-col(16);
             }
@@ -507,13 +553,16 @@ Default Content Section Styles
     &__template__col-3 {
         @include content-plugin-col-mobile-flexbox($flex-bp: breakpoint-max(xs));
         @include content-plugin-col-mobile-flexbox-spacing-fix($flex-bp: breakpoint-max(sm));
+
         .content-section__col {
             @include media-breakpoint-down(sm) {
                 @include spacings-size($content-section-col-stack-spacing, margin-top);
             }
+
             @include media-breakpoint-up(xs) {
-               @include make-col(24);
+                @include make-col(24);
             }
+
             @include media-breakpoint-up(md) {
                 @include make-col(8);
             }
@@ -523,15 +572,19 @@ Default Content Section Styles
     &__template__col-4 {
         // equalizes the margin bottom of the columns
         @include content-plugin-stacked-col-container-negative-spacing();
+
         .content-section__col {
             // add margin bottom to all columns
             @include content-plugin-stacked-col-spacing();
+
             @include media-breakpoint-up(xs) {
-               @include make-col(24);
+                @include make-col(24);
             }
+
             @include media-breakpoint-up(sm) {
                 @include make-col(12);
             }
+
             @include media-breakpoint-up(md) {
                 @include make-col(6);
             }
@@ -542,12 +595,12 @@ Default Content Section Styles
     &__column-manage-spacings {
         & > * {
             @include spacings-size($content-section-column-manage-spacings-container, margin-top);
+
             &:first-child {
                 margin-top: 0;
             }
         }
     }
-
 }
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *

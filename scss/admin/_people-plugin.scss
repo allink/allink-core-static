@@ -19,19 +19,23 @@ App Specific
                 margin-right: 0 !important;
                 padding-right: 20px;
             }
+
             &.field-gender {
                 padding-right: 0;
             }
+
             &.field-phone,
             &.field-mobile,
             &.field-fax {
                 width: 33.33%;
                 margin-right: 0 !important;
                 padding-right: 20px;
+
                 input {
                     width: 100%;
                 }
             }
+
             &.field-fax {
                 padding-right: 0;
             }
