@@ -15,6 +15,7 @@ Each release is divided into the following main categories:
 - Centered button text [#54](https://github.com/allink/allink-core-static/pull/54)
 - Fixed line height output [#55](https://github.com/allink/allink-core-static/pull/55)
 - Optimized link icon transition [#58](https://github.com/allink/allink-core-static/pull/58)
+- Fixed section spacing specificity [#59](https://github.com/allink/allink-core-static/pull/59)
 
 ### NEW
 - Added basic link styles from variables [#45](https://github.com/allink/allink-core-static/pull/45)

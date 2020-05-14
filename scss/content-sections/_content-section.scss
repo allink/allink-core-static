@@ -40,9 +40,6 @@ Default Content Section Styles
 */
 
 .content-section {
-    // generate custom spacings for content-section ($spacings-sizes)
-    @include generate-spacings();
-
     // in case a background image is set
     background-repeat: no-repeat;
     background-size: cover;
@@ -54,6 +51,9 @@ Default Content Section Styles
     .app-detail__content-container & {
         @include app-detail-content-section-spacing-margin();
     }
+
+    // generate custom spacings for content-section ($spacings-sizes)
+    @include generate-spacings();
 
     // special spacing: container has a background COLOR
     &.has-bg-color {
