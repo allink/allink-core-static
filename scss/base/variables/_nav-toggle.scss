@@ -10,5 +10,7 @@ $nav-toggle-line-width:                      $nav-toggle-width / 2;
 $nav-toggle-line-height:                     0.125rem;
 $nav-toggle-line-spacing:                    0.125rem;
 $nav-toggle-line-color:                      $black;
+$nav-toggle-line-color-hover:                $nav-toggle-line-color;
 $nav-toggle-line-overlay-color:              $white;
-$nav-toggle-transition:                      transform 400ms ease;
+$nav-toggle-line-overlay-color-hover:        $nav-toggle-line-overlay-color;
+$nav-toggle-transition:                      background-color 150ms ease, transform 400ms ease;
