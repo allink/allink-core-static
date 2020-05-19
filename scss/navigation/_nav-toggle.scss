@@ -14,6 +14,17 @@ Nav Toggle
     transform: translateY(-50%);
     z-index: z('site-content');
 
+    &:hover,
+    &:focus {
+        .nav-toggle__line {
+            background-color: $nav-toggle-line-color-hover;
+        }
+
+        &.is-active .nav-toggle__line {
+            background-color: $nav-toggle-line-overlay-color-hover;
+        }
+    }
+
     &.is-active {
         .nav-toggle__line {
             &:first-child {

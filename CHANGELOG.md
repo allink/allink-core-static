@@ -23,6 +23,7 @@ Each release is divided into the following main categories:
 - Added to-rem function [#47](https://github.com/allink/allink-core-static/pull/47)
 - Added responsive media styles [#51](https://github.com/allink/allink-core-static/pull/51)
 - Added stylelint [#56](https://github.com/allink/allink-core-static/pull/56)
+- Added hover color variables for nav toggle [#60](https://github.com/allink/allink-core-static/pull/60)
 
 ### Docs
 - Added docs for text cropping [#57](https://github.com/allink/allink-core-static/pull/57)
