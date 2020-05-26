@@ -7,7 +7,8 @@ Each release is divided into the following main categories:
 - FIXES: General bugfixes
 
 
-## v1.1.1 (next version)
+## v1.1.1
+- Updated softpage to v0.1.19
 
 ## v1.0.3 - v1.1.0
 The tag v1.1.0 matches the version v1.1.0 in allink-core.
