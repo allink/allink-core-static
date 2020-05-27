@@ -13,6 +13,7 @@ Nav Toggle
     top: 50%;
     transform: translateY(-50%);
     z-index: z('site-content');
+    pointer-events: auto;
 
     &:hover,
     &:focus {
@@ -46,6 +47,7 @@ Nav Toggle
         position: absolute;
         right: 0;
         top: 0;
+        pointer-events: none;
     }
 
     &__box {

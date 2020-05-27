@@ -17,6 +17,7 @@ Each release is divided into the following main categories:
 - Optimized link icon transition [#58](https://github.com/allink/allink-core-static/pull/58)
 - Fixed section spacing specificity [#59](https://github.com/allink/allink-core-static/pull/59)
 - Fixed language nav [#61](https://github.com/allink/allink-core-static/pull/61)
+- Fixed clickability of header elements [#63](https://github.com/allink/allink-core-static/pull/63)
 
 ### NEW
 - Added basic link styles from variables [#45](https://github.com/allink/allink-core-static/pull/45)
