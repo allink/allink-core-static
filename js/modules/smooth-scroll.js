@@ -336,14 +336,22 @@ function smoothScrollOnPageLoad() {
 $(function(){
     // on page load
     initSmoothScroll();
+    smoothScrollOnPageLoad();
+
     // after certain events
-    $(window).on('initSmoothScroll softpage:opened default-modal:opened',function(){
+    $(window).on('initSmoothScroll softpage:opened default-modal:opened', function() {
         initSmoothScroll();
     });
-    // on page load
-    smoothScrollOnPageLoad();
+
     // after certain events
-    $(window).on('smoothScrollOnPageLoad',function(){
+    $(window).on('smoothScrollOnPageLoad', function() {
         smoothScrollOnPageLoad();
     });
+
+    // re-init after cms page refresh
+    if (window.CMS) {
+        CMS.$(window).on('cms-content-refresh', () => {
+            initSmoothScroll();
+        });
+    }
 });
