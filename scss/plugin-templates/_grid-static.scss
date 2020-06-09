@@ -73,6 +73,10 @@
             @include spacings-size($app-content-plugin-static-grid-item-spacing, margin-bottom);
         }
 
+        @include media-breakpoint-down(sm) {
+            margin-bottom: to-rem(50px);
+        }
+
         // default heading
         .heading {
             @include font-h2();
