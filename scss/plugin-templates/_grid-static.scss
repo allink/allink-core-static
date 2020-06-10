@@ -74,7 +74,7 @@
         }
 
         @include media-breakpoint-down(sm) {
-            margin-bottom: to-rem(50px);
+            @include spacings-size(spacing-scale-2, margin-bottom);
         }
 
         // default heading
