@@ -2,6 +2,7 @@
     @include spacings-size(spacing-scale-5, padding-top);
     @include spacings-size(spacing-scale-5, padding-bottom);
 
+
     display: flex;
     position: fixed;
     z-index: z('browser-check');
@@ -20,8 +21,8 @@
 
     &__container {
         @include make-container();
+        @include max-width();
 
-        max-width: 65.375rem; // 1046px
         margin: auto;
 
         .lead {
@@ -37,6 +38,20 @@
 
         .text {
             margin-top: 0;
+        }
+    }
+
+    &__content {
+        @include media-breakpoint-up(0) {
+            @include make-col(24);
+        }
+        @include media-breakpoint-up(5) {
+            @include make-col(20);
+            @include make-col-offset(2);
+        }
+        @include media-breakpoint-up(12) {
+            @include make-col(16);
+            @include make-col-offset(4);
         }
     }
 
