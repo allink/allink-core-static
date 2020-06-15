@@ -31,7 +31,7 @@ $social-profile-icon-color:                     $black;
 $social-profile-icon-color-hover:               $black;
 $social-profile-icon-transition-property:            all; // per default we use $site-header-compact-mode-transition, because they are meant to be toggled at the same time
 $social-profile-icon-transition-duration:            $link-transition-duration;
-$social-profile-icon-transition-timing-function:     $link-transition-duration;
+$social-profile-icon-transition-timing-function:     $link-transition-timing-function;
 
 // inverted colors
 $social-profile-icon-inverted-color:                 $white;
