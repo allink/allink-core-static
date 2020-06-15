@@ -18,6 +18,10 @@ Each release is divided into the following main categories:
 - Fixed section spacing specificity [#59](https://github.com/allink/allink-core-static/pull/59)
 - Fixed language nav [#61](https://github.com/allink/allink-core-static/pull/61)
 - Fixed clickability of header elements [#63](https://github.com/allink/allink-core-static/pull/63)
+- Set lazyloader-transition-duration to 300ms [#65](https://github.com/allink/allink-core-static/pull/65)
+- Fixed grid-spacing behaviour on mobile [#66](https://github.com/allink/allink-core-static/pull/66)
+- Fixed social icon transition [#67](https://github.com/allink/allink-core-static/pull/67)
+- Fixed browser-suggestion content-width behavior on all viewports [#68](https://github.com/allink/allink-core-static/pull/68)
 
 ### NEW
 - Added basic link styles from variables [#45](https://github.com/allink/allink-core-static/pull/45)
