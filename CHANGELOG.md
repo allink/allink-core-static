@@ -31,6 +31,7 @@ Each release is divided into the following main categories:
 - Added stylelint [#56](https://github.com/allink/allink-core-static/pull/56)
 - Added hover color variables for nav toggle [#60](https://github.com/allink/allink-core-static/pull/60)
 - Init JS modules on softpages and after CMS refresh [#64](https://github.com/allink/allink-core-static/pull/64)
+    - JS modules must be updated from boilerplate
 
 ### Docs
 - Added docs for text cropping [#57](https://github.com/allink/allink-core-static/pull/57)
