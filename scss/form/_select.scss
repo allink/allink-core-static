@@ -76,17 +76,17 @@ select.selectpicker {
         }
 
         &::before {
-            @include icomoon();
-
-            content: $dropdown-toggle-icon;
+            content: '';
             position: absolute;
             top: 50%;
             line-height: 0;
-            width: auto; // TBD: If not set, icon jumps
+            width: 10px;
+            height: 5px;
+            //background-image: url($dropdown-toggle-icon);
             right: $dropdown-toggle-icon-spacing-right;
             left: $dropdown-toggle-icon-spacing-left;
             transition: transform $select-dropdown-animation-duration $select-dropdown-animation-timing-function;
-            transform: translateY(-50%) rotate(0deg);
+            transform: translateY(-50%);
         }
 
         &.toggle-initialized {

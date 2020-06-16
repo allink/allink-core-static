@@ -418,10 +418,11 @@ $dropdown-border-radius:                0;
 $dropdown-border-top:                   false; // boolean
 
 // toggle
-$dropdown-toggle-icon:                  '\e905';
+$dropdown-toggle-icon-color:            #a09d9b;
+//$dropdown-toggle-icon:                  "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='5'%3E%3Cpath fill='#{str-replace($dropdown-toggle-icon-color, '#', '%23')}' d='M10 0L5 5 0 0z'/%3E%3C/svg%3E";
 $dropdown-toggle-icon-spacing-right:    1em;
 $dropdown-toggle-icon-spacing-left:     auto;
-$dropdown-toggle-padding-right:         3em;
+$dropdown-toggle-padding-right:         1em;
 $dropdown-toggle-padding-left:          0.5em;
 
 // dropdown
