@@ -8,6 +8,10 @@ Each release is divided into the following main categories:
 
 
 ## v2.6.0
+### IMPORTANT
+- Init JS modules on softpages and after CMS refresh [#64](https://github.com/allink/allink-core-static/pull/64)
+    - JS modules must be updated from boilerplate
+
 ### FIXES
 - Updated bootstrap-select to v1.13.15 [#50](https://github.com/allink/allink-core-static/pull/50)
 - Fixed link tag in docs [#52](https://github.com/allink/allink-core-static/pull/52)
@@ -30,8 +34,6 @@ Each release is divided into the following main categories:
 - Added responsive media styles [#51](https://github.com/allink/allink-core-static/pull/51)
 - Added stylelint [#56](https://github.com/allink/allink-core-static/pull/56)
 - Added hover color variables for nav toggle [#60](https://github.com/allink/allink-core-static/pull/60)
-- Init JS modules on softpages and after CMS refresh [#64](https://github.com/allink/allink-core-static/pull/64)
-    - JS modules must be updated from boilerplate
 
 ### Docs
 - Added docs for text cropping [#57](https://github.com/allink/allink-core-static/pull/57)
