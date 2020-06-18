@@ -9,7 +9,7 @@ Each release is divided into the following main categories:
 
 ## v2.6.0
 ### IMPORTANT
-- Init JS modules on softpages and after CMS refresh [#64](https://github.com/allink/allink-core-static/pull/64)
+- Init JS modules on softpages and after CMS refresh [#64](https://github.com/allink/allink-core-static/pull/64), [#71](https://github.com/allink/allink-core-static/pull/71)
     - JS modules must be updated from boilerplate
 
 ### FIXES
