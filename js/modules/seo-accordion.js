@@ -26,6 +26,7 @@ export default function initSEOAccordion(options) {
             animationRunning = true;
             $seoAccordionContent.slideToggle(animationDuration, 'swing', function () {
                 animationRunning = false;
+                $(window).trigger('initSoftpageTrigger');
             });
         });
     });
