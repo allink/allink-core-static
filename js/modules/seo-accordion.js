@@ -8,10 +8,11 @@ export default function initSEOAccordion(options) {
     const $seoAccordionItems = $('.seo-accordion__item');
     const animationDuration = options.duration || 400;
 
-    if (typeof $seoAccordionItems.data('trigger-initialized') === 'undefined') {
-        $seoAccordionItems.each(function () {
-            const $item = $(this);
-            const $seoAccordionTitle = $item.children('.seo-accordion__title');
+    $seoAccordionItems.each(function () {
+        const $item = $(this);
+        const $seoAccordionTitle = $item.children('.seo-accordion__title');
+
+        if (typeof $item.data('trigger-initialized') === 'undefined') {
             let animationRunning = false;
 
             $seoAccordionTitle.on('click', function (event) {
@@ -30,8 +31,8 @@ export default function initSEOAccordion(options) {
                     $(window).trigger('initSoftpageTrigger');
                 });
             });
-        });
 
-        $seoAccordionItems.attr('data-trigger-initialized', '');
-    }
+            $item.attr('data-trigger-initialized', '');
+        }
+    });
 }
