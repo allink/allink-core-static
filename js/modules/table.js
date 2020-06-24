@@ -42,4 +42,11 @@ $(function(){
         initTableModifications();
     });
 
+    // re-init after cms page refresh
+    if (window.CMS) {
+        CMS.$(window).on('cms-content-refresh', () => {
+            initTableModifications();
+        });
+    }
+
 });

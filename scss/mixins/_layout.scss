@@ -7,6 +7,7 @@ Main Container Mixins
 @mixin max-width() {
     width: auto;
     position: relative;
+
     @if $max-width-xxl {
         @include media-breakpoint-up(xxl) {
             max-width: $max-width-xxl;
@@ -38,6 +39,7 @@ SCSS:
 
 @mixin aspect-ratio($width: 4, $height: 3, $inner-container-class: 'inner', $hide-overflow: false, $max-height: false) {
     position: relative;
+
     @if $max-height {
         max-height: $max-height;
     }
@@ -45,7 +47,8 @@ SCSS:
     @if $hide-overflow == true {
         overflow: hidden;
     }
-    &:before {
+
+    &::before {
         display: block;
         content: '';
         width: 100%;
@@ -69,24 +72,29 @@ Header
 
 @mixin set-site-header-height() {
     height: $site-header-height-xs;
+
     @include media-breakpoint-up(md) {
-       height: $site-header-height-md;
+        height: $site-header-height-md;
     }
+
     @include media-breakpoint-up(xxl) {
-       height: $site-header-height-xxl;
+        height: $site-header-height-xxl;
     }
 }
 
 @mixin set-site-header-compact-mode-height() {
     height: $site-header-compact-mode-height-xs;
+
     @include media-breakpoint-up(md) {
-       height: $site-header-compact-mode-height-md;
+        height: $site-header-compact-mode-height-md;
     }
+
     @include media-breakpoint-up(xl) {
-       height: $site-header-compact-mode-height-xl;
+        height: $site-header-compact-mode-height-xl;
     }
+
     @include media-breakpoint-up(xxl) {
-       height: $site-header-compact-mode-height-xxl;
+        height: $site-header-compact-mode-height-xxl;
     }
 }
 
@@ -99,9 +107,11 @@ Footer
 
 @mixin set-site-footer-height() {
     height: $site-footer-fixed-height-xs;
+
     @include media-breakpoint-up(md) {
         height: $site-footer-fixed-height-md;
     }
+
     @include media-breakpoint-up(xl) {
         height: $site-footer-fixed-height-xl;
     }
@@ -109,9 +119,11 @@ Footer
 
 @mixin set-site-footer-body-margin() {
     margin-bottom: $site-footer-fixed-height-xs;
+
     @include media-breakpoint-up(md) {
         margin-bottom: $site-footer-fixed-height-md;
     }
+
     @include media-breakpoint-up(xl) {
         margin-bottom: $site-footer-fixed-height-xl;
     }

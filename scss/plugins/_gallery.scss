@@ -14,7 +14,6 @@ Gallery Plugin
 }
 
 .gallery-slide {
-
     &____image-container {
         position: relative;
         z-index: 1;
@@ -22,10 +21,13 @@ Gallery Plugin
 
     &__content-container {
         position: absolute;
+
         @include content-section-spacing-position(bottom);
         @include content-section-spacing-position(left);
         @include content-section-spacing-position(right);
+
         z-index: 10;
+
         @include media-breakpoint-up(lg) {
             max-width: 66.66%;
         }
@@ -44,18 +46,20 @@ Gallery Plugin
             bottom: 0;
             left: 0;
             z-index: 5;
+
             @include gradient-overlay($gallery-plugin-slide-overlay-gradient-height);
         }
+
         &__heading {
             color: $overlay-heading-color;
         }
+
         &__text-container {
             > * {
                 color: $overlay-text-color;
             }
         }
     }
-
 }
 
 
@@ -132,12 +136,13 @@ Fullscreen Gallery
 
 .swiper-button-fullscreen-close {
     &.tingle-modal__close {
-        &:before {
+        &::before {
             color: $white;
         }
+
         &:hover,
         &:focus {
-            &:before {
+            &::before {
                 color: $white;
             }
         }

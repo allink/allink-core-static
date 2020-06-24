@@ -8,7 +8,6 @@ Hamburger Toggle
     display: inline-block;
     cursor: pointer;
     border-radius: 0;
-
     transition-property: opacity, filter;
     transition-duration: $hamburger-hover-transition-duration;
     transition-timing-function: $hamburger-hover-transition-timing-function;
@@ -28,6 +27,7 @@ Hamburger Toggle
 
     // padding
     padding: $hamburger-padding-y-xs $hamburger-padding-x-xs;
+
     @include media-breakpoint-up(xxl) {
         padding: $hamburger-padding-y-xxl $hamburger-padding-x-xxl;
     }
@@ -40,8 +40,7 @@ Hamburger Toggle
     &:hover {
         @if $hamburger-hover-use-filter == true {
             filter: $hamburger-hover-filter;
-        }
-        @else {
+        } @else {
             opacity: $hamburger-hover-opacity;
         }
     }
@@ -109,14 +108,16 @@ Squeeze Variation
 .hamburger-inner {
     // transition-duration: 0.075s;
     &::before {
-        transition: top 0.075s 0.12s ease,
-                    transform 0.075s ease;
+        transition:
+            top 0.075s 0.12s ease,
+            transform 0.075s ease;
         transition-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
     }
 
     &::after {
-        transition: bottom 0.075s 0.12s ease,
-                    transform 0.075s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+        transition:
+            bottom 0.075s 0.12s ease,
+            transform 0.075s cubic-bezier(0.55, 0.055, 0.675, 0.19);
     }
 }
 
@@ -130,15 +131,17 @@ Squeeze Variation
             &::before {
                 top: 0;
                 // opacity: 0;
-                transition: top 0.075s ease,
-                            opacity 0.075s 0.12s ease;
+                transition:
+                    top 0.075s ease,
+                    opacity 0.075s 0.12s ease;
             }
 
             &::after {
                 bottom: 0;
                 transform: rotate(-90deg);
-                transition: bottom 0.075s ease,
-                            transform 0.075s 0.12s cubic-bezier(0.215, 0.61, 0.355, 1);
+                transition:
+                    bottom 0.075s ease,
+                    transform 0.075s 0.12s cubic-bezier(0.215, 0.61, 0.355, 1);
             }
         }
     }
@@ -156,8 +159,9 @@ Mobile Menu Toggle
     position: absolute;
     top: 50%;
     right: 0;
-    transform: translate(0,-50%);
-    @media (min-width:$grid-float-breakpoint) {
+    transform: translate(0, -50%);
+
+    @media (min-width: $grid-float-breakpoint) {
         display: none;
     }
 }
@@ -174,8 +178,9 @@ Overlay Menu Toggle
     position: absolute;
     top: 50%;
     right: 30px;
-    transform: translate(0,-50%);
+    transform: translate(0, -50%);
     z-index: 5;
+
     @include media-breakpoint-up(md) {
         right: 30px;
     }

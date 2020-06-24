@@ -19,10 +19,13 @@ Requires the following HTML markup:
 .checkbox {
     position: relative;
     margin: 0;
+
     & + .checkbox {
         margin-top: $checkbox-siblings-spacing-top;
     }
+
     padding: 0;
+
     label {
         padding: 0;
         padding-left: $checkbox-label-spacing;
@@ -32,7 +35,7 @@ Requires the following HTML markup:
         position: absolute;
         top: 50%;
         left: $checkbox-spacing-left;
-        transform: translate(0,-50%);
+        transform: translate(0, -50%);
         width: $checkbox-size;
         height: $checkbox-size;
         border-width: $checkbox-border-width;
@@ -59,30 +62,30 @@ Requires the following HTML markup:
             & + .custom-checkbox {
                 border-color: $checkbox-border-color-checked;
                 background: $checkbox-bg-color-checked;
+
                 &::after {
                     position: absolute;
                     top: 50%;
                     left: 50%;
+
                     @if $checkbox-font-icon-enabled == true {
                         @include icomoon();
+
                         content: $checkbox-font-icon-code;
                         font-size: $checkbox-font-icon-size;
                         color: $checkbox-icon-color;
-                        transform: translate(-50%,-50%);
-                    }
-                    @else {
+                        transform: translate(-50%, -50%);
+                    } @else {
                         content: '';
                         width: $checkbox-css-icon-size/2;
                         height: $checkbox-css-icon-size;
                         border: $checkbox-css-icon-size/4 solid $checkbox-icon-color;
                         border-left: none;
                         border-top: none;
-                        transform: translate(-50%,-50%) rotate(45deg);
+                        transform: translate(-50%, -50%) rotate(45deg);
                     }
                 }
             }
         }
-
     }
-
 }

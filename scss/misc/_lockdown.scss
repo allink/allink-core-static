@@ -1,6 +1,3 @@
-.lockdown-section {
-}
-
 .lockdown-plugin {
     max-width: 500px;
     margin: 0 auto;
@@ -11,16 +8,15 @@
     @include font-h1();
 }
 
-.lockdown-plugin__text {
-}
-
 .lockdown-plugin__form {
     #id_password {
         max-width: 200px;
         margin: 0 auto;
     }
+
     .btn-container {
         text-align: center;
+
         .btn {
             margin: 0;
             float: none;

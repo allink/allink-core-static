@@ -6,18 +6,32 @@ Nav Toggle
 
 .nav-toggle {
     @include fluid-size((min: $page-padding-width-xs - ($nav-toggle-line-width / 2), max: $page-padding-width - ($nav-toggle-line-width / 2)), 'right');
+
     width: $nav-toggle-width;
     height: $nav-toggle-height;
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
     z-index: z('site-content');
+    pointer-events: auto;
+
+    &:hover,
+    &:focus {
+        .nav-toggle__line {
+            background-color: $nav-toggle-line-color-hover;
+        }
+
+        &.is-active .nav-toggle__line {
+            background-color: $nav-toggle-line-overlay-color-hover;
+        }
+    }
 
     &.is-active {
         .nav-toggle__line {
             &:first-child {
                 transform: translateY(0.3rem) rotateZ(-45deg);
             }
+
             &:last-child {
                 transform: translateY(-0.3rem) rotateZ(45deg);
             }
@@ -28,10 +42,12 @@ Nav Toggle
         @include make-container();
         @include max-width();
         @include set-site-header-height();
+
         left: 0;
         position: absolute;
         right: 0;
         top: 0;
+        pointer-events: none;
     }
 
     &__box {
@@ -55,7 +71,7 @@ Nav Toggle
         }
 
         &:last-child {
-            margin-top: .5rem;
+            margin-top: 0.5rem;
         }
     }
 }

@@ -29,14 +29,17 @@ picture.lazyloader {
     position: relative;
     display: block;
     overflow: hidden;
+
     @include the-loader();
     @include lazyloader-transition();
-    &:before {
+
+    &::before {
         opacity: 1;
+
         @include lazyloader-transition();
     }
     // "background" color
-    &:after {
+    &::after {
         content: '';
         position: absolute;
         top: 0;
@@ -45,20 +48,23 @@ picture.lazyloader {
         left: 0;
         background-color: $lazyloader-bg-color;
         opacity: 1;
+
         @include lazyloader-transition();
     }
     // modifier classes
     &.icon-disabled,
     &.no-icon {
-        &:before {
+        &::before {
             display: none;
         }
     }
+
     &.bg-disabled,
     &.no-bg {
         // this is stronger than setting a bg color
         background: transparent !important;
-        &:after {
+
+        &::after {
             display: none;
         }
     }
@@ -70,7 +76,7 @@ picture.lazyloader {
         }
         // set via image plugin
         .image-container.project-color-#{$nr} & {
-            &:after {
+            &::after {
                 background-color: $color;
             }
         }
@@ -84,13 +90,12 @@ picture.lazyloader {
         transition-property: opacity;
         transition-duration: $lazyloader-transition-duration;
         transition-timing-function: ease-in-out;
-
         display: block;
         // due to subpixel rendering issues, we place the image slightly offset
         width: 100.5%;
         height: 100.5%;
         max-width: none;
-        transform: translate3d(0,0,0);
+        transform: translate3d(0, 0, 0);
 
         &.lazyloaded {
             opacity: 1;
@@ -102,11 +107,11 @@ picture.lazyloader {
     &--loaded,
     &--disabled {
         // hide loader
-        &:before {
+        &::before {
             display: none;
         }
         // hide background color
-        &:after {
+        &::after {
             opacity: 0;
             // but in case of a specific PROJECT_COLORS background color (via Image Plugin) we want to keep it
             .image-container.has-bg-color & {

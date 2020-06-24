@@ -12,5 +12,5 @@ $custom-scrollbar-track-bg:                    $gray-lighter;
 $custom-scrollbar-track-border-radius:         6px;
 $custom-scrollbar-track-size:                  12px;
 // thumb (movable bar)
-$custom-scrollbar-thumb-bg:                    darken($gray-lighter,10%);
+$custom-scrollbar-thumb-bg:                    darken($gray-lighter, 10%);
 $custom-scrollbar-thumb-border-radius:         $custom-scrollbar-track-border-radius; // recommended to be the same as $custom-scrollbar-track-border-radius

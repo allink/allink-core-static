@@ -13,21 +13,23 @@
 @mixin icon-base($icon, $icon-size) {
     position: relative;
 
-    &:before {
+    &::before {
         @include icomoon();
+
         content: $icon;
         position: absolute;
         top: 50%;
-        transform: translate(0,-50%);
+        transform: translate(0, -50%);
         font-size: $icon-size;
     }
 }
 
 @mixin icon-left($icon: 'x', $icon-size: 0.5em, $padding: 1em ) {
     @include icon-base($icon, $icon-size);
+
     padding-left: $padding;
 
-    &:before {
+    &::before {
         left: 0;
         font-size: $icon-size;
     }
@@ -36,16 +38,17 @@
 @mixin icon-left-btn($padding: 1em, $padding-icon: 1em, $icon: 'x', $icon-size: 0.5em) {
     @include icon-left($icon, $icon-size, $padding);
 
-    &:before {
+    &::before {
         padding-left: $padding-icon;
     }
 }
 
 @mixin icon-left-outside($padding: 1em, $icon: 'x', $icon-size: 0.5em) {
     @include icon-base($icon, $icon-size);
+
     margin-left: $padding;
 
-    &:before {
+    &::before {
         font-size: $icon-size;
         left: -$padding;
         padding-right: $padding;
@@ -54,9 +57,10 @@
 
 @mixin icon-right($padding: 1em, $icon: 'x', $icon-size: 0.5em) {
     @include icon-base($icon, $icon-size);
+
     padding-right: $padding;
 
-    &:before {
+    &::before {
         right: 0;
     }
 }
@@ -64,16 +68,17 @@
 @mixin icon-right-btn($padding: 1em, $padding-icon: 1em, $icon: 'x', $icon-size: 0.5em) {
     @include icon-right($padding, $icon, $icon-size);
 
-    &:before {
+    &::before {
         padding-right: $padding-icon;
     }
 }
 
 @mixin icon-right-outside($padding: 1em, $icon: 'x', $icon-size: 0.5em) {
     @include icon-base($icon, $icon-size);
+
     margin-right: $padding;
 
-    &:before {
+    &::before {
         font-size: $icon-size;
         right: -$padding;
         padding-left: $padding;
@@ -82,13 +87,16 @@
 
 @mixin link-icon-external-text() {
     @include icon-right-outside($padding: 1em, $icon: '\e90a', $icon-size: 0.5em);
+
     margin-right: 1.2em;
+
     &:hover,
     &:focus {
         &::before {
             top: 50%;
         }
     }
+
     &::before {
         right: -1.5em;
         transform: rotate(-45deg);

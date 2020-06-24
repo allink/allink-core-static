@@ -1,5 +1,4 @@
 .grid-static-container {
-
     .the-grid {
         @include make-row();
 
@@ -24,55 +23,61 @@
         > * {
             width: 100%;
         }
+
         .items-per-row-1 & {
             @include media-breakpoint-up(xs) {
                 @include make-col(24);
             }
         }
+
         .items-per-row-2 & {
             @include media-breakpoint-up(xs) {
                 @include make-col(24);
             }
+
             @include media-breakpoint-up(md) {
                 @include make-col(12);
             }
         }
+
         .items-per-row-3 & {
             @include media-breakpoint-up(xs) {
                 @include make-col(24);
             }
+
             @include media-breakpoint-up(md) {
                 @include make-col(12);
             }
+
             @include media-breakpoint-up(lg) {
                 @include make-col(8);
             }
         }
+
         .items-per-row-4 & {
             @include media-breakpoint-up(xs) {
                 @include make-col(24);
             }
+
             @include media-breakpoint-up(md) {
                 @include make-col(12);
             }
+
             @include media-breakpoint-up(lg) {
                 @include make-col(6);
             }
         }
-    }
 
-    // spacing between items
-    .grid-item {
+        // spacing between items
         @if $app-content-plugin-static-grid-item-spacing {
             @include spacings-size($app-content-plugin-static-grid-item-spacing, margin-bottom);
         }
-        &.appended {
-            // TBD
-        }
-    }
 
-    // default heading
-    .grid-item {
+        @include media-breakpoint-down(sm) {
+            @include spacings-size(spacing-scale-2, margin-bottom);
+        }
+
+        // default heading
         .heading {
             @include font-h2();
         }

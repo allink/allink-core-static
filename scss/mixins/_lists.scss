@@ -7,7 +7,9 @@
 @mixin horizontal-list() {
     list-style: none;
     padding: 0;
+
     @include clearfix();
+
     > li {
         float: left;
         margin: 0;

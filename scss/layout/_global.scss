@@ -1,15 +1,16 @@
 * {
     box-sizing: border-box;
-    &:before,
-    &:after {
+
+    &::before,
+    &::after {
         box-sizing: border-box;
     }
     // removes tap highlight on touch devices
-    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     -webkit-tap-highlight-color: transparent;
 }
 
-html{
+html {
 
     // basic setting
     &.base-root {
@@ -26,7 +27,6 @@ html{
 
     // IE and Edge Scrollbar Fixes
     -ms-overflow-style: -ms-autohiding-scrollbar;
-
 }
 
 body {
@@ -49,6 +49,7 @@ It has to be placed right after the `.site-header-buffer` in `base.html`
     opacity: 0;
     visibility: hidden;
     width: 1px;
+
     @include set-site-header-compact-mode-height();
     // we're gonna assign the content section spacing as width (so we don't need an extra element, which is fallback friendly), and use this value to add a scroll offset on elements that do not have a padding-top
     @include spacings-size($content-section-spacing, width);

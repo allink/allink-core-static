@@ -22,6 +22,7 @@ Requires the following markup:
     width: $datepicker-default-width;
     min-width: $datepicker-default-min-width;
     max-width: $datepicker-default-max-width;
+
     > .form-control {
         position: relative;
         background-color: $datepicker-default-input-bg; // required, because it is set on "readonly" and gets overwritten by Bootstrap
@@ -38,39 +39,47 @@ Requires the following markup:
         height: 100%;
         cursor: pointer;
         z-index: 2;
-        &:after {
+
+        &::after {
             @include icomoon();
+
             position: absolute;
             top: 50%;
             left: 50%;
             font-size: $datepicker-default-btn-icon-size;
-            transform: translate(-50%,-50%);
+            transform: translate(-50%, -50%);
             color: $datepicker-default-btn-icon-color;
+
             &:hover,
             &:focus {
                 color: $datepicker-default-btn-icon-color-hover;
             }
         }
     }
+
     > .calendar-btn {
-        &:after {
+        &::after {
             content: $datepicker-default-btn-icon;
         }
     }
+
     > .time-btn {
-        &:after {
+        &::after {
             content: $datepicker-time-btn-icon;
         }
     }
+
     > .clear-btn {
         opacity: 0;
         transform: scale(0);
         transition: $datepicker-clear-btn-transition;
         right: $datepicker-clear-btn-position-right;
-        &:after {
+
+        &::after {
             content: $datepicker-clear-btn-icon;
             font-size: $datepicker-clear-btn-icon-size;
             color: $datepicker-clear-btn-icon-color;
+
             &:hover,
             &:focus {
                 color: $datepicker-clear-btn-icon-color-hover;
@@ -116,7 +125,8 @@ Overwriting default flatpickr styles of time picker to increase accessibility
 .numInputWrapper {
     span {
         width: 35px;
-        &:after {
+
+        &::after {
             left: 50%;
             transform: translateX(-50%);
         }

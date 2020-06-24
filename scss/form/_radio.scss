@@ -19,9 +19,11 @@ Requires the following HTML markup:
 .radio {
     position: relative;
     margin: 0;
+
     & + .radio {
         margin-top: $radio-siblings-spacing-top;
     }
+
     label {
         padding: 0;
         padding-left: $radio-label-spacing;
@@ -31,7 +33,7 @@ Requires the following HTML markup:
         position: absolute;
         top: 50%;
         left: $radio-spacing-left;
-        transform: translate(0,-50%);
+        transform: translate(0, -50%);
         width: $radio-size;
         height: $radio-size;
         border-width: $radio-border-width;
@@ -40,6 +42,7 @@ Requires the following HTML markup:
         border-radius: 50%;
         background: $radio-bg-color;
         transition: $radio-transition;
+
         &::after {
             content: '';
             position: absolute;
@@ -49,7 +52,7 @@ Requires the following HTML markup:
             border-radius: 50%;
             top: 50%;
             left: 50%;
-            transform: translate(-50%,-50%) scale(0);
+            transform: translate(-50%, -50%) scale(0);
             transition: $radio-inner-circle-transition;
         }
     }
@@ -61,8 +64,9 @@ Requires the following HTML markup:
             & + .custom-radio {
                 border-color: $radio-border-color-checked;
                 background: $radio-bg-color-checked;
+
                 &::after {
-                    transform: translate(-50%,-50%) scale(1);
+                    transform: translate(-50%, -50%) scale(1);
                 }
             }
         }
@@ -74,5 +78,4 @@ Requires the following HTML markup:
             background: $radio-bg-color-focus;
         }
     }
-
 }

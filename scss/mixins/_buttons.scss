@@ -75,10 +75,13 @@ Base Styles
 
     &.btn-sm {
         @include font-btn-small();
+
         border-radius: $btn-border-radius-small;
     }
+
     &.btn-lg {
         @include font-btn-large();
+
         border-radius: $btn-border-radius-large;
     }
 }
@@ -100,13 +103,14 @@ How to use:
 
 @mixin button-variation($variation: 'default') {
     & {
-        background-color: map-deep-get($btn-variations,$variation,'bg');
-        color: map-deep-get($btn-variations,$variation,'color');
+        background-color: map-deep-get($btn-variations, $variation, 'bg');
+        color: map-deep-get($btn-variations, $variation, 'color');
+
         @if map-deep-get($btn-variations,$variation,'border') {
-            border-top-color: map-deep-get($btn-variations,$variation,'border-top-color');
-            border-right-color: map-deep-get($btn-variations,$variation,'border-right-color');
-            border-bottom-color: map-deep-get($btn-variations,$variation,'border-bottom-color');
-            border-left-color: map-deep-get($btn-variations,$variation,'border-left-color');
+            border-top-color: map-deep-get($btn-variations, $variation, 'border-top-color');
+            border-right-color: map-deep-get($btn-variations, $variation, 'border-right-color');
+            border-bottom-color: map-deep-get($btn-variations, $variation, 'border-bottom-color');
+            border-left-color: map-deep-get($btn-variations, $variation, 'border-left-color');
         } @else {
             border: none;
         }
@@ -115,22 +119,24 @@ How to use:
     &,
     &:link,
     &:visited {
-        color: map-deep-get($btn-variations,$variation,'color');
+        color: map-deep-get($btn-variations, $variation, 'color');
         // in case there are icons defined with pseude elements, let's give them the same color
         &::before,
         &::after {
-            color: map-deep-get($btn-variations,$variation,'color');
+            color: map-deep-get($btn-variations, $variation, 'color');
         }
     }
+
     &:hover,
     &:focus,
     &:focus:active,
     &:active,
     &:active:hover,
     .open > &.dropdown-toggle {
-        background-color: map-deep-get($btn-variations,$variation,'bg-hover');
-        color: map-deep-get($btn-variations,$variation,'color-hover');
+        background-color: map-deep-get($btn-variations, $variation, 'bg-hover');
+        color: map-deep-get($btn-variations, $variation, 'color-hover');
         outline: none; // not very good because of accessibility reasons, but the default style looks too ugly.
+
         @if map-deep-get($btn-variations,$variation,'border-hover') {
             border-top-color: map-deep-get($btn-variations, $variation, 'border-top-color-hover');
             border-right-color: map-deep-get($btn-variations, $variation, 'border-right-color-hover');
@@ -143,15 +149,17 @@ How to use:
         // in case there are icons defined with pseude elements, let's give them the same color
         &::before,
         &::after {
-            color: map-deep-get($btn-variations,$variation,'color-hover');
+            color: map-deep-get($btn-variations, $variation, 'color-hover');
         }
     }
+
     &.disabled,
     &[disabled],
     fieldset[disabled] & {
         opacity: 1;
-        background-color: map-deep-get($btn-variations,$variation,'bg-disabled');
-        color: map-deep-get($btn-variations,$variation,'color-disabled');
+        background-color: map-deep-get($btn-variations, $variation, 'bg-disabled');
+        color: map-deep-get($btn-variations, $variation, 'color-disabled');
+
         @if map-deep-get($btn-variations,$variation,'border-disabled') {
             border-top-color: map-deep-get($btn-variations, $variation, 'border-top-color-disabled');
             border-right-color: map-deep-get($btn-variations, $variation, 'border-right-color-disabled');
@@ -188,6 +196,8 @@ when hover state has a border: https://www.chenhuijing.com/blog/about-subpxiel-r
     .link-text {
         display: inline-flex;
         align-items: center;
+        justify-content: center;
+        flex: 1 1 auto;
         border-bottom-color: map-deep-get($btn-variations, $variation, 'border-bottom-color');
         border-left-color: map-deep-get($btn-variations, $variation, 'border-left-color');
         border-top-color: map-deep-get($btn-variations, $variation, 'border-top-color');
@@ -208,8 +218,9 @@ when hover state has a border: https://www.chenhuijing.com/blog/about-subpxiel-r
     &:active:hover,
     .open > &.dropdown-toggle {
         // overwrite default styles for masking effect
-        background-color: map-deep-get($btn-variations,$variation,'bg');
-        color: map-deep-get($btn-variations,$variation,'color');
+        background-color: map-deep-get($btn-variations, $variation, 'bg');
+        color: map-deep-get($btn-variations, $variation, 'color');
+
         .link-text-mask,
         .link-text-mask__inner {
             transform: translate(0%, 0%);
@@ -217,9 +228,9 @@ when hover state has a border: https://www.chenhuijing.com/blog/about-subpxiel-r
     }
 
     .link-text-mask {
-        background-color: map-deep-get($btn-variations,$variation,'bg-hover');
+        background-color: map-deep-get($btn-variations, $variation, 'bg-hover');
         bottom: 0;
-        color: map-deep-get($btn-variations,$variation,'color-hover');
+        color: map-deep-get($btn-variations, $variation, 'color-hover');
         display: block;
         height: 100%;
         left: 0;
@@ -233,12 +244,15 @@ when hover state has a border: https://www.chenhuijing.com/blog/about-subpxiel-r
         @if $btn-mask-transition-direction-starting-point == 'bottom' {
             transform: translateY(calc(100% + #{$button-border-width}));
         }
+
         @if $btn-mask-transition-direction-starting-point == 'right' {
             transform: translateX(calc(100% + #{$button-border-width}));
         }
+
         @if $btn-mask-transition-direction-starting-point == 'top' {
             transform: translateY(calc(-100% + #{$button-border-width}));
         }
+
         @if $btn-mask-transition-direction-starting-point == 'left' {
             transform: translateX(calc(-100% + #{$button-border-width}));
         }
@@ -254,7 +268,6 @@ when hover state has a border: https://www.chenhuijing.com/blog/about-subpxiel-r
             right: 0;
             transition: inherit;
             z-index: 100;
-
             border-bottom-color: map-deep-get($btn-variations, $variation, 'border-bottom-color-hover');
             border-left-color: map-deep-get($btn-variations, $variation, 'border-left-color-hover');
             border-top-color: map-deep-get($btn-variations, $variation, 'border-top-color-hover');
@@ -270,12 +283,15 @@ when hover state has a border: https://www.chenhuijing.com/blog/about-subpxiel-r
             @if $btn-mask-transition-direction-starting-point == 'bottom' {
                 transform: translateY(calc(-100% - #{$button-border-width}));
             }
+
             @if $btn-mask-transition-direction-starting-point == 'right' {
                 transform: translateX(calc(-100% - #{$button-border-width}));
             }
+
             @if $btn-mask-transition-direction-starting-point == 'top' {
                 transform: translateY(calc(100% - #{$button-border-width}));
             }
+
             @if $btn-mask-transition-direction-starting-point == 'left' {
                 transform: translateX(calc(100% - #{$button-border-width}));
             }

@@ -1,13 +1,14 @@
 .button-link-plugin {
-
     &__list {
         padding: 0;
         margin: 0;
         list-style: none;
         margin-top: -$button-link-container-item-spacing-xs;
+
         @include media-breakpoint-up(md) {
             margin-top: -$button-link-container-item-spacing-md;
         }
+
         @include media-breakpoint-up(xl) {
             margin-top: -$button-link-container-item-spacing-xl;
         }
@@ -17,14 +18,17 @@
         display: inline-block;
         margin-top: $button-link-container-item-spacing-xs;
         margin-right: $button-link-container-item-spacing-xs;
+
         @include media-breakpoint-up(md) {
             margin-top: $button-link-container-item-spacing-md;
             margin-right: $button-link-container-item-spacing-md;
         }
+
         @include media-breakpoint-up(xl) {
             margin-top: $button-link-container-item-spacing-xl;
             margin-right: $button-link-container-item-spacing-xl;
         }
+
         &:last-child {
             margin-right: 0;
         }

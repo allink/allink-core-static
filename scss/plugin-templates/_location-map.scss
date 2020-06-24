@@ -7,7 +7,6 @@ the ratio can be overwritten by copying this markup into the projects static fol
 */
 
 .locations-plugin {
-
     &.map-template {
         @include media-breakpoint-down(sm) {
             @include aspect-ratio(3,2,'locations-map');

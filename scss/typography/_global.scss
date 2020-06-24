@@ -5,13 +5,15 @@ General Font Settings
 */
 
 html {
-  font-size: 100%; // Default browser setting of 16px. Meaning 1rem ~= 16px
+    font-size: 100%; // Default browser setting of 16px. Meaning 1rem ~= 16px
 }
 
 // default text color
 body {
     color: $body-color;
+
     @include font-default($font-cropping-disabled: true);
+
     @include print() {
         color: $body-color-print;
     }
@@ -37,12 +39,26 @@ em {
 p {
     // reset any margins, they are applied through the parent .text-container or on the spot
     margin: 0;
+
     @include font-default();
+
     &.small {
         @include font-small();
     }
+
     &.lead {
         @include font-lead();
+    }
+}
+
+a {
+    color: $link-color;
+    text-decoration: $link-decoration;
+
+    &:hover,
+    &:focus {
+        color: $link-color-hover;
+        text-decoration: $link-decoration-hover;
     }
 }
 

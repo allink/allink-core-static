@@ -5,8 +5,8 @@
 */
 
 $link-transition-property:           color, border-color;
-$link-transition-duration:           $default-transition-duration;
-$link-transition-timing-function:    $default-transition-timing-function;
+$link-transition-duration:           300ms;
+$link-transition-timing-function:    ease;
 $link-color:                         $brand-secondary;
 $link-decoration:                    underline;
 $link-color-hover:                   $brand-secondary-light;

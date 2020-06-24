@@ -6,6 +6,38 @@ Each release is divided into the following main categories:
 - NEW: New features or plugins
 - FIXES: General bugfixes
 
+
+## v2.6.0
+### IMPORTANT
+- Init JS modules on softpages and after CMS refresh [#64](https://github.com/allink/allink-core-static/pull/64), [#71](https://github.com/allink/allink-core-static/pull/71), [#73](https://github.com/allink/allink-core-static/pull/73)
+    - JS modules must be updated from boilerplate
+
+### FIXES
+- Updated bootstrap-select to v1.13.15 [#50](https://github.com/allink/allink-core-static/pull/50)
+- Fixed link tag in docs [#52](https://github.com/allink/allink-core-static/pull/52)
+- Fixed accordion icon [#53](https://github.com/allink/allink-core-static/pull/53)
+- Centered button text [#54](https://github.com/allink/allink-core-static/pull/54)
+- Fixed line height output [#55](https://github.com/allink/allink-core-static/pull/55)
+- Optimized link icon transition [#58](https://github.com/allink/allink-core-static/pull/58)
+- Fixed section spacing specificity [#59](https://github.com/allink/allink-core-static/pull/59)
+- Fixed language nav [#61](https://github.com/allink/allink-core-static/pull/61)
+- Fixed clickability of header elements [#63](https://github.com/allink/allink-core-static/pull/63)
+- Set lazyloader-transition-duration to 300ms [#65](https://github.com/allink/allink-core-static/pull/65)
+- Fixed grid-spacing behaviour on mobile [#66](https://github.com/allink/allink-core-static/pull/66)
+- Fixed social icon transition [#67](https://github.com/allink/allink-core-static/pull/67)
+- Fixed browser-suggestion content-width behavior on all viewports [#68](https://github.com/allink/allink-core-static/pull/68)
+
+### NEW
+- Added basic link styles from variables [#45](https://github.com/allink/allink-core-static/pull/45)
+- Updated browser check logo styles [#46](https://github.com/allink/allink-core-static/pull/46)
+- Added to-rem function [#47](https://github.com/allink/allink-core-static/pull/47)
+- Added responsive media styles [#51](https://github.com/allink/allink-core-static/pull/51)
+- Added stylelint [#56](https://github.com/allink/allink-core-static/pull/56)
+- Added hover color variables for nav toggle [#60](https://github.com/allink/allink-core-static/pull/60)
+
+### Docs
+- Added docs for text cropping [#57](https://github.com/allink/allink-core-static/pull/57)
+
 ## v2.5.3
 ### FIXES
 - Fixed modal header border [#49](https://github.com/allink/allink-core-static/pull/49)

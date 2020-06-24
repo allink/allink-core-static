@@ -1,5 +1,4 @@
 .social-icons {
-
     text-align: $social-profile-icon-alignment;
 
     &__list {
@@ -10,6 +9,7 @@
 
     &__list-item {
         display: inline-block;
+
         & + .social-icons__list-item {
             margin-left: $social-profile-icon-spacing;
         }
@@ -29,7 +29,7 @@
         &:hover,
         &:focus {
             .social-icons__icon {
-                &:before {
+                &::before {
                     color: $social-profile-icon-color-hover;
                     opacity: $social-profile-icon-opacity-hover;
                     // inverted colors
@@ -43,8 +43,10 @@
 
     &__icon {
         display: block;
-        &:before {
+
+        &::before {
             @include icomoon();
+
             display: block;
             color: $social-profile-icon-color;
             opacity: $social-profile-icon-opacity;
@@ -52,9 +54,11 @@
             transition-duration: $social-profile-icon-transition-duration;
             transition-timing-function: $social-profile-icon-transition-timing-function;
             font-size: $social-profile-icon-size-xs;
+
             @include media-breakpoint-up(md) {
                 font-size: $social-profile-icon-size-md;
             }
+
             @include media-breakpoint-up(xl) {
                 font-size: $social-profile-icon-size-xl;
             }
@@ -68,10 +72,9 @@
     // $social-profile-icons is defined in the project variables file
     @each $selector, $icon in $social-profile-icons {
         &__icon--#{$selector} {
-            &:before {
+            &::before {
                 content: $icon;
             }
         }
     }
-
 }

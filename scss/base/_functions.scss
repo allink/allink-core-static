@@ -12,6 +12,7 @@ Get z'index value of SASS map
     @if not map-has-key($z-layers, $layer) {
         @warn "No layer found for `#{$layer}` in $z-layers map. Property omitted.";
     }
+
     @return map-get($z-layers, $layer);
 }
 
@@ -30,6 +31,7 @@ color: map-deep-get($btn-variations,'default','color');
     @each $key in $keys {
         $map: map-get($map, $key);
     }
+
     @return $map;
 }
 
@@ -51,4 +53,42 @@ on a defined background
     } @else {
         @return #fff; // Darker background, return light color
     }
+}
+
+
+// utility function to strip the unit from a property value (10px -> 10)
+// https://css-tricks.com/snippets/sass/strip-unit-function/
+@function strip-unit($number) {
+    @if type-of($number) == 'number' and not unitless($number) {
+        @return $number / ($number * 0 + 1);
+    }
+
+    @return $number;
+}
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+Converts pixel or em values into matching rem values.
+
+Usage:
+
+font-size: to-rem(20px);
+
+*/
+
+@function to-rem($value, $base: 16px) {
+    @if (unit($value) == 'em') {
+        $value: strip-unit($value) * 1rem;
+    }
+
+    @if (unit($value) != 'rem') {
+        $value: strip-unit($value) / strip-unit($base) * 1rem;
+    }
+
+    @if (strip-unit($value) == 0) {
+        $value: 0;
+    }
+
+    @return $value;
 }

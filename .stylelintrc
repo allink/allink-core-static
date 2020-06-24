@@ -1,0 +1,45 @@
+{
+    "extends": "stylelint-config-standard",
+    "plugins": [
+        "stylelint-scss"
+    ],
+    "rules": {
+        "indentation": 4,
+        "max-empty-lines": 2,
+        "length-zero-no-unit": null,
+        "declaration-block-no-duplicate-properties": [true, {
+            "ignore": [ "consecutive-duplicates-with-different-values" ]
+        }],
+        "no-descending-specificity": null,
+        "value-keyword-case": null,
+        "at-rule-no-unknown": null,
+        "rule-empty-line-before": [
+            "always-multi-line", {
+                "except": [
+                    "first-nested",
+                    "after-single-line-comment"
+                ]
+            }
+        ],
+        "at-rule-empty-line-before": [
+            "always", {
+                "except": [
+                    "blockless-after-same-name-blockless",
+                    "first-nested"
+                ],
+                "ignore": [ "after-comment" ],
+                "ignoreAtRules": [ "else" ]
+            }
+        ],
+        "block-opening-brace-space-before": "always",
+        "block-closing-brace-newline-after": [
+            "always", {
+                "ignoreAtRules": [ "if", "else" ]
+            }
+        ],
+        "scss/at-else-closing-brace-space-after": "always-intermediate",
+        "scss/at-else-empty-line-before": "never",
+        "scss/at-if-closing-brace-newline-after": "always-last-in-chain",
+        "scss/at-if-closing-brace-space-after": "always-intermediate"
+    }
+}

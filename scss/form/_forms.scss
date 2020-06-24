@@ -5,12 +5,12 @@ Default Form Styles
 */
 
 .form-default {
-
     max-width: $form-default-max-width;
 
     // form group (= form row)
     .form-group {
         margin: 0;
+
         & + .form-group {
             @include spacings-size($form-group-spacing, margin-top);
         }
@@ -22,7 +22,9 @@ Default Form Styles
         display: inline-block;
         max-width: 100%;
         margin: 0;
+
         @include spacings-size($form-label-spacing, margin-bottom);
+
         @if $form-label-bold-enabled == true {
             @include font-family-bold();
         }
@@ -46,14 +48,18 @@ Default Form Styles
     // error messages
     .errorlist {
         margin-top: $form-field-error-spacing-xs;
+
         @include media-breakpoint-up(md) {
             margin-top: $form-field-error-spacing-md;
         }
+
         @include media-breakpoint-up(xl) {
             margin-top: $form-field-error-spacing-xl;
         }
+
         > li {
             @include font-small();
+
             color: $form-field-error-color;
         }
     }
@@ -69,12 +75,14 @@ Default Form Styles
         width: $form-field-required-icon-width;
         height: $form-field-required-icon-height;
         margin-left: $form-field-required-icon-spacing;
-        &:before {
+
+        &::before {
             position: absolute;
             top: $form-field-required-icon-position-y;
             content: $form-field-required-icon;
             color: $form-field-required-icon-color;
             font-size: $form-field-required-icon-size;
+
             @if $form-field-required-icomoon-enabled == true {
                 @include icomoon();
             }
@@ -85,9 +93,11 @@ Default Form Styles
     fieldset {
         + fieldset {
             margin-top: $form-fieldset-spacing-xs;
+
             @include media-breakpoint-up(md) {
                 margin-top: $form-fieldset-spacing-md;
             }
+
             @include media-breakpoint-up(xl) {
                 margin-top: $form-fieldset-spacing-xl;
             }
@@ -100,28 +110,39 @@ Default Form Styles
         // heading size
         @if $form-legend-heading-size == 'h1' {
             @include font-h1();
+
             color: $h1-color;
+
             .inverted-colors & {
                 color: $h1-color-inverted;
             }
         }
+
         @if $form-legend-heading-size == 'h2' {
             @include font-h2();
+
             color: $h2-color;
+
             .inverted-colors & {
                 color: $h2-color-inverted;
             }
         }
+
         @if $form-legend-heading-size == 'h3' {
             @include font-h3();
+
             color: $h3-color;
+
             .inverted-colors & {
                 color: $h3-color-inverted;
             }
         }
+
         @if $form-legend-heading-size == 'h4' {
             @include font-h4();
+
             color: $h4-color;
+
             .inverted-colors & {
                 color: $h4-color-inverted;
             }
@@ -134,9 +155,11 @@ Default Form Styles
 
     .form-group-container {
         margin-top: $form-group-container-spacing-top-xs;
+
         @include media-breakpoint-up(md) {
             margin-top: $form-group-container-spacing-top-md;
         }
+
         @include media-breakpoint-up(xl) {
             margin-top: $form-group-container-spacing-top-xl;
         }
@@ -145,9 +168,11 @@ Default Form Styles
     // intro text within fieldset
     .fieldset-text {
         margin-top: $form-fieldset-text-spacing-top-xs;
+
         @include media-breakpoint-up(md) {
             margin-top: $form-fieldset-text-spacing-top-md;
         }
+
         @include media-breakpoint-up(xl) {
             margin-top: $form-fieldset-text-spacing-top-xl;
         }
@@ -167,26 +192,30 @@ Default Form Styles
     */
 
     &.side-by-side {
-
         max-width: $form-side-by-side-max-width;
 
         .form-group {
             display: flex;
             flex-direction: column;
+
             @include media-breakpoint-up(md) {
                 align-items: flex-start;
                 flex-direction: row;
             }
+
             + .form-group {
                 margin-top: $form-side-by-side-group-spacing-top-xs;
+
                 @include media-breakpoint-up(md) {
                     margin-top: $form-side-by-side-group-spacing-top-md;
                 }
+
                 @include media-breakpoint-up(xl) {
                     margin-top: $form-side-by-side-group-spacing-top-xl;
                 }
             }
         }
+
         .control-label {
             @include media-breakpoint-up(md) {
                 min-width: $form-side-by-side-label-width-md;
@@ -198,11 +227,13 @@ Default Form Styles
                 text-align: $form-side-by-side-label-text-align;
                 margin-bottom: 0;
             }
+
             @include media-breakpoint-up(xxl) {
                 min-width: $form-side-by-side-label-width-xxl;
                 max-width: $form-side-by-side-label-width-xxl;
             }
         }
+
         .form-field-container {
             @include media-breakpoint-up(md) {
                 flex-grow: 1;
@@ -223,23 +254,28 @@ Default Form Styles
         }
         // in case of "select" fields, we want the label
         .field-type-select {
-           .control-label {
-               @include undo-sr-only();
-           }
+            .control-label {
+                @include undo-sr-only();
+            }
         }
+
         .form-group {
             + .form-group {
                 margin-top: $form-placeholder-enabled-group-spacing-top-xs;
+
                 @include media-breakpoint-up(md) {
                     margin-top: $form-placeholder-enabled-group-spacing-top-md;
                 }
+
                 @include media-breakpoint-up(xl) {
                     margin-top: $form-placeholder-enabled-group-spacing-top-xl;
                 }
             }
         }
+
         .help-block {
             padding-left: calc(#{$input-padding-left} + #{$form-field-border-width});
+
             .inverted-colors & {
                 padding-left: calc(#{$input-inverted-padding-left} + #{$form-field-inverted-border-width});
             }
@@ -290,13 +326,16 @@ Default Form Styles
             @include media-breakpoint-down(xs) {
                 @include spacings-size($form-label-spacing, margin-top);
             }
+
             @include media-breakpoint-up(xs) {
                 @include make-col(24);
             }
+
             @include media-breakpoint-up(sm) {
                 @include make-col(12);
             }
         }
+
         @include media-breakpoint-up(sm) {
             .col-1 { padding-right: $grid-gutter-width/4; }
             .col-2 { padding-left: $grid-gutter-width/4; }
@@ -309,7 +348,6 @@ Default Form Styles
             .col-2 { padding-left: $grid-gutter-width/2; }
         }
     }
-
 }
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
@@ -322,6 +360,7 @@ Form Modal
     .heading {
         @include font-h2();
     }
+
     + * {
         margin-top: $grid-gutter-width;
     }

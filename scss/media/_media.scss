@@ -1,0 +1,20 @@
+/* Make sure embedded media fit their containers */
+audio,
+canvas,
+iframe,
+img,
+svg,
+video {
+    vertical-align: middle;
+}
+
+canvas,
+img,
+video {
+    max-width: 100%;
+    height: auto;
+}
+
+audio {
+    max-width: 100%;
+}
