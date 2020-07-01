@@ -9,11 +9,12 @@ Each release is divided into the following main categories:
 
 ## v2.7.0
 ### IMPORTANT
+- Updated accordion styles [#75](https://github.com/allink/allink-core-static/pull/75)
+    - Check existing accordion styles on project basis
 
 ### FIXES
 
 ### NEW
-- Updated accordion styles [#75](https://github.com/allink/allink-core-static/pull/75)
 
 ## v2.6.0
 ### IMPORTANT
