@@ -23,19 +23,17 @@ SEO Accordion plugin styles
         display: block;
         padding-right: $seo-accordion-icon-size * 2;
         text-decoration: none;
+        transition: $seo-accordion-transition;
 
         &::before {
             width: $seo-accordion-icon-size;
             height: $seo-accordion-icon-size;
-            transition: $seo-accordion-icon-transition;
-        }
-
-        &:hover,
-        &:focus {
-            color: $seo-accordion-title-color-hover;
+            transition: inherit;
         }
 
         &:hover {
+            color: $seo-accordion-title-color-hover;
+
             &::before {
                 color: $seo-accordion-icon-color-hover;
             }
