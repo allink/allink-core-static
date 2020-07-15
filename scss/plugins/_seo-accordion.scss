@@ -17,7 +17,6 @@ SEO Accordion plugin styles
         @include spacings-size($seo-accordion-content-spacing, padding);
         @include icon-right($padding: 0, $icon: '\e90f', $icon-size: $seo-accordion-icon-size);
 
-        border-bottom: $seo-accordion-border-width solid $seo-accordion-border-color;
         border-top: $seo-accordion-border-width solid $seo-accordion-border-color;
         color: $seo-accordion-title-color;
         display: block;
@@ -60,10 +59,6 @@ SEO Accordion plugin styles
         &::after {
             content: '';
             display: block;
-        }
-
-        &::before {
-            @include spacings-size($seo-accordion-content-spacing, padding-top);
         }
 
         &::after {
