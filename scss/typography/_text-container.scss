@@ -58,39 +58,25 @@
         padding: 0;
 
         li {
-            position: relative;
             list-style: none;
-            padding-left: $list-padding-xs;
-
-            @include media-breakpoint-up(md) {
-                padding-left: $list-padding-md;
-            }
-
-            &::before {
-                position: absolute;
-            }
         }
     }
 
     ul {
-        padding: 0;
-
         li {
-            margin-left: 0;
+            position: relative;
+            padding-left: $unordered-list-item-padding;
 
             &::before {
-                content: $unordered-list-item-icon;
-                font-size: $unordered-list-item-icon-size;
-                left: $unordered-list-item-icon-spacing-left-xs;
-                top: $unordered-list-item-icon-spacing-top-xs;
+                content: '';
+                position: absolute;
                 transform: translate(0, -50%);
-
-                @include icomoon();
-
-                @include media-breakpoint-up(md) {
-                    left: $unordered-list-item-icon-spacing-left-md;
-                    top: $unordered-list-item-icon-spacing-top-md;
-                }
+                left: $unordered-list-item-icon-spacing-left;
+                top: $unordered-list-item-icon-spacing-top;
+                width: $unordered-list-item-icon-size;
+                height: $unordered-list-item-icon-size;
+                border-radius: $unordered-list-item-icon-border-radius;
+                background-color: $unordered-list-item-icon-color;
             }
         }
     }
@@ -99,14 +85,13 @@
         counter-reset: custom-counter;
 
         li {
+            display: flex;
+            padding-left: $ordered-list-item-padding;
+
             &::before {
                 content: counter(custom-counter) '.';
                 counter-increment: custom-counter;
-                left: $ordered-list-item-icon-spacing-left-xs;
-
-                @include media-breakpoint-up(md) {
-                    left: $ordered-list-item-icon-spacing-left-md;
-                }
+                margin-right: $ordered-list-item-icon-spacing-left;
             }
         }
     }
