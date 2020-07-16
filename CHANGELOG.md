@@ -11,7 +11,7 @@ Each release is divided into the following main categories:
 ### IMPORTANT
 - Updated accordion styles [#75](https://github.com/allink/allink-core-static/pull/75), [#76](https://github.com/allink/allink-core-static/pull/76)
     - Check existing accordion styles on project basis
-- Updated list styles [#77](https://github.com/allink/allink-core-static/pull/77)
+- Updated list styles [#78](https://github.com/allink/allink-core-static/pull/78)
     - Update variables on project basis
 
 ### FIXES
