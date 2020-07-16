@@ -82,7 +82,7 @@ select.selectpicker {
             line-height: 0;
             width: 10px;
             height: 5px;
-            //background-image: url($dropdown-toggle-icon);
+            background-image: encode-svg($dropdown-toggle-icon);
             right: $dropdown-toggle-icon-spacing-right;
             left: $dropdown-toggle-icon-spacing-left;
             transition: transform $select-dropdown-animation-duration $select-dropdown-animation-timing-function;

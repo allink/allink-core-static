@@ -109,3 +109,18 @@ Replace '$search' with '$replace' in '$string'
 
     @return $string;
 }
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+Encode $svg for usage as CSS background-image
+
+*/
+
+@function encode-svg($svg) {
+    @each $char, $encoded in (('<', '%3C'), ('>', '%3E'), ('#', '%23'), ('"', "'")) {
+        $svg: str-replace($svg, $char, $encoded);
+    }
+
+    @return url("data:image/svg+xml;charset=utf8, #{$svg}");
+}
