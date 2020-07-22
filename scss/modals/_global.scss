@@ -142,7 +142,7 @@ Used to be on project basis
     background: $modal-global-bg;
     cursor: pointer;
     transition: $modal-global-overlay-transition;
-    z-index: z("modal");
+    z-index: z('modal');
 
     h1 {
         font-size: inherit;
@@ -153,14 +153,6 @@ Used to be on project basis
     transition: none;
     border-radius: 0;
     background-color: $modal-global-content-bg;
-
-    @include media-breakpoint-up(md) {
-        width: 90%;
-    }
-
-    @include media-breakpoint-up(xxl) {
-        max-width: $max-width-xxl;
-    }
 }
 
 .tingle-modal__close {
@@ -216,7 +208,9 @@ Modal Header
     @include make-container();
     @include max-width();
 
+    z-index: z('modal');
     width: 100%;
+    background-color: $modal-global-content-bg;
 
     &__container {
         position: relative;

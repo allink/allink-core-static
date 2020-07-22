@@ -15,6 +15,7 @@ Each release is divided into the following main categories:
     - Update variables on project basis
 
 ### FIXES
+- Updated modal scrollbar position [#80](https://github.com/allink/allink-core-static/pull/80)
 
 ### NEW
 
