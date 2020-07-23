@@ -55,10 +55,19 @@
 
     ul,
     ol {
+        @include text-crop($font-default-crop-top, $font-default-crop-bottom);
+
         padding: 0;
 
         li {
+            @include spacings-size($list-item-spacing, padding-bottom);
+
             list-style: none;
+            line-height: $list-item-line-height;
+
+            &:last-child {
+                padding-bottom: 0;
+            }
         }
     }
 
