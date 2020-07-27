@@ -176,9 +176,8 @@ Global Swiper Custom Styles
 }
 
 .swiper-content-container {
-    margin-top: $grid-gutter-width/4;
-
     .swiper-content {
+        margin-top: $grid-gutter-width/4;
         color: $gray-light;
         display: none;
 
