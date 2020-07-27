@@ -18,6 +18,7 @@ Each release is divided into the following main categories:
 - Updated modal scrollbar position [#80](https://github.com/allink/allink-core-static/pull/80)
 
 ### NEW
+- Moved slider spacing to content [#82](https://github.com/allink/allink-core-static/pull/82)
 
 
 ## v2.6.0
