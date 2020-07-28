@@ -57,8 +57,11 @@ Default Content Section Styles
 
     // special spacing: container has a background COLOR
     &.has-bg-color {
-        margin-top: 0;
         margin-bottom: 0;
+
+        & + & {
+            margin-top: 0;
+        }
 
         @include content-section-spacing-padding();
         // within App Detail
