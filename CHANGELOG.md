@@ -21,6 +21,7 @@ Each release is divided into the following main categories:
 
 ### NEW
 - Moved slider spacing to content [#82](https://github.com/allink/allink-core-static/pull/82)
+- Removed Google Plus [#85](https://github.com/allink/allink-core-static/pull/85)
 
 
 ## v2.6.0
