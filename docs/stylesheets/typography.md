@@ -54,12 +54,14 @@ All font-sizes scale **fluidly** according to the following formula:
 ```SCSS
 h1 {
     font-size: 2.25rem; // smallest font-size
-    @media (min-width: 20rem) { // smallest breakpoint
-        // font-size: calc(#{$smallest-font-size} + #{$biggest-font-size - $smallest-font-size} * (100vw - #{$smallest-breakpoint}) / 100);
-        font-size: calc(2.25rem + (3.75rem - 2.25rem) * (100vw - 20rem / 100);
+
+    @media (min-width: 20em) { // smallest breakpoint
+        // font-size: calc(#{$smallest-font-size} + #{$largest-font-size - $smallest-font-size} * (100vw - #{$smallest-breakpoint}) / #{$largest-breakpoint} - #{$smallest-breakpoint});
+        font-size: calc(2.25rem + (3.75 - 2.25) * ((100vw - 20em) / (100 - 20)));
     }
-    @media (min-width: 100rem) { // largest breakpoint
-        font-size: 3.75rem;
+
+    @media (min-width: 100em) { // largest breakpoint
+        font-size: 3.75rem; // largest font-size
     }
 }
 ```
