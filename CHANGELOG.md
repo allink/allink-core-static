@@ -18,6 +18,7 @@ Each release is divided into the following main categories:
 - Updated modal scrollbar position [#80](https://github.com/allink/allink-core-static/pull/80)
 - Fixed swiper arrow hover color [#83](https://github.com/allink/allink-core-static/pull/83)
 - Fixed spacing for sections with background colors [#84](https://github.com/allink/allink-core-static/pull/84)
+- Fixed fluid size formula [#86](https://github.com/allink/allink-core-static/pull/86)
 
 ### NEW
 - Moved slider spacing to content [#82](https://github.com/allink/allink-core-static/pull/82)
