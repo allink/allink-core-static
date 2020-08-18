@@ -58,13 +58,18 @@
     &__list {
         @include spacings-size(spacing-scale-2, margin-top);
         @include spacings-size(spacing-equal-3, margin-bottom, $negative: true);
-
-        display: flex;
-        flex-wrap: wrap;
+        @include spacings-size(spacing-equal-4, margin-right, $negative: true);
 
         .btn {
             @include spacings-size(spacing-equal-3, margin-bottom);
             @include spacings-size(spacing-equal-4, margin-right);
+
+            display: flex;
+        }
+
+        @include media-breakpoint-up(2) {
+            display: flex;
+            flex-wrap: wrap;
         }
     }
 }
