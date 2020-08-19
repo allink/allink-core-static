@@ -40,6 +40,24 @@ Font mixins
     }
 }
 
+@mixin font-default-tighter($font-cropping-disabled: false) {
+    letter-spacing: $font-default-tighter-letter-spacing;
+    text-transform: $font-default-tighter-text-transform;
+    font-family: $font-default-tighter-font-family;
+    font-weight: $font-default-tighter-font-weight;
+
+    @include font-size($font-default-tighter-font-sizes);
+    @include hyphens();
+
+    @if $font-cropping-disabled == false {
+        @include text-crop($font-default-tighter-crop-top, $font-default-tighter-crop-bottom);
+    }
+
+    @if $font-default-tighter-antialiased-enabled == true {
+        @include antialiased();
+    }
+}
+
 @mixin font-small($font-cropping-disabled: false) {
     letter-spacing: $font-small-letter-spacing;
     text-transform: $font-small-text-transform;
