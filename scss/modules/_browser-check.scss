@@ -58,11 +58,11 @@
     &__list {
         @include spacings-size(spacing-scale-2, margin-top);
         @include spacings-size(spacing-equal-3, margin-bottom, $negative: true);
-        @include spacings-size(spacing-equal-4, margin-right, $negative: true);
+        @include spacings-size(spacing-equal-5, margin-right, $negative: true);
 
         .btn {
             @include spacings-size(spacing-equal-3, margin-bottom);
-            @include spacings-size(spacing-equal-4, margin-right);
+            @include spacings-size(spacing-equal-5, margin-right);
 
             display: flex;
         }
