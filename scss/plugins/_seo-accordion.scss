@@ -5,6 +5,8 @@ SEO Accordion plugin styles
 */
 
 .seo-accordion {
+    border-bottom: $seo-accordion-border-width solid $seo-accordion-border-color;
+
     &__item {
         position: relative;
 
@@ -17,7 +19,7 @@ SEO Accordion plugin styles
         @include spacings-size($seo-accordion-content-spacing, padding);
         @include icon-right($padding: 0, $icon: '\e90f', $icon-size: $seo-accordion-icon-size);
 
-        border-bottom: $seo-accordion-border-width solid $seo-accordion-border-color;
+        border-top: $seo-accordion-border-width solid $seo-accordion-border-color;
         color: $seo-accordion-title-color;
         display: block;
         padding-right: $seo-accordion-icon-size * 2;
