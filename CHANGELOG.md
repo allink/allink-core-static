@@ -22,6 +22,7 @@ Each release is divided into the following main categories:
 - Fixed spacing for sections with background colors [#84](https://github.com/allink/allink-core-static/pull/84)
 - Fixed fluid size formula [#86](https://github.com/allink/allink-core-static/pull/86)
 - Fixed browser check button list [#89](https://github.com/allink/allink-core-static/pull/89)
+- Fixed seo accordion borders [#93](https://github.com/allink/allink-core-static/pull/93)
 
 ### NEW
 - Moved slider spacing to content [#82](https://github.com/allink/allink-core-static/pull/82)
