@@ -28,6 +28,7 @@ Each release is divided into the following main categories:
 - Removed Google Plus [#85](https://github.com/allink/allink-core-static/pull/85)
 - Added font-default-tighter mixin [#91](https://github.com/allink/allink-core-static/pull/91)
 - Removed variable $font-family-monospace [#92](https://github.com/allink/allink-core-static/pull/92)
+- Added styles for unstyled text links [#95](https://github.com/allink/allink-core-static/pull/95)
 
 
 ## v2.6.0
