@@ -42,4 +42,20 @@
             }
         }
     }
+
+    &.unstyled-links {
+        a,
+        a.text {
+            &,
+            &:hover,
+            &:focus,
+            &:active {
+                .link-text {
+                    box-shadow: none;
+                    margin: 0;
+                    padding: 0;
+                }
+            }
+        }
+    }
 }
