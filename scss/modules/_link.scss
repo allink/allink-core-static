@@ -11,21 +11,10 @@ Link icon
     width: $btn-icon-size;
     height: $btn-icon-size;
     flex: 0 0 auto;
-    transition-duration: $btn-icon-transition-duration;
-    transition-timing-function: $btn-icon-transition-timing-function;
-    will-change: transform;
 
     &.link-icon--right,
     &.link-icon--left {
         display: none;
-    }
-
-    &.link-icon--left {
-        margin-right: $btn-icon-spacing;
-    }
-
-    &.link-icon--right {
-        margin-left: $btn-icon-spacing;
     }
 
     svg {
@@ -34,5 +23,9 @@ Link icon
         width: 100%;
         height: auto;
         fill: currentColor;
+        will-change: transform;
+        transition-property: transform;
+        transition-duration: $btn-icon-transition-duration;
+        transition-timing-function: $btn-icon-transition-timing-function;
     }
 }
