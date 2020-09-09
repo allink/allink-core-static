@@ -25,6 +25,7 @@ Each release is divided into the following main categories:
 - Fixed fluid size formula [#86](https://github.com/allink/allink-core-static/pull/86)
 - Fixed browser check button list [#89](https://github.com/allink/allink-core-static/pull/89)
 - Fixed seo accordion borders [#93](https://github.com/allink/allink-core-static/pull/93)
+- Prevented modal title from being inserted multiple times [#97](https://github.com/allink/allink-core-static/pull/97)
 
 ### NEW
 - Moved slider spacing to content [#82](https://github.com/allink/allink-core-static/pull/82)
