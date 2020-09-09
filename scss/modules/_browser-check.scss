@@ -45,10 +45,12 @@
         @include media-breakpoint-up(0) {
             @include make-col(24);
         }
+
         @include media-breakpoint-up(5) {
             @include make-col(20);
             @include make-col-offset(2);
         }
+
         @include media-breakpoint-up(12) {
             @include make-col(16);
             @include make-col-offset(4);
