@@ -15,6 +15,8 @@ Each release is divided into the following main categories:
     - Update variables on project basis
 - Added new spacing (spacing-equal-7) [#90](https://github.com/allink/allink-core-static/pull/90)
     - Search and replace spacings in project (spacing-equal-6 = spacing-equal-7, spacing-equal-5 = spacing-equal-6, spacing-equal-4 = spacing-equal-5)
+- Refactored link styles to optimize spacing and multiline behavior [#96](https://github.com/allink/allink-core-static/pull/96)
+    - Update mixins/_buttons.scss and mixins/_link.scss from boilerplate
 
 ### FIXES
 - Updated modal scrollbar position [#80](https://github.com/allink/allink-core-static/pull/80)
