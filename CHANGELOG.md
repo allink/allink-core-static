@@ -7,6 +7,34 @@ Each release is divided into the following main categories:
 - FIXES: General bugfixes
 
 
+## v2.7.0
+### IMPORTANT
+- Updated accordion styles [#75](https://github.com/allink/allink-core-static/pull/75), [#76](https://github.com/allink/allink-core-static/pull/76), [#79](https://github.com/allink/allink-core-static/pull/79)
+    - Check existing accordion styles on project basis
+- Updated list styles [#78](https://github.com/allink/allink-core-static/pull/78), [#81](https://github.com/allink/allink-core-static/pull/81), [#87](https://github.com/allink/allink-core-static/pull/87), [#88](https://github.com/allink/allink-core-static/pull/88)
+    - Update variables on project basis
+- Added new spacing (spacing-equal-7) [#90](https://github.com/allink/allink-core-static/pull/90)
+    - Search and replace spacings in project (spacing-equal-6 = spacing-equal-7, spacing-equal-5 = spacing-equal-6, spacing-equal-4 = spacing-equal-5)
+- Refactored link styles to optimize spacing and multiline behavior [#96](https://github.com/allink/allink-core-static/pull/96)
+    - Update mixins/_buttons.scss and mixins/_link.scss from boilerplate
+
+### FIXES
+- Updated modal scrollbar position [#80](https://github.com/allink/allink-core-static/pull/80)
+- Fixed swiper arrow hover color [#83](https://github.com/allink/allink-core-static/pull/83)
+- Fixed spacing for sections with background colors [#84](https://github.com/allink/allink-core-static/pull/84)
+- Fixed fluid size formula [#86](https://github.com/allink/allink-core-static/pull/86)
+- Fixed browser check button list [#89](https://github.com/allink/allink-core-static/pull/89)
+- Fixed seo accordion borders [#93](https://github.com/allink/allink-core-static/pull/93)
+- Prevented modal title from being inserted multiple times [#97](https://github.com/allink/allink-core-static/pull/97)
+
+### NEW
+- Moved slider spacing to content [#82](https://github.com/allink/allink-core-static/pull/82)
+- Removed Google Plus [#85](https://github.com/allink/allink-core-static/pull/85)
+- Added font-default-tighter mixin [#91](https://github.com/allink/allink-core-static/pull/91)
+- Removed variable $font-family-monospace [#92](https://github.com/allink/allink-core-static/pull/92)
+- Added styles for unstyled text links [#95](https://github.com/allink/allink-core-static/pull/95)
+
+
 ## v2.6.0
 ### IMPORTANT
 - Init JS modules on softpages and after CMS refresh [#64](https://github.com/allink/allink-core-static/pull/64), [#71](https://github.com/allink/allink-core-static/pull/71), [#73](https://github.com/allink/allink-core-static/pull/73)

@@ -5,9 +5,7 @@ SEO Accordion plugin styles
 */
 
 .seo-accordion {
-    &__list {
-        // no styles necessary
-    }
+    border-bottom: $seo-accordion-border-width solid $seo-accordion-border-color;
 
     &__item {
         position: relative;
@@ -18,29 +16,40 @@ SEO Accordion plugin styles
     }
 
     &__title {
-        @include font-lead();
         @include spacings-size($seo-accordion-content-spacing, padding);
         @include icon-right($padding: 0, $icon: '\e90f', $icon-size: $seo-accordion-icon-size);
 
-        border-bottom: $seo-accordion-border-width solid $seo-accordion-border-color;
         border-top: $seo-accordion-border-width solid $seo-accordion-border-color;
-        color: $body-color;
+        color: $seo-accordion-title-color;
         display: block;
         padding-right: $seo-accordion-icon-size * 2;
         text-decoration: none;
+        transition: $seo-accordion-transition;
 
         &::before {
             width: $seo-accordion-icon-size;
             height: $seo-accordion-icon-size;
-            color: $seo-accordion-border-color;
-            transition: transform $btn-transition-duration $btn-transition-timing-function;
+            transition: inherit;
+        }
+
+        &:hover {
+            color: $seo-accordion-title-color-hover;
+
+            &::before {
+                color: $seo-accordion-icon-color-hover;
+            }
         }
 
         .seo-accordion__item--open & {
             &::before {
-                color: $seo-accordion-border-color;
                 transform: translate(0, -50%) rotate(45deg);
             }
+        }
+
+        h3 {
+            @include font-lead();
+
+            color: inherit;
         }
     }
 
@@ -52,10 +61,6 @@ SEO Accordion plugin styles
         &::after {
             content: '';
             display: block;
-        }
-
-        &::before {
-            @include spacings-size($seo-accordion-content-spacing, padding-top);
         }
 
         &::after {

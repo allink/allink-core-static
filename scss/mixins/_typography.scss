@@ -40,6 +40,24 @@ Font mixins
     }
 }
 
+@mixin font-default-tighter($font-cropping-disabled: false) {
+    letter-spacing: $font-default-tighter-letter-spacing;
+    text-transform: $font-default-tighter-text-transform;
+    font-family: $font-default-tighter-font-family;
+    font-weight: $font-default-tighter-font-weight;
+
+    @include font-size($font-default-tighter-font-sizes);
+    @include hyphens();
+
+    @if $font-cropping-disabled == false {
+        @include text-crop($font-default-tighter-crop-top, $font-default-tighter-crop-bottom);
+    }
+
+    @if $font-default-tighter-antialiased-enabled == true {
+        @include antialiased();
+    }
+}
+
 @mixin font-small($font-cropping-disabled: false) {
     letter-spacing: $font-small-letter-spacing;
     text-transform: $font-small-text-transform;
@@ -250,7 +268,7 @@ Responsive Font Size mixin
 @mixin font-size($fs-map, $fs-breakpoints: $font-size-breakpoints) {
     // scale font-sizes fluidly
     // https://codepen.io/depone/pen/pEbOVm
-    $min-font-size: nth(map-get($fs-map, 'min'), 1);
+    $min-font-size: to-rem(nth(map-get($fs-map, 'min'), 1));
 
     font-size: $min-font-size;
 
@@ -258,13 +276,13 @@ Responsive Font Size mixin
 
     // if no max font-size exists, use min font-size (i.e. font-default)
     @if map-get($fs-map, 'max') {
-        $max-font-size: nth(map-get($fs-map, 'max'), 1);
+        $max-font-size: to-rem(nth(map-get($fs-map, 'max'), 1));
         $difference: strip-unit($max-font-size - $min-font-size);
-        $min-breakpoint: map-get($fs-breakpoints, 'min');
-        $max-breakpoint: map-get($fs-breakpoints, 'max');
+        $min-breakpoint: to-rem(map-get($fs-breakpoints, 'min'));
+        $max-breakpoint: to-rem(map-get($fs-breakpoints, 'max'));
 
         @media (min-width: $min-breakpoint) {
-            font-size: calc(#{$min-font-size} + #{$difference} * (100vw - #{$min-breakpoint}) / 100);
+            font-size: calc(#{$min-font-size} + #{$difference} * (100vw - #{$min-breakpoint}) / #{strip-unit($max-breakpoint - $min-breakpoint)});
         }
 
         @media (min-width: $max-breakpoint) {

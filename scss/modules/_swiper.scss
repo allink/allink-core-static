@@ -52,12 +52,12 @@ Global Swiper Custom Styles
         border: none;
         text-decoration: none;
 
-        > i {
-            color: $swiper-default-arrows-color-hover;
-        }
-
         .swiper-button__inner {
             opacity: $swiper-default-arrows-opacity-hover;
+
+            &::before {
+                color: $swiper-default-arrows-color-hover;
+            }
         }
     }
     // icon
@@ -91,6 +91,7 @@ Global Swiper Custom Styles
             transform: translate(-50%, -50%);
             color: $swiper-default-arrows-color;
             font-size: $swiper-default-arrows-icon-size-xs;
+            transition: inherit;
 
             @include media-breakpoint-up(md) {
                 font-size: $swiper-default-arrows-icon-size-md;
@@ -176,9 +177,8 @@ Global Swiper Custom Styles
 }
 
 .swiper-content-container {
-    margin-top: $grid-gutter-width/4;
-
     .swiper-content {
+        margin-top: $grid-gutter-width/4;
         color: $gray-light;
         display: none;
 

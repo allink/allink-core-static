@@ -12,66 +12,47 @@ Softpage
     transform: translate(0, $softpage-content-offset);
     transition: $softpage-content-transition;
 
-
     .tingle-modal-box {
         position: absolute;
         top: 0;
-        right: auto;
+        right: 0;
         bottom: 0;
-        left: auto;
+        left: 0;
         margin: 0;
+        width: 100%;
         min-height: 0; // this one is set on a project basis, so we gotta force it
         overflow-y: scroll; // has to be scroll, not auto
         overflow-x: hidden;
         -webkit-overflow-scrolling: touch;
-        width: 100%;
-
-        @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
-            left: 0;
-            right: 0;
-        }
-
-        @include media-breakpoint-up(sm) {
-            max-width: $softpage-max-width-sm;
-        }
-
-        @include media-breakpoint-up(xxl) {
-            max-width: $softpage-max-width-xxl;
-
-            @if $max-width-xxl {
-                max-width: $max-width-xxl;
-            }
-        }
 
         // keep site header visible when opened
         @if $softpage-site-header-visible-when-opened {
-            top: $softpage-offset-top-xs !important;
+            padding-top: $softpage-offset-top-xs !important;
 
             @include media-breakpoint-up(md) {
-                top: $softpage-offset-top-md !important;
+                padding-top: $softpage-offset-top-md !important;
             }
 
             @include media-breakpoint-up(xxl) {
-                top: $softpage-offset-top-xxl !important;
+                padding-top: $softpage-offset-top-xxl !important;
             }
         }
 
         // Special case: Softpage behind site-header
         @if $site-header-compact-mode-enabled == true {
             .header-compact-mode & {
-                top: 0 !important;
                 // keep site header visible when opened
                 @if $softpage-site-header-visible-when-opened {
                     @include media-breakpoint-up(md) {
-                        top: $softpage-offset-top-compact-mode-md !important;
+                        padding-top: $softpage-offset-top-compact-mode-md !important;
                     }
 
                     @include media-breakpoint-up(xl) {
-                        top: $softpage-offset-top-compact-mode-xl !important;
+                        padding-top: $softpage-offset-top-compact-mode-xl !important;
                     }
 
                     @include media-breakpoint-up(xxl) {
-                        top: $softpage-offset-top-compact-mode-xxl !important;
+                        padding-top: $softpage-offset-top-compact-mode-xxl !important;
                     }
                 }
             }

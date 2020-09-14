@@ -45,10 +45,12 @@
         @include media-breakpoint-up(0) {
             @include make-col(24);
         }
+
         @include media-breakpoint-up(5) {
             @include make-col(20);
             @include make-col-offset(2);
         }
+
         @include media-breakpoint-up(12) {
             @include make-col(16);
             @include make-col-offset(4);
@@ -58,13 +60,18 @@
     &__list {
         @include spacings-size(spacing-scale-2, margin-top);
         @include spacings-size(spacing-equal-3, margin-bottom, $negative: true);
-
-        display: flex;
-        flex-wrap: wrap;
+        @include spacings-size(spacing-equal-5, margin-right, $negative: true);
 
         .btn {
             @include spacings-size(spacing-equal-3, margin-bottom);
-            @include spacings-size(spacing-equal-4, margin-right);
+            @include spacings-size(spacing-equal-5, margin-right);
+
+            display: flex;
+        }
+
+        @include media-breakpoint-up(2) {
+            display: flex;
+            flex-wrap: wrap;
         }
     }
 }

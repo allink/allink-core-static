@@ -62,16 +62,16 @@ and line height) is defined. Otherwise you will have to readjust it.
 
 */
 
-// general
-$list-padding-xs: 1.875rem;
-$list-padding-md: 2.1875rem;
+$list-item-spacing: 'spacing-equal-5';
+
 // ul
-$unordered-list-item-icon: '-';
-$unordered-list-item-icon-size: 0.8em;
-// x position of icon/number (might need some fine tuning, depending on the icon and icon size)
-$unordered-list-item-icon-spacing-top-xs: 0.625rem;
-$unordered-list-item-icon-spacing-top-md: 0.5625rem;
-$unordered-list-item-icon-spacing-left-xs: 0.5625rem;
-$unordered-list-item-icon-spacing-left-md: 0.75rem;
-$ordered-list-item-icon-spacing-left-xs: 0.625rem;
-$ordered-list-item-icon-spacing-left-md: 0.625rem;
+$unordered-list-item-padding: 0.7em;
+$unordered-list-item-icon-size: 0.3em;
+$unordered-list-item-icon-spacing-top: 0.6em; // might need some fine tuning, depending on the icon and icon size
+$unordered-list-item-icon-spacing-left: 0;
+$unordered-list-item-icon-color: currentColor;
+$unordered-list-item-icon-border-radius: 50%;
+
+// ol
+$ordered-list-item-padding: 0;
+$ordered-list-item-icon-spacing-left: 0.4em;
