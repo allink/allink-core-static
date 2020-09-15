@@ -6,6 +6,9 @@ Each release is divided into the following main categories:
 - NEW: New features or plugins
 - FIXES: General bugfixes
 
+## v2.7.1
+### FIXES
+- Fixed accordion transitions [#99](https://github.com/allink/allink-core-static/pull/99)
 
 ## v2.7.0
 ### IMPORTANT
