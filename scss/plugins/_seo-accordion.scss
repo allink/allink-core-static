@@ -24,12 +24,11 @@ SEO Accordion plugin styles
         display: block;
         padding-right: $seo-accordion-icon-size * 2;
         text-decoration: none;
-        transition: $seo-accordion-transition;
 
         &::before {
             width: $seo-accordion-icon-size;
             height: $seo-accordion-icon-size;
-            transition: inherit;
+            transition: $seo-accordion-transition;
         }
 
         &:hover {
@@ -50,6 +49,7 @@ SEO Accordion plugin styles
             @include font-lead();
 
             color: inherit;
+            transition: $seo-accordion-transition;
         }
     }
 
