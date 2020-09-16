@@ -9,6 +9,8 @@ Each release is divided into the following main categories:
 ## v2.7.1
 ### FIXES
 - Fixed accordion transitions [#99](https://github.com/allink/allink-core-static/pull/99)
+- Fixed accordion default spacing [#100](https://github.com/allink/allink-core-static/pull/100)
+
 
 ## v2.7.0
 ### IMPORTANT
