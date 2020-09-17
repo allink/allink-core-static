@@ -48,6 +48,7 @@ Requires the following HTML markup:
     // styling and focusing the fake checkbox, making use of the ':checked' state of the actual checkbox input
     input[type=checkbox] {
         opacity: 0;
+        position: absolute;
 
         // focus and active styles
         &:hover + .custom-checkbox,
