@@ -105,7 +105,8 @@ Text cropping helps to remove the space above and below a block of text caused b
 Because every font has different metrics, the cropping values must be configured on a project basis.
 There are crop top and crop bottom variables for headings, lead, paragraph etc. Head over to `static/scss/base/variables/_typography.scss` to update these variables.
 
-The [online tool](http://text-crop.eightshapes.com/) by EightShapes helps finding the correct values for your font.
+Use the green box markers in the styleguide (located at /styleguide) to find the best cropping configuration. It is recommended to increase the font sizes via the browser dev tools for better judgement.
+Font styles with the same font family and line height always share the same crop values.
 
 ### Mixin
 
