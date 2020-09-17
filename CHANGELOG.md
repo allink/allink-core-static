@@ -12,6 +12,7 @@ Each release is divided into the following main categories:
 ### NEW
 - Updated lazysizes to v5.2.2 [#102](https://github.com/allink/allink-core-static/pull/102)
 - Updated text cropping docs [#103](https://github.com/allink/allink-core-static/pull/103)
+- Removed inverted variant for text selection [#104](https://github.com/allink/allink-core-static/pull/104)
 
 ### FIXES
 
