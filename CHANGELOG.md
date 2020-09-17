@@ -6,6 +6,16 @@ Each release is divided into the following main categories:
 - NEW: New features or plugins
 - FIXES: General bugfixes
 
+## v2.8.0
+### IMPORTANT
+
+### NEW
+- Updated lazysizes to v5.2.2 [#102](https://github.com/allink/allink-core-static/pull/102)
+- Updated text cropping docs [#103](https://github.com/allink/allink-core-static/pull/103)
+
+### FIXES
+
+
 ## v2.7.1
 ### FIXES
 - Fixed accordion transitions [#99](https://github.com/allink/allink-core-static/pull/99)
