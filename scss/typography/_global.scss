@@ -77,9 +77,4 @@ Selected Text
 ::selection {
     background: rgba($selection-bg-color, 0.99);
     color: $selection-color;
-
-    .inverted-colors & {
-        background: rgba($selection-inverted-bg-color, 0.99);
-        color: $selection-inverted-color;
-    }
 }
