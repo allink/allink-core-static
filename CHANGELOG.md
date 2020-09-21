@@ -14,6 +14,7 @@ Each release is divided into the following main categories:
 - Updated text cropping docs [#103](https://github.com/allink/allink-core-static/pull/103)
 
 ### FIXES
+- Fixed radio / checkbox spacing [#105](https://github.com/allink/allink-core-static/pull/105)
 
 
 ## v2.7.1
