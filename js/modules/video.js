@@ -173,12 +173,12 @@ $(() => {
                             setTimeout(() => {
                                 // has video been loaded?
                                 if ($pluginContainer.hasClass(loadedClass) === false) {
+                                    // only load the video. calling play() is not needed here because we are in autoplay mode
                                     $vid.get(0).load();
                                 }
                                 // remove class
                                 $pluginContainer.removeClass(onPauseClass);
-                                // let's play
-                                $vid.get(0).play();
+
                                 // and mark the video as loaded (for possible transitions)
                                 $pluginContainer.addClass(loadedClass);
                             }, 100);

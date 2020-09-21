@@ -6,6 +6,11 @@ Each release is divided into the following main categories:
 - NEW: New features or plugins
 - FIXES: General bugfixes
 
+## v2.7.2
+### FIXES
+- Fixed video loading behavior in autoplay mode [#106](https://github.com/allink/allink-core-static/pull/106)
+
+
 ## v2.7.1
 ### FIXES
 - Fixed accordion transitions [#99](https://github.com/allink/allink-core-static/pull/99)
