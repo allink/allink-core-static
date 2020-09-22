@@ -10,6 +10,7 @@ Each release is divided into the following main categories:
 ### FIXES
 - Used relative path to form validation module [#107](https://github.com/allink/allink-core-static/pull/107)
 - Fixed button mask in iOS Safari [#108](https://github.com/allink/allink-core-static/pull/108)
+- Fixed second case for double modal title [#109](https://github.com/allink/allink-core-static/pull/109)
 
 
 ## v2.7.1
