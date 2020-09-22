@@ -6,6 +6,11 @@ Each release is divided into the following main categories:
 - NEW: New features or plugins
 - FIXES: General bugfixes
 
+## v2.7.2
+### FIXES
+- Fixed button mask in iOS Safari [#108](https://github.com/allink/allink-core-static/pull/108)
+
+
 ## v2.7.1
 ### FIXES
 - Fixed accordion transitions [#99](https://github.com/allink/allink-core-static/pull/99)
