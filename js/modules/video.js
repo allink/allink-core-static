@@ -122,75 +122,70 @@ $(() => {
                 $vid.removeAttr(disableRemotePlaybackAttribute);
             }
 
-            // after checking for mobile devices, continue slightly delayed
-            setTimeout(() => {
-                // add event listener to video controls, but only continue if autoplay is DISABLED, or when we're on mobile
-                if ($pluginContainer.hasClass(autoplayClass) === false || $pluginContainer.hasClass(autoplayMobileClass) === false || isMobile) {
-                    const controlsInitialized = $videoControls.attr(initializedAttr);
-                    // NOT initialized yet
-                    if (typeof controlsInitialized === 'undefined') {
-                        $videoControls.on('click',
-                            () => {
-                                // mobile: set src if it hasn't been done already
-                                if (isMobile) {
-                                    if (typeof $source.attr('src') === 'undefined') {
-                                        const videoSrc = $source.data('src');
-                                        $source.attr('src', videoSrc);
-                                    }
+            // add event listener to video controls, but only continue if autoplay is DISABLED, or when we're on mobile
+            if ($pluginContainer.hasClass(autoplayClass) === false || $pluginContainer.hasClass(autoplayMobileClass) === false || isMobile) {
+                const controlsInitialized = $videoControls.attr(initializedAttr);
+                // NOT initialized yet
+                if (typeof controlsInitialized === 'undefined') {
+                    $videoControls.on('click',
+                        () => {
+                            // mobile: set src if it hasn't been done already
+                            if (isMobile) {
+                                if (typeof $source.attr('src') === 'undefined') {
+                                    const videoSrc = $source.data('src');
+                                    $source.attr('src', videoSrc);
                                 }
-                                // init
-                                if ($pluginContainer.hasClass(onPauseClass)) {
-                                    // after SRC has been set, load it
-                                    if ($pluginContainer.hasClass(loadedClass) === false) {
-                                        $vid.get(0).load();
-                                    }
-                                    // toggle classes
-                                    $pluginContainer.removeClass(onPauseClass);
-                                    $pluginContainer.addClass(playingClass);
-                                    // let's play
-                                    $vid.get(0).play();
-                                    // and mark the video as loaded (for possible transitions)
-                                    $pluginContainer.addClass(loadedClass);
-                                } else {
-                                    // pause the video and..
-                                    $vid.get(0).pause();
-                                    // ..toggle classes
-                                    $pluginContainer.addClass(onPauseClass);
-                                    $pluginContainer.removeClass(playingClass);
-                                }
-                            });
-                        // mark as initialized
-                        $videoControls.attr(initializedAttr, '');
-                    }
-                }
-
-                // only continue if autoplay is enabled, and we are NOT on mobile
-                if ($pluginContainer.hasClass(autoplayClass) || ($pluginContainer.hasClass(autoplayMobileClass) && !isMobile)) {
-                    // start video when element is on screen
-                    if ($vid.videoIsOnScreen() || (e && (e.type === 'softpage:opened' || e.type === 'default-modal:opened'))) {
-                        // per default, a video is "on pause" - let's remove this and don't come back here when there is no on_pause_class, because that means the video is playing
-                        if ($pluginContainer.hasClass(onPauseClass)) {
-                            setTimeout(() => {
-                                // has video been loaded?
+                            }
+                            // init
+                            if ($pluginContainer.hasClass(onPauseClass)) {
+                                // after SRC has been set, load it
                                 if ($pluginContainer.hasClass(loadedClass) === false) {
                                     $vid.get(0).load();
                                 }
-                                // remove class
+                                // toggle classes
                                 $pluginContainer.removeClass(onPauseClass);
+                                $pluginContainer.addClass(playingClass);
                                 // let's play
                                 $vid.get(0).play();
                                 // and mark the video as loaded (for possible transitions)
                                 $pluginContainer.addClass(loadedClass);
-                            }, 100);
-                        }
-                    } else { // not on screen? pause it
-                        // pause the video and..
-                        $vid.get(0).pause();
-                        // ..add class
-                        $pluginContainer.addClass(onPauseClass);
-                    }
+                            } else {
+                                // pause the video and..
+                                $vid.get(0).pause();
+                                // ..toggle classes
+                                $pluginContainer.addClass(onPauseClass);
+                                $pluginContainer.removeClass(playingClass);
+                            }
+                        });
+                    // mark as initialized
+                    $videoControls.attr(initializedAttr, '');
                 }
-            }, 100);
+            }
+
+            // only continue if autoplay is enabled, and we are NOT on mobile
+            if ($pluginContainer.hasClass(autoplayClass) || ($pluginContainer.hasClass(autoplayMobileClass) && !isMobile)) {
+                // start video when element is on screen
+                if ($vid.videoIsOnScreen() || (e && (e.type === 'softpage:opened' || e.type === 'default-modal:opened'))) {
+                    // per default, a video is "on pause" - let's remove this and don't come back here when there is no on_pause_class, because that means the video is playing
+                    if ($pluginContainer.hasClass(onPauseClass)) {
+                        // has video been loaded?
+                        if ($pluginContainer.hasClass(loadedClass) === false) {
+                            // only load the video. calling play() is not needed here because we are in autoplay mode
+                            $vid.get(0).load();
+                        }
+                        // remove class
+                        $pluginContainer.removeClass(onPauseClass);
+
+                        // and mark the video as loaded (for possible transitions)
+                        $pluginContainer.addClass(loadedClass);
+                    }
+                } else { // not on screen? pause it
+                    // pause the video and..
+                    $vid.get(0).pause();
+                    // ..add class
+                    $pluginContainer.addClass(onPauseClass);
+                }
+            }
 
             return true;
         });
