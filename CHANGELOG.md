@@ -18,6 +18,14 @@ Each release is divided into the following main categories:
 - Fixed radio / checkbox spacing [#105](https://github.com/allink/allink-core-static/pull/105)
 
 
+## v2.7.2
+### FIXES
+- Fixed video loading behavior in autoplay mode [#106](https://github.com/allink/allink-core-static/pull/106)
+- Used relative path to form validation module [#107](https://github.com/allink/allink-core-static/pull/107)
+- Fixed button mask in iOS Safari [#108](https://github.com/allink/allink-core-static/pull/108)
+- Fixed second case for double modal title [#109](https://github.com/allink/allink-core-static/pull/109)
+
+
 ## v2.7.1
 ### FIXES
 - Fixed accordion transitions [#99](https://github.com/allink/allink-core-static/pull/99)

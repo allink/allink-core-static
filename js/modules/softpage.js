@@ -192,8 +192,9 @@ $(function(){
                             return true;
                         }
                         // check if header markup exists and set
-                        let $header_markup = $trigger.siblings('.modal-header-markup')
-                        if ($header_markup.length > 0) {
+                        let $header_markup = $trigger.siblings('.modal-header-markup');
+
+                        if ($header_markup.length > 0 && !$softpage.find('.tingle-modal-header').length) {
                             let $header_markup_container = $('<div class="tingle-modal-header"></div>');
                             $header_markup_container.prepend($header_markup.html());
                             $(softpage.modal.modal).prepend($header_markup_container);
