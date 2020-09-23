@@ -10,13 +10,25 @@ export function triggerClassOnScroll(options) {
         scroll = options.scroll || 0,
         element = options.element;
 
+    let scrollPos = window.pageYOffset;
+    let ticking = false;
+
     // handler
-    var scrollHandler = function(){
-        if(window.pageYOffset >= scroll && !$(element).hasClass(class_to_trigger)) {
+    function scrollHandler() {
+        if (scrollPos >= scroll && !$(element).hasClass(class_to_trigger)) {
             $(element).addClass(class_to_trigger);
         }
-        else if(window.pageYOffset < scroll && $(element).hasClass(class_to_trigger)) {
+        else if (scrollPos < scroll && $(element).hasClass(class_to_trigger)) {
             $(element).removeClass(class_to_trigger);
+        }
+
+        ticking = false;
+    }
+
+    function requestTick() {
+        if (!ticking) {
+            requestAnimationFrame(scrollHandler);
+            ticking = true;
         }
     }
 
@@ -24,7 +36,10 @@ export function triggerClassOnScroll(options) {
     scrollHandler();
 
     // on scroll
-    window.addEventListener('scroll', scrollHandler );
+    window.addEventListener('scroll', () => {
+        scrollPos = window.pageYOffset;
+        requestTick();
+    });
 
     return this;
 }
