@@ -1,4 +1,4 @@
-import {initFormValidation} from "allink-core-static/js/modules/form-validation";
+import {initFormValidation} from './form-validation';
 
 $(function () {
 
