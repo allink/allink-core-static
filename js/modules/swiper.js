@@ -181,7 +181,6 @@ export function initiSwiperInstances(options) {
         let instanceEffect = $swiper_instance.attr('data-transition-effect-mobile');
         // set effect: desktop
         if (viewport_width > 1024) {
-            effect = 'fade';
             instanceEffect = $swiper_instance.attr('data-transition-effect-desktop');
         }
         if (typeof instanceEffect !== 'undefined') {
@@ -233,7 +232,7 @@ export function initiSwiperInstances(options) {
             speed: finalTransitionDurationBetweenSlides, // Number: Duration of transition between slides (in ms)
             autoplay: options.autoplay, // Boolean or Number: Delay between transitions (in ms). If this parameter is not specified, auto play will be disabled
             slidesPerView: options.slidesPerView,
-            spaceBetween: 30,
+            spaceBetween: 2,
             direction: 'horizontal',
             loop: loop, // important: Set to 'false' when scrollbar is enabled
             grabCursor: false,
@@ -247,6 +246,8 @@ export function initiSwiperInstances(options) {
             // Navigation arrows
             nextButton: $btn_next,
             prevButton: $btn_prev,
+
+            keyboardControl: true,
         });
 
         // enter fullscreen mode

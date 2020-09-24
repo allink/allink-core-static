@@ -17,6 +17,7 @@ Each release is divided into the following main categories:
 
 ### FIXES
 - Fixed radio / checkbox spacing [#105](https://github.com/allink/allink-core-static/pull/105)
+- Fixed gallery transition styles and added keyboard controls [#113](https://github.com/allink/allink-core-static/pull/113)
 
 
 ## v2.7.2
