@@ -11,13 +11,13 @@ $bootstrap-select-dropdown-toggle-background-color-hover: #fff !default;
 $bootstrap-select-dropdown-toggle-border-color-hover: #ddd !default;
 $bootstrap-select-dropdown-menu-background-color: white !default;
 $bootstrap-select-dropdown-menu-border-color: #dedede !default;
-$bootstrap-select-dropdown-menu-hyperlink-color-visited: #444 !default;
-$bootstrap-select-dropdown-menu-hyperlink-background-color-hover: #efefef !default;
-$bootstrap-select-dropdown-menu-hyperlink-color-hover: black !default;
+$bootstrap-select-dropdown-menu-link-color-visited: #444 !default;
+$bootstrap-select-dropdown-menu-link-background-color-hover: #efefef !default;
+$bootstrap-select-dropdown-menu-link-color-hover: black !default;
 $bootstrap-select-dropdown-menu-background-color-selected: #00a8e6 !default;
 $bootstrap-select-dropdown-menu-border-top-color-selected: #00a8e6 !default;
-$bootstrap-select-dropdown-menu-hyperlink-background-color-selected: transparent !default;
-$bootstrap-select-dropdown-menu-hyperlink-color-selected-hover: white !default;
+$bootstrap-select-dropdown-menu-link-background-color-selected: transparent !default;
+$bootstrap-select-dropdown-menu-link-color-selected-hover: white !default;
 $bootstrap-select-dropdown-header-background-color: #666 !default;
 $bootstrap-select-dropdown-header-text-color: white !default;
 
@@ -106,19 +106,19 @@ Custom Styles
                 &,
                 &:link,
                 &:visited {
-                    color: $bootstrap-select-dropdown-menu-hyperlink-color-visited !important;
+                    color: $bootstrap-select-dropdown-menu-link-color-visited !important;
                 }
 
                 &:hover,
                 &:focus {
-                    background-color: $bootstrap-select-dropdown-menu-hyperlink-background-color-hover;
-                    color: $bootstrap-select-dropdown-menu-hyperlink-color-hover !important;
+                    background-color: $bootstrap-select-dropdown-menu-link-background-color-hover;
+                    color: $bootstrap-select-dropdown-menu-link-color-hover !important;
                 }
             }
             // navigation via keyboard
             &.active {
                 a {
-                    background-color: $bootstrap-select-dropdown-menu-hyperlink-background-color-hover;
+                    background-color: $bootstrap-select-dropdown-menu-link-background-color-hover;
                 }
             }
 
@@ -127,14 +127,14 @@ Custom Styles
                 border-top-color: $bootstrap-select-dropdown-menu-border-top-color-selected;
 
                 > a {
-                    background-color: $bootstrap-select-dropdown-menu-hyperlink-background-color-selected;
+                    background-color: $bootstrap-select-dropdown-menu-link-background-color-selected;
 
                     &,
                     &:link,
                     &:visited,
                     &:hover,
                     &:focus {
-                        color: $bootstrap-select-dropdown-menu-hyperlink-color-selected-hover !important;
+                        color: $bootstrap-select-dropdown-menu-link-color-selected-hover !important;
                     }
                 }
             }

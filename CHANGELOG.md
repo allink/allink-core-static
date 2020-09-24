@@ -17,7 +17,7 @@ Each release is divided into the following main categories:
 
 ### FIXES
 - Fixed radio / checkbox spacing [#105](https://github.com/allink/allink-core-static/pull/105)
-
+- Added variables for colors wherever possible[#112](https://github.com/allink/allink-core-static/pull/112)
 
 ## v2.7.2
 ### FIXES

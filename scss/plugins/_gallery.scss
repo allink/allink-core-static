@@ -1,3 +1,7 @@
+// Variables
+$swiper-content-container-color: $white !default;
+$swiper-button-fullscreen-close-color: $white !default;
+$swiper-button-fullscreen-close-color-hover: $white !default;
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 
 Gallery Plugin
@@ -108,14 +112,13 @@ Fullscreen Gallery
     .cms-toolbar-expanded & {
         // top: $grid-gutter-width + $cms-toolbar-height-expanded;
     }
-
     .swiper-content-container,
     .swiper-counter {
         position: relative;
-        color: $white;
+        color: $swiper-content-container-color;
 
         * {
-            color: $white;
+            color: $swiper-content-container-color;
         }
     }
 
@@ -137,13 +140,13 @@ Fullscreen Gallery
 .swiper-button-fullscreen-close {
     &.tingle-modal__close {
         &::before {
-            color: $white;
+            color: $swiper-button-fullscreen-close-color;
         }
 
         &:hover,
         &:focus {
             &::before {
-                color: $white;
+                color: $swiper-button-fullscreen-close-color-hover;
             }
         }
     }

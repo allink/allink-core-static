@@ -1,3 +1,6 @@
+// Variables
+$swiper-content-color: $gray-lighter !default;
+
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 
 Global Swiper Custom Styles
@@ -172,14 +175,13 @@ Global Swiper Custom Styles
     .swiper-disabled & {
         display: none;
     }
-
-    border-bottom: 1px solid $gray-lighter;
+    border-bottom: 1px solid $swiper-content-color;
 }
 
 .swiper-content-container {
     .swiper-content {
         margin-top: $grid-gutter-width/4;
-        color: $gray-light;
+        color: $swiper-content-color;
         display: none;
 
         &--visible {

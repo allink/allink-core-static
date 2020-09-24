@@ -6,10 +6,10 @@ Varibles
 $content-fieldset-module-border-color: #dedede !default;
 $content-fieldset-module-background-color: #fff !default;
 $content-fieldset-module-h2-border-bottom-color: #ddd !default;
-$content-inline-group-add-row-hyperlink-color: #0bf !default;
-$content-inline-group-add-row-hyperlink-color-before: #0bf !default;
-$content-inline-group-add-row-hyperlink-color-hover: #0bf !default;
-$content-inline-group-add-row-hyperlink-color-hover-before: #0bf !default;
+$content-inline-group-add-row-link-color: #0bf !default;
+$content-inline-group-add-row-link-color-before: #0bf !default;
+$content-inline-group-add-row-link-color-hover: #0bf !default;
+$content-inline-group-add-row-link-color-hover-before: #0bf !default;
 
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
@@ -270,18 +270,18 @@ Visually separate blocks
 
         .add-row {
             a {
-                color: $content-inline-group-add-row-hyperlink-color;
+                color: $content-inline-group-add-row-link-color;
 
                 &::before {
-                    color: $content-inline-group-add-row-hyperlink-color-before;
+                    color: $content-inline-group-add-row-link-color-before;
                 }
 
                 &:hover,
                 &:focus {
-                    color: $content-inline-group-add-row-hyperlink-color-hover !important;
+                    color: $content-inline-group-add-row-link-color-hover !important;
 
                     &::before {
-                        color: $content-inline-group-add-row-hyperlink-color-hover-before;
+                        color: $content-inline-group-add-row-link-color-hover-before;
                     }
                 }
             }

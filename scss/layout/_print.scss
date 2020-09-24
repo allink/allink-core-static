@@ -8,8 +8,8 @@
 // ==========================================================================
 
 //variables
-$print-background-after: transparent !default;
-$print-color-after: #000 !default;
+$print-background: transparent !default;
+$print-color: #000 !default;
 $print-pre-border-color: #999 !default;
 $print-btn-caret-border-top-color: #000 !default;
 $print-label-border-color: #000 !default;
@@ -20,8 +20,8 @@ $print-table-bordered-border-color: #ddd !default;
     *,
     *::before,
     *::after {
-        background: $print-background-after !important;
-        color: $print-color-after !important; // Black prints faster: h5bp.com/s
+        background: $print-background !important;
+        color: $print-color !important; // Black prints faster: h5bp.com/s
         box-shadow: none !important;
         text-shadow: none !important;
     }
