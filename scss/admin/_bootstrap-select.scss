@@ -5,6 +5,21 @@ Our variables
 */
 
 @import "base/variables";
+$bootstrap-select-dropdown-toggle-color: #333 !default;
+$bootstrap-select-dropdown-toggle-background-color: #fff !default;
+$bootstrap-select-dropdown-toggle-background-color-hover: #fff !default;
+$bootstrap-select-dropdown-toggle-border-color-hover: #ddd !default;
+$bootstrap-select-dropdown-menu-background-color: white !default;
+$bootstrap-select-dropdown-menu-border-color: #dedede !default;
+$bootstrap-select-dropdown-menu-hyperlink-color-visited: #444 !default;
+$bootstrap-select-dropdown-menu-hyperlink-background-color-hover: #efefef !default;
+$bootstrap-select-dropdown-menu-hyperlink-color-hover: black !default;
+$bootstrap-select-dropdown-menu-background-color-selected: #00a8e6 !default;
+$bootstrap-select-dropdown-menu-border-top-color-selected: #00a8e6 !default;
+$bootstrap-select-dropdown-menu-hyperlink-background-color-selected: transparent !default;
+$bootstrap-select-dropdown-menu-hyperlink-color-selected-hover: white !default;
+$bootstrap-select-dropdown-header-background-color: #666 !default;
+$bootstrap-select-dropdown-header-text-color: white !default;
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 
@@ -61,8 +76,8 @@ Custom Styles
     }
 
     .dropdown-toggle {
+        background-color: $bootstrap-select-dropdown-toggle-color !important;
         padding: 6px 35px 6px 10px !important;
-        background-color: #fff !important;
 
         &,
         &:hover,
@@ -70,17 +85,17 @@ Custom Styles
         &:active,
         &:focus:active,
         &:active:hover {
-            background-color: #fff !important;
-            border-color: #ddd !important;
-            box-shadow: none !important;
             appearance: none;
-            color: #333 !important;
+            background-color: $bootstrap-select-dropdown-toggle-background-color-hover !important;
+            border-color: $bootstrap-select-dropdown-toggle-border-color-hover !important;
+            box-shadow: none !important;
+            color: $bootstrap-select-dropdown-toggle-color !important;
         }
     }
 
     .dropdown-menu {
-        background-color: white;
-        border: 1px solid #dedede;
+        background-color: $bootstrap-select-dropdown-menu-background-color;
+        border: 1px solid $bootstrap-select-dropdown-menu-border-color;
         border-radius: 2px;
         box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.05);
 
@@ -91,35 +106,35 @@ Custom Styles
                 &,
                 &:link,
                 &:visited {
-                    color: #444 !important;
+                    color: $bootstrap-select-dropdown-menu-hyperlink-color-visited !important;
                 }
 
                 &:hover,
                 &:focus {
-                    color: black !important;
-                    background-color: #efefef;
+                    background-color: $bootstrap-select-dropdown-menu-hyperlink-background-color-hover;
+                    color: $bootstrap-select-dropdown-menu-hyperlink-color-hover !important;
                 }
             }
             // navigation via keyboard
             &.active {
                 a {
-                    background-color: #efefef;
+                    background-color: $bootstrap-select-dropdown-menu-hyperlink-background-color-hover;
                 }
             }
 
             &.selected {
-                background-color: #00a8e6;
-                border-top-color: #00a8e6;
+                background-color: $bootstrap-select-dropdown-menu-background-color-selected;
+                border-top-color: $bootstrap-select-dropdown-menu-border-top-color-selected;
 
                 > a {
-                    background-color: transparent;
+                    background-color: $bootstrap-select-dropdown-menu-hyperlink-background-color-selected;
 
                     &,
                     &:link,
                     &:visited,
                     &:hover,
                     &:focus {
-                        color: white !important;
+                        color: $bootstrap-select-dropdown-menu-hyperlink-color-selected-hover !important;
                     }
                 }
             }
@@ -136,12 +151,12 @@ Custom Styles
 
     .dropdown-header {
         border: none !important;
-        background-color: #666;
+        background-color: $bootstrap-select-dropdown-header-background-color;
 
         .text {
             display: block;
             padding: 10px;
-            color: white;
+            color: $bootstrap-select-dropdown-header-text-color;
             font-weight: normal;
         }
     }

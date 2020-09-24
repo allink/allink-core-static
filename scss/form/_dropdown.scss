@@ -2,6 +2,10 @@
 // Dropdown menus
 // --------------------------------------------------
 
+// Variables
+$caret-border-left-color: transparent !default;
+$caret-border-right-color: transparent !default;
+$dropdown-menu-disabled-hyperlink-background-color-hover: transparent !default;
 
 // Dropdown arrow/caret
 .caret {
@@ -12,8 +16,8 @@
     vertical-align: middle;
     border-top: $caret-width-base dashed;
     border-top: $caret-width-base solid \9; // IE8
-    border-right: $caret-width-base solid transparent;
-    border-left: $caret-width-base solid transparent;
+    border-right: $caret-width-base solid $caret-border-right-color;
+    border-left: $caret-width-base solid $caret-border-left-color;
 }
 
 // The dropdown wrapper (div)
@@ -94,7 +98,6 @@
         background-color: $dropdown-link-active-bg;
     }
 }
-
 // Disabled state
 //
 // Gray out text and ensure the hover/focus state remains gray
@@ -109,7 +112,7 @@
     &:hover,
     &:focus {
         text-decoration: none;
-        background-color: transparent;
+        background-color: $dropdown-menu-disabled-hyperlink-background-color-hover;
         background-image: none; // Remove CSS gradient
         cursor: $cursor-disabled;
     }

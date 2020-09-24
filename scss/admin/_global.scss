@@ -1,5 +1,19 @@
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 
+Varibles
+
+ */
+$content-fieldset-module-border-color: #dedede !default;
+$content-fieldset-module-background-color: #fff !default;
+$content-fieldset-module-h2-border-bottom-color: #ddd !default;
+$content-inline-group-add-row-hyperlink-color: #0bf !default;
+$content-inline-group-add-row-hyperlink-color-before: #0bf !default;
+$content-inline-group-add-row-hyperlink-color-hover: #0bf !default;
+$content-inline-group-add-row-hyperlink-color-hover-before: #0bf !default;
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
 Config
 
 */
@@ -126,9 +140,9 @@ Visually separate blocks
     fieldset.module {
         border-radius: 2px !important;
         padding: $fieldset-spacing; // NO important here
-        border: 1px solid #dedede !important;
+        border: 1px solid $content-fieldset-module-border-color !important;
         box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.05) !important;
-        background-color: #fff !important;
+        background-color: $content-fieldset-module-background-color !important;
         width: 100%;
         max-width: 1000px;
 
@@ -150,7 +164,7 @@ Visually separate blocks
         // heading
         > h2 {
             margin-bottom: 0;
-            border-bottom: 1px solid #ddd;
+            border-bottom: 1px solid $content-fieldset-module-h2-border-bottom-color;
 
             & + * {
                 margin-top: $fieldset-spacing;
@@ -218,6 +232,7 @@ Visually separate blocks
         }
     }
 
+
     // inline fields style improvemenets
     .inline-group {
         width: 100%;
@@ -255,18 +270,18 @@ Visually separate blocks
 
         .add-row {
             a {
-                color: #0bf;
+                color: $content-inline-group-add-row-hyperlink-color;
 
                 &::before {
-                    color: #0bf;
+                    color: $content-inline-group-add-row-hyperlink-color-before;
                 }
 
                 &:hover,
                 &:focus {
-                    color: #0bf !important;
+                    color: $content-inline-group-add-row-hyperlink-color-hover !important;
 
                     &::before {
-                        color: #0bf;
+                        color: $content-inline-group-add-row-hyperlink-color-hover-before;
                     }
                 }
             }

@@ -1,3 +1,7 @@
+//Variables
+$hide-text-color: transparent !default;
+$hide-text-background-color: transparent !default;
+
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 
 Print: Add print styles on the spot. Easier than to navigate back and forth
@@ -74,9 +78,9 @@ Print: Add print styles on the spot. Easier than to navigate back and forth
 // Deprecated as of v3.0.1 (has been removed in v4)
 @mixin hide-text() {
     font: 0/0 a;
-    color: transparent;
+    color: $hide-text-color;
     text-shadow: none;
-    background-color: transparent;
+    background-color: $hide-text-background-color;
     border: 0;
 }
 

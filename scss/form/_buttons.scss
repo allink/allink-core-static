@@ -7,6 +7,10 @@
 Global Button Definitions
 
 */
+///Variables
+$btn-link-background-color-active: transparent !default;
+$btn-link-border-color-active: transparent !default;
+$btn-link-background-color-focus: transparent !default;
 
 .btn {
     @include button-base();
@@ -76,21 +80,21 @@ BUT with the button's padding
     &.active,
     &[disabled],
     fieldset[disabled] & {
-        background-color: transparent;
+        background-color: $btn-link-background-color-active;
     }
 
     &,
     &:hover,
     &:focus,
     &:active {
-        border-color: transparent;
+        border-color: $btn-link-border-color-active;
     }
 
     &:hover,
     &:focus {
         color: $link-color-hover;
         text-decoration: $link-decoration-hover;
-        background-color: transparent;
+        background-color: $btn-link-background-color-focus;
     }
 
     &[disabled],

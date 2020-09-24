@@ -3,6 +3,8 @@
 Text Fields
 
 */
+// Variables
+$form-control-bootstrap-select-background-color: transparent !default;
 
 .form-control {
     font-size: inherit;
@@ -86,7 +88,7 @@ Text Fields
 
     // reset bg color in case of a bootstrap-select container
     &.bootstrap-select {
-        background-color: transparent !important;
+        background-color: $form-control-bootstrap-select-background-color !important;
     }
 }
 
