@@ -25,6 +25,7 @@ Each release is divided into the following main categories:
 - Used relative path to form validation module [#107](https://github.com/allink/allink-core-static/pull/107)
 - Fixed button mask in iOS Safari [#108](https://github.com/allink/allink-core-static/pull/108)
 - Fixed second case for double modal title [#109](https://github.com/allink/allink-core-static/pull/109)
+- Restored video resume functionality after scrolling [#114](https://github.com/allink/allink-core-static/pull/114)
 
 
 ## v2.7.1
