@@ -176,6 +176,11 @@ $(() => {
                         // remove class
                         $pluginContainer.removeClass(onPauseClass);
 
+                        // only play video if it was playing already. otherwise it would interfere with autoplay
+                        if ($vid.get(0).currentTime > 0) {
+                            $vid.get(0).play();
+                        }
+
                         // and mark the video as loaded (for possible transitions)
                         $pluginContainer.addClass(loadedClass);
                     }
