@@ -97,6 +97,12 @@ $(function(){
                     // Info for developer, that #softpage-page-title is missing on the detail page
                     if (modal_page_title_element != null) {
                         var modal_page_title = modal_page_title_element.textContent;
+
+                        // prevent multiple softpage loads to overwrite the original title
+                        if (!document.titleOriginal) {
+                            document.titleOriginal = document.title;
+                            document.title = modal_page_title_element.textContent;
+                        }
                     }
                     // Google Tag Manager
                     if (typeof dataLayer !== 'undefined') {
@@ -128,6 +134,10 @@ $(function(){
                 $('html').removeClass('softpage-visible');
                 // remove header
                 $modal.find('.tingle-modal-header').remove();
+                if (document.titleOriginal) {
+                    document.title = document.titleOriginal;
+                    document.titleOriginal = null;
+                }
             },
             onBeforeClose: function(){
                 // prevent closing of the softpage as long as..
