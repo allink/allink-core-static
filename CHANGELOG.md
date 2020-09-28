@@ -14,10 +14,13 @@ Each release is divided into the following main categories:
 - Updated text cropping docs [#103](https://github.com/allink/allink-core-static/pull/103)
 - Removed inverted variant for text selection [#104](https://github.com/allink/allink-core-static/pull/104)
 - Optimized scroll performance in triggerClassOnScroll [#110](https://github.com/allink/allink-core-static/pull/110)
+- Site title changes accordingly by opening a softpage [#116](https://github.com/allink/allink-core-static/pull/116)
 
 ### FIXES
 - Fixed radio / checkbox spacing [#105](https://github.com/allink/allink-core-static/pull/105)
 - Added variables for colors wherever possible[#112](https://github.com/allink/allink-core-static/pull/112)
+- Fixed gallery transition styles and added keyboard controls [#115](https://github.com/allink/allink-core-static/pull/115)
+
 
 ## v2.7.2
 ### FIXES
@@ -25,6 +28,7 @@ Each release is divided into the following main categories:
 - Used relative path to form validation module [#107](https://github.com/allink/allink-core-static/pull/107)
 - Fixed button mask in iOS Safari [#108](https://github.com/allink/allink-core-static/pull/108)
 - Fixed second case for double modal title [#109](https://github.com/allink/allink-core-static/pull/109)
+- Restored video resume functionality after scrolling [#114](https://github.com/allink/allink-core-static/pull/114)
 
 
 ## v2.7.1
