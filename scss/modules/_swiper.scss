@@ -3,6 +3,11 @@
 Global Swiper Custom Styles
 
 */
+// Varibables
+$swiper-border-color: $gray-lighter !default;
+$swiper-content-color: $gray-light !default;
+
+
 
 .swiper-container {
     opacity: 0;
@@ -172,14 +177,13 @@ Global Swiper Custom Styles
     .swiper-disabled & {
         display: none;
     }
-
-    border-bottom: 1px solid $gray-lighter;
+    border-bottom: 1px solid $swiper-border-color;
 }
 
 .swiper-content-container {
     .swiper-content {
         margin-top: $grid-gutter-width/4;
-        color: $gray-light;
+        color: $swiper-content-color;
         display: none;
 
         &--visible {

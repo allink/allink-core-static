@@ -18,6 +18,7 @@ Each release is divided into the following main categories:
 
 ### FIXES
 - Fixed radio / checkbox spacing [#105](https://github.com/allink/allink-core-static/pull/105)
+- Added variables for colors wherever possible[#112](https://github.com/allink/allink-core-static/pull/112)
 - Fixed gallery transition styles and added keyboard controls [#115](https://github.com/allink/allink-core-static/pull/115)
 
 

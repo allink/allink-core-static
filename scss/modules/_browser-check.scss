@@ -1,3 +1,7 @@
+// Variables
+$browser-suggestion-background-color: #fff !default;
+$browser-suggestion-lead-color: $gray-light !default;
+
 .browser-suggestion {
     @include spacings-size(spacing-scale-5, padding-top);
     @include spacings-size(spacing-scale-5, padding-bottom);
@@ -11,7 +15,7 @@
     bottom: 0;
     left: 0;
     overflow-y: scroll;
-    background-color: $white;
+    background-color: $browser-suggestion-background-color;
 
     &__logo {
         @include spacings-size(spacing-scale-5, margin-bottom);
@@ -24,10 +28,9 @@
         @include max-width();
 
         margin: auto;
-
         .lead {
             font-weight: 400;
-            color: $gray-light;
+            color: $browser-suggestion-lead-color;
             margin: 0;
         }
 

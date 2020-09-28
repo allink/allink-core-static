@@ -7,12 +7,21 @@
 // Inlined to avoid the additional HTTP request: h5bp.com/r
 // ==========================================================================
 
+//variables
+$print-background: transparent !default;
+$print-color: #000 !default;
+$print-pre-border-color: #999 !default;
+$print-btn-caret-border-top-color: #000 !default;
+$print-label-border-color: #000 !default;
+$print-table-th-background-color: #fff !default;
+$print-table-bordered-border-color: #ddd !default;
+
 @media print {
     *,
     *::before,
     *::after {
-        background: transparent !important;
-        color: #000 !important; // Black prints faster: h5bp.com/s
+        background: $print-background !important;
+        color: $print-color !important; // Black prints faster: h5bp.com/s
         box-shadow: none !important;
         text-shadow: none !important;
     }
@@ -39,7 +48,7 @@
 
     pre,
     blockquote {
-        border: 1px solid #999;
+        border: 1px solid $print-pre-border-color;
         page-break-inside: avoid;
     }
 
@@ -78,12 +87,12 @@
     .btn,
     .dropup > .btn {
         > .caret {
-            border-top-color: #000 !important;
+            border-top-color: $print-btn-caret-border-top-color !important;
         }
     }
 
     .label {
-        border: 1px solid #000;
+        border: 1px solid $print-label-border-color;
     }
 
     .table {
@@ -91,14 +100,14 @@
 
         td,
         th {
-            background-color: #fff !important;
+            background-color: $print-table-th-background-color !important;
         }
     }
 
     .table-bordered {
         th,
         td {
-            border: 1px solid #ddd !important;
+            border: 1px solid $print-table-bordered-border-color !important;
         }
     }
 
