@@ -1,11 +1,12 @@
-// Variables
-$swiper-content-color: $gray-lighter !default;
-
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 
 Global Swiper Custom Styles
 
 */
+// Varibables
+$swiper-border-color: $gray-lighter !default;
+
+
 
 .swiper-container {
     opacity: 0;
@@ -175,7 +176,7 @@ Global Swiper Custom Styles
     .swiper-disabled & {
         display: none;
     }
-    border-bottom: 1px solid $swiper-content-color;
+    border-bottom: 1px solid $swiper-border-color;
 }
 
 .swiper-content-container {
