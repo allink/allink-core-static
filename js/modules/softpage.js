@@ -101,7 +101,7 @@ $(function(){
                         // prevent multiple softpage loads to overwrite the original title
                         if (!document.titleOriginal) {
                             document.titleOriginal = document.title;
-                            document.title = modal_page_title_element.textContent;
+                            document.title = modal_page_title;
                         }
                     }
                     // Google Tag Manager
