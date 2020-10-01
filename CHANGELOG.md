@@ -17,6 +17,7 @@ Each release is divided into the following main categories:
 - Removed inverted variant for text selection [#104](https://github.com/allink/allink-core-static/pull/104)
 - Optimized scroll performance in triggerClassOnScroll [#110](https://github.com/allink/allink-core-static/pull/110)
 - Site title changes accordingly by opening a softpage [#116](https://github.com/allink/allink-core-static/pull/116)
+- Added scrollto prefix method for real smooth scrolling [#118](https://github.com/allink/allink-core-static/pull/118)
 
 ### FIXES
 - Fixed radio / checkbox spacing [#105](https://github.com/allink/allink-core-static/pull/105)
