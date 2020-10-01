@@ -8,6 +8,8 @@ Each release is divided into the following main categories:
 
 ## v2.8.0
 ### IMPORTANT
+- Moved datepicker to boilerplate and disabled it by default [#117](https://github.com/allink/allink-core-static/pull/117)
+    - Add datepicker to existing projects that need it (VMI)
 
 ### NEW
 - Updated lazysizes to v5.2.2 [#102](https://github.com/allink/allink-core-static/pull/102)
