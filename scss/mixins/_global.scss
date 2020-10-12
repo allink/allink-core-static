@@ -87,7 +87,7 @@ Print: Add print styles on the spot. Easier than to navigate back and forth
 
 
 // Fluid sizes mixin for spacings, font-sizes, widths, heights, etc.
-// It can either have a name (i.e. 'spacing-section-1') or a map (i.e. (min: 1rem, max: 5rem) given. In-between in gets calculated fluidly.
+// It can either have a name (i.e. 'y-section-1') or a map (i.e. (min: 1rem, max: 5rem) given. In-between in gets calculated fluidly.
 @mixin fluid-size($size, $property: null, $sizings-map: (), $fluid-breakpoints: $fluid-breakpoints, $negative: false) {
     $min-breakpoint: to-rem(map-get($fluid-breakpoints, 'min'));
     $max-breakpoint: to-rem(map-get($fluid-breakpoints, 'max'));
@@ -99,19 +99,37 @@ Print: Add print styles on the spot. Easier than to navigate back and forth
         $multiplicand: -1;
     }
 
-    // Check if spacings-size is a string (i.e. 'spacing-section-1')
+    // Check if spacings-size is a string (i.e. 'y-section-1') or a map
     @if type-of($size) == string or type-of($size) == map {
-        // if a string get the map of current spacing from $spacings-sizes
-        $sizing: map-get($sizings-map, $size);
+        $sizing: $size;
+        $direction: null;
 
-        // if spacing is already map we don't need to look it up by the spacings-size name and use it directly
-        @if type-of($size) == map {
-            $sizing: $size;
+        // if spacing is a string we need to look it up
+        @if type-of($size) == string {
+            $sizing: inspect($size); // convert if no quotes where used
+
+            // support legacy spacing names with spacing-xx prefix
+            @if (str-index($sizing, 'spacing-') == 1 and not index(map-keys($sizings-map), $size)) {
+                $size: str-replace($size, 'spacing-', 'y-');
+            }
+
+            // get spacing direction from name prefix
+            @if (str-index($sizing, 'x-') == 1) {
+                $direction: 'x';
+            } @else {
+                $direction: 'y';
+            }
+
+            @if index(map-keys($sizings-map), $size) {
+                $sizing: map-get($sizings-map, $size);
+            } @else {
+                @error 'The spacing #{$size} was not found in map $spacings-sizes.';
+            }
         }
 
         $min-size: to-rem(map-get($sizing, 'min'));
 
-        @include make-fluid-size($min-size * $multiplicand, $property);
+        @include make-fluid-size($min-size * $multiplicand, $property, $direction);
 
         // if no max size exists, use min size
         @if map-get($sizing, 'max') {
@@ -119,11 +137,11 @@ Print: Add print styles on the spot. Easier than to navigate back and forth
             $difference: strip-unit($max-size - $min-size);
 
             @media (min-width: $min-breakpoint) {
-                @include make-fluid-size(calc((#{$min-size} + #{$difference} * (100vw - #{$min-breakpoint}) / #{strip-unit($max-breakpoint - $min-breakpoint)}) * #{$multiplicand}), $property);
+                @include make-fluid-size(calc((#{$min-size} + #{$difference} * (100vw - #{$min-breakpoint}) / #{strip-unit($max-breakpoint - $min-breakpoint)}) * #{$multiplicand}), $property, $direction);
             }
 
             @media (min-width: $max-breakpoint) {
-                @include make-fluid-size($max-size * $multiplicand, $property);
+                @include make-fluid-size($max-size * $multiplicand, $property, $direction);
             }
         }
     }
@@ -134,10 +152,15 @@ Print: Add print styles on the spot. Easier than to navigate back and forth
 }
 
 // Utility function for mixin spacings-size
-@mixin make-fluid-size($spacings-size, $property: 'margin') {
+@mixin make-fluid-size($spacings-size, $property: 'margin', $direction: 'y') {
     @if str-index($property, '-') == null and (str-index($property, 'margin') or str-index($property, 'padding')) {
-        #{$property}-top: $spacings-size;
-        #{$property}-bottom: $spacings-size;
+        @if $direction == 'x' {
+            #{$property}-left: $spacings-size;
+            #{$property}-right: $spacings-size;
+        } @else {
+            #{$property}-top: $spacings-size;
+            #{$property}-bottom: $spacings-size;
+        }
     } @else {
         #{$property}: $spacings-size;
     }

@@ -19,6 +19,8 @@ Each release is divided into the following main categories:
 - Removed inverted variant for text selection [#104](https://github.com/allink/allink-core-static/pull/104)
 - Optimized scroll performance in triggerClassOnScroll [#110](https://github.com/allink/allink-core-static/pull/110)
 - Site title changes accordingly by opening a softpage [#116](https://github.com/allink/allink-core-static/pull/116)
+- Added support for new horizontal spacings [#119](https://github.com/allink/allink-core-static/pull/119)
+    - The old spacings-xx syntax is still supported
 
 ### FIXES
 - Fixed radio / checkbox spacing [#105](https://github.com/allink/allink-core-static/pull/105)
