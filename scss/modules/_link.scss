@@ -24,7 +24,7 @@ Link icon
         height: auto;
         fill: currentColor;
         will-change: transform;
-        transition-property: transform;
+        transition-property: color, transform;
         transition-duration: $btn-icon-transition-duration;
         transition-timing-function: $btn-icon-transition-timing-function;
     }
