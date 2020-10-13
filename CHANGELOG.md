@@ -21,6 +21,7 @@ Each release is divided into the following main categories:
 - Site title changes accordingly by opening a softpage [#116](https://github.com/allink/allink-core-static/pull/116)
 - Added support for new horizontal spacings [#119](https://github.com/allink/allink-core-static/pull/119)
     - The old spacings-xx syntax is still supported
+- Added lazyload-fade animation [#120](https://github.com/allink/allink-core-static/pull/120)
 
 ### FIXES
 - Fixed radio / checkbox spacing [#105](https://github.com/allink/allink-core-static/pull/105)
