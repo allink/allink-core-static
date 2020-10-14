@@ -18,6 +18,7 @@ Each release is divided into the following main categories:
 - Updated text cropping docs [#103](https://github.com/allink/allink-core-static/pull/103)
 - Removed inverted variant for text selection [#104](https://github.com/allink/allink-core-static/pull/104)
 - Optimized scroll performance in triggerClassOnScroll [#110](https://github.com/allink/allink-core-static/pull/110)
+- Added variables for colors wherever possible[#112](https://github.com/allink/allink-core-static/pull/112)
 - Site title changes accordingly by opening a softpage [#116](https://github.com/allink/allink-core-static/pull/116)
 - Added support for new horizontal spacings [#119](https://github.com/allink/allink-core-static/pull/119)
     - The old spacings-xx syntax is still supported
@@ -25,8 +26,8 @@ Each release is divided into the following main categories:
 
 ### FIXES
 - Fixed radio / checkbox spacing [#105](https://github.com/allink/allink-core-static/pull/105)
-- Added variables for colors wherever possible[#112](https://github.com/allink/allink-core-static/pull/112)
 - Fixed gallery transition styles and added keyboard controls [#115](https://github.com/allink/allink-core-static/pull/115)
+- Added color transition for link icons [#121](https://github.com/allink/allink-core-static/pull/121)
 
 
 ## v2.7.2
