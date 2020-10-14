@@ -131,7 +131,7 @@ Each spacing must have a min (below 320px) and a max size (above 1760px). In-bet
 
 */
 
-@mixin spacings-size($spacings-size, $property: null, $spacings-map: $spacings-sizes, $spacings-breakpoints: $fluid-breakpoints, $negative: false) {
+@mixin spacings-size($spacings-size, $property, $spacings-map: $spacings-sizes, $spacings-breakpoints: $fluid-breakpoints, $negative: false) {
     @include fluid-size($spacings-size, $property, $spacings-map, $spacings-breakpoints, $negative);
 }
 

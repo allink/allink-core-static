@@ -88,7 +88,7 @@ Print: Add print styles on the spot. Easier than to navigate back and forth
 
 // Fluid sizes mixin for spacings, font-sizes, widths, heights, etc.
 // It can either have a name (i.e. 'y-section-1') or a map (i.e. (min: 1rem, max: 5rem) given. In-between in gets calculated fluidly.
-@mixin fluid-size($size, $property: null, $sizings-map: (), $fluid-breakpoints: $fluid-breakpoints, $negative: false) {
+@mixin fluid-size($size, $property, $sizings-map: (), $fluid-breakpoints: $fluid-breakpoints, $negative: false) {
     $min-breakpoint: to-rem(map-get($fluid-breakpoints, 'min'));
     $max-breakpoint: to-rem(map-get($fluid-breakpoints, 'max'));
 
