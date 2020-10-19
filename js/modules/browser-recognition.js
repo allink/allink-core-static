@@ -30,7 +30,7 @@ export function initBrowserCheck(options={}) {
 
     // browser names and the link to their download site, categorised by OS
     const chrome = {
-        label: gettext('Download Chrome'),
+        label: gettext('Get Chrome'),
         url: 'https://www.google.com/chrome/',
     };
     let browserSuggestionList = options.browserSuggestionList || {
