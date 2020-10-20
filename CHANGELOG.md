@@ -30,6 +30,7 @@ Each release is divided into the following main categories:
 - Fixed gallery transition styles and added keyboard controls [#115](https://github.com/allink/allink-core-static/pull/115)
 - Added color transition for link icons [#121](https://github.com/allink/allink-core-static/pull/121)
 - Removed pseudo default values for fluid-size and spacings-size mixins [#122](https://github.com/allink/allink-core-static/pull/122)
+- Optimized softpage scrolling, made header sticky [#124](https://github.com/allink/allink-core-static/pull/124)
 
 
 ## v2.7.2

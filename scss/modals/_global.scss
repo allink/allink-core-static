@@ -76,12 +76,9 @@ body.tingle-enabled {
 .tingle-modal {
     // fixes bug that selects text when closing the modal by clicking on the overlay
     -moz-user-select: none;
-    // add scroll bars per default
     overflow-y: auto;
-    // fixes scroll isues on iOS
-    @media (max-width: 1024px) {
-        -webkit-overflow-scrolling: touch;
-    }
+    -webkit-overflow-scrolling: touch;
+
     // positioning fix on mobile
     @include media-breakpoint-down(xs) {
         top: 0;
@@ -208,6 +205,8 @@ Modal Header
     @include make-container();
     @include max-width();
 
+    position: sticky;
+    top: 0;
     z-index: z('modal');
     width: 100%;
     background-color: $modal-global-content-bg;
