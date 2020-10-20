@@ -205,6 +205,7 @@ Modal Header
     @include make-container();
     @include max-width();
 
+    position: -webkit-sticky;
     position: sticky;
     top: 0;
     z-index: z('modal');
