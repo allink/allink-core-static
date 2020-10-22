@@ -10,6 +10,7 @@ $form-control-bootstrap-select-background-color: transparent !default;
     font-size: inherit;
     color: $input-color;
     background-color: $input-bg;
+    display: block;
     height: auto;
     width: 100%;
     border-style: $form-field-border-style;
@@ -28,6 +29,13 @@ $form-control-bootstrap-select-background-color: transparent !default;
     transition: $form-field-transition;
     // iPad improvements
     -webkit-appearance: none;
+
+    &:hover {
+        border-top-color: $input-border-top-color-hover;
+        border-right-color: $input-border-right-color-hover;
+        border-bottom-color: $input-border-bottom-color-hover;
+        border-left-color: $input-border-left-color-hover;
+    }
 
     &:focus {
         background-color: $input-bg-focus;
