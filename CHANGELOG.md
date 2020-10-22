@@ -24,6 +24,7 @@ Each release is divided into the following main categories:
     - The old spacings-xx syntax is still supported
 - Added lazyload-fade animation [#120](https://github.com/allink/allink-core-static/pull/120)
 - Updated get chrome translation [#123](https://github.com/allink/allink-core-static/pull/123)
+- Added hover styles and display block for form controls [#125](https://github.com/allink/allink-core-static/pull/125)
 
 ### FIXES
 - Fixed radio / checkbox spacing [#105](https://github.com/allink/allink-core-static/pull/105)
