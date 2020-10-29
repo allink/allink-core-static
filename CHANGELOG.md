@@ -25,6 +25,7 @@ Each release is divided into the following main categories:
 - Added lazyload-fade animation [#120](https://github.com/allink/allink-core-static/pull/120)
 - Updated get chrome translation [#123](https://github.com/allink/allink-core-static/pull/123)
 - Added hover styles and display block for form controls [#125](https://github.com/allink/allink-core-static/pull/125)
+- Updated swiper to v6.3.4 [#127](https://github.com/allink/allink-core-static/pull/127)
 
 ### FIXES
 - Fixed radio / checkbox spacing [#105](https://github.com/allink/allink-core-static/pull/105)
