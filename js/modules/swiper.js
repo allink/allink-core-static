@@ -63,8 +63,8 @@ The associated styles need to be added in the project's _swiper.scss file.
 */
 
 
-import Swiper, { Autoplay, Navigation, Pagination, Keyboard } from 'swiper';
-Swiper.use([Autoplay, Navigation, Pagination, Keyboard]);
+import Swiper, { Autoplay, Navigation, Keyboard } from 'swiper';
+Swiper.use([Autoplay, Navigation, Keyboard]);
 
 export function initiSwiperInstances(options) {
 
