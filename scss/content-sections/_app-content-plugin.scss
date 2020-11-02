@@ -5,7 +5,7 @@ List View (this includes ALL plugin templates such as Grid (Static), Table, and 
 */
 
 .app-list {
-
+    overflow-anchor: none; // to prevent jumping on ajax load more
     // fixes overlap issue with negativ margins (e.g. grid static followd by a button link container)
     position: relative;
     z-index: 1;
