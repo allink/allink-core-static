@@ -24,7 +24,7 @@
     "scroll-depth": "1.0.0",
     "softpage": "git://github.com/allink/softpage.git#v0.1.19",
     "superagent": "3.7.0",
-    "swiper": "3.4.2",
+    "swiper": "6.3.4",
     "tingle.js": "0.11.0"
   },
   "devDependencies": {

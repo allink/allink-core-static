@@ -16,7 +16,7 @@ Optional data-attributes for the .swiper-container:
 
 data-duration-per-slide="6000"
 
-Note: Duration in miliseconds
+Note: Duration in milliseconds
 
 ---
 
@@ -29,7 +29,7 @@ Note: Not set (default) is "true"
 data-transition-duration-desktop="4000"
 data-transition-duration-mobile="500"
 
-Note: Duration in miliseconds
+Note: Duration in milliseconds
 
 ---
 
@@ -62,13 +62,15 @@ The associated styles need to be added in the project's _swiper.scss file.
 
 */
 
-import Swiper from 'swiper';
+
+import Swiper, { Autoplay, Navigation, Keyboard } from 'swiper';
+Swiper.use([Autoplay, Navigation, Keyboard]);
 
 export function initiSwiperInstances(options) {
 
     // initialize options
-    var options = options || {};
-    var viewport_width = $(window).width();
+    options = options || {};
+    let viewport_width = $(window).width();
 
     // available options with default values
     if (!options.transitionDurationBetweenSlides_mobile) {
@@ -94,7 +96,7 @@ export function initiSwiperInstances(options) {
     }
 
     // set default transition duration
-    var transitionDurationBetweenSlides = options.transitionDurationBetweenSlides_mobile;
+    let transitionDurationBetweenSlides = options.transitionDurationBetweenSlides_mobile;
     if (viewport_width > 1024) {
         transitionDurationBetweenSlides = options.transitionDurationBetweenSlides;
     }
@@ -107,9 +109,6 @@ export function initiSwiperInstances(options) {
 
         // determine number of slides
         let number_of_slides = $swiper_instance.find('.swiper-slide').length;
-
-        let $btn_next = $swiper_instance.parent().find('.swiper-button-next');
-        let $btn_prev = $swiper_instance.parent().find('.swiper-button-prev');
 
         // no point in initializing swiper if there is only one slide
         if(number_of_slides < 2) {
@@ -146,14 +145,14 @@ export function initiSwiperInstances(options) {
         if ($swiper_instance.data('autoplay') === false) {
             options.autoplay = false;
         } else {
-            options.autoplay = options.durationPerSlide;
+            options.autoplay = { delay: options.durationPerSlide };
         }
 
         // randomize slides?
         let randomizeSlideOrder = $swiper_instance.attr('data-randomize-slide-order');
         if (typeof randomizeSlideOrder !== 'undefined') {
             let $parent = $swiper_instance.find('.swiper-wrapper');
-            var $slides = $parent.children();
+            let $slides = $parent.children();
             while ($slides.length) {
                 $parent.append($slides.splice(Math.floor(Math.random() * $slides.length), 1)[0]);
             }
@@ -171,7 +170,7 @@ export function initiSwiperInstances(options) {
         }
         if (isNaN(instanceTransitionDurationBetweenSlides) === false) {
             finalTransitionDurationBetweenSlides = instanceTransitionDurationBetweenSlides;
-        }else {
+        } else {
             finalTransitionDurationBetweenSlides = transitionDurationBetweenSlides;
         }
 
@@ -185,7 +184,7 @@ export function initiSwiperInstances(options) {
         }
         if (typeof instanceEffect !== 'undefined') {
             finalEffect = instanceEffect;
-        }else {
+        } else {
             finalEffect = effect;
         }
 
@@ -196,73 +195,78 @@ export function initiSwiperInstances(options) {
 
         */
 
-        const mySwiper = new Swiper($swiper_instance, {
+        const mySwiper = new Swiper($swiper_instance[0], {
             // global settings
-            onInit: function(swiper){
-                // leave a flag when an instance has been initialized in order to prevent re-initialization
-                $swiper_instance.addClass('swiper-initialized');
-                // trigger custom event
-                $(window).trigger('initSoftpageTrigger', [swiper, $swiper_instance]);
-                $(window).trigger('swiper:initialized', [swiper, $swiper_instance]);
-
-                if ($counter) {
-                    $counter.children('.swiper-counter__total').html(number_of_slides);
-                    $counter.children('.swiper-counter__current').html(swiper.realIndex + 1);
-                }
-
-                // if loop is false, stop autoplay
-                if (!loop) {
-                    swiper.stopAutoplay();
-                }
-            },
-            onSlideChangeStart: function(swiper) {
-                $(window).trigger('swiper:onSlideChangeStart', [swiper, $swiper_instance]);
-                // if counter dom node exists in template
-                if ($counter) {
-                    $counter.children('.swiper-counter__current').html(swiper.realIndex + 1);
-                }
-                if ($swiperContentsContainer) {
-                    updateSwiperContentsContainer(swiper, $swiperContentsContainer);
-                }
-            },
-            onSlideChangeEnd: function(swiper) {
-                $(window).trigger('swiper:onSlideChangeEnd', [swiper, $swiper_instance]);
-            },
+            init: false,
             effect: finalEffect,
             speed: finalTransitionDurationBetweenSlides, // Number: Duration of transition between slides (in ms)
             autoplay: options.autoplay, // Boolean or Number: Delay between transitions (in ms). If this parameter is not specified, auto play will be disabled
             slidesPerView: options.slidesPerView,
             spaceBetween: 2,
-            direction: 'horizontal',
             loop: loop, // important: Set to 'false' when scrollbar is enabled
-            grabCursor: false,
             initialSlide: options.initialSlide,
 
             // If we need pagination
-            pagination: '.swiper-pagination',
-            paginationElement: 'span',
-            paginationClickable: true,
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
 
             // Navigation arrows
-            nextButton: $btn_next,
-            prevButton: $btn_prev,
+            navigation: {
+                nextEl: $swiper_instance.parent().find('.swiper-button-next')[0],
+                prevEl: $swiper_instance.parent().find('.swiper-button-prev')[0],
+            },
 
-            keyboardControl: true,
+            keyboard: {
+                enabled: true,
+                onlyInViewport: true,
+            },
         });
+
+        mySwiper.on('init', function(swiper) {
+            // leave a flag when an instance has been initialized in order to prevent re-initialization
+            $swiper_instance.addClass('swiper-initialized');
+            // trigger custom event
+            $(window).trigger('initSoftpageTrigger', [swiper, $swiper_instance]);
+            $(window).trigger('swiper:initialized', [swiper, $swiper_instance]);
+
+            if ($counter) {
+                $counter.children('.swiper-counter__total').html(number_of_slides);
+                $counter.children('.swiper-counter__current').html(swiper.realIndex + 1);
+            }
+
+            // if loop is false, stop autoplay
+            if (!loop) {
+                swiper.autoplay.stop();
+            }
+        });
+
+        mySwiper.on('slideChange', function(swiper) {
+            // if counter dom node exists in template
+            if ($counter) {
+                $counter.children('.swiper-counter__current').html(swiper.realIndex + 1);
+            }
+            if ($swiperContentsContainer) {
+                updateSwiperContentsContainer(swiper, $swiperContentsContainer);
+            }
+        });
+
+        mySwiper.init();
 
         // enter fullscreen mode
         $swiper_instance.parent().find('[data-trigger-swiper-fullscreen]').on('click', function(e) {
 
             // init
             e.preventDefault();
-            var $swiper_fullscreen_container = $('.swiper-fullscreen-container');
-            var $swiper_fullscreen = $('.swiper-fullscreen');
+            let $swiper_fullscreen_container = $('.swiper-fullscreen-container');
+            let $swiper_fullscreen = $('.swiper-fullscreen');
 
             // prevent scrolling while lightbox is opened
             $('html').addClass('scrolling-disabled');
 
             // stop autoplay of default swiper
-            mySwiper.stopAutoplay();
+            mySwiper.autoplay.stop();
 
             // clone container, remove all inline styles of old swiper instance
 
@@ -273,7 +277,7 @@ export function initiSwiperInstances(options) {
                 .find('.swiper-slide-duplicate').remove();
 
             // set new options
-            var fullscreen_options = options;
+            let fullscreen_options = options;
             fullscreen_options.initialSlide = mySwiper.realIndex;
             fullscreen_options.loop = false;
 
@@ -307,7 +311,7 @@ export function initiSwiperInstances(options) {
         // Close when hitting ESC
         $(document).keydown(function(evt) {
             evt = evt || window.event;
-            var isEscape = false;
+            let isEscape = false;
             if ("key" in evt) {
                 isEscape = evt.key == "Escape";
             } else {
@@ -323,6 +327,14 @@ export function initiSwiperInstances(options) {
 
     });
 
+}
+
+function updateSwiperContentsContainer(swiper, $swiperContentsContainer) {
+    const activeIndex = swiper.realIndex + 1; // django loop index starts at 1
+    const $sliderContents = $swiperContentsContainer.children('.swiper-content');
+    const $activeContent = $swiperContentsContainer.children(`.swiper-content-${activeIndex}`);
+    $sliderContents.removeClass('swiper-content--visible');
+    $activeContent.addClass('swiper-content--visible');
 }
 
 function initSwiperFullscreenClose($swiper_fullscreen_container,$swiper_fullscreen) {
@@ -341,21 +353,21 @@ function initSwiperFullscreenClose($swiper_fullscreen_container,$swiper_fullscre
 
 function setSwiperFullscreenDimensions($inner,$gallery) {
     // determine browser window dimensions
-    var window_width = $(window).width();
-    var window_height = $(window).height();
+    let window_width = $(window).width();
+    let window_height = $(window).height();
     // TBD: option to leave some space for captions or spacings
-    var available_height = window_height-100;
+    let available_height = window_height-100;
     // determine swiper dimensions
-    var swiper_width = $gallery.width();
-    var swiper_height = $gallery.height();
+    let swiper_width = $gallery.width();
+    let swiper_height = $gallery.height();
     // the gallery doesn't fit into the window, let's reset the dimensions
     if (swiper_height > available_height) {
-        var adjusted_swiper_height = available_height;
-        var adjusted_swiper_width = (available_height*swiper_width)/swiper_height;
+        let adjusted_swiper_height = available_height;
+        let adjusted_swiper_width = (available_height*swiper_width)/swiper_height;
         $inner.width(adjusted_swiper_width);
         $inner.height(adjusted_swiper_height);
         $inner.addClass('dimensions-set');
-    }else {
+    } else {
         // reset dimensions
         $inner.css({
             'width':'',
@@ -368,9 +380,9 @@ function setSwiperFullscreenDimensions($inner,$gallery) {
 function initSwiperFullscreenDimensions(width_has_changed=false) {
 
     // init
-    var $container = $('.swiper-fullscreen-container');
-    var $inner = $container.find('.swiper-fullscreen');
-    var $gallery = $container.find('.swiper-container');
+    let $container = $('.swiper-fullscreen-container');
+    let $inner = $container.find('.swiper-fullscreen');
+    let $gallery = $container.find('.swiper-container');
 
     if (width_has_changed) {
         // reset dimensions
@@ -386,7 +398,7 @@ function initSwiperFullscreenDimensions(width_has_changed=false) {
                 initiSwiperInstances();
             },10);
         },50);
-    }else {
+    } else {
         setSwiperFullscreenDimensions($inner,$gallery);
     }
 }
@@ -403,8 +415,8 @@ function closeSwiperFullscreen() {
         }
         $('html').removeClass('swiper-fullscreen-visible');
         // init
-        var $swiper_fullscreen_container = $('.swiper-fullscreen-container');
-        var $swiper_fullscreen = $swiper_fullscreen_container.find('.swiper-fullscreen');
+        let $swiper_fullscreen_container = $('.swiper-fullscreen-container');
+        let $swiper_fullscreen = $swiper_fullscreen_container.find('.swiper-fullscreen');
         // remove active state
         $swiper_fullscreen_container.removeClass('active');
         // remove content
@@ -419,15 +431,7 @@ function closeSwiperFullscreen() {
     },10);
 }
 
-function updateSwiperContentsContainer(swiper, $swiperContentsContainer) {
-    const activeIndex = swiper.realIndex + 1; // django loop index starts at 1
-    const $sliderContents = $swiperContentsContainer.children('.swiper-content');
-    const $activeContent = $swiperContentsContainer.children(`.swiper-content-${activeIndex}`);
-    $sliderContents.removeClass('swiper-content--visible');
-    $activeContent.addClass('swiper-content--visible');
-}
-
 $(window).on('viewportWidthHasChanged',function(){
-    var width_has_changed = true;
+    let width_has_changed = true;
     initSwiperFullscreenDimensions(width_has_changed);
 });
