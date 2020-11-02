@@ -9,6 +9,7 @@ Softpage
     visibility: visible;
     transform: translate(0, $softpage-content-offset);
     transition: $softpage-content-transition;
+    cursor: auto;
 
     .tingle-modal-box {
         margin: 0;
