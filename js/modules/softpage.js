@@ -78,8 +78,8 @@ $(function(){
         window.softpage = new SoftPage({
             onPageLoaded: function(obj) {
                 // app detail: check if header markup exists and set
-                // IMPORTANT: It needs to be an immediate child of .tingle-modal-box__content
-                let $header_markup = $(obj.modal.modal).find('.tingle-modal-box__content > .modal-header-markup');
+                // IMPORTANT: Only the first occurence of .tingle-modal-box__content get selected
+                let $header_markup = $(obj.modal.modal).find('.tingle-modal-box__content .modal-header-markup').first();
 
                 if ($header_markup.length > 0 && !$(obj.modal.modal).find('.tingle-modal-header').length) {
                     let $header_markup_container = $('<div class="tingle-modal-header"></div>');
