@@ -27,6 +27,8 @@ Each release is divided into the following main categories:
 - Added hover styles and display block for form controls [#125](https://github.com/allink/allink-core-static/pull/125)
 - Updated swiper to v6.3.4 [#127](https://github.com/allink/allink-core-static/pull/127)
 - Used default cursor behavior on softpage [#128](https://github.com/allink/allink-core-static/pull/128)
+- Made placement of modal header markup more flexible [#130](https://github.com/allink/allink-core-static/pull/130)
+
 ### FIXES
 - Fixed radio / checkbox spacing [#105](https://github.com/allink/allink-core-static/pull/105)
 - Fixed gallery transition styles and added keyboard controls [#115](https://github.com/allink/allink-core-static/pull/115)
