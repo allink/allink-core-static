@@ -78,7 +78,7 @@ $(function(){
         window.softpage = new SoftPage({
             onPageLoaded: function(obj) {
                 // app detail: check if header markup exists and set
-                // IMPORTANT: Only the first occurence of .tingle-modal-box__content get selected
+                // IMPORTANT: Only the first occurence of .tingle-modal-box__content gets selected
                 let $header_markup = $(obj.modal.modal).find('.tingle-modal-box__content .modal-header-markup').first();
 
                 if ($header_markup.length > 0 && !$(obj.modal.modal).find('.tingle-modal-header').length) {
