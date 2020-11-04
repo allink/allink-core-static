@@ -102,20 +102,30 @@ export function initBrowserCheck(options={}) {
     function populateButtons(suggestions) {
 
         let html = '';
+        let arrowIcon = `
+            <i class="link-icon link-icon--right">
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+                    <path fill="currentColor" d="M13.091 0.398v4.571l10.724-0.002-23.793 23.793 3.232 3.233 23.793-23.793-0.002 10.724h4.571l0.002-18.527z"></path>
+                </svg>
+            </i>
+        `;
 
         for (let browser in suggestions) {
             if (suggestions.hasOwnProperty(browser)) {
                 html += `
                     <a href="${ suggestions[browser] }" class="btn btn-default browser-suggestion__btn-download" target="_blank" rel="noopener" role="button">
                         <span class="link-text">
-                            ${ browser }
+                            <span>${ browser }</span>
+                            ${ arrowIcon }
                         </span>
                         <span class="link-text-mask">
                             <span class="link-text-mask__inner">
-                                ${ browser }
+                                <span>${ browser }</span>
+                                ${ arrowIcon }
                             </span>
                         </span>
-                    </a>`
+                    </a>
+                `;
             }
         }
 
