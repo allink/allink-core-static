@@ -29,6 +29,7 @@ Each release is divided into the following main categories:
 - Used default cursor behavior on softpage [#128](https://github.com/allink/allink-core-static/pull/128)
 - Made placement of modal header markup more flexible [#130](https://github.com/allink/allink-core-static/pull/130)
 - Added arrow icon to browser download button [#131](https://github.com/allink/allink-core-static/pull/131)
+- Updated softpage content padding [#132](https://github.com/allink/allink-core-static/pull/132)
 
 ### FIXES
 - Fixed radio / checkbox spacing [#105](https://github.com/allink/allink-core-static/pull/105)
