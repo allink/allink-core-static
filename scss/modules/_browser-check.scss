@@ -19,8 +19,6 @@ $browser-suggestion-lead-color: $gray-light !default;
 
     &__logo {
         @include spacings-size(spacing-scale-5, margin-bottom);
-
-        display: inline-block;
     }
 
     &__container {
