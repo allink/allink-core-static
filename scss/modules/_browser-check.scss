@@ -6,7 +6,6 @@ $browser-suggestion-lead-color: $gray-light !default;
     @include spacings-size(spacing-scale-5, padding-top);
     @include spacings-size(spacing-scale-5, padding-bottom);
 
-
     display: flex;
     position: fixed;
     z-index: z('browser-check');
@@ -26,6 +25,7 @@ $browser-suggestion-lead-color: $gray-light !default;
         @include max-width();
 
         margin: auto;
+
         .lead {
             font-weight: 400;
             color: $browser-suggestion-lead-color;
@@ -35,6 +35,8 @@ $browser-suggestion-lead-color: $gray-light !default;
         .heading {
             @include spacings-size(spacing-scale-7, margin-top);
             @include spacings-size(spacing-scale-5, margin-bottom);
+
+            display: flow-root;
         }
 
         .text {
