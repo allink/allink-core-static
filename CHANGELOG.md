@@ -28,6 +28,9 @@ Each release is divided into the following main categories:
 - Updated swiper to v6.3.4 [#127](https://github.com/allink/allink-core-static/pull/127)
 - Used default cursor behavior on softpage [#128](https://github.com/allink/allink-core-static/pull/128)
 - Made placement of modal header markup more flexible [#130](https://github.com/allink/allink-core-static/pull/130)
+- Added arrow icon to browser download button [#131](https://github.com/allink/allink-core-static/pull/131)
+- Updated softpage content padding [#132](https://github.com/allink/allink-core-static/pull/132)
+- Removed browser check style leftover [#133](https://github.com/allink/allink-core-static/pull/133)
 
 ### FIXES
 - Fixed radio / checkbox spacing [#105](https://github.com/allink/allink-core-static/pull/105)
@@ -37,6 +40,7 @@ Each release is divided into the following main categories:
 - Optimized softpage scrolling, made header sticky [#124](https://github.com/allink/allink-core-static/pull/124)
 - Fixed input placeholder mixin [#126](https://github.com/allink/allink-core-static/pull/126)
 - Specified overflow anchor on app list to prevent jumping to the page end on ajax load more [#129](https://github.com/allink/allink-core-static/pull/129)
+- Fixed text cropping in browser check heading [#134](https://github.com/allink/allink-core-static/pull/134)
 - Added `display: flow-root;` to quote plugin styles to fix font-cropping [#135](https://github.com/allink/allink-core-static/pull/135)
 
 ## v2.7.2
