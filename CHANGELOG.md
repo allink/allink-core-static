@@ -37,7 +37,7 @@ Each release is divided into the following main categories:
 - Optimized softpage scrolling, made header sticky [#124](https://github.com/allink/allink-core-static/pull/124)
 - Fixed input placeholder mixin [#126](https://github.com/allink/allink-core-static/pull/126)
 - Specified overflow anchor on app list to prevent jumping to the page end on ajax load more [#129](https://github.com/allink/allink-core-static/pull/129)
-
+- Added `display: flow-root;` to quote plugin styles to fix font-cropping [#135](https://github.com/allink/allink-core-static/pull/135)
 
 ## v2.7.2
 ### FIXES
