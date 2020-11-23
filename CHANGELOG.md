@@ -41,7 +41,7 @@ Each release is divided into the following main categories:
 - Fixed input placeholder mixin [#126](https://github.com/allink/allink-core-static/pull/126)
 - Specified overflow anchor on app list to prevent jumping to the page end on ajax load more [#129](https://github.com/allink/allink-core-static/pull/129)
 - Fixed text cropping in browser check heading [#134](https://github.com/allink/allink-core-static/pull/134)
-
+- Added `display: flow-root;` to quote plugin styles to fix font-cropping [#135](https://github.com/allink/allink-core-static/pull/135)
 
 ## v2.7.2
 ### FIXES
