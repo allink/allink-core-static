@@ -1,3 +1,4 @@
+$quote-breakpoint: md !default;
 .quote-plugin {
     @include spacings-size('spacing-scale-4', padding);
     @include spacings-size('spacing-scale-2', margin-top);
@@ -24,7 +25,7 @@
                 padding-left: 0.1em;
             }
 
-            @include media-breakpoint-up(5) {
+            @include media-breakpoint-up($quote-breakpoint) {
                 display: inline;
 
                 &:first-child {
