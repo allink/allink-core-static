@@ -28,6 +28,7 @@ Each release is divided into the following main categories:
 - Updated swiper to v6.3.4 [#127](https://github.com/allink/allink-core-static/pull/127)
 - Used default cursor behavior on softpage [#128](https://github.com/allink/allink-core-static/pull/128)
 - Made placement of modal header markup more flexible [#130](https://github.com/allink/allink-core-static/pull/130)
+- Changed Breakpoint of display inline in quote plugin in compliance with other breakpoint changes [#137](https://github.com/allink/allink-core-static/pull/137)
 
 ### FIXES
 - Fixed radio / checkbox spacing [#105](https://github.com/allink/allink-core-static/pull/105)
