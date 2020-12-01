@@ -1,0 +1,98 @@
+.cookie-message {
+    @include make-container();
+    @include max-width();
+
+    position: fixed; // fallback
+    position: sticky;
+    z-index: z('site-overlay-above-all');
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    width: 100%;
+    max-height: calc(100vh - #{$site-header-height-xs});
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+
+    @include media-breakpoint-up(md) {
+        max-height: calc(100vh - #{$site-header-height-md});
+    }
+
+    @include media-breakpoint-up(xxl) {
+        max-height: calc(100vh - #{$site-header-height-xxl});
+    }
+
+    &__container {
+        @include media-breakpoint-up(5) {
+            @include make-col(20);
+            @include make-col-offset(2);
+        }
+
+        @include media-breakpoint-up(12) {
+            @include make-col(16);
+            @include make-col-offset(4);
+        }
+    }
+
+    &__box {
+        @include spacings-size('x-equal-3', 'padding');
+        @include spacings-size('y-equal-5', 'padding-top');
+        @include spacings-size('y-equal-4', 'padding-bottom');
+        @include spacings-size('y-equal-4', 'margin');
+
+        box-shadow: $cookie-message-box-shadow;
+        background-color: $cookie-message-bg;
+    }
+
+    &__header {
+        @include spacings-size('y-equal-5', 'margin-bottom');
+        @include spacings-size('y-equal-5', 'padding-bottom');
+
+        border-bottom: to-rem(1px) solid $cookie-message-header-border-color;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    &__title {
+        @include font-default-tighter();
+        @include spacings-size('x-equal-3', 'padding-right');
+    }
+
+    &__close {
+        @include spacings-size('y-equal-5', 'margin', $negative: true);
+        @include spacings-size('y-equal-5', 'margin-left', $negative: true);
+        @include spacings-size('y-equal-5', 'margin-right', $negative: true);
+        @include spacings-size('x-equal-3', 'padding');
+        @include spacings-size('x-equal-3', 'padding-top');
+        @include spacings-size('x-equal-3', 'padding-bottom');
+        @include font-default-tighter();
+
+        border: 0;
+        background-color: transparent;
+        color: $cookie-message-close-color;
+        cursor: pointer;
+        transition-property: $cookie-message-close-transition-property;
+        transition-duration: $cookie-message-close-transition-duration;
+        transition-timing-function: $cookie-message-close-transition-timing-function;
+
+        &:hover,
+        &:focus {
+            outline: 0;
+            color: $cookie-message-close-color-hover;
+        }
+
+        svg {
+            display: block;
+        }
+    }
+
+    // switch footer spacing to cookie message spacer when cookie message is present
+    &-spacer {
+        @include spacings-size('y-section-1', 'margin-top');
+    }
+
+    & ~ .site-footer {
+        margin-top: 0;
+    }
+}
