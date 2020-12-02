@@ -32,6 +32,7 @@ Each release is divided into the following main categories:
 - Updated softpage content padding [#132](https://github.com/allink/allink-core-static/pull/132)
 - Removed browser check style leftover [#133](https://github.com/allink/allink-core-static/pull/133)
 - Added cookie message [#138](https://github.com/allink/allink-core-static/pull/138)
+- Added breakpoint variable for quote plugin with default value [#137](https://github.com/allink/allink-core-static/pull/137)
 
 ### FIXES
 - Fixed radio / checkbox spacing [#105](https://github.com/allink/allink-core-static/pull/105)
