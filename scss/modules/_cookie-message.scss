@@ -13,6 +13,14 @@
     max-height: calc(100vh - #{$site-header-height-xs});
     overflow: auto;
     -webkit-overflow-scrolling: touch;
+    transition: opacity 0.2s linear, transform 0.5s ease-in-out;
+    transition-delay: 0.3s, 0s;
+
+    &--hidden {
+        transform: translateY(100%);
+        opacity: 0;
+        transition-delay: 0s;
+    }
 
     @include media-breakpoint-up(md) {
         max-height: calc(100vh - #{$site-header-height-md});
