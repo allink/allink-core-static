@@ -17,12 +17,12 @@ export function initCookieMessage(options) {
 
     if (storage) {
         if (!storage.getItem('isCookieAccepted')) {
-            messageBox.classList.remove('hidden');
+            messageBox.classList.remove('cookie-message--hidden');
         }
 
         closeButton.addEventListener('click', () => {
             storage.setItem('isCookieAccepted', '1');
-            messageBox.classList.add('hidden');
+            messageBox.classList.add('cookie-message--hidden');
         });
     }
 }
