@@ -97,7 +97,8 @@
 
     // switch footer spacing to cookie message spacer when cookie message is present
     &-spacer {
-        @include spacings-size('y-section-1', 'margin-top');
+        @include spacings-size('y-section-1', 'padding-top');
+        @include spacings-size('y-equal-4', 'margin-top', $negative: true);
     }
 
     & ~ .site-footer {
