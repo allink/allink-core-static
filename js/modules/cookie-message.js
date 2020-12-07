@@ -4,6 +4,13 @@ Cookie Message
 
 */
 
+function removeMessage(messageBox) {
+    const spacer = messageBox.previousElementSibling;
+
+    spacer.parentNode.removeChild(spacer);
+    messageBox.parentNode.removeChild(messageBox);
+}
+
 export function initCookieMessage(options) {
     const messageBox = document.querySelector('.js-cookie-message');
     const closeButton = messageBox.querySelector('.js-close-cookie-message');
@@ -16,7 +23,9 @@ export function initCookieMessage(options) {
     }
 
     if (storage) {
-        if (!storage.getItem('isCookieAccepted')) {
+        if (storage.getItem('isCookieAccepted')) {
+            removeMessage(messageBox);
+        } else {
             messageBox.classList.remove('cookie-message--hidden');
         }
 
@@ -28,10 +37,7 @@ export function initCookieMessage(options) {
         // remove cookie message and spacer markup from DOM after the animation
         messageBox.addEventListener('transitionend', (e) => {
             if (messageBox.classList.contains('cookie-message--hidden') && e.propertyName === 'transform') {
-                const spacer = messageBox.previousElementSibling;
-
-                spacer.parentNode.removeChild(spacer);
-                messageBox.parentNode.removeChild(messageBox);
+                removeMessage(messageBox);
             }
         });
     }
