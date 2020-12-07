@@ -75,6 +75,7 @@
         @include spacings-size('x-equal-3', 'padding-top');
         @include spacings-size('x-equal-3', 'padding-bottom');
         @include font-default-tighter();
+
         border: 0;
         background-color: transparent;
         color: $cookie-message-close-color;
