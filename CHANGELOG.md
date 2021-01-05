@@ -33,6 +33,7 @@ Each release is divided into the following main categories:
 - Removed browser check style leftover [#133](https://github.com/allink/allink-core-static/pull/133)
 - Added cookie message [#138](https://github.com/allink/allink-core-static/pull/138), [#140](https://github.com/allink/allink-core-static/pull/140), [#141](https://github.com/allink/allink-core-static/pull/141), [#142](https://github.com/allink/allink-core-static/pull/142)
 - Added breakpoint variable for quote plugin with default value [#137](https://github.com/allink/allink-core-static/pull/137)
+- Removed selection on images [#144](https://github.com/allink/allink-core-static/pull/144)
 
 ### FIXES
 - Fixed radio / checkbox spacing [#105](https://github.com/allink/allink-core-static/pull/105)

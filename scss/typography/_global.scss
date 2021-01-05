@@ -78,3 +78,8 @@ Selected Text
     background: rgba($selection-bg-color, 0.99);
     color: $selection-color;
 }
+
+img::selection {
+    background: transparent;
+    color: inherit;
+}
