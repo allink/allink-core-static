@@ -192,6 +192,7 @@ when hover state has a border: https://www.chenhuijing.com/blog/about-subpxiel-r
     position: relative;
     border: none;
     padding: 0;
+    will-change: transform; // Fix layering issue in iOS Safari
 
     .link-text {
         display: inline-flex;
@@ -279,7 +280,6 @@ when hover state has a border: https://www.chenhuijing.com/blog/about-subpxiel-r
             padding-left: $btn-padding-left;
             padding-right: $btn-padding-right;
             padding-top: $btn-padding-top;
-            will-change: transform; // Fix layering issue in iOS Safari
 
             @if $btn-mask-transition-direction-starting-point == 'bottom' {
                 transform: translateY(calc(-100% - #{$button-border-width}));
