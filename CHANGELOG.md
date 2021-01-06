@@ -46,6 +46,7 @@ Each release is divided into the following main categories:
 - Fixed text cropping in browser check heading [#134](https://github.com/allink/allink-core-static/pull/134)
 - Added `display: flow-root;` to quote plugin styles to fix font-cropping [#135](https://github.com/allink/allink-core-static/pull/135)
 - Fixed image sizing and removed old subpixel hack [#136](https://github.com/allink/allink-core-static/pull/136)
+- Fixed flickering button mask [#145](https://github.com/allink/allink-core-static/pull/145)
 
 ## v2.7.2
 ### FIXES
