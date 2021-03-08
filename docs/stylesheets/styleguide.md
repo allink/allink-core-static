@@ -12,6 +12,14 @@ We encourage the following order how the CSS should be organized inside a file /
 Use rems over pixels for everything regarding sizes (i.e. font-size, margin, padding, height, width, etc.).
 Rems are based of [16px (root size)](../stylesheets/typography.md#adjusting-font-settings).
 
+Working with rems is easy using the `to-rem` SCSS function. It allows you to work with pixels but converts the values to rem.
+
+```SCSS
+.example-module {
+  margin-top: to-rem(20px);
+}
+```
+
 # BEM methodology
 
 There are many methodologies out there that help making SCSS files more maintainable and performant.
