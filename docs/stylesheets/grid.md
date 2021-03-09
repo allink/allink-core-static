@@ -30,17 +30,12 @@ A basic example of how to create a two column grid would look like this:
     &__col-container {
       // adds negative margin to the container
       @include make-row();
-      // on XS and SM we have a smaller column padding
-      @include make-row-sm-max();
   }
   &__col {
       // Make the element grid-ready (applying everything but the width)
       @include make-col-ready();
   }
   &__col-1 {
-      @include media-breakpoint-up(xs) {
-          @include make-col(24);
-      }
       @include media-breakpoint-up(sm) {
           @include make-col(12);
       }
@@ -49,9 +44,6 @@ A basic example of how to create a two column grid would look like this:
       }
   }
   &__col-2 {
-      @include media-breakpoint-up(xs) {
-          @include make-col(24);
-      }
       @include media-breakpoint-up(sm) {
           @include make-col(12);
       }

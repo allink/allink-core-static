@@ -35,8 +35,8 @@ Let's have a look at the self-explaining `h1` settings:
 ```SCSS
 // h1
 $font-h1-font-sizes: (
-    null: (2.25rem, 1.1em),
-    lg: 3.75rem,
+    min: (to-rem(36px) 1.1),
+    max: to-rem(60px),
 );
 $font-h1-text-transform:                     none;
 $font-h1-letter-spacing:                     0;
@@ -117,3 +117,9 @@ Use the mixin `text-crop` to apply text cropping in specific cases or override d
     @include text-crop($crop-top: 0.4em, $crop-bottom: 0.25em);
 }
 ```
+
+### Margin Collapsing
+
+If adjacent sibling elements with text cropping use margins in opposite directions then margin collapsing can be a problem.
+
+Margin collapsing can be combated by creating a new [block formatting context](https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Block_formatting_context). The method with the least side effects is adding ```display: flow-root``` on the affected elements.

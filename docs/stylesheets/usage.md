@@ -19,4 +19,14 @@ The following example imports all available [modal](../modules/modals.md) styles
 @import '~allink-core-static/scss/modals/base';
 ```
 
-So should you want to make adjustments to e.g. the `form-modal` styles, then you would have make them in a project specifc `static/scss/modals/_form.scss`, which has to be imported <strong>after</strong> the standard styles, in order to overwrite the core styles.
+So should you want to make adjustments to e.g. the `form-modal` styles, then you would have to make them in a project specifc `static/scss/modals/_form.scss`, which has to be imported <strong>after</strong> the standard styles, in order to overwrite the core styles.
+
+# Linting with stylelint
+
+To have a consistent code style we use [stylelint](https://stylelint.io/). It is strongly recommended to install a stylelint extension in your editor of choice.
+Stylelint is also available using the following two commands:
+
+1. ```npm run stylelint```: Lint all SCSS files and show errors
+2. ```npm run stylelint:fix```: Lint all SCSS files and fix errors where possible
+
+You can make adjustments to the stylelint configuration, which can be found in the project root directory as `.stylelintrc`.
