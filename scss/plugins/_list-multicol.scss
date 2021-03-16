@@ -1,0 +1,41 @@
+.list-multicol-plugin {
+    .text-container {
+        @include spacings-size($list-item-spacing, 'margin-bottom', $negative: true);
+        @include font-default-tighter();
+
+        display: flow-root;
+
+        ul,
+        ol {
+            &::before,
+            &::after {
+                content: none;
+            }
+
+            @include media-breakpoint-up(md) {
+                @include spacings-size('x-gutter-width', 'column-gap');
+
+                li {
+                    @include spacings-size($list-item-spacing, 'padding-bottom');
+
+                    display: block;
+                    break-inside: avoid;
+                }
+            }
+        }
+
+        &.list-multicol-mode-0 {
+            ul,
+            ol {
+                column-count: 2;
+            }
+        }
+
+        &.list-multicol-mode-1 {
+            ul,
+            ol {
+                column-count: 3;
+            }
+        }
+    }
+}

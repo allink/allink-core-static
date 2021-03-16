@@ -35,6 +35,7 @@ Each release is divided into the following main categories:
 - Added breakpoint variable for quote plugin with default value [#137](https://github.com/allink/allink-core-static/pull/137)
 - Removed selection on images [#144](https://github.com/allink/allink-core-static/pull/144)
 - Enabled subtext for bootstrap select [#147](https://github.com/allink/allink-core-static/pull/147)
+- Added list multicol cms plugin [#150](https://github.com/allink/allink-core-static/pull/150)
 
 ### FIXES
 - Fixed radio / checkbox spacing [#105](https://github.com/allink/allink-core-static/pull/105)
