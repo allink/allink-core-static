@@ -48,6 +48,7 @@ Each release is divided into the following main categories:
 - Added `display: flow-root;` to quote plugin styles to fix font-cropping [#135](https://github.com/allink/allink-core-static/pull/135)
 - Fixed image sizing and removed old subpixel hack [#136](https://github.com/allink/allink-core-static/pull/136)
 - Fixed flickering button mask [#145](https://github.com/allink/allink-core-static/pull/145)
+- Fixed mixed media query units in fluid scale mixins [#149](https://github.com/allink/allink-core-static/pull/149)
 
 ## v2.7.2
 ### FIXES

@@ -278,11 +278,11 @@ Responsive Font Size mixin
     @if map-get($fs-map, 'max') {
         $max-font-size: to-rem(nth(map-get($fs-map, 'max'), 1));
         $difference: strip-unit($max-font-size - $min-font-size);
-        $min-breakpoint: to-rem(map-get($fs-breakpoints, 'min'));
-        $max-breakpoint: to-rem(map-get($fs-breakpoints, 'max'));
+        $min-breakpoint: map-get($fs-breakpoints, 'min');
+        $max-breakpoint: map-get($fs-breakpoints, 'max');
 
         @media (min-width: $min-breakpoint) {
-            font-size: calc(#{$min-font-size} + #{$difference} * (100vw - #{$min-breakpoint}) / #{strip-unit($max-breakpoint - $min-breakpoint)});
+            font-size: calc(#{$min-font-size} + #{$difference} * (100vw - #{to-rem($min-breakpoint)}) / #{strip-unit(to-rem($max-breakpoint) - to-rem($min-breakpoint))});
         }
 
         @media (min-width: $max-breakpoint) {
