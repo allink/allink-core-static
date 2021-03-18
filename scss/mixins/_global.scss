@@ -89,8 +89,8 @@ Print: Add print styles on the spot. Easier than to navigate back and forth
 // Fluid sizes mixin for spacings, font-sizes, widths, heights, etc.
 // It can either have a name (i.e. 'y-section-1') or a map (i.e. (min: 1rem, max: 5rem) given. In-between in gets calculated fluidly.
 @mixin fluid-size($size, $property, $sizings-map: (), $fluid-breakpoints: $fluid-breakpoints, $negative: false) {
-    $min-breakpoint: to-rem(map-get($fluid-breakpoints, 'min'));
-    $max-breakpoint: to-rem(map-get($fluid-breakpoints, 'max'));
+    $min-breakpoint: map-get($fluid-breakpoints, 'min');
+    $max-breakpoint: map-get($fluid-breakpoints, 'max');
 
     // non-negative default value
     $multiplicand: 1;
@@ -137,7 +137,7 @@ Print: Add print styles on the spot. Easier than to navigate back and forth
             $difference: strip-unit($max-size - $min-size);
 
             @media (min-width: $min-breakpoint) {
-                @include make-fluid-size(calc((#{$min-size} + #{$difference} * (100vw - #{$min-breakpoint}) / #{strip-unit($max-breakpoint - $min-breakpoint)}) * #{$multiplicand}), $property, $direction);
+                @include make-fluid-size(calc((#{$min-size} + #{$difference} * (100vw - #{to-rem($min-breakpoint)}) / #{strip-unit(to-rem($max-breakpoint) - to-rem($min-breakpoint))}) * #{$multiplicand}), $property, $direction);
             }
 
             @media (min-width: $max-breakpoint) {
