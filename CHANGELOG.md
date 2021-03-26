@@ -8,8 +8,12 @@ Each release is divided into the following main categories:
 
 ## v2.8.0
 ### IMPORTANT
+- Added list multicol cms plugin [#150](https://github.com/allink/allink-core-static/pull/150)
+    - Add x-gutter-width to ```$spacings-sizes```
+
 - Moved datepicker to boilerplate and disabled it by default [#117](https://github.com/allink/allink-core-static/pull/117)
     - Add datepicker to existing projects that need it (VMI)
+
 - Added scrollto prefix method for real smooth scrolling [#118](https://github.com/allink/allink-core-static/pull/118)
     - Add scrollto prefix in template (e.g. jobs detail)
 
@@ -35,7 +39,6 @@ Each release is divided into the following main categories:
 - Added breakpoint variable for quote plugin with default value [#137](https://github.com/allink/allink-core-static/pull/137)
 - Removed selection on images [#144](https://github.com/allink/allink-core-static/pull/144)
 - Enabled subtext for bootstrap select [#147](https://github.com/allink/allink-core-static/pull/147)
-- Added list multicol cms plugin [#150](https://github.com/allink/allink-core-static/pull/150)
 - Added grid styles for AllinkTeaserGridContainerPlugin [#151](https://github.com/allink/allink-core-static/pull/151)
 - Added svg image plugin styles [#152](https://github.com/allink/allink-core-static/pull/152)
 
