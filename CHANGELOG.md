@@ -53,6 +53,7 @@ Each release is divided into the following main categories:
 - Fixed flickering button mask [#145](https://github.com/allink/allink-core-static/pull/145)
 - Fixed mixed media query units in fluid scale mixins [#149](https://github.com/allink/allink-core-static/pull/149)
 
+
 ## v2.7.2
 ### FIXES
 - Fixed video loading behavior in autoplay mode [#106](https://github.com/allink/allink-core-static/pull/106)
@@ -61,12 +62,10 @@ Each release is divided into the following main categories:
 - Fixed second case for double modal title [#109](https://github.com/allink/allink-core-static/pull/109)
 - Restored video resume functionality after scrolling [#114](https://github.com/allink/allink-core-static/pull/114)
 
-
 ## v2.7.1
 ### FIXES
 - Fixed accordion transitions [#99](https://github.com/allink/allink-core-static/pull/99)
 - Fixed accordion default spacing [#100](https://github.com/allink/allink-core-static/pull/100)
-
 
 ## v2.7.0
 ### IMPORTANT
