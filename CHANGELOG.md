@@ -36,6 +36,7 @@ Each release is divided into the following main categories:
 - Removed selection on images [#144](https://github.com/allink/allink-core-static/pull/144)
 - Enabled subtext for bootstrap select [#147](https://github.com/allink/allink-core-static/pull/147)
 - Added list multicol cms plugin [#150](https://github.com/allink/allink-core-static/pull/150)
+- Added grid styles for AllinkTeaserGridContainerPlugin [#151](https://github.com/allink/allink-core-static/pull/151)
 - Added svg image plugin styles [#152](https://github.com/allink/allink-core-static/pull/152)
 
 ### FIXES
