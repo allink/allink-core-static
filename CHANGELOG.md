@@ -9,13 +9,12 @@ Each release is divided into the following main categories:
 ## v2.8.0
 ### IMPORTANT
 - Added list multicol cms plugin [#150](https://github.com/allink/allink-core-static/pull/150)
-    - Add x-gutter-width to ```$spacings-sizes```
+    - Add spacings x-gutter-width and y-gutter-width to ```$spacings-sizes```
 
-- Moved datepicker to boilerplate and disabled it by default [#117](https://github.com/allink/allink-core-static/pull/117)
-    - Add datepicker to existing projects that need it (VMI)
+- Check padding-top of ```.tingle-modal-box__content``` and adjust on project basis if needed
 
 - Added scrollto prefix method for real smooth scrolling [#118](https://github.com/allink/allink-core-static/pull/118)
-    - Add scrollto prefix in template (e.g. jobs detail)
+    - Add scrollto prefix in templates (e.g. "#scrollto-jobs" for jobs detail overview link)
 
 ### NEW
 - Updated lazysizes to v5.2.2 [#102](https://github.com/allink/allink-core-static/pull/102)
@@ -24,8 +23,10 @@ Each release is divided into the following main categories:
 - Optimized scroll performance in triggerClassOnScroll [#110](https://github.com/allink/allink-core-static/pull/110)
 - Added variables for colors wherever possible[#112](https://github.com/allink/allink-core-static/pull/112)
 - Site title changes accordingly by opening a softpage [#116](https://github.com/allink/allink-core-static/pull/116)
+- Moved datepicker to boilerplate and disabled it by default [#117](https://github.com/allink/allink-core-static/pull/117)
 - Added support for new horizontal spacings [#119](https://github.com/allink/allink-core-static/pull/119)
     - The old spacings-xx syntax is still supported
+    - Do not update existing spacings because the content plugin saves the keys in the DB
 - Added lazyload-fade animation [#120](https://github.com/allink/allink-core-static/pull/120)
 - Updated get chrome translation [#123](https://github.com/allink/allink-core-static/pull/123)
 - Added hover styles and display block for form controls [#125](https://github.com/allink/allink-core-static/pull/125)
