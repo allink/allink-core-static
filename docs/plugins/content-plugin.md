@@ -60,6 +60,15 @@ Create the file `templates/allink_content/default/content.html` with this basic 
 
 Note: In this example we extended the block `content_section_inner_before`. Check out the [content_base.html](https://github.com/allink/allink-core/blob/v2.0.x/allink_core/core_apps/allink_content/templates/allink_content/content_base.html) template to see all available `{% block %}`s.
 
+### Preselecting options
+Options that should be preselected on creation of a content plugin can be added to the ```INITIAL_CONTENT_CSS_CLASSES``` list.
+
+```
+INITIAL_CONTENT_CSS_CLASSES = (
+    'custom-container-width-1',
+    'custom-container-width-2',
+)
+```
 
 ## Adding additional templates
 
@@ -127,10 +136,12 @@ These are default spacings that can be used on a `Content Plugin` to control the
 
 ```Python
 CONTENT_SPACINGS = (
-    ('spacing-section-1', 'Spacing Section 1'),
-    ('spacing-section-2-1', 'Spacing Section 2.1'),
-    ('spacing-section-2-2', 'Spacing Section 2.2'),
-    ('spacing-scale-4', 'Spacing Scale 4'),
+    ('y-section-1', 'Spacing Section 1'),
+    ('y-section-2', 'Spacing Section 2'),
+    ...
+    ('y-scale-1', 'Spacing Scale 1'),
+    ('y-scale-2', 'Spacing Scale 2'),
+    ...
 )
 ```
 
@@ -139,7 +150,7 @@ They can be set for `margin-top` and `margin-bottom` or both. All available spac
 When selecting this option, our (simplified) markup will be extended:
 
 ```HTML
-<div class="content-section spacing-section-1-top">
+<div class="content-section y-section-1-top">
   ...
 </div>
 ```

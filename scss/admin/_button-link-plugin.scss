@@ -4,6 +4,14 @@ Button/Link Plugin
 
 */
 
+//Variables
+$button-link-plugin-btn-container-background-color: #fff !default;
+$button-link-plugin-btn-container-border-color: #ddd !default;
+$button-link-plugin-btn-item-background-color: white !default;
+$button-link-plugin-btn-item-border-color: transparent !default;
+$button-link-plugin-active-border-color: #000 !default;
+$button-link-plugin-active-background-color: #fff !default;
+
 body.app-allink_button_link {
     #container {
         background-color: $container-bg;
@@ -31,8 +39,8 @@ Form modifications
 .button-link-plugin {
     .btn-container {
         padding: 15px;
-        background-color: #fff;
-        border: 1px solid #ddd;
+        background-color: $button-link-plugin-btn-container-background-color;
+        border: 1px solid $button-link-plugin-btn-container-border-color;
         display: inline-block;
         width: 100%;
 
@@ -45,8 +53,8 @@ Form modifications
     .btn-item {
         float: left;
         padding: 10px;
-        background-color: white;
-        border: 2px solid transparent;
+        background-color: $button-link-plugin-btn-item-background-color;
+        border: 2px solid $button-link-plugin-btn-item-border-color;
     }
 
     // the button sizes have to be displayed at all times
@@ -70,8 +78,8 @@ Form modifications
     }
 
     .active {
-        border-color: #000;
-        background-color: #fff;
+        border-color: $button-link-plugin-active-border-color;
+        background-color: $button-link-plugin-active-background-color;
     }
 
     label {

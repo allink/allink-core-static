@@ -6,19 +6,70 @@ Each release is divided into the following main categories:
 - NEW: New features or plugins
 - FIXES: General bugfixes
 
+## v2.8.0
+### IMPORTANT
+- Added list multicol cms plugin [#150](https://github.com/allink/allink-core-static/pull/150)
+    - Add spacings x-gutter-width and y-gutter-width to ```$spacings-sizes```
+
+- Check padding-top of ```.tingle-modal-box__content``` and adjust on project basis if needed
+
+- Added scrollto prefix method for real smooth scrolling [#118](https://github.com/allink/allink-core-static/pull/118)
+    - Add scrollto prefix in templates (e.g. "#scrollto-jobs" for jobs detail overview link)
+
+### NEW
+- Updated lazysizes to v5.2.2 [#102](https://github.com/allink/allink-core-static/pull/102)
+- Updated text cropping docs [#103](https://github.com/allink/allink-core-static/pull/103)
+- Removed inverted variant for text selection [#104](https://github.com/allink/allink-core-static/pull/104)
+- Optimized scroll performance in triggerClassOnScroll [#110](https://github.com/allink/allink-core-static/pull/110)
+- Added variables for colors wherever possible[#112](https://github.com/allink/allink-core-static/pull/112)
+- Site title changes accordingly by opening a softpage [#116](https://github.com/allink/allink-core-static/pull/116)
+- Moved datepicker to boilerplate and disabled it by default [#117](https://github.com/allink/allink-core-static/pull/117)
+- Added support for new horizontal spacings [#119](https://github.com/allink/allink-core-static/pull/119)
+    - The old spacings-xx syntax is still supported
+    - Do not update existing spacings because the content plugin saves the keys in the DB
+- Added lazyload-fade animation [#120](https://github.com/allink/allink-core-static/pull/120)
+- Updated get chrome translation [#123](https://github.com/allink/allink-core-static/pull/123)
+- Added hover styles and display block for form controls [#125](https://github.com/allink/allink-core-static/pull/125)
+- Updated swiper to v6.3.4 [#127](https://github.com/allink/allink-core-static/pull/127)
+- Used default cursor behavior on softpage [#128](https://github.com/allink/allink-core-static/pull/128)
+- Made placement of modal header markup more flexible [#130](https://github.com/allink/allink-core-static/pull/130)
+- Added arrow icon to browser download button [#131](https://github.com/allink/allink-core-static/pull/131)
+- Updated softpage content padding [#132](https://github.com/allink/allink-core-static/pull/132)
+- Removed browser check style leftover [#133](https://github.com/allink/allink-core-static/pull/133)
+- Added cookie message [#138](https://github.com/allink/allink-core-static/pull/138), [#140](https://github.com/allink/allink-core-static/pull/140), [#141](https://github.com/allink/allink-core-static/pull/141), [#142](https://github.com/allink/allink-core-static/pull/142)
+- Added breakpoint variable for quote plugin with default value [#137](https://github.com/allink/allink-core-static/pull/137)
+- Removed selection on images [#144](https://github.com/allink/allink-core-static/pull/144)
+- Enabled subtext for bootstrap select [#147](https://github.com/allink/allink-core-static/pull/147)
+- Added grid styles for AllinkTeaserGridContainerPlugin [#151](https://github.com/allink/allink-core-static/pull/151)
+- Added svg image plugin styles [#152](https://github.com/allink/allink-core-static/pull/152)
+
+### FIXES
+- Fixed radio / checkbox spacing [#105](https://github.com/allink/allink-core-static/pull/105)
+- Fixed gallery transition styles and added keyboard controls [#115](https://github.com/allink/allink-core-static/pull/115)
+- Added color transition for link icons [#121](https://github.com/allink/allink-core-static/pull/121)
+- Removed pseudo default values for fluid-size and spacings-size mixins [#122](https://github.com/allink/allink-core-static/pull/122)
+- Optimized softpage scrolling, made header sticky [#124](https://github.com/allink/allink-core-static/pull/124)
+- Fixed input placeholder mixin [#126](https://github.com/allink/allink-core-static/pull/126)
+- Specified overflow anchor on app list to prevent jumping to the page end on ajax load more [#129](https://github.com/allink/allink-core-static/pull/129)
+- Fixed text cropping in browser check heading [#134](https://github.com/allink/allink-core-static/pull/134)
+- Added `display: flow-root;` to quote plugin styles to fix font-cropping [#135](https://github.com/allink/allink-core-static/pull/135)
+- Fixed image sizing and removed old subpixel hack [#136](https://github.com/allink/allink-core-static/pull/136)
+- Fixed flickering button mask [#145](https://github.com/allink/allink-core-static/pull/145)
+- Fixed mixed media query units in fluid scale mixins [#149](https://github.com/allink/allink-core-static/pull/149)
+
+
 ## v2.7.2
 ### FIXES
 - Fixed video loading behavior in autoplay mode [#106](https://github.com/allink/allink-core-static/pull/106)
 - Used relative path to form validation module [#107](https://github.com/allink/allink-core-static/pull/107)
 - Fixed button mask in iOS Safari [#108](https://github.com/allink/allink-core-static/pull/108)
 - Fixed second case for double modal title [#109](https://github.com/allink/allink-core-static/pull/109)
-
+- Restored video resume functionality after scrolling [#114](https://github.com/allink/allink-core-static/pull/114)
 
 ## v2.7.1
 ### FIXES
 - Fixed accordion transitions [#99](https://github.com/allink/allink-core-static/pull/99)
 - Fixed accordion default spacing [#100](https://github.com/allink/allink-core-static/pull/100)
-
 
 ## v2.7.0
 ### IMPORTANT

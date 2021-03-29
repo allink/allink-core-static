@@ -4,6 +4,9 @@
 // Code (inline and block)
 // --------------------------------------------------
 
+// Variables
+$pre-code-background-color: transparent !default;
+
 
 // Inline and block code styles
 code,
@@ -59,7 +62,7 @@ pre {
         font-size: inherit;
         color: inherit;
         white-space: pre-wrap;
-        background-color: transparent;
+        background-color: $pre-code-background-color;
         border-radius: 0;
     }
 }

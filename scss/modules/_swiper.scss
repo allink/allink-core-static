@@ -3,6 +3,11 @@
 Global Swiper Custom Styles
 
 */
+// Varibables
+$swiper-border-color: $gray-lighter !default;
+$swiper-content-color: $gray-light !default;
+
+
 
 .swiper-container {
     opacity: 0;
@@ -23,10 +28,14 @@ Global Swiper Custom Styles
 // Buttons (arrows)
 .swiper-button {
     background: none;
+    position: absolute;
+    z-index: 1;
     top: auto;
     bottom: 0;
     transform: translate(0, 0);
     margin: 0;
+    border: 0;
+    cursor: pointer;
     width: $swiper-default-arrows-button-width-xs;
     height: $swiper-default-arrows-button-height-xs;
 
@@ -172,14 +181,13 @@ Global Swiper Custom Styles
     .swiper-disabled & {
         display: none;
     }
-
-    border-bottom: 1px solid $gray-lighter;
+    border-bottom: 1px solid $swiper-border-color;
 }
 
 .swiper-content-container {
     .swiper-content {
         margin-top: $grid-gutter-width/4;
-        color: $gray-light;
+        color: $swiper-content-color;
         display: none;
 
         &--visible {

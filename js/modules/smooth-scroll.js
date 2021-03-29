@@ -213,6 +213,13 @@ function getOffsetTop(el) {
 function handleSmoothScroll(url, $trigger) {
     // clean hash
     var hash = (url.indexOf('#') > -1 && url.indexOf('#/') === -1) ? url.substring(url.indexOf('#')) : ''; // workaround for hash-based routing (i.e. vue-router)
+
+    // remove scrollto prefix if set
+    // using a fake ID prevents the browser from jumping to the target before we can smoothly scroll there
+    if (hash.indexOf('#scrollto-') > -1) {
+         hash = '#' + hash.split('scrollto-')[1];
+    }
+
     // target not found? adios!
     var $target = $(hash);
     if ($target.length === 0) {
@@ -296,7 +303,7 @@ function initSmoothScroll() {
                 $trigger.on('click',function(e){
                     // init
                     var $trigger = $(this);
-                    // anazlyse url
+                    // analyse url
                     let current_page_url = window.location.href;
                     let trigger_href = $trigger.attr('href');
                     let trigger_hash = trigger_href.substring(trigger_href.indexOf('#'));
@@ -327,9 +334,7 @@ function smoothScrollOnPageLoad() {
     let url = window.location.hash;
     // no hash, no scroll
     if (url.length > 0) {
-        setTimeout(function(){
-            handleSmoothScroll(url);
-        },1000);
+        handleSmoothScroll(url);
     }
 }
 

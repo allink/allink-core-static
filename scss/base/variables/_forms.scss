@@ -190,6 +190,12 @@ $input-border-right-color:             $black;
 $input-border-bottom-color:            $black;
 $input-border-left-color:              $black;
 
+// border color :hover
+$input-border-top-color-hover:         $black;
+$input-border-right-color-hover:       $black;
+$input-border-bottom-color-hover:      $black;
+$input-border-left-color-hover:        $black;
+
 // border color :focus
 $input-border-top-color-focus:         $black;
 $input-border-right-color-focus:       $black;
@@ -288,7 +294,7 @@ $input-inverted-color-placeholder:              $input-color;
 
 $checkbox-label-spacing:                1.5em;
 $checkbox-siblings-spacing-top:         0.3em;
-$checkbox-spacing-left:                 0.2em;
+$checkbox-spacing-left:                 0;
 $checkbox-bg-color:                     $input-bg;
 $checkbox-bg-color-focus:               $input-bg;
 $checkbox-bg-color-checked:             $input-bg;

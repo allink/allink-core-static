@@ -8,6 +8,10 @@ Modal variation
 
 */
 
+// Variables
+$tingle-modal-close-color: #fff !default;
+
+
 [data-default-modal-variation~="infobox"] {
     .tingle-modal-box {
         max-width: map-get($grid-breakpoints, xl);
@@ -24,7 +28,7 @@ Modal variation
 
     .tingle-modal__close {
         &::before {
-            color: $white;
+            color: $tingle-modal-close-color;
         }
 
         @include media-breakpoint-up(md) {

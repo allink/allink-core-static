@@ -78,8 +78,8 @@ $(function(){
         window.softpage = new SoftPage({
             onPageLoaded: function(obj) {
                 // app detail: check if header markup exists and set
-                // IMPORTANT: It needs to be an immediate child of .tingle-modal-box__content
-                let $header_markup = $(obj.modal.modal).find('.tingle-modal-box__content > .modal-header-markup');
+                // IMPORTANT: Only the first occurence of .tingle-modal-box__content gets selected
+                let $header_markup = $(obj.modal.modal).find('.tingle-modal-box__content .modal-header-markup').first();
 
                 if ($header_markup.length > 0 && !$(obj.modal.modal).find('.tingle-modal-header').length) {
                     let $header_markup_container = $('<div class="tingle-modal-header"></div>');
@@ -97,6 +97,12 @@ $(function(){
                     // Info for developer, that #softpage-page-title is missing on the detail page
                     if (modal_page_title_element != null) {
                         var modal_page_title = modal_page_title_element.textContent;
+
+                        // prevent multiple softpage loads to overwrite the original title
+                        if (!document.titleOriginal) {
+                            document.titleOriginal = document.title;
+                            document.title = modal_page_title;
+                        }
                     }
                     // Google Tag Manager
                     if (typeof dataLayer !== 'undefined') {
@@ -128,6 +134,10 @@ $(function(){
                 $('html').removeClass('softpage-visible');
                 // remove header
                 $modal.find('.tingle-modal-header').remove();
+                if (document.titleOriginal) {
+                    document.title = document.titleOriginal;
+                    document.titleOriginal = null;
+                }
             },
             onBeforeClose: function(){
                 // prevent closing of the softpage as long as..

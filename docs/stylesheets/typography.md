@@ -35,8 +35,8 @@ Let's have a look at the self-explaining `h1` settings:
 ```SCSS
 // h1
 $font-h1-font-sizes: (
-    null: (2.25rem, 1.1em),
-    lg: 3.75rem,
+    min: (to-rem(36px) 1.1),
+    max: to-rem(60px),
 );
 $font-h1-text-transform:                     none;
 $font-h1-letter-spacing:                     0;
@@ -105,7 +105,8 @@ Text cropping helps to remove the space above and below a block of text caused b
 Because every font has different metrics, the cropping values must be configured on a project basis.
 There are crop top and crop bottom variables for headings, lead, paragraph etc. Head over to `static/scss/base/variables/_typography.scss` to update these variables.
 
-The [online tool](http://text-crop.eightshapes.com/) by EightShapes helps finding the correct values for your font.
+Use the green box markers in the styleguide (located at /styleguide) to find the best cropping configuration. It is recommended to increase the font sizes via the browser dev tools for better judgement.
+Font styles with the same font family and line height always share the same crop values.
 
 ### Mixin
 
@@ -116,3 +117,9 @@ Use the mixin `text-crop` to apply text cropping in specific cases or override d
     @include text-crop($crop-top: 0.4em, $crop-bottom: 0.25em);
 }
 ```
+
+### Margin Collapsing
+
+If adjacent sibling elements with text cropping use margins in opposite directions then margin collapsing can be a problem.
+
+Margin collapsing can be combated by creating a new [block formatting context](https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Block_formatting_context). The method with the least side effects is adding ```display: flow-root``` on the affected elements.

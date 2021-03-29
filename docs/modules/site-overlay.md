@@ -6,7 +6,7 @@ All our [modals](../modules/modals.md) use the reusable <strong>site overlay</st
 <div class="site-overlay"></div>
 ```
 
-This approach has ben chosen because of independent modal and site overlay layering requirements.
+This approach has been chosen because of independent modal and site overlay layering requirements.
 
 ## Styles
 

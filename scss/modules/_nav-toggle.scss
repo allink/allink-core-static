@@ -4,6 +4,11 @@ Hamburger Toggle
 
 */
 
+
+//Variables
+$hamburger-inner-background-color: transparent !default;
+//
+
 .hamburger {
     display: inline-block;
     cursor: pointer;
@@ -74,10 +79,9 @@ Hamburger Toggle
         transition-duration: 0.15s;
         transition-timing-function: ease;
     }
-
     // overwrite for middle bar
     & {
-        background-color: transparent;
+        background-color: $hamburger-inner-background-color;
     }
 
     &::before,

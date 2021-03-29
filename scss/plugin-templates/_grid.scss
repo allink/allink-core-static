@@ -1,0 +1,38 @@
+.grid {
+    @include make-row();
+    @include spacings-size('y-gutter-width', 'margin-bottom', $negative: true);
+
+    &__col {
+        @include make-col-ready();
+        @include spacings-size('y-gutter-width', 'margin-bottom');
+
+        display: flex;
+
+        // any direct child of grid item should get 100% width
+        > * {
+            width: 100%;
+        }
+
+        .grid--1-of-2 & {
+            @include media-breakpoint-up(7) {
+                @include make-col(12);
+            }
+        }
+
+        .grid--1-of-3 & {
+            @include media-breakpoint-up(10) {
+                @include make-col(8);
+            }
+        }
+
+        .grid--1-of-4 & {
+            @include media-breakpoint-up(7) {
+                @include make-col(12);
+            }
+
+            @include media-breakpoint-up(13) {
+                @include make-col(6);
+            }
+        }
+    }
+}
