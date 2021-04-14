@@ -1,0 +1,15 @@
+.section {
+    &__col {
+        @include spacings-size($content-section-column-manage-spacings-container, margin-top);
+
+        &:first-child {
+            margin-top: 0;
+        }
+
+        & > * {
+            &:first-child {
+                margin-top: 0;
+            }
+        }
+    }
+}
