@@ -6,6 +6,15 @@ Each release is divided into the following main categories:
 - NEW: New features or plugins
 - FIXES: General bugfixes
 
+## v2.9.0
+### IMPORTANT
+
+### NEW
+- Added styles for new Section Plugin [#154](https://github.com/allink/allink-core-static/pull/154)
+
+### FIXES
+
+
 ## v2.8.0
 ### IMPORTANT
 - Added list multicol cms plugin [#150](https://github.com/allink/allink-core-static/pull/150)
