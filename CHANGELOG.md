@@ -6,6 +6,10 @@ Each release is divided into the following main categories:
 - NEW: New features or plugins
 - FIXES: General bugfixes
 
+## v2.8.1
+### FIXES
+- Fix Browser recognition script [#164](https://github.com/allink/allink-core-static/pull/164)
+
 ## v2.8.0
 ### IMPORTANT
 - Added list multicol cms plugin [#150](https://github.com/allink/allink-core-static/pull/150)

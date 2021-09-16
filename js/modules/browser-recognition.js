@@ -86,7 +86,7 @@ export function initBrowserCheck(options={}) {
     function hideOverlays() {
         document.body.classList.remove('tingle-enabled');
 
-        overlayWindowList.forEach(overlay => {
+        Array.prototype.forEach.call(overlayWindowList, (overlay) => {
             overlay.classList.add('hidden');
         });
     }
@@ -94,7 +94,7 @@ export function initBrowserCheck(options={}) {
     function showOverlays() {
         document.body.classList.add('tingle-enabled');
 
-        overlayWindowList.forEach(overlay => {
+        Array.prototype.forEach.call(overlayWindowList, (overlay) => {
             overlay.classList.remove('hidden');
         });
     }
