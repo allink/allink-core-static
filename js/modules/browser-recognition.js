@@ -137,7 +137,7 @@ export function initBrowserCheck(options={}) {
         populateButtons(getSuggestedBrowserList());
     }
 
-    btnListVisitAnyways.forEach(btn => {
+    Array.prototype.forEach.call(btnListVisitAnyways, (btn) => {
         btn.addEventListener('click', visitPageAnyways);
     });
 };
