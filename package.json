@@ -2,19 +2,19 @@
   "_args": [
     [
       {
-        "raw": "allink-core-static@git://github.com/allink/allink-core-static.git#283ba8fd8f4e024458c3f035766acb8906494e74",
+        "raw": "allink-core-static@https://github.com/allink/allink-core-static.git#283ba8fd8f4e024458c3f035766acb8906494e74",
         "scope": null,
         "escapedName": "allink-core-static",
         "name": "allink-core-static",
-        "rawSpec": "git://github.com/allink/allink-core-static.git#283ba8fd8f4e024458c3f035766acb8906494e74",
-        "spec": "git://github.com/allink/allink-core-static.git#283ba8fd8f4e024458c3f035766acb8906494e74",
+        "rawSpec": "https://github.com/allink/allink-core-static.git#283ba8fd8f4e024458c3f035766acb8906494e74",
+        "spec": "https://github.com/allink/allink-core-static.git#283ba8fd8f4e024458c3f035766acb8906494e74",
         "type": "hosted",
         "hosted": {
           "type": "github",
           "ssh": "git@github.com:allink/allink-core-static.git#283ba8fd8f4e024458c3f035766acb8906494e74",
           "sshUrl": "git+ssh://git@github.com/allink/allink-core-static.git#283ba8fd8f4e024458c3f035766acb8906494e74",
           "httpsUrl": "git+https://github.com/allink/allink-core-static.git#283ba8fd8f4e024458c3f035766acb8906494e74",
-          "gitUrl": "git://github.com/allink/allink-core-static.git#283ba8fd8f4e024458c3f035766acb8906494e74",
+          "gitUrl": "https://github.com/allink/allink-core-static.git#283ba8fd8f4e024458c3f035766acb8906494e74",
           "shortcut": "github:allink/allink-core-static#283ba8fd8f4e024458c3f035766acb8906494e74",
           "directUrl": "https://raw.githubusercontent.com/allink/allink-core-static/283ba8fd8f4e024458c3f035766acb8906494e74/package.json"
         }
@@ -22,25 +22,25 @@
       "/Users/ekesto/divio/boilerplate-10-allink"
     ]
   ],
-  "_from": "git://github.com/allink/allink-core-static.git#283ba8fd8f4e024458c3f035766acb8906494e74",
+  "_from": "https://github.com/allink/allink-core-static.git#283ba8fd8f4e024458c3f035766acb8906494e74",
   "_id": "allink-core-static@1.0.0",
   "_inCache": true,
   "_location": "/allink-core-static",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "allink-core-static@git://github.com/allink/allink-core-static.git#283ba8fd8f4e024458c3f035766acb8906494e74",
+    "raw": "allink-core-static@https://github.com/allink/allink-core-static.git#283ba8fd8f4e024458c3f035766acb8906494e74",
     "scope": null,
     "escapedName": "allink-core-static",
     "name": "allink-core-static",
-    "rawSpec": "git://github.com/allink/allink-core-static.git#283ba8fd8f4e024458c3f035766acb8906494e74",
-    "spec": "git://github.com/allink/allink-core-static.git#283ba8fd8f4e024458c3f035766acb8906494e74",
+    "rawSpec": "https://github.com/allink/allink-core-static.git#283ba8fd8f4e024458c3f035766acb8906494e74",
+    "spec": "https://github.com/allink/allink-core-static.git#283ba8fd8f4e024458c3f035766acb8906494e74",
     "type": "hosted",
     "hosted": {
       "type": "github",
       "ssh": "git@github.com:allink/allink-core-static.git#283ba8fd8f4e024458c3f035766acb8906494e74",
       "sshUrl": "git+ssh://git@github.com/allink/allink-core-static.git#283ba8fd8f4e024458c3f035766acb8906494e74",
       "httpsUrl": "git+https://github.com/allink/allink-core-static.git#283ba8fd8f4e024458c3f035766acb8906494e74",
-      "gitUrl": "git://github.com/allink/allink-core-static.git#283ba8fd8f4e024458c3f035766acb8906494e74",
+      "gitUrl": "https://github.com/allink/allink-core-static.git#283ba8fd8f4e024458c3f035766acb8906494e74",
       "shortcut": "github:allink/allink-core-static#283ba8fd8f4e024458c3f035766acb8906494e74",
       "directUrl": "https://raw.githubusercontent.com/allink/allink-core-static/283ba8fd8f4e024458c3f035766acb8906494e74/package.json"
     }
@@ -48,10 +48,10 @@
   "_requiredBy": [
     "/"
   ],
-  "_resolved": "git://github.com/allink/allink-core-static.git#283ba8fd8f4e024458c3f035766acb8906494e74",
+  "_resolved": "https://github.com/allink/allink-core-static.git#283ba8fd8f4e024458c3f035766acb8906494e74",
   "_shasum": "a9d1fbd391a357cabfc9363beda4f02862a43999",
   "_shrinkwrap": null,
-  "_spec": "allink-core-static@git://github.com/allink/allink-core-static.git#283ba8fd8f4e024458c3f035766acb8906494e74",
+  "_spec": "allink-core-static@https://github.com/allink/allink-core-static.git#283ba8fd8f4e024458c3f035766acb8906494e74",
   "_where": "/Users/ekesto/divio/boilerplate-10-allink",
   "author": {
     "name": "Beat Schenkel - allink AG"
@@ -72,9 +72,9 @@
     "normalize.css": "7.0.0",
     "onscreen": "1.3.1",
     "photoswipe": "4.1.2",
-    "riveted": "git://github.com/robflaherty/riveted.git#0.6.1",
+    "riveted": "https://github.com/robflaherty/riveted.git#0.6.1",
     "scroll-depth": "1.0.0",
-    "softpage": "git://github.com/allink/softpage.git#v0.1.19",
+    "softpage": "https://github.com/allink/softpage.git#v0.1.19",
     "superagent": "3.7.0",
     "swiper": "3.4.2",
     "tingle.js": "0.11.0"
