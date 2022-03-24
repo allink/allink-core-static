@@ -51,6 +51,7 @@
     "jquery-validation": "^1.16.0",
     "lazysizes": "^2.0.0",
     "masonry-layout": "^4.1.0",
+    "node-sass": "^3.3.7",
     "normalize.css": "^5.0.0",
     "onscreen": "^1.2.0",
     "photoswipe": "^4.1.1",
