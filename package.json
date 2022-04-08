@@ -75,7 +75,7 @@
     "riveted": "https://github.com/robflaherty/riveted.git#0.6.1",
     "scroll-depth": "1.0.0",
     "softpage": "https://github.com/allink/softpage.git#v0.1.18",
-    "superagent": "3.7.0",
+    "superagent": "2.3.0",
     "swiper": "3.4.2",
     "tingle.js": "0.11.0"
   },
