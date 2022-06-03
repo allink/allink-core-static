@@ -14,7 +14,7 @@
     "form-serialize": "0.7.2",
     "iphone-inline-video": "2.2.2",
     "jquery": "^3.4.0",
-    "jquery-validation": "1.16.0",
+    "jquery-validation": "1.19.4",
     "lazysizes": "5.2.2",
     "masonry-layout": "4.2.0",
     "normalize.css": "8.0.1",
