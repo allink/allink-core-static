@@ -5,7 +5,7 @@
       "/Users/florian/aldryn_projects/hausderfarbe-allink"
     ]
   ],
-  "_from": "git://github.com/allink/allink-core-static.git#3978b70",
+  "_from": "https://github.com/allink/allink-core-static.git#3978b70",
   "_id": "allink-core-static@0.0.1",
   "_inCache": true,
   "_installable": true,
@@ -14,27 +14,27 @@
   "_requested": {
     "hosted": {
       "directUrl": "https://raw.githubusercontent.com/allink/allink-core-static/3978b70/package.json",
-      "gitUrl": "git://github.com/allink/allink-core-static.git#3978b70",
+      "gitUrl": "https://github.com/allink/allink-core-static.git#3978b70",
       "httpsUrl": "git+https://github.com/allink/allink-core-static.git#3978b70",
       "shortcut": "github:allink/allink-core-static#3978b70",
-      "ssh": "git@github.com:allink/allink-core-static.git#3978b70",
+      "ssh": "https@github.com:allink/allink-core-static.git#3978b70",
       "sshUrl": "git+ssh://git@github.com/allink/allink-core-static.git#3978b70",
       "type": "github"
     },
     "name": "allink-core-static",
     "raw": "allink-core-static@git://github.com/allink/allink-core-static.git#3978b70",
-    "rawSpec": "git://github.com/allink/allink-core-static.git#3978b70",
+    "rawSpec": "https://github.com/allink/allink-core-static.git#3978b70",
     "scope": null,
-    "spec": "git://github.com/allink/allink-core-static.git#3978b70",
+    "spec": "https://github.com/allink/allink-core-static.git#3978b70",
     "type": "hosted"
   },
   "_requiredBy": [
     "/"
   ],
-  "_resolved": "git://github.com/allink/allink-core-static.git#3978b70bc23e87ef8fe8e81d2d5f4319cd2eb78e",
+  "_resolved": "https://github.com/allink/allink-core-static.git#3978b70bc23e87ef8fe8e81d2d5f4319cd2eb78e",
   "_shasum": "39a87d2f659adc57fd7b2a2b53b892dae85a921e",
   "_shrinkwrap": null,
-  "_spec": "allink-core-static@git://github.com/allink/allink-core-static.git#3978b70",
+  "_spec": "allink-core-static@https://github.com/allink/allink-core-static.git#3978b70",
   "_where": "/Users/florian/aldryn_projects/hausderfarbe-allink",
   "author": {
     "name": "Beat Schenkel - allink AG"
@@ -56,9 +56,9 @@
     "onscreen": "^1.2.0",
     "photoswipe": "^4.1.1",
     "picturefill": "^3.0.2",
-    "riveted": "git://github.com/robflaherty/riveted.git#0.6.1",
+    "riveted": "https://github.com/robflaherty/riveted.git#0.6.1",
     "scroll-depth": "^0.9.1",
-    "softpage": "git://github.com/allink/softpage.git#v0.1.7",
+    "softpage": "https://github.com/allink/softpage.git#v0.1.7",
     "superagent": "^2.0.0",
     "swiper": "^3.4.1",
     "tingle.js": "^0.7.0"
